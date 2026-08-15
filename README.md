@@ -50,7 +50,7 @@ cd verigraph
 ./run-verigraph --start
 ```
 
-Open <http://127.0.0.1:3000>. The browser talks to the local Next.js process,
+Open <http://localhost:3000>. The browser talks to the local Next.js process,
 which proxies to FastAPI on port 8001. BGE and DeBERTa are stored in the
 gitignored `data/models/` directory; Ollama stores its model in its normal host
 installation. After preparation, inference is local and does not fetch source

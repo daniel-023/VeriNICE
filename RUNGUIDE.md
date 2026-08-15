@@ -26,7 +26,7 @@ finish, the live pipeline needs no external document or model request.
 ./run-verigraph --start
 ```
 
-Open <http://127.0.0.1:3000>. Stop it with `Ctrl-C`; the launcher terminates
+Open <http://localhost:3000>. Stop it with `Ctrl-C`; the launcher terminates
 both native server processes.
 
 If a port is occupied, change `VERIGRAPH_PORT` in a local `.env` file.
