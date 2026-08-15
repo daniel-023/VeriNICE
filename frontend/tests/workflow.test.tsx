@@ -12,10 +12,11 @@ const apiMock = vi.hoisted(() => ({
   classifySupport: vi.fn(),
   analyzeLinguistics: vi.fn(),
 }));
+const navigationMock = vi.hoisted(() => ({ replace: vi.fn() }));
 
 vi.mock("@/lib/api", () => ({ api: apiMock }));
 vi.mock("next/navigation", () => ({
-  useRouter: () => ({ replace: vi.fn() }),
+  useRouter: () => ({ replace: navigationMock.replace }),
   usePathname: () => "/",
   useSearchParams: () => new URLSearchParams(),
 }));
@@ -68,6 +69,7 @@ const summaries = details.map(({ documents, ...sample }) => ({
 }));
 
 beforeEach(() => {
+  navigationMock.replace.mockReset();
   apiMock.cases.mockReset().mockResolvedValue(summaries);
   apiMock.case.mockReset().mockImplementation((id: string) =>
     Promise.resolve(details.find((item) => item.id === id)),
@@ -270,6 +272,31 @@ describe("multidocument claim decomposition workflow", () => {
     expect(screen.getByRole("heading", { name: "Linguistic Structure" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "NLI Sentence Relations" })).toBeInTheDocument();
     expect(screen.getByText("Contradicts atom")).toBeInTheDocument();
+    const graphHeading = screen.getByRole("heading", { name: "Argumentation Graph" });
+    const graphSection = graphHeading.closest("section");
+    const workbench = document.getElementById("verification-workbench");
+    expect(graphSection).not.toBeNull();
+    expect(workbench).not.toBeNull();
+    expect(
+      Boolean(workbench!.compareDocumentPosition(graphSection!) & Node.DOCUMENT_POSITION_FOLLOWING),
+    ).toBe(true);
+    expect(within(graphSection!).getByText("Orion later named Mara its CTO.")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "View Argumentation Graph" })).toHaveAttribute(
+      "href",
+      "#argumentation-graph",
+    );
+    const graphAtom = within(graphSection!).getByRole("button", { name: "Atom 1" });
+    await user.click(graphAtom);
+    expect(graphAtom).toHaveFocus();
+    expect(claimInput).not.toHaveFocus();
+    const originalScrollIntoView = Element.prototype.scrollIntoView;
+    const scrollIntoView = vi.fn();
+    Element.prototype.scrollIntoView = scrollIntoView;
+    await user.click(within(graphSection!).getByRole("button", { name: /Supports Atom, from Appointment report/ }));
+    expect(navigationMock.replace).toHaveBeenCalledWith("/?panel=document", { scroll: false });
+    await waitFor(() => expect(scrollIntoView).toHaveBeenCalledWith({ block: "start" }));
+    Element.prototype.scrollIntoView = originalScrollIntoView;
+    await user.click(within(graphSection!).getByRole("button", { name: "Atom 2" }));
     await user.click(screen.getByRole("button", { name: "Predicate: became" }));
     expect(screen.getByLabelText("Atomic claim preview").querySelector("mark")).toHaveTextContent("became");
   });

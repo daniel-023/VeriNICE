@@ -204,6 +204,48 @@ def test_core_arguments_passive_agent_and_ambiguous_preposition() -> None:
     ]
 
 
+def test_argument_internal_preposition_stays_in_core_argument() -> None:
+    text = "Mara appointed the president of France."
+    doc = make_doc(
+        ["Mara", "appointed", "the", "president", "of", "France", "."],
+        [True, True, True, True, True, False, False],
+        [1, 1, 3, 1, 3, 4, 1],
+        ["nsubj", "ROOT", "det", "dobj", "prep", "pobj", "punct"],
+        ["PROPN", "VERB", "DET", "NOUN", "ADP", "PROPN", "PUNCT"],
+        ["NNP", "VBD", "DT", "NN", "IN", "NNP", "."],
+        ["Mara", "appoint", "the", "president", "of", "France", "."],
+    )
+    result = linguistic.analysis_from_doc(PipelineAtom(id="atom-nominal-pp", text=text), doc)
+
+    frame = result.frames[0]
+    assert [(item.role, item.text) for item in frame.core_arguments] == [
+        ("direct_object", "the president of France")
+    ]
+    assert frame.other_modifiers == []
+
+
+def test_copular_complement_separates_only_clear_adjuncts() -> None:
+    text = "Mara is the president of France in 2024."
+    doc = make_doc(
+        ["Mara", "is", "the", "president", "of", "France", "in", "2024", "."],
+        [True, True, True, True, True, True, True, False, False],
+        [3, 3, 3, 3, 3, 4, 3, 6, 3],
+        ["nsubj", "cop", "det", "ROOT", "prep", "pobj", "prep", "pobj", "punct"],
+        ["PROPN", "AUX", "DET", "NOUN", "ADP", "PROPN", "ADP", "NUM", "PUNCT"],
+        ["NNP", "VBZ", "DT", "NN", "IN", "NNP", "IN", "CD", "."],
+        ["Mara", "be", "the", "president", "of", "France", "in", "2024", "."],
+        entities=[(7, 8, "DATE")],
+    )
+    result = linguistic.analysis_from_doc(PipelineAtom(id="atom-copular-adjunct", text=text), doc)
+
+    frame = result.frames[0]
+    assert [(item.role, item.text) for item in frame.core_arguments] == [
+        ("subject_complement", "the president of France")
+    ]
+    assert [(item.kind, item.text) for item in frame.adjuncts] == [("temporal", "in 2024")]
+    assert frame.other_modifiers == []
+
+
 def test_clear_conditional_and_locative_adjuncts() -> None:
     text = "Mara waits here if rain starts."
     doc = make_doc(

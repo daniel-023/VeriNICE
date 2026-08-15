@@ -167,11 +167,14 @@ export function PipelinePanel({
             <strong>Argumentation Graph</strong>
             <p>
               {graphState === "complete"
-                ? `${graphLinkCount} observed NLI link${graphLinkCount === 1 ? "" : "s"} between atoms and evidence.`
+                ? `${graphLinkCount} support or contradiction link${graphLinkCount === 1 ? "" : "s"} ready to inspect.`
                 : graphState === "running"
                   ? "Waiting for sentence-level NLI relations."
                   : "Appears after NLI classification completes."}
             </p>
+            {graphState === "complete" ? (
+              <a className="stage-link" href="#argumentation-graph">View Argumentation Graph</a>
+            ) : null}
           </span>
           <span className="stage-state">{stateLabel(graphState)}</span>
         </li>

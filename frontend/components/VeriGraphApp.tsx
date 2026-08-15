@@ -446,12 +446,13 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
     );
   };
 
-  const selectAtom = (atom: DecomposedAtom) => {
+  const selectAtom = (atom: DecomposedAtom, focusClaim = true) => {
     setSelectedAtomId(atom.id);
     const spans = evidence.find((item) => item.atomId === atom.id)?.spans ?? [];
     if (spans.length && !spans.some((span) => span.documentId === activeDocumentId)) {
       setActiveDocumentId(spans[0].documentId);
     }
+    if (!focusClaim) return;
     const textarea = claimRef.current;
     if (!textarea) return;
     textarea.focus();
@@ -460,15 +461,17 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
 
   const selectGraphAtom = (atomId: string) => {
     const atom = atoms.find((item) => item.id === atomId);
-    if (atom) selectAtom(atom);
+    if (atom) selectAtom(atom, false);
   };
 
-  const selectGraphEvidence = (node: ArgumentationNode) => {
-    const ownerAtom = node.atomIds
-      ?.map((atomId) => atoms.find((item) => item.id === atomId))
-      .find((atom): atom is DecomposedAtom => Boolean(atom));
-    if (ownerAtom) selectAtom(ownerAtom);
+  const selectGraphEvidence = (node: ArgumentationNode, atomId: string) => {
+    const ownerAtom = atoms.find((atom) => atom.id === atomId);
+    if (ownerAtom) selectAtom(ownerAtom, false);
     if (node.documentId) setActiveDocumentId(node.documentId);
+    setParams({ panel: "document" });
+    window.requestAnimationFrame(() => {
+      document.getElementById("verification-workbench")?.scrollIntoView({ block: "start" });
+    });
   };
 
   const selectedAtom = atoms.find((atom) => atom.id === selectedAtomId) ?? null;
@@ -715,11 +718,6 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
             onRetryNli={retryNli}
             recorded={walkthrough}
           />
-          <ArgumentationGraph
-            graph={argumentationGraph}
-            onSelectAtom={selectGraphAtom}
-            onSelectEvidence={selectGraphEvidence}
-          />
         </div>
         <div className="workbench-pane evidence-pane" data-mobile-active={mobilePanel === "document"}>
           <DocumentPanel
@@ -739,14 +737,23 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
         </div>
       </section>
 
+      {nliState === "complete" ? (
+        <ArgumentationGraph
+          graph={argumentationGraph}
+          selectedAtomId={selectedAtomId}
+          onSelectAtom={selectGraphAtom}
+          onSelectEvidence={selectGraphEvidence}
+        />
+      ) : null}
+
       <footer className="provenance-strip">
         <span>
           <Sparkles size={13} aria-hidden="true" /> WiCE-style decomposition · spaCy linguistic cues
         </span>
         <span>
           {walkthrough
-            ? "Recorded local pipeline · graph · four-way verdict pending"
-            : "Embedding retrieval · DeBERTa NLI live · graph · four-way verdict pending"}
+            ? "Recorded local pipeline · derived graph · four-way verdict pending"
+            : "Embedding retrieval · DeBERTa NLI live · derived graph · four-way verdict pending"}
         </span>
       </footer>
     </main>

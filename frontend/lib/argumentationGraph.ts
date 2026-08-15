@@ -17,6 +17,11 @@ export function buildArgumentationGraph(
   const nodes: ArgumentationNode[] = [];
   const edges: ArgumentationGraph["edges"] = [];
   const documentTitles = new Map(documents.map((document) => [document.id, document.title]));
+  const spansByKey = new Map<string, AtomEvidence["spans"][number]>(
+    evidence.flatMap((item) =>
+      item.spans.map((span) => [`${span.documentId}:${span.id}`, span] as const),
+    ),
+  );
   const evidenceByKey = new Map<string, ArgumentationNode>();
 
   if (claim.trim()) {
@@ -30,39 +35,34 @@ export function buildArgumentationGraph(
     }
   });
 
-  evidence.forEach((atomEvidence) => {
-    atomEvidence.spans.forEach((span) => {
-      const key = `${span.documentId}:${span.id}`;
-      const existing = evidenceByKey.get(key);
-      if (existing) {
-        existing.atomIds = [...(existing.atomIds ?? []), atomEvidence.atomId];
-        return;
-      }
-      const node: ArgumentationNode = {
-        id: `evidence-${key}`,
-        kind: "evidence",
-        label: documentTitles.get(span.documentId) ?? span.documentId,
-        text: span.text,
-        documentId: span.documentId,
-        spanId: span.id,
-        atomIds: [atomEvidence.atomId],
-      };
-      evidenceByKey.set(key, node);
-      nodes.push(node);
-    });
-  });
-
-  const evidenceNodeByKey = new Map(
-    [...evidenceByKey.entries()].map(([key, node]) => [key, node.id]),
-  );
   classifications.forEach((classification) => {
     classification.relations.forEach((relation) => {
-      const evidenceNodeId = evidenceNodeByKey.get(`${relation.documentId}:${relation.spanId}`);
-      if (!evidenceNodeId) return;
+      // Neutral means no argumentative relation. It remains visible in the
+      // evidence pane but does not become an edge or node in this graph.
+      if (relation.relation === "NEUTRAL") return;
+      const key = `${relation.documentId}:${relation.spanId}`;
+      const span = spansByKey.get(key);
+      if (!span) return;
+      let evidenceNode = evidenceByKey.get(key);
+      if (!evidenceNode) {
+        evidenceNode = {
+          id: `evidence-${key}`,
+          kind: "evidence",
+          label: documentTitles.get(span.documentId) ?? span.documentId,
+          text: span.text,
+          documentId: span.documentId,
+          spanId: span.id,
+          atomIds: [classification.atomId],
+        };
+        evidenceByKey.set(key, evidenceNode);
+        nodes.push(evidenceNode);
+      } else if (!evidenceNode.atomIds?.includes(classification.atomId)) {
+        evidenceNode.atomIds = [...(evidenceNode.atomIds ?? []), classification.atomId];
+      }
       edges.push({
         id: `${classification.atomId}-${relation.documentId}-${relation.spanId}-${relation.relation}`,
         source: classification.atomId,
-        target: evidenceNodeId,
+        target: evidenceNode.id,
         relation: relation.relation,
       });
     });

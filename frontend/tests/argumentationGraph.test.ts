@@ -12,7 +12,10 @@ const documents: DemoDocument[] = [
 ];
 
 const evidence: AtomEvidence[] = [
-  { atomId: "atom-1", spans: [{ id: "span-1", documentId: "doc-1", text: "Mara joined Orion.", start: 0, end: 18 }] },
+  { atomId: "atom-1", spans: [
+    { id: "span-1", documentId: "doc-1", text: "Mara joined Orion.", start: 0, end: 18 },
+    { id: "span-neutral", documentId: "doc-1", text: "Orion issued a report.", start: 19, end: 41 },
+  ] },
   { atomId: "atom-2", spans: [{ id: "span-1", documentId: "doc-1", text: "Mara joined Orion.", start: 0, end: 18 }] },
 ];
 
@@ -36,6 +39,25 @@ describe("buildArgumentationGraph", () => {
     expect(graph.edges.filter((edge) => edge.relation === "DECOMPOSES")).toHaveLength(2);
     expect(graph.edges.map((edge) => edge.relation)).toContain("ENTAILMENT");
     expect(graph.edges.map((edge) => edge.relation)).toContain("CONTRADICTION");
+  });
+
+  it("keeps neutral candidates out of the argumentative graph", () => {
+    const graph = buildArgumentationGraph(
+      "Mara joined Orion.",
+      atoms.slice(0, 1),
+      evidence.slice(0, 1),
+      [{
+        atomId: "atom-1",
+        relations: [
+          { spanId: "span-1", documentId: "doc-1", relation: "ENTAILMENT" },
+          { spanId: "span-neutral", documentId: "doc-1", relation: "NEUTRAL" },
+        ],
+      }],
+      documents,
+    );
+
+    expect(graph.edges.map((edge) => edge.relation)).not.toContain("NEUTRAL");
+    expect(graph.nodes.map((node) => node.text)).not.toContain("Orion issued a report.");
   });
 
   it("does not invent NLI edges before classifications exist", () => {

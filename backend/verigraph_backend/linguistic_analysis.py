@@ -141,24 +141,10 @@ def _core_phrase_span(
     token: Any,
     feature_id: str,
 ) -> LinguisticSpan:
-    excluded: set[int] = set()
-    for child in token.children:
-        if child.dep_ in _MODIFIER_DEPS:
-            excluded.update(member.i for member in child.subtree)
-    members = [
-        member
-        for member in token.subtree
-        if member.i not in excluded and not member.is_space and not member.is_punct
-    ]
-    if not members:
-        return _token_span(text, atom_id, token, feature_id)
-    return _char_span(
-        text,
-        atom_id,
-        feature_id,
-        members[0].idx,
-        members[-1].idx + len(members[-1].text),
-    )
+    # Preserve nominal material inside an argument. A prepositional phrase in
+    # "the president of France" belongs to the participant; only modifiers
+    # attached to the predicate itself are classified separately below.
+    return _phrase_span(text, atom_id, token, feature_id)
 
 
 def _copular_complement_span(
@@ -169,7 +155,13 @@ def _copular_complement_span(
 ) -> LinguisticSpan:
     excluded: set[int] = set()
     for child in head.children:
-        if child.dep_ in _SUBJECT_DEPS or child.dep_ in {"cop", "punct"} or child.is_punct:
+        clear_adjunct = child.dep_ in _MODIFIER_DEPS and _modifier_kind(child) is not None
+        if (
+            child.dep_ in _SUBJECT_DEPS
+            or child.dep_ in {"cop", "punct"}
+            or child.is_punct
+            or clear_adjunct
+        ):
             excluded.update(member.i for member in child.subtree)
     members = [
         member
@@ -341,21 +333,17 @@ def _frames(atom: PipelineAtom, doc: Any) -> tuple[List[PropositionFrame], List[
                 + [child for child in copular_head.children if child.dep_ in _SUBJECT_DEPS]
             )
             argument_tokens.append((copular_head, "subject_complement", True))
-        for argument_token, role, copular in argument_tokens:
-            if copular or role not in {
-                "direct_object",
-                "indirect_object",
-                "subject_complement",
-                "object_complement",
-            }:
+        # A copular complement is the syntactic head of the clause. Separate
+        # only clearly typed adjuncts from it; retain ambiguous nominal PPs as
+        # part of the complement rather than guessing noun or verb valency.
+        for argument_token, _role, copular in argument_tokens:
+            if not copular:
                 continue
             for child in argument_token.children:
                 if child.dep_ not in _MODIFIER_DEPS:
                     continue
                 kind = _modifier_kind(child)
-                if kind is None:
-                    other_modifier_tokens.append(child)
-                else:
+                if kind is not None:
                     add_modifier(child, kind)
 
         subjects = [

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type KeyboardEvent } from "react";
 import type {
   AtomLinguisticAnalysis,
   DecomposedAtom,
@@ -148,6 +148,26 @@ export function LinguisticPanel({
 }) {
   const [activeFeature, setActiveFeature] = useState<LinguisticSpan | null>(null);
   const [syntaxView, setSyntaxView] = useState<"readable" | "raw">("readable");
+  const syntaxPanelId = `syntax-panel-${atom.id}`;
+  const syntaxTabId = (view: "readable" | "raw") => `syntax-tab-${view}-${atom.id}`;
+
+  const handleSyntaxTabKey = (
+    event: KeyboardEvent<HTMLButtonElement>,
+    view: "readable" | "raw",
+  ) => {
+    let next: "readable" | "raw" | null = null;
+    if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+      next = view === "readable" ? "raw" : "readable";
+    } else if (event.key === "Home") {
+      next = "readable";
+    } else if (event.key === "End") {
+      next = "raw";
+    }
+    if (!next) return;
+    event.preventDefault();
+    setSyntaxView(next);
+    document.getElementById(syntaxTabId(next))?.focus();
+  };
 
   const featureButtons = (
     items: Array<{ feature: LinguisticSpan; label: string }>,
@@ -204,6 +224,11 @@ export function LinguisticPanel({
       ) : analysis ? (
         <>
           <div className="linguistic-frames">
+            {analysis.frames.length > 1 ? (
+              <p className="linguistic-frame-note">
+                Related clauses have separate frames; a clausal complement may also appear as a core argument.
+              </p>
+            ) : null}
             {analysis.frames.length ? analysis.frames.map((frame, index) => (
               <section key={frame.id} aria-label={`Proposition ${index + 1}`}>
                 <h4>Proposition {analysis.frames.length > 1 ? index + 1 : "frame"}</h4>
@@ -273,23 +298,37 @@ export function LinguisticPanel({
               <button
                 type="button"
                 role="tab"
+                id={syntaxTabId("readable")}
+                aria-controls={syntaxPanelId}
                 aria-selected={syntaxView === "readable"}
+                tabIndex={syntaxView === "readable" ? 0 : -1}
                 className={syntaxView === "readable" ? "syntax-tab active" : "syntax-tab"}
                 onClick={() => setSyntaxView("readable")}
+                onKeyDown={(event) => handleSyntaxTabKey(event, "readable")}
               >
                 Readable syntax
               </button>
               <button
                 type="button"
                 role="tab"
+                id={syntaxTabId("raw")}
+                aria-controls={syntaxPanelId}
                 aria-selected={syntaxView === "raw"}
+                tabIndex={syntaxView === "raw" ? 0 : -1}
                 className={syntaxView === "raw" ? "syntax-tab active" : "syntax-tab"}
                 onClick={() => setSyntaxView("raw")}
+                onKeyDown={(event) => handleSyntaxTabKey(event, "raw")}
               >
                 Raw details
               </button>
             </div>
-            <div className="syntax-table-wrap">
+            <div
+              className="syntax-table-wrap"
+              id={syntaxPanelId}
+              role="tabpanel"
+              aria-labelledby={syntaxTabId(syntaxView)}
+              tabIndex={0}
+            >
               <table>
                 <thead>
                   {syntaxView === "readable" ? (

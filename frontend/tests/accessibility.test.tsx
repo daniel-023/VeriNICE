@@ -1,11 +1,13 @@
 import { cleanup, fireEvent, render } from "@testing-library/react";
 import axe from "axe-core";
-import { afterEach, describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { AtomRail } from "@/components/AtomRail";
+import { ArgumentationGraph } from "@/components/ArgumentationGraph";
 import { DocumentPanel } from "@/components/DocumentPanel";
 import { LinguisticPanel } from "@/components/LinguisticPanel";
 import { PipelinePanel } from "@/components/PipelinePanel";
 import { SupportSummary } from "@/components/SupportSummary";
+import { buildArgumentationGraph } from "@/lib/argumentationGraph";
 import type { AtomLinguisticAnalysis, DecomposedAtom } from "@/lib/types";
 
 afterEach(() => cleanup());
@@ -141,7 +143,7 @@ describe("multidocument workbench accessibility", () => {
     expect(getByText("NLI Support Classification")).toBeInTheDocument();
     expect(getByText("Argumentation Graph")).toBeInTheDocument();
     expect(getByText("Four-way Verdict")).toBeInTheDocument();
-    expect(getAllByText("Pending")).toHaveLength(2);
+    expect(getAllByText("Pending")).toHaveLength(1);
   });
 
   it("keeps linguistic features and syntax details semantic and keyboard reachable", async () => {
@@ -162,6 +164,12 @@ describe("multidocument workbench accessibility", () => {
     expect(getByRole("table")).toBeVisible();
     expect(getByText(/lemma = base word/)).toBeInTheDocument();
     expect(getByRole("tab", { name: "Readable syntax" })).toHaveAttribute("aria-selected", "true");
+    fireEvent.keyDown(getByRole("tab", { name: "Readable syntax" }), { key: "ArrowRight" });
+    expect(getByRole("tab", { name: "Raw details" })).toHaveFocus();
+    expect(getByRole("tabpanel")).toHaveAttribute(
+      "aria-labelledby",
+      getByRole("tab", { name: "Raw details" }).id,
+    );
     fireEvent.click(getByRole("tab", { name: "Raw details" }));
     expect(getByRole("tab", { name: "Raw details" })).toHaveAttribute("aria-selected", "true");
     const tokenButton = getByRole("button", { name: "Token: Mara" });
@@ -169,6 +177,77 @@ describe("multidocument workbench accessibility", () => {
     expect(tokenButton).toHaveAttribute("aria-pressed", "true");
     const result = await axe.run(container, { rules: { "color-contrast": { enabled: false } } });
     expect(result.violations).toEqual([]);
+  });
+
+  it("exposes selected-atom graph relations without neutral candidates", async () => {
+    const graph = buildArgumentationGraph(
+      "Mara joined Orion in 2022.",
+      atoms,
+      [{
+        atomId: "atom-1",
+        spans: [
+          { id: "support", documentId: "doc-a", text: "Mara joined Orion.", start: 0, end: 18 },
+          { id: "neutral", documentId: "doc-b", text: "Orion published a report.", start: 0, end: 25 },
+        ],
+      }],
+      [{
+        atomId: "atom-1",
+        relations: [
+          { spanId: "support", documentId: "doc-a", relation: "ENTAILMENT" },
+          { spanId: "neutral", documentId: "doc-b", relation: "NEUTRAL" },
+        ],
+      }],
+      sources,
+    );
+    const { container, getByRole, queryByText } = render(
+      <ArgumentationGraph
+        graph={graph}
+        selectedAtomId="atom-1"
+        onSelectAtom={() => {}}
+        onSelectEvidence={() => {}}
+      />,
+    );
+
+    expect(getByRole("navigation", { name: "Atomic claims in argumentation graph" })).toBeInTheDocument();
+    expect(getByRole("list", { name: "Supports Atom evidence" })).toBeInTheDocument();
+    expect(queryByText("Orion published a report.")).not.toBeInTheDocument();
+    const result = await axe.run(container, { rules: { "color-contrast": { enabled: false } } });
+    expect(result.violations).toEqual([]);
+  });
+
+  it("preserves the selected atom when shared evidence is activated", () => {
+    const sharedEvidence = {
+      id: "evidence-doc-a:shared",
+      kind: "evidence" as const,
+      label: "Source A",
+      text: "The same sentence concerns both atoms.",
+      documentId: "doc-a",
+      spanId: "shared",
+      atomIds: ["atom-1", "atom-2"],
+    };
+    const onSelectEvidence = vi.fn();
+    const { getByRole } = render(
+      <ArgumentationGraph
+        graph={{
+          nodes: [
+            { id: "claim", kind: "claim", label: "Original claim", text: "A compound claim." },
+            { id: "atom-1", kind: "atom", label: "Atomic claim", text: "First atom.", atomId: "atom-1" },
+            { id: "atom-2", kind: "atom", label: "Atomic claim", text: "Second atom.", atomId: "atom-2" },
+            sharedEvidence,
+          ],
+          edges: [
+            { id: "edge-1", source: "atom-1", target: sharedEvidence.id, relation: "ENTAILMENT" },
+            { id: "edge-2", source: "atom-2", target: sharedEvidence.id, relation: "ENTAILMENT" },
+          ],
+        }}
+        selectedAtomId="atom-2"
+        onSelectAtom={() => {}}
+        onSelectEvidence={onSelectEvidence}
+      />,
+    );
+
+    fireEvent.click(getByRole("button", { name: /Supports Atom, from Source A/ }));
+    expect(onSelectEvidence).toHaveBeenCalledWith(sharedEvidence, "atom-2");
   });
 
   it("announces NLI state and exposes relation counts without a verdict", async () => {
