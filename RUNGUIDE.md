@@ -10,12 +10,12 @@ Run every command from the `verigraph/` directory.
 ./run-verigraph --start
 ```
 
-`--prepare` downloads and persists:
+`--prepare` installs dependencies and downloads:
 
-- `qwen2.5:7b` in `data/runtime/ollama/`
-- `BAAI/bge-small-en-v1.5` in `data/models/`
-- `MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli` in `data/models/`
-- the pinned spaCy parser in the backend image
+- `qwen2.5:3b` in the host Ollama installation (the default CPU-friendly model)
+- `BAAI/bge-small-en-v1.5` in `data/models/bge-small-en-v1.5`
+- `MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli` in `data/models/deberta-v3-base-mnli-fever-anli`
+- the pinned spaCy parser in `backend/.venv`
 
 Those generated assets are ignored by Git. Once preparation and image builds
 finish, the live pipeline needs no external document or model request.
@@ -26,11 +26,8 @@ finish, the live pipeline needs no external document or model request.
 ./run-verigraph --start
 ```
 
-Open <http://127.0.0.1:3000>. Stop it with `Ctrl-C` or, from another terminal:
-
-```bash
-docker compose down
-```
+Open <http://127.0.0.1:3000>. Stop it with `Ctrl-C`; the launcher terminates
+both native server processes.
 
 If a port is occupied, change `VERIGRAPH_PORT` in a local `.env` file.
 
@@ -42,11 +39,12 @@ Start from a healthy prepared stack, then run:
 ./run-verigraph --record-walkthrough
 ```
 
-The recorder uses the current local API for four representative cases, one per
-reference label. It saves the resulting atoms, candidate evidence, NLI
-relations, and linguistic analyses under `frontend/public/walkthrough/`. The
-build fails if a curated case lacks a complete recorded run. Review those
-changes before committing and deploying to Vercel.
+The recorder calls the local FastAPI backend directly for four representative
+cases, one per reference label. It saves the resulting atoms, candidate
+evidence, NLI relations, and linguistic analyses under
+`frontend/public/walkthrough/`. The launcher enforces a complete four-case
+snapshot before succeeding. Review and commit those changes before deploying
+to Vercel.
 
 ## Vercel checklist
 

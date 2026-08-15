@@ -1,0 +1,517 @@
+{
+  "caseId": "averitec-dev-0044",
+  "atoms": [
+    {
+      "id": "atom-1",
+      "text": "Deliberately infecting children to COVID-19 at “pox parties” could be a good way to help create herd immunity against COVID-19 without a vaccine.",
+      "sourceText": "Deliberately infecting children to COVID-19 at “pox parties” could be a good way to help create herd immunity against COVID-19 without a vaccine.",
+      "start": 0,
+      "end": 145
+    }
+  ],
+  "evidence": [
+    {
+      "atomId": "atom-1",
+      "spans": [
+        {
+          "id": "doc-f72194b71ba6::sentence-7",
+          "documentId": "doc-f72194b71ba6",
+          "text": "Children, including very young children, can develop COVID-19. ",
+          "start": 561,
+          "end": 624
+        },
+        {
+          "id": "doc-b359fc5770e9::sentence-2",
+          "documentId": "doc-b359fc5770e9",
+          "text": "In the past, some parents participated in “chickenpox parties” to intentionally expose their unvaccinated children to a child with chickenpox in hopes that they would get the disease. ",
+          "start": 13,
+          "end": 197
+        },
+        {
+          "id": "doc-f72194b71ba6::sentence-92",
+          "documentId": "doc-f72194b71ba6",
+          "text": "In a situation where there is no choice — such as if the grandparent lives with the grandchildren — then the family should do everything they can to try to limit the risk of COVID-19. ",
+          "start": 9104,
+          "end": 9288
+        },
+        {
+          "id": "doc-f72194b71ba6::sentence-34",
+          "documentId": "doc-f72194b71ba6",
+          "text": "Most children who become infected with the COVID-19 virus have no symptoms, or they have milder symptoms such as low-grade fever, fatigue, and cough. ",
+          "start": 2467,
+          "end": 2617
+        },
+        {
+          "id": "doc-b359fc5770e9::sentence-15",
+          "documentId": "doc-b359fc5770e9",
+          "text": "Vaccinated people who get chickenpox may develop lesions that do not crust. ",
+          "start": 1295,
+          "end": 1371
+        },
+        {
+          "id": "doc-b359fc5770e9::sentence-7",
+          "documentId": "doc-b359fc5770e9",
+          "text": "The best way to protect infants and children against chickenpox is to get them vaccinated.\n",
+          "start": 537,
+          "end": 628
+        }
+      ]
+    }
+  ],
+  "classifications": [
+    {
+      "atomId": "atom-1",
+      "relations": [
+        {
+          "spanId": "doc-f72194b71ba6::sentence-7",
+          "documentId": "doc-f72194b71ba6",
+          "relation": "CONTRADICTION"
+        },
+        {
+          "spanId": "doc-b359fc5770e9::sentence-2",
+          "documentId": "doc-b359fc5770e9",
+          "relation": "CONTRADICTION"
+        },
+        {
+          "spanId": "doc-f72194b71ba6::sentence-92",
+          "documentId": "doc-f72194b71ba6",
+          "relation": "CONTRADICTION"
+        },
+        {
+          "spanId": "doc-f72194b71ba6::sentence-34",
+          "documentId": "doc-f72194b71ba6",
+          "relation": "CONTRADICTION"
+        },
+        {
+          "spanId": "doc-b359fc5770e9::sentence-15",
+          "documentId": "doc-b359fc5770e9",
+          "relation": "CONTRADICTION"
+        },
+        {
+          "spanId": "doc-b359fc5770e9::sentence-7",
+          "documentId": "doc-b359fc5770e9",
+          "relation": "CONTRADICTION"
+        }
+      ]
+    }
+  ],
+  "linguistics": [
+    {
+      "atomId": "atom-1",
+      "frames": [
+        {
+          "id": "atom-1-frame-1",
+          "predicate": {
+            "id": "atom-1-frame-1-predicate",
+            "text": "COVID-19",
+            "start": 35,
+            "end": 43
+          },
+          "subjects": [],
+          "coreArguments": [],
+          "adjuncts": [],
+          "otherModifiers": [
+            {
+              "id": "atom-1-frame-1-other-modifier-1",
+              "text": "at “pox parties",
+              "start": 44,
+              "end": 59
+            }
+          ]
+        },
+        {
+          "id": "atom-1-frame-2",
+          "predicate": {
+            "id": "atom-1-frame-2-predicate",
+            "text": "be",
+            "start": 67,
+            "end": 69
+          },
+          "subjects": [
+            {
+              "id": "atom-1-frame-2-subject-1",
+              "text": "Deliberately infecting children to COVID-19 at “pox parties",
+              "start": 0,
+              "end": 59
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "atom-1-frame-2-argument-1",
+              "text": "a good way to help create herd immunity against COVID-19 without a vaccine",
+              "start": 70,
+              "end": 144,
+              "role": "subject_complement"
+            }
+          ],
+          "adjuncts": [],
+          "otherModifiers": []
+        },
+        {
+          "id": "atom-1-frame-3",
+          "predicate": {
+            "id": "atom-1-frame-3-predicate",
+            "text": "create",
+            "start": 89,
+            "end": 95
+          },
+          "subjects": [],
+          "coreArguments": [
+            {
+              "id": "atom-1-frame-3-argument-1",
+              "text": "herd immunity",
+              "start": 96,
+              "end": 109,
+              "role": "direct_object"
+            }
+          ],
+          "adjuncts": [],
+          "otherModifiers": [
+            {
+              "id": "atom-1-frame-3-other-modifier-1",
+              "text": "against COVID-19",
+              "start": 110,
+              "end": 126
+            },
+            {
+              "id": "atom-1-frame-3-other-modifier-2",
+              "text": "without a vaccine",
+              "start": 127,
+              "end": 144
+            }
+          ]
+        }
+      ],
+      "cues": [
+        {
+          "id": "atom-1-cue-modality-61-66",
+          "text": "could",
+          "start": 61,
+          "end": 66,
+          "kind": "modality"
+        },
+        {
+          "id": "atom-1-cue-negation-127-134",
+          "text": "without",
+          "start": 127,
+          "end": 134,
+          "kind": "negation"
+        }
+      ],
+      "entities": [
+        {
+          "id": "atom-1-entity-person-35-43",
+          "text": "COVID-19",
+          "start": 35,
+          "end": 43,
+          "label": "PERSON"
+        },
+        {
+          "id": "atom-1-entity-org-118-126",
+          "text": "COVID-19",
+          "start": 118,
+          "end": 126,
+          "label": "ORG"
+        }
+      ],
+      "tokens": [
+        {
+          "id": "atom-1-token-0",
+          "text": "Deliberately",
+          "start": 0,
+          "end": 12,
+          "lemma": "deliberately",
+          "pos": "ADV",
+          "tag": "RB",
+          "dependency": "advmod",
+          "head": "infecting"
+        },
+        {
+          "id": "atom-1-token-1",
+          "text": "infecting",
+          "start": 13,
+          "end": 22,
+          "lemma": "infect",
+          "pos": "VERB",
+          "tag": "VBG",
+          "dependency": "csubj",
+          "head": "be"
+        },
+        {
+          "id": "atom-1-token-2",
+          "text": "children",
+          "start": 23,
+          "end": 31,
+          "lemma": "child",
+          "pos": "NOUN",
+          "tag": "NNS",
+          "dependency": "dobj",
+          "head": "infecting"
+        },
+        {
+          "id": "atom-1-token-3",
+          "text": "to",
+          "start": 32,
+          "end": 34,
+          "lemma": "to",
+          "pos": "PART",
+          "tag": "TO",
+          "dependency": "aux",
+          "head": "COVID-19"
+        },
+        {
+          "id": "atom-1-token-4",
+          "text": "COVID-19",
+          "start": 35,
+          "end": 43,
+          "lemma": "covid-19",
+          "pos": "VERB",
+          "tag": "VB",
+          "dependency": "xcomp",
+          "head": "infecting"
+        },
+        {
+          "id": "atom-1-token-5",
+          "text": "at",
+          "start": 44,
+          "end": 46,
+          "lemma": "at",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "COVID-19"
+        },
+        {
+          "id": "atom-1-token-6",
+          "text": "“",
+          "start": 47,
+          "end": 48,
+          "lemma": "\"",
+          "pos": "PUNCT",
+          "tag": "``",
+          "dependency": "punct",
+          "head": "parties"
+        },
+        {
+          "id": "atom-1-token-7",
+          "text": "pox",
+          "start": 48,
+          "end": 51,
+          "lemma": "pox",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "parties"
+        },
+        {
+          "id": "atom-1-token-8",
+          "text": "parties",
+          "start": 52,
+          "end": 59,
+          "lemma": "party",
+          "pos": "NOUN",
+          "tag": "NNS",
+          "dependency": "pobj",
+          "head": "at"
+        },
+        {
+          "id": "atom-1-token-9",
+          "text": "”",
+          "start": 59,
+          "end": 60,
+          "lemma": "\"",
+          "pos": "PUNCT",
+          "tag": "''",
+          "dependency": "punct",
+          "head": "parties"
+        },
+        {
+          "id": "atom-1-token-10",
+          "text": "could",
+          "start": 61,
+          "end": 66,
+          "lemma": "could",
+          "pos": "AUX",
+          "tag": "MD",
+          "dependency": "aux",
+          "head": "be"
+        },
+        {
+          "id": "atom-1-token-11",
+          "text": "be",
+          "start": 67,
+          "end": 69,
+          "lemma": "be",
+          "pos": "AUX",
+          "tag": "VB",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "atom-1-token-12",
+          "text": "a",
+          "start": 70,
+          "end": 71,
+          "lemma": "a",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "way"
+        },
+        {
+          "id": "atom-1-token-13",
+          "text": "good",
+          "start": 72,
+          "end": 76,
+          "lemma": "good",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "way"
+        },
+        {
+          "id": "atom-1-token-14",
+          "text": "way",
+          "start": 77,
+          "end": 80,
+          "lemma": "way",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "attr",
+          "head": "be"
+        },
+        {
+          "id": "atom-1-token-15",
+          "text": "to",
+          "start": 81,
+          "end": 83,
+          "lemma": "to",
+          "pos": "PART",
+          "tag": "TO",
+          "dependency": "aux",
+          "head": "help"
+        },
+        {
+          "id": "atom-1-token-16",
+          "text": "help",
+          "start": 84,
+          "end": 88,
+          "lemma": "help",
+          "pos": "VERB",
+          "tag": "VB",
+          "dependency": "relcl",
+          "head": "way"
+        },
+        {
+          "id": "atom-1-token-17",
+          "text": "create",
+          "start": 89,
+          "end": 95,
+          "lemma": "create",
+          "pos": "VERB",
+          "tag": "VB",
+          "dependency": "xcomp",
+          "head": "help"
+        },
+        {
+          "id": "atom-1-token-18",
+          "text": "herd",
+          "start": 96,
+          "end": 100,
+          "lemma": "herd",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "immunity"
+        },
+        {
+          "id": "atom-1-token-19",
+          "text": "immunity",
+          "start": 101,
+          "end": 109,
+          "lemma": "immunity",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "dobj",
+          "head": "create"
+        },
+        {
+          "id": "atom-1-token-20",
+          "text": "against",
+          "start": 110,
+          "end": 117,
+          "lemma": "against",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "immunity"
+        },
+        {
+          "id": "atom-1-token-21",
+          "text": "COVID-19",
+          "start": 118,
+          "end": 126,
+          "lemma": "covid-19",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "pobj",
+          "head": "against"
+        },
+        {
+          "id": "atom-1-token-22",
+          "text": "without",
+          "start": 127,
+          "end": 134,
+          "lemma": "without",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "create"
+        },
+        {
+          "id": "atom-1-token-23",
+          "text": "a",
+          "start": 135,
+          "end": 136,
+          "lemma": "a",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "vaccine"
+        },
+        {
+          "id": "atom-1-token-24",
+          "text": "vaccine",
+          "start": 137,
+          "end": 144,
+          "lemma": "vaccine",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "pobj",
+          "head": "without"
+        },
+        {
+          "id": "atom-1-token-25",
+          "text": ".",
+          "start": 144,
+          "end": 145,
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "be"
+        }
+      ],
+      "status": "partial",
+      "unresolved": [
+        "subject"
+      ]
+    }
+  ],
+  "recordedWith": {
+    "decompositionModel": "qwen2.5:7b",
+    "retrievalModel": "BAAI/bge-small-en-v1.5",
+    "nliModel": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    "linguisticsModel": "en_core_web_sm@3.8.0"
+  }
+}

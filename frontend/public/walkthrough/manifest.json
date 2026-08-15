@@ -1,12 +1,12 @@
 {
   "bundleDigest": "c63b35c3d105d38fce81a79ef35840a176a22b0b7f216a61c9957612eeaf824d",
   "caseCount": 4,
-  "missingRuns": [
-    "averitec-dev-0034",
-    "averitec-dev-0044",
-    "averitec-dev-0015",
-    "averitec-dev-0060"
-  ],
-  "recordedCaseCount": 0,
-  "runDigests": {}
+  "missingRuns": [],
+  "recordedCaseCount": 4,
+  "runDigests": {
+    "averitec-dev-0015": "ed1ad073ddc3c86b2b5ff41c88318c2cf2857f618ca2b28fc5afc15b095452b5",
+    "averitec-dev-0034": "92af572220f96ae09237932d3417426f07675145ad372644ba438f9dd427d90e",
+    "averitec-dev-0044": "3395616daf019ae85416002e87a75533bdf6776ccf98da27f2a8e9cfd699f6ca",
+    "averitec-dev-0060": "a28dd551d0794cb9431ae552036255bda16d818e3fa8e5ffea4f5963ba32dafd"
+  }
 }

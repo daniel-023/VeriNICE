@@ -1,0 +1,1632 @@
+{
+  "caseId": "averitec-dev-0034",
+  "atoms": [
+    {
+      "id": "atom-1",
+      "text": "The United States have not included the NDF in their official list of terrorist groups.",
+      "sourceText": "The United States, New Zealand, U.K., Australia, and the EU have not included the NDF in their official list of terrorist groups.",
+      "start": 0,
+      "end": 129
+    },
+    {
+      "id": "atom-2",
+      "text": "New Zealand have not included the NDF in their official list of terrorist groups.",
+      "sourceText": "The United States, New Zealand, U.K., Australia, and the EU have not included the NDF in their official list of terrorist groups.",
+      "start": 0,
+      "end": 129
+    },
+    {
+      "id": "atom-3",
+      "text": "The U.K. have not included the NDF in their official list of terrorist groups.",
+      "sourceText": "The United States, New Zealand, U.K., Australia, and the EU have not included the NDF in their official list of terrorist groups.",
+      "start": 0,
+      "end": 129
+    },
+    {
+      "id": "atom-4",
+      "text": "Australia have not included the NDF in their official list of terrorist groups.",
+      "sourceText": "The United States, New Zealand, U.K., Australia, and the EU have not included the NDF in their official list of terrorist groups.",
+      "start": 0,
+      "end": 129
+    },
+    {
+      "id": "atom-5",
+      "text": "The EU have not included the NDF in their official list of terrorist groups.",
+      "sourceText": "The United States, New Zealand, U.K., Australia, and the EU have not included the NDF in their official list of terrorist groups.",
+      "start": 0,
+      "end": 129
+    }
+  ],
+  "evidence": [
+    {
+      "atomId": "atom-1",
+      "spans": [
+        {
+          "id": "doc-5ef75348b513::sentence-212",
+          "documentId": "doc-5ef75348b513",
+          "text": "- The organization’s terrorist activity or terrorism must threaten the security of U.S. nationals or the national security (national defense, foreign relations, or the economic interests) of the United States.\n",
+          "start": 7865,
+          "end": 8075
+        },
+        {
+          "id": "doc-5ef75348b513::sentence-224",
+          "documentId": "doc-5ef75348b513",
+          "text": "- Stigmatizes and isolates designated terrorist organizations internationally.\n",
+          "start": 9842,
+          "end": 9921
+        },
+        {
+          "id": "doc-5ef75348b513::sentence-1",
+          "documentId": "doc-5ef75348b513",
+          "text": "Foreign Terrorist Organizations (FTOs) are foreign organizations that are designated by the Secretary of State in accordance with section 219 of the Immigration and Nationality Act (INA), as amended. ",
+          "start": 0,
+          "end": 200
+        },
+        {
+          "id": "doc-9646fc73704d::sentence-39",
+          "documentId": "doc-9646fc73704d",
+          "text": "Primary Name: Ulster Defence Association Aliases: Ulster Freedom Fighters, UDA, UFF Address: Northern Ireland Original listing date: Listed by the Foreign Minister under section 15 of the Charter of the United Nations Act 1945 on 20 March 2002. ",
+          "start": 5125,
+          "end": 5370
+        },
+        {
+          "id": "doc-9646fc73704d::sentence-15",
+          "documentId": "doc-9646fc73704d",
+          "text": "Note 2: Under section 40 of the Charter of the United Nations (Dealing with Assets) Regulations 2008, the Department of Foreign Affairs and Trade maintains a list of all persons, entities, assets and classes of assets currently listed under section 15 of the Act, and has published this list on the internet at www.dfat.gov.au/sanctions/consolidated-list.html.\n",
+          "start": 1100,
+          "end": 1461
+        },
+        {
+          "id": "doc-9d46aa32f6a5::sentence-151",
+          "documentId": "doc-9d46aa32f6a5",
+          "text": "‘Hizballah Military Wing’ (a.k.a. ‘Hezbollah Military Wing’, a.k.a. ‘Hizbullah Military Wing’, a.k.a. ‘Hizbollah Military Wing’, a.k.a. ‘Hezballah Military Wing’, a.k.a. ‘Hisbollah Military Wing’, a.k.a. ‘Hizbu’llah Military Wing’ a.k.a. ‘Hizb Allah Military Wing’, a.k.a. ‘Jihad Council’ (and all units reporting to it, including the External Security Organisation)). ",
+          "start": 7225,
+          "end": 7594
+        }
+      ]
+    },
+    {
+      "atomId": "atom-2",
+      "spans": [
+        {
+          "id": "doc-9646fc73704d::sentence-22",
+          "documentId": "doc-9646fc73704d",
+          "text": "Primary Name: Loyalist Volunteer Force Aliases: LVF Address: Northern Ireland Original listing date: Listed by the Foreign Minister under section 15 of the Charter of the United Nations Act 1945 on 20 March 2002. ",
+          "start": 2314,
+          "end": 2527
+        },
+        {
+          "id": "doc-9646fc73704d::sentence-35",
+          "documentId": "doc-9646fc73704d",
+          "text": "Primary Name: Red Hand Defenders Aliases: RHD Address: Northern Ireland Original listing date: Listed by the Foreign Minister under section 15 of the Charter of the United Nations Act 1945 on 20 March 2002. ",
+          "start": 4627,
+          "end": 4834
+        },
+        {
+          "id": "doc-9646fc73704d::sentence-32",
+          "documentId": "doc-9646fc73704d",
+          "text": "Additional information: The Real IRA (RIRA) is an Irish republican paramilitary organisation based in Northern Ireland. ",
+          "start": 3983,
+          "end": 4103
+        },
+        {
+          "id": "doc-5ef75348b513::sentence-212",
+          "documentId": "doc-5ef75348b513",
+          "text": "- The organization’s terrorist activity or terrorism must threaten the security of U.S. nationals or the national security (national defense, foreign relations, or the economic interests) of the United States.\n",
+          "start": 7865,
+          "end": 8075
+        },
+        {
+          "id": "doc-5ef75348b513::sentence-224",
+          "documentId": "doc-5ef75348b513",
+          "text": "- Stigmatizes and isolates designated terrorist organizations internationally.\n",
+          "start": 9842,
+          "end": 9921
+        },
+        {
+          "id": "doc-9d46aa32f6a5::sentence-124",
+          "documentId": "doc-9d46aa32f6a5",
+          "text": "‘Abu Nidal Organisation’ – ‘ANO’ (a.k.a. ‘Fatah Revolutionary Council’, a.k.a. ‘Arab Revolutionary Brigades’, a.k.a. ‘Black September’, a.k.a. ‘Revolutionary Organisation of Socialist Muslims’). ",
+          "start": 6505,
+          "end": 6700
+        }
+      ]
+    },
+    {
+      "atomId": "atom-3",
+      "spans": [
+        {
+          "id": "doc-9646fc73704d::sentence-22",
+          "documentId": "doc-9646fc73704d",
+          "text": "Primary Name: Loyalist Volunteer Force Aliases: LVF Address: Northern Ireland Original listing date: Listed by the Foreign Minister under section 15 of the Charter of the United Nations Act 1945 on 20 March 2002. ",
+          "start": 2314,
+          "end": 2527
+        },
+        {
+          "id": "doc-9646fc73704d::sentence-39",
+          "documentId": "doc-9646fc73704d",
+          "text": "Primary Name: Ulster Defence Association Aliases: Ulster Freedom Fighters, UDA, UFF Address: Northern Ireland Original listing date: Listed by the Foreign Minister under section 15 of the Charter of the United Nations Act 1945 on 20 March 2002. ",
+          "start": 5125,
+          "end": 5370
+        },
+        {
+          "id": "doc-9646fc73704d::sentence-35",
+          "documentId": "doc-9646fc73704d",
+          "text": "Primary Name: Red Hand Defenders Aliases: RHD Address: Northern Ireland Original listing date: Listed by the Foreign Minister under section 15 of the Charter of the United Nations Act 1945 on 20 March 2002. ",
+          "start": 4627,
+          "end": 4834
+        },
+        {
+          "id": "doc-5ef75348b513::sentence-212",
+          "documentId": "doc-5ef75348b513",
+          "text": "- The organization’s terrorist activity or terrorism must threaten the security of U.S. nationals or the national security (national defense, foreign relations, or the economic interests) of the United States.\n",
+          "start": 7865,
+          "end": 8075
+        },
+        {
+          "id": "doc-5ef75348b513::sentence-1",
+          "documentId": "doc-5ef75348b513",
+          "text": "Foreign Terrorist Organizations (FTOs) are foreign organizations that are designated by the Secretary of State in accordance with section 219 of the Immigration and Nationality Act (INA), as amended. ",
+          "start": 0,
+          "end": 200
+        },
+        {
+          "id": "doc-5ef75348b513::sentence-224",
+          "documentId": "doc-5ef75348b513",
+          "text": "- Stigmatizes and isolates designated terrorist organizations internationally.\n",
+          "start": 9842,
+          "end": 9921
+        }
+      ]
+    },
+    {
+      "atomId": "atom-4",
+      "spans": [
+        {
+          "id": "doc-9646fc73704d::sentence-15",
+          "documentId": "doc-9646fc73704d",
+          "text": "Note 2: Under section 40 of the Charter of the United Nations (Dealing with Assets) Regulations 2008, the Department of Foreign Affairs and Trade maintains a list of all persons, entities, assets and classes of assets currently listed under section 15 of the Act, and has published this list on the internet at www.dfat.gov.au/sanctions/consolidated-list.html.\n",
+          "start": 1100,
+          "end": 1461
+        },
+        {
+          "id": "doc-5ef75348b513::sentence-224",
+          "documentId": "doc-5ef75348b513",
+          "text": "- Stigmatizes and isolates designated terrorist organizations internationally.\n",
+          "start": 9842,
+          "end": 9921
+        },
+        {
+          "id": "doc-5ef75348b513::sentence-1",
+          "documentId": "doc-5ef75348b513",
+          "text": "Foreign Terrorist Organizations (FTOs) are foreign organizations that are designated by the Secretary of State in accordance with section 219 of the Immigration and Nationality Act (INA), as amended. ",
+          "start": 0,
+          "end": 200
+        },
+        {
+          "id": "doc-9646fc73704d::sentence-52",
+          "documentId": "doc-9646fc73704d",
+          "text": "Primary Name: International Sikh Youth Federation Aliases: ISYF Address: Pakistan; United Kingdom; India Original listing date: Listed by the Foreign Minister under section 15 of the Charter of the United Nations Act 1945 on 16 June 2002. ",
+          "start": 7086,
+          "end": 7325
+        },
+        {
+          "id": "doc-9646fc73704d::sentence-22",
+          "documentId": "doc-9646fc73704d",
+          "text": "Primary Name: Loyalist Volunteer Force Aliases: LVF Address: Northern Ireland Original listing date: Listed by the Foreign Minister under section 15 of the Charter of the United Nations Act 1945 on 20 March 2002. ",
+          "start": 2314,
+          "end": 2527
+        },
+        {
+          "id": "doc-5ef75348b513::sentence-212",
+          "documentId": "doc-5ef75348b513",
+          "text": "- The organization’s terrorist activity or terrorism must threaten the security of U.S. nationals or the national security (national defense, foreign relations, or the economic interests) of the United States.\n",
+          "start": 7865,
+          "end": 8075
+        }
+      ]
+    },
+    {
+      "atomId": "atom-5",
+      "spans": [
+        {
+          "id": "doc-5ef75348b513::sentence-224",
+          "documentId": "doc-5ef75348b513",
+          "text": "- Stigmatizes and isolates designated terrorist organizations internationally.\n",
+          "start": 9842,
+          "end": 9921
+        },
+        {
+          "id": "doc-5ef75348b513::sentence-212",
+          "documentId": "doc-5ef75348b513",
+          "text": "- The organization’s terrorist activity or terrorism must threaten the security of U.S. nationals or the national security (national defense, foreign relations, or the economic interests) of the United States.\n",
+          "start": 7865,
+          "end": 8075
+        },
+        {
+          "id": "doc-9646fc73704d::sentence-22",
+          "documentId": "doc-9646fc73704d",
+          "text": "Primary Name: Loyalist Volunteer Force Aliases: LVF Address: Northern Ireland Original listing date: Listed by the Foreign Minister under section 15 of the Charter of the United Nations Act 1945 on 20 March 2002. ",
+          "start": 2314,
+          "end": 2527
+        },
+        {
+          "id": "doc-9646fc73704d::sentence-15",
+          "documentId": "doc-9646fc73704d",
+          "text": "Note 2: Under section 40 of the Charter of the United Nations (Dealing with Assets) Regulations 2008, the Department of Foreign Affairs and Trade maintains a list of all persons, entities, assets and classes of assets currently listed under section 15 of the Act, and has published this list on the internet at www.dfat.gov.au/sanctions/consolidated-list.html.\n",
+          "start": 1100,
+          "end": 1461
+        },
+        {
+          "id": "doc-5ef75348b513::sentence-1",
+          "documentId": "doc-5ef75348b513",
+          "text": "Foreign Terrorist Organizations (FTOs) are foreign organizations that are designated by the Secretary of State in accordance with section 219 of the Immigration and Nationality Act (INA), as amended. ",
+          "start": 0,
+          "end": 200
+        },
+        {
+          "id": "doc-9d46aa32f6a5::sentence-151",
+          "documentId": "doc-9d46aa32f6a5",
+          "text": "‘Hizballah Military Wing’ (a.k.a. ‘Hezbollah Military Wing’, a.k.a. ‘Hizbullah Military Wing’, a.k.a. ‘Hizbollah Military Wing’, a.k.a. ‘Hezballah Military Wing’, a.k.a. ‘Hisbollah Military Wing’, a.k.a. ‘Hizbu’llah Military Wing’ a.k.a. ‘Hizb Allah Military Wing’, a.k.a. ‘Jihad Council’ (and all units reporting to it, including the External Security Organisation)). ",
+          "start": 7225,
+          "end": 7594
+        }
+      ]
+    }
+  ],
+  "classifications": [
+    {
+      "atomId": "atom-1",
+      "relations": [
+        {
+          "spanId": "doc-5ef75348b513::sentence-212",
+          "documentId": "doc-5ef75348b513",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-5ef75348b513::sentence-224",
+          "documentId": "doc-5ef75348b513",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-5ef75348b513::sentence-1",
+          "documentId": "doc-5ef75348b513",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-9646fc73704d::sentence-39",
+          "documentId": "doc-9646fc73704d",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-9646fc73704d::sentence-15",
+          "documentId": "doc-9646fc73704d",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-9d46aa32f6a5::sentence-151",
+          "documentId": "doc-9d46aa32f6a5",
+          "relation": "NEUTRAL"
+        }
+      ]
+    },
+    {
+      "atomId": "atom-2",
+      "relations": [
+        {
+          "spanId": "doc-9646fc73704d::sentence-22",
+          "documentId": "doc-9646fc73704d",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-9646fc73704d::sentence-35",
+          "documentId": "doc-9646fc73704d",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-9646fc73704d::sentence-32",
+          "documentId": "doc-9646fc73704d",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-5ef75348b513::sentence-212",
+          "documentId": "doc-5ef75348b513",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-5ef75348b513::sentence-224",
+          "documentId": "doc-5ef75348b513",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-9d46aa32f6a5::sentence-124",
+          "documentId": "doc-9d46aa32f6a5",
+          "relation": "NEUTRAL"
+        }
+      ]
+    },
+    {
+      "atomId": "atom-3",
+      "relations": [
+        {
+          "spanId": "doc-9646fc73704d::sentence-22",
+          "documentId": "doc-9646fc73704d",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-9646fc73704d::sentence-39",
+          "documentId": "doc-9646fc73704d",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-9646fc73704d::sentence-35",
+          "documentId": "doc-9646fc73704d",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-5ef75348b513::sentence-212",
+          "documentId": "doc-5ef75348b513",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-5ef75348b513::sentence-1",
+          "documentId": "doc-5ef75348b513",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-5ef75348b513::sentence-224",
+          "documentId": "doc-5ef75348b513",
+          "relation": "NEUTRAL"
+        }
+      ]
+    },
+    {
+      "atomId": "atom-4",
+      "relations": [
+        {
+          "spanId": "doc-9646fc73704d::sentence-15",
+          "documentId": "doc-9646fc73704d",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-5ef75348b513::sentence-224",
+          "documentId": "doc-5ef75348b513",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-5ef75348b513::sentence-1",
+          "documentId": "doc-5ef75348b513",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-9646fc73704d::sentence-52",
+          "documentId": "doc-9646fc73704d",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-9646fc73704d::sentence-22",
+          "documentId": "doc-9646fc73704d",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-5ef75348b513::sentence-212",
+          "documentId": "doc-5ef75348b513",
+          "relation": "NEUTRAL"
+        }
+      ]
+    },
+    {
+      "atomId": "atom-5",
+      "relations": [
+        {
+          "spanId": "doc-5ef75348b513::sentence-224",
+          "documentId": "doc-5ef75348b513",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-5ef75348b513::sentence-212",
+          "documentId": "doc-5ef75348b513",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-9646fc73704d::sentence-22",
+          "documentId": "doc-9646fc73704d",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-9646fc73704d::sentence-15",
+          "documentId": "doc-9646fc73704d",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-5ef75348b513::sentence-1",
+          "documentId": "doc-5ef75348b513",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-9d46aa32f6a5::sentence-151",
+          "documentId": "doc-9d46aa32f6a5",
+          "relation": "NEUTRAL"
+        }
+      ]
+    }
+  ],
+  "linguistics": [
+    {
+      "atomId": "atom-1",
+      "frames": [
+        {
+          "id": "atom-1-frame-1",
+          "predicate": {
+            "id": "atom-1-frame-1-predicate",
+            "text": "included",
+            "start": 27,
+            "end": 35
+          },
+          "subjects": [
+            {
+              "id": "atom-1-frame-1-subject-1",
+              "text": "The United States",
+              "start": 0,
+              "end": 17
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "atom-1-frame-1-argument-1",
+              "text": "the NDF",
+              "start": 36,
+              "end": 43,
+              "role": "direct_object"
+            }
+          ],
+          "adjuncts": [],
+          "otherModifiers": [
+            {
+              "id": "atom-1-frame-1-other-modifier-1",
+              "text": "in their official list of terrorist groups",
+              "start": 44,
+              "end": 86
+            }
+          ]
+        }
+      ],
+      "cues": [
+        {
+          "id": "atom-1-cue-negation-23-26",
+          "text": "not",
+          "start": 23,
+          "end": 26,
+          "kind": "negation"
+        }
+      ],
+      "entities": [
+        {
+          "id": "atom-1-entity-gpe-0-17",
+          "text": "The United States",
+          "start": 0,
+          "end": 17,
+          "label": "GPE"
+        },
+        {
+          "id": "atom-1-entity-org-40-43",
+          "text": "NDF",
+          "start": 40,
+          "end": 43,
+          "label": "ORG"
+        }
+      ],
+      "tokens": [
+        {
+          "id": "atom-1-token-0",
+          "text": "The",
+          "start": 0,
+          "end": 3,
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "States"
+        },
+        {
+          "id": "atom-1-token-1",
+          "text": "United",
+          "start": 4,
+          "end": 10,
+          "lemma": "United",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "States"
+        },
+        {
+          "id": "atom-1-token-2",
+          "text": "States",
+          "start": 11,
+          "end": 17,
+          "lemma": "States",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "nsubj",
+          "head": "included"
+        },
+        {
+          "id": "atom-1-token-3",
+          "text": "have",
+          "start": 18,
+          "end": 22,
+          "lemma": "have",
+          "pos": "AUX",
+          "tag": "VBP",
+          "dependency": "aux",
+          "head": "included"
+        },
+        {
+          "id": "atom-1-token-4",
+          "text": "not",
+          "start": 23,
+          "end": 26,
+          "lemma": "not",
+          "pos": "PART",
+          "tag": "RB",
+          "dependency": "neg",
+          "head": "included"
+        },
+        {
+          "id": "atom-1-token-5",
+          "text": "included",
+          "start": 27,
+          "end": 35,
+          "lemma": "include",
+          "pos": "VERB",
+          "tag": "VBN",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "atom-1-token-6",
+          "text": "the",
+          "start": 36,
+          "end": 39,
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "NDF"
+        },
+        {
+          "id": "atom-1-token-7",
+          "text": "NDF",
+          "start": 40,
+          "end": 43,
+          "lemma": "NDF",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "dobj",
+          "head": "included"
+        },
+        {
+          "id": "atom-1-token-8",
+          "text": "in",
+          "start": 44,
+          "end": 46,
+          "lemma": "in",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "included"
+        },
+        {
+          "id": "atom-1-token-9",
+          "text": "their",
+          "start": 47,
+          "end": 52,
+          "lemma": "their",
+          "pos": "PRON",
+          "tag": "PRP$",
+          "dependency": "poss",
+          "head": "list"
+        },
+        {
+          "id": "atom-1-token-10",
+          "text": "official",
+          "start": 53,
+          "end": 61,
+          "lemma": "official",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "list"
+        },
+        {
+          "id": "atom-1-token-11",
+          "text": "list",
+          "start": 62,
+          "end": 66,
+          "lemma": "list",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "pobj",
+          "head": "in"
+        },
+        {
+          "id": "atom-1-token-12",
+          "text": "of",
+          "start": 67,
+          "end": 69,
+          "lemma": "of",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "list"
+        },
+        {
+          "id": "atom-1-token-13",
+          "text": "terrorist",
+          "start": 70,
+          "end": 79,
+          "lemma": "terrorist",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "groups"
+        },
+        {
+          "id": "atom-1-token-14",
+          "text": "groups",
+          "start": 80,
+          "end": 86,
+          "lemma": "group",
+          "pos": "NOUN",
+          "tag": "NNS",
+          "dependency": "pobj",
+          "head": "of"
+        },
+        {
+          "id": "atom-1-token-15",
+          "text": ".",
+          "start": 86,
+          "end": 87,
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "included"
+        }
+      ],
+      "status": "complete",
+      "unresolved": []
+    },
+    {
+      "atomId": "atom-2",
+      "frames": [
+        {
+          "id": "atom-2-frame-1",
+          "predicate": {
+            "id": "atom-2-frame-1-predicate",
+            "text": "included",
+            "start": 21,
+            "end": 29
+          },
+          "subjects": [
+            {
+              "id": "atom-2-frame-1-subject-1",
+              "text": "New Zealand",
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "atom-2-frame-1-argument-1",
+              "text": "the NDF",
+              "start": 30,
+              "end": 37,
+              "role": "direct_object"
+            }
+          ],
+          "adjuncts": [],
+          "otherModifiers": [
+            {
+              "id": "atom-2-frame-1-other-modifier-1",
+              "text": "in their official list of terrorist groups",
+              "start": 38,
+              "end": 80
+            }
+          ]
+        }
+      ],
+      "cues": [
+        {
+          "id": "atom-2-cue-negation-17-20",
+          "text": "not",
+          "start": 17,
+          "end": 20,
+          "kind": "negation"
+        }
+      ],
+      "entities": [
+        {
+          "id": "atom-2-entity-gpe-0-11",
+          "text": "New Zealand",
+          "start": 0,
+          "end": 11,
+          "label": "GPE"
+        },
+        {
+          "id": "atom-2-entity-org-34-37",
+          "text": "NDF",
+          "start": 34,
+          "end": 37,
+          "label": "ORG"
+        }
+      ],
+      "tokens": [
+        {
+          "id": "atom-2-token-0",
+          "text": "New",
+          "start": 0,
+          "end": 3,
+          "lemma": "New",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "Zealand"
+        },
+        {
+          "id": "atom-2-token-1",
+          "text": "Zealand",
+          "start": 4,
+          "end": 11,
+          "lemma": "Zealand",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "nsubj",
+          "head": "included"
+        },
+        {
+          "id": "atom-2-token-2",
+          "text": "have",
+          "start": 12,
+          "end": 16,
+          "lemma": "have",
+          "pos": "AUX",
+          "tag": "VBP",
+          "dependency": "aux",
+          "head": "included"
+        },
+        {
+          "id": "atom-2-token-3",
+          "text": "not",
+          "start": 17,
+          "end": 20,
+          "lemma": "not",
+          "pos": "PART",
+          "tag": "RB",
+          "dependency": "neg",
+          "head": "included"
+        },
+        {
+          "id": "atom-2-token-4",
+          "text": "included",
+          "start": 21,
+          "end": 29,
+          "lemma": "include",
+          "pos": "VERB",
+          "tag": "VBN",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "atom-2-token-5",
+          "text": "the",
+          "start": 30,
+          "end": 33,
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "NDF"
+        },
+        {
+          "id": "atom-2-token-6",
+          "text": "NDF",
+          "start": 34,
+          "end": 37,
+          "lemma": "NDF",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "dobj",
+          "head": "included"
+        },
+        {
+          "id": "atom-2-token-7",
+          "text": "in",
+          "start": 38,
+          "end": 40,
+          "lemma": "in",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "included"
+        },
+        {
+          "id": "atom-2-token-8",
+          "text": "their",
+          "start": 41,
+          "end": 46,
+          "lemma": "their",
+          "pos": "PRON",
+          "tag": "PRP$",
+          "dependency": "poss",
+          "head": "list"
+        },
+        {
+          "id": "atom-2-token-9",
+          "text": "official",
+          "start": 47,
+          "end": 55,
+          "lemma": "official",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "list"
+        },
+        {
+          "id": "atom-2-token-10",
+          "text": "list",
+          "start": 56,
+          "end": 60,
+          "lemma": "list",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "pobj",
+          "head": "in"
+        },
+        {
+          "id": "atom-2-token-11",
+          "text": "of",
+          "start": 61,
+          "end": 63,
+          "lemma": "of",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "list"
+        },
+        {
+          "id": "atom-2-token-12",
+          "text": "terrorist",
+          "start": 64,
+          "end": 73,
+          "lemma": "terrorist",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "groups"
+        },
+        {
+          "id": "atom-2-token-13",
+          "text": "groups",
+          "start": 74,
+          "end": 80,
+          "lemma": "group",
+          "pos": "NOUN",
+          "tag": "NNS",
+          "dependency": "pobj",
+          "head": "of"
+        },
+        {
+          "id": "atom-2-token-14",
+          "text": ".",
+          "start": 80,
+          "end": 81,
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "included"
+        }
+      ],
+      "status": "complete",
+      "unresolved": []
+    },
+    {
+      "atomId": "atom-3",
+      "frames": [
+        {
+          "id": "atom-3-frame-1",
+          "predicate": {
+            "id": "atom-3-frame-1-predicate",
+            "text": "included",
+            "start": 18,
+            "end": 26
+          },
+          "subjects": [
+            {
+              "id": "atom-3-frame-1-subject-1",
+              "text": "The U.K.",
+              "start": 0,
+              "end": 8
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "atom-3-frame-1-argument-1",
+              "text": "the NDF",
+              "start": 27,
+              "end": 34,
+              "role": "direct_object"
+            }
+          ],
+          "adjuncts": [],
+          "otherModifiers": [
+            {
+              "id": "atom-3-frame-1-other-modifier-1",
+              "text": "in their official list of terrorist groups",
+              "start": 35,
+              "end": 77
+            }
+          ]
+        }
+      ],
+      "cues": [
+        {
+          "id": "atom-3-cue-negation-14-17",
+          "text": "not",
+          "start": 14,
+          "end": 17,
+          "kind": "negation"
+        }
+      ],
+      "entities": [
+        {
+          "id": "atom-3-entity-gpe-4-8",
+          "text": "U.K.",
+          "start": 4,
+          "end": 8,
+          "label": "GPE"
+        },
+        {
+          "id": "atom-3-entity-org-31-34",
+          "text": "NDF",
+          "start": 31,
+          "end": 34,
+          "label": "ORG"
+        }
+      ],
+      "tokens": [
+        {
+          "id": "atom-3-token-0",
+          "text": "The",
+          "start": 0,
+          "end": 3,
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "U.K."
+        },
+        {
+          "id": "atom-3-token-1",
+          "text": "U.K.",
+          "start": 4,
+          "end": 8,
+          "lemma": "U.K.",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "nsubj",
+          "head": "included"
+        },
+        {
+          "id": "atom-3-token-2",
+          "text": "have",
+          "start": 9,
+          "end": 13,
+          "lemma": "have",
+          "pos": "AUX",
+          "tag": "VBP",
+          "dependency": "aux",
+          "head": "included"
+        },
+        {
+          "id": "atom-3-token-3",
+          "text": "not",
+          "start": 14,
+          "end": 17,
+          "lemma": "not",
+          "pos": "PART",
+          "tag": "RB",
+          "dependency": "neg",
+          "head": "included"
+        },
+        {
+          "id": "atom-3-token-4",
+          "text": "included",
+          "start": 18,
+          "end": 26,
+          "lemma": "include",
+          "pos": "VERB",
+          "tag": "VBN",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "atom-3-token-5",
+          "text": "the",
+          "start": 27,
+          "end": 30,
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "NDF"
+        },
+        {
+          "id": "atom-3-token-6",
+          "text": "NDF",
+          "start": 31,
+          "end": 34,
+          "lemma": "NDF",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "dobj",
+          "head": "included"
+        },
+        {
+          "id": "atom-3-token-7",
+          "text": "in",
+          "start": 35,
+          "end": 37,
+          "lemma": "in",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "included"
+        },
+        {
+          "id": "atom-3-token-8",
+          "text": "their",
+          "start": 38,
+          "end": 43,
+          "lemma": "their",
+          "pos": "PRON",
+          "tag": "PRP$",
+          "dependency": "poss",
+          "head": "list"
+        },
+        {
+          "id": "atom-3-token-9",
+          "text": "official",
+          "start": 44,
+          "end": 52,
+          "lemma": "official",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "list"
+        },
+        {
+          "id": "atom-3-token-10",
+          "text": "list",
+          "start": 53,
+          "end": 57,
+          "lemma": "list",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "pobj",
+          "head": "in"
+        },
+        {
+          "id": "atom-3-token-11",
+          "text": "of",
+          "start": 58,
+          "end": 60,
+          "lemma": "of",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "list"
+        },
+        {
+          "id": "atom-3-token-12",
+          "text": "terrorist",
+          "start": 61,
+          "end": 70,
+          "lemma": "terrorist",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "groups"
+        },
+        {
+          "id": "atom-3-token-13",
+          "text": "groups",
+          "start": 71,
+          "end": 77,
+          "lemma": "group",
+          "pos": "NOUN",
+          "tag": "NNS",
+          "dependency": "pobj",
+          "head": "of"
+        },
+        {
+          "id": "atom-3-token-14",
+          "text": ".",
+          "start": 77,
+          "end": 78,
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "included"
+        }
+      ],
+      "status": "complete",
+      "unresolved": []
+    },
+    {
+      "atomId": "atom-4",
+      "frames": [
+        {
+          "id": "atom-4-frame-1",
+          "predicate": {
+            "id": "atom-4-frame-1-predicate",
+            "text": "included",
+            "start": 19,
+            "end": 27
+          },
+          "subjects": [
+            {
+              "id": "atom-4-frame-1-subject-1",
+              "text": "Australia",
+              "start": 0,
+              "end": 9
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "atom-4-frame-1-argument-1",
+              "text": "the NDF",
+              "start": 28,
+              "end": 35,
+              "role": "direct_object"
+            }
+          ],
+          "adjuncts": [],
+          "otherModifiers": [
+            {
+              "id": "atom-4-frame-1-other-modifier-1",
+              "text": "in their official list of terrorist groups",
+              "start": 36,
+              "end": 78
+            }
+          ]
+        }
+      ],
+      "cues": [
+        {
+          "id": "atom-4-cue-negation-15-18",
+          "text": "not",
+          "start": 15,
+          "end": 18,
+          "kind": "negation"
+        }
+      ],
+      "entities": [
+        {
+          "id": "atom-4-entity-gpe-0-9",
+          "text": "Australia",
+          "start": 0,
+          "end": 9,
+          "label": "GPE"
+        },
+        {
+          "id": "atom-4-entity-org-32-35",
+          "text": "NDF",
+          "start": 32,
+          "end": 35,
+          "label": "ORG"
+        }
+      ],
+      "tokens": [
+        {
+          "id": "atom-4-token-0",
+          "text": "Australia",
+          "start": 0,
+          "end": 9,
+          "lemma": "Australia",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "nsubj",
+          "head": "included"
+        },
+        {
+          "id": "atom-4-token-1",
+          "text": "have",
+          "start": 10,
+          "end": 14,
+          "lemma": "have",
+          "pos": "AUX",
+          "tag": "VBP",
+          "dependency": "aux",
+          "head": "included"
+        },
+        {
+          "id": "atom-4-token-2",
+          "text": "not",
+          "start": 15,
+          "end": 18,
+          "lemma": "not",
+          "pos": "PART",
+          "tag": "RB",
+          "dependency": "neg",
+          "head": "included"
+        },
+        {
+          "id": "atom-4-token-3",
+          "text": "included",
+          "start": 19,
+          "end": 27,
+          "lemma": "include",
+          "pos": "VERB",
+          "tag": "VBN",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "atom-4-token-4",
+          "text": "the",
+          "start": 28,
+          "end": 31,
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "NDF"
+        },
+        {
+          "id": "atom-4-token-5",
+          "text": "NDF",
+          "start": 32,
+          "end": 35,
+          "lemma": "NDF",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "dobj",
+          "head": "included"
+        },
+        {
+          "id": "atom-4-token-6",
+          "text": "in",
+          "start": 36,
+          "end": 38,
+          "lemma": "in",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "included"
+        },
+        {
+          "id": "atom-4-token-7",
+          "text": "their",
+          "start": 39,
+          "end": 44,
+          "lemma": "their",
+          "pos": "PRON",
+          "tag": "PRP$",
+          "dependency": "poss",
+          "head": "list"
+        },
+        {
+          "id": "atom-4-token-8",
+          "text": "official",
+          "start": 45,
+          "end": 53,
+          "lemma": "official",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "list"
+        },
+        {
+          "id": "atom-4-token-9",
+          "text": "list",
+          "start": 54,
+          "end": 58,
+          "lemma": "list",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "pobj",
+          "head": "in"
+        },
+        {
+          "id": "atom-4-token-10",
+          "text": "of",
+          "start": 59,
+          "end": 61,
+          "lemma": "of",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "list"
+        },
+        {
+          "id": "atom-4-token-11",
+          "text": "terrorist",
+          "start": 62,
+          "end": 71,
+          "lemma": "terrorist",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "groups"
+        },
+        {
+          "id": "atom-4-token-12",
+          "text": "groups",
+          "start": 72,
+          "end": 78,
+          "lemma": "group",
+          "pos": "NOUN",
+          "tag": "NNS",
+          "dependency": "pobj",
+          "head": "of"
+        },
+        {
+          "id": "atom-4-token-13",
+          "text": ".",
+          "start": 78,
+          "end": 79,
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "included"
+        }
+      ],
+      "status": "complete",
+      "unresolved": []
+    },
+    {
+      "atomId": "atom-5",
+      "frames": [
+        {
+          "id": "atom-5-frame-1",
+          "predicate": {
+            "id": "atom-5-frame-1-predicate",
+            "text": "included",
+            "start": 16,
+            "end": 24
+          },
+          "subjects": [
+            {
+              "id": "atom-5-frame-1-subject-1",
+              "text": "The EU",
+              "start": 0,
+              "end": 6
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "atom-5-frame-1-argument-1",
+              "text": "the NDF",
+              "start": 25,
+              "end": 32,
+              "role": "direct_object"
+            }
+          ],
+          "adjuncts": [],
+          "otherModifiers": [
+            {
+              "id": "atom-5-frame-1-other-modifier-1",
+              "text": "in their official list of terrorist groups",
+              "start": 33,
+              "end": 75
+            }
+          ]
+        }
+      ],
+      "cues": [
+        {
+          "id": "atom-5-cue-negation-12-15",
+          "text": "not",
+          "start": 12,
+          "end": 15,
+          "kind": "negation"
+        }
+      ],
+      "entities": [
+        {
+          "id": "atom-5-entity-org-4-6",
+          "text": "EU",
+          "start": 4,
+          "end": 6,
+          "label": "ORG"
+        },
+        {
+          "id": "atom-5-entity-org-29-32",
+          "text": "NDF",
+          "start": 29,
+          "end": 32,
+          "label": "ORG"
+        }
+      ],
+      "tokens": [
+        {
+          "id": "atom-5-token-0",
+          "text": "The",
+          "start": 0,
+          "end": 3,
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "EU"
+        },
+        {
+          "id": "atom-5-token-1",
+          "text": "EU",
+          "start": 4,
+          "end": 6,
+          "lemma": "EU",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "nsubj",
+          "head": "included"
+        },
+        {
+          "id": "atom-5-token-2",
+          "text": "have",
+          "start": 7,
+          "end": 11,
+          "lemma": "have",
+          "pos": "AUX",
+          "tag": "VBP",
+          "dependency": "aux",
+          "head": "included"
+        },
+        {
+          "id": "atom-5-token-3",
+          "text": "not",
+          "start": 12,
+          "end": 15,
+          "lemma": "not",
+          "pos": "PART",
+          "tag": "RB",
+          "dependency": "neg",
+          "head": "included"
+        },
+        {
+          "id": "atom-5-token-4",
+          "text": "included",
+          "start": 16,
+          "end": 24,
+          "lemma": "include",
+          "pos": "VERB",
+          "tag": "VBN",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "atom-5-token-5",
+          "text": "the",
+          "start": 25,
+          "end": 28,
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "NDF"
+        },
+        {
+          "id": "atom-5-token-6",
+          "text": "NDF",
+          "start": 29,
+          "end": 32,
+          "lemma": "NDF",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "dobj",
+          "head": "included"
+        },
+        {
+          "id": "atom-5-token-7",
+          "text": "in",
+          "start": 33,
+          "end": 35,
+          "lemma": "in",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "included"
+        },
+        {
+          "id": "atom-5-token-8",
+          "text": "their",
+          "start": 36,
+          "end": 41,
+          "lemma": "their",
+          "pos": "PRON",
+          "tag": "PRP$",
+          "dependency": "poss",
+          "head": "list"
+        },
+        {
+          "id": "atom-5-token-9",
+          "text": "official",
+          "start": 42,
+          "end": 50,
+          "lemma": "official",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "list"
+        },
+        {
+          "id": "atom-5-token-10",
+          "text": "list",
+          "start": 51,
+          "end": 55,
+          "lemma": "list",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "pobj",
+          "head": "in"
+        },
+        {
+          "id": "atom-5-token-11",
+          "text": "of",
+          "start": 56,
+          "end": 58,
+          "lemma": "of",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "list"
+        },
+        {
+          "id": "atom-5-token-12",
+          "text": "terrorist",
+          "start": 59,
+          "end": 68,
+          "lemma": "terrorist",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "groups"
+        },
+        {
+          "id": "atom-5-token-13",
+          "text": "groups",
+          "start": 69,
+          "end": 75,
+          "lemma": "group",
+          "pos": "NOUN",
+          "tag": "NNS",
+          "dependency": "pobj",
+          "head": "of"
+        },
+        {
+          "id": "atom-5-token-14",
+          "text": ".",
+          "start": 75,
+          "end": 76,
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "included"
+        }
+      ],
+      "status": "complete",
+      "unresolved": []
+    }
+  ],
+  "recordedWith": {
+    "decompositionModel": "qwen2.5:7b",
+    "retrievalModel": "BAAI/bge-small-en-v1.5",
+    "nliModel": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    "linguisticsModel": "en_core_web_sm@3.8.0"
+  }
+}
