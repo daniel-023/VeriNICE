@@ -2,16 +2,16 @@
 
 ## Current scope
 
-VeriGraph currently runs three verification stages and one optional linguistic
-sidecar. Argumentation-graph construction and the final four-way verdict remain
-visual placeholders.
+VeriGraph currently runs three model-backed verification stages, a deterministic
+atom–evidence argumentation graph, and one optional linguistic sidecar. The final
+four-way verdict remains a visual placeholder.
 
 ```text
 Claim + documents
   → claim decomposition       live
   → candidate retrieval       live
   → sentence-level NLI        live
-  → argumentation graph       pending
+  → argumentation graph       derived from NLI outputs
   → case verdict              pending
 
 Atomic claims
@@ -27,7 +27,7 @@ Atomic claims
 | Candidate retrieval | Batched normalized embeddings and cosine ranking; up to six sentences per atom, capped at three per document in multidocument cases | Sentence Transformers `3.4.1`, `BAAI/bge-small-en-v1.5` | Semantically nearest candidate sentences; no threshold or scores |
 | NLI support classification | Each candidate sentence is the premise and its atom is the hypothesis; three-way argmax | Transformers `4.48.3`, `MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli`, revision `6f5cf0a2b59cabb106aca4c287eed12e357e90eb` | `ENTAILMENT`, `CONTRADICTION`, or `NEUTRAL` for every atom–sentence pair |
 | Linguistic structure | Batched dependency parsing and conservative rule-based role extraction | spaCy `3.8.7`, `en_core_web_sm@3.8.0` | Frames, core arguments, adjuncts, other modifiers, cues, entities, and syntax tokens |
-| Argumentation graph | Not implemented | — | Pending |
+| Argumentation graph | Frontend-derived atom–evidence graph; no additional model inference | Existing decomposition, retrieval, and NLI outputs | Claim, atom, and evidence nodes with `ENTAILMENT`, `CONTRADICTION`, and `NEUTRAL` links |
 | Four-way verdict | Not implemented | — | Pending: `SUPPORTED`, `REFUTED`, `NOT ENOUGH EVIDENCE`, or `CONFLICTING EVIDENCE` |
 
 All model-generated or parsed spans are validated against unchanged source text
@@ -46,6 +46,8 @@ highlighting.
 5. Retrieval, NLI, and linguistics have independent error and retry states.
    Claim edits clear all derived results; document edits retain decomposition
    and linguistics but clear retrieval and NLI.
+6. Once NLI completes, the frontend derives the argumentation graph directly
+   from atoms, candidate evidence, and sentence-level relations.
 
 The dataset's reference label is displayed only as metadata. It never supplies
 an NLI relation or computed verdict.
@@ -61,9 +63,9 @@ an NLI relation or computed verdict.
   documents. Trafilatura is used only during preparation; source sites are not
   fetched during requests.
 - Deployment: Vercel serves an interactive static walkthrough of recorded
-  local runs. Docker Compose runs the live Next.js, FastAPI, and Ollama
-  services on the demonstration laptop. BGE and DeBERTa weights are local
-  read-only mounts; Vercel hosts no inference backend.
+  local runs. The native launcher runs Next.js and FastAPI on the demonstration
+  laptop and connects to host Ollama. BGE and DeBERTa weights remain local;
+  Vercel hosts no inference backend.
 
 ## Public API
 
@@ -82,6 +84,8 @@ an NLI relation or computed verdict.
   `NOT_ENOUGH_EVIDENCE` label.
 - Relations from multiple sentences are not yet aggregated into an atom or case
   verdict.
+- The argumentation graph visualizes observed NLI links; it does not infer new
+  argument relationships or produce a verdict.
 - Absence from an apparently complete list and other closed-world/set reasoning
   are deferred to the argumentation stage.
 - Linguistic features describe claim structure and do not influence support

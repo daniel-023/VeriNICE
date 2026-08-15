@@ -207,6 +207,7 @@ def _subjects(predicate: Any) -> List[Any]:
 
 def _predicate_tokens(doc: Any) -> List[Any]:
     predicates: List[Any] = []
+    clause_predicate_deps = {"advcl", "ccomp", "xcomp", "conj"}
     try:
         sentences = list(doc.sents)
     except ValueError:
@@ -221,7 +222,7 @@ def _predicate_tokens(doc: Any) -> List[Any]:
         predicates.extend(
             token
             for token in sentence
-            if token.dep_ == "conj" and token.pos_ in {"VERB", "AUX"}
+            if token.dep_ in clause_predicate_deps and token.pos_ in {"VERB", "AUX"}
         )
     return _dedupe_tokens(predicates)
 
@@ -307,6 +308,14 @@ def _frames(atom: PipelineAtom, doc: Any) -> tuple[List[PropositionFrame], List[
         argument_tokens: List[tuple[Any, str, bool]] = []
         modifier_tokens: List[tuple[Any, str]] = []
         other_modifier_tokens: List[Any] = []
+        seen_modifiers: set[tuple[int, str]] = set()
+
+        def add_modifier(token: Any, kind: str) -> None:
+            key = (token.i, kind)
+            if key not in seen_modifiers:
+                seen_modifiers.add(key)
+                modifier_tokens.append((token, kind))
+
         for child in predicate.children:
             if child.dep_ in _DIRECT_OBJECT_DEPS:
                 argument_tokens.append((child, "direct_object", False))
@@ -325,7 +334,7 @@ def _frames(atom: PipelineAtom, doc: Any) -> tuple[List[PropositionFrame], List[
                 if kind is None:
                     other_modifier_tokens.append(child)
                 else:
-                    modifier_tokens.append((child, kind))
+                    add_modifier(child, kind)
         if copular_head is not None:
             subject_tokens = _dedupe_tokens(
                 list(subject_tokens)
@@ -347,7 +356,7 @@ def _frames(atom: PipelineAtom, doc: Any) -> tuple[List[PropositionFrame], List[
                 if kind is None:
                     other_modifier_tokens.append(child)
                 else:
-                    modifier_tokens.append((child, kind))
+                    add_modifier(child, kind)
 
         subjects = [
             _phrase_span(atom.text, atom.id, token, f"frame-{frame_index}-subject-{index}")
@@ -503,16 +512,18 @@ def analysis_from_doc(atom: PipelineAtom, doc: Any) -> AtomLinguisticAnalysis:
 
 
 def analyze_atoms(atoms: Sequence[PipelineAtom]) -> LinguisticAnalysisResponse:
+    if not atoms:
+        raise LinguisticAnalysisError("At least one atom is required for linguistic analysis.")
     nlp = _load_model()
     try:
         docs = list(nlp.pipe((atom.text for atom in atoms), batch_size=len(atoms)))
+        if len(docs) != len(atoms):
+            raise LinguisticAnalysisError("The parser returned an incomplete analysis batch.")
         analyses = [analysis_from_doc(atom, doc) for atom, doc in zip(atoms, docs)]
     except LinguisticAnalysisError:
         raise
     except Exception as error:
         raise LinguisticAnalysisError("Local linguistic analysis failed.") from error
-    if len(analyses) != len(atoms):
-        raise LinguisticAnalysisError("The parser returned an incomplete analysis batch.")
     return LinguisticAnalysisResponse(analyses=analyses, model=MODEL_ID)
 
 

@@ -160,6 +160,13 @@ describe("multidocument workbench accessibility", () => {
     expect(summary).toHaveFocus();
     fireEvent.click(summary);
     expect(getByRole("table")).toBeVisible();
+    expect(getByText(/lemma = base word/)).toBeInTheDocument();
+    expect(getByRole("tab", { name: "Readable syntax" })).toHaveAttribute("aria-selected", "true");
+    fireEvent.click(getByRole("tab", { name: "Raw details" }));
+    expect(getByRole("tab", { name: "Raw details" })).toHaveAttribute("aria-selected", "true");
+    const tokenButton = getByRole("button", { name: "Token: Mara" });
+    fireEvent.click(tokenButton);
+    expect(tokenButton).toHaveAttribute("aria-pressed", "true");
     const result = await axe.run(container, { rules: { "color-contrast": { enabled: false } } });
     expect(result.violations).toEqual([]);
   });

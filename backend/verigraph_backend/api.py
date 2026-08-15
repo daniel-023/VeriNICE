@@ -65,11 +65,19 @@ from .settings import settings
 async def lifespan(_: FastAPI) -> AsyncIterator[None]:
     demo_store()
     loop = asyncio.get_running_loop()
-    linguistic_result, nli_result = await asyncio.gather(
-        loop.run_in_executor(_linguistics_worker, warm_linguistics),
-        loop.run_in_executor(_nli_worker, warm_nli),
-        return_exceptions=True,
-    )
+    # Keep heavyweight model imports sequential. spaCy, PyTorch, and
+    # Transformers can contend for Python/native loader locks when warmed in
+    # parallel, leaving Uvicorn apparently stuck before it serves health.
+    try:
+        linguistic_result = await loop.run_in_executor(
+            _linguistics_worker, warm_linguistics
+        )
+    except Exception as error:  # optional sidecar must not block startup
+        linguistic_result = error
+    try:
+        nli_result = await loop.run_in_executor(_nli_worker, warm_nli)
+    except Exception as error:
+        nli_result = error
     if isinstance(linguistic_result, Exception):
         logging.getLogger(__name__).warning(
             "Optional linguistic analysis is unavailable; run launcher setup to install it."

@@ -11,7 +11,6 @@ import {
 import type { StageState } from "@/lib/types";
 
 const PENDING_STAGES = [
-  { icon: GitBranch, title: "Argumentation Graph" },
   { icon: Split, title: "Four-way Verdict" },
 ];
 
@@ -19,6 +18,8 @@ export function PipelinePanel({
   decompositionState,
   retrievalState,
   nliState,
+  graphState,
+  graphLinkCount,
   atomCount,
   evidenceCount,
   relationCount,
@@ -29,6 +30,8 @@ export function PipelinePanel({
   decompositionState: StageState;
   retrievalState: StageState;
   nliState: StageState;
+  graphState: StageState;
+  graphLinkCount: number;
   atomCount: number;
   evidenceCount: number;
   relationCount: number;
@@ -81,7 +84,7 @@ export function PipelinePanel({
           <p className="eyebrow">Verification Pipeline</p>
           <h2 id="pipeline-heading">From Claim to Verdict</h2>
         </div>
-        <span>{recorded ? "3 recorded stages" : "3 live stages"}</span>
+        <span>{recorded ? "4 recorded stages" : "4 live stages"}</span>
       </div>
 
       <ol className="pipeline-stages">
@@ -155,13 +158,31 @@ export function PipelinePanel({
           </span>
         </li>
 
+        <li className={`pipeline-stage stage-${graphState}`}>
+          <span className="stage-icon">
+            {graphState === "complete" ? <Check size={19} aria-hidden="true" /> : <GitBranch size={19} aria-hidden="true" />}
+          </span>
+          <span className="stage-copy">
+            <small>04 · {recorded ? "RECORDED" : "DERIVED"}</small>
+            <strong>Argumentation Graph</strong>
+            <p>
+              {graphState === "complete"
+                ? `${graphLinkCount} observed NLI link${graphLinkCount === 1 ? "" : "s"} between atoms and evidence.`
+                : graphState === "running"
+                  ? "Waiting for sentence-level NLI relations."
+                  : "Appears after NLI classification completes."}
+            </p>
+          </span>
+          <span className="stage-state">{stateLabel(graphState)}</span>
+        </li>
+
         {PENDING_STAGES.map(({ icon: Icon, title }, index) => (
           <li className="pipeline-stage stage-pending" key={title}>
             <span className="stage-icon">
               <Icon size={19} aria-hidden="true" />
             </span>
             <span className="stage-copy">
-              <small>{String(index + 4).padStart(2, "0")} · NEXT</small>
+                <small>{String(index + 5).padStart(2, "0")} · NEXT</small>
               <strong>{title}</strong>
               <p>
                 {title === "Four-way Verdict"

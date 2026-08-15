@@ -69,7 +69,7 @@ async def main_async() -> int:
         import httpx
     except ImportError as error:
         raise RuntimeError(
-            "The walkthrough recorder runs in the backend Docker image. Use ./run-verigraph --record-walkthrough."
+            "Run ./run-verigraph --prepare first so the backend virtualenv contains httpx."
         ) from error
 
     args.output.mkdir(parents=True, exist_ok=True)

@@ -74,6 +74,33 @@ export interface AtomSupportClassification {
   relations: EvidenceRelation[];
 }
 
+export type ArgumentationNodeKind = "claim" | "atom" | "evidence";
+
+export interface ArgumentationNode {
+  id: string;
+  kind: ArgumentationNodeKind;
+  label: string;
+  text: string;
+  atomId?: string;
+  documentId?: string;
+  spanId?: string;
+  atomIds?: string[];
+}
+
+export type ArgumentationEdgeRelation = "DECOMPOSES" | NLIRelation;
+
+export interface ArgumentationEdge {
+  id: string;
+  source: string;
+  target: string;
+  relation: ArgumentationEdgeRelation;
+}
+
+export interface ArgumentationGraph {
+  nodes: ArgumentationNode[];
+  edges: ArgumentationEdge[];
+}
+
 export interface SupportClassificationResponse {
   classifications: AtomSupportClassification[];
   provider: "transformers";

@@ -12,7 +12,9 @@ Semantic candidate matching (BGE embeddings)
         ↓
 Sentence-level NLI (DeBERTa)
         ↓
-Argumentation graph and four-way verdict — pending
+Deterministic atom–evidence argumentation graph
+        ↓
+Four-way verdict — pending
 ```
 
 Linguistic structure is an optional local spaCy sidecar. It describes atom
@@ -23,7 +25,7 @@ syntax and cues; it is not evidence or a verdict input.
 | Mode | Where | What is live |
 | --- | --- | --- |
 | Walkthrough | Vercel | Nothing. It presents recorded local runs of approved AVeriTeC cases. |
-| Live demo | Docker Compose on your laptop | Qwen/Ollama decomposition, BGE retrieval, DeBERTa NLI, and spaCy analysis. |
+| Live demo | Native processes on your laptop | Qwen/Ollama decomposition, BGE retrieval, DeBERTa NLI, and spaCy analysis. |
 
 The Vercel UI always states: **“Demo mode — results are precomputed. Live
 analysis is available locally.”** It never attempts to connect to a laptop or
@@ -31,8 +33,10 @@ to a public inference service.
 
 ## Local live demo
 
-Requirements: Docker Desktop with its daemon running and sufficient local disk
-space for Qwen2.5 7B plus the BGE and DeBERTa weights.
+Requirements: Python 3, Node.js/npm, and Ollama Desktop. Native execution keeps
+the backend and model files on the host, avoiding container and macOS
+file-provider issues. The Ollama model can be overridden with
+`VERIGRAPH_OLLAMA_MODEL` when more memory is available.
 
 Optional local overrides can be placed in `.env`:
 
@@ -42,14 +46,15 @@ cp .env.example .env
 
 ```bash
 cd verigraph
-./run-verigraph --prepare  # one-time model download
+./run-verigraph --prepare  # one-time dependency/model setup
 ./run-verigraph --start
 ```
 
-Open <http://127.0.0.1:3000>. The browser talks only to the local Next.js
-container; it proxies to FastAPI inside Docker Compose. The source documents,
-embedding model, NLI model, and Ollama model cache are local after preparation,
-so the conference demo does not require Internet access.
+Open <http://127.0.0.1:3000>. The browser talks to the local Next.js process,
+which proxies to FastAPI on port 8001. BGE and DeBERTa are stored in the
+gitignored `data/models/` directory; Ollama stores its model in its normal host
+installation. After preparation, inference is local and does not fetch source
+documents or model files.
 
 If the live stack is unavailable, open the local `/walkthrough` route for the
 same recorded fallback used by Vercel.
@@ -62,9 +67,10 @@ Useful commands:
 ./run-verigraph --record-walkthrough
 ```
 
-`--record-walkthrough` runs four representative cases—one per reference
-label—through the local pipeline and writes the static assets consumed by
-Vercel. It must complete successfully before deploying a new walkthrough.
+`--record-walkthrough` uses the already-running native services to run four
+representative cases—one per reference label—and writes the static assets
+consumed by Vercel. It must complete successfully before deploying a new
+walkthrough.
 
 ## Vercel deployment
 

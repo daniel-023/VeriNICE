@@ -4,12 +4,14 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Activity, LoaderCircle, Play, Sparkles } from "lucide-react";
 import { FormEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { api } from "@/lib/api";
+import { buildArgumentationGraph } from "@/lib/argumentationGraph";
 import { deploymentMode, type DeploymentMode } from "@/lib/deployment";
 import { useLinguisticAnalysis } from "@/lib/useLinguisticAnalysis";
 import { walkthroughApi } from "@/lib/walkthrough";
 import type {
   AtomEvidence,
   AtomSupportClassification,
+  ArgumentationNode,
   DecomposedAtom,
   DemoCase,
   DemoCaseSummary,
@@ -20,6 +22,7 @@ import type {
   StageState,
 } from "@/lib/types";
 import { AtomRail } from "./AtomRail";
+import { ArgumentationGraph } from "./ArgumentationGraph";
 import { DocumentPanel } from "./DocumentPanel";
 import { LinguisticPanel } from "./LinguisticPanel";
 import { PipelinePanel } from "./PipelinePanel";
@@ -455,6 +458,19 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
     textarea.setSelectionRange(atom.start, atom.end);
   };
 
+  const selectGraphAtom = (atomId: string) => {
+    const atom = atoms.find((item) => item.id === atomId);
+    if (atom) selectAtom(atom);
+  };
+
+  const selectGraphEvidence = (node: ArgumentationNode) => {
+    const ownerAtom = node.atomIds
+      ?.map((atomId) => atoms.find((item) => item.id === atomId))
+      .find((atom): atom is DecomposedAtom => Boolean(atom));
+    if (ownerAtom) selectAtom(ownerAtom);
+    if (node.documentId) setActiveDocumentId(node.documentId);
+  };
+
   const selectedAtom = atoms.find((atom) => atom.id === selectedAtomId) ?? null;
   const selectedEvidence =
     evidence.find((item) => item.atomId === selectedAtomId)?.spans ?? [];
@@ -463,6 +479,19 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
   const selectedClassification =
     classifications.find((item) => item.atomId === selectedAtomId) ?? null;
   const selectedRelations = selectedClassification?.relations ?? [];
+  const argumentationGraph = useMemo(
+    () => buildArgumentationGraph(claim, atoms, evidence, classifications, documents),
+    [claim, atoms, evidence, classifications, documents],
+  );
+  const graphLinkCount = argumentationGraph.edges.filter((edge) => edge.relation !== "DECOMPOSES").length;
+  const graphState: StageState =
+    nliState === "complete"
+      ? "complete"
+      : nliState === "running"
+        ? "running"
+        : nliState === "error"
+          ? "error"
+          : "idle";
   const evidenceCount = evidence.reduce((count, item) => count + item.spans.length, 0);
   const relationCount = classifications.reduce(
     (count, item) => count + item.relations.length,
@@ -677,12 +706,19 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
             decompositionState={decompositionState}
             retrievalState={retrievalState}
             nliState={nliState}
+            graphState={graphState}
+            graphLinkCount={graphLinkCount}
             atomCount={atoms.length}
             evidenceCount={evidenceCount}
             relationCount={relationCount}
             onRetryEvidence={retryEvidence}
             onRetryNli={retryNli}
             recorded={walkthrough}
+          />
+          <ArgumentationGraph
+            graph={argumentationGraph}
+            onSelectAtom={selectGraphAtom}
+            onSelectEvidence={selectGraphEvidence}
           />
         </div>
         <div className="workbench-pane evidence-pane" data-mobile-active={mobilePanel === "document"}>

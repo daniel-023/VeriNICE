@@ -824,6 +824,44 @@ textarea:focus-visible,
   font-weight: 700;
 }
 
+.syntax-caption,
+.syntax-legend {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 9px;
+  line-height: 1.45;
+}
+
+.syntax-legend {
+  border-left: 2px solid var(--lime);
+  padding-left: 8px;
+}
+
+.syntax-tabs {
+  display: flex;
+  gap: 5px;
+  margin-top: 9px;
+  border-bottom: 1px solid var(--line);
+}
+
+.syntax-tab {
+  border: 1px solid var(--line);
+  border-bottom: 0;
+  border-radius: 5px 5px 0 0;
+  padding: 6px 8px;
+  background: var(--white);
+  color: var(--blue-dark);
+  cursor: pointer;
+  font: 8px/1 var(--mono);
+  font-weight: 750;
+}
+
+.syntax-tab.active,
+.syntax-tab:hover {
+  border-color: var(--blue);
+  background: var(--lime);
+}
+
 .syntax-table-wrap {
   min-width: 0;
   max-height: 230px;
@@ -862,6 +900,27 @@ textarea:focus-visible,
 
 .syntax-table-wrap tbody tr {
   content-visibility: auto;
+}
+
+.syntax-token-button {
+  border: 0;
+  border-radius: 3px;
+  padding: 2px 3px;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+
+.syntax-token-button:hover,
+.syntax-token-button[aria-pressed="true"] {
+  background: var(--lime);
+}
+
+.syntax-raw {
+  color: var(--muted);
+  font: 8px/1 var(--mono);
 }
 
 .panel-empty {
@@ -1045,6 +1104,162 @@ textarea:focus-visible,
 .document-panel .panel-heading > svg {
   color: var(--muted);
 }
+
+.argumentation-graph {
+  min-width: 0;
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+  border: 1px solid var(--blue);
+  border-radius: 8px;
+  padding: 12px;
+  background: var(--panel);
+  box-shadow: inset 3px 0 0 rgba(24, 61, 240, 0.18);
+}
+
+.argumentation-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.argumentation-heading h3 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.argumentation-heading p,
+.argumentation-note,
+.argumentation-empty {
+  margin: 3px 0 0;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.45;
+}
+
+.argumentation-heading > span {
+  flex: 0 0 auto;
+  align-self: start;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 5px 7px;
+  background: var(--white);
+  color: var(--blue-dark);
+  font: 8px/1 var(--mono);
+  text-transform: uppercase;
+}
+
+.argumentation-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  color: var(--muted);
+  font: 8px/1 var(--mono);
+  text-transform: uppercase;
+}
+
+.argumentation-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.argumentation-legend i {
+  display: inline-block;
+  width: 18px;
+  height: 2px;
+  background: var(--line-dark);
+}
+
+.argumentation-legend strong {
+  color: var(--ink);
+}
+
+.argumentation-legend .graph-edge-entailment i { background: var(--green, #23936b); }
+.argumentation-legend .graph-edge-contradiction i { background: var(--red); }
+.argumentation-legend .graph-edge-neutral i { background: var(--blue); }
+
+.argumentation-scroll {
+  min-width: 0;
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--white);
+}
+
+.argumentation-canvas {
+  position: relative;
+  min-height: 220px;
+}
+
+.argumentation-edges {
+  position: absolute;
+  inset: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.argumentation-edges path {
+  fill: none;
+  stroke-width: 2;
+}
+
+.argumentation-edges .graph-edge-decomposes { stroke: var(--line-dark); stroke-dasharray: 4 4; }
+.argumentation-edges .graph-edge-entailment { stroke: var(--green, #23936b); }
+.argumentation-edges .graph-edge-contradiction { stroke: var(--red); }
+.argumentation-edges .graph-edge-neutral { stroke: var(--blue); stroke-dasharray: 3 3; }
+
+.argumentation-node {
+  position: absolute;
+  z-index: 1;
+  min-height: 72px;
+  display: grid;
+  align-content: start;
+  gap: 5px;
+  overflow: hidden;
+  border: 1px solid var(--line-dark);
+  border-radius: 7px;
+  padding: 9px;
+  background: var(--white);
+  color: var(--ink);
+  cursor: pointer;
+  text-align: left;
+}
+
+.argumentation-node:hover,
+.argumentation-node:focus-visible {
+  border-color: var(--blue);
+  outline: 2px solid rgba(49, 88, 216, .2);
+  outline-offset: 1px;
+}
+
+.argumentation-node small {
+  color: var(--blue-dark);
+  font: 8px/1 var(--mono);
+  font-weight: 750;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+.argumentation-node strong {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-size: 10px;
+  line-height: 1.35;
+}
+
+.graph-node-claim {
+  border-color: var(--blue);
+  background: var(--blue-soft, #edf2ff);
+  cursor: default;
+  text-align: center;
+}
+
+.graph-node-atom { border-left: 3px solid var(--blue); }
+.graph-node-evidence { border-left: 3px solid var(--lime); }
 
 .source-tabs-row {
   display: grid;

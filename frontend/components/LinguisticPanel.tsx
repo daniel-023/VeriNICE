@@ -15,6 +15,52 @@ function plainLabel(value: string): string {
   return `${text.charAt(0).toUpperCase()}${text.slice(1)}`;
 }
 
+const dependencyLabels: Record<string, string> = {
+  advcl: "Adverbial clause",
+  advmod: "Adverbial modifier",
+  agent: "Passive agent",
+  attr: "Subject complement",
+  aux: "Auxiliary",
+  ccomp: "Clausal complement",
+  conj: "Coordination",
+  det: "Determiner",
+  dobj: "Direct object",
+  iobj: "Indirect object",
+  mark: "Clause marker",
+  neg: "Negation",
+  nsubj: "Subject",
+  nsubjpass: "Passive subject",
+  obj: "Direct object",
+  obl: "Oblique modifier",
+  pobj: "Prepositional object",
+  prep: "Preposition",
+  punct: "Punctuation",
+  root: "Root",
+  xcomp: "Open clausal complement",
+};
+
+const posLabels: Record<string, string> = {
+  ADJ: "Adjective",
+  ADV: "Adverb",
+  AUX: "Auxiliary",
+  CCONJ: "Coordinating conjunction",
+  DET: "Determiner",
+  NOUN: "Noun",
+  NUM: "Number",
+  PART: "Particle",
+  PRON: "Pronoun",
+  PROPN: "Proper noun",
+  VERB: "Verb",
+};
+
+function dependencyLabel(value: string): string {
+  return dependencyLabels[value.toLowerCase()] ?? plainLabel(value);
+}
+
+function posLabel(value: string): string {
+  return posLabels[value] ?? plainLabel(value);
+}
+
 function Preview({ text, feature }: { text: string; feature: LinguisticSpan | null }) {
   if (!feature || feature.start < 0 || feature.end <= feature.start || feature.end > text.length) {
     return <>{text}</>;
@@ -101,6 +147,7 @@ export function LinguisticPanel({
   onRetry: () => void;
 }) {
   const [activeFeature, setActiveFeature] = useState<LinguisticSpan | null>(null);
+  const [syntaxView, setSyntaxView] = useState<"readable" | "raw">("readable");
 
   const featureButtons = (
     items: Array<{ feature: LinguisticSpan; label: string }>,
@@ -216,13 +263,71 @@ export function LinguisticPanel({
 
           <details className="syntax-details">
             <summary>Syntax Details</summary>
+            <p className="syntax-caption">
+              Technical view of how the parser identifies words, roles, and relationships.
+            </p>
+            <div className="syntax-legend" role="note">
+              <strong>Linguistic terms:</strong> lemma = base word · POS/tag = word type · dependency = grammatical relationship · head = related word
+            </div>
+            <div className="syntax-tabs" role="tablist" aria-label="Syntax table view">
+              <button
+                type="button"
+                role="tab"
+                aria-selected={syntaxView === "readable"}
+                className={syntaxView === "readable" ? "syntax-tab active" : "syntax-tab"}
+                onClick={() => setSyntaxView("readable")}
+              >
+                Readable syntax
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected={syntaxView === "raw"}
+                className={syntaxView === "raw" ? "syntax-tab active" : "syntax-tab"}
+                onClick={() => setSyntaxView("raw")}
+              >
+                Raw details
+              </button>
+            </div>
             <div className="syntax-table-wrap">
               <table>
-                <thead><tr><th>Token</th><th>Lemma</th><th>POS</th><th>Dependency</th><th>Head</th></tr></thead>
+                <thead>
+                  {syntaxView === "readable" ? (
+                    <tr><th>Token</th><th>Role / dependency</th><th>Head</th><th>POS / tag</th><th>Lemma</th></tr>
+                  ) : (
+                    <tr><th>Token</th><th>Lemma</th><th>POS</th><th>Dependency</th><th>Head</th><th>Offsets</th></tr>
+                  )}
+                </thead>
                 <tbody>
                   {analysis.tokens.map((token) => (
                     <tr key={token.id}>
-                      <td>{token.text}</td><td>{token.lemma}</td><td>{token.pos}{token.tag ? ` · ${token.tag}` : ""}</td><td>{token.dependency}</td><td>{token.head || "—"}</td>
+                      <td>
+                        <button
+                          type="button"
+                          className="syntax-token-button"
+                          aria-pressed={activeFeature?.id === token.id}
+                          aria-label={`Token: ${token.text}`}
+                          onClick={() => setActiveFeature(token)}
+                        >
+                          {token.text}
+                        </button>
+                      </td>
+                      {syntaxView === "readable" ? (
+                        <>
+                          <td>{dependencyLabel(token.dependency)} <span className="syntax-raw">· {token.dependency}</span></td>
+                          <td>{token.head || "—"}</td>
+                          <td>{posLabel(token.pos)} <span className="syntax-raw">· {token.pos}{token.tag ? `/${token.tag}` : ""}</span></td>
+                          <td>{token.lemma}</td>
+                        </>
+                      ) : (
+                        <>
+                          <td>{token.lemma}</td>
+                          <td>{token.pos}{token.tag ? ` · ${token.tag}` : ""}</td>
+                          <td>{token.dependency}</td>
+                          <td>{token.head || "—"}</td>
+                          <td>{token.start}–{token.end}</td>
+                        </>
+                      )}
                     </tr>
                   ))}
                 </tbody>

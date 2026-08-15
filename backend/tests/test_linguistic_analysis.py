@@ -87,6 +87,46 @@ def test_passive_and_coordinated_predicates_inherit_subjects() -> None:
     assert result.status == "complete"
 
 
+def test_nested_clause_predicates_receive_their_own_frames() -> None:
+    text = "Alice said the team may win."
+    doc = make_doc(
+        ["Alice", "said", "the", "team", "may", "win", "."],
+        [True, True, True, True, True, False, False],
+        [1, 1, 3, 5, 5, 1, 1],
+        ["nsubj", "ROOT", "det", "nsubj", "aux", "ccomp", "punct"],
+        ["PROPN", "VERB", "DET", "NOUN", "AUX", "VERB", "PUNCT"],
+        ["NNP", "VBD", "DT", "NN", "MD", "VB", "."],
+        ["Alice", "say", "the", "team", "may", "win", "."],
+    )
+
+    result = linguistic.analysis_from_doc(PipelineAtom(id="atom-nested", text=text), doc)
+
+    assert [(frame.predicate.text, [subject.text for subject in frame.subjects]) for frame in result.frames] == [
+        ("said", ["Alice"]),
+        ("win", ["the team"]),
+    ]
+    assert result.status == "complete"
+
+
+def test_controlled_nested_clause_is_partial() -> None:
+    text = "Mara wants to leave."
+    doc = make_doc(
+        ["Mara", "wants", "to", "leave", "."],
+        [True, True, True, False, False],
+        [1, 1, 3, 1, 1],
+        ["nsubj", "ROOT", "mark", "xcomp", "punct"],
+        ["PROPN", "VERB", "PART", "VERB", "PUNCT"],
+        ["NNP", "VBZ", "TO", "VB", "."],
+        ["Mara", "want", "to", "leave", "."],
+    )
+
+    result = linguistic.analysis_from_doc(PipelineAtom(id="atom-controlled", text=text), doc)
+
+    assert [frame.predicate.text for frame in result.frames] == ["wants", "leave"]
+    assert result.status == "partial"
+    assert result.unresolved == ["subject"]
+
+
 def test_copular_frame_and_partial_parse() -> None:
     text = "Mara is the CTO."
     doc = make_doc(
@@ -227,6 +267,27 @@ def test_batching_order_is_stable_and_no_network_client_is_imported(monkeypatch)
     source = inspect.getsource(linguistic)
     assert "httpx" not in source
     assert "ollama" not in source.lower()
+
+
+def test_batching_rejects_extra_parser_documents(monkeypatch) -> None:
+    atoms = [PipelineAtom(id="atom-1", text="Fish swim.")]
+    doc = make_doc(
+        ["Fish", "swim", "."],
+        [True, False, False],
+        [1, 1, 1],
+        ["nsubj", "ROOT", "punct"],
+        ["NOUN", "VERB", "PUNCT"],
+        ["NNS", "VBP", "."],
+        ["fish", "swim", "."],
+    )
+
+    class FakeNLP:
+        def pipe(self, texts, batch_size):
+            return [doc, doc]
+
+    monkeypatch.setattr(linguistic, "_load_model", lambda: FakeNLP())
+    with pytest.raises(linguistic.LinguisticAnalysisError, match="incomplete analysis batch"):
+        linguistic.analyze_atoms(atoms)
 
 
 def test_model_absence_has_actionable_setup_message(monkeypatch) -> None:
