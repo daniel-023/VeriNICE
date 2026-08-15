@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "${script_dir}"
+
+usage() {
+  cat <<'EOF'
+Usage: ./run-verigraph [--prepare|--start|--record-walkthrough|--check|--test]
+
+  --prepare             Download local BGE, DeBERTa, spaCy, and Qwen assets.
+  --start               Start the complete local live demo at http://127.0.0.1:3000.
+  --record-walkthrough  Record every local demo case and build Vercel static assets.
+  --check               Validate the Docker Compose configuration.
+  --test                Run backend and frontend tests in Docker.
+EOF
+}
+
+wait_for_local_ui() {
+  for _ in $(seq 1 180); do
+    if curl -fsS http://127.0.0.1:3000/ >/dev/null 2>&1 \
+      && curl -fsS http://127.0.0.1:3000/api/v1/health >/dev/null 2>&1; then
+      return 0
+    fi
+    sleep 1
+  done
+  echo "The local UI did not become ready. Inspect: docker compose logs" >&2
+  return 1
+}
+
+case "${1:-}" in
+  --prepare)
+    docker compose build model-prep
+    docker compose run --rm model-prep
+    docker compose --profile prepare up --abort-on-container-exit \
+      --exit-code-from ollama-pull ollama ollama-pull
+    ;;
+  --start|"")
+    docker compose up --build
+    ;;
+  --record-walkthrough)
+    docker compose up -d --build
+    wait_for_local_ui
+    docker compose --profile record run --rm walkthrough-recorder
+    docker compose --profile record run --rm walkthrough-build
+    echo "Recorded walkthrough assets are ready in frontend/public/walkthrough/."
+    ;;
+  --check)
+    docker compose config
+    ;;
+  --test)
+    docker compose --profile test run --rm backend-test
+    docker compose --profile test run --rm frontend-test
+    ;;
+  *)
+    usage
+    exit 2
+    ;;
+esac

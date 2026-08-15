@@ -1,0 +1,158 @@
+[
+  {
+    "id": "polarity-supported",
+    "claim": "The Vega launch was not delayed.",
+    "documents": [
+      {
+        "id": "document-1",
+        "title": "Offline fallback document",
+        "url": "urn:verigraph:fallback:polarity-supported",
+        "text": "Mission control confirmed that the Vega launch was not delayed. The rocket departed on schedule."
+      }
+    ],
+    "label": "SUPPORTED"
+  },
+  {
+    "id": "polarity-contradicted",
+    "claim": "The inspection found no safety violations.",
+    "documents": [
+      {
+        "id": "document-1",
+        "title": "Offline fallback document",
+        "url": "urn:verigraph:fallback:polarity-contradicted",
+        "text": "The inspection found several safety violations. Officials ordered corrective work."
+      }
+    ],
+    "label": "REFUTED"
+  },
+  {
+    "id": "quantity-supported",
+    "claim": "The trial enrolled 240 participants.",
+    "documents": [
+      {
+        "id": "document-1",
+        "title": "Offline fallback document",
+        "url": "urn:verigraph:fallback:quantity-supported",
+        "text": "The clinical trial enrolled 240 participants across four hospitals."
+      }
+    ],
+    "label": "SUPPORTED"
+  },
+  {
+    "id": "quantity-contradicted",
+    "claim": "The update reduced energy use by 25%.",
+    "documents": [
+      {
+        "id": "document-1",
+        "title": "Offline fallback document",
+        "url": "urn:verigraph:fallback:quantity-contradicted",
+        "text": "Engineers measured an 18% reduction in energy use after the update."
+      }
+    ],
+    "label": "REFUTED"
+  },
+  {
+    "id": "temporal-supported",
+    "claim": "The archive opened in 2021.",
+    "documents": [
+      {
+        "id": "document-1",
+        "title": "Offline fallback document",
+        "url": "urn:verigraph:fallback:temporal-supported",
+        "text": "The archive opened to researchers in 2021 after a three-year cataloging project."
+      }
+    ],
+    "label": "SUPPORTED"
+  },
+  {
+    "id": "temporal-contradicted",
+    "claim": "The archive opened in 2019.",
+    "documents": [
+      {
+        "id": "document-1",
+        "title": "Offline fallback document",
+        "url": "urn:verigraph:fallback:temporal-contradicted",
+        "text": "The archive opened to researchers in 2021 after a three-year cataloging project."
+      }
+    ],
+    "label": "REFUTED"
+  },
+  {
+    "id": "attribution-supported",
+    "claim": "Analyst Priya Shah said demand may rise.",
+    "documents": [
+      {
+        "id": "document-1",
+        "title": "Offline fallback document",
+        "url": "urn:verigraph:fallback:attribution-supported",
+        "text": "Analyst Priya Shah said demand may rise during the winter quarter."
+      }
+    ],
+    "label": "SUPPORTED"
+  },
+  {
+    "id": "attribution-unsupported",
+    "claim": "Demand will rise during the winter quarter.",
+    "documents": [
+      {
+        "id": "document-1",
+        "title": "Offline fallback document",
+        "url": "urn:verigraph:fallback:attribution-unsupported",
+        "text": "Analyst Priya Shah said demand may rise during the winter quarter."
+      }
+    ],
+    "label": "REFUTED"
+  },
+  {
+    "id": "entity-supported",
+    "claim": "Aurora Labs acquired Northstar Robotics.",
+    "documents": [
+      {
+        "id": "document-1",
+        "title": "Offline fallback document",
+        "url": "urn:verigraph:fallback:entity-supported",
+        "text": "Aurora Labs acquired Northstar Robotics in an all-cash transaction."
+      }
+    ],
+    "label": "SUPPORTED"
+  },
+  {
+    "id": "entity-unresolved",
+    "claim": "Aurora Labs acquired Northstar Robotics.",
+    "documents": [
+      {
+        "id": "document-1",
+        "title": "Offline fallback document",
+        "url": "urn:verigraph:fallback:entity-unresolved",
+        "text": "Aurora Systems acquired Northstar Analytics in an all-cash transaction."
+      }
+    ],
+    "label": "REFUTED"
+  },
+  {
+    "id": "synthesis-supported",
+    "claim": "Mara Chen joined Orion in 2022 and became its chief technology officer.",
+    "documents": [
+      {
+        "id": "document-1",
+        "title": "Offline fallback document",
+        "url": "urn:verigraph:fallback:synthesis-supported",
+        "text": "Mara Chen joined Orion in 2022. Orion later named Mara Chen its chief technology officer."
+      }
+    ],
+    "label": "SUPPORTED"
+  },
+  {
+    "id": "multi-atom-partial",
+    "claim": "Lumen launched the sensor in 2023 and sold 50,000 units.",
+    "documents": [
+      {
+        "id": "document-1",
+        "title": "Offline fallback document",
+        "url": "urn:verigraph:fallback:multi-atom-partial",
+        "text": "Lumen launched the sensor in 2023. The company has not released unit sales."
+      }
+    ],
+    "label": "REFUTED"
+  }
+]

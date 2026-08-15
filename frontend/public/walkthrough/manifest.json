@@ -1,0 +1,12 @@
+{
+  "bundleDigest": "c63b35c3d105d38fce81a79ef35840a176a22b0b7f216a61c9957612eeaf824d",
+  "caseCount": 4,
+  "missingRuns": [
+    "averitec-dev-0034",
+    "averitec-dev-0044",
+    "averitec-dev-0015",
+    "averitec-dev-0060"
+  ],
+  "recordedCaseCount": 0,
+  "runDigests": {}
+}

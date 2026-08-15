@@ -1,0 +1,85 @@
+[
+  {
+    "id": "averitec-dev-0034",
+    "claim": "The United States, New Zealand, U.K., Australia, and the EU have not included the NDF in their official list of terrorist groups.",
+    "documents": [
+      {
+        "id": "doc-5ef75348b513",
+        "title": "Foreign Terrorist Organizations - United States Department of State",
+        "url": "https://www.state.gov/foreign-terrorist-organizations/"
+      },
+      {
+        "id": "doc-9646fc73704d",
+        "title": "Charter of the United Nations Act 1945 Listing Declaration (No. 2) 2019",
+        "url": "https://www.legislation.gov.au/Details/C2019G00862"
+      },
+      {
+        "id": "doc-9d46aa32f6a5",
+        "title": "EUR-Lex - 32020D1132 - EN - EUR-Lex",
+        "url": "https://eur-lex.europa.eu/legal-content/en/TXT/?uri=CELEX:32020D1132"
+      },
+      {
+        "id": "doc-37564969436e",
+        "title": "EUR-Lex - 32020D1132 - EN - EUR-Lex",
+        "url": "https://eur-lex.europa.eu/legal-content/en/TXT/?uri=CELEX%3A32020D1132"
+      }
+    ],
+    "label": "SUPPORTED"
+  },
+  {
+    "id": "averitec-dev-0044",
+    "claim": "Deliberately infecting children to COVID-19 at “pox parties” could be a good way to help create herd immunity against COVID-19 without a vaccine.",
+    "documents": [
+      {
+        "id": "doc-b359fc5770e9",
+        "title": "Chickenpox | Transmission | Varicella | CDC",
+        "url": "https://www.cdc.gov/chickenpox/about/transmission.html"
+      },
+      {
+        "id": "doc-f72194b71ba6",
+        "title": "Coronavirus outbreak and kids - Harvard Health",
+        "url": "https://www.health.harvard.edu/diseases-and-conditions/coronavirus-outbreak-and-kids"
+      }
+    ],
+    "label": "REFUTED"
+  },
+  {
+    "id": "averitec-dev-0015",
+    "claim": "Illegal drug, border crossings, and human smuggling activities have decreased in areas where barriers are deployed in the United States.",
+    "documents": [
+      {
+        "id": "doc-ce677b332c51",
+        "title": "Trump wall: How much has he actually built? - BBC News",
+        "url": "https://www.bbc.com/news/world-us-canada-46824649"
+      },
+      {
+        "id": "doc-e9ea0a467bd3",
+        "title": "Coronaviruses – National Foundation for Infectious Diseases",
+        "url": "https://www.nfid.org/infectious-diseases/coronaviruses/"
+      }
+    ],
+    "label": "NOT_ENOUGH_EVIDENCE"
+  },
+  {
+    "id": "averitec-dev-0060",
+    "claim": "UK Employees unable to work in tier 3 areas will get a combination of Job Support Scheme and Universal Credit, which will mean they get 80% of their wages.",
+    "documents": [
+      {
+        "id": "doc-d819ca86a555",
+        "title": "Covid: What will happen when furlough ends? - BBC News",
+        "url": "https://www.bbc.com/news/explainers-52135342"
+      },
+      {
+        "id": "doc-71e4a935f783",
+        "title": "Job Support Scheme: Concern mounts at Covid shutdown 'ripple effect' - BBC News",
+        "url": "https://www.bbc.co.uk/news/uk-politics-54492574"
+      },
+      {
+        "id": "doc-f5ffa35607dc",
+        "title": "Briefing 15 - 15th October - England & Company",
+        "url": "https://www.englandandcompany.co.uk/briefing-15-15th-october/"
+      }
+    ],
+    "label": "CONFLICTING_EVIDENCE"
+  }
+]

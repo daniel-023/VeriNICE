@@ -1,0 +1,18 @@
+{
+  "dataset": "AVeriTeC",
+  "split": "dev",
+  "revision": "7c62d1ec8df3fb560d6efe2b85fa191135636f81",
+  "minimumCasesPerLabel": 5,
+  "maximumCasesPerLabel": 6,
+  "minimumDocumentsPerCase": 2,
+  "minimumDocumentWords": 175,
+  "labels": [
+    "SUPPORTED",
+    "REFUTED",
+    "NOT_ENOUGH_EVIDENCE",
+    "CONFLICTING_EVIDENCE"
+  ],
+  "runtimeBundle": "data/private/averitec_demo",
+  "sourceFetching": "offline-preparation-only",
+  "expectedBundleDigest": "c63b35c3d105d38fce81a79ef35840a176a22b0b7f216a61c9957612eeaf824d"
+}

@@ -1,0 +1,2336 @@
+[
+  {
+    "sourceIndex": 34,
+    "caseId": "averitec-dev-0034",
+    "label": "SUPPORTED",
+    "claim": "The United States, New Zealand, U.K., Australia, and the EU have not included the NDF in their official list of terrorist groups.",
+    "sources": [
+      {
+        "sourceUrl": "https://www.state.gov/foreign-terrorist-organizations/",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20210116025723/https://www.state.gov/foreign-terrorist-organizations/",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20210116025723/https://www.state.gov/foreign-terrorist-organizations/",
+        "wordCount": 1714,
+        "sha256": "7ad28a63e17bc9fab28e06f57f63747f2bf8889b578522a9c637e664c8409993"
+      },
+      {
+        "sourceUrl": "https://ofsistorage.blob.core.windows.net/publishlive/ConList.pdf",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20210124041112/https://ofsistorage.blob.core.windows.net/publishlive/ConList.pdf",
+            "method": "dataset_archive",
+            "status": "invalid_content_type",
+            "error": "Expected HTML, got application/pdf"
+          },
+          {
+            "url": "https://web.archive.org/web/20210124041112id_/https://ofsistorage.blob.core.windows.net/publishlive/ConList.pdf",
+            "method": "dataset_archive",
+            "status": "missing_cache",
+            "error": "Not present in offline cache"
+          },
+          {
+            "url": "https://ofsistorage.blob.core.windows.net/publishlive/ConList.pdf",
+            "method": "original",
+            "status": "not_found",
+            "error": "HTTP 404"
+          }
+        ],
+        "accepted": false,
+        "reason": "fetch_failed"
+      },
+      {
+        "sourceUrl": "https://www.legislation.gov.au/Details/C2019G00862",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230324152751/https://www.legislation.gov.au/Details/C2019G00862",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230324152751/https://www.legislation.gov.au/Details/C2019G00862",
+        "wordCount": 1752,
+        "sha256": "66b1d2f63beb8b2bf43512b320286a7bfc3145c5a0676d4ddf85552bb0cc3560"
+      },
+      {
+        "sourceUrl": "https://eur-lex.europa.eu/legal-content/en/TXT/?uri=CELEX:32020D1132",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20210120070334/https://eur-lex.europa.eu/legal-content/en/TXT/?uri=CELEX:32020D1132",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20210120070334/https://eur-lex.europa.eu/legal-content/en/TXT/?uri=CELEX:32020D1132",
+        "wordCount": 1339,
+        "sha256": "661082f56216a17e665acba32748bf821fa5a61fad222f154f2c1329c6711f18"
+      },
+      {
+        "sourceUrl": "https://www.police.govt.nz/sites/default/files/publications/designated-entities-12-october-2020.pdf",
+        "attempts": [
+          {
+            "url": "https://www.police.govt.nz/sites/default/files/publications/designated-entities-12-october-2020.pdf",
+            "method": "original",
+            "status": "not_found",
+            "error": "HTTP 404"
+          }
+        ],
+        "accepted": false,
+        "reason": "fetch_failed"
+      },
+      {
+        "sourceUrl": "https://eur-lex.europa.eu/legal-content/en/TXT/?uri=CELEX%3A32020D1132",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230324153307/https://eur-lex.europa.eu/legal-content/en/TXT/?uri=CELEX%3A32020D1132",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230324153307/https://eur-lex.europa.eu/legal-content/en/TXT/?uri=CELEX%3A32020D1132",
+        "wordCount": 1368,
+        "sha256": "984a185f6bac3ecc98efaa21afb5f04fbf85d4a076ebc413db7b6ad621cee191"
+      }
+    ],
+    "accepted": true,
+    "documentCount": 4
+  },
+  {
+    "sourceIndex": 77,
+    "caseId": "averitec-dev-0077",
+    "label": "SUPPORTED",
+    "claim": "A third of excess deaths in the United States between 1 March and  1 August 2020 during the COVID-19 pandemic could not be directly attributed to the coronavirus",
+    "sources": [
+      {
+        "sourceUrl": "https://archive.ph/EKPAJ",
+        "attempts": [
+          {
+            "url": "https://archive.ph/EKPAJ",
+            "method": "original",
+            "status": "http_error",
+            "error": "HTTP 429"
+          }
+        ],
+        "accepted": false,
+        "reason": "fetch_failed"
+      },
+      {
+        "sourceUrl": "https://www.samrc.ac.za/media-release/merits-and-benefits-studying-excess-deaths",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230324174843/https://www.samrc.ac.za/media-release/merits-and-benefits-studying-excess-deaths",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230324174843/https://www.samrc.ac.za/media-release/merits-and-benefits-studying-excess-deaths",
+        "wordCount": 1495,
+        "sha256": "6bbc13bec4a579e4184e9b81ee307874d2358e367f0da3a75b0a137473c5d62c"
+      }
+    ],
+    "accepted": false,
+    "reason": "fewer_than_two_accepted_documents"
+  },
+  {
+    "sourceIndex": 144,
+    "caseId": "averitec-dev-0144",
+    "label": "SUPPORTED",
+    "claim": "Nigeria’s Ngozi Okonjo-Iweala has been appointed the new and first female Director-General of the World Trade Organisation (WTO).",
+    "sources": [
+      {
+        "sourceUrl": "https://factcheck.afp.com/",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20201231022650/https://factcheck.afp.com/",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": false,
+        "reason": "document_too_short",
+        "wordCount": 61
+      },
+      {
+        "sourceUrl": "https://www.bloomberg.com/news/articles/2020-05-21/how-the-wto-picks-a-new-leader-and-avoids-a-collapse-quicktake",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230403104042/https://www.bloomberg.com/tosv2.html?vid=&amp;uuid=fbb2174d-d20b-11ed-99e4-43765850754c&amp;url=L25ld3MvYXJ0aWNsZXMvMjAyMC0wNS0yMS9ob3ctdGhlLXd0by1waWNrcy1hLW5ldy1sZWFkZXItYW5kLWF2b2lkcy1hLWNvbGxhcHNlLXF1aWNrdGFrZQ==",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": false,
+        "reason": "document_too_short",
+        "wordCount": 66
+      },
+      {
+        "sourceUrl": "https://twitter.com/NOIweala/status/1314189379594842118",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230403104321/https://twitter.com/NOIweala/status/1314189379594842118",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": false,
+        "reason": "document_too_short",
+        "wordCount": 134
+      }
+    ],
+    "accepted": false,
+    "reason": "fewer_than_two_accepted_documents"
+  },
+  {
+    "sourceIndex": 146,
+    "caseId": "averitec-dev-0146",
+    "label": "SUPPORTED",
+    "claim": "Right after a time where we're going through a pandemic that lost 22 million jobs at the height, we've already added back 11.6 million jobs.",
+    "sources": [
+      {
+        "sourceUrl": "https://www.aha.org/news/headline/2020-01-31-us-declares-coronavirus-public-health-emergency-cdc-updates-guidance",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230403105118/https://www.aha.org/news/headline/2020-01-31-us-declares-coronavirus-public-health-emergency-cdc-updates-guidance",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230403105118/https://www.aha.org/news/headline/2020-01-31-us-declares-coronavirus-public-health-emergency-cdc-updates-guidance",
+        "wordCount": 304,
+        "sha256": "dd7daf5bf36b7c773b98ceb3cbe648c7bb5f6a74b0cd70f5f3e1d149aed3037f"
+      },
+      {
+        "sourceUrl": "https://fred.stlouisfed.org/series/payems",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20210415044925/https://fred.stlouisfed.org/series/payems",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20210415044925/https://fred.stlouisfed.org/series/payems",
+        "wordCount": 537,
+        "sha256": "71d899b60dbd0e15ca03015588b6eee3cda0ebbe8febe7f34ec85cdd073ac48a"
+      },
+      {
+        "sourceUrl": "https://www.dol.gov/ui/data.pdf",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20210415193015/https://www.dol.gov/ui/data.pdf",
+            "method": "dataset_archive",
+            "status": "invalid_content_type",
+            "error": "Expected HTML, got application/pdf"
+          },
+          {
+            "url": "https://web.archive.org/web/20210415193015id_/https://www.dol.gov/ui/data.pdf",
+            "method": "dataset_archive",
+            "status": "missing_cache",
+            "error": "Not present in offline cache"
+          },
+          {
+            "url": "https://www.dol.gov/ui/data.pdf",
+            "method": "original",
+            "status": "invalid_content_type",
+            "error": "Expected HTML, got application/pdf"
+          }
+        ],
+        "accepted": false,
+        "reason": "fetch_failed"
+      }
+    ],
+    "accepted": true,
+    "documentCount": 2
+  },
+  {
+    "sourceIndex": 158,
+    "caseId": "averitec-dev-0158",
+    "label": "SUPPORTED",
+    "claim": "US President Donald Trump following his positive diagnosis of COVID-19, was given treatment developed from the use of fetal tissue, made by the company Regeneron.",
+    "sources": [
+      {
+        "sourceUrl": "https://www.abc.net.au/news/2020-10-03/donald-trump-experiment-coronavirus-treatment-what-we-know/12728896",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230403110524/https://www.abc.net.au/news/2020-10-03/donald-trump-experiment-coronavirus-treatment-what-we-know/12728896",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230403110524/https://www.abc.net.au/news/2020-10-03/donald-trump-experiment-coronavirus-treatment-what-we-know/12728896",
+        "wordCount": 990,
+        "sha256": "32f6c349c092654d389b1964ba98de06c1181ec0156654af0764fbcce257d9f1"
+      },
+      {
+        "sourceUrl": "https://investor.regeneron.com/news-releases/news-release-details/regenerons-regn-cov2-antibody-cocktail-reduced-viral-levels-and",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230110111709/https://investor.regeneron.com/news-releases/news-release-details/regenerons-regn-cov2-antibody-cocktail-reduced-viral-levels-and/",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230110111709/https://investor.regeneron.com/news-releases/news-release-details/regenerons-regn-cov2-antibody-cocktail-reduced-viral-levels-and/",
+        "wordCount": 2002,
+        "sha256": "70ae862ad0a1b49940c1ef943f5162165e4ba2d86fe9c89c3405a08ede794560"
+      },
+      {
+        "sourceUrl": "https://www.washingtonpost.com/health/trump-antibody-treatment-fetal-tissue/2020/10/08/92f9b2d6-0971-11eb-9be6-cf25fb429f1a_story.html",
+        "attempts": [
+          {
+            "url": "https://www.washingtonpost.com/health/trump-antibody-treatment-fetal-tissue/2020/10/08/92f9b2d6-0971-11eb-9be6-cf25fb429f1a_story.html",
+            "method": "original",
+            "status": "http_error",
+            "error": "Timed out after 6s"
+          }
+        ],
+        "accepted": false,
+        "reason": "fetch_failed"
+      }
+    ],
+    "accepted": true,
+    "documentCount": 2
+  },
+  {
+    "sourceIndex": 453,
+    "caseId": "averitec-dev-0453",
+    "label": "SUPPORTED",
+    "claim": "US President Trump instructed his administration to halt funding of the World Health Organization while a review was conducted to assess the World Health Organization’s role regarding the spread of coronavirus.",
+    "sources": [
+      {
+        "sourceUrl": "https://www.whitehouse.gov/briefings-statements/remarks-president-trump-press-briefing/",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20210711160610/https://www.whitehouse.gov/briefings-statements/remarks-president-trump-press-briefing/",
+            "method": "dataset_archive",
+            "status": "not_found",
+            "error": "HTTP 404"
+          },
+          {
+            "url": "https://web.archive.org/web/20210711160610id_/https://www.whitehouse.gov/briefings-statements/remarks-president-trump-press-briefing/",
+            "method": "dataset_archive",
+            "status": "missing_cache",
+            "error": "Not present in offline cache"
+          },
+          {
+            "url": "https://www.whitehouse.gov/briefings-statements/remarks-president-trump-press-briefing/",
+            "method": "original",
+            "status": "not_found",
+            "error": "HTTP 404"
+          }
+        ],
+        "accepted": false,
+        "reason": "fetch_failed"
+      }
+    ],
+    "accepted": false,
+    "reason": "fewer_than_two_accepted_documents"
+  },
+  {
+    "sourceIndex": 125,
+    "caseId": "averitec-dev-0125",
+    "label": "SUPPORTED",
+    "claim": "The gross domestic product  (GDP) figure in Nigeria for 2020 has decreased from the figure for 2019.",
+    "sources": [
+      {
+        "sourceUrl": "https://www.vanguardngr.com/2020/02/nigerias-gdp-grows-by-2-27-in-q4-2019/",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230327153143/https://www.vanguardngr.com/2020/02/nigerias-gdp-grows-by-2-27-in-q4-2019/",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230327153143/https://www.vanguardngr.com/2020/02/nigerias-gdp-grows-by-2-27-in-q4-2019/",
+        "wordCount": 447,
+        "sha256": "c8d8c7c4e0e493c1187fef7f808cd4335ac712351f92ac97823cbe46bb68ab3f"
+      },
+      {
+        "sourceUrl": "https://qz.com/africa/1895582/nigeria-economy-gdp-drops-6-1-percent-in-q2-2020/",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230327154552/https://qz.com/africa/1895582/nigeria-economy-gdp-drops-6-1-percent-in-q2-2020",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230327154552/https://qz.com/africa/1895582/nigeria-economy-gdp-drops-6-1-percent-in-q2-2020",
+        "wordCount": 408,
+        "sha256": "ad1afa3e27bc140323f9087a1edfc35b5495daa7f590035c54c333169b268f57"
+      }
+    ],
+    "accepted": true,
+    "documentCount": 2
+  },
+  {
+    "sourceIndex": 319,
+    "caseId": "averitec-dev-0319",
+    "label": "SUPPORTED",
+    "claim": "Nigeria is the leading producer of cassava in Africa and the world.",
+    "sources": [
+      {
+        "sourceUrl": "https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/cassava",
+        "attempts": [
+          {
+            "url": "https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/cassava",
+            "method": "original",
+            "status": "http_error",
+            "error": "Client error '403 Forbidden' for url 'https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/cassava'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
+          }
+        ],
+        "accepted": false,
+        "reason": "fetch_failed"
+      },
+      {
+        "sourceUrl": "https://www.pwc.com/ng/en/publications/economic-potential-of-cassava-production-in-nigeria.html",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230403155947/https://www.pwc.com/ng/en/publications/economic-potential-of-cassava-production-in-nigeria.html",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": false,
+        "reason": "document_too_short",
+        "wordCount": 148
+      },
+      {
+        "sourceUrl": "https://www.nationsonline.org/oneworld/nigeria.htm",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230321061007/https://www.nationsonline.org/oneworld/nigeria.htm",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230321061007/https://www.nationsonline.org/oneworld/nigeria.htm",
+        "wordCount": 2206,
+        "sha256": "c31657a179093102327793fe935936d00c28d0b6e56a153ac2ecea7054438795"
+      }
+    ],
+    "accepted": false,
+    "reason": "fewer_than_two_accepted_documents"
+  },
+  {
+    "sourceIndex": 392,
+    "caseId": "averitec-dev-0392",
+    "label": "SUPPORTED",
+    "claim": "The sky has turned orange to blood red in several parts of the United States.",
+    "sources": [
+      {
+        "sourceUrl": "https://news.wisc.edu/curiosities-what-determines-the-colors-of-the-sky-at-sunrise-and-sunset/",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230406141038/https://news.wisc.edu/curiosities-what-determines-the-colors-of-the-sky-at-sunrise-and-sunset/",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230406141038/https://news.wisc.edu/curiosities-what-determines-the-colors-of-the-sky-at-sunrise-and-sunset/",
+        "wordCount": 259,
+        "sha256": "833dc48fa746fc8bfa220ccb9a01f3139945751916fcbbd16049850887eb0438"
+      },
+      {
+        "sourceUrl": "https://www.insider.com/oregon-california-smoke-turns-skies-apocalyptic-orange-photos-2020-9",
+        "attempts": [
+          {
+            "url": "https://www.insider.com/oregon-california-smoke-turns-skies-apocalyptic-orange-photos-2020-9",
+            "method": "original",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://www.insider.com/oregon-california-smoke-turns-skies-apocalyptic-orange-photos-2020-9",
+        "wordCount": 600,
+        "sha256": "9763e79c748946442777a2397be688ec0e3cfb60305fd6868294fbe4e57cbfa1"
+      },
+      {
+        "sourceUrl": "https://www.ssec.wisc.edu/jpss-sdoc/posts/2019-australian-wildfires/fires-near-mallacoota-over-31-december-to-1-january/",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230406141108/https://www.ssec.wisc.edu/jpss-sdoc/posts/2019-australian-wildfires/fires-near-mallacoota-over-31-december-to-1-january/",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230406141108/https://www.ssec.wisc.edu/jpss-sdoc/posts/2019-australian-wildfires/fires-near-mallacoota-over-31-december-to-1-january/",
+        "wordCount": 1116,
+        "sha256": "8092ea218e90bfb6ee042d8ce618c061be76006bc868e3cf60011e5cbe620cfb"
+      }
+    ],
+    "accepted": true,
+    "documentCount": 3
+  },
+  {
+    "sourceIndex": 145,
+    "caseId": "averitec-dev-0145",
+    "label": "SUPPORTED",
+    "claim": "When Joe Biden was US vice-president they took a month to act on information that might have saved Kayla Mueller, a humanitarian worker held hostage and sexually abused by the Islamic State terrorist group",
+    "sources": [
+      {
+        "sourceUrl": "https://millercenter.org/president/barack-obama/key-events",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230326032955/https://millercenter.org/president/barack-obama/key-events",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230326032955/https://millercenter.org/president/barack-obama/key-events",
+        "wordCount": 2687,
+        "sha256": "092f810549a9def8889b4a7ec054653b9785d7a4b6eb0762d98a424497fa4f8c"
+      },
+      {
+        "sourceUrl": "https://www.thetimes.co.uk/article/obamas-iraqi-mission-impossible-vcq608j5nxl",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230403104550/https://www.thetimes.co.uk/article/obamas-iraqi-mission-impossible-vcq608j5nxl",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": false,
+        "reason": "document_too_short",
+        "wordCount": 157
+      },
+      {
+        "sourceUrl": "https://www.thedailybeast.com/white-house-stalled-isis-rescue-foley-sotloff-and-mueller-died?ref=scroll",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230403104708/https://www.thedailybeast.com/white-house-stalled-isis-rescue-foley-sotloff-and-mueller-died?ref=scroll",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230403104708/https://www.thedailybeast.com/white-house-stalled-isis-rescue-foley-sotloff-and-mueller-died?ref=scroll",
+        "wordCount": 1419,
+        "sha256": "61200c0d795803799a514789b6446dcbe8affed8caa5afa24bfdd3e86aa42c2a"
+      },
+      {
+        "sourceUrl": "https://abcnews.go.com/International/timeline-kayla-mueller-isis-captivity/story?id=41398733",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230403104857/https://abcnews.go.com/International/timeline-kayla-mueller-isis-captivity/story?id=41398733",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230403104857/https://abcnews.go.com/International/timeline-kayla-mueller-isis-captivity/story?id=41398733",
+        "wordCount": 1989,
+        "sha256": "ea36035fe363bb17e8ca0c94ad026a6be641432eb931e3540e8a48d2e3f9ae0c"
+      }
+    ],
+    "accepted": true,
+    "documentCount": 3
+  },
+  {
+    "sourceIndex": 44,
+    "caseId": "averitec-dev-0044",
+    "label": "REFUTED",
+    "claim": "Deliberately infecting children to COVID-19 at “pox parties” could be a good way to help create herd immunity against COVID-19 without a vaccine.",
+    "sources": [
+      {
+        "sourceUrl": "https://www.cdc.gov/chickenpox/about/transmission.html",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20201125111456/https://www.cdc.gov/chickenpox/about/transmission.html",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20201125111456/https://www.cdc.gov/chickenpox/about/transmission.html",
+        "wordCount": 310,
+        "sha256": "7999d57120682234b52192146df6c73261cd65a37da48b42b7508db061ffbdd3"
+      },
+      {
+        "sourceUrl": "https://www.health.harvard.edu/diseases-and-conditions/coronavirus-outbreak-and-kids",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20201202080005/https://www.health.harvard.edu/diseases-and-conditions/coronavirus-outbreak-and-kids",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20201202080005/https://www.health.harvard.edu/diseases-and-conditions/coronavirus-outbreak-and-kids",
+        "wordCount": 2084,
+        "sha256": "fb4cc9ed998bc7b86dea68f59dea827ad8aaf5ea8c40287a835461ee5c017707"
+      },
+      {
+        "sourceUrl": "https://secure.jbs.elsevierhealth.com/action/consumeSsoCookie?redirectUri=https%3A%2F%2Fwww.thelancet.com%2Faction%2FconsumeSharedSessionAction%3FSERVER%3DWZ6myaEXBLF%252B9vQ18y9JMw%253D%253D%26MAID%3DTSoTVMTupZ%252FD37sdGKDXfw%253D%253D%26JSESSIONID%3DaaadVfLNuRc7B8uvBTFyx%26ORIGIN%3D412177833%26RD%3DRD&code=null&acw=Secure;SameSite=None&utt=",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20201201224234/https://secure.jbs.elsevierhealth.com/action/consumeSsoCookie?redirectUri=https%3A%2F%2Fwww.thelancet.com%2Faction%2FconsumeSharedSessionAction%3FSERVER%3DWZ6myaEXBLF%252B9vQ18y9JMw%253D%253D%26MAID%3DTSoTVMTupZ%252FD37sdGKDXfw%253D%253D%26JSESSIONID%3DaaadVfLNuRc7B8uvBTFyx%26ORIGIN%3D412177833%26RD%3DRD&code=null&acw=Secure;SameSite=None&utt=",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "Exceeded maximum allowed redirects."
+          },
+          {
+            "url": "https://web.archive.org/web/20201201224234id_/https://secure.jbs.elsevierhealth.com/action/consumeSsoCookie?redirectUri=https%3A%2F%2Fwww.thelancet.com%2Faction%2FconsumeSharedSessionAction%3FSERVER%3DWZ6myaEXBLF%252B9vQ18y9JMw%253D%253D%26MAID%3DTSoTVMTupZ%252FD37sdGKDXfw%253D%253D%26JSESSIONID%3DaaadVfLNuRc7B8uvBTFyx%26ORIGIN%3D412177833%26RD%3DRD&code=null&acw=Secure;SameSite=None&utt=",
+            "method": "dataset_archive",
+            "status": "missing_cache",
+            "error": "Not present in offline cache"
+          },
+          {
+            "url": "https://secure.jbs.elsevierhealth.com/action/consumeSsoCookie?redirectUri=https%3A%2F%2Fwww.thelancet.com%2Faction%2FconsumeSharedSessionAction%3FSERVER%3DWZ6myaEXBLF%252B9vQ18y9JMw%253D%253D%26MAID%3DTSoTVMTupZ%252FD37sdGKDXfw%253D%253D%26JSESSIONID%3DaaadVfLNuRc7B8uvBTFyx%26ORIGIN%3D412177833%26RD%3DRD&code=null&acw=Secure;SameSite=None&utt=",
+            "method": "original",
+            "status": "http_error",
+            "error": "Client error '403 Forbidden' for url 'https://www.thelancet.com/action/consumeSharedSessionAction?SERVER=WZ6myaEXBLF%2B9vQ18y9JMw%3D%3D&MAID=TSoTVMTupZ%2FD37sdGKDXfw%3D%3D&JSESSIONID=aaadVfLNuRc7B8uvBTFyx&ORIGIN=412177833&RD=RD'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
+          }
+        ],
+        "accepted": false,
+        "reason": "fetch_failed"
+      }
+    ],
+    "accepted": true,
+    "documentCount": 2
+  },
+  {
+    "sourceIndex": 91,
+    "caseId": "averitec-dev-0091",
+    "label": "REFUTED",
+    "claim": "A message will be sent to your phone claiming to show that the Covid19 curve is flattening in India, But It will contain a malicious file",
+    "sources": [
+      {
+        "sourceUrl": "https://www.facebook.com/permalink.php?story_fbid=191881042463649&id=108068724178215",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20210722135957/https://www.facebook.com/permalink.php?story_fbid=191881042463649&id=108068724178215",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": false,
+        "reason": "document_too_short",
+        "wordCount": 46
+      },
+      {
+        "sourceUrl": "https://www.thequint.com/news/webqoof/india-is-doing-it-video-will-hack-your-phone-hoax-message",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230324185352/https://www.thequint.com/news/webqoof/india-is-doing-it-video-will-hack-your-phone-hoax-message",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230324185352/https://www.thequint.com/news/webqoof/india-is-doing-it-video-will-hack-your-phone-hoax-message",
+        "wordCount": 525,
+        "sha256": "9035bba4537a394d4fce6091a6fb0f7406b384b44142aba7e062b20a3dba6c19"
+      }
+    ],
+    "accepted": false,
+    "reason": "fewer_than_two_accepted_documents"
+  },
+  {
+    "sourceIndex": 168,
+    "caseId": "averitec-dev-0168",
+    "label": "REFUTED",
+    "claim": "People in the UK who are required to self-isolate due to having tested positive for the COVID-19 virus will receive a support payment of £500 per week",
+    "sources": [
+      {
+        "sourceUrl": "https://www.legislation.gov.uk/uksi/2020/1045/made",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230403113407/https://www.legislation.gov.uk/uksi/2020/1045/made",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230403113407/https://www.legislation.gov.uk/uksi/2020/1045/made",
+        "wordCount": 5338,
+        "sha256": "c8b8e5280ea3eea1dc95aa9893abbebad1ac89a1f8dc79f06ab1c662d1facfdd"
+      },
+      {
+        "sourceUrl": "https://www.gov.uk/government/publications/exemption-from-national-insurance-contributions-for-covid-19-test-and-trace-support-payments",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20201102132407/https://www.gov.uk/government/publications/exemption-from-national-insurance-contributions-for-covid-19-test-and-trace-support-payments",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": false,
+        "reason": "document_too_short",
+        "wordCount": 129
+      }
+    ],
+    "accepted": false,
+    "reason": "fewer_than_two_accepted_documents"
+  },
+  {
+    "sourceIndex": 171,
+    "caseId": "averitec-dev-0171",
+    "label": "REFUTED",
+    "claim": "All students in India who had to switch to an online mode of education due to the coronavirus pandemic are being provided free Android smartphones by the government.",
+    "sources": [
+      {
+        "sourceUrl": "https://www.india.com/viral/fact-check-is-the-govt-giving-free-android-smartphones-to-students-heres-the-truth-behind-viral-post-4121383/",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230403114013/https://www.india.com/viral/fact-check-is-the-govt-giving-free-android-smartphones-to-students-heres-the-truth-behind-viral-post-4121383/",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230403114013/https://www.india.com/viral/fact-check-is-the-govt-giving-free-android-smartphones-to-students-heres-the-truth-behind-viral-post-4121383/",
+        "wordCount": 286,
+        "sha256": "cb9ac747e4e54585390e79bae7dc373c470745fe4c206ca9109c9fe42c22d2dc"
+      },
+      {
+        "sourceUrl": "https://registration–form-free–smartphone.blogspot.com/",
+        "attempts": [
+          {
+            "url": "https://registration–form-free–smartphone.blogspot.com/",
+            "method": "original",
+            "status": "invalid_url",
+            "error": "Invalid IDNA hostname: 'registration–form-free–smartphone.blogspot.com'"
+          }
+        ],
+        "accepted": false,
+        "reason": "fetch_failed"
+      },
+      {
+        "sourceUrl": "https://bit.ly/Free-Android-Smartphone-Registration?fbclid=IwAR37pgQ9RbhrxKucUJx8WsoUA4Lwr62JEQLtULCoNRSkRArFVQJ-0tfZ97U",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20210722140932/https://bit.ly/Free-Android-Smartphone-Registration?fbclid=IwAR37pgQ9RbhrxKucUJx8WsoUA4Lwr62JEQLtULCoNRSkRArFVQJ-0tfZ97U",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": false,
+        "reason": "document_too_short",
+        "wordCount": 14
+      }
+    ],
+    "accepted": false,
+    "reason": "fewer_than_two_accepted_documents"
+  },
+  {
+    "sourceIndex": 239,
+    "caseId": "averitec-dev-0239",
+    "label": "REFUTED",
+    "claim": "Judith Collins, the National Party leader stated that New Zealand was using more coal to generate electricity because of the oil and gas exploration ban.",
+    "sources": [
+      {
+        "sourceUrl": "https://www.mbie.govt.nz/dmsdocument/11679-energy-in-new-zealand-2020",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230131085810/https://www.mbie.govt.nz/dmsdocument/11679-energy-in-new-zealand-2020",
+            "method": "dataset_archive",
+            "status": "invalid_content_type",
+            "error": "Expected HTML, got application/pdf"
+          },
+          {
+            "url": "https://web.archive.org/web/20230131085810id_/https://www.mbie.govt.nz/dmsdocument/11679-energy-in-new-zealand-2020",
+            "method": "dataset_archive",
+            "status": "missing_cache",
+            "error": "Not present in offline cache"
+          },
+          {
+            "url": "https://web.archive.org/web/20210222082524/https://www.mbie.govt.nz/dmsdocument/11679-energy-in-new-zealand-2020",
+            "method": "dataset_archive",
+            "status": "invalid_content_type",
+            "error": "Expected HTML, got application/pdf"
+          },
+          {
+            "url": "https://web.archive.org/web/20210222082524id_/https://www.mbie.govt.nz/dmsdocument/11679-energy-in-new-zealand-2020",
+            "method": "dataset_archive",
+            "status": "missing_cache",
+            "error": "Not present in offline cache"
+          },
+          {
+            "url": "https://www.mbie.govt.nz/dmsdocument/11679-energy-in-new-zealand-2020",
+            "method": "original",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": false,
+        "reason": "document_too_short",
+        "wordCount": 6
+      }
+    ],
+    "accepted": false,
+    "reason": "fewer_than_two_accepted_documents"
+  },
+  {
+    "sourceIndex": 439,
+    "caseId": "averitec-dev-0439",
+    "label": "REFUTED",
+    "claim": "Economic damage caused by the pandemic shows United States GDP (gross domestic product) falling by 33 percent compared to India's 23.9 percent drop.",
+    "sources": [
+      {
+        "sourceUrl": "https://vivekkaul.com/2020/09/01/the-us-economy-contracted-by-9-1-and-not-32-indias-economy-contracted-by-23-9/",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20210418201910/https://vivekkaul.com/2020/09/01/the-us-economy-contracted-by-9-1-and-not-32-indias-economy-contracted-by-23-9/",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20210418201910/https://vivekkaul.com/2020/09/01/the-us-economy-contracted-by-9-1-and-not-32-indias-economy-contracted-by-23-9/",
+        "wordCount": 518,
+        "sha256": "b88db17b6810b6227be6e342a13a5298ceace489a27df610c3da837f5d13ba9c"
+      }
+    ],
+    "accepted": false,
+    "reason": "fewer_than_two_accepted_documents"
+  },
+  {
+    "sourceIndex": 180,
+    "caseId": "averitec-dev-0180",
+    "label": "REFUTED",
+    "claim": "Dr. Ebeneezer, a medical doctor and a herbal practitioner at the Amuzu Hospital has instructed men to have sex at least 21 times a month to avoid prostate cancer.",
+    "sources": [
+      {
+        "sourceUrl": "https://www.westafricareporters.com/men-must-have-sex-at-least-21-times-a-month-to-avoid-prostate-cancer-expert/",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20210119165100/https://www.westafricareporters.com/men-must-have-sex-at-least-21-times-a-month-to-avoid-prostate-cancer-expert/",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20210119165100/https://www.westafricareporters.com/men-must-have-sex-at-least-21-times-a-month-to-avoid-prostate-cancer-expert/",
+        "wordCount": 176,
+        "sha256": "6f3a1f0f7091da86102b2eed066c20941e16ceda5f6a9bf54f04b286d4da6846"
+      },
+      {
+        "sourceUrl": "https://www.sciencedirect.com/science/article/abs/pii/S0302283816003778?via%3Dihub",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20201228105910/https://www.sciencedirect.com/science/article/abs/pii/S0302283816003778?via%3Dihub",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": false,
+        "reason": "document_too_short",
+        "wordCount": 82
+      }
+    ],
+    "accepted": false,
+    "reason": "fewer_than_two_accepted_documents"
+  },
+  {
+    "sourceIndex": 280,
+    "caseId": "averitec-dev-0280",
+    "label": "REFUTED",
+    "claim": "False positives and rapid tests put the rate of infection near zero and that there will be no second wave of infections",
+    "sources": [
+      {
+        "sourceUrl": "https://www.cochrane.org/CD013652/INFECTN_what-diagnostic-accuracy-antibody-tests-detection-infection-covid-19-virus",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230319110417/https://www.cochrane.org/CD013652/INFECTN_what-diagnostic-accuracy-antibody-tests-detection-infection-covid-19-virus",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230319110417/https://www.cochrane.org/CD013652/INFECTN_what-diagnostic-accuracy-antibody-tests-detection-infection-covid-19-virus",
+        "wordCount": 2487,
+        "sha256": "8f5e8bb7d38d43fd45226753dae4c98584af503ff2822b778b4fec9776bdc93e"
+      },
+      {
+        "sourceUrl": "https://www.webmd.com/lung/news/20200925/us-still-in-first-wave-of-covid-19-fauci-says",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20210228174018/https://www.webmd.com/lung/news/20200925/us-still-in-first-wave-of-covid-19-fauci-says",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20210228174018/https://www.webmd.com/lung/news/20200925/us-still-in-first-wave-of-covid-19-fauci-says",
+        "wordCount": 380,
+        "sha256": "f2453f3030c8c661deaf1743e534b49a0e6cea5b1b704fd578a6ee3a27a1f2c8"
+      }
+    ],
+    "accepted": true,
+    "documentCount": 2
+  },
+  {
+    "sourceIndex": 419,
+    "caseId": "averitec-dev-0419",
+    "label": "REFUTED",
+    "claim": "The U.S. Centers for Disease Control and Prevention fraudulently add deaths from poisoning, trauma, and unintentional injury to their tally of COVID-19 deaths.",
+    "sources": [
+      {
+        "sourceUrl": "https://msdh.ms.gov/msdhsite/_static/14,22075,420,694.html",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230403231839/https://msdh.ms.gov/msdhsite/_static/14,22075,420,694.html",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230403231839/https://msdh.ms.gov/msdhsite/_static/14,22075,420,694.html",
+        "wordCount": 782,
+        "sha256": "4e65a75b559bd4d6895d74b8c35111c97f848a45e8bd4bba2a947e857ff15bf3"
+      },
+      {
+        "sourceUrl": "https://www.snopes.com/fact-check/cdc-guidelines-covid19/",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230406151615/https://www.snopes.com/fact-check/cdc-guidelines-covid19/",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230406151615/https://www.snopes.com/fact-check/cdc-guidelines-covid19/",
+        "wordCount": 549,
+        "sha256": "7bba6161b3a9477ab685703152c612bdfb243e73019630b534e5c45e1c8b42dd"
+      }
+    ],
+    "accepted": true,
+    "documentCount": 2
+  },
+  {
+    "sourceIndex": 420,
+    "caseId": "averitec-dev-0420",
+    "label": "REFUTED",
+    "claim": "Sturgis Motorcycle Rally resulted in no more positive Covid results than the rest of the state, South Dakota, average stating 88 positive tests to Sturgis Rally, 0.02% infection rate of attendees.",
+    "sources": [
+      {
+        "sourceUrl": "https://www.usatoday.com/story/news/2020/09/08/study-260-000-coronavirus-cases-likely-tied-sturgis-rally/5739139002/",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20210621220601/https://www.usatoday.com/story/news/2020/09/08/study-260-000-coronavirus-cases-likely-tied-sturgis-rally/5739139002/",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20210621220601/https://www.usatoday.com/story/news/2020/09/08/study-260-000-coronavirus-cases-likely-tied-sturgis-rally/5739139002/",
+        "wordCount": 792,
+        "sha256": "b28a3b24c8c9c5a43d34e38d854e2436ef8d1b3d696fd97c649666edd5ca00c4"
+      }
+    ],
+    "accepted": false,
+    "reason": "fewer_than_two_accepted_documents"
+  },
+  {
+    "sourceIndex": 495,
+    "caseId": "averitec-dev-0495",
+    "label": "REFUTED",
+    "claim": "This Democratic Party of Joe Biden is pushing the so-called Green New Deal. If given power, they would essentially ban animal agriculture and eliminate gas-powered cars.",
+    "sources": [
+      {
+        "sourceUrl": "https://web.archihttps://joebiden.com/clean-energy/",
+        "attempts": [
+          {
+            "url": "https://web.archihttps://joebiden.com/clean-energy/",
+            "method": "original",
+            "status": "http_error",
+            "error": "[Errno 8] nodename nor servname provided, or not known"
+          }
+        ],
+        "accepted": false,
+        "reason": "fetch_failed"
+      },
+      {
+        "sourceUrl": "https://www.nbcnews.com/politics/2020-election/green-new-deal-how-it-works-presidential-candidate-positions-n1044811",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230412074657/https://www.nbcnews.com/politics/2020-election/green-new-deal-how-it-works-presidential-candidate-positions-n1044811",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230412074657/https://www.nbcnews.com/politics/2020-election/green-new-deal-how-it-works-presidential-candidate-positions-n1044811",
+        "wordCount": 1995,
+        "sha256": "0658771b075e865050c4c67656ca62f7538fa1e374ea25cb0ce6c9a3a9ab169c"
+      },
+      {
+        "sourceUrl": "https://www.politifact.com/article/2020/aug/03/joe-bidens-climate-change-plan-explained/",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20210505150952/https://www.politifact.com/article/2020/aug/03/joe-bidens-climate-change-plan-explained/",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20210505150952/https://www.politifact.com/article/2020/aug/03/joe-bidens-climate-change-plan-explained/",
+        "wordCount": 1474,
+        "sha256": "f9e0eeffc1675e0c2b96bd74c1fb6264cefe20c2b1b423a2fa20a9f0f866338e"
+      },
+      {
+        "sourceUrl": "https://www.npr.org/2019/02/16/694303169/as-more-electric-cars-arrive-whats-the-future-for-gas-powered-engines",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230414184201/https://www.npr.org/2019/02/16/694303169/as-more-electric-cars-arrive-whats-the-future-for-gas-powered-engines",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230414184201/https://www.npr.org/2019/02/16/694303169/as-more-electric-cars-arrive-whats-the-future-for-gas-powered-engines",
+        "wordCount": 1272,
+        "sha256": "b0de7525ca9d9b22ad1f91934af6477c98db16339390af2ad03523cff09f6ae8"
+      }
+    ],
+    "accepted": true,
+    "documentCount": 3
+  },
+  {
+    "sourceIndex": 89,
+    "caseId": "averitec-dev-0089",
+    "label": "REFUTED",
+    "claim": "Most deaths in the 1918 influenza pandemic originated from bacterial pneumonia caused by face masks and that Dr Anthony Fauci, the US government’s top expert in the fight against Covid-19, knew about it.",
+    "sources": [
+      {
+        "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/22021918/",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20201215165742/https://pubmed.ncbi.nlm.nih.gov/22021918/",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20201215165742/https://pubmed.ncbi.nlm.nih.gov/22021918/",
+        "wordCount": 616,
+        "sha256": "052e95f4e550762ee0f94ed8d1c119ed5ad467b1c2b7199c78f29176518d09dc"
+      },
+      {
+        "sourceUrl": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2599911/",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20210613090038/https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2599911/",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20210613090038/https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2599911/",
+        "wordCount": 5079,
+        "sha256": "6ad3c298eb818341e47140f94def2bd84247ff3205a5f27bfa1d2834d42383b0"
+      }
+    ],
+    "accepted": true,
+    "documentCount": 2
+  },
+  {
+    "sourceIndex": 15,
+    "caseId": "averitec-dev-0015",
+    "label": "NOT_ENOUGH_EVIDENCE",
+    "claim": "Illegal drug, border crossings, and human smuggling activities have decreased in areas where barriers are deployed in the United States.",
+    "sources": [
+      {
+        "sourceUrl": "https://www.wsj.com/articles/the-border-wall-mile-by-mile-11550152535",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230324145533/https://www.wsj.com/articles/the-border-wall-mile-by-mile-11550152535",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": false,
+        "reason": "document_too_short",
+        "wordCount": 160
+      },
+      {
+        "sourceUrl": "https://www.bbc.com/news/world-us-canada-46824649",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230322221316/https://www.bbc.com/news/world-us-canada-46824649",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230322221316/https://www.bbc.com/news/world-us-canada-46824649",
+        "wordCount": 2121,
+        "sha256": "dcbd00b96073fc27a1f386856eaea44f9301efdc43bfc6e08a3bffb6c0f261ec"
+      },
+      {
+        "sourceUrl": "https://www.nfid.org/infectious-diseases/coronaviruses/",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230321143009/https://www.nfid.org/infectious-diseases/coronaviruses/",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230321143009/https://www.nfid.org/infectious-diseases/coronaviruses/",
+        "wordCount": 985,
+        "sha256": "bb24a2c0994e0f14c27b242b1eb72da4a4290c690fa8894ff83e32b5b5c98069"
+      }
+    ],
+    "accepted": true,
+    "documentCount": 2
+  },
+  {
+    "sourceIndex": 82,
+    "caseId": "averitec-dev-0082",
+    "label": "NOT_ENOUGH_EVIDENCE",
+    "claim": "In the US lockdowns are partly responsible for excess deaths not directly attributed to COVID-19 which were observed in 2020.",
+    "sources": [
+      {
+        "sourceUrl": "https://www.cdc.gov/mmwr/volumes/69/wr/mm6942e2.htm",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230324181251/https://www.cdc.gov/mmwr/volumes/69/wr/mm6942e2.htm",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230324181251/https://www.cdc.gov/mmwr/volumes/69/wr/mm6942e2.htm",
+        "wordCount": 2917,
+        "sha256": "912c4b1cc84711ec4fd751b0224d5687aed6110402d278fe4c2c7e0d91378c0d"
+      },
+      {
+        "sourceUrl": "https://jamanetwork.com/journals/jama/fullarticle/2771761",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20210310112506/https://jamanetwork.com/journals/jama/fullarticle/2771761",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "[Errno 61] Connection refused"
+          },
+          {
+            "url": "https://web.archive.org/web/20210310112506id_/https://jamanetwork.com/journals/jama/fullarticle/2771761",
+            "method": "dataset_archive",
+            "status": "missing_cache",
+            "error": "Not present in offline cache"
+          },
+          {
+            "url": "https://jamanetwork.com/journals/jama/fullarticle/2771761",
+            "method": "original",
+            "status": "http_error",
+            "error": "Client error '403 Forbidden' for url 'https://jamanetwork.com/journals/jama/fullarticle/2771761'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
+          }
+        ],
+        "accepted": false,
+        "reason": "fetch_failed"
+      }
+    ],
+    "accepted": false,
+    "reason": "fewer_than_two_accepted_documents"
+  },
+  {
+    "sourceIndex": 142,
+    "caseId": "averitec-dev-0142",
+    "label": "NOT_ENOUGH_EVIDENCE",
+    "claim": "The CDC has said over 98,000 people had non-COVID related deaths because of hospitals that were closed down for non-essential services",
+    "sources": [
+      {
+        "sourceUrl": "https://jamanetwork.com/journals/jama/fullarticle/2768086",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20210302101747/https://jamanetwork.com/journals/jama/fullarticle/2768086",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "[Errno 61] Connection refused"
+          },
+          {
+            "url": "https://web.archive.org/web/20210302101747id_/https://jamanetwork.com/journals/jama/fullarticle/2768086",
+            "method": "dataset_archive",
+            "status": "missing_cache",
+            "error": "Not present in offline cache"
+          },
+          {
+            "url": "https://jamanetwork.com/journals/jama/fullarticle/2768086",
+            "method": "original",
+            "status": "http_error",
+            "error": "Client error '403 Forbidden' for url 'https://jamanetwork.com/journals/jama/fullarticle/2768086'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
+          }
+        ],
+        "accepted": false,
+        "reason": "fetch_failed"
+      },
+      {
+        "sourceUrl": "https://www.cdc.gov/mmwr/Novel_Coronavirus_Reports.html",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230313222854/https://www.cdc.gov/mmwr/Novel_Coronavirus_Reports.html",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "[Errno 61] Connection refused"
+          },
+          {
+            "url": "https://web.archive.org/web/20230313222854id_/https://www.cdc.gov/mmwr/Novel_Coronavirus_Reports.html",
+            "method": "dataset_archive",
+            "status": "missing_cache",
+            "error": "Not present in offline cache"
+          },
+          {
+            "url": "https://www.cdc.gov/mmwr/Novel_Coronavirus_Reports.html",
+            "method": "original",
+            "status": "missing_cache",
+            "error": "Not present in offline cache"
+          }
+        ],
+        "accepted": false,
+        "reason": "fetch_failed"
+      }
+    ],
+    "accepted": false,
+    "reason": "fewer_than_two_accepted_documents"
+  },
+  {
+    "sourceIndex": 394,
+    "caseId": "averitec-dev-0394",
+    "label": "NOT_ENOUGH_EVIDENCE",
+    "claim": "Under Trump's watch, auto assembly plants have been added at an unprecedented rate in Michigan, Ohio, North Carolina, South Carolina and possibly other states.",
+    "sources": [
+      {
+        "sourceUrl": "https://www.intelligenttransport.com/transport-news/24458/navya-production-plant-michigan/",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230406141149/https://www.intelligenttransport.com/transport-news/24458/navya-production-plant-michigan/",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "[Errno 61] Connection refused"
+          },
+          {
+            "url": "https://web.archive.org/web/20230406141149id_/https://www.intelligenttransport.com/transport-news/24458/navya-production-plant-michigan/",
+            "method": "dataset_archive",
+            "status": "missing_cache",
+            "error": "Not present in offline cache"
+          },
+          {
+            "url": "https://www.intelligenttransport.com/transport-news/24458/navya-production-plant-michigan/",
+            "method": "original",
+            "status": "missing_cache",
+            "error": "Not present in offline cache"
+          }
+        ],
+        "accepted": false,
+        "reason": "fetch_failed"
+      },
+      {
+        "sourceUrl": "https://alabamanewscenter.com/2017/09/27/toyota-to-invest-106m-in-alabama-engine-plant-add-50-jobs/",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230406141327/https://alabamanewscenter.com/2017/09/27/toyota-to-invest-106m-in-alabama-engine-plant-add-50-jobs/",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "[Errno 61] Connection refused"
+          },
+          {
+            "url": "https://web.archive.org/web/20230406141327id_/https://alabamanewscenter.com/2017/09/27/toyota-to-invest-106m-in-alabama-engine-plant-add-50-jobs/",
+            "method": "dataset_archive",
+            "status": "missing_cache",
+            "error": "Not present in offline cache"
+          },
+          {
+            "url": "https://alabamanewscenter.com/2017/09/27/toyota-to-invest-106m-in-alabama-engine-plant-add-50-jobs/",
+            "method": "original",
+            "status": "http_error",
+            "error": "Client error '403 Forbidden' for url 'https://alabamanewscenter.com/2017/09/27/toyota-to-invest-106m-in-alabama-engine-plant-add-50-jobs/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
+          }
+        ],
+        "accepted": false,
+        "reason": "fetch_failed"
+      },
+      {
+        "sourceUrl": "https://9to5google.com/2019/01/22/waymo-michigan-self-driving-factory/",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230322153629/https://9to5google.com/2019/01/22/waymo-michigan-self-driving-factory/",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "[Errno 61] Connection refused"
+          },
+          {
+            "url": "https://web.archive.org/web/20230322153629id_/https://9to5google.com/2019/01/22/waymo-michigan-self-driving-factory/",
+            "method": "dataset_archive",
+            "status": "missing_cache",
+            "error": "Not present in offline cache"
+          },
+          {
+            "url": "https://9to5google.com/2019/01/22/waymo-michigan-self-driving-factory/",
+            "method": "original",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://9to5google.com/2019/01/22/waymo-michigan-self-driving-factory/",
+        "wordCount": 288,
+        "sha256": "ee7f9a6364df574d89c77c94640407319f9f8851ac46a6662c52e09d39564c53"
+      }
+    ],
+    "accepted": false,
+    "reason": "fewer_than_two_accepted_documents"
+  },
+  {
+    "sourceIndex": 413,
+    "caseId": "averitec-dev-0413",
+    "label": "NOT_ENOUGH_EVIDENCE",
+    "claim": "Over the past 40 years, the Uyghur population in Xinjiang, in China, grew from 5.55 million to 12 million.",
+    "sources": [
+      {
+        "sourceUrl": "https://apnews.com/article/269b3de1af34e17c1941a514f78d764c",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20210116174221/https://apnews.com/article/269b3de1af34e17c1941a514f78d764c",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "[Errno 61] Connection refused"
+          },
+          {
+            "url": "https://web.archive.org/web/20210116174221id_/https://apnews.com/article/269b3de1af34e17c1941a514f78d764c",
+            "method": "dataset_archive",
+            "status": "missing_cache",
+            "error": "Not present in offline cache"
+          },
+          {
+            "url": "https://apnews.com/article/269b3de1af34e17c1941a514f78d764c",
+            "method": "original",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://apnews.com/article/269b3de1af34e17c1941a514f78d764c",
+        "wordCount": 3327,
+        "sha256": "40fab0a7c8d13950e75f63023ea2eab210e8282a0fa0dc4161bec16a306353f5"
+      },
+      {
+        "sourceUrl": "https://china.usc.edu/whats-stake-xinjiang",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230406145321/https://china.usc.edu/whats-stake-xinjiang",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "[Errno 61] Connection refused"
+          },
+          {
+            "url": "https://web.archive.org/web/20230406145321id_/https://china.usc.edu/whats-stake-xinjiang",
+            "method": "dataset_archive",
+            "status": "missing_cache",
+            "error": "Not present in offline cache"
+          },
+          {
+            "url": "https://china.usc.edu/whats-stake-xinjiang",
+            "method": "original",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://china.usc.edu/whats-stake-xinjiang",
+        "wordCount": 886,
+        "sha256": "f89c8622a801dd6c8a5e276fa3aabe645ec4937cbf2dc6016e551ebdee35594c"
+      }
+    ],
+    "accepted": true,
+    "documentCount": 2
+  },
+  {
+    "sourceIndex": 498,
+    "caseId": "averitec-dev-0498",
+    "label": "NOT_ENOUGH_EVIDENCE",
+    "claim": "As we speak the US are developing a growing number of treatments, including convalescent plasma, that are saving lives all across the country.",
+    "sources": [
+      {
+        "sourceUrl": "https://www.fda.gov/news-events/press-announcements/fda-issues-emergency-use-authorization-convalescent-plasma-potential-promising-covid-19-treatment",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20210504041618/https://www.fda.gov/news-events/press-announcements/fda-issues-emergency-use-authorization-convalescent-plasma-potential-promising-covid-19-treatment",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "[Errno 61] Connection refused"
+          },
+          {
+            "url": "https://web.archive.org/web/20210504041618id_/https://www.fda.gov/news-events/press-announcements/fda-issues-emergency-use-authorization-convalescent-plasma-potential-promising-covid-19-treatment",
+            "method": "dataset_archive",
+            "status": "missing_cache",
+            "error": "Not present in offline cache"
+          },
+          {
+            "url": "https://www.fda.gov/news-events/press-announcements/fda-issues-emergency-use-authorization-convalescent-plasma-potential-promising-covid-19-treatment",
+            "method": "original",
+            "status": "not_found",
+            "error": "HTTP 404"
+          }
+        ],
+        "accepted": false,
+        "reason": "fetch_failed"
+      },
+      {
+        "sourceUrl": "https://www.nytimes.com/2020/08/19/us/politics/blood-plasma-covid-19.html",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230322180226/https://www.nytimes.com/2020/08/19/us/politics/blood-plasma-covid-19.html",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "[Errno 61] Connection refused"
+          },
+          {
+            "url": "https://web.archive.org/web/20230322180226id_/https://www.nytimes.com/2020/08/19/us/politics/blood-plasma-covid-19.html",
+            "method": "dataset_archive",
+            "status": "missing_cache",
+            "error": "Not present in offline cache"
+          },
+          {
+            "url": "https://www.nytimes.com/2020/08/19/us/politics/blood-plasma-covid-19.html",
+            "method": "original",
+            "status": "http_error",
+            "error": "Client error '403 Forbidden' for url 'https://www.nytimes.com/2020/08/19/us/politics/blood-plasma-covid-19.html'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
+          }
+        ],
+        "accepted": false,
+        "reason": "fetch_failed"
+      }
+    ],
+    "accepted": false,
+    "reason": "fewer_than_two_accepted_documents"
+  },
+  {
+    "sourceIndex": 26,
+    "caseId": "averitec-dev-0026",
+    "label": "NOT_ENOUGH_EVIDENCE",
+    "claim": "Ivermectin is a treatment for coronavirus.",
+    "sources": [
+      {
+        "sourceUrl": "https://www.thelancet.com/journals/langlo/article/PIIS2214-109X(19)30490-5/fulltext",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230324150531/https://www.thelancet.com/journals/langlo/article/PIIS2214-109X%2819%2930490-5/fulltext",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "[Errno 61] Connection refused"
+          },
+          {
+            "url": "https://web.archive.org/web/20230324150531id_/https://www.thelancet.com/journals/langlo/article/PIIS2214-109X%2819%2930490-5/fulltext",
+            "method": "dataset_archive",
+            "status": "missing_cache",
+            "error": "Not present in offline cache"
+          },
+          {
+            "url": "https://www.thelancet.com/journals/langlo/article/PIIS2214-109X(19)30490-5/fulltext",
+            "method": "original",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://www.thelancet.com/journals/langlo/article/PIIS2214-109X(19)30490-5/fulltext",
+        "wordCount": 1401,
+        "sha256": "e9d06f54a02fc50934b094ee09fb39582da3c6441f84e7b0d0aa4da09feeecab"
+      },
+      {
+        "sourceUrl": "https://www.ncbi.nlm.nih.gov/labs/pmc/articles/PMC7521351/",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230327115331/https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7521351/",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "[Errno 61] Connection refused"
+          },
+          {
+            "url": "https://web.archive.org/web/20230327115331id_/https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7521351/",
+            "method": "dataset_archive",
+            "status": "missing_cache",
+            "error": "Not present in offline cache"
+          },
+          {
+            "url": "https://www.ncbi.nlm.nih.gov/labs/pmc/articles/PMC7521351/",
+            "method": "original",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://www.ncbi.nlm.nih.gov/labs/pmc/articles/PMC7521351/",
+        "wordCount": 1246,
+        "sha256": "f07364fba15f67092d526999d3308b969f749dcb6a55d492ecd4632a28a18c65"
+      }
+    ],
+    "accepted": true,
+    "documentCount": 2
+  },
+  {
+    "sourceIndex": 208,
+    "caseId": "averitec-dev-0208",
+    "label": "NOT_ENOUGH_EVIDENCE",
+    "claim": "It makes no sense for oil to be cheaper in Nigeria than in Saudi Arabia.",
+    "sources": [
+      {
+        "sourceUrl": "https://www150.statcan.gc.ca/n1/pub/11f0027m/2009058/part-partie1-eng.htm",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230403125536/https://www150.statcan.gc.ca/n1/pub/11f0027m/2009058/part-partie1-eng.htm",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "[Errno 61] Connection refused"
+          },
+          {
+            "url": "https://web.archive.org/web/20230403125536id_/https://www150.statcan.gc.ca/n1/pub/11f0027m/2009058/part-partie1-eng.htm",
+            "method": "dataset_archive",
+            "status": "missing_cache",
+            "error": "Not present in offline cache"
+          },
+          {
+            "url": "https://www150.statcan.gc.ca/n1/pub/11f0027m/2009058/part-partie1-eng.htm",
+            "method": "original",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://www150.statcan.gc.ca/n1/pub/11f0027m/2009058/part-partie1-eng.htm",
+        "wordCount": 9381,
+        "sha256": "6e8a73fee8a4bf8a39304f278c5e9e905c465f38cd55635afac4da79b95ba305"
+      },
+      {
+        "sourceUrl": "https://www.princeton.edu/~deaton/downloads/Deaton_Aten_Trying_to_understand_ICP_2011_V5.pdf",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230218123050/https://www.princeton.edu/~deaton/downloads/Deaton_Aten_Trying_to_understand_ICP_2011_V5.pdf",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "[Errno 61] Connection refused"
+          },
+          {
+            "url": "https://web.archive.org/web/20230218123050id_/https://www.princeton.edu/~deaton/downloads/Deaton_Aten_Trying_to_understand_ICP_2011_V5.pdf",
+            "method": "dataset_archive",
+            "status": "missing_cache",
+            "error": "Not present in offline cache"
+          },
+          {
+            "url": "https://www.princeton.edu/~deaton/downloads/Deaton_Aten_Trying_to_understand_ICP_2011_V5.pdf",
+            "method": "original",
+            "status": "invalid_content_type",
+            "error": "Expected HTML, got application/pdf"
+          }
+        ],
+        "accepted": false,
+        "reason": "fetch_failed"
+      },
+      {
+        "sourceUrl": "https://www.theglobaleconomy.com/Nigeria/gdp_per_capita_ppp/",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230403125653/https://www.theglobaleconomy.com/Nigeria/gdp_per_capita_ppp/",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "[Errno 61] Connection refused"
+          },
+          {
+            "url": "https://web.archive.org/web/20230403125653id_/https://www.theglobaleconomy.com/Nigeria/gdp_per_capita_ppp/",
+            "method": "dataset_archive",
+            "status": "missing_cache",
+            "error": "Not present in offline cache"
+          },
+          {
+            "url": "https://www.theglobaleconomy.com/Nigeria/gdp_per_capita_ppp/",
+            "method": "original",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://www.theglobaleconomy.com/Nigeria/gdp_per_capita_ppp/",
+        "wordCount": 687,
+        "sha256": "b68b713b6f00b0c3782ba341f39151b89307aaedbfa61a618d9e84659962ee1f"
+      }
+    ],
+    "accepted": true,
+    "documentCount": 2
+  },
+  {
+    "sourceIndex": 428,
+    "caseId": "averitec-dev-0428",
+    "label": "NOT_ENOUGH_EVIDENCE",
+    "claim": "More cops have died from COVID this year than have been killed on patrol.",
+    "sources": [
+      {
+        "sourceUrl": "https://web.archivehttps://fopcovid19.org/news/covid-19-line-of-duty-deaths/",
+        "attempts": [
+          {
+            "url": "https://web.archivehttps://fopcovid19.org/news/covid-19-line-of-duty-deaths/",
+            "method": "original",
+            "status": "http_error",
+            "error": "[Errno 8] nodename nor servname provided, or not known"
+          }
+        ],
+        "accepted": false,
+        "reason": "fetch_failed"
+      },
+      {
+        "sourceUrl": "https://www.politico.com/news/2020/08/31/joe-biden-speech-riots-looters-405981",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230326152830/https://www.politico.com/news/2020/08/31/joe-biden-speech-riots-looters-405981",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "[Errno 61] Connection refused"
+          },
+          {
+            "url": "https://web.archive.org/web/20230326152830id_/https://www.politico.com/news/2020/08/31/joe-biden-speech-riots-looters-405981",
+            "method": "dataset_archive",
+            "status": "missing_cache",
+            "error": "Not present in offline cache"
+          },
+          {
+            "url": "https://www.politico.com/news/2020/08/31/joe-biden-speech-riots-looters-405981",
+            "method": "original",
+            "status": "http_error",
+            "error": "Client error '403 Forbidden' for url 'https://www.politico.com/news/2020/08/31/joe-biden-speech-riots-looters-405981'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
+          }
+        ],
+        "accepted": false,
+        "reason": "fetch_failed"
+      }
+    ],
+    "accepted": false,
+    "reason": "fewer_than_two_accepted_documents"
+  },
+  {
+    "sourceIndex": 435,
+    "caseId": "averitec-dev-0435",
+    "label": "NOT_ENOUGH_EVIDENCE",
+    "claim": "Igbo people In Nigeria (Igbo people are found in southeastern Nigeria) are the richest people per capita in Africa.",
+    "sources": [
+      {
+        "sourceUrl": "https://minorityrights.org/minorities/igbo/",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230325094838/https://minorityrights.org/minorities/igbo/",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "[Errno 61] Connection refused"
+          },
+          {
+            "url": "https://web.archive.org/web/20230325094838id_/https://minorityrights.org/minorities/igbo/",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230325094838id_/https://minorityrights.org/minorities/igbo/",
+        "wordCount": 838,
+        "sha256": "51a65eb0417c868942f8bf77729c74bd6b352948c59e4b506db1335d3ce058dc"
+      },
+      {
+        "sourceUrl": "https://theculturetrip.com/africa/nigeria/articles/an-introduction-to-nigerias-igbo-people/",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230418153241/https://theculturetrip.com/africa/nigeria/articles/an-introduction-to-nigerias-igbo-people/",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "[Errno 61] Connection refused"
+          },
+          {
+            "url": "https://web.archive.org/web/20230418153241id_/https://theculturetrip.com/africa/nigeria/articles/an-introduction-to-nigerias-igbo-people/",
+            "method": "dataset_archive",
+            "status": "missing_cache",
+            "error": "Not present in offline cache"
+          },
+          {
+            "url": "https://theculturetrip.com/africa/nigeria/articles/an-introduction-to-nigerias-igbo-people/",
+            "method": "original",
+            "status": "http_error",
+            "error": "Timed out after 8s"
+          }
+        ],
+        "accepted": false,
+        "reason": "fetch_failed"
+      },
+      {
+        "sourceUrl": "https://dailytrust.com/fact-check-no-evidence-80-million-yoruba-live-in-brazil",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20200908012032/https://dailytrust.com/fact-check-no-evidence-80-million-yoruba-live-in-brazil",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "[Errno 61] Connection refused"
+          },
+          {
+            "url": "https://web.archive.org/web/20200908012032id_/https://dailytrust.com/fact-check-no-evidence-80-million-yoruba-live-in-brazil",
+            "method": "dataset_archive",
+            "status": "missing_cache",
+            "error": "Not present in offline cache"
+          },
+          {
+            "url": "https://dailytrust.com/fact-check-no-evidence-80-million-yoruba-live-in-brazil",
+            "method": "original",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://dailytrust.com/fact-check-no-evidence-80-million-yoruba-live-in-brazil",
+        "wordCount": 1016,
+        "sha256": "6ae93fd0e9404c7e39bafbc0d7992565874c3b1b7aecac9432fa6a57790fe16e"
+      }
+    ],
+    "accepted": true,
+    "documentCount": 2
+  },
+  {
+    "sourceIndex": 229,
+    "caseId": "averitec-dev-0229",
+    "label": "NOT_ENOUGH_EVIDENCE",
+    "claim": "There was a 40% drop in the price of oil, Nigeria's main export.",
+    "sources": [
+      {
+        "sourceUrl": "https://nnpcgroup.com/NNPCDocuments/Performance%20Data/FullReports/NNPC%20Monthly%20Financial%20and%20Operations%20Report%20for%20the%20Month%20of%20July%202020.pdf",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20210405033525/https://nnpcgroup.com/NNPCDocuments/Performance%20Data/FullReports/NNPC%20Monthly%20Financial%20and%20Operations%20Report%20for%20the%20Month%20of%20July%202020.pdf",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "[Errno 61] Connection refused"
+          },
+          {
+            "url": "https://web.archive.org/web/20210405033525id_/https://nnpcgroup.com/NNPCDocuments/Performance%20Data/FullReports/NNPC%20Monthly%20Financial%20and%20Operations%20Report%20for%20the%20Month%20of%20July%202020.pdf",
+            "method": "dataset_archive",
+            "status": "missing_cache",
+            "error": "Not present in offline cache"
+          },
+          {
+            "url": "https://nnpcgroup.com/NNPCDocuments/Performance%20Data/FullReports/NNPC%20Monthly%20Financial%20and%20Operations%20Report%20for%20the%20Month%20of%20July%202020.pdf",
+            "method": "original",
+            "status": "not_found",
+            "error": "HTTP 404"
+          }
+        ],
+        "accepted": false,
+        "reason": "fetch_failed"
+      },
+      {
+        "sourceUrl": "https://scialert.net/fulltext/?doi=aujss.2017.1.16",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230403132451/https://scialert.net/fulltext/?doi=aujss.2017.1.16",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "[Errno 61] Connection refused"
+          },
+          {
+            "url": "https://web.archive.org/web/20230403132451id_/https://scialert.net/fulltext/?doi=aujss.2017.1.16",
+            "method": "dataset_archive",
+            "status": "missing_cache",
+            "error": "Not present in offline cache"
+          },
+          {
+            "url": "https://scialert.net/fulltext/?doi=aujss.2017.1.16",
+            "method": "original",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": false,
+        "reason": "document_too_short",
+        "wordCount": 52
+      }
+    ],
+    "accepted": false,
+    "reason": "fewer_than_two_accepted_documents"
+  },
+  {
+    "sourceIndex": 233,
+    "caseId": "averitec-dev-0233",
+    "label": "NOT_ENOUGH_EVIDENCE",
+    "claim": "There has been a 60% drop in government revenue.",
+    "sources": [
+      {
+        "sourceUrl": "https://www.budgetoffice.gov.ng/index.php/component/edocman/search-result?filter_search=2020%20&Itemid=0",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230406115733/https://www.budgetoffice.gov.ng/index.php/component/edocman/search-result?filter_search=2020%20&amp;Itemid=0",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "[Errno 61] Connection refused"
+          },
+          {
+            "url": "https://web.archive.org/web/20230406115733id_/https://www.budgetoffice.gov.ng/index.php/component/edocman/search-result?filter_search=2020%20&amp;Itemid=0",
+            "method": "dataset_archive",
+            "status": "missing_cache",
+            "error": "Not present in offline cache"
+          },
+          {
+            "url": "https://web.archive.org/web/20230406115733/https://www.budgetoffice.gov.ng/index.php/component/edocman/search-result?filter_search=2020%20&Itemid=0",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "[Errno 61] Connection refused"
+          },
+          {
+            "url": "https://web.archive.org/web/20230406115733id_/https://www.budgetoffice.gov.ng/index.php/component/edocman/search-result?filter_search=2020%20&Itemid=0",
+            "method": "dataset_archive",
+            "status": "missing_cache",
+            "error": "Not present in offline cache"
+          },
+          {
+            "url": "https://www.budgetoffice.gov.ng/index.php/component/edocman/search-result?filter_search=2020%20&Itemid=0",
+            "method": "original",
+            "status": "http_error",
+            "error": "Timed out after 8s"
+          }
+        ],
+        "accepted": false,
+        "reason": "fetch_failed"
+      },
+      {
+        "sourceUrl": "https://www.budgetoffice.gov.ng/index.php?option=com_users&view=login&return=aHR0cHM6Ly93d3cuYnVkZ2V0b2ZmaWNlLmdvdi5uZy9pbmRleC5waHAvMjAyMS0yMDIzLW10ZWYtZnNwP3Rhc2s9ZG9jdW1lbnQudmlld2RvYyZpZD04MTQ=",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20210521175348/https://www.budgetoffice.gov.ng/index.php?option=com_users&view=login&return=aHR0cHM6Ly93d3cuYnVkZ2V0b2ZmaWNlLmdvdi5uZy9pbmRleC5waHAvMjAyMS0yMDIzLW10ZWYtZnNwP3Rhc2s9ZG9jdW1lbnQudmlld2RvYyZpZD04MTQ=",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "[Errno 61] Connection refused"
+          },
+          {
+            "url": "https://web.archive.org/web/20210521175348id_/https://www.budgetoffice.gov.ng/index.php?option=com_users&view=login&return=aHR0cHM6Ly93d3cuYnVkZ2V0b2ZmaWNlLmdvdi5uZy9pbmRleC5waHAvMjAyMS0yMDIzLW10ZWYtZnNwP3Rhc2s9ZG9jdW1lbnQudmlld2RvYyZpZD04MTQ=",
+            "method": "dataset_archive",
+            "status": "missing_cache",
+            "error": "Not present in offline cache"
+          },
+          {
+            "url": "https://www.budgetoffice.gov.ng/index.php?option=com_users&view=login&return=aHR0cHM6Ly93d3cuYnVkZ2V0b2ZmaWNlLmdvdi5uZy9pbmRleC5waHAvMjAyMS0yMDIzLW10ZWYtZnNwP3Rhc2s9ZG9jdW1lbnQudmlld2RvYyZpZD04MTQ=",
+            "method": "original",
+            "status": "http_error",
+            "error": "Timed out after 6s"
+          }
+        ],
+        "accepted": false,
+        "reason": "fetch_failed"
+      },
+      {
+        "sourceUrl": "https://www.google.com/url?q=https://www.budgetoffice.gov.ng/index.php/hmfbnp-public-presentation-of-2021-fgn-budget?task%3Ddocument.viewdoc%26id%3D897&sa=D&ust=1602757041951000&usg=AFQjCNH3Qpvb9d2uhgiOOhVBpZxtHZw2Rg",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20210526202243/https://www.google.com/url?q=https://www.budgetoffice.gov.ng/index.php/hmfbnp-public-presentation-of-2021-fgn-budget?task%3Ddocument.viewdoc%26id%3D897&sa=D&ust=1602757041951000&usg=AFQjCNH3Qpvb9d2uhgiOOhVBpZxtHZw2Rg",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "[Errno 61] Connection refused"
+          },
+          {
+            "url": "https://web.archive.org/web/20210526202243id_/https://www.google.com/url?q=https://www.budgetoffice.gov.ng/index.php/hmfbnp-public-presentation-of-2021-fgn-budget?task%3Ddocument.viewdoc%26id%3D897&sa=D&ust=1602757041951000&usg=AFQjCNH3Qpvb9d2uhgiOOhVBpZxtHZw2Rg",
+            "method": "dataset_archive",
+            "status": "missing_cache",
+            "error": "Not present in offline cache"
+          },
+          {
+            "url": "https://www.google.com/url?q=https://www.budgetoffice.gov.ng/index.php/hmfbnp-public-presentation-of-2021-fgn-budget?task%3Ddocument.viewdoc%26id%3D897&sa=D&ust=1602757041951000&usg=AFQjCNH3Qpvb9d2uhgiOOhVBpZxtHZw2Rg",
+            "method": "original",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": false,
+        "reason": "document_too_short",
+        "wordCount": 46
+      }
+    ],
+    "accepted": false,
+    "reason": "fewer_than_two_accepted_documents"
+  },
+  {
+    "sourceIndex": 60,
+    "caseId": "averitec-dev-0060",
+    "label": "CONFLICTING_EVIDENCE",
+    "claim": "UK Employees unable to work in tier 3 areas will get a combination of Job Support Scheme and Universal Credit, which will mean they get 80% of their wages.",
+    "sources": [
+      {
+        "sourceUrl": "https://www.bbc.com/news/explainers-52135342",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230324161932/https://www.bbc.com/news/explainers-52135342",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230324161932/https://www.bbc.com/news/explainers-52135342",
+        "wordCount": 612,
+        "sha256": "7cd7ddff40e1b4226fffabf399f5748ebd7e912b075be86c991ef8de17a0829f"
+      },
+      {
+        "sourceUrl": "https://www.bbc.co.uk/news/uk-politics-54492574",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230324162057/https://www.bbc.co.uk/news/uk-politics-54492574",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230324162057/https://www.bbc.co.uk/news/uk-politics-54492574",
+        "wordCount": 596,
+        "sha256": "148f5362414a804de7044065fb4f6f61e78bc412fd76be646aecec93168d5cf3"
+      },
+      {
+        "sourceUrl": "https://www.englandandcompany.co.uk/briefing-15-15th-october/",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230324162240/https://www.englandandcompany.co.uk/briefing-15-15th-october/",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230324162240/https://www.englandandcompany.co.uk/briefing-15-15th-october/",
+        "wordCount": 2116,
+        "sha256": "88ac1ca366d9d7c1144ee58641b8c3474a521f657dc9f3614533a7724d0ef38b"
+      }
+    ],
+    "accepted": true,
+    "documentCount": 3
+  },
+  {
+    "sourceIndex": 100,
+    "caseId": "averitec-dev-0100",
+    "label": "CONFLICTING_EVIDENCE",
+    "claim": "US president Joe Biden (candidate at the time of claim) supports the new green deal (The Green New Deal is a nonbinding resolution, introduced by Rep. Alexandria Ocasio-Cortez and Sen. Ed Markey last year, to tackle climate change.)",
+    "sources": [
+      {
+        "sourceUrl": "https://www.theguardian.com/commentisfree/2020/jul/20/joe-biden-has-endorsed-the-green-new-deal-in-all-but-name",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230324191647/https://www.theguardian.com/commentisfree/2020/jul/20/joe-biden-has-endorsed-the-green-new-deal-in-all-but-name",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230324191647/https://www.theguardian.com/commentisfree/2020/jul/20/joe-biden-has-endorsed-the-green-new-deal-in-all-but-name",
+        "wordCount": 1037,
+        "sha256": "42998de90a9ddc20ea70afbe5205f6a68dbc7fc1d53c5280a548c911e7b9c22d"
+      },
+      {
+        "sourceUrl": "https://www.investopedia.com/joe-biden-s-economic-plan-save-the-middle-class-4769869",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230326134031/https://www.investopedia.com/joe-biden-s-economic-plan-save-the-middle-class-4769869",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230326134031/https://www.investopedia.com/joe-biden-s-economic-plan-save-the-middle-class-4769869",
+        "wordCount": 3267,
+        "sha256": "3841881844ae381fa7af6601222d43274f14f02edc3a7e87e031cdbb508bfd4b"
+      }
+    ],
+    "accepted": true,
+    "documentCount": 2
+  },
+  {
+    "sourceIndex": 259,
+    "caseId": "averitec-dev-0259",
+    "label": "CONFLICTING_EVIDENCE",
+    "claim": "Govt of India is providing money to bereaved families of COVID-19 - Insurance benefits for Covid-19 deaths can be claimed under the schemes of PMJJBY and PMSBY.",
+    "sources": [
+      {
+        "sourceUrl": "https://www.google.com/url?sa=t&source=web&rct=j&url=https://financialservices.gov.in/insurance-divisions/Government-Sponsored-Socially-Oriented-Insurance-Schemes/Pradhan-Mantri-Jeevan-Jyoti-Bima-Yojana(PMJJBY)&ved=2ahUKEwir-eOGyYbsAhWz63MBHVTeAt4QFjAAegQIAhAB&usg=AOvVaw21_NYaXzL4O0tSbvpUb670",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230403142134/https://www.google.com/url?sa=t&amp;source=web&amp;rct=j&amp;url=https:%2F%2Ffinancialservices.gov.in%2Finsurance-divisions%2FGovernment-Sponsored-Socially-Oriented-Insurance-Schemes%2FPradhan-Mantri-Jeevan-Jyoti-Bima-Yojana%28PMJJBY%29&amp;ved=2ahUKEwir-eOGyYbsAhWz63MBHVTeAt4QFjAAegQIAhAB&amp;usg=AOvVaw21_NYaXzL4O0tSbvpUb670",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": false,
+        "reason": "document_too_short",
+        "wordCount": 29
+      },
+      {
+        "sourceUrl": "https://www.google.com/url?sa=t&source=web&rct=j&url=https://financialservices.gov.in/insurance-divisions/Government-Sponsored-Socially-Oriented-Insurance-Schemes/Pradhan-Mantri-Suraksha-Bima-Yojana(PMSBY)&ved=2ahUKEwi1wreYyYbsAhUg73MBHTSvCgYQFjAAegQIARAB&usg=AOvVaw2xKqIrMbjV_t1LioSWi1GZ",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230403142304/https://www.google.com/url?sa=t&amp;source=web&amp;rct=j&amp;url=https:%2F%2Ffinancialservices.gov.in%2Finsurance-divisions%2FGovernment-Sponsored-Socially-Oriented-Insurance-Schemes%2FPradhan-Mantri-Suraksha-Bima-Yojana%28PMSBY%29&amp;ved=2ahUKEwi1wreYyYbsAhUg73MBHTSvCgYQFjAAegQIARAB&amp;usg=AOvVaw2xKqIrMbjV_t1LioSWi1GZ",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": false,
+        "reason": "document_too_short",
+        "wordCount": 29
+      },
+      {
+        "sourceUrl": "https://factly.in/covid-19-related-deaths-are-covered-under-pmjjby-but-not-under-pmsby/",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230215165054/https://factly.in/covid-19-related-deaths-are-covered-under-pmjjby-but-not-under-pmsby/",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230215165054/https://factly.in/covid-19-related-deaths-are-covered-under-pmjjby-but-not-under-pmsby/",
+        "wordCount": 684,
+        "sha256": "adbfe9592ed2c5042f8d57660113a182cc23a71c518abcaf38372b8bd7c079b3"
+      }
+    ],
+    "accepted": false,
+    "reason": "fewer_than_two_accepted_documents"
+  },
+  {
+    "sourceIndex": 360,
+    "caseId": "averitec-dev-0360",
+    "label": "CONFLICTING_EVIDENCE",
+    "claim": "These unlicensed vaccines will be administered by non-medical staff, such as your employer in the UK.",
+    "sources": [
+      {
+        "sourceUrl": "https://www.gov.uk/government/consultations/distributing-vaccines-and-treatments-for-covid-19-and-flu/consultation-document-changes-to-human-medicine-regulations-to-support-the-rollout-of-covid-19-vaccines",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20210607133928/https://www.gov.uk/government/consultations/distributing-vaccines-and-treatments-for-covid-19-and-flu/consultation-document-changes-to-human-medicine-regulations-to-support-the-rollout-of-covid-19-vaccines",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20210607133928/https://www.gov.uk/government/consultations/distributing-vaccines-and-treatments-for-covid-19-and-flu/consultation-document-changes-to-human-medicine-regulations-to-support-the-rollout-of-covid-19-vaccines",
+        "wordCount": 6309,
+        "sha256": "a6ddc1c64914f6408868b423a81db899acb3ae3d93b69e577e5bda660f85ba21"
+      }
+    ],
+    "accepted": false,
+    "reason": "fewer_than_two_accepted_documents"
+  },
+  {
+    "sourceIndex": 404,
+    "caseId": "averitec-dev-0404",
+    "label": "CONFLICTING_EVIDENCE",
+    "claim": "Indian Railways has been completely privatized, and as a result, scores of people working in the Railways would lose their jobs.",
+    "sources": [
+      {
+        "sourceUrl": "https://pbs.twimg.com/profile_banners/1207634475254865921/1598874762/1500x500",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20200909075240im_/https://pbs.twimg.com/profile_banners/1207634475254865921/1598874762/1500x500",
+            "method": "dataset_archive",
+            "status": "invalid_content_type",
+            "error": "Expected HTML, got image/jpeg"
+          },
+          {
+            "url": "https://pbs.twimg.com/profile_banners/1207634475254865921/1598874762/1500x500",
+            "method": "original",
+            "status": "not_found",
+            "error": "HTTP 404"
+          }
+        ],
+        "accepted": false,
+        "reason": "fetch_failed"
+      },
+      {
+        "sourceUrl": "https://www.livemint.com/news/india/no-job-cuts-but-profiles-may-change-says-indian-railways-11593790324156.html",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20211206134459/https://www.livemint.com/news/india/no-job-cuts-but-profiles-may-change-says-indian-railways-11593790324156.html",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20211206134459/https://www.livemint.com/news/india/no-job-cuts-but-profiles-may-change-says-indian-railways-11593790324156.html",
+        "wordCount": 542,
+        "sha256": "1597e0162af8b1ddcc27ea24f7bca1b7a55d0d86877bd735df429eae6929a521"
+      }
+    ],
+    "accepted": false,
+    "reason": "fewer_than_two_accepted_documents"
+  },
+  {
+    "sourceIndex": 423,
+    "caseId": "averitec-dev-0423",
+    "label": "CONFLICTING_EVIDENCE",
+    "claim": "Sen. Martha McSally “supported a plan to turn Medicare into a voucher program and ‘shift costs’ onto seniors” and “even supported raising the retirement age.",
+    "sources": [
+      {
+        "sourceUrl": "https://clerk.house.gov/Votes/2017557",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230406151854/https://clerk.house.gov/Votes/2017557",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230406151854/https://clerk.house.gov/Votes/2017557",
+        "wordCount": 4706,
+        "sha256": "c8b2070a7f9a020acbd44845aff39c83a4248c9076f5da6d43e5601530777fe5"
+      },
+      {
+        "sourceUrl": "https://www.gvnews.com/elections/question/article_02354b6a-7e89-11e1-801f-001a4bcf887a.html?_ga=2.154024123.2058216465.1599409801-1261549759.1594155977",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230406151951/https://www.gvnews.com/elections/question/article_02354b6a-7e89-11e1-801f-001a4bcf887a.html?_ga=2.154024123.2058216465.1599409801-1261549759.1594155977",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230406151951/https://www.gvnews.com/elections/question/article_02354b6a-7e89-11e1-801f-001a4bcf887a.html?_ga=2.154024123.2058216465.1599409801-1261549759.1594155977",
+        "wordCount": 688,
+        "sha256": "ed1b04ac2eaf903229422ab305e9fc1519e0bd9f352a16d0405259f065fe1501"
+      }
+    ],
+    "accepted": true,
+    "documentCount": 2
+  },
+  {
+    "sourceIndex": 10,
+    "caseId": "averitec-dev-0010",
+    "label": "CONFLICTING_EVIDENCE",
+    "claim": "Donald Trump, when he thinks of climate change, he says hoax. Well, guess what? Speaking of hoaxes, remember what he said about these increasing violent hurricanes and the frequency? He actually said, maybe we should detonate a nuclear bomb over the Atlantic. By the way, the same stable genius who said the biggest problem we had in the Revolutionary War is we didn’t have enough airports.",
+    "sources": [
+      {
+        "sourceUrl": "https://www.axios.com/trump-nuclear-bombs-hurricanes-97231f38-2394-4120-a3fa-8c9cf0e3f51c.html",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20210212183744/https://www.axios.com/trump-nuclear-bombs-hurricanes-97231f38-2394-4120-a3fa-8c9cf0e3f51c.html",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20210212183744/https://www.axios.com/trump-nuclear-bombs-hurricanes-97231f38-2394-4120-a3fa-8c9cf0e3f51c.html",
+        "wordCount": 1050,
+        "sha256": "0b898931cf37ca7b9dca2eab94af9dd375f4fc9f2b3c122617740735dd418c58"
+      },
+      {
+        "sourceUrl": "https://www.nbcnews.com/politics/donald-trump/trump-blames-teleprompter-revolutionary-war-airports-flub-n1026931",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230324140950/https://www.nbcnews.com/politics/donald-trump/trump-blames-teleprompter-revolutionary-war-airports-flub-n1026931",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230324140950/https://www.nbcnews.com/politics/donald-trump/trump-blames-teleprompter-revolutionary-war-airports-flub-n1026931",
+        "wordCount": 342,
+        "sha256": "1f8464c6ad649aa4eebbf19d4c586f9610f657c6cd063038eaa46541d9929627"
+      }
+    ],
+    "accepted": true,
+    "documentCount": 2
+  },
+  {
+    "sourceIndex": 18,
+    "caseId": "averitec-dev-0018",
+    "label": "CONFLICTING_EVIDENCE",
+    "claim": "Even if your mail-in ballot is postmarked prior to the Election day but arrives after the Election day it will be thrown out.",
+    "sources": [
+      {
+        "sourceUrl": "https://www.buzzfeednews.com/article/addybaird/vote-by-mail-state-deadlines",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230324145811/https://www.buzzfeednews.com/article/addybaird/vote-by-mail-state-deadlines",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230324145811/https://www.buzzfeednews.com/article/addybaird/vote-by-mail-state-deadlines",
+        "wordCount": 498,
+        "sha256": "b93dcdfea75bade1864ee26a863b7ebfbf9eb026d83e6a674315b62faebd336f"
+      },
+      {
+        "sourceUrl": "https://www.cbsnews.com/news/wisconsin-election-supreme-court-rules-againt-absentee-ballots-after-election-day/",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230324145915/https://www.cbsnews.com/news/wisconsin-election-supreme-court-rules-againt-absentee-ballots-after-election-day/",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230324145915/https://www.cbsnews.com/news/wisconsin-election-supreme-court-rules-againt-absentee-ballots-after-election-day/",
+        "wordCount": 921,
+        "sha256": "c7c85f2c18c046e2f40d659f4a9c68be10db6e292f38a75f76f8c05b23dd7c87"
+      },
+      {
+        "sourceUrl": "https://www.facebook.com/GilbertLiz/photos/a.356148997800555/3549940058421417",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230327114412/https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2FGilbertLiz%2Fphotos%2Fa.356148997800555%2F3549940058421417",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": false,
+        "reason": "document_too_short",
+        "wordCount": 87
+      }
+    ],
+    "accepted": true,
+    "documentCount": 2
+  },
+  {
+    "sourceIndex": 58,
+    "caseId": "averitec-dev-0058",
+    "label": "CONFLICTING_EVIDENCE",
+    "claim": "Russia sent medical aid to the US, in the form of medical equipment to help coronavirus patients.",
+    "sources": [
+      {
+        "sourceUrl": "https://www.nytimes.com/2020/04/02/world/europe/coronavirus-us-russia-aid.html",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20210718091632/https://www.nytimes.com/2020/04/02/world/europe/coronavirus-us-russia-aid.html",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20210718091632/https://www.nytimes.com/2020/04/02/world/europe/coronavirus-us-russia-aid.html",
+        "wordCount": 1568,
+        "sha256": "c832de6c2265a7c3a06760b3df45f3661d325135609a21a4ef414b1d055e05ba"
+      },
+      {
+        "sourceUrl": "https://www.state.gov/u-s-purchase-of-needed-supplies-from-russia/",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20210718091632/https://www.state.gov/u-s-purchase-of-needed-supplies-from-russia/",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "[Errno 61] Connection refused"
+          },
+          {
+            "url": "https://web.archive.org/web/20210718091632id_/https://www.state.gov/u-s-purchase-of-needed-supplies-from-russia/",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "[Errno 61] Connection refused"
+          },
+          {
+            "url": "https://www.state.gov/u-s-purchase-of-needed-supplies-from-russia/",
+            "method": "original",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": false,
+        "reason": "document_too_short",
+        "wordCount": 36
+      },
+      {
+        "sourceUrl": "https://www.buzzfeednews.com/article/christopherm51/fema-russia-ventilators-coronavirus?fbclid=IwAR0NDhdqILPthpTHGNnmK_-8yH7CjmyDtbo81pzlHEVVKI9loXMnfI9uVas",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20210718091632/https://www.buzzfeednews.com/article/christopherm51/fema-russia-ventilators-coronavirus?fbclid=IwAR0NDhdqILPthpTHGNnmK_-8yH7CjmyDtbo81pzlHEVVKI9loXMnfI9uVas",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "[Errno 61] Connection refused"
+          },
+          {
+            "url": "https://web.archive.org/web/20210718091632id_/https://www.buzzfeednews.com/article/christopherm51/fema-russia-ventilators-coronavirus?fbclid=IwAR0NDhdqILPthpTHGNnmK_-8yH7CjmyDtbo81pzlHEVVKI9loXMnfI9uVas",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "[Errno 61] Connection refused"
+          },
+          {
+            "url": "https://www.buzzfeednews.com/article/christopherm51/fema-russia-ventilators-coronavirus?fbclid=IwAR0NDhdqILPthpTHGNnmK_-8yH7CjmyDtbo81pzlHEVVKI9loXMnfI9uVas",
+            "method": "original",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://www.buzzfeednews.com/article/christopherm51/fema-russia-ventilators-coronavirus?fbclid=IwAR0NDhdqILPthpTHGNnmK_-8yH7CjmyDtbo81pzlHEVVKI9loXMnfI9uVas",
+        "wordCount": 602,
+        "sha256": "99cdd1cc3a2501a34a10d8bcb07c41349af82706c4981cad3d802eb1ef0f44a3"
+      }
+    ],
+    "accepted": true,
+    "documentCount": 2
+  }
+]

@@ -1,0 +1,274 @@
+{
+  "evaluationOnly": true,
+  "repository": "lytang/LLM-AggreFact",
+  "revision": "981dfd0bd8e58e7238a9ab92b2e6ea44bce918e4",
+  "schemaVersion": 2,
+  "splits": {
+    "dev": {
+      "contaminationIdentifiersHash": "5b54ce1306d00ba6ed1fd942b581b360e2246515293bd0a924407723a5f6f83c",
+      "count": 30420,
+      "parquetRevision": "981dfd0bd8e58e7238a9ab92b2e6ea44bce918e4"
+    },
+    "test": {
+      "contaminationIdentifiersHash": "76b867ee158d0c32844e7b8ea8ab750ae1c8c590126638fbf27b9e1c06cfca1b",
+      "count": 29320,
+      "parquetRevision": "981dfd0bd8e58e7238a9ab92b2e6ea44bce918e4"
+    }
+  },
+  "tourBalancedByReferenceLabel": true,
+  "tourCases": [
+    {
+      "analysisContentId": "record-cb34694a2801",
+      "claimHash": "8781353e27eacc17711dce01ec98ac058196bb5d9507c8244be948f0bd10eca4",
+      "contamination_identifier": "LLM-AggreFact:mxNM7RGtZfXKLXxeL5Yzfrvk4Uar3q3bNcNaJlBnGnBDm1pJJGQMLvjjfiyk3n6K",
+      "documentHash": "96429393fed8bd9d02d8fc27ed003873ac4ef082af8c9eebf3930a00cffeebba",
+      "family": "polarity"
+    },
+    {
+      "analysisContentId": "record-2cc62e539e2f",
+      "claimHash": "0d9965ae3217118e2b9b90c5604a9716983abb818a70cae85560de9f5580919d",
+      "contamination_identifier": "LLM-AggreFact:owznVXD2FGXvGdeAH3AcNz06OZyBK4X5L8hLDNadMhut0ABydlmh1K2zXA7XptE0",
+      "documentHash": "91c7e25cbe327240fb1089df94731e8535703376491ecc5e43baab9fa6b8aca4",
+      "family": "polarity"
+    },
+    {
+      "analysisContentId": "record-c5d5bff1ad8f",
+      "claimHash": "53870912a02c704ae2aac671de8802a2ce283c8437c247c933a1a46aa618cdf3",
+      "contamination_identifier": "LLM-AggreFact:55uG74Vn7zNb8m1thCDOWqeOcWHQFmX3ogdjEFvvb2MJhSdFn3EnEQMVFfwU8uiu",
+      "documentHash": "148f89c27126edd52b7f442412048803bcea69d8098368195655299bb995e1be",
+      "family": "polarity"
+    },
+    {
+      "analysisContentId": "record-1163341019ee",
+      "claimHash": "f09bec5cfd3bee387771905f8a33c1c16a0fa8218be2ec91f2c7161ce1d0a461",
+      "contamination_identifier": "LLM-AggreFact:TlyC85oZOHZGPrWPmF5bTDhid6kmDJ4ViYhlmiIEjp2UPI1Bjh88tI5cLpaoG3Ok",
+      "documentHash": "45382141af788b8540a10a3809935d3db88e7e1280ffc9d0b94fafbe9ecafde0",
+      "family": "polarity"
+    },
+    {
+      "analysisContentId": "record-e8eb16eac983",
+      "claimHash": "ca601da95e9fb29a90e64be0947a7111ea771f161a07293dd71b0d28ad2f3477",
+      "contamination_identifier": "LLM-AggreFact:w5gWEQK3qPalJzKvt2jwCVxHaH9X7rnpAXqWrKusCa076VI5JiYmL38OlD5dHPtg",
+      "documentHash": "2a415a13a67ca0868b711546986b4670802ffeb1db9866c81cd068c90d79ce1d",
+      "family": "polarity"
+    },
+    {
+      "analysisContentId": "record-6df1a56137bc",
+      "claimHash": "ba47d6ac434a3aba6d6051f875889ecabd725bdce831306c2803b93340ba6c66",
+      "contamination_identifier": "LLM-AggreFact:TS0xRsBWj8TC9H6wfGGXDOT6T4OW0BHOKqMi669KgY4475azQKzESY8qkuSJlWwj",
+      "documentHash": "08974c0348ab0e2ad64fe4eea956ddabf92c2f9ae29ea28c936d7a75aa375e5e",
+      "family": "polarity"
+    },
+    {
+      "analysisContentId": "record-df0f763137e9",
+      "claimHash": "b6eb63e9386dcf411264bed30e598a6b2a6066afda820a877b08a502b6a9f3bc",
+      "contamination_identifier": "LLM-AggreFact:8KltAF8kAuXC2BCrKFs0OE7pJtqkgpDgcoGfjYhOEmyFLuJK77kT9Z4Ud2l6pMRb",
+      "documentHash": "6b9d0f938441ba351819af2098466399ad738d83816e32c1bfa5199f0c9440ee",
+      "family": "quantity"
+    },
+    {
+      "analysisContentId": "record-aece15887dbd",
+      "claimHash": "33d372a0c08a51e3068881622c0fa2f6ce54cb52ac49f00760d3c96cea1f9ab4",
+      "contamination_identifier": "LLM-AggreFact:cEMkhV2NCqFhnqsOQlxbwwp1Hd3GhsI9kPmPIhBlZwX9XSI2eKarPvjAMU1q0QR3",
+      "documentHash": "a5398b54b0cd72b363d83c8b1322909650130a816561772e52abbce158f75196",
+      "family": "quantity"
+    },
+    {
+      "analysisContentId": "record-4141a67c3abb",
+      "claimHash": "7ecce9487b196ba41f043c0053c27bc52da997fefb78ccc6b936c20de33d4d65",
+      "contamination_identifier": "LLM-AggreFact:J46biZDVmnbb0vwzRddnEErc2RbPoQOpwUiahVEirr1YxddmgBEBICH9FbkyldYg",
+      "documentHash": "0f29b9917b5c9ad7aa2acec96e93ee1b74e833c76c6af55282b28532c9ffa336",
+      "family": "quantity"
+    },
+    {
+      "analysisContentId": "record-0b594e38878a",
+      "claimHash": "6ca01af1d4a4d86646c6aea1ab69dc97ee1d8bf3f15aff0248794e5040d53341",
+      "contamination_identifier": "LLM-AggreFact:fWXpeqAX6Wjq6f3g91JrKymktpgMlZckxZmCBonemUfXLDcamYhc0D8s1LElumWX",
+      "documentHash": "1f61d5167389e3f58c97252faf1f365591a7a61b70d60a468c830f5d0b0a4478",
+      "family": "quantity"
+    },
+    {
+      "analysisContentId": "record-502eea2ffb3f",
+      "claimHash": "ed6c9b1019f7a8ac3728379a857c7c874bc37d7bc326f4ee59f3fde91d24c3b6",
+      "contamination_identifier": "LLM-AggreFact:0wLOVIgTB2XqPHHCLsq67or30tO5vIzNUbuyJwPpRN7By7TDZrws993YE4PfLCgX",
+      "documentHash": "6befabc04e7dcacb56462c219efadda6740476da3bb3992358cd41dfae2f7fea",
+      "family": "quantity"
+    },
+    {
+      "analysisContentId": "record-95fefbf00f31",
+      "claimHash": "5dc4cd1ec499b1a5bf61b24109fb1b8fe74062eb451e24c35250c557429efb58",
+      "contamination_identifier": "LLM-AggreFact:RSKvhgpY2AKl2IKed5NyfAbaRYh5yQppkwuNKJHWvNqeHNcCVU3tUsADJeMGvtx7",
+      "documentHash": "282b311ac64783365f909081cb36993306d4559731b14b4dd855521b4a6bf4d1",
+      "family": "quantity"
+    },
+    {
+      "analysisContentId": "record-72437d53614e",
+      "claimHash": "0dfb36fca3d5f9ec32b7e97a1ea785a509969bc02368b4aab83bc37c2cb0ee43",
+      "contamination_identifier": "LLM-AggreFact:rcdsofQrbqZLnhVNpI1j4oImQrsFkDgVn8N2C1n0j4EWpetUWNRNkjkmihfSrzHG",
+      "documentHash": "c1d8cc540384364cdbdd5c23a3b7ec56d70e951c4132785945d1466f38079945",
+      "family": "temporal"
+    },
+    {
+      "analysisContentId": "record-99521fb2a9d2",
+      "claimHash": "ac144eb8ab6a2be4c63b23ed2f0dabbe23a97e603dd3cb315e82240087215259",
+      "contamination_identifier": "LLM-AggreFact:kuYkG1mbo1AEFt0IjZCVp8uMWlUzJ9HyNBTi6naBRPdMAlDflAoWuly3mDOVpslv",
+      "documentHash": "f94289ba79fa944afd3df554dc50a7148b02b496c309083f943b4696d849baae",
+      "family": "temporal"
+    },
+    {
+      "analysisContentId": "record-8773ab70cc66",
+      "claimHash": "f704223630510f6e4887ee0c9c4ce6077f441eeadd5bdf597da999170d4bdc3c",
+      "contamination_identifier": "LLM-AggreFact:8aKI8ea5PIwtGWjzSZY1qQ2jcFbX9i00tVTDhn74SfaatFca0XlO86RtwktZe5Jw",
+      "documentHash": "4b7460ebab70cd23a229c4c11812e0c0e8a1fec434473c6be0af61a390d749f3",
+      "family": "temporal"
+    },
+    {
+      "analysisContentId": "record-d33b63a5021c",
+      "claimHash": "2ecccb10a56d044c0989e56c71a037f61d699c9fc139503698443cabef1d6231",
+      "contamination_identifier": "LLM-AggreFact:DHcg5JaTJTGhZscLOecCoDFgZXtXsScrYACe3vBwzeZ5PdPLVF4CX8GJwa0IAx2v",
+      "documentHash": "2448e988b7389b4eef10823f40a2d90728515dbdcfb4ffb5563ae45f143b4131",
+      "family": "temporal"
+    },
+    {
+      "analysisContentId": "record-7cf12a6a1ce5",
+      "claimHash": "1c21f2fe008a573d126f213136f6e1fa6ab6537770f21cd99fb80e45280aeeb2",
+      "contamination_identifier": "LLM-AggreFact:TWKPBaVEOh4abaeuXqofJJ5Bl9OxWcb6IPnLIIY66IJIGMcPWmmyYR5zqn9GljPl",
+      "documentHash": "27c9b4e0ab3f3e2ca296b58139f1ec6bc0a683bf936023d3f70dd5b1b935ae2b",
+      "family": "temporal"
+    },
+    {
+      "analysisContentId": "record-7011542273a4",
+      "claimHash": "98db25664919510ee16fbf5adbca95ffff66a629b376deeb7d6effde2ee81b1b",
+      "contamination_identifier": "LLM-AggreFact:WXh99QkfXjqGUzY5luW2Zm3yNRews2469usQvFGcOOJ0z17EYdS0giYfPzlRRVVW",
+      "documentHash": "d9bc28e82536049af31e7e949f85cf920750529ef1522c41c45b4ca7bc074c23",
+      "family": "temporal"
+    },
+    {
+      "analysisContentId": "record-2d021e8d3143",
+      "claimHash": "993f77608661ce720ac6781a1eff4742b435dbd39351372b4c641366b5493fd2",
+      "contamination_identifier": "LLM-AggreFact:tPysv8VvPkKioX7wpUh37UwaYFAfZmTg3cV0OXfFiXzrr7X4MD1HZo5r0q9tFJq8",
+      "documentHash": "2caafbfd02538f9e75d8b51648f0c69ca5579535d7b5cb4d3da4cd1c0edce7ca",
+      "family": "attribution"
+    },
+    {
+      "analysisContentId": "record-d73be706e73b",
+      "claimHash": "3e92c72b5f85e1b1e36be71e0bc2bcf9f6d21b999a6ce79ab7f935f3bf7e3f0b",
+      "contamination_identifier": "LLM-AggreFact:XxrfEhYAPhn9fb7jbg6Tpu0Nlv8gly2QIzPhq90fQntVFTRDPoowJ91DkXMiUR9z",
+      "documentHash": "7c19a8cb5cf3d6b8cdea5244000c805f732d95882d63ccbaa7548a60cf329a87",
+      "family": "attribution"
+    },
+    {
+      "analysisContentId": "record-111cfbe240fe",
+      "claimHash": "0c48d999a0586d372b48d1029d47c34e12f1b8f99f238c4167e769151ba5e65a",
+      "contamination_identifier": "LLM-AggreFact:2FhFaOOAl3QdVK61j3gQG2rzBQcxX3DqC0mhTXzijRRmCd65Kz51QAww18kYn624",
+      "documentHash": "77399e7d14b2dbcbdbddfb03b62617ea15d76ea25d942a5530dfc3e9defdaa24",
+      "family": "attribution"
+    },
+    {
+      "analysisContentId": "record-cae28aee4e62",
+      "claimHash": "7be81df298008884c7d0de35b1ba6b1f8714a6c5f62aa93ec3f890628b3547a3",
+      "contamination_identifier": "LLM-AggreFact:B5yaK4gWtkmYm5KwCgMawSWuXuWU29gTVXqduB3uiB1vm2mMsHGJgkQ11Jz0yCXT",
+      "documentHash": "764fca9210584ff760a9c38b4f7cb895a67fd94c14da95a9dd129f049dff4c6b",
+      "family": "attribution"
+    },
+    {
+      "analysisContentId": "record-59ca37ce4272",
+      "claimHash": "a443273e211b906b395d43d1e6fe9f916a7b485778c78dfdcc6be3c13907edbf",
+      "contamination_identifier": "LLM-AggreFact:rachLB2CfsIyND5mJOpdQmCDY4cSxrpJFi7H1I1JSs6gR6ZC8wFEDY1WtcVkjgAV",
+      "documentHash": "77399e7d14b2dbcbdbddfb03b62617ea15d76ea25d942a5530dfc3e9defdaa24",
+      "family": "attribution"
+    },
+    {
+      "analysisContentId": "record-3896cfb784e6",
+      "claimHash": "83a10593ce177dc69ee8f3f946f45c6f22b898faf22fac8af7c3083b7bb05bca",
+      "contamination_identifier": "LLM-AggreFact:tcCY1y5DBOg6XaUIzPoeA60HIPuARPhLl1hBg6IeGuTxSak30vDBKF7qwtNffuvw",
+      "documentHash": "c9afe5b4b9596f717b950d2354ddd7cc9afd7e05a66c3c7769e8db8d53a926e0",
+      "family": "attribution"
+    },
+    {
+      "analysisContentId": "record-7e3d758e0f99",
+      "claimHash": "aff4f37eb20d38555544dbb3a692d1f80023fe0bbdeda04d4424021f9c470e11",
+      "contamination_identifier": "LLM-AggreFact:v4Gbh8t3T0QGf8Cx4jcrLkuzxNPIYGJRyeiUQHlGBTTpwjt6ar1si3YT8IXgRYoR",
+      "documentHash": "d9755a0e6a5a872c86d486a8267ddecc9ba5ee3680aa8ee79be05224e0354ff3",
+      "family": "entity"
+    },
+    {
+      "analysisContentId": "record-1dd65de193a5",
+      "claimHash": "ef5d327f72bc97cc689f00100afbb7e44b4021b1cde4953496998536686ecd13",
+      "contamination_identifier": "LLM-AggreFact:h8jJefptImcbgpyNaIaYYMhBD2u5mLy9eOmm3itXnMIy6PyquhhlreSQfVx1U7fJ",
+      "documentHash": "68ff2ee116867c7d692b258af5712e69a360ded7cbe97ed236bdf88ff6bf19e4",
+      "family": "entity"
+    },
+    {
+      "analysisContentId": "record-e8f9f7935de4",
+      "claimHash": "a75a53e4937ed6b108cae97a65884b76d88516ee86be2eef054bbc9af7ae52b7",
+      "contamination_identifier": "LLM-AggreFact:4BdR2wk7R0WACh0s5NWkLvmsL2WJhfyPQab6pim3ONxwawTqQgBA8FL9FCAlKW1B",
+      "documentHash": "d12cebfdeb0a0db25c2c45013032252f89c86ac70bddff4452704c0203a07db0",
+      "family": "entity"
+    },
+    {
+      "analysisContentId": "record-302a73ca2502",
+      "claimHash": "4f756b4ea8320574b2ccefa41ff85e5f3441a4d4ef4b556dc6e7477384fedb69",
+      "contamination_identifier": "LLM-AggreFact:geTNbNW3vMRovXmSSfCGuLPvw3FLLA6Zd9OjJVMbyq2kYLUOQp1zlSIeJhQg3IWZ",
+      "documentHash": "d0f1b0fae9139f89a5ca01e4baef27bddef705e0a04b475285cdd50237ec3af1",
+      "family": "entity"
+    },
+    {
+      "analysisContentId": "record-cc035098c7f1",
+      "claimHash": "ff465979517a558795b9d61944649f714aff19ba8f622e3928e5324d5d2470e4",
+      "contamination_identifier": "LLM-AggreFact:b9ZdjZCM6QwGAXWQqcsmbuKRkOmM27a4mq7kB86FeC06ptKtKUbuTTFgpl455xpE",
+      "documentHash": "451eae06bd90b4651f4b9a7dc69bf318743739582bc27bb0b6857a3f603610d5",
+      "family": "entity"
+    },
+    {
+      "analysisContentId": "record-2f79d1b8cfe4",
+      "claimHash": "4f756b4ea8320574b2ccefa41ff85e5f3441a4d4ef4b556dc6e7477384fedb69",
+      "contamination_identifier": "LLM-AggreFact:R9Ph0RwzNcxPW95x4UZmipItYjfTf5410mShsh2Yfo8jiPqenI1Kq8cLabEY7WxI",
+      "documentHash": "9c5790971eb09c494e8e8df110f63501a97f6e10727f1f9d5e0231a8ea00f21a",
+      "family": "entity"
+    },
+    {
+      "analysisContentId": "record-8bc6b0fa4f89",
+      "claimHash": "726c820c68a767632bdba9053d1723ab050a2f131f22d6525d2985f30ee09976",
+      "contamination_identifier": "LLM-AggreFact:Bu7Lgh5hCG0fZSbocEjKeZnjkQUTHnLDUFqt6Ue8hk4nqqcmvAExMyYCyQOmxkws",
+      "documentHash": "c632f6bc4dfc91f38d2ebb81da7cdef53a7c1a2cbaa3584b5d95f40409bafe68",
+      "family": "cross_sentence"
+    },
+    {
+      "analysisContentId": "record-1924a87f6288",
+      "claimHash": "b57daee60cbdedc4547bd7c5696dbc278bced2318174451490ca8cefd207460f",
+      "contamination_identifier": "LLM-AggreFact:GId8zKVXDtMwqiaWtnAzegGnJJRsEyRa4eZc8pHjq604Cv2Q2DSLovlYTptfcoQR",
+      "documentHash": "5b78fefe24dec4b543d442cdc8b6dc664d4aebbe6f718c6332ee25c11d7a2620",
+      "family": "cross_sentence"
+    },
+    {
+      "analysisContentId": "record-5dc57d0f3c26",
+      "claimHash": "9197e7690fd01ab092e84a12584bcff0483a1cf225359f89b5b3967d14b984da",
+      "contamination_identifier": "LLM-AggreFact:Zv2Q6gOgFcVzn9T0TPXYjC4AF4FA9zNXiygLnkfnJPSeMEg1lKAxKqeYdU4TH6ZB",
+      "documentHash": "c632f6bc4dfc91f38d2ebb81da7cdef53a7c1a2cbaa3584b5d95f40409bafe68",
+      "family": "cross_sentence"
+    },
+    {
+      "analysisContentId": "record-33af1bcefdbe",
+      "claimHash": "f25d4b435c9b535ad82f7561af312a548cf99ac7c5d0ab4feec7be2d9937a0b9",
+      "contamination_identifier": "LLM-AggreFact:vuFdldtytnmE2hn8Tcs5Fkv0IIWwhvErAQFnkTmClDi4k0SbmneVJ1shkwtu7kGa",
+      "documentHash": "e017765db75bab36cf1a327b56003939902cfcff2a6d6443959ffedb03e62db6",
+      "family": "cross_sentence"
+    },
+    {
+      "analysisContentId": "record-f0b7f952130a",
+      "claimHash": "7a58ab4ebebb24d7fc04ab68e87f3c0a94a10a90694933f1324007714f199c97",
+      "contamination_identifier": "LLM-AggreFact:qWMlediSLRbGz9xzzs02uTi0WXQTO3qPuoriDC1KChRW08hYlcp9BWeuQYQODcCt",
+      "documentHash": "57487f9eca309fa03b1603cf4362f50a3f348aa44c7966c81cd7be483fae49c1",
+      "family": "cross_sentence"
+    },
+    {
+      "analysisContentId": "record-3ced7f94f4e9",
+      "claimHash": "1b5cec114e36313f19221a84cff7beed84fd4b5144a69afc600e69f6697ae43d",
+      "contamination_identifier": "LLM-AggreFact:449mDcF6DOmsh5uENW8hMsT0YIziVzGPtsWNcXmvrDaaUOAkEQy71U9edIEjNNvc",
+      "documentHash": "369c45cd5f217232a990e0f740c6c5243bf7b68fe95f4f1a8fd665e27071a929",
+      "family": "cross_sentence"
+    }
+  ],
+  "tourCasesPerFamily": 6
+}

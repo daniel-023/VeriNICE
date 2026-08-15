@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "modernbert": {
+    "repository": "tasksource/ModernBERT-base-nli",
+    "revision": "de4ab7e77845098b7fab7f6ab9d370ddff27b19c",
+    "purpose": "NLI edge scoring and retrieval reranking"
+  },
+  "ollama": {
+    "model": "qwen2.5:7b",
+    "manifestConfigDigest": "sha256:2f15b3218f0552c60647ce60ada83632d2c09755b16259b13e3e4458e9ae419d",
+    "purpose": "Strict-JSON atomization only"
+  },
+  "corenlp": {
+    "version": "4.5.10",
+    "annotators": [
+      "openie",
+      "natlog",
+      "coref"
+    ]
+  },
+  "dataset": {
+    "repository": "lytang/LLM-AggreFact",
+    "revision": "resolved-and-frozen-by-scripts/prepare.py",
+    "allowedUse": "evaluation-only",
+    "expectedCounts": {
+      "dev": 30420,
+      "test": 29320
+    }
+  }
+}
+

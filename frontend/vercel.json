@@ -1,0 +1,5 @@
+{
+  "framework": "nextjs",
+  "installCommand": "npm ci",
+  "buildCommand": "node scripts/verify-walkthrough.mjs && NEXT_PUBLIC_VERIGRAPH_MODE=walkthrough npm run build"
+}

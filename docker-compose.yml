@@ -1,0 +1,119 @@
+services:
+  ollama:
+    image: ollama/ollama:0.5.7
+    volumes:
+      - ./data/runtime/ollama:/root/.ollama
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    environment:
+      VERIGRAPH_OLLAMA_URL: http://ollama:11434
+      VERIGRAPH_OLLAMA_MODEL: ${VERIGRAPH_OLLAMA_MODEL:-qwen2.5:7b}
+      VERIGRAPH_OLLAMA_KEEP_ALIVE: ${VERIGRAPH_OLLAMA_KEEP_ALIVE:-10m}
+      VERIGRAPH_ALLOWED_ORIGINS: ""
+      VERIGRAPH_EXPECTED_BUNDLE_DIGEST: ${VERIGRAPH_EXPECTED_BUNDLE_DIGEST:-}
+      VERIGRAPH_MAX_LLM_CONCURRENCY: ${VERIGRAPH_MAX_LLM_CONCURRENCY:-1}
+      VERIGRAPH_MAX_RETRIEVAL_CONCURRENCY: ${VERIGRAPH_MAX_RETRIEVAL_CONCURRENCY:-1}
+      VERIGRAPH_RATE_LIMIT_PER_MINUTE: ${VERIGRAPH_RATE_LIMIT_PER_MINUTE:-30}
+    volumes:
+      - ./data/models:/models:ro
+    read_only: true
+    tmpfs:
+      - /tmp:size=32m,mode=1777
+    depends_on:
+      ollama:
+        condition: service_healthy
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+      args:
+        NEXT_PUBLIC_VERIGRAPH_MODE: live
+    environment:
+      VERIGRAPH_BACKEND_URL: http://backend:8001
+      VERIGRAPH_BACKEND_TIMEOUT_MS: 110000
+    depends_on:
+      backend:
+        condition: service_started
+    ports:
+      - "${VERIGRAPH_PORT:-3000}:3000"
+    read_only: true
+    tmpfs:
+      - /tmp:size=32m,mode=1777
+    restart: unless-stopped
+
+  model-prep:
+    profiles: ["prepare"]
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    environment:
+      VERIGRAPH_EMBEDDING_MODEL_PATH: /models/bge-small-en-v1.5
+      VERIGRAPH_NLI_MODEL_PATH: /models/deberta-v3-base-mnli-fever-anli
+      HF_HUB_OFFLINE: "0"
+      TRANSFORMERS_OFFLINE: "0"
+    user: "0:0"
+    volumes:
+      - ./data/models:/models
+    command:
+      ["/bin/sh", "-c", "python /app/scripts/prepare_embedding_model.py && python /app/scripts/prepare_nli_model.py"]
+
+  ollama-pull:
+    profiles: ["prepare"]
+    image: ollama/ollama:0.5.7
+    environment:
+      OLLAMA_HOST: ollama:11434
+      VERIGRAPH_OLLAMA_MODEL: ${VERIGRAPH_OLLAMA_MODEL:-qwen2.5:7b}
+    depends_on:
+      ollama:
+        condition: service_healthy
+    command: ["/bin/sh", "-c", "ollama pull $${VERIGRAPH_OLLAMA_MODEL}"]
+
+  walkthrough-recorder:
+    profiles: ["record"]
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    depends_on:
+      frontend:
+        condition: service_started
+    volumes:
+      - ./data/walkthrough/runs:/output
+    command:
+      ["python", "/app/scripts/record_walkthrough.py", "--api", "http://frontend:3000", "--output", "/output"]
+
+  walkthrough-build:
+    profiles: ["record"]
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    volumes:
+      - ./data/walkthrough/runs:/runs:ro
+      - ./frontend/public/walkthrough:/output
+    command:
+      ["python", "/app/scripts/build_walkthrough.py", "--runs", "/runs", "--output", "/output", "--require-complete"]
+
+  backend-test:
+    profiles: ["test"]
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+      target: test
+    command: ["python", "-m", "pytest", "/app/backend/tests"]
+
+  frontend-test:
+    profiles: ["test"]
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+      target: test
