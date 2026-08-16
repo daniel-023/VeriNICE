@@ -1,0 +1,230 @@
+{
+  "caseId": "averitec-dev-0026",
+  "atoms": [
+    {
+      "id": "atom-1",
+      "text": "Ivermectin is a treatment for coronavirus.",
+      "sourceText": "Ivermectin is a treatment for coronavirus.",
+      "start": 0,
+      "end": 42
+    }
+  ],
+  "evidence": [
+    {
+      "atomId": "atom-1",
+      "spans": [
+        {
+          "id": "doc-41f1926ad4ef::sentence-14",
+          "documentId": "doc-41f1926ad4ef",
+          "text": "The authors concluded ivermectin as a better choice for the treatment of patients with mild to moderate COVID-19 disease [7].",
+          "start": 2491,
+          "end": 2616
+        },
+        {
+          "id": "doc-41f1926ad4ef::sentence-29",
+          "documentId": "doc-41f1926ad4ef",
+          "text": "However, repurposing existing drugs as possible COVID-19 treatment is astute usage of existing resources, and we await results of well-designed large scale randomized controlled clinical trials exploring treatment efficacy of ivermectin to treat SARS-CoV-2.\n",
+          "start": 5283,
+          "end": 5541
+        },
+        {
+          "id": "doc-41f1926ad4ef::sentence-28",
+          "documentId": "doc-41f1926ad4ef",
+          "text": "The clinical efficacy and utility of ivermectin in SARS CoV-2 infected patients are unpredictable at this stage, as we are dealing with a completely novel virus. ",
+          "start": 5121,
+          "end": 5283
+        },
+        {
+          "id": "doc-640b644a3867::sentence-5",
+          "documentId": "doc-640b644a3867",
+          "text": "Ivermectin is also highly effective against strongyloides, scabies, and ticks, and it has recently been shown to be an effective endectocide that kills feeding mosquitoes with the potential to reduce malaria transmission.\n",
+          "start": 477,
+          "end": 699
+        },
+        {
+          "id": "doc-640b644a3867::sentence-13",
+          "documentId": "doc-640b644a3867",
+          "text": "The use of ivermectin will expand. ",
+          "start": 868,
+          "end": 903
+        },
+        {
+          "id": "doc-640b644a3867::sentence-1",
+          "documentId": "doc-640b644a3867",
+          "text": "Ivermectin is one of the most important antibiotics discovered. ",
+          "start": 0,
+          "end": 64
+        }
+      ]
+    }
+  ],
+  "classifications": [
+    {
+      "atomId": "atom-1",
+      "relations": [
+        {
+          "spanId": "doc-41f1926ad4ef::sentence-14",
+          "documentId": "doc-41f1926ad4ef",
+          "relation": "ENTAILMENT"
+        },
+        {
+          "spanId": "doc-41f1926ad4ef::sentence-29",
+          "documentId": "doc-41f1926ad4ef",
+          "relation": "ENTAILMENT"
+        },
+        {
+          "spanId": "doc-41f1926ad4ef::sentence-28",
+          "documentId": "doc-41f1926ad4ef",
+          "relation": "ENTAILMENT"
+        },
+        {
+          "spanId": "doc-640b644a3867::sentence-5",
+          "documentId": "doc-640b644a3867",
+          "relation": "CONTRADICTION"
+        },
+        {
+          "spanId": "doc-640b644a3867::sentence-13",
+          "documentId": "doc-640b644a3867",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-640b644a3867::sentence-1",
+          "documentId": "doc-640b644a3867",
+          "relation": "CONTRADICTION"
+        }
+      ]
+    }
+  ],
+  "linguistics": [
+    {
+      "atomId": "atom-1",
+      "frames": [
+        {
+          "id": "atom-1-frame-1",
+          "predicate": {
+            "id": "atom-1-frame-1-predicate",
+            "text": "is",
+            "start": 11,
+            "end": 13
+          },
+          "subjects": [
+            {
+              "id": "atom-1-frame-1-subject-1",
+              "text": "Ivermectin",
+              "start": 0,
+              "end": 10
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "atom-1-frame-1-argument-1",
+              "text": "a treatment for coronavirus",
+              "start": 14,
+              "end": 41,
+              "role": "subject_complement"
+            }
+          ],
+          "adjuncts": [],
+          "otherModifiers": []
+        }
+      ],
+      "cues": [],
+      "entities": [
+        {
+          "id": "atom-1-entity-norp-0-10",
+          "text": "Ivermectin",
+          "start": 0,
+          "end": 10,
+          "label": "NORP"
+        }
+      ],
+      "tokens": [
+        {
+          "id": "atom-1-token-0",
+          "text": "Ivermectin",
+          "start": 0,
+          "end": 10,
+          "lemma": "Ivermectin",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "nsubj",
+          "head": "is"
+        },
+        {
+          "id": "atom-1-token-1",
+          "text": "is",
+          "start": 11,
+          "end": 13,
+          "lemma": "be",
+          "pos": "AUX",
+          "tag": "VBZ",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "atom-1-token-2",
+          "text": "a",
+          "start": 14,
+          "end": 15,
+          "lemma": "a",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "treatment"
+        },
+        {
+          "id": "atom-1-token-3",
+          "text": "treatment",
+          "start": 16,
+          "end": 25,
+          "lemma": "treatment",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "attr",
+          "head": "is"
+        },
+        {
+          "id": "atom-1-token-4",
+          "text": "for",
+          "start": 26,
+          "end": 29,
+          "lemma": "for",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "treatment"
+        },
+        {
+          "id": "atom-1-token-5",
+          "text": "coronavirus",
+          "start": 30,
+          "end": 41,
+          "lemma": "coronavirus",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "pobj",
+          "head": "for"
+        },
+        {
+          "id": "atom-1-token-6",
+          "text": ".",
+          "start": 41,
+          "end": 42,
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "is"
+        }
+      ],
+      "status": "complete",
+      "unresolved": []
+    }
+  ],
+  "recordedWith": {
+    "decompositionModel": "qwen2.5:7b",
+    "retrievalModel": "BAAI/bge-small-en-v1.5",
+    "nliModel": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    "linguisticsModel": "en_core_web_sm@3.8.0"
+  }
+}

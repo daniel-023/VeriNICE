@@ -159,9 +159,9 @@
           "coreArguments": [
             {
               "id": "atom-1-frame-3-argument-1",
-              "text": "herd immunity",
+              "text": "herd immunity against COVID-19",
               "start": 96,
-              "end": 109,
+              "end": 126,
               "role": "direct_object"
             }
           ],
@@ -169,12 +169,6 @@
           "otherModifiers": [
             {
               "id": "atom-1-frame-3-other-modifier-1",
-              "text": "against COVID-19",
-              "start": 110,
-              "end": 126
-            },
-            {
-              "id": "atom-1-frame-3-other-modifier-2",
               "text": "without a vaccine",
               "start": 127,
               "end": 144

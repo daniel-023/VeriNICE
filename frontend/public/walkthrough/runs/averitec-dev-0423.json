@@ -1,0 +1,668 @@
+{
+  "caseId": "averitec-dev-0423",
+  "atoms": [
+    {
+      "id": "atom-1",
+      "text": "Sen. Martha McSally supported a plan to turn Medicare into a voucher program and ‘shift costs’ onto seniors.",
+      "sourceText": "Sen. Martha McSally “supported a plan to turn Medicare into a voucher program and ‘shift costs’ onto seniors” and “even supported raising the retirement age.",
+      "start": 0,
+      "end": 157
+    },
+    {
+      "id": "atom-2",
+      "text": "Sen. Martha McSally even supported raising the retirement age.",
+      "sourceText": "Sen. Martha McSally “supported a plan to turn Medicare into a voucher program and ‘shift costs’ onto seniors” and “even supported raising the retirement age.",
+      "start": 0,
+      "end": 157
+    }
+  ],
+  "evidence": [
+    {
+      "atomId": "atom-1",
+      "spans": [
+        {
+          "id": "doc-67fcc48de84f::sentence-293",
+          "documentId": "doc-67fcc48de84f",
+          "text": "McSally | McSally | Republican | AZ | Yea |\n",
+          "start": 13070,
+          "end": 13114
+        },
+        {
+          "id": "doc-67fcc48de84f::sentence-229",
+          "documentId": "doc-67fcc48de84f",
+          "text": "Kelly (MS) | Kelly (MS) | Republican | MS | Yea |\n",
+          "start": 10083,
+          "end": 10133
+        },
+        {
+          "id": "doc-67fcc48de84f::sentence-343",
+          "documentId": "doc-67fcc48de84f",
+          "text": "Reed | Reed | Republican | NY | Yea |\n",
+          "start": 15282,
+          "end": 15320
+        },
+        {
+          "id": "doc-b7039c2b13f6::sentence-7",
+          "documentId": "doc-b7039c2b13f6",
+          "text": "I support reform such as modernizing the retirement age and indexing it to life expectancy. ",
+          "start": 654,
+          "end": 746
+        },
+        {
+          "id": "doc-b7039c2b13f6::sentence-27",
+          "documentId": "doc-b7039c2b13f6",
+          "text": "ANTENORI: Congress needs to get its hands off of social security. ",
+          "start": 3185,
+          "end": 3251
+        },
+        {
+          "id": "doc-b7039c2b13f6::sentence-2",
+          "documentId": "doc-b7039c2b13f6",
+          "text": "Is Social Security, as it now exists, survivable and would you support raising the cap on earning, raising the retirement age, reducing payments to wealthier Americans and allow younger workers to invest a portion of the Social Security into private accounts? ",
+          "start": 11,
+          "end": 271
+        }
+      ]
+    },
+    {
+      "atomId": "atom-2",
+      "spans": [
+        {
+          "id": "doc-b7039c2b13f6::sentence-7",
+          "documentId": "doc-b7039c2b13f6",
+          "text": "I support reform such as modernizing the retirement age and indexing it to life expectancy. ",
+          "start": 654,
+          "end": 746
+        },
+        {
+          "id": "doc-67fcc48de84f::sentence-293",
+          "documentId": "doc-67fcc48de84f",
+          "text": "McSally | McSally | Republican | AZ | Yea |\n",
+          "start": 13070,
+          "end": 13114
+        },
+        {
+          "id": "doc-b7039c2b13f6::sentence-2",
+          "documentId": "doc-b7039c2b13f6",
+          "text": "Is Social Security, as it now exists, survivable and would you support raising the cap on earning, raising the retirement age, reducing payments to wealthier Americans and allow younger workers to invest a portion of the Social Security into private accounts? ",
+          "start": 11,
+          "end": 271
+        },
+        {
+          "id": "doc-b7039c2b13f6::sentence-14",
+          "documentId": "doc-b7039c2b13f6",
+          "text": "For younger workers, we need to consider approaches such as gradually increasing the retirement age and allowing them to invest a portion of their Social Security payments in ways that will allow them to maximize their returns. ",
+          "start": 1410,
+          "end": 1638
+        },
+        {
+          "id": "doc-67fcc48de84f::sentence-274",
+          "documentId": "doc-67fcc48de84f",
+          "text": "MacArthur | MacArthur | Republican | NJ | Yea |\n",
+          "start": 12168,
+          "end": 12216
+        },
+        {
+          "id": "doc-67fcc48de84f::sentence-229",
+          "documentId": "doc-67fcc48de84f",
+          "text": "Kelly (MS) | Kelly (MS) | Republican | MS | Yea |\n",
+          "start": 10083,
+          "end": 10133
+        }
+      ]
+    }
+  ],
+  "classifications": [
+    {
+      "atomId": "atom-1",
+      "relations": [
+        {
+          "spanId": "doc-67fcc48de84f::sentence-293",
+          "documentId": "doc-67fcc48de84f",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-67fcc48de84f::sentence-229",
+          "documentId": "doc-67fcc48de84f",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-67fcc48de84f::sentence-343",
+          "documentId": "doc-67fcc48de84f",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-b7039c2b13f6::sentence-7",
+          "documentId": "doc-b7039c2b13f6",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-b7039c2b13f6::sentence-27",
+          "documentId": "doc-b7039c2b13f6",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-b7039c2b13f6::sentence-2",
+          "documentId": "doc-b7039c2b13f6",
+          "relation": "NEUTRAL"
+        }
+      ]
+    },
+    {
+      "atomId": "atom-2",
+      "relations": [
+        {
+          "spanId": "doc-b7039c2b13f6::sentence-7",
+          "documentId": "doc-b7039c2b13f6",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-67fcc48de84f::sentence-293",
+          "documentId": "doc-67fcc48de84f",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-b7039c2b13f6::sentence-2",
+          "documentId": "doc-b7039c2b13f6",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-b7039c2b13f6::sentence-14",
+          "documentId": "doc-b7039c2b13f6",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-67fcc48de84f::sentence-274",
+          "documentId": "doc-67fcc48de84f",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-67fcc48de84f::sentence-229",
+          "documentId": "doc-67fcc48de84f",
+          "relation": "NEUTRAL"
+        }
+      ]
+    }
+  ],
+  "linguistics": [
+    {
+      "atomId": "atom-1",
+      "frames": [
+        {
+          "id": "atom-1-frame-1",
+          "predicate": {
+            "id": "atom-1-frame-1-predicate",
+            "text": "supported",
+            "start": 20,
+            "end": 29
+          },
+          "subjects": [
+            {
+              "id": "atom-1-frame-1-subject-1",
+              "text": "Sen. Martha McSally",
+              "start": 0,
+              "end": 19
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "atom-1-frame-1-argument-1",
+              "text": "a plan to turn Medicare into a voucher program and ‘shift costs’ onto seniors",
+              "start": 30,
+              "end": 107,
+              "role": "direct_object"
+            }
+          ],
+          "adjuncts": [],
+          "otherModifiers": []
+        }
+      ],
+      "cues": [],
+      "entities": [
+        {
+          "id": "atom-1-entity-person-5-19",
+          "text": "Martha McSally",
+          "start": 5,
+          "end": 19,
+          "label": "PERSON"
+        },
+        {
+          "id": "atom-1-entity-org-45-53",
+          "text": "Medicare",
+          "start": 45,
+          "end": 53,
+          "label": "ORG"
+        }
+      ],
+      "tokens": [
+        {
+          "id": "atom-1-token-0",
+          "text": "Sen.",
+          "start": 0,
+          "end": 4,
+          "lemma": "Sen.",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "McSally"
+        },
+        {
+          "id": "atom-1-token-1",
+          "text": "Martha",
+          "start": 5,
+          "end": 11,
+          "lemma": "Martha",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "McSally"
+        },
+        {
+          "id": "atom-1-token-2",
+          "text": "McSally",
+          "start": 12,
+          "end": 19,
+          "lemma": "McSally",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "nsubj",
+          "head": "supported"
+        },
+        {
+          "id": "atom-1-token-3",
+          "text": "supported",
+          "start": 20,
+          "end": 29,
+          "lemma": "support",
+          "pos": "VERB",
+          "tag": "VBD",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "atom-1-token-4",
+          "text": "a",
+          "start": 30,
+          "end": 31,
+          "lemma": "a",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "plan"
+        },
+        {
+          "id": "atom-1-token-5",
+          "text": "plan",
+          "start": 32,
+          "end": 36,
+          "lemma": "plan",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "dobj",
+          "head": "supported"
+        },
+        {
+          "id": "atom-1-token-6",
+          "text": "to",
+          "start": 37,
+          "end": 39,
+          "lemma": "to",
+          "pos": "PART",
+          "tag": "TO",
+          "dependency": "aux",
+          "head": "turn"
+        },
+        {
+          "id": "atom-1-token-7",
+          "text": "turn",
+          "start": 40,
+          "end": 44,
+          "lemma": "turn",
+          "pos": "VERB",
+          "tag": "VB",
+          "dependency": "acl",
+          "head": "plan"
+        },
+        {
+          "id": "atom-1-token-8",
+          "text": "Medicare",
+          "start": 45,
+          "end": 53,
+          "lemma": "Medicare",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "dobj",
+          "head": "turn"
+        },
+        {
+          "id": "atom-1-token-9",
+          "text": "into",
+          "start": 54,
+          "end": 58,
+          "lemma": "into",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "turn"
+        },
+        {
+          "id": "atom-1-token-10",
+          "text": "a",
+          "start": 59,
+          "end": 60,
+          "lemma": "a",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "program"
+        },
+        {
+          "id": "atom-1-token-11",
+          "text": "voucher",
+          "start": 61,
+          "end": 68,
+          "lemma": "voucher",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "program"
+        },
+        {
+          "id": "atom-1-token-12",
+          "text": "program",
+          "start": 69,
+          "end": 76,
+          "lemma": "program",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "pobj",
+          "head": "into"
+        },
+        {
+          "id": "atom-1-token-13",
+          "text": "and",
+          "start": 77,
+          "end": 80,
+          "lemma": "and",
+          "pos": "CCONJ",
+          "tag": "CC",
+          "dependency": "cc",
+          "head": "turn"
+        },
+        {
+          "id": "atom-1-token-14",
+          "text": "‘",
+          "start": 81,
+          "end": 82,
+          "lemma": "'",
+          "pos": "PUNCT",
+          "tag": "``",
+          "dependency": "punct",
+          "head": "costs"
+        },
+        {
+          "id": "atom-1-token-15",
+          "text": "shift",
+          "start": 82,
+          "end": 87,
+          "lemma": "shift",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "compound",
+          "head": "costs"
+        },
+        {
+          "id": "atom-1-token-16",
+          "text": "costs",
+          "start": 88,
+          "end": 93,
+          "lemma": "cost",
+          "pos": "NOUN",
+          "tag": "NNS",
+          "dependency": "conj",
+          "head": "turn"
+        },
+        {
+          "id": "atom-1-token-17",
+          "text": "’",
+          "start": 93,
+          "end": 94,
+          "lemma": "'",
+          "pos": "PUNCT",
+          "tag": "''",
+          "dependency": "punct",
+          "head": "costs"
+        },
+        {
+          "id": "atom-1-token-18",
+          "text": "onto",
+          "start": 95,
+          "end": 99,
+          "lemma": "onto",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "costs"
+        },
+        {
+          "id": "atom-1-token-19",
+          "text": "seniors",
+          "start": 100,
+          "end": 107,
+          "lemma": "senior",
+          "pos": "NOUN",
+          "tag": "NNS",
+          "dependency": "pobj",
+          "head": "onto"
+        },
+        {
+          "id": "atom-1-token-20",
+          "text": ".",
+          "start": 107,
+          "end": 108,
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "supported"
+        }
+      ],
+      "status": "complete",
+      "unresolved": []
+    },
+    {
+      "atomId": "atom-2",
+      "frames": [
+        {
+          "id": "atom-2-frame-1",
+          "predicate": {
+            "id": "atom-2-frame-1-predicate",
+            "text": "supported",
+            "start": 25,
+            "end": 34
+          },
+          "subjects": [
+            {
+              "id": "atom-2-frame-1-subject-1",
+              "text": "Sen. Martha McSally",
+              "start": 0,
+              "end": 19
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "atom-2-frame-1-argument-1",
+              "text": "raising the retirement age",
+              "start": 35,
+              "end": 61,
+              "role": "clausal_complement"
+            }
+          ],
+          "adjuncts": [
+            {
+              "id": "atom-2-frame-1-adjunct-1",
+              "text": "even",
+              "start": 20,
+              "end": 24,
+              "kind": "manner"
+            }
+          ],
+          "otherModifiers": []
+        },
+        {
+          "id": "atom-2-frame-2",
+          "predicate": {
+            "id": "atom-2-frame-2-predicate",
+            "text": "raising",
+            "start": 35,
+            "end": 42
+          },
+          "subjects": [],
+          "coreArguments": [
+            {
+              "id": "atom-2-frame-2-argument-1",
+              "text": "the retirement age",
+              "start": 43,
+              "end": 61,
+              "role": "direct_object"
+            }
+          ],
+          "adjuncts": [],
+          "otherModifiers": []
+        }
+      ],
+      "cues": [],
+      "entities": [
+        {
+          "id": "atom-2-entity-person-5-19",
+          "text": "Martha McSally",
+          "start": 5,
+          "end": 19,
+          "label": "PERSON"
+        }
+      ],
+      "tokens": [
+        {
+          "id": "atom-2-token-0",
+          "text": "Sen.",
+          "start": 0,
+          "end": 4,
+          "lemma": "Sen.",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "McSally"
+        },
+        {
+          "id": "atom-2-token-1",
+          "text": "Martha",
+          "start": 5,
+          "end": 11,
+          "lemma": "Martha",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "McSally"
+        },
+        {
+          "id": "atom-2-token-2",
+          "text": "McSally",
+          "start": 12,
+          "end": 19,
+          "lemma": "McSally",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "nsubj",
+          "head": "supported"
+        },
+        {
+          "id": "atom-2-token-3",
+          "text": "even",
+          "start": 20,
+          "end": 24,
+          "lemma": "even",
+          "pos": "ADV",
+          "tag": "RB",
+          "dependency": "advmod",
+          "head": "supported"
+        },
+        {
+          "id": "atom-2-token-4",
+          "text": "supported",
+          "start": 25,
+          "end": 34,
+          "lemma": "support",
+          "pos": "VERB",
+          "tag": "VBD",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "atom-2-token-5",
+          "text": "raising",
+          "start": 35,
+          "end": 42,
+          "lemma": "raise",
+          "pos": "VERB",
+          "tag": "VBG",
+          "dependency": "xcomp",
+          "head": "supported"
+        },
+        {
+          "id": "atom-2-token-6",
+          "text": "the",
+          "start": 43,
+          "end": 46,
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "age"
+        },
+        {
+          "id": "atom-2-token-7",
+          "text": "retirement",
+          "start": 47,
+          "end": 57,
+          "lemma": "retirement",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "compound",
+          "head": "age"
+        },
+        {
+          "id": "atom-2-token-8",
+          "text": "age",
+          "start": 58,
+          "end": 61,
+          "lemma": "age",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "dobj",
+          "head": "raising"
+        },
+        {
+          "id": "atom-2-token-9",
+          "text": ".",
+          "start": 61,
+          "end": 62,
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "supported"
+        }
+      ],
+      "status": "partial",
+      "unresolved": [
+        "subject"
+      ]
+    }
+  ],
+  "recordedWith": {
+    "decompositionModel": "qwen2.5:7b",
+    "retrievalModel": "BAAI/bge-small-en-v1.5",
+    "nliModel": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    "linguisticsModel": "en_core_web_sm@3.8.0"
+  }
+}

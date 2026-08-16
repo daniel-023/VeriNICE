@@ -5,10 +5,22 @@ import type {
   NLIRelation,
 } from "@/lib/types";
 
-const relationLabels: Record<Exclude<NLIRelation, "NEUTRAL">, string> = {
-  ENTAILMENT: "Supports Atom",
-  CONTRADICTION: "Contradicts Atom",
-};
+type Position = { x: number; y: number };
+
+const CLAIM_Y = 10;
+const ATOM_Y = 50;
+const EVIDENCE_Y = 88;
+
+function tierPositions(count: number, y: number): Position[] {
+  if (count === 0) return [];
+  if (count === 1) return [{ x: 50, y }];
+  const inset = 10;
+  const span = 100 - inset * 2;
+  return Array.from({ length: count }, (_, index) => ({
+    x: inset + (span * index) / (count - 1),
+    y,
+  }));
+}
 
 function argumentativeEdges(graph: ArgumentationGraphModel): ArgumentationEdge[] {
   return graph.edges.filter(
@@ -16,45 +28,8 @@ function argumentativeEdges(graph: ArgumentationGraphModel): ArgumentationEdge[]
   );
 }
 
-function EvidenceGroup({
-  relation,
-  nodes,
-  atomId,
-  onSelectEvidence,
-}: {
-  relation: Exclude<NLIRelation, "NEUTRAL">;
-  nodes: ArgumentationNode[];
-  atomId: string;
-  onSelectEvidence: (node: ArgumentationNode, atomId: string) => void;
-}) {
-  const label = relationLabels[relation];
-  return (
-    <section className={`argumentation-relation relation-${relation.toLowerCase()}`}>
-      <h3>
-        <span aria-hidden="true" /> {label}
-        <strong>{nodes.length}</strong>
-      </h3>
-      {nodes.length ? (
-        <ul aria-label={`${label} evidence`}>
-          {nodes.map((node) => (
-            <li key={`${relation}-${node.id}`}>
-              <button
-                type="button"
-                className="argumentation-evidence-node"
-                onClick={() => onSelectEvidence(node, atomId)}
-                aria-label={`${label}, from ${node.label}: ${node.text}`}
-              >
-                <small>{node.label}</small>
-                <span>{node.text}</span>
-              </button>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>No sentence has this relation to the selected atom.</p>
-      )}
-    </section>
-  );
+function relationVerb(relation: Exclude<NLIRelation, "NEUTRAL">): string {
+  return relation === "ENTAILMENT" ? "supports" : "contradicts";
 }
 
 export function ArgumentationGraph({
@@ -68,21 +43,54 @@ export function ArgumentationGraph({
   onSelectAtom: (atomId: string) => void;
   onSelectEvidence: (node: ArgumentationNode, atomId: string) => void;
 }) {
-  const claim = graph.nodes.find((node) => node.kind === "claim");
-  const atoms = graph.nodes.filter((node) => node.kind === "atom");
-  const evidenceById = new Map(
-    graph.nodes.filter((node) => node.kind === "evidence").map((node) => [node.id, node]),
+  const claimNode = graph.nodes.find((node) => node.kind === "claim") ?? null;
+  const atomNodes = graph.nodes.filter((node) => node.kind === "atom");
+  const evidenceNodes = graph.nodes.filter((node) => node.kind === "evidence");
+  const links = argumentativeEdges(graph);
+
+  const atomPositions = new Map(
+    atomNodes.map((node, index) => [node.id, tierPositions(atomNodes.length, ATOM_Y)[index]]),
   );
-  const edges = argumentativeEdges(graph);
-  const selectedAtom = atoms.find((node) => node.id === selectedAtomId) ?? null;
-  const selectedEdges = selectedAtom
-    ? edges.filter((edge) => edge.source === selectedAtom.id)
-    : [];
-  const relationNodes = (relation: Exclude<NLIRelation, "NEUTRAL">) =>
-    selectedEdges
-      .filter((edge) => edge.relation === relation)
-      .map((edge) => evidenceById.get(edge.target))
-      .filter((node): node is ArgumentationNode => Boolean(node));
+  const evidencePositions = new Map(
+    evidenceNodes.map((node, index) => [
+      node.id,
+      tierPositions(evidenceNodes.length, EVIDENCE_Y)[index],
+    ]),
+  );
+  const atomIndexById = new Map(atomNodes.map((node, index) => [node.id, index + 1]));
+
+  function positionOf(nodeId: string): Position | null {
+    if (claimNode && nodeId === claimNode.id) return { x: 50, y: CLAIM_Y };
+    return atomPositions.get(nodeId) ?? evidencePositions.get(nodeId) ?? null;
+  }
+
+  function evidenceEdges(nodeId: string): ArgumentationEdge[] {
+    return links.filter((edge) => edge.target === nodeId);
+  }
+
+  function isEdgeActive(edge: ArgumentationEdge): boolean {
+    if (!selectedAtomId) return true;
+    if (edge.source === selectedAtomId) return true;
+    return edge.relation === "DECOMPOSES" && edge.target === selectedAtomId;
+  }
+
+  function dominantRelation(rels: ArgumentationEdge[]): "ENTAILMENT" | "CONTRADICTION" | "MIXED" {
+    const matching = selectedAtomId
+      ? rels.filter((edge) => edge.source === selectedAtomId)
+      : rels;
+    const pool = matching.length ? matching : rels;
+    const relations = new Set(pool.map((edge) => edge.relation));
+    if (relations.size === 1) {
+      return pool[0].relation === "CONTRADICTION" ? "CONTRADICTION" : "ENTAILMENT";
+    }
+    return "MIXED";
+  }
+
+  function handleEvidenceClick(node: ArgumentationNode): void {
+    const rels = evidenceEdges(node.id);
+    const preferred = rels.find((edge) => edge.source === selectedAtomId) ?? rels[0];
+    onSelectEvidence(node, preferred?.source ?? selectedAtomId ?? "");
+  }
 
   return (
     <section
@@ -94,57 +102,111 @@ export function ArgumentationGraph({
         <div>
           <p className="eyebrow">Stage 04 · Derived</p>
           <h2 id="argumentation-graph-heading">Argumentation Graph</h2>
-          <p>Inspect support and contradiction links for one atomic claim at a time.</p>
+          <p>See how the claim decomposes and where each atomic claim is supported or contradicted.</p>
         </div>
-        <span>{edges.length} argumentative link{edges.length === 1 ? "" : "s"}</span>
+        <span>{links.length} argumentative link{links.length === 1 ? "" : "s"}</span>
       </div>
 
-      <nav className="argumentation-atom-selector" aria-label="Atomic claims in argumentation graph">
-        {atoms.map((atom, index) => (
-          <button
-            type="button"
-            className={atom.id === selectedAtomId ? "active" : undefined}
-            aria-pressed={atom.id === selectedAtomId}
-            onClick={() => onSelectAtom(atom.atomId ?? atom.id)}
-            key={atom.id}
+      {atomNodes.length ? (
+        <>
+          <div
+            className="graph-canvas"
+            role="group"
+            aria-label="Claim, atomic claims, and evidence relationships"
           >
-            Atom {index + 1}
-          </button>
-        ))}
-      </nav>
+            <svg className="graph-edges" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+              {graph.edges.map((edge) => {
+                const from = positionOf(edge.source);
+                const to = positionOf(edge.target);
+                if (!from || !to) return null;
+                const active = isEdgeActive(edge);
+                const relationClass =
+                  edge.relation === "DECOMPOSES"
+                    ? "edge-decomposes"
+                    : edge.relation === "ENTAILMENT"
+                      ? "edge-support"
+                      : "edge-contradict";
+                return (
+                  <line
+                    key={edge.id}
+                    x1={from.x}
+                    y1={from.y}
+                    x2={to.x}
+                    y2={to.y}
+                    className={`graph-edge ${relationClass}${active ? " active" : " dimmed"}`}
+                  />
+                );
+              })}
+            </svg>
 
-      {selectedAtom ? (
-        <div className="argumentation-path">
-          {claim ? (
-            <article className="argumentation-claim-node">
-              <small>{claim.label}</small>
-              <p>{claim.text}</p>
-            </article>
-          ) : null}
-          <div className="argumentation-connector" aria-hidden="true">
-            <span>Decomposes To</span>
+            {claimNode ? (
+              <div
+                className="graph-node graph-node-claim"
+                style={{ left: "50%", top: `${CLAIM_Y}%` }}
+                title={claimNode.text}
+              >
+                <small>{claimNode.label}</small>
+                <p>{claimNode.text}</p>
+              </div>
+            ) : null}
+
+            {atomNodes.map((node) => {
+              const position = atomPositions.get(node.id);
+              if (!position) return null;
+              const active = node.id === selectedAtomId;
+              const dimmed = Boolean(selectedAtomId) && !active;
+              return (
+                <button
+                  type="button"
+                  key={node.id}
+                  className={`graph-node graph-node-atom${active ? " active" : ""}${dimmed ? " dimmed" : ""}`}
+                  style={{ left: `${position.x}%`, top: `${position.y}%` }}
+                  aria-pressed={active}
+                  aria-label={`Atom ${atomIndexById.get(node.id)}: ${node.text}`}
+                  title={node.text}
+                  onClick={() => onSelectAtom(node.atomId ?? node.id)}
+                >
+                  <small>Atom {atomIndexById.get(node.id)}</small>
+                  <p>{node.text}</p>
+                </button>
+              );
+            })}
+
+            {evidenceNodes.map((node) => {
+              const position = evidencePositions.get(node.id);
+              if (!position) return null;
+              const rels = evidenceEdges(node.id);
+              const active = Boolean(selectedAtomId) && rels.some((edge) => edge.source === selectedAtomId);
+              const dimmed = Boolean(selectedAtomId) && !active;
+              const relationClass = dominantRelation(rels).toLowerCase();
+              const summary = rels
+                .map((edge) => `${relationVerb(edge.relation as Exclude<NLIRelation, "NEUTRAL">)} Atom ${atomIndexById.get(edge.source) ?? "?"}`)
+                .join("; ");
+              return (
+                <button
+                  type="button"
+                  key={node.id}
+                  className={`graph-node graph-node-evidence relation-${relationClass}${active ? " active" : ""}${dimmed ? " dimmed" : ""}`}
+                  style={{ left: `${position.x}%`, top: `${position.y}%` }}
+                  aria-label={`Evidence from ${node.label}: ${node.text} — ${summary}`}
+                  title={node.text}
+                  onClick={() => handleEvidenceClick(node)}
+                >
+                  <small>{node.label}</small>
+                  <p>{node.text}</p>
+                </button>
+              );
+            })}
           </div>
-          <article className="argumentation-atom-node">
-            <small>Selected Atomic Claim</small>
-            <p>{selectedAtom.text}</p>
-          </article>
-          <div className="argumentation-relations">
-            <EvidenceGroup
-              relation="ENTAILMENT"
-              nodes={relationNodes("ENTAILMENT")}
-              atomId={selectedAtom.id}
-              onSelectEvidence={onSelectEvidence}
-            />
-            <EvidenceGroup
-              relation="CONTRADICTION"
-              nodes={relationNodes("CONTRADICTION")}
-              atomId={selectedAtom.id}
-              onSelectEvidence={onSelectEvidence}
-            />
+
+          <div className="graph-legend" aria-hidden="true">
+            <span className="legend-decomposes">Decomposes</span>
+            <span className="legend-support">Supports</span>
+            <span className="legend-contradict">Contradicts</span>
           </div>
-        </div>
+        </>
       ) : (
-        <p className="argumentation-empty">Select an atomic claim to inspect its argumentative links.</p>
+        <p className="argumentation-empty">Decompose a claim to see its argumentation graph.</p>
       )}
 
       <p className="argumentation-note">

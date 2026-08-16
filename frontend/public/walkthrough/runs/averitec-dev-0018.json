@@ -1,0 +1,527 @@
+{
+  "caseId": "averitec-dev-0018",
+  "atoms": [
+    {
+      "id": "atom-1",
+      "text": "Even if your mail-in ballot is postmarked prior to the Election day but arrives after the Election day, it will be thrown out.",
+      "sourceText": "Even if your mail-in ballot is postmarked prior to the Election day but arrives after the Election day it will be thrown out.",
+      "start": 0,
+      "end": 125
+    }
+  ],
+  "evidence": [
+    {
+      "atomId": "atom-1",
+      "spans": [
+        {
+          "id": "doc-836f4baee804::sentence-4",
+          "documentId": "doc-836f4baee804",
+          "text": "Most states require that your ballot be postmarked on Election Day, Nov. 3, but even if they’re postmarked in time, some will not accept those ballots if they arrive too late; the specific rules vary state by state. ",
+          "start": 382,
+          "end": 598
+        },
+        {
+          "id": "doc-836f4baee804::sentence-3",
+          "documentId": "doc-836f4baee804",
+          "text": "Many states suggest sending your ballot at least one week before Election Day (that’s today) to make sure it arrives in time.\n",
+          "start": 256,
+          "end": 382
+        },
+        {
+          "id": "doc-836f4baee804::sentence-13",
+          "documentId": "doc-836f4baee804",
+          "text": "Most states require mail-in ballots to be received by the time the polls close in the state on Election Day, usually 7 p.m. or 8 p.m. local time, but some allow ballots received after Election Day to be counted. ",
+          "start": 1382,
+          "end": 1594
+        },
+        {
+          "id": "doc-188db306f350::sentence-33",
+          "documentId": "doc-188db306f350",
+          "text": "It can take up to seven days for a ballot to travel through the United States Postal Service, but voters can also hand deliver their completed ballots to a local clerk's office or drop box before Election Day.",
+          "start": 5258,
+          "end": 5467
+        },
+        {
+          "id": "doc-188db306f350::sentence-32",
+          "documentId": "doc-188db306f350",
+          "text": "\"If you wait until the deadline, you risk not getting your ballot in time to vote it and return it by 8 p.m. on Election Day.\"\n",
+          "start": 5131,
+          "end": 5258
+        },
+        {
+          "id": "doc-188db306f350::sentence-31",
+          "documentId": "doc-188db306f350",
+          "text": "\"Please do not wait for the legal deadline – which is 5 p.m. on Thursday, October 29 – for your clerk to receive your request for an absentee ballot by mail,\" Wolfe said in a statement. ",
+          "start": 4945,
+          "end": 5131
+        }
+      ]
+    }
+  ],
+  "classifications": [
+    {
+      "atomId": "atom-1",
+      "relations": [
+        {
+          "spanId": "doc-836f4baee804::sentence-4",
+          "documentId": "doc-836f4baee804",
+          "relation": "ENTAILMENT"
+        },
+        {
+          "spanId": "doc-836f4baee804::sentence-3",
+          "documentId": "doc-836f4baee804",
+          "relation": "CONTRADICTION"
+        },
+        {
+          "spanId": "doc-836f4baee804::sentence-13",
+          "documentId": "doc-836f4baee804",
+          "relation": "CONTRADICTION"
+        },
+        {
+          "spanId": "doc-188db306f350::sentence-33",
+          "documentId": "doc-188db306f350",
+          "relation": "CONTRADICTION"
+        },
+        {
+          "spanId": "doc-188db306f350::sentence-32",
+          "documentId": "doc-188db306f350",
+          "relation": "CONTRADICTION"
+        },
+        {
+          "spanId": "doc-188db306f350::sentence-31",
+          "documentId": "doc-188db306f350",
+          "relation": "NEUTRAL"
+        }
+      ]
+    }
+  ],
+  "linguistics": [
+    {
+      "atomId": "atom-1",
+      "frames": [
+        {
+          "id": "atom-1-frame-1",
+          "predicate": {
+            "id": "atom-1-frame-1-predicate",
+            "text": "postmarked",
+            "start": 31,
+            "end": 41
+          },
+          "subjects": [
+            {
+              "id": "atom-1-frame-1-subject-1",
+              "text": "your mail-in ballot",
+              "start": 8,
+              "end": 27
+            }
+          ],
+          "coreArguments": [],
+          "adjuncts": [
+            {
+              "id": "atom-1-frame-1-adjunct-1",
+              "text": "Even",
+              "start": 0,
+              "end": 4,
+              "kind": "manner"
+            },
+            {
+              "id": "atom-1-frame-1-adjunct-2",
+              "text": "prior to the Election day",
+              "start": 42,
+              "end": 67,
+              "kind": "temporal"
+            }
+          ],
+          "otherModifiers": []
+        },
+        {
+          "id": "atom-1-frame-2",
+          "predicate": {
+            "id": "atom-1-frame-2-predicate",
+            "text": "arrives",
+            "start": 72,
+            "end": 79
+          },
+          "subjects": [
+            {
+              "id": "atom-1-frame-2-subject-1",
+              "text": "your mail-in ballot",
+              "start": 8,
+              "end": 27
+            }
+          ],
+          "coreArguments": [],
+          "adjuncts": [
+            {
+              "id": "atom-1-frame-2-adjunct-1",
+              "text": "after the Election day",
+              "start": 80,
+              "end": 102,
+              "kind": "temporal"
+            }
+          ],
+          "otherModifiers": []
+        },
+        {
+          "id": "atom-1-frame-3",
+          "predicate": {
+            "id": "atom-1-frame-3-predicate",
+            "text": "thrown",
+            "start": 115,
+            "end": 121
+          },
+          "subjects": [
+            {
+              "id": "atom-1-frame-3-subject-1",
+              "text": "it",
+              "start": 104,
+              "end": 106
+            }
+          ],
+          "coreArguments": [],
+          "adjuncts": [
+            {
+              "id": "atom-1-frame-3-adjunct-1",
+              "text": "Even if your mail-in ballot is postmarked prior to the Election day but arrives after the Election day",
+              "start": 0,
+              "end": 102,
+              "kind": "temporal"
+            }
+          ],
+          "otherModifiers": []
+        }
+      ],
+      "cues": [
+        {
+          "id": "atom-1-cue-temporal-51-67",
+          "text": "the Election day",
+          "start": 51,
+          "end": 67,
+          "kind": "temporal"
+        },
+        {
+          "id": "atom-1-cue-temporal-86-102",
+          "text": "the Election day",
+          "start": 86,
+          "end": 102,
+          "kind": "temporal"
+        },
+        {
+          "id": "atom-1-cue-modality-107-111",
+          "text": "will",
+          "start": 107,
+          "end": 111,
+          "kind": "modality"
+        }
+      ],
+      "entities": [],
+      "tokens": [
+        {
+          "id": "atom-1-token-0",
+          "text": "Even",
+          "start": 0,
+          "end": 4,
+          "lemma": "even",
+          "pos": "ADV",
+          "tag": "RB",
+          "dependency": "advmod",
+          "head": "postmarked"
+        },
+        {
+          "id": "atom-1-token-1",
+          "text": "if",
+          "start": 5,
+          "end": 7,
+          "lemma": "if",
+          "pos": "SCONJ",
+          "tag": "IN",
+          "dependency": "mark",
+          "head": "postmarked"
+        },
+        {
+          "id": "atom-1-token-2",
+          "text": "your",
+          "start": 8,
+          "end": 12,
+          "lemma": "your",
+          "pos": "PRON",
+          "tag": "PRP$",
+          "dependency": "poss",
+          "head": "ballot"
+        },
+        {
+          "id": "atom-1-token-3",
+          "text": "mail",
+          "start": 13,
+          "end": 17,
+          "lemma": "mail",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "npadvmod",
+          "head": "in"
+        },
+        {
+          "id": "atom-1-token-4",
+          "text": "-",
+          "start": 17,
+          "end": 18,
+          "lemma": "-",
+          "pos": "PUNCT",
+          "tag": "HYPH",
+          "dependency": "punct",
+          "head": "in"
+        },
+        {
+          "id": "atom-1-token-5",
+          "text": "in",
+          "start": 18,
+          "end": 20,
+          "lemma": "in",
+          "pos": "ADP",
+          "tag": "RP",
+          "dependency": "compound",
+          "head": "ballot"
+        },
+        {
+          "id": "atom-1-token-6",
+          "text": "ballot",
+          "start": 21,
+          "end": 27,
+          "lemma": "ballot",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "nsubjpass",
+          "head": "postmarked"
+        },
+        {
+          "id": "atom-1-token-7",
+          "text": "is",
+          "start": 28,
+          "end": 30,
+          "lemma": "be",
+          "pos": "AUX",
+          "tag": "VBZ",
+          "dependency": "auxpass",
+          "head": "postmarked"
+        },
+        {
+          "id": "atom-1-token-8",
+          "text": "postmarked",
+          "start": 31,
+          "end": 41,
+          "lemma": "postmark",
+          "pos": "VERB",
+          "tag": "VBN",
+          "dependency": "advcl",
+          "head": "thrown"
+        },
+        {
+          "id": "atom-1-token-9",
+          "text": "prior",
+          "start": 42,
+          "end": 47,
+          "lemma": "prior",
+          "pos": "ADV",
+          "tag": "RB",
+          "dependency": "advmod",
+          "head": "postmarked"
+        },
+        {
+          "id": "atom-1-token-10",
+          "text": "to",
+          "start": 48,
+          "end": 50,
+          "lemma": "to",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "prior"
+        },
+        {
+          "id": "atom-1-token-11",
+          "text": "the",
+          "start": 51,
+          "end": 54,
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "day"
+        },
+        {
+          "id": "atom-1-token-12",
+          "text": "Election",
+          "start": 55,
+          "end": 63,
+          "lemma": "Election",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "day"
+        },
+        {
+          "id": "atom-1-token-13",
+          "text": "day",
+          "start": 64,
+          "end": 67,
+          "lemma": "day",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "pobj",
+          "head": "to"
+        },
+        {
+          "id": "atom-1-token-14",
+          "text": "but",
+          "start": 68,
+          "end": 71,
+          "lemma": "but",
+          "pos": "CCONJ",
+          "tag": "CC",
+          "dependency": "cc",
+          "head": "postmarked"
+        },
+        {
+          "id": "atom-1-token-15",
+          "text": "arrives",
+          "start": 72,
+          "end": 79,
+          "lemma": "arrive",
+          "pos": "VERB",
+          "tag": "VBZ",
+          "dependency": "conj",
+          "head": "postmarked"
+        },
+        {
+          "id": "atom-1-token-16",
+          "text": "after",
+          "start": 80,
+          "end": 85,
+          "lemma": "after",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "arrives"
+        },
+        {
+          "id": "atom-1-token-17",
+          "text": "the",
+          "start": 86,
+          "end": 89,
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "day"
+        },
+        {
+          "id": "atom-1-token-18",
+          "text": "Election",
+          "start": 90,
+          "end": 98,
+          "lemma": "Election",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "day"
+        },
+        {
+          "id": "atom-1-token-19",
+          "text": "day",
+          "start": 99,
+          "end": 102,
+          "lemma": "day",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "pobj",
+          "head": "after"
+        },
+        {
+          "id": "atom-1-token-20",
+          "text": ",",
+          "start": 102,
+          "end": 103,
+          "lemma": ",",
+          "pos": "PUNCT",
+          "tag": ",",
+          "dependency": "punct",
+          "head": "thrown"
+        },
+        {
+          "id": "atom-1-token-21",
+          "text": "it",
+          "start": 104,
+          "end": 106,
+          "lemma": "it",
+          "pos": "PRON",
+          "tag": "PRP",
+          "dependency": "nsubjpass",
+          "head": "thrown"
+        },
+        {
+          "id": "atom-1-token-22",
+          "text": "will",
+          "start": 107,
+          "end": 111,
+          "lemma": "will",
+          "pos": "AUX",
+          "tag": "MD",
+          "dependency": "aux",
+          "head": "thrown"
+        },
+        {
+          "id": "atom-1-token-23",
+          "text": "be",
+          "start": 112,
+          "end": 114,
+          "lemma": "be",
+          "pos": "AUX",
+          "tag": "VB",
+          "dependency": "auxpass",
+          "head": "thrown"
+        },
+        {
+          "id": "atom-1-token-24",
+          "text": "thrown",
+          "start": 115,
+          "end": 121,
+          "lemma": "throw",
+          "pos": "VERB",
+          "tag": "VBN",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "atom-1-token-25",
+          "text": "out",
+          "start": 122,
+          "end": 125,
+          "lemma": "out",
+          "pos": "ADP",
+          "tag": "RP",
+          "dependency": "prt",
+          "head": "thrown"
+        },
+        {
+          "id": "atom-1-token-26",
+          "text": ".",
+          "start": 125,
+          "end": 126,
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "thrown"
+        }
+      ],
+      "status": "complete",
+      "unresolved": []
+    }
+  ],
+  "recordedWith": {
+    "decompositionModel": "qwen2.5:7b",
+    "retrievalModel": "BAAI/bge-small-en-v1.5",
+    "nliModel": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    "linguisticsModel": "en_core_web_sm@3.8.0"
+  }
+}

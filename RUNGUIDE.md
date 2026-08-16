@@ -17,8 +17,8 @@ Run every command from the `verigraph/` directory.
 - `MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli` in `data/models/deberta-v3-base-mnli-fever-anli`
 - the pinned spaCy parser in `backend/.venv`
 
-Those generated assets are ignored by Git. Once preparation and image builds
-finish, the live pipeline needs no external document or model request.
+Those generated assets are ignored by Git. Once preparation finishes, the
+live pipeline needs no external document or model request.
 
 ## Run the in-person live demo
 
@@ -29,8 +29,6 @@ finish, the live pipeline needs no external document or model request.
 Open <http://localhost:3000>. Stop it with `Ctrl-C`; the launcher terminates
 both native server processes.
 
-If a port is occupied, change `VERIGRAPH_PORT` in a local `.env` file.
-
 ## Record the public walkthrough
 
 Start from a healthy prepared stack, then run:
@@ -39,10 +37,10 @@ Start from a healthy prepared stack, then run:
 ./run-verigraph --record-walkthrough
 ```
 
-The recorder calls the local FastAPI backend directly for four representative
-cases, one per reference label. It saves the resulting atoms, candidate
+The recorder calls the local FastAPI backend directly for all 22 approved
+cases across the four reference labels. It saves the resulting atoms, candidate
 evidence, NLI relations, and linguistic analyses under
-`frontend/public/walkthrough/`. The launcher enforces a complete four-case
+`frontend/public/walkthrough/`. The launcher enforces a complete 22-case
 snapshot before succeeding. Review and commit those changes before deploying
 to Vercel.
 
@@ -51,8 +49,8 @@ to Vercel.
 - Project root: `frontend`
 - No `VERIGRAPH_BACKEND_URL` environment variable
 - Build mode: set by `frontend/vercel.json` to `walkthrough`
-- Static snapshot: `frontend/public/walkthrough/manifest.json` reports 4 cases
-  and 4 recorded runs
+- Static snapshot: `frontend/public/walkthrough/manifest.json` reports 22 cases
+  and 22 recorded runs
 
 The online UI is illustrative only: “Demo mode — results are precomputed. Live
 analysis is available locally.”

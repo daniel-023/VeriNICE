@@ -1152,180 +1152,176 @@ textarea:focus-visible,
   text-transform: uppercase;
 }
 
-.argumentation-atom-selector {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
-}
-
-.argumentation-atom-selector button {
-  border: 1px solid var(--line-dark);
-  border-radius: 999px;
-  padding: 7px 10px;
+.graph-canvas {
+  position: relative;
+  min-height: 420px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
   background: var(--white);
-  color: var(--blue-dark);
-  cursor: pointer;
-  font: 10px/1 var(--mono);
-  font-weight: 750;
-  text-transform: uppercase;
 }
 
-.argumentation-atom-selector button:hover,
-.argumentation-atom-selector button.active,
-.argumentation-atom-selector button:focus-visible,
-.argumentation-evidence-node:hover,
-.argumentation-evidence-node:focus-visible {
-  border-color: var(--blue);
-  background: var(--blue-soft, #edf2ff);
-  outline: 2px solid rgba(49, 88, 216, .2);
-  outline-offset: 1px;
+.graph-edges {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
 
-.argumentation-path {
-  min-width: 0;
+.graph-edge {
+  stroke-width: .6;
+  vector-effect: non-scaling-stroke;
+  transition: opacity .15s ease;
+}
+
+.graph-edge.edge-decomposes {
+  stroke: var(--line-dark);
+  stroke-dasharray: 2 2;
+}
+
+.graph-edge.edge-support {
+  stroke: var(--green);
+}
+
+.graph-edge.edge-contradict {
+  stroke: var(--red);
+}
+
+.graph-edge.active {
+  opacity: .9;
+  stroke-width: 1.1;
+}
+
+.graph-edge.dimmed {
+  opacity: .18;
+}
+
+.graph-node {
+  position: absolute;
+  width: min(220px, 30vw);
   display: grid;
-  justify-items: center;
-  gap: 0;
-}
-
-.argumentation-claim-node,
-.argumentation-atom-node {
-  width: min(100%, 760px);
-  min-width: 0;
+  gap: 4px;
+  transform: translate(-50%, -50%);
   border: 1px solid var(--line-dark);
   border-radius: 8px;
-  padding: 13px 15px;
+  padding: 9px 11px;
   background: var(--white);
+  color: var(--ink);
+  text-align: left;
+  transition: opacity .15s ease, border-color .15s ease;
 }
 
-.argumentation-claim-node {
-  border-color: var(--blue);
-  background: var(--blue-soft, #edf2ff);
-}
-
-.argumentation-atom-node {
-  border-left: 4px solid var(--blue);
-}
-
-.argumentation-claim-node small,
-.argumentation-atom-node small,
-.argumentation-evidence-node small {
+.graph-node small {
   color: var(--blue-dark);
-  font: 10px/1.2 var(--mono);
+  font: 9px/1.2 var(--mono);
   font-weight: 750;
   letter-spacing: .05em;
   text-transform: uppercase;
 }
 
-.argumentation-claim-node p,
-.argumentation-atom-node p {
-  margin: 7px 0 0;
+.graph-node p {
+  margin: 0;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
   overflow-wrap: anywhere;
-  font-size: 13px;
-  font-weight: 650;
-  line-height: 1.5;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.4;
 }
 
-.argumentation-connector {
-  height: 46px;
-  display: grid;
-  place-items: center;
-  border-left: 2px solid var(--line-dark);
+.graph-node-claim {
+  z-index: 1;
+  border-color: var(--blue);
+  background: var(--blue-soft, #edf2ff);
+  cursor: default;
 }
 
-.argumentation-connector span {
-  padding: 4px 6px;
-  background: var(--panel);
-  color: var(--muted);
-  font: 9px/1 var(--mono);
-  text-transform: uppercase;
-}
-
-.argumentation-relations {
-  width: 100%;
-  min-width: 0;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-  margin-top: 18px;
-}
-
-.argumentation-relation {
-  min-width: 0;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  padding: 12px;
-  background: var(--white);
-}
-
-.argumentation-relation h3 {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  margin: 0 0 10px;
-  font-size: 12px;
-}
-
-.argumentation-relation h3 > span {
-  width: 20px;
-  height: 3px;
-  border-radius: 999px;
-}
-
-.relation-entailment h3 > span { background: var(--green, #23936b); }
-.relation-contradiction h3 > span { background: var(--red); }
-
-.argumentation-relation h3 strong {
-  min-width: 22px;
-  margin-left: auto;
-  border-radius: 999px;
-  padding: 4px 6px;
-  background: var(--panel);
-  font: 10px/1 var(--mono);
-  text-align: center;
-}
-
-.argumentation-relation ul {
-  display: grid;
-  gap: 7px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.argumentation-relation > p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 12px;
-}
-
-.argumentation-evidence-node {
-  width: 100%;
-  min-width: 0;
-  display: grid;
-  gap: 6px;
-  border: 1px solid var(--line);
-  border-left: 3px solid var(--line-dark);
-  border-radius: 7px;
-  padding: 10px;
-  background: var(--panel);
-  color: var(--ink);
+.graph-node-atom {
+  z-index: 2;
   cursor: pointer;
-  text-align: left;
+  border-left: 4px solid var(--blue);
 }
 
-.relation-entailment .argumentation-evidence-node {
-  border-left-color: var(--green, #23936b);
+.graph-node-atom.active {
+  border-color: var(--blue);
+  outline: 2px solid rgba(24, 61, 240, .25);
+  outline-offset: 1px;
 }
 
-.relation-contradiction .argumentation-evidence-node {
+.graph-node-evidence {
+  z-index: 2;
+  cursor: pointer;
+  background: var(--panel);
+  border-left: 3px solid var(--line-dark);
+}
+
+.graph-node-evidence.relation-entailment {
+  border-left-color: var(--green);
+}
+
+.graph-node-evidence.relation-contradiction {
   border-left-color: var(--red);
 }
 
-.argumentation-evidence-node span {
-  overflow-wrap: anywhere;
-  font-size: 12px;
-  line-height: 1.45;
+.graph-node-evidence.relation-mixed {
+  border-left-color: var(--amber);
+}
+
+.graph-node-evidence.active {
+  outline: 2px solid rgba(22, 112, 75, .25);
+  outline-offset: 1px;
+}
+
+.graph-node.dimmed {
+  opacity: .4;
+}
+
+.graph-node-atom:hover,
+.graph-node-atom:focus-visible,
+.graph-node-evidence:hover,
+.graph-node-evidence:focus-visible {
+  border-color: var(--blue);
+  outline: 2px solid rgba(49, 88, 216, .2);
+  outline-offset: 1px;
+  opacity: 1;
+}
+
+.graph-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  font: 10px/1 var(--mono);
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.graph-legend span {
+  position: relative;
+  padding-left: 16px;
+}
+
+.graph-legend span::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 12px;
+  height: 3px;
+  transform: translateY(-50%);
+  border-radius: 999px;
+}
+
+.legend-decomposes::before {
+  background: var(--line-dark);
+}
+
+.legend-support::before {
+  background: var(--green);
+}
+
+.legend-contradict::before {
+  background: var(--red);
 }
 
 .stage-link {
@@ -1797,8 +1793,12 @@ textarea:focus-visible,
     flex-direction: column;
   }
 
-  .argumentation-relations {
-    grid-template-columns: 1fr;
+  .graph-canvas {
+    min-height: 560px;
+  }
+
+  .graph-node {
+    width: min(160px, 60vw);
   }
 
   .document-editor {

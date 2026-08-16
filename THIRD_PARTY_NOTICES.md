@@ -15,7 +15,8 @@ it is not relicensed by the MIT licence covering VeriGraph code.
 
 ## Local models
 
-- Qwen2.5 7B is obtained by Ollama during `./run-verigraph --prepare`.
+- Qwen2.5 3B (the default; overridable via `VERIGRAPH_OLLAMA_MODEL`) is
+  obtained by Ollama during `./run-verigraph --prepare`.
 - `BAAI/bge-small-en-v1.5` is used for semantic candidate matching.
 - `MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli` is used for local NLI.
 - `en_core_web_sm` is used for local linguistic analysis.

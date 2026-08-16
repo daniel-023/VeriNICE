@@ -220,6 +220,12 @@ beforeEach(() => {
 
 afterEach(() => cleanup());
 
+// The argumentation graph renders every atom's text alongside the atom rail,
+// so text queries that used to be unambiguous must be scoped to the rail.
+function atomRail() {
+  return within(screen.getByRole("region", { name: "Atomic Claims" }));
+}
+
 describe("multidocument claim decomposition workflow", () => {
   it("loads summaries first and the selected sample documents on demand", async () => {
     render(<VeriGraphApp />);
@@ -243,7 +249,7 @@ describe("multidocument claim decomposition workflow", () => {
     render(<VeriGraphApp />);
     const claimInput = await screen.findByRole("textbox", { name: "Claim to decompose" });
     await user.click(screen.getByRole("button", { name: "Decompose Claim" }));
-    await screen.findByText("Mara became CTO.");
+    await atomRail().findByText("Mara became CTO.");
     expect(apiMock.retrieveCase).toHaveBeenCalledWith("sample-1", [
       { id: "atom-1", text: "Mara joined Orion in 2022." },
       { id: "atom-2", text: "Mara became CTO." },
@@ -260,7 +266,7 @@ describe("multidocument claim decomposition workflow", () => {
       expect.any(Array),
     );
 
-    await user.click(screen.getByRole("button", { name: /Mara became CTO/i }));
+    await user.click(screen.getByRole("button", { name: /^Mara became CTO/i }));
     expect(claimInput).toHaveFocus();
     expect(screen.getByRole("tab", { name: /Leadership profile/ })).toHaveAttribute(
       "aria-selected",
@@ -285,18 +291,18 @@ describe("multidocument claim decomposition workflow", () => {
       "href",
       "#argumentation-graph",
     );
-    const graphAtom = within(graphSection!).getByRole("button", { name: "Atom 1" });
+    const graphAtom = within(graphSection!).getByRole("button", { name: /^Atom 1:/ });
     await user.click(graphAtom);
     expect(graphAtom).toHaveFocus();
     expect(claimInput).not.toHaveFocus();
     const originalScrollIntoView = Element.prototype.scrollIntoView;
     const scrollIntoView = vi.fn();
     Element.prototype.scrollIntoView = scrollIntoView;
-    await user.click(within(graphSection!).getByRole("button", { name: /Supports Atom, from Appointment report/ }));
+    await user.click(within(graphSection!).getByRole("button", { name: /Evidence from Appointment report/ }));
     expect(navigationMock.replace).toHaveBeenCalledWith("/?panel=document", { scroll: false });
     await waitFor(() => expect(scrollIntoView).toHaveBeenCalledWith({ block: "start" }));
     Element.prototype.scrollIntoView = originalScrollIntoView;
-    await user.click(within(graphSection!).getByRole("button", { name: "Atom 2" }));
+    await user.click(within(graphSection!).getByRole("button", { name: /^Atom 2:/ }));
     await user.click(screen.getByRole("button", { name: "Predicate: became" }));
     expect(screen.getByLabelText("Atomic claim preview").querySelector("mark")).toHaveTextContent("became");
   });
@@ -306,8 +312,8 @@ describe("multidocument claim decomposition workflow", () => {
     render(<VeriGraphApp />);
     await screen.findByDisplayValue(details[0].claim);
     await user.click(screen.getByRole("button", { name: "Decompose Claim" }));
-    await screen.findByText("Mara became CTO.");
-    await user.click(screen.getByRole("button", { name: /Mara joined Orion/i }));
+    await atomRail().findByText("Mara became CTO.");
+    await user.click(screen.getByRole("button", { name: /^Mara joined Orion/i }));
 
     const list = screen.getByRole("navigation", { name: "Candidate evidence spans" });
     const entries = within(list).getAllByRole("button");
@@ -335,8 +341,8 @@ describe("multidocument claim decomposition workflow", () => {
     render(<VeriGraphApp />);
     await screen.findByDisplayValue(details[0].claim);
     await user.click(screen.getByRole("button", { name: "Decompose Claim" }));
-    await screen.findByText("Mara became CTO.");
-    await user.click(screen.getByRole("button", { name: /Mara joined Orion/i }));
+    await atomRail().findByText("Mara became CTO.");
+    await user.click(screen.getByRole("button", { name: /^Mara joined Orion/i }));
     expect(screen.getByTestId("evidence-highlight")).toBeInTheDocument();
     expect(await screen.findByRole("heading", { name: "Linguistic Structure" })).toBeInTheDocument();
 
@@ -344,7 +350,7 @@ describe("multidocument claim decomposition workflow", () => {
       screen.getByRole("textbox", { name: "Evidence document: Appointment report" }),
       " More context.",
     );
-    expect(screen.getByText("Mara became CTO.")).toBeInTheDocument();
+    expect(atomRail().getByText("Mara became CTO.")).toBeInTheDocument();
     expect(screen.queryByTestId("evidence-highlight")).not.toBeInTheDocument();
     expect(screen.queryByText("Supports atom")).not.toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Linguistic Structure" })).toBeInTheDocument();
@@ -363,9 +369,9 @@ describe("multidocument claim decomposition workflow", () => {
     render(<VeriGraphApp />);
     await screen.findByDisplayValue(details[0].claim);
     await user.click(screen.getByRole("button", { name: "Decompose Claim" }));
-    await screen.findByText("Mara became CTO.");
+    await atomRail().findByText("Mara became CTO.");
     await user.type(screen.getByRole("textbox", { name: "Claim to decompose" }), " More.");
-    expect(screen.queryByText("Mara became CTO.")).not.toBeInTheDocument();
+    expect(atomRail().queryByText("Mara became CTO.")).not.toBeInTheDocument();
   });
 
   it("preserves atoms and retries only multidocument retrieval", async () => {
@@ -397,7 +403,7 @@ describe("multidocument claim decomposition workflow", () => {
     render(<VeriGraphApp />);
     await screen.findByDisplayValue(details[0].claim);
     await user.click(screen.getByRole("button", { name: "Decompose Claim" }));
-    await user.click(await screen.findByRole("button", { name: /Mara joined Orion/i }));
+    await user.click(await screen.findByRole("button", { name: /^Mara joined Orion/i }));
     expect(await screen.findByTestId("evidence-highlight")).toBeInTheDocument();
     expect(await screen.findByRole("button", { name: "Retry Linguistics" })).toBeInTheDocument();
     await user.click(screen.getByRole("button", { name: "Retry Linguistics" }));
@@ -415,7 +421,7 @@ describe("multidocument claim decomposition workflow", () => {
     render(<VeriGraphApp />);
     await screen.findByDisplayValue(details[0].claim);
     await user.click(screen.getByRole("button", { name: "Decompose Claim" }));
-    await user.click(await screen.findByRole("button", { name: /Mara joined Orion/i }));
+    await user.click(await screen.findByRole("button", { name: /^Mara joined Orion/i }));
     expect(await screen.findByTestId("evidence-highlight")).toBeInTheDocument();
     expect(await screen.findByRole("button", { name: "Retry NLI" })).toBeInTheDocument();
     await user.click(screen.getByRole("button", { name: "Retry NLI" }));
@@ -440,12 +446,12 @@ describe("multidocument claim decomposition workflow", () => {
     render(<VeriGraphApp />);
     const claimInput = await screen.findByRole("textbox", { name: "Claim to decompose" });
     await user.click(screen.getByRole("button", { name: "Decompose Claim" }));
-    await user.click(await screen.findByRole("button", { name: /Mara became CTO/i }));
+    await user.click(await screen.findByRole("button", { name: /^Mara became CTO/i }));
     expect(screen.getByText("Analyzing language…")).toBeInTheDocument();
 
     await user.type(claimInput, " More context.");
     await user.click(screen.getByRole("button", { name: "Decompose Claim" }));
-    await user.click(await screen.findByRole("button", { name: /Mara became CTO/i }));
+    await user.click(await screen.findByRole("button", { name: /^Mara became CTO/i }));
     expect(await screen.findByRole("button", { name: "Predicate: became" })).toBeInTheDocument();
 
     resolveOlder({ ...successful, analyses: [] });
@@ -466,7 +472,7 @@ describe("multidocument claim decomposition workflow", () => {
     render(<VeriGraphApp />);
     await screen.findByDisplayValue(details[0].claim);
     await user.click(screen.getByRole("button", { name: "Decompose Claim" }));
-    await user.click(await screen.findByRole("button", { name: /Mara joined Orion/i }));
+    await user.click(await screen.findByRole("button", { name: /^Mara joined Orion/i }));
     expect(screen.getByText("Classifying candidate sentences…")).toBeInTheDocument();
 
     await user.type(

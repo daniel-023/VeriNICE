@@ -1,0 +1,746 @@
+{
+  "caseId": "averitec-dev-0280",
+  "atoms": [
+    {
+      "id": "atom-1",
+      "text": "False positives put the rate of infection near zero",
+      "sourceText": "False positives and rapid tests put the rate of infection near zero and that there will be no second wave of infections",
+      "start": 0,
+      "end": 119
+    },
+    {
+      "id": "atom-2",
+      "text": "rapid tests put the rate of infection near zero",
+      "sourceText": "False positives and rapid tests put the rate of infection near zero and that there will be no second wave of infections",
+      "start": 0,
+      "end": 119
+    },
+    {
+      "id": "atom-3",
+      "text": "there will be no second wave of infections",
+      "sourceText": "False positives and rapid tests put the rate of infection near zero and that there will be no second wave of infections",
+      "start": 0,
+      "end": 119
+    }
+  ],
+  "evidence": [
+    {
+      "atomId": "atom-1",
+      "spans": [
+        {
+          "id": "doc-450521860e04::sentence-39",
+          "documentId": "doc-450521860e04",
+          "text": "Tests gave false positive results for 1% of those without COVID-19.\n",
+          "start": 4482,
+          "end": 4550
+        },
+        {
+          "id": "doc-450521860e04::sentence-45",
+          "documentId": "doc-450521860e04",
+          "text": "Of these, 2 people (0.2%) would actually have COVID-19 (false negative result).\n",
+          "start": 4895,
+          "end": 4975
+        },
+        {
+          "id": "doc-450521860e04::sentence-50",
+          "documentId": "doc-450521860e04",
+          "text": "Of these, 51 (9%) would actually have had a prior COVID-19 infection (false negative result).\n",
+          "start": 5287,
+          "end": 5381
+        },
+        {
+          "id": "doc-f5cfb7b8dfcd::sentence-10",
+          "documentId": "doc-f5cfb7b8dfcd",
+          "text": "That means the virus could still spread.\n",
+          "start": 1623,
+          "end": 1664
+        },
+        {
+          "id": "doc-f5cfb7b8dfcd::sentence-9",
+          "documentId": "doc-f5cfb7b8dfcd",
+          "text": "In a Facebook Live conversation with New Jersey Gov. Phil Murphy, Fauci said the coronavirus vaccine will not be 100% effective and won’t be taken by the entire population. ",
+          "start": 1450,
+          "end": 1623
+        },
+        {
+          "id": "doc-f5cfb7b8dfcd::sentence-6",
+          "documentId": "doc-f5cfb7b8dfcd",
+          "text": "He and other health care professionals have observed that the Southern Hemisphere has had a very light flu season, probably because measures to curb the coronavirus, such as social distancing and mask-wearing, have limited the spread of the flu.\n",
+          "start": 811,
+          "end": 1057
+        }
+      ]
+    },
+    {
+      "atomId": "atom-2",
+      "spans": [
+        {
+          "id": "doc-450521860e04::sentence-39",
+          "documentId": "doc-450521860e04",
+          "text": "Tests gave false positive results for 1% of those without COVID-19.\n",
+          "start": 4482,
+          "end": 4550
+        },
+        {
+          "id": "doc-450521860e04::sentence-111",
+          "documentId": "doc-450521860e04",
+          "text": "For tests that were evaluated in 200 or more samples, the lower bound of the 95% CI for sensitivity was 90% or more for only a small number of tests (IgG, n = 5; IgG or IgM, n = 1; total antibodies, n = 4). ",
+          "start": 14928,
+          "end": 15135
+        },
+        {
+          "id": "doc-450521860e04::sentence-41",
+          "documentId": "doc-450521860e04",
+          "text": "If 1000 people were tested for IgG or IgM antibodies during the third week after onset of symptoms and only 20 (2%) of them actually had COVID-19:\n",
+          "start": 4607,
+          "end": 4754
+        },
+        {
+          "id": "doc-f5cfb7b8dfcd::sentence-6",
+          "documentId": "doc-f5cfb7b8dfcd",
+          "text": "He and other health care professionals have observed that the Southern Hemisphere has had a very light flu season, probably because measures to curb the coronavirus, such as social distancing and mask-wearing, have limited the spread of the flu.\n",
+          "start": 811,
+          "end": 1057
+        },
+        {
+          "id": "doc-f5cfb7b8dfcd::sentence-10",
+          "documentId": "doc-f5cfb7b8dfcd",
+          "text": "That means the virus could still spread.\n",
+          "start": 1623,
+          "end": 1664
+        },
+        {
+          "id": "doc-f5cfb7b8dfcd::sentence-12",
+          "documentId": "doc-f5cfb7b8dfcd",
+          "text": "“It will allow us to more quickly and with less stringency get back to some degree of normal. But it is not going to eliminate the need to be prudent and careful with our public health measures.”\n",
+          "start": 1788,
+          "end": 1984
+        }
+      ]
+    },
+    {
+      "atomId": "atom-3",
+      "spans": [
+        {
+          "id": "doc-f5cfb7b8dfcd::sentence-1",
+          "documentId": "doc-f5cfb7b8dfcd",
+          "text": "Sept. 25, 2020 -- Anthony Fauci, MD, says talk about a second wave of the coronavirus is premature because the United States is still dealing with the first one.\n",
+          "start": 0,
+          "end": 162
+        },
+        {
+          "id": "doc-f5cfb7b8dfcd::sentence-4",
+          "documentId": "doc-f5cfb7b8dfcd",
+          "text": "“Rather than say, ‘A second wave,’ why don’t we say, ‘Are we prepared for the challenge of the fall and the winter?’” said Fauci, director of the National Institute of Allergy and Infectious Diseases and a member of the White House coronavirus task force.\n",
+          "start": 470,
+          "end": 726
+        },
+        {
+          "id": "doc-450521860e04::sentence-85",
+          "documentId": "doc-450521860e04",
+          "text": "Small studies with fewer than 25 SARS-CoV-2 infection cases were excluded. ",
+          "start": 10293,
+          "end": 10368
+        },
+        {
+          "id": "doc-450521860e04::sentence-43",
+          "documentId": "doc-450521860e04",
+          "text": "Of these, 8 people (31%) would not have COVID-19 (false positive result).\n",
+          "start": 4787,
+          "end": 4861
+        },
+        {
+          "id": "doc-f5cfb7b8dfcd::sentence-10",
+          "documentId": "doc-f5cfb7b8dfcd",
+          "text": "That means the virus could still spread.\n",
+          "start": 1623,
+          "end": 1664
+        },
+        {
+          "id": "doc-450521860e04::sentence-45",
+          "documentId": "doc-450521860e04",
+          "text": "Of these, 2 people (0.2%) would actually have COVID-19 (false negative result).\n",
+          "start": 4895,
+          "end": 4975
+        }
+      ]
+    }
+  ],
+  "classifications": [
+    {
+      "atomId": "atom-1",
+      "relations": [
+        {
+          "spanId": "doc-450521860e04::sentence-39",
+          "documentId": "doc-450521860e04",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-450521860e04::sentence-45",
+          "documentId": "doc-450521860e04",
+          "relation": "CONTRADICTION"
+        },
+        {
+          "spanId": "doc-450521860e04::sentence-50",
+          "documentId": "doc-450521860e04",
+          "relation": "CONTRADICTION"
+        },
+        {
+          "spanId": "doc-f5cfb7b8dfcd::sentence-10",
+          "documentId": "doc-f5cfb7b8dfcd",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-f5cfb7b8dfcd::sentence-9",
+          "documentId": "doc-f5cfb7b8dfcd",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-f5cfb7b8dfcd::sentence-6",
+          "documentId": "doc-f5cfb7b8dfcd",
+          "relation": "NEUTRAL"
+        }
+      ]
+    },
+    {
+      "atomId": "atom-2",
+      "relations": [
+        {
+          "spanId": "doc-450521860e04::sentence-39",
+          "documentId": "doc-450521860e04",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-450521860e04::sentence-111",
+          "documentId": "doc-450521860e04",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-450521860e04::sentence-41",
+          "documentId": "doc-450521860e04",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-f5cfb7b8dfcd::sentence-6",
+          "documentId": "doc-f5cfb7b8dfcd",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-f5cfb7b8dfcd::sentence-10",
+          "documentId": "doc-f5cfb7b8dfcd",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-f5cfb7b8dfcd::sentence-12",
+          "documentId": "doc-f5cfb7b8dfcd",
+          "relation": "NEUTRAL"
+        }
+      ]
+    },
+    {
+      "atomId": "atom-3",
+      "relations": [
+        {
+          "spanId": "doc-f5cfb7b8dfcd::sentence-1",
+          "documentId": "doc-f5cfb7b8dfcd",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-f5cfb7b8dfcd::sentence-4",
+          "documentId": "doc-f5cfb7b8dfcd",
+          "relation": "CONTRADICTION"
+        },
+        {
+          "spanId": "doc-450521860e04::sentence-85",
+          "documentId": "doc-450521860e04",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-450521860e04::sentence-43",
+          "documentId": "doc-450521860e04",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-f5cfb7b8dfcd::sentence-10",
+          "documentId": "doc-f5cfb7b8dfcd",
+          "relation": "CONTRADICTION"
+        },
+        {
+          "spanId": "doc-450521860e04::sentence-45",
+          "documentId": "doc-450521860e04",
+          "relation": "NEUTRAL"
+        }
+      ]
+    }
+  ],
+  "linguistics": [
+    {
+      "atomId": "atom-1",
+      "frames": [
+        {
+          "id": "atom-1-frame-1",
+          "predicate": {
+            "id": "atom-1-frame-1-predicate",
+            "text": "put",
+            "start": 16,
+            "end": 19
+          },
+          "subjects": [
+            {
+              "id": "atom-1-frame-1-subject-1",
+              "text": "False positives",
+              "start": 0,
+              "end": 15
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "atom-1-frame-1-argument-1",
+              "text": "the rate of infection",
+              "start": 20,
+              "end": 41,
+              "role": "direct_object"
+            }
+          ],
+          "adjuncts": [],
+          "otherModifiers": [
+            {
+              "id": "atom-1-frame-1-other-modifier-1",
+              "text": "near zero",
+              "start": 42,
+              "end": 51
+            }
+          ]
+        }
+      ],
+      "cues": [
+        {
+          "id": "atom-1-cue-numeric-47-51",
+          "text": "zero",
+          "start": 47,
+          "end": 51,
+          "kind": "numeric"
+        }
+      ],
+      "entities": [],
+      "tokens": [
+        {
+          "id": "atom-1-token-0",
+          "text": "False",
+          "start": 0,
+          "end": 5,
+          "lemma": "false",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "positives"
+        },
+        {
+          "id": "atom-1-token-1",
+          "text": "positives",
+          "start": 6,
+          "end": 15,
+          "lemma": "positive",
+          "pos": "NOUN",
+          "tag": "NNS",
+          "dependency": "nsubj",
+          "head": "put"
+        },
+        {
+          "id": "atom-1-token-2",
+          "text": "put",
+          "start": 16,
+          "end": 19,
+          "lemma": "put",
+          "pos": "VERB",
+          "tag": "VBP",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "atom-1-token-3",
+          "text": "the",
+          "start": 20,
+          "end": 23,
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "rate"
+        },
+        {
+          "id": "atom-1-token-4",
+          "text": "rate",
+          "start": 24,
+          "end": 28,
+          "lemma": "rate",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "dobj",
+          "head": "put"
+        },
+        {
+          "id": "atom-1-token-5",
+          "text": "of",
+          "start": 29,
+          "end": 31,
+          "lemma": "of",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "rate"
+        },
+        {
+          "id": "atom-1-token-6",
+          "text": "infection",
+          "start": 32,
+          "end": 41,
+          "lemma": "infection",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "pobj",
+          "head": "of"
+        },
+        {
+          "id": "atom-1-token-7",
+          "text": "near",
+          "start": 42,
+          "end": 46,
+          "lemma": "near",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "put"
+        },
+        {
+          "id": "atom-1-token-8",
+          "text": "zero",
+          "start": 47,
+          "end": 51,
+          "lemma": "zero",
+          "pos": "NUM",
+          "tag": "CD",
+          "dependency": "pobj",
+          "head": "near"
+        }
+      ],
+      "status": "complete",
+      "unresolved": []
+    },
+    {
+      "atomId": "atom-2",
+      "frames": [
+        {
+          "id": "atom-2-frame-1",
+          "predicate": {
+            "id": "atom-2-frame-1-predicate",
+            "text": "put",
+            "start": 12,
+            "end": 15
+          },
+          "subjects": [
+            {
+              "id": "atom-2-frame-1-subject-1",
+              "text": "rapid tests",
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "atom-2-frame-1-argument-1",
+              "text": "the rate of infection",
+              "start": 16,
+              "end": 37,
+              "role": "direct_object"
+            }
+          ],
+          "adjuncts": [],
+          "otherModifiers": [
+            {
+              "id": "atom-2-frame-1-other-modifier-1",
+              "text": "near zero",
+              "start": 38,
+              "end": 47
+            }
+          ]
+        }
+      ],
+      "cues": [
+        {
+          "id": "atom-2-cue-numeric-43-47",
+          "text": "zero",
+          "start": 43,
+          "end": 47,
+          "kind": "numeric"
+        }
+      ],
+      "entities": [],
+      "tokens": [
+        {
+          "id": "atom-2-token-0",
+          "text": "rapid",
+          "start": 0,
+          "end": 5,
+          "lemma": "rapid",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "tests"
+        },
+        {
+          "id": "atom-2-token-1",
+          "text": "tests",
+          "start": 6,
+          "end": 11,
+          "lemma": "test",
+          "pos": "NOUN",
+          "tag": "NNS",
+          "dependency": "nsubj",
+          "head": "put"
+        },
+        {
+          "id": "atom-2-token-2",
+          "text": "put",
+          "start": 12,
+          "end": 15,
+          "lemma": "put",
+          "pos": "VERB",
+          "tag": "VBD",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "atom-2-token-3",
+          "text": "the",
+          "start": 16,
+          "end": 19,
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "rate"
+        },
+        {
+          "id": "atom-2-token-4",
+          "text": "rate",
+          "start": 20,
+          "end": 24,
+          "lemma": "rate",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "dobj",
+          "head": "put"
+        },
+        {
+          "id": "atom-2-token-5",
+          "text": "of",
+          "start": 25,
+          "end": 27,
+          "lemma": "of",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "rate"
+        },
+        {
+          "id": "atom-2-token-6",
+          "text": "infection",
+          "start": 28,
+          "end": 37,
+          "lemma": "infection",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "pobj",
+          "head": "of"
+        },
+        {
+          "id": "atom-2-token-7",
+          "text": "near",
+          "start": 38,
+          "end": 42,
+          "lemma": "near",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "put"
+        },
+        {
+          "id": "atom-2-token-8",
+          "text": "zero",
+          "start": 43,
+          "end": 47,
+          "lemma": "zero",
+          "pos": "NUM",
+          "tag": "CD",
+          "dependency": "pobj",
+          "head": "near"
+        }
+      ],
+      "status": "complete",
+      "unresolved": []
+    },
+    {
+      "atomId": "atom-3",
+      "frames": [
+        {
+          "id": "atom-3-frame-1",
+          "predicate": {
+            "id": "atom-3-frame-1-predicate",
+            "text": "be",
+            "start": 11,
+            "end": 13
+          },
+          "subjects": [
+            {
+              "id": "atom-3-frame-1-subject-1",
+              "text": "there",
+              "start": 0,
+              "end": 5
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "atom-3-frame-1-argument-1",
+              "text": "no second wave of infections",
+              "start": 14,
+              "end": 42,
+              "role": "subject_complement"
+            }
+          ],
+          "adjuncts": [],
+          "otherModifiers": []
+        }
+      ],
+      "cues": [
+        {
+          "id": "atom-3-cue-modality-6-10",
+          "text": "will",
+          "start": 6,
+          "end": 10,
+          "kind": "modality"
+        },
+        {
+          "id": "atom-3-cue-negation-14-16",
+          "text": "no",
+          "start": 14,
+          "end": 16,
+          "kind": "negation"
+        },
+        {
+          "id": "atom-3-cue-quantifier-14-16",
+          "text": "no",
+          "start": 14,
+          "end": 16,
+          "kind": "quantifier"
+        },
+        {
+          "id": "atom-3-cue-numeric-17-23",
+          "text": "second",
+          "start": 17,
+          "end": 23,
+          "kind": "numeric"
+        }
+      ],
+      "entities": [],
+      "tokens": [
+        {
+          "id": "atom-3-token-0",
+          "text": "there",
+          "start": 0,
+          "end": 5,
+          "lemma": "there",
+          "pos": "PRON",
+          "tag": "EX",
+          "dependency": "expl",
+          "head": "be"
+        },
+        {
+          "id": "atom-3-token-1",
+          "text": "will",
+          "start": 6,
+          "end": 10,
+          "lemma": "will",
+          "pos": "AUX",
+          "tag": "MD",
+          "dependency": "aux",
+          "head": "be"
+        },
+        {
+          "id": "atom-3-token-2",
+          "text": "be",
+          "start": 11,
+          "end": 13,
+          "lemma": "be",
+          "pos": "AUX",
+          "tag": "VB",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "atom-3-token-3",
+          "text": "no",
+          "start": 14,
+          "end": 16,
+          "lemma": "no",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "wave"
+        },
+        {
+          "id": "atom-3-token-4",
+          "text": "second",
+          "start": 17,
+          "end": 23,
+          "lemma": "second",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "wave"
+        },
+        {
+          "id": "atom-3-token-5",
+          "text": "wave",
+          "start": 24,
+          "end": 28,
+          "lemma": "wave",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "attr",
+          "head": "be"
+        },
+        {
+          "id": "atom-3-token-6",
+          "text": "of",
+          "start": 29,
+          "end": 31,
+          "lemma": "of",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "wave"
+        },
+        {
+          "id": "atom-3-token-7",
+          "text": "infections",
+          "start": 32,
+          "end": 42,
+          "lemma": "infection",
+          "pos": "NOUN",
+          "tag": "NNS",
+          "dependency": "pobj",
+          "head": "of"
+        }
+      ],
+      "status": "complete",
+      "unresolved": []
+    }
+  ],
+  "recordedWith": {
+    "decompositionModel": "qwen2.5:7b",
+    "retrievalModel": "BAAI/bge-small-en-v1.5",
+    "nliModel": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    "linguisticsModel": "en_core_web_sm@3.8.0"
+  }
+}

@@ -1,0 +1,497 @@
+{
+  "caseId": "averitec-dev-0435",
+  "atoms": [
+    {
+      "id": "atom-1",
+      "text": "Igbo people are found in southeastern Nigeria.",
+      "sourceText": "Igbo people In Nigeria (Igbo people are found in southeastern Nigeria)",
+      "start": 0,
+      "end": 70
+    },
+    {
+      "id": "atom-2",
+      "text": "Igbo people are the richest people per capita in Africa.",
+      "sourceText": "Igbo people In Nigeria (Igbo people are found in southeastern Nigeria) are the richest people per capita in Africa.",
+      "start": 0,
+      "end": 115
+    }
+  ],
+  "evidence": [
+    {
+      "atomId": "atom-1",
+      "spans": [
+        {
+          "id": "doc-a10b02ffdad8::sentence-4",
+          "documentId": "doc-a10b02ffdad8",
+          "text": "Igbo are predominantly Christian. ",
+          "start": 209,
+          "end": 243
+        },
+        {
+          "id": "doc-a10b02ffdad8::sentence-9",
+          "documentId": "doc-a10b02ffdad8",
+          "text": "Igbo are believed to have originated as a people several thousand years ago in the area where the Benue flows into the Niger River. ",
+          "start": 497,
+          "end": 629
+        },
+        {
+          "id": "doc-a10b02ffdad8::sentence-5",
+          "documentId": "doc-a10b02ffdad8",
+          "text": "Traditionally, Igbo were subsistence farmers of yams, taro and cassava. ",
+          "start": 243,
+          "end": 315
+        },
+        {
+          "id": "doc-308dd4e1ff1f::sentence-9",
+          "documentId": "doc-308dd4e1ff1f",
+          "text": "Some of the slaves who were exported as a result of the civil wars were sent to Brazil and some other countries outside Nigeria and Africa, hence Yoruba-speaking people can be found in Togo, Benin Republic, Sierra Leone, Liberia and some other African countries.\n",
+          "start": 1276,
+          "end": 1539
+        },
+        {
+          "id": "doc-308dd4e1ff1f::sentence-6",
+          "documentId": "doc-308dd4e1ff1f",
+          "text": "The Yoruba in the Diaspora, including those based in Brazil, believe Ile Ife, in South West Nigeria, is their ancestral homeland. ",
+          "start": 822,
+          "end": 952
+        },
+        {
+          "id": "doc-308dd4e1ff1f::sentence-21",
+          "documentId": "doc-308dd4e1ff1f",
+          "text": "Further checks from the New World Encyclopedia, which was last updated on September 10, 2019, put the global population of Yoruba at 19.33 million, primarily from Nigeria, Benin and Togo.\n",
+          "start": 3417,
+          "end": 3605
+        }
+      ]
+    },
+    {
+      "atomId": "atom-2",
+      "spans": [
+        {
+          "id": "doc-a10b02ffdad8::sentence-2",
+          "documentId": "doc-a10b02ffdad8",
+          "text": "Igbo make up around 18 per cent of Nigeria’s population. ",
+          "start": 8,
+          "end": 65
+        },
+        {
+          "id": "doc-a10b02ffdad8::sentence-4",
+          "documentId": "doc-a10b02ffdad8",
+          "text": "Igbo are predominantly Christian. ",
+          "start": 209,
+          "end": 243
+        },
+        {
+          "id": "doc-a10b02ffdad8::sentence-5",
+          "documentId": "doc-a10b02ffdad8",
+          "text": "Traditionally, Igbo were subsistence farmers of yams, taro and cassava. ",
+          "start": 243,
+          "end": 315
+        },
+        {
+          "id": "doc-308dd4e1ff1f::sentence-21",
+          "documentId": "doc-308dd4e1ff1f",
+          "text": "Further checks from the New World Encyclopedia, which was last updated on September 10, 2019, put the global population of Yoruba at 19.33 million, primarily from Nigeria, Benin and Togo.\n",
+          "start": 3417,
+          "end": 3605
+        },
+        {
+          "id": "doc-308dd4e1ff1f::sentence-19",
+          "documentId": "doc-308dd4e1ff1f",
+          "text": "The World Factbook, which details the demographics of the global population, estimates that the Yoruba constitute about 105 million people in total, majority of them from Nigeria, where the Yoruba make up 21 per cent of the country’s population.\n",
+          "start": 2987,
+          "end": 3233
+        },
+        {
+          "id": "doc-308dd4e1ff1f::sentence-16",
+          "documentId": "doc-308dd4e1ff1f",
+          "text": "The World Factbook puts the population of Yoruba people in Nigeria at 28.28 million, being 13.9 per cent of Nigeria’s population of 203.5 million as at 2018.\n",
+          "start": 2412,
+          "end": 2570
+        }
+      ]
+    }
+  ],
+  "classifications": [
+    {
+      "atomId": "atom-1",
+      "relations": [
+        {
+          "spanId": "doc-a10b02ffdad8::sentence-4",
+          "documentId": "doc-a10b02ffdad8",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-a10b02ffdad8::sentence-9",
+          "documentId": "doc-a10b02ffdad8",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-a10b02ffdad8::sentence-5",
+          "documentId": "doc-a10b02ffdad8",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-308dd4e1ff1f::sentence-9",
+          "documentId": "doc-308dd4e1ff1f",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-308dd4e1ff1f::sentence-6",
+          "documentId": "doc-308dd4e1ff1f",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-308dd4e1ff1f::sentence-21",
+          "documentId": "doc-308dd4e1ff1f",
+          "relation": "NEUTRAL"
+        }
+      ]
+    },
+    {
+      "atomId": "atom-2",
+      "relations": [
+        {
+          "spanId": "doc-a10b02ffdad8::sentence-2",
+          "documentId": "doc-a10b02ffdad8",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-a10b02ffdad8::sentence-4",
+          "documentId": "doc-a10b02ffdad8",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-a10b02ffdad8::sentence-5",
+          "documentId": "doc-a10b02ffdad8",
+          "relation": "CONTRADICTION"
+        },
+        {
+          "spanId": "doc-308dd4e1ff1f::sentence-21",
+          "documentId": "doc-308dd4e1ff1f",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-308dd4e1ff1f::sentence-19",
+          "documentId": "doc-308dd4e1ff1f",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-308dd4e1ff1f::sentence-16",
+          "documentId": "doc-308dd4e1ff1f",
+          "relation": "NEUTRAL"
+        }
+      ]
+    }
+  ],
+  "linguistics": [
+    {
+      "atomId": "atom-1",
+      "frames": [
+        {
+          "id": "atom-1-frame-1",
+          "predicate": {
+            "id": "atom-1-frame-1-predicate",
+            "text": "found",
+            "start": 16,
+            "end": 21
+          },
+          "subjects": [
+            {
+              "id": "atom-1-frame-1-subject-1",
+              "text": "Igbo people",
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "coreArguments": [],
+          "adjuncts": [],
+          "otherModifiers": [
+            {
+              "id": "atom-1-frame-1-other-modifier-1",
+              "text": "in southeastern Nigeria",
+              "start": 22,
+              "end": 45
+            }
+          ]
+        }
+      ],
+      "cues": [],
+      "entities": [
+        {
+          "id": "atom-1-entity-gpe-38-45",
+          "text": "Nigeria",
+          "start": 38,
+          "end": 45,
+          "label": "GPE"
+        }
+      ],
+      "tokens": [
+        {
+          "id": "atom-1-token-0",
+          "text": "Igbo",
+          "start": 0,
+          "end": 4,
+          "lemma": "Igbo",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "people"
+        },
+        {
+          "id": "atom-1-token-1",
+          "text": "people",
+          "start": 5,
+          "end": 11,
+          "lemma": "people",
+          "pos": "NOUN",
+          "tag": "NNS",
+          "dependency": "nsubjpass",
+          "head": "found"
+        },
+        {
+          "id": "atom-1-token-2",
+          "text": "are",
+          "start": 12,
+          "end": 15,
+          "lemma": "be",
+          "pos": "AUX",
+          "tag": "VBP",
+          "dependency": "auxpass",
+          "head": "found"
+        },
+        {
+          "id": "atom-1-token-3",
+          "text": "found",
+          "start": 16,
+          "end": 21,
+          "lemma": "find",
+          "pos": "VERB",
+          "tag": "VBN",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "atom-1-token-4",
+          "text": "in",
+          "start": 22,
+          "end": 24,
+          "lemma": "in",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "found"
+        },
+        {
+          "id": "atom-1-token-5",
+          "text": "southeastern",
+          "start": 25,
+          "end": 37,
+          "lemma": "southeastern",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "Nigeria"
+        },
+        {
+          "id": "atom-1-token-6",
+          "text": "Nigeria",
+          "start": 38,
+          "end": 45,
+          "lemma": "Nigeria",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "pobj",
+          "head": "in"
+        },
+        {
+          "id": "atom-1-token-7",
+          "text": ".",
+          "start": 45,
+          "end": 46,
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "found"
+        }
+      ],
+      "status": "complete",
+      "unresolved": []
+    },
+    {
+      "atomId": "atom-2",
+      "frames": [
+        {
+          "id": "atom-2-frame-1",
+          "predicate": {
+            "id": "atom-2-frame-1-predicate",
+            "text": "are",
+            "start": 12,
+            "end": 15
+          },
+          "subjects": [
+            {
+              "id": "atom-2-frame-1-subject-1",
+              "text": "Igbo people",
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "atom-2-frame-1-argument-1",
+              "text": "the richest people per capita in Africa",
+              "start": 16,
+              "end": 55,
+              "role": "subject_complement"
+            }
+          ],
+          "adjuncts": [],
+          "otherModifiers": []
+        }
+      ],
+      "cues": [],
+      "entities": [
+        {
+          "id": "atom-2-entity-loc-49-55",
+          "text": "Africa",
+          "start": 49,
+          "end": 55,
+          "label": "LOC"
+        }
+      ],
+      "tokens": [
+        {
+          "id": "atom-2-token-0",
+          "text": "Igbo",
+          "start": 0,
+          "end": 4,
+          "lemma": "Igbo",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "people"
+        },
+        {
+          "id": "atom-2-token-1",
+          "text": "people",
+          "start": 5,
+          "end": 11,
+          "lemma": "people",
+          "pos": "NOUN",
+          "tag": "NNS",
+          "dependency": "nsubj",
+          "head": "are"
+        },
+        {
+          "id": "atom-2-token-2",
+          "text": "are",
+          "start": 12,
+          "end": 15,
+          "lemma": "be",
+          "pos": "AUX",
+          "tag": "VBP",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "atom-2-token-3",
+          "text": "the",
+          "start": 16,
+          "end": 19,
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "people"
+        },
+        {
+          "id": "atom-2-token-4",
+          "text": "richest",
+          "start": 20,
+          "end": 27,
+          "lemma": "rich",
+          "pos": "ADJ",
+          "tag": "JJS",
+          "dependency": "amod",
+          "head": "people"
+        },
+        {
+          "id": "atom-2-token-5",
+          "text": "people",
+          "start": 28,
+          "end": 34,
+          "lemma": "people",
+          "pos": "NOUN",
+          "tag": "NNS",
+          "dependency": "attr",
+          "head": "are"
+        },
+        {
+          "id": "atom-2-token-6",
+          "text": "per",
+          "start": 35,
+          "end": 38,
+          "lemma": "per",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "people"
+        },
+        {
+          "id": "atom-2-token-7",
+          "text": "capita",
+          "start": 39,
+          "end": 45,
+          "lemma": "capita",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "pobj",
+          "head": "per"
+        },
+        {
+          "id": "atom-2-token-8",
+          "text": "in",
+          "start": 46,
+          "end": 48,
+          "lemma": "in",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "people"
+        },
+        {
+          "id": "atom-2-token-9",
+          "text": "Africa",
+          "start": 49,
+          "end": 55,
+          "lemma": "Africa",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "pobj",
+          "head": "in"
+        },
+        {
+          "id": "atom-2-token-10",
+          "text": ".",
+          "start": 55,
+          "end": 56,
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "are"
+        }
+      ],
+      "status": "complete",
+      "unresolved": []
+    }
+  ],
+  "recordedWith": {
+    "decompositionModel": "qwen2.5:7b",
+    "retrievalModel": "BAAI/bge-small-en-v1.5",
+    "nliModel": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    "linguisticsModel": "en_core_web_sm@3.8.0"
+  }
+}

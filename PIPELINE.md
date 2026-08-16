@@ -22,12 +22,12 @@ Atomic claims
 
 | Stage | Implementation | Model / library | Output |
 | --- | --- | --- | --- |
-| Claim decomposition | WiCE-style structured prompting through the local Ollama `/api/chat` endpoint | `qwen2.5:7b` by default | Up to 12 standalone atoms, each grounded to exact `sourceText` in the original claim |
+| Claim decomposition | WiCE-style structured prompting through the local Ollama `/api/chat` endpoint | `qwen2.5:3b` by default | Up to 12 standalone atoms, each grounded to exact `sourceText` in the original claim |
 | Document segmentation | Python sentence segmentation with server-owned character spans | PySBD `0.3.4` | Whole sentences with document-relative UTF-16 offsets |
 | Candidate retrieval | Batched normalized embeddings and cosine ranking; up to six sentences per atom, capped at three per document in multidocument cases | Sentence Transformers `3.4.1`, `BAAI/bge-small-en-v1.5` | Semantically nearest candidate sentences; no threshold or scores |
 | NLI support classification | Each candidate sentence is the premise and its atom is the hypothesis; three-way argmax | Transformers `4.48.3`, `MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli`, revision `6f5cf0a2b59cabb106aca4c287eed12e357e90eb` | `ENTAILMENT`, `CONTRADICTION`, or `NEUTRAL` for every atom–sentence pair |
 | Linguistic structure | Batched dependency parsing and conservative rule-based role extraction | spaCy `3.8.7`, `en_core_web_sm@3.8.0` | Frames, core arguments, adjuncts, other modifiers, cues, entities, and syntax tokens |
-| Argumentation graph | Frontend-derived atom–evidence graph; no additional model inference | Existing decomposition, retrieval, and NLI outputs | Claim, atom, and evidence nodes with `ENTAILMENT`, `CONTRADICTION`, and `NEUTRAL` links |
+| Argumentation graph | Frontend-derived atom–evidence graph; no additional model inference | Existing decomposition, retrieval, and NLI outputs | Claim, atom, and evidence nodes linked by `ENTAILMENT` and `CONTRADICTION`; `NEUTRAL` candidates are omitted from the graph and remain visible only in the evidence pane |
 | Four-way verdict | Not implemented | — | Pending: `SUPPORTED`, `REFUTED`, `NOT ENOUGH EVIDENCE`, or `CONFLICTING EVIDENCE` |
 
 All model-generated or parsed spans are validated against unchanged source text

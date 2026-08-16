@@ -1,0 +1,460 @@
+{
+  "caseId": "averitec-dev-0419",
+  "atoms": [
+    {
+      "id": "atom-1",
+      "text": "The U.S. Centers for Disease Control and Prevention fraudulently add deaths from poisoning, trauma, and unintentional injury to their tally of COVID-19 deaths.",
+      "sourceText": "The U.S. Centers for Disease Control and Prevention fraudulently add deaths from poisoning, trauma, and unintentional injury to their tally of COVID-19 deaths.",
+      "start": 0,
+      "end": 159
+    }
+  ],
+  "evidence": [
+    {
+      "atomId": "atom-1",
+      "spans": [
+        {
+          "id": "doc-5dfdb3a51082::sentence-5",
+          "documentId": "doc-5dfdb3a51082",
+          "text": "On April 3, 2020, the CDC's National Center for Health Statistics issued guidance to physicians, coroners, and medical examiners who fill out death certificates to list COVID-19 as an underlying cause of death in the absence of a test \"if the circumstances are compelling within a reasonable degree of certainty.\"\n",
+          "start": 843,
+          "end": 1157
+        },
+        {
+          "id": "doc-efeac11ee951::sentence-31",
+          "documentId": "doc-efeac11ee951",
+          "text": "See the CDC Guidance on Certifying COVID-19 Deaths (PDF).\n",
+          "start": 3829,
+          "end": 3887
+        },
+        {
+          "id": "doc-efeac11ee951::sentence-16",
+          "documentId": "doc-efeac11ee951",
+          "text": "If a Coroner suspects COVID-19 is the cause of death, should COVID-19 be listed as the cause of death without laboratory test confirmation?\n",
+          "start": 1974,
+          "end": 2114
+        },
+        {
+          "id": "doc-efeac11ee951::sentence-15",
+          "documentId": "doc-efeac11ee951",
+          "text": "Yes, a Medical Examiner may conclude the cause of death is COVID-19 and list it in Part I of the death certificate.\n",
+          "start": 1858,
+          "end": 1974
+        },
+        {
+          "id": "doc-5dfdb3a51082::sentence-17",
+          "documentId": "doc-5dfdb3a51082",
+          "text": "As of this writing, the U.S. had more than 700,000 COVID-19 cases, with the death count nearing 40,000. ",
+          "start": 3257,
+          "end": 3361
+        },
+        {
+          "id": "doc-5dfdb3a51082::sentence-7",
+          "documentId": "doc-5dfdb3a51082",
+          "text": "In cases where a definite diagnosis of COVID–19 cannot be made, but it is suspected or likely (e.g., the circumstances are compelling within a reasonable degree of certainty), it is acceptable to report COVID–19 on a death certificate as 'probable' or 'presumed.' ",
+          "start": 1181,
+          "end": 1445
+        }
+      ]
+    }
+  ],
+  "classifications": [
+    {
+      "atomId": "atom-1",
+      "relations": [
+        {
+          "spanId": "doc-5dfdb3a51082::sentence-5",
+          "documentId": "doc-5dfdb3a51082",
+          "relation": "CONTRADICTION"
+        },
+        {
+          "spanId": "doc-efeac11ee951::sentence-31",
+          "documentId": "doc-efeac11ee951",
+          "relation": "CONTRADICTION"
+        },
+        {
+          "spanId": "doc-efeac11ee951::sentence-16",
+          "documentId": "doc-efeac11ee951",
+          "relation": "CONTRADICTION"
+        },
+        {
+          "spanId": "doc-efeac11ee951::sentence-15",
+          "documentId": "doc-efeac11ee951",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-5dfdb3a51082::sentence-17",
+          "documentId": "doc-5dfdb3a51082",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-5dfdb3a51082::sentence-7",
+          "documentId": "doc-5dfdb3a51082",
+          "relation": "NEUTRAL"
+        }
+      ]
+    }
+  ],
+  "linguistics": [
+    {
+      "atomId": "atom-1",
+      "frames": [
+        {
+          "id": "atom-1-frame-1",
+          "predicate": {
+            "id": "atom-1-frame-1-predicate",
+            "text": "add",
+            "start": 65,
+            "end": 68
+          },
+          "subjects": [
+            {
+              "id": "atom-1-frame-1-subject-1",
+              "text": "The U.S. Centers for Disease Control and Prevention",
+              "start": 0,
+              "end": 51
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "atom-1-frame-1-argument-1",
+              "text": "deaths",
+              "start": 69,
+              "end": 75,
+              "role": "direct_object"
+            }
+          ],
+          "adjuncts": [
+            {
+              "id": "atom-1-frame-1-adjunct-1",
+              "text": "fraudulently",
+              "start": 52,
+              "end": 64,
+              "kind": "manner"
+            }
+          ],
+          "otherModifiers": [
+            {
+              "id": "atom-1-frame-1-other-modifier-1",
+              "text": "from poisoning, trauma, and unintentional injury",
+              "start": 76,
+              "end": 124
+            },
+            {
+              "id": "atom-1-frame-1-other-modifier-2",
+              "text": "to their tally of COVID-19 deaths",
+              "start": 125,
+              "end": 158
+            }
+          ]
+        }
+      ],
+      "cues": [],
+      "entities": [
+        {
+          "id": "atom-1-entity-org-0-51",
+          "text": "The U.S. Centers for Disease Control and Prevention",
+          "start": 0,
+          "end": 51,
+          "label": "ORG"
+        }
+      ],
+      "tokens": [
+        {
+          "id": "atom-1-token-0",
+          "text": "The",
+          "start": 0,
+          "end": 3,
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "Centers"
+        },
+        {
+          "id": "atom-1-token-1",
+          "text": "U.S.",
+          "start": 4,
+          "end": 8,
+          "lemma": "U.S.",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "Centers"
+        },
+        {
+          "id": "atom-1-token-2",
+          "text": "Centers",
+          "start": 9,
+          "end": 16,
+          "lemma": "Centers",
+          "pos": "PROPN",
+          "tag": "NNPS",
+          "dependency": "nsubj",
+          "head": "add"
+        },
+        {
+          "id": "atom-1-token-3",
+          "text": "for",
+          "start": 17,
+          "end": 20,
+          "lemma": "for",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "Centers"
+        },
+        {
+          "id": "atom-1-token-4",
+          "text": "Disease",
+          "start": 21,
+          "end": 28,
+          "lemma": "Disease",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "Control"
+        },
+        {
+          "id": "atom-1-token-5",
+          "text": "Control",
+          "start": 29,
+          "end": 36,
+          "lemma": "Control",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "pobj",
+          "head": "for"
+        },
+        {
+          "id": "atom-1-token-6",
+          "text": "and",
+          "start": 37,
+          "end": 40,
+          "lemma": "and",
+          "pos": "CCONJ",
+          "tag": "CC",
+          "dependency": "cc",
+          "head": "Control"
+        },
+        {
+          "id": "atom-1-token-7",
+          "text": "Prevention",
+          "start": 41,
+          "end": 51,
+          "lemma": "Prevention",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "conj",
+          "head": "Control"
+        },
+        {
+          "id": "atom-1-token-8",
+          "text": "fraudulently",
+          "start": 52,
+          "end": 64,
+          "lemma": "fraudulently",
+          "pos": "ADV",
+          "tag": "RB",
+          "dependency": "advmod",
+          "head": "add"
+        },
+        {
+          "id": "atom-1-token-9",
+          "text": "add",
+          "start": 65,
+          "end": 68,
+          "lemma": "add",
+          "pos": "VERB",
+          "tag": "VBP",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "atom-1-token-10",
+          "text": "deaths",
+          "start": 69,
+          "end": 75,
+          "lemma": "death",
+          "pos": "NOUN",
+          "tag": "NNS",
+          "dependency": "dobj",
+          "head": "add"
+        },
+        {
+          "id": "atom-1-token-11",
+          "text": "from",
+          "start": 76,
+          "end": 80,
+          "lemma": "from",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "add"
+        },
+        {
+          "id": "atom-1-token-12",
+          "text": "poisoning",
+          "start": 81,
+          "end": 90,
+          "lemma": "poisoning",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "pobj",
+          "head": "from"
+        },
+        {
+          "id": "atom-1-token-13",
+          "text": ",",
+          "start": 90,
+          "end": 91,
+          "lemma": ",",
+          "pos": "PUNCT",
+          "tag": ",",
+          "dependency": "punct",
+          "head": "poisoning"
+        },
+        {
+          "id": "atom-1-token-14",
+          "text": "trauma",
+          "start": 92,
+          "end": 98,
+          "lemma": "trauma",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "conj",
+          "head": "poisoning"
+        },
+        {
+          "id": "atom-1-token-15",
+          "text": ",",
+          "start": 98,
+          "end": 99,
+          "lemma": ",",
+          "pos": "PUNCT",
+          "tag": ",",
+          "dependency": "punct",
+          "head": "trauma"
+        },
+        {
+          "id": "atom-1-token-16",
+          "text": "and",
+          "start": 100,
+          "end": 103,
+          "lemma": "and",
+          "pos": "CCONJ",
+          "tag": "CC",
+          "dependency": "cc",
+          "head": "trauma"
+        },
+        {
+          "id": "atom-1-token-17",
+          "text": "unintentional",
+          "start": 104,
+          "end": 117,
+          "lemma": "unintentional",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "injury"
+        },
+        {
+          "id": "atom-1-token-18",
+          "text": "injury",
+          "start": 118,
+          "end": 124,
+          "lemma": "injury",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "conj",
+          "head": "trauma"
+        },
+        {
+          "id": "atom-1-token-19",
+          "text": "to",
+          "start": 125,
+          "end": 127,
+          "lemma": "to",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "add"
+        },
+        {
+          "id": "atom-1-token-20",
+          "text": "their",
+          "start": 128,
+          "end": 133,
+          "lemma": "their",
+          "pos": "PRON",
+          "tag": "PRP$",
+          "dependency": "poss",
+          "head": "tally"
+        },
+        {
+          "id": "atom-1-token-21",
+          "text": "tally",
+          "start": 134,
+          "end": 139,
+          "lemma": "tally",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "pobj",
+          "head": "to"
+        },
+        {
+          "id": "atom-1-token-22",
+          "text": "of",
+          "start": 140,
+          "end": 142,
+          "lemma": "of",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "tally"
+        },
+        {
+          "id": "atom-1-token-23",
+          "text": "COVID-19",
+          "start": 143,
+          "end": 151,
+          "lemma": "covid-19",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "compound",
+          "head": "deaths"
+        },
+        {
+          "id": "atom-1-token-24",
+          "text": "deaths",
+          "start": 152,
+          "end": 158,
+          "lemma": "death",
+          "pos": "NOUN",
+          "tag": "NNS",
+          "dependency": "pobj",
+          "head": "of"
+        },
+        {
+          "id": "atom-1-token-25",
+          "text": ".",
+          "start": 158,
+          "end": 159,
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "add"
+        }
+      ],
+      "status": "complete",
+      "unresolved": []
+    }
+  ],
+  "recordedWith": {
+    "decompositionModel": "qwen2.5:7b",
+    "retrievalModel": "BAAI/bge-small-en-v1.5",
+    "nliModel": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    "linguisticsModel": "en_core_web_sm@3.8.0"
+  }
+}

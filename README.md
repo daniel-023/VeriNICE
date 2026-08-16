@@ -14,7 +14,8 @@ Sentence-level NLI (DeBERTa)
         ↓
 Deterministic atom–evidence argumentation graph
         ↓
-Four-way verdict — pending
+Four-way verdict — pending (SUPPORTED / REFUTED / NOT_ENOUGH_EVIDENCE /
+CONFLICTING_EVIDENCE)
 ```
 
 Linguistic structure is an optional local spaCy sidecar. It describes atom
@@ -22,10 +23,11 @@ syntax and cues; it is not evidence or a verdict input.
 
 ## Two intentional modes
 
-| Mode | Where | What is live |
-| --- | --- | --- |
-| Walkthrough | Vercel | Nothing. It presents recorded local runs of approved AVeriTeC cases. |
-| Live demo | Native processes on your laptop | Qwen/Ollama decomposition, BGE retrieval, DeBERTa NLI, and spaCy analysis. |
+
+| Mode        | Where                           | What is live                                                               |
+| ------------- | --------------------------------- | ---------------------------------------------------------------------------- |
+| Walkthrough | Vercel                          | Nothing. It presents recorded local runs of approved AVeriTeC cases.       |
+| Live demo   | Native processes on your laptop | Qwen/Ollama decomposition, BGE retrieval, DeBERTa NLI, and spaCy analysis. |
 
 The Vercel UI always states: **“Demo mode — results are precomputed. Live
 analysis is available locally.”** It never attempts to connect to a laptop or
@@ -34,14 +36,16 @@ to a public inference service.
 ## Local live demo
 
 Requirements: Python 3, Node.js/npm, and Ollama Desktop. Native execution keeps
-the backend and model files on the host, avoiding container and macOS
-file-provider issues. The Ollama model can be overridden with
+the backend and model files on the host instead of in a container. Docker
+Desktop on macOS shares files into containers through a slow virtualized
+layer, which stalls model loads and file-watching; running natively avoids
+that entirely. The Ollama model can be overridden with
 `VERIGRAPH_OLLAMA_MODEL` when more memory is available.
 
-Optional local overrides can be placed in `.env`:
+Optional local overrides can be placed in `.env.local`:
 
 ```bash
-cp .env.example .env
+cp .env.example .env.local
 ```
 
 ```bash
@@ -50,7 +54,7 @@ cd verigraph
 ./run-verigraph --start
 ```
 
-Open <http://localhost:3000>. The browser talks to the local Next.js process,
+Open [http://localhost:3000](http://localhost:3000). The browser talks to the local Next.js process,
 which proxies to FastAPI on port 8001. BGE and DeBERTa are stored in the
 gitignored `data/models/` directory; Ollama stores its model in its normal host
 installation. After preparation, inference is local and does not fetch source
@@ -67,8 +71,8 @@ Useful commands:
 ./run-verigraph --record-walkthrough
 ```
 
-`--record-walkthrough` uses the already-running native services to run four
-representative cases—one per reference label—and writes the static assets
+`--record-walkthrough` uses the already-running native services to run all 22
+approved cases across the four reference labels—and writes the static assets
 consumed by Vercel. It must complete successfully before deploying a new
 walkthrough.
 
@@ -84,6 +88,13 @@ walkthrough.
 Vercel does not host FastAPI, Ollama, BGE, or DeBERTa in this design. This
 keeps the permanent public site inexpensive and the in-person demonstration
 independent of a fragile remote GPU arrangement.
+
+Every Vercel deployment is Basic Auth-gated by default via
+`frontend/proxy.ts`, which protects the app, API proxy, walkthrough JSON,
+and generated assets. You must set `BASIC_AUTH_USER` and `BASIC_AUTH_PASSWORD`
+in the Vercel project environment, or the deployment serves a 503 to every
+visitor. Native local runs remain open unless `VERIGRAPH_AUTH_REQUIRED=1` is
+set.
 
 ## Demo data and licences
 

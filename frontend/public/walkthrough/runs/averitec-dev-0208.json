@@ -1,0 +1,386 @@
+{
+  "caseId": "averitec-dev-0208",
+  "atoms": [
+    {
+      "id": "atom-1",
+      "text": "It makes no sense for oil to be cheaper in Nigeria than in Saudi Arabia.",
+      "sourceText": "It makes no sense for oil to be cheaper in Nigeria than in Saudi Arabia.",
+      "start": 0,
+      "end": 72
+    }
+  ],
+  "evidence": [
+    {
+      "atomId": "atom-1",
+      "spans": [
+        {
+          "id": "doc-07b5051e0f4b::sentence-72",
+          "documentId": "doc-07b5051e0f4b",
+          "text": "No export or import prices are necessary. ",
+          "start": 8549,
+          "end": 8591
+        },
+        {
+          "id": "doc-4480543c9460::sentence-24",
+          "documentId": "doc-4480543c9460",
+          "text": "GDP per capita in Nigeria and other countries is calculated as the Gross Domestic Product (GDP) divided by the population.\n",
+          "start": 890,
+          "end": 1013
+        },
+        {
+          "id": "doc-07b5051e0f4b::sentence-32",
+          "documentId": "doc-07b5051e0f4b",
+          "text": "But in a world where trade occurs, prices that are made up of commodities produced need not correspond to the prices of commodities consumed.\n",
+          "start": 2744,
+          "end": 2886
+        },
+        {
+          "id": "doc-4480543c9460::sentence-15",
+          "documentId": "doc-4480543c9460",
+          "text": "Historically, the average for Nigeria from 1990 to 2024 is 6754 U.S. dollars. ",
+          "start": 486,
+          "end": 564
+        },
+        {
+          "id": "doc-4480543c9460::sentence-1",
+          "documentId": "doc-4480543c9460",
+          "text": "Nigeria: GDP per capita, PPP\n",
+          "start": 0,
+          "end": 29
+        },
+        {
+          "id": "doc-07b5051e0f4b::sentence-113",
+          "documentId": "doc-07b5051e0f4b",
+          "text": "The OECD then requires producing power deflators, not purchasing power deflators. ",
+          "start": 15158,
+          "end": 15240
+        }
+      ]
+    }
+  ],
+  "classifications": [
+    {
+      "atomId": "atom-1",
+      "relations": [
+        {
+          "spanId": "doc-07b5051e0f4b::sentence-72",
+          "documentId": "doc-07b5051e0f4b",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-4480543c9460::sentence-24",
+          "documentId": "doc-4480543c9460",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-07b5051e0f4b::sentence-32",
+          "documentId": "doc-07b5051e0f4b",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-4480543c9460::sentence-15",
+          "documentId": "doc-4480543c9460",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-4480543c9460::sentence-1",
+          "documentId": "doc-4480543c9460",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-07b5051e0f4b::sentence-113",
+          "documentId": "doc-07b5051e0f4b",
+          "relation": "NEUTRAL"
+        }
+      ]
+    }
+  ],
+  "linguistics": [
+    {
+      "atomId": "atom-1",
+      "frames": [
+        {
+          "id": "atom-1-frame-1",
+          "predicate": {
+            "id": "atom-1-frame-1-predicate",
+            "text": "makes",
+            "start": 3,
+            "end": 8
+          },
+          "subjects": [
+            {
+              "id": "atom-1-frame-1-subject-1",
+              "text": "It",
+              "start": 0,
+              "end": 2
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "atom-1-frame-1-argument-1",
+              "text": "no sense for oil to be cheaper in Nigeria",
+              "start": 9,
+              "end": 50,
+              "role": "direct_object"
+            }
+          ],
+          "adjuncts": [],
+          "otherModifiers": [
+            {
+              "id": "atom-1-frame-1-other-modifier-1",
+              "text": "than in Saudi Arabia",
+              "start": 51,
+              "end": 71
+            }
+          ]
+        },
+        {
+          "id": "atom-1-frame-2",
+          "predicate": {
+            "id": "atom-1-frame-2-predicate",
+            "text": "be",
+            "start": 29,
+            "end": 31
+          },
+          "subjects": [
+            {
+              "id": "atom-1-frame-2-subject-1",
+              "text": "oil",
+              "start": 22,
+              "end": 25
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "atom-1-frame-2-argument-1",
+              "text": "cheaper in Nigeria",
+              "start": 32,
+              "end": 50,
+              "role": "subject_complement"
+            }
+          ],
+          "adjuncts": [],
+          "otherModifiers": []
+        }
+      ],
+      "cues": [
+        {
+          "id": "atom-1-cue-negation-9-11",
+          "text": "no",
+          "start": 9,
+          "end": 11,
+          "kind": "negation"
+        },
+        {
+          "id": "atom-1-cue-quantifier-9-11",
+          "text": "no",
+          "start": 9,
+          "end": 11,
+          "kind": "quantifier"
+        }
+      ],
+      "entities": [
+        {
+          "id": "atom-1-entity-gpe-43-50",
+          "text": "Nigeria",
+          "start": 43,
+          "end": 50,
+          "label": "GPE"
+        },
+        {
+          "id": "atom-1-entity-gpe-59-71",
+          "text": "Saudi Arabia",
+          "start": 59,
+          "end": 71,
+          "label": "GPE"
+        }
+      ],
+      "tokens": [
+        {
+          "id": "atom-1-token-0",
+          "text": "It",
+          "start": 0,
+          "end": 2,
+          "lemma": "it",
+          "pos": "PRON",
+          "tag": "PRP",
+          "dependency": "nsubj",
+          "head": "makes"
+        },
+        {
+          "id": "atom-1-token-1",
+          "text": "makes",
+          "start": 3,
+          "end": 8,
+          "lemma": "make",
+          "pos": "VERB",
+          "tag": "VBZ",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "atom-1-token-2",
+          "text": "no",
+          "start": 9,
+          "end": 11,
+          "lemma": "no",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "sense"
+        },
+        {
+          "id": "atom-1-token-3",
+          "text": "sense",
+          "start": 12,
+          "end": 17,
+          "lemma": "sense",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "dobj",
+          "head": "makes"
+        },
+        {
+          "id": "atom-1-token-4",
+          "text": "for",
+          "start": 18,
+          "end": 21,
+          "lemma": "for",
+          "pos": "SCONJ",
+          "tag": "IN",
+          "dependency": "mark",
+          "head": "be"
+        },
+        {
+          "id": "atom-1-token-5",
+          "text": "oil",
+          "start": 22,
+          "end": 25,
+          "lemma": "oil",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "nsubj",
+          "head": "be"
+        },
+        {
+          "id": "atom-1-token-6",
+          "text": "to",
+          "start": 26,
+          "end": 28,
+          "lemma": "to",
+          "pos": "PART",
+          "tag": "TO",
+          "dependency": "aux",
+          "head": "be"
+        },
+        {
+          "id": "atom-1-token-7",
+          "text": "be",
+          "start": 29,
+          "end": 31,
+          "lemma": "be",
+          "pos": "AUX",
+          "tag": "VB",
+          "dependency": "advcl",
+          "head": "sense"
+        },
+        {
+          "id": "atom-1-token-8",
+          "text": "cheaper",
+          "start": 32,
+          "end": 39,
+          "lemma": "cheap",
+          "pos": "ADJ",
+          "tag": "JJR",
+          "dependency": "acomp",
+          "head": "be"
+        },
+        {
+          "id": "atom-1-token-9",
+          "text": "in",
+          "start": 40,
+          "end": 42,
+          "lemma": "in",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "cheaper"
+        },
+        {
+          "id": "atom-1-token-10",
+          "text": "Nigeria",
+          "start": 43,
+          "end": 50,
+          "lemma": "Nigeria",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "pobj",
+          "head": "in"
+        },
+        {
+          "id": "atom-1-token-11",
+          "text": "than",
+          "start": 51,
+          "end": 55,
+          "lemma": "than",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "makes"
+        },
+        {
+          "id": "atom-1-token-12",
+          "text": "in",
+          "start": 56,
+          "end": 58,
+          "lemma": "in",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "than"
+        },
+        {
+          "id": "atom-1-token-13",
+          "text": "Saudi",
+          "start": 59,
+          "end": 64,
+          "lemma": "Saudi",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "Arabia"
+        },
+        {
+          "id": "atom-1-token-14",
+          "text": "Arabia",
+          "start": 65,
+          "end": 71,
+          "lemma": "Arabia",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "pobj",
+          "head": "in"
+        },
+        {
+          "id": "atom-1-token-15",
+          "text": ".",
+          "start": 71,
+          "end": 72,
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "makes"
+        }
+      ],
+      "status": "complete",
+      "unresolved": []
+    }
+  ],
+  "recordedWith": {
+    "decompositionModel": "qwen2.5:7b",
+    "retrievalModel": "BAAI/bge-small-en-v1.5",
+    "nliModel": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    "linguisticsModel": "en_core_web_sm@3.8.0"
+  }
+}

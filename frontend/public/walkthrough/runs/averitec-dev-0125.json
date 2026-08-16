@@ -1,0 +1,623 @@
+{
+  "caseId": "averitec-dev-0125",
+  "atoms": [
+    {
+      "id": "atom-1",
+      "text": "The gross domestic product (GDP) figure in Nigeria for 2020 has decreased.",
+      "sourceText": "The gross domestic product  (GDP) figure in Nigeria for 2020 has decreased from the figure for 2019.",
+      "start": 0,
+      "end": 100
+    },
+    {
+      "id": "atom-2",
+      "text": "The GDP figure for 2019 was higher than the GDP figure for 2020.",
+      "sourceText": "The gross domestic product  (GDP) figure in Nigeria for 2020 has decreased from the figure for 2019.",
+      "start": 0,
+      "end": 100
+    }
+  ],
+  "evidence": [
+    {
+      "atomId": "atom-1",
+      "spans": [
+        {
+          "id": "doc-b05896830f36::sentence-4",
+          "documentId": "doc-b05896830f36",
+          "text": "“Nigeria’s Gross Domestic Product (GDP) grew by 2.55%(year-on-year) in real terms in the fourth quarter of 2019. Compared to the fourth quarter of 2018 which recorded a growth rate of 2.38%, this represents an increase of 0.17% points and an increase of 0.27% points when compared with the third quarter of 2019.”\n",
+          "start": 430,
+          "end": 744
+        },
+        {
+          "id": "doc-b05896830f36::sentence-1",
+          "documentId": "doc-b05896830f36",
+          "text": "Nigeria’s Gross Domestic Product (GDP) grew by 2.55%(year-on-year) in real terms in the fourth quarter of 2019, according to a recently released report by the National Bureau of Statistics (NBS).\n",
+          "start": 0,
+          "end": 196
+        },
+        {
+          "id": "doc-eb0b849b5874::sentence-13",
+          "documentId": "doc-eb0b849b5874",
+          "text": "The latest economic data shows Nigeria’s government continues to fall far short of projections in its Economic Recovery and Growth Plan, created in the aftermath of the 2016 recession to set out aggressive growth targets from 2017 to 2020. ",
+          "start": 1706,
+          "end": 1946
+        },
+        {
+          "id": "doc-eb0b849b5874::sentence-12",
+          "documentId": "doc-eb0b849b5874",
+          "text": "In fact, in the second quarter of 2020, local oil production dropped to its lowest since 2016—when Nigerian endured a full year of negative growth.\n",
+          "start": 1558,
+          "end": 1706
+        },
+        {
+          "id": "doc-eb0b849b5874::sentence-5",
+          "documentId": "doc-eb0b849b5874",
+          "text": "As with most other economies around the world, the sharp drop in Nigeria’s GDP growth is largely down to the slowdown in economic activity after the country resorted to a lockdown back in April to curb the spread of the virus. ",
+          "start": 377,
+          "end": 604
+        },
+        {
+          "id": "doc-b05896830f36::sentence-3",
+          "documentId": "doc-b05896830f36",
+          "text": "According to NBS, the overall GDP in 2019 indicated a real growth of 2.27%, compared to 1.91% in 2018 while the real GDP grew by 5.59% quarter on quarter.\n",
+          "start": 275,
+          "end": 430
+        }
+      ]
+    },
+    {
+      "atomId": "atom-2",
+      "spans": [
+        {
+          "id": "doc-b05896830f36::sentence-3",
+          "documentId": "doc-b05896830f36",
+          "text": "According to NBS, the overall GDP in 2019 indicated a real growth of 2.27%, compared to 1.91% in 2018 while the real GDP grew by 5.59% quarter on quarter.\n",
+          "start": 275,
+          "end": 430
+        },
+        {
+          "id": "doc-b05896830f36::sentence-6",
+          "documentId": "doc-b05896830f36",
+          "text": "“In Q4 2019, aggregate GDP stood at N39,577,340.04 million in nominal terms. This was higher than the fourth quarter of 2018 which recorded an aggregate of N35,230,607.63 million, representing year on year nominal growth rate of 12.34%.”\n",
+          "start": 830,
+          "end": 1068
+        },
+        {
+          "id": "doc-b05896830f36::sentence-4",
+          "documentId": "doc-b05896830f36",
+          "text": "“Nigeria’s Gross Domestic Product (GDP) grew by 2.55%(year-on-year) in real terms in the fourth quarter of 2019. Compared to the fourth quarter of 2018 which recorded a growth rate of 2.38%, this represents an increase of 0.17% points and an increase of 0.27% points when compared with the third quarter of 2019.”\n",
+          "start": 430,
+          "end": 744
+        },
+        {
+          "id": "doc-eb0b849b5874::sentence-11",
+          "documentId": "doc-eb0b849b5874",
+          "text": "For context, the United States slashed its Nigerian crude oil imports oil by 11.67 million barrels in the first five months of 2020, compared to what it bought in the same period of 2019. ",
+          "start": 1370,
+          "end": 1558
+        },
+        {
+          "id": "doc-eb0b849b5874::sentence-13",
+          "documentId": "doc-eb0b849b5874",
+          "text": "The latest economic data shows Nigeria’s government continues to fall far short of projections in its Economic Recovery and Growth Plan, created in the aftermath of the 2016 recession to set out aggressive growth targets from 2017 to 2020. ",
+          "start": 1706,
+          "end": 1946
+        },
+        {
+          "id": "doc-eb0b849b5874::sentence-2",
+          "documentId": "doc-eb0b849b5874",
+          "text": "Nigeria’s economy contracted by 6.1% year on year in the second quarter of this year, latest reports from Nigeria’s statistics bureau show. ",
+          "start": 102,
+          "end": 242
+        }
+      ]
+    }
+  ],
+  "classifications": [
+    {
+      "atomId": "atom-1",
+      "relations": [
+        {
+          "spanId": "doc-b05896830f36::sentence-4",
+          "documentId": "doc-b05896830f36",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-b05896830f36::sentence-1",
+          "documentId": "doc-b05896830f36",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-eb0b849b5874::sentence-13",
+          "documentId": "doc-eb0b849b5874",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-eb0b849b5874::sentence-12",
+          "documentId": "doc-eb0b849b5874",
+          "relation": "ENTAILMENT"
+        },
+        {
+          "spanId": "doc-eb0b849b5874::sentence-5",
+          "documentId": "doc-eb0b849b5874",
+          "relation": "ENTAILMENT"
+        },
+        {
+          "spanId": "doc-b05896830f36::sentence-3",
+          "documentId": "doc-b05896830f36",
+          "relation": "NEUTRAL"
+        }
+      ]
+    },
+    {
+      "atomId": "atom-2",
+      "relations": [
+        {
+          "spanId": "doc-b05896830f36::sentence-3",
+          "documentId": "doc-b05896830f36",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-b05896830f36::sentence-6",
+          "documentId": "doc-b05896830f36",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-b05896830f36::sentence-4",
+          "documentId": "doc-b05896830f36",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-eb0b849b5874::sentence-11",
+          "documentId": "doc-eb0b849b5874",
+          "relation": "ENTAILMENT"
+        },
+        {
+          "spanId": "doc-eb0b849b5874::sentence-13",
+          "documentId": "doc-eb0b849b5874",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-eb0b849b5874::sentence-2",
+          "documentId": "doc-eb0b849b5874",
+          "relation": "NEUTRAL"
+        }
+      ]
+    }
+  ],
+  "linguistics": [
+    {
+      "atomId": "atom-1",
+      "frames": [
+        {
+          "id": "atom-1-frame-1",
+          "predicate": {
+            "id": "atom-1-frame-1-predicate",
+            "text": "decreased",
+            "start": 64,
+            "end": 73
+          },
+          "subjects": [
+            {
+              "id": "atom-1-frame-1-subject-1",
+              "text": "The gross domestic product (GDP) figure in Nigeria for 2020",
+              "start": 0,
+              "end": 59
+            }
+          ],
+          "coreArguments": [],
+          "adjuncts": [],
+          "otherModifiers": []
+        }
+      ],
+      "cues": [
+        {
+          "id": "atom-1-cue-temporal-55-59",
+          "text": "2020",
+          "start": 55,
+          "end": 59,
+          "kind": "temporal"
+        }
+      ],
+      "entities": [
+        {
+          "id": "atom-1-entity-gpe-43-50",
+          "text": "Nigeria",
+          "start": 43,
+          "end": 50,
+          "label": "GPE"
+        }
+      ],
+      "tokens": [
+        {
+          "id": "atom-1-token-0",
+          "text": "The",
+          "start": 0,
+          "end": 3,
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "product"
+        },
+        {
+          "id": "atom-1-token-1",
+          "text": "gross",
+          "start": 4,
+          "end": 9,
+          "lemma": "gross",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "product"
+        },
+        {
+          "id": "atom-1-token-2",
+          "text": "domestic",
+          "start": 10,
+          "end": 18,
+          "lemma": "domestic",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "product"
+        },
+        {
+          "id": "atom-1-token-3",
+          "text": "product",
+          "start": 19,
+          "end": 26,
+          "lemma": "product",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "nsubj",
+          "head": "decreased"
+        },
+        {
+          "id": "atom-1-token-4",
+          "text": "(",
+          "start": 27,
+          "end": 28,
+          "lemma": "(",
+          "pos": "PUNCT",
+          "tag": "-LRB-",
+          "dependency": "punct",
+          "head": "figure"
+        },
+        {
+          "id": "atom-1-token-5",
+          "text": "GDP",
+          "start": 28,
+          "end": 31,
+          "lemma": "GDP",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "nmod",
+          "head": "figure"
+        },
+        {
+          "id": "atom-1-token-6",
+          "text": ")",
+          "start": 31,
+          "end": 32,
+          "lemma": ")",
+          "pos": "PUNCT",
+          "tag": "-RRB-",
+          "dependency": "punct",
+          "head": "figure"
+        },
+        {
+          "id": "atom-1-token-7",
+          "text": "figure",
+          "start": 33,
+          "end": 39,
+          "lemma": "figure",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "appos",
+          "head": "product"
+        },
+        {
+          "id": "atom-1-token-8",
+          "text": "in",
+          "start": 40,
+          "end": 42,
+          "lemma": "in",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "figure"
+        },
+        {
+          "id": "atom-1-token-9",
+          "text": "Nigeria",
+          "start": 43,
+          "end": 50,
+          "lemma": "Nigeria",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "pobj",
+          "head": "in"
+        },
+        {
+          "id": "atom-1-token-10",
+          "text": "for",
+          "start": 51,
+          "end": 54,
+          "lemma": "for",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "product"
+        },
+        {
+          "id": "atom-1-token-11",
+          "text": "2020",
+          "start": 55,
+          "end": 59,
+          "lemma": "2020",
+          "pos": "NUM",
+          "tag": "CD",
+          "dependency": "pobj",
+          "head": "for"
+        },
+        {
+          "id": "atom-1-token-12",
+          "text": "has",
+          "start": 60,
+          "end": 63,
+          "lemma": "have",
+          "pos": "AUX",
+          "tag": "VBZ",
+          "dependency": "aux",
+          "head": "decreased"
+        },
+        {
+          "id": "atom-1-token-13",
+          "text": "decreased",
+          "start": 64,
+          "end": 73,
+          "lemma": "decrease",
+          "pos": "VERB",
+          "tag": "VBN",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "atom-1-token-14",
+          "text": ".",
+          "start": 73,
+          "end": 74,
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "decreased"
+        }
+      ],
+      "status": "complete",
+      "unresolved": []
+    },
+    {
+      "atomId": "atom-2",
+      "frames": [
+        {
+          "id": "atom-2-frame-1",
+          "predicate": {
+            "id": "atom-2-frame-1-predicate",
+            "text": "was",
+            "start": 24,
+            "end": 27
+          },
+          "subjects": [
+            {
+              "id": "atom-2-frame-1-subject-1",
+              "text": "The GDP figure for 2019",
+              "start": 0,
+              "end": 23
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "atom-2-frame-1-argument-1",
+              "text": "higher than the GDP figure",
+              "start": 28,
+              "end": 54,
+              "role": "subject_complement"
+            }
+          ],
+          "adjuncts": [
+            {
+              "id": "atom-2-frame-1-adjunct-1",
+              "text": "for 2020",
+              "start": 55,
+              "end": 63,
+              "kind": "temporal"
+            }
+          ],
+          "otherModifiers": []
+        }
+      ],
+      "cues": [
+        {
+          "id": "atom-2-cue-temporal-19-23",
+          "text": "2019",
+          "start": 19,
+          "end": 23,
+          "kind": "temporal"
+        },
+        {
+          "id": "atom-2-cue-temporal-59-63",
+          "text": "2020",
+          "start": 59,
+          "end": 63,
+          "kind": "temporal"
+        }
+      ],
+      "entities": [],
+      "tokens": [
+        {
+          "id": "atom-2-token-0",
+          "text": "The",
+          "start": 0,
+          "end": 3,
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "figure"
+        },
+        {
+          "id": "atom-2-token-1",
+          "text": "GDP",
+          "start": 4,
+          "end": 7,
+          "lemma": "GDP",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "figure"
+        },
+        {
+          "id": "atom-2-token-2",
+          "text": "figure",
+          "start": 8,
+          "end": 14,
+          "lemma": "figure",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "nsubj",
+          "head": "was"
+        },
+        {
+          "id": "atom-2-token-3",
+          "text": "for",
+          "start": 15,
+          "end": 18,
+          "lemma": "for",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "figure"
+        },
+        {
+          "id": "atom-2-token-4",
+          "text": "2019",
+          "start": 19,
+          "end": 23,
+          "lemma": "2019",
+          "pos": "NUM",
+          "tag": "CD",
+          "dependency": "pobj",
+          "head": "for"
+        },
+        {
+          "id": "atom-2-token-5",
+          "text": "was",
+          "start": 24,
+          "end": 27,
+          "lemma": "be",
+          "pos": "AUX",
+          "tag": "VBD",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "atom-2-token-6",
+          "text": "higher",
+          "start": 28,
+          "end": 34,
+          "lemma": "high",
+          "pos": "ADJ",
+          "tag": "JJR",
+          "dependency": "acomp",
+          "head": "was"
+        },
+        {
+          "id": "atom-2-token-7",
+          "text": "than",
+          "start": 35,
+          "end": 39,
+          "lemma": "than",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "higher"
+        },
+        {
+          "id": "atom-2-token-8",
+          "text": "the",
+          "start": 40,
+          "end": 43,
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "figure"
+        },
+        {
+          "id": "atom-2-token-9",
+          "text": "GDP",
+          "start": 44,
+          "end": 47,
+          "lemma": "GDP",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "figure"
+        },
+        {
+          "id": "atom-2-token-10",
+          "text": "figure",
+          "start": 48,
+          "end": 54,
+          "lemma": "figure",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "pobj",
+          "head": "than"
+        },
+        {
+          "id": "atom-2-token-11",
+          "text": "for",
+          "start": 55,
+          "end": 58,
+          "lemma": "for",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "was"
+        },
+        {
+          "id": "atom-2-token-12",
+          "text": "2020",
+          "start": 59,
+          "end": 63,
+          "lemma": "2020",
+          "pos": "NUM",
+          "tag": "CD",
+          "dependency": "pobj",
+          "head": "for"
+        },
+        {
+          "id": "atom-2-token-13",
+          "text": ".",
+          "start": 63,
+          "end": 64,
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "was"
+        }
+      ],
+      "status": "complete",
+      "unresolved": []
+    }
+  ],
+  "recordedWith": {
+    "decompositionModel": "qwen2.5:7b",
+    "retrievalModel": "BAAI/bge-small-en-v1.5",
+    "nliModel": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    "linguisticsModel": "en_core_web_sm@3.8.0"
+  }
+}

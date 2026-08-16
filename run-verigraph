@@ -10,7 +10,7 @@ Usage: ./run-verigraph [--prepare|--start|--record-walkthrough|--check|--test]
 
   --prepare             Set up the local Python/Node runtime and model weights.
   --start               Start FastAPI, Next.js, and host Ollama locally.
-  --record-walkthrough  Record four curated cases and build Vercel static assets.
+  --record-walkthrough  Record the curated AVeriTeC cases and build Vercel static assets.
   --check               Validate native Python and Node prerequisites.
   --test                Run backend and frontend tests natively.
 EOF

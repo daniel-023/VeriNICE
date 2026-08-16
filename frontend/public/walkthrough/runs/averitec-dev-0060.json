@@ -227,21 +227,14 @@
           "coreArguments": [
             {
               "id": "atom-1-frame-2-argument-1",
-              "text": "a combination",
+              "text": "a combination of Job Support Scheme and Universal Credit",
               "start": 53,
-              "end": 66,
+              "end": 109,
               "role": "direct_object"
             }
           ],
           "adjuncts": [],
-          "otherModifiers": [
-            {
-              "id": "atom-1-frame-2-other-modifier-1",
-              "text": "of Job Support Scheme and Universal Credit",
-              "start": 67,
-              "end": 109
-            }
-          ]
+          "otherModifiers": []
         }
       ],
       "cues": [
@@ -525,21 +518,14 @@
           "coreArguments": [
             {
               "id": "atom-2-frame-1-argument-1",
-              "text": "80",
+              "text": "80% of their wages",
               "start": 9,
-              "end": 11,
+              "end": 27,
               "role": "direct_object"
             }
           ],
           "adjuncts": [],
-          "otherModifiers": [
-            {
-              "id": "atom-2-frame-1-other-modifier-1",
-              "text": "of their wages",
-              "start": 13,
-              "end": 27
-            }
-          ]
+          "otherModifiers": []
         }
       ],
       "cues": [

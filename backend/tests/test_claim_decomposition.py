@@ -88,6 +88,47 @@ def test_repeated_source_text_uses_a_valid_exact_occurrence() -> None:
     assert claim[result.atoms[0].start : result.atoms[0].end] == result.atoms[0].source_text
 
 
+def test_quote_normalization_returns_an_exact_claim_slice() -> None:
+    claim = 'Sen. McSally “supported a plan” and “raised the retirement age.'
+    result = parse_decomposition(
+        claim,
+        envelope(
+            [
+                {
+                    "text": "Sen. McSally raised the retirement age.",
+                    "source_text": '“raised the retirement age.”',
+                    "essential": True,
+                }
+            ]
+        ),
+        "test-model",
+    )
+    atom = result.atoms[0]
+    assert atom.source_text == "raised the retirement age."
+    assert claim[atom.start : atom.end] == atom.source_text
+
+
+def test_claim_derived_atom_uses_full_claim_when_excerpt_is_rewritten() -> None:
+    claim = "Martha McSally supported a plan to change Medicare into a voucher program."
+    result = parse_decomposition(
+        claim,
+        envelope(
+            [
+                {
+                    "text": "Martha McSally supported a Medicare voucher plan.",
+                    "source_text": "Martha McSally supported a voucher plan.",
+                    "essential": True,
+                }
+            ]
+        ),
+        "test-model",
+    )
+    atom = result.atoms[0]
+    assert atom.start == 0
+    assert atom.end == len(claim)
+    assert atom.source_text == claim
+
+
 def test_claim_offsets_use_browser_utf16_code_units() -> None:
     claim = "🚀 The archive opened."
     result = parse_decomposition(
@@ -163,6 +204,81 @@ async def test_live_request_uses_ollama_schema_and_sends_only_claim(monkeypatch)
     assert captured["body"]["options"]["temperature"] == 0
     assert claim in json.dumps(captured["body"])
     assert "document" not in json.dumps(captured["body"]).lower()
+
+
+@pytest.mark.asyncio
+async def test_ungrounded_first_attempt_retries_with_varied_sampling(monkeypatch) -> None:
+    claim = "The archive opened in 2021."
+    attempts: list[dict] = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        body = json.loads(request.content)
+        attempts.append(body)
+        if len(attempts) == 1:
+            # First (deterministic) attempt returns an atom that cannot be
+            # grounded in the claim at all.
+            return httpx.Response(
+                200,
+                json=ollama_envelope(
+                    [{"text": "Unrelated.", "source_text": "Unrelated.", "essential": True}]
+                ),
+            )
+        return httpx.Response(
+            200,
+            json=ollama_envelope(
+                [{"text": claim, "source_text": claim, "essential": True}]
+            ),
+        )
+
+    monkeypatch.setattr(
+        claim_decomposition,
+        "settings",
+        replace(
+            claim_decomposition.settings,
+            ollama_url="http://ollama.test:11434",
+            ollama_model="test-model",
+        ),
+    )
+    async with httpx.AsyncClient(transport=httpx.MockTransport(handler)) as client:
+        result = await decompose_claim(claim, client=client)
+
+    assert result.atoms[0].text == claim
+    assert len(attempts) == 2
+    assert attempts[0]["options"]["temperature"] == 0
+    assert attempts[0]["options"]["seed"] == 0
+    assert attempts[1]["options"]["seed"] != attempts[0]["options"]["seed"]
+    assert attempts[1]["options"]["temperature"] != 0
+
+
+@pytest.mark.asyncio
+async def test_repeatedly_ungrounded_output_still_fails_after_retries(monkeypatch) -> None:
+    attempts: list[dict] = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        attempts.append(json.loads(request.content))
+        return httpx.Response(
+            200,
+            json=ollama_envelope(
+                [{"text": "Unrelated.", "source_text": "Unrelated.", "essential": True}]
+            ),
+        )
+
+    monkeypatch.setattr(
+        claim_decomposition,
+        "settings",
+        replace(
+            claim_decomposition.settings,
+            ollama_url="http://ollama.test:11434",
+            ollama_model="test-model",
+        ),
+    )
+    async with httpx.AsyncClient(transport=httpx.MockTransport(handler)) as client:
+        with pytest.raises(DecompositionOutputError, match="not grounded"):
+            await decompose_claim("The archive opened in 2021.", client=client)
+
+    assert len(attempts) == claim_decomposition._MAX_ATTEMPTS
+    seeds = {body["options"]["seed"] for body in attempts}
+    assert len(seeds) == claim_decomposition._MAX_ATTEMPTS
 
 
 @pytest.mark.asyncio

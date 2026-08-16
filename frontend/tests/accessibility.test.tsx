@@ -53,6 +53,8 @@ describe("multidocument workbench accessibility", () => {
           decompositionState="complete"
           retrievalState="complete"
           nliState="complete"
+          graphState="complete"
+          graphLinkCount={1}
           atomCount={1}
           evidenceCount={1}
           relationCount={1}
@@ -132,6 +134,8 @@ describe("multidocument workbench accessibility", () => {
         decompositionState="idle"
         retrievalState="idle"
         nliState="idle"
+        graphState="idle"
+        graphLinkCount={0}
         atomCount={0}
         evidenceCount={0}
         relationCount={0}
@@ -208,8 +212,13 @@ describe("multidocument workbench accessibility", () => {
       />,
     );
 
-    expect(getByRole("navigation", { name: "Atomic claims in argumentation graph" })).toBeInTheDocument();
-    expect(getByRole("list", { name: "Supports Atom evidence" })).toBeInTheDocument();
+    expect(
+      getByRole("group", { name: "Claim, atomic claims, and evidence relationships" }),
+    ).toBeInTheDocument();
+    expect(getByRole("button", { name: /Atom 1: Mara joined Orion in 2022\./ })).toBeInTheDocument();
+    expect(
+      getByRole("button", { name: /Evidence from Source A: Mara joined Orion\. — supports Atom 1/ }),
+    ).toBeInTheDocument();
     expect(queryByText("Orion published a report.")).not.toBeInTheDocument();
     const result = await axe.run(container, { rules: { "color-contrast": { enabled: false } } });
     expect(result.violations).toEqual([]);
@@ -246,7 +255,7 @@ describe("multidocument workbench accessibility", () => {
       />,
     );
 
-    fireEvent.click(getByRole("button", { name: /Supports Atom, from Source A/ }));
+    fireEvent.click(getByRole("button", { name: /Evidence from Source A/ }));
     expect(onSelectEvidence).toHaveBeenCalledWith(sharedEvidence, "atom-2");
   });
 

@@ -27,6 +27,101 @@
     "label": "SUPPORTED"
   },
   {
+    "id": "averitec-dev-0146",
+    "claim": "Right after a time where we're going through a pandemic that lost 22 million jobs at the height, we've already added back 11.6 million jobs.",
+    "documents": [
+      {
+        "id": "doc-24baaeff66a9",
+        "title": "U.S. declares coronavirus a public health emergency, CDC updates guidance | AHA News",
+        "url": "https://www.aha.org/news/headline/2020-01-31-us-declares-coronavirus-public-health-emergency-cdc-updates-guidance"
+      },
+      {
+        "id": "doc-a46f0d421238",
+        "title": "All Employees, Total Nonfarm (PAYEMS) | FRED | St. Louis Fed",
+        "url": "https://fred.stlouisfed.org/series/payems"
+      }
+    ],
+    "label": "SUPPORTED"
+  },
+  {
+    "id": "averitec-dev-0158",
+    "claim": "US President Donald Trump following his positive diagnosis of COVID-19, was given treatment developed from the use of fetal tissue, made by the company Regeneron.",
+    "documents": [
+      {
+        "id": "doc-cddf1335a5a6",
+        "title": "Donald Trump has now been given at least two experimental COVID-19 treatments. Here's what we know about them - ABC News",
+        "url": "https://www.abc.net.au/news/2020-10-03/donald-trump-experiment-coronavirus-treatment-what-we-know/12728896"
+      },
+      {
+        "id": "doc-765a0e4b3d83",
+        "title": "Regeneron's REGN-COV2 Antibody Cocktail Reduced Viral Levels and Improved Symptoms in Non-Hospitalized COVID-19 Patients | Regeneron Pharmaceuticals Inc.",
+        "url": "https://investor.regeneron.com/news-releases/news-release-details/regenerons-regn-cov2-antibody-cocktail-reduced-viral-levels-and"
+      }
+    ],
+    "label": "SUPPORTED"
+  },
+  {
+    "id": "averitec-dev-0125",
+    "claim": "The gross domestic product  (GDP) figure in Nigeria for 2020 has decreased from the figure for 2019.",
+    "documents": [
+      {
+        "id": "doc-b05896830f36",
+        "title": "Nigeria’s GDP grows by 2.27% in Q4 2019, highest since 2016 recession",
+        "url": "https://www.vanguardngr.com/2020/02/nigerias-gdp-grows-by-2-27-in-q4-2019/"
+      },
+      {
+        "id": "doc-eb0b849b5874",
+        "title": "Nigeria economy: GDP drops 6.1% in Q2 2020",
+        "url": "https://qz.com/africa/1895582/nigeria-economy-gdp-drops-6-1-percent-in-q2-2020/"
+      }
+    ],
+    "label": "SUPPORTED"
+  },
+  {
+    "id": "averitec-dev-0392",
+    "claim": "The sky has turned orange to blood red in several parts of the United States.",
+    "documents": [
+      {
+        "id": "doc-149989fb127e",
+        "title": "Curiosities: What determines the colors of the sky at sunrise and sunset?",
+        "url": "https://news.wisc.edu/curiosities-what-determines-the-colors-of-the-sky-at-sunrise-and-sunset/"
+      },
+      {
+        "id": "doc-4cbdb3ff10fa",
+        "title": "From Washington to California, Fire Smoke Turns Skies Orange: Photos - Business Insider",
+        "url": "https://www.insider.com/oregon-california-smoke-turns-skies-apocalyptic-orange-photos-2020-9"
+      },
+      {
+        "id": "doc-7d4923c19c25",
+        "title": "Fires near Mallacoota over 31 December to 1 January — SSEC",
+        "url": "https://www.ssec.wisc.edu/jpss-sdoc/posts/2019-australian-wildfires/fires-near-mallacoota-over-31-december-to-1-january/"
+      }
+    ],
+    "label": "SUPPORTED"
+  },
+  {
+    "id": "averitec-dev-0145",
+    "claim": "When Joe Biden was US vice-president they took a month to act on information that might have saved Kayla Mueller, a humanitarian worker held hostage and sexually abused by the Islamic State terrorist group",
+    "documents": [
+      {
+        "id": "doc-37870187453f",
+        "title": "Barack Obama - Key Events | Miller Center",
+        "url": "https://millercenter.org/president/barack-obama/key-events"
+      },
+      {
+        "id": "doc-7db65afcd050",
+        "title": "White House Stalled ISIS Rescue. Foley, Sotloff, and Mueller Died.",
+        "url": "https://www.thedailybeast.com/white-house-stalled-isis-rescue-foley-sotloff-and-mueller-died?ref=scroll"
+      },
+      {
+        "id": "doc-7c93b0e065ec",
+        "title": "TIMELINE: Kayla Mueller in ISIS Captivity - ABC News",
+        "url": "https://abcnews.go.com/International/timeline-kayla-mueller-isis-captivity/story?id=41398733"
+      }
+    ],
+    "label": "SUPPORTED"
+  },
+  {
     "id": "averitec-dev-0044",
     "claim": "Deliberately infecting children to COVID-19 at “pox parties” could be a good way to help create herd immunity against COVID-19 without a vaccine.",
     "documents": [
@@ -39,6 +134,79 @@
         "id": "doc-f72194b71ba6",
         "title": "Coronavirus outbreak and kids - Harvard Health",
         "url": "https://www.health.harvard.edu/diseases-and-conditions/coronavirus-outbreak-and-kids"
+      }
+    ],
+    "label": "REFUTED"
+  },
+  {
+    "id": "averitec-dev-0280",
+    "claim": "False positives and rapid tests put the rate of infection near zero and that there will be no second wave of infections",
+    "documents": [
+      {
+        "id": "doc-450521860e04",
+        "title": "What is the diagnostic accuracy of antibody tests for the detection of infection with the COVID-19 virus? | Cochrane",
+        "url": "https://www.cochrane.org/CD013652/INFECTN_what-diagnostic-accuracy-antibody-tests-detection-infection-covid-19-virus"
+      },
+      {
+        "id": "doc-f5cfb7b8dfcd",
+        "title": "U.S. Still in First Wave of COVID-19, Fauci Says",
+        "url": "https://www.webmd.com/lung/news/20200925/us-still-in-first-wave-of-covid-19-fauci-says"
+      }
+    ],
+    "label": "REFUTED"
+  },
+  {
+    "id": "averitec-dev-0419",
+    "claim": "The U.S. Centers for Disease Control and Prevention fraudulently add deaths from poisoning, trauma, and unintentional injury to their tally of COVID-19 deaths.",
+    "documents": [
+      {
+        "id": "doc-efeac11ee951",
+        "title": "COVID-19 Death Reporting: Questions and Answers for Medical Examiners, Coroners and Physicians - Mississippi State Department of Health",
+        "url": "https://msdh.ms.gov/msdhsite/_static/14,22075,420,694.html"
+      },
+      {
+        "id": "doc-5dfdb3a51082",
+        "title": "Are CDC Guidelines for Reporting COVID-19 Deaths Artificially Inflating Numbers? | Snopes.com",
+        "url": "https://www.snopes.com/fact-check/cdc-guidelines-covid19/"
+      }
+    ],
+    "label": "REFUTED"
+  },
+  {
+    "id": "averitec-dev-0495",
+    "claim": "This Democratic Party of Joe Biden is pushing the so-called Green New Deal. If given power, they would essentially ban animal agriculture and eliminate gas-powered cars.",
+    "documents": [
+      {
+        "id": "doc-5e4a01b775ac",
+        "title": "What is the 'Green New Deal,' and how would it work?",
+        "url": "https://www.nbcnews.com/politics/2020-election/green-new-deal-how-it-works-presidential-candidate-positions-n1044811"
+      },
+      {
+        "id": "doc-f70c7d8aac56",
+        "title": "PolitiFact | Joe Biden’s climate change plan, explained",
+        "url": "https://www.politifact.com/article/2020/aug/03/joe-bidens-climate-change-plan-explained/"
+      },
+      {
+        "id": "doc-af46153b534f",
+        "title": "As More Electric Cars Arrive, What's The Future For Gas-Powered Engines? : NPR",
+        "url": "https://www.npr.org/2019/02/16/694303169/as-more-electric-cars-arrive-whats-the-future-for-gas-powered-engines"
+      }
+    ],
+    "label": "REFUTED"
+  },
+  {
+    "id": "averitec-dev-0089",
+    "claim": "Most deaths in the 1918 influenza pandemic originated from bacterial pneumonia caused by face masks and that Dr Anthony Fauci, the US government’s top expert in the fight against Covid-19, knew about it.",
+    "documents": [
+      {
+        "id": "doc-4efdcbc2c487",
+        "title": "Invasive bacterial infections in relation to influenza outbreaks, 2006-2010 - PubMed",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/22021918/"
+      },
+      {
+        "id": "doc-1fd8789c830b",
+        "title": "Predominant Role of Bacterial Pneumonia as a Cause of Death in Pandemic Influenza: Implications for Pandemic Influenza Preparedness",
+        "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2599911/"
       }
     ],
     "label": "REFUTED"
@@ -61,6 +229,74 @@
     "label": "NOT_ENOUGH_EVIDENCE"
   },
   {
+    "id": "averitec-dev-0413",
+    "claim": "Over the past 40 years, the Uyghur population in Xinjiang, in China, grew from 5.55 million to 12 million.",
+    "documents": [
+      {
+        "id": "doc-22d3f92a3016",
+        "title": "China cuts Uighur births with IUDs, abortion, sterilization | AP News",
+        "url": "https://apnews.com/article/269b3de1af34e17c1941a514f78d764c"
+      },
+      {
+        "id": "doc-8c62afe872e1",
+        "title": "What's At Stake In Xinjiang | USC China",
+        "url": "https://china.usc.edu/whats-stake-xinjiang"
+      }
+    ],
+    "label": "NOT_ENOUGH_EVIDENCE"
+  },
+  {
+    "id": "averitec-dev-0026",
+    "claim": "Ivermectin is a treatment for coronavirus.",
+    "documents": [
+      {
+        "id": "doc-640b644a3867",
+        "title": "www.thelancet.com",
+        "url": "https://www.thelancet.com/journals/langlo/article/PIIS2214-109X(19)30490-5/fulltext"
+      },
+      {
+        "id": "doc-41f1926ad4ef",
+        "title": "www.ncbi.nlm.nih.gov",
+        "url": "https://www.ncbi.nlm.nih.gov/labs/pmc/articles/PMC7521351/"
+      }
+    ],
+    "label": "NOT_ENOUGH_EVIDENCE"
+  },
+  {
+    "id": "averitec-dev-0208",
+    "claim": "It makes no sense for oil to be cheaper in Nigeria than in Saudi Arabia.",
+    "documents": [
+      {
+        "id": "doc-07b5051e0f4b",
+        "title": "PPPs: Purchasing Power or Producing Power Parities?: Main article",
+        "url": "https://www150.statcan.gc.ca/n1/pub/11f0027m/2009058/part-partie1-eng.htm"
+      },
+      {
+        "id": "doc-4480543c9460",
+        "title": "Nigeria GDP per capita, PPP - data, chart | TheGlobalEconomy.com",
+        "url": "https://www.theglobaleconomy.com/Nigeria/gdp_per_capita_ppp/"
+      }
+    ],
+    "label": "NOT_ENOUGH_EVIDENCE"
+  },
+  {
+    "id": "averitec-dev-0435",
+    "claim": "Igbo people In Nigeria (Igbo people are found in southeastern Nigeria) are the richest people per capita in Africa.",
+    "documents": [
+      {
+        "id": "doc-a10b02ffdad8",
+        "title": "Igbo - Minority Rights Group",
+        "url": "https://minorityrights.org/minorities/igbo/"
+      },
+      {
+        "id": "doc-308dd4e1ff1f",
+        "title": "Fact check: No evidence 80 million Yoruba live in Brazil – Daily Trust",
+        "url": "https://dailytrust.com/fact-check-no-evidence-80-million-yoruba-live-in-brazil"
+      }
+    ],
+    "label": "NOT_ENOUGH_EVIDENCE"
+  },
+  {
     "id": "averitec-dev-0060",
     "claim": "UK Employees unable to work in tier 3 areas will get a combination of Job Support Scheme and Universal Credit, which will mean they get 80% of their wages.",
     "documents": [
@@ -78,6 +314,91 @@
         "id": "doc-f5ffa35607dc",
         "title": "Briefing 15 - 15th October - England & Company",
         "url": "https://www.englandandcompany.co.uk/briefing-15-15th-october/"
+      }
+    ],
+    "label": "CONFLICTING_EVIDENCE"
+  },
+  {
+    "id": "averitec-dev-0100",
+    "claim": "US president Joe Biden (candidate at the time of claim) supports the new green deal (The Green New Deal is a nonbinding resolution, introduced by Rep. Alexandria Ocasio-Cortez and Sen. Ed Markey last year, to tackle climate change.)",
+    "documents": [
+      {
+        "id": "doc-3da0494639bb",
+        "title": "Joe Biden has endorsed the Green New Deal in all but name | Julian Brave NoiseCat | The Guardian",
+        "url": "https://www.theguardian.com/commentisfree/2020/jul/20/joe-biden-has-endorsed-the-green-new-deal-in-all-but-name"
+      },
+      {
+        "id": "doc-7f2ff8371330",
+        "title": "Joe Biden's Economic Plan Explained",
+        "url": "https://www.investopedia.com/joe-biden-s-economic-plan-save-the-middle-class-4769869"
+      }
+    ],
+    "label": "CONFLICTING_EVIDENCE"
+  },
+  {
+    "id": "averitec-dev-0423",
+    "claim": "Sen. Martha McSally “supported a plan to turn Medicare into a voucher program and ‘shift costs’ onto seniors” and “even supported raising the retirement age.",
+    "documents": [
+      {
+        "id": "doc-67fcc48de84f",
+        "title": "Office of the Clerk, U.S. House of Representatives",
+        "url": "https://clerk.house.gov/Votes/2017557"
+      },
+      {
+        "id": "doc-b7039c2b13f6",
+        "title": "Question 3 | Elections | gvnews.com",
+        "url": "https://www.gvnews.com/elections/question/article_02354b6a-7e89-11e1-801f-001a4bcf887a.html?_ga=2.154024123.2058216465.1599409801-1261549759.1594155977"
+      }
+    ],
+    "label": "CONFLICTING_EVIDENCE"
+  },
+  {
+    "id": "averitec-dev-0010",
+    "claim": "Donald Trump, when he thinks of climate change, he says hoax. Well, guess what? Speaking of hoaxes, remember what he said about these increasing violent hurricanes and the frequency? He actually said, maybe we should detonate a nuclear bomb over the Atlantic. By the way, the same stable genius who said the biggest problem we had in the Revolutionary War is we didn’t have enough airports.",
+    "documents": [
+      {
+        "id": "doc-a9e260356e8f",
+        "title": "web.archive.org",
+        "url": "https://www.axios.com/trump-nuclear-bombs-hurricanes-97231f38-2394-4120-a3fa-8c9cf0e3f51c.html"
+      },
+      {
+        "id": "doc-1389236b080c",
+        "title": "Trump blames teleprompter for Revolutionary War 'airports' flub",
+        "url": "https://www.nbcnews.com/politics/donald-trump/trump-blames-teleprompter-revolutionary-war-airports-flub-n1026931"
+      }
+    ],
+    "label": "CONFLICTING_EVIDENCE"
+  },
+  {
+    "id": "averitec-dev-0018",
+    "claim": "Even if your mail-in ballot is postmarked prior to the Election day but arrives after the Election day it will be thrown out.",
+    "documents": [
+      {
+        "id": "doc-836f4baee804",
+        "title": "Voting By Mail Deadlines For Every State",
+        "url": "https://www.buzzfeednews.com/article/addybaird/vote-by-mail-state-deadlines"
+      },
+      {
+        "id": "doc-188db306f350",
+        "title": "Supreme Court quashes Wisconsin court order that said absentee ballots could be counted up to 6 days after Election Day - CBS News",
+        "url": "https://www.cbsnews.com/news/wisconsin-election-supreme-court-rules-againt-absentee-ballots-after-election-day/"
+      }
+    ],
+    "label": "CONFLICTING_EVIDENCE"
+  },
+  {
+    "id": "averitec-dev-0058",
+    "claim": "Russia sent medical aid to the US, in the form of medical equipment to help coronavirus patients.",
+    "documents": [
+      {
+        "id": "doc-bacc7d0e399e",
+        "title": "Turning the Tables, Russia Sends Virus Aid to U.S. - The New York Times",
+        "url": "https://www.nytimes.com/2020/04/02/world/europe/coronavirus-us-russia-aid.html"
+      },
+      {
+        "id": "doc-ff8f3576e3da",
+        "title": "FEMA Threw Out Faulty Ventilators From Russia",
+        "url": "https://www.buzzfeednews.com/article/christopherm51/fema-russia-ventilators-coronavirus?fbclid=IwAR0NDhdqILPthpTHGNnmK_-8yH7CjmyDtbo81pzlHEVVKI9loXMnfI9uVas"
       }
     ],
     "label": "CONFLICTING_EVIDENCE"

@@ -20,13 +20,38 @@ DEFAULT_OUTPUT = ROOT / "data" / "walkthrough" / "runs"
 
 async def request(client: httpx.AsyncClient, method: str, path: str, **kwargs: Any) -> Any:
     response = await client.request(method, path, **kwargs)
-    response.raise_for_status()
+    if response.is_error:
+        detail = response.text.strip()
+        try:
+            payload = response.json()
+            if isinstance(payload, dict) and payload.get("detail"):
+                detail = str(payload["detail"])
+        except ValueError:
+            pass
+        raise RuntimeError(
+            f"{method} {path} failed with HTTP {response.status_code}: {detail or 'no response detail'}"
+        )
     return response.json()
 
 
 async def record_case(client: httpx.AsyncClient, case_id: str) -> dict[str, Any]:
     case = await request(client, "GET", f"/api/v1/demo-cases/{case_id}")
-    decomposition = await request(client, "POST", "/api/v1/decompose", json={"claim": case["claim"]})
+    decomposition = None
+    for attempt in range(1, 4):
+        try:
+            decomposition = await request(
+                client, "POST", "/api/v1/decompose", json={"claim": case["claim"]}
+            )
+            break
+        except RuntimeError as error:
+            if "HTTP 502" not in str(error) or attempt == 3:
+                raise
+            print(
+                f"  Decomposition retry {attempt}/2 for {case_id}: {error}",
+                flush=True,
+            )
+            await asyncio.sleep(float(attempt))
+    assert decomposition is not None
     atoms = [{"id": atom["id"], "text": atom["text"]} for atom in decomposition["atoms"]]
     retrieval_task = request(
         client, "POST", "/api/v1/retrieve", json={"caseId": case_id, "atoms": atoms}
