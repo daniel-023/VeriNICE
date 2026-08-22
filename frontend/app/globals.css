@@ -728,6 +728,31 @@ textarea:focus-visible,
   margin: 0;
 }
 
+.linguistic-audit {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0;
+}
+
+.linguistic-audit > div {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  gap: 0.5rem;
+}
+
+.linguistic-audit dt {
+  color: var(--muted-foreground);
+}
+
+.linguistic-audit dd {
+  margin: 0;
+}
+
+.linguistic-warnings {
+  margin: 0.7rem 0 0;
+  padding-left: 1.1rem;
+}
+
 .linguistic-frames dl > div {
   min-width: 0;
   display: grid;
@@ -1182,7 +1207,8 @@ textarea:focus-visible,
   stroke: var(--green);
 }
 
-.graph-edge.edge-contradict {
+.graph-edge.edge-contradict,
+.graph-edge.edge-attack {
   stroke: var(--red);
 }
 
@@ -1237,13 +1263,15 @@ textarea:focus-visible,
   cursor: default;
 }
 
-.graph-node-atom {
+.graph-node-atom,
+.graph-node-obligation {
   z-index: 2;
   cursor: pointer;
   border-left: 4px solid var(--blue);
 }
 
-.graph-node-atom.active {
+.graph-node-atom.active,
+.graph-node-obligation.active {
   border-color: var(--blue);
   outline: 2px solid rgba(24, 61, 240, .25);
   outline-offset: 1px;
@@ -1260,7 +1288,8 @@ textarea:focus-visible,
   border-left-color: var(--green);
 }
 
-.graph-node-evidence.relation-contradiction {
+.graph-node-evidence.relation-contradiction,
+.graph-node-evidence.relation-attack {
   border-left-color: var(--red);
 }
 
@@ -1279,6 +1308,8 @@ textarea:focus-visible,
 
 .graph-node-atom:hover,
 .graph-node-atom:focus-visible,
+.graph-node-obligation:hover,
+.graph-node-obligation:focus-visible,
 .graph-node-evidence:hover,
 .graph-node-evidence:focus-visible {
   border-color: var(--blue);
@@ -1320,8 +1351,34 @@ textarea:focus-visible,
   background: var(--green);
 }
 
-.legend-contradict::before {
+.legend-contradict::before,
+.legend-attack::before {
   background: var(--red);
+}
+
+.graph-stats,
+.graph-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  color: var(--muted);
+  font: 10px/1.3 var(--mono);
+}
+
+.graph-badges em {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 2px 4px;
+  font-style: normal;
+}
+
+.graph-badges .warning-badge,
+.legend-warning::before {
+  background: var(--amber);
+}
+
+.graph-node-obligation.warning {
+  border-color: var(--amber);
 }
 
 .stage-link {
@@ -1811,6 +1868,20 @@ textarea:focus-visible,
     padding-inline: 16px;
   }
 }
+
+.verdict-panel {
+  margin: 24px auto;
+  max-width: 1200px;
+  border: 1px solid var(--line-dark);
+  background: var(--panel);
+  padding: 20px;
+}
+
+.verdict-obligations { display: grid; gap: 8px; margin: 16px 0; padding: 0; list-style: none; }
+.verdict-obligations li { display: grid; grid-template-columns: 1fr auto auto; gap: 12px; padding: 10px; border: 1px solid var(--line); }
+.verdict-match.match { color: #176b42; }
+.verdict-match.mismatch { color: #a33b23; }
+.verdict-trace { margin: 16px 0 0; padding-left: 22px; }
 
 @media (prefers-reduced-motion: reduce) {
   html {

@@ -93,6 +93,7 @@ beforeEach(() => {
         sourceText: details[0].claim,
         start: 0,
         end: details[0].claim.length,
+        role: "CORE",
       },
       {
         id: "atom-2",
@@ -100,8 +101,12 @@ beforeEach(() => {
         sourceText: details[0].claim,
         start: 0,
         end: details[0].claim.length,
+        role: "CORE",
       },
     ],
+    schemaVersion: 2,
+    composition: "AND",
+    warnings: [],
     provider: "ollama",
     model: "test-model",
   });
@@ -254,10 +259,15 @@ describe("multidocument claim decomposition workflow", () => {
       { id: "atom-1", text: "Mara joined Orion in 2022." },
       { id: "atom-2", text: "Mara became CTO." },
     ]);
-    expect(apiMock.analyzeLinguistics).toHaveBeenCalledWith([
-      { id: "atom-1", text: "Mara joined Orion in 2022." },
-      { id: "atom-2", text: "Mara became CTO." },
-    ]);
+    expect(apiMock.analyzeLinguistics).toHaveBeenCalledWith(expect.objectContaining({
+      schemaVersion: 2,
+      claimText: details[0].claim,
+      composition: "AND",
+      atoms: expect.arrayContaining([
+        expect.objectContaining({ id: "atom-1", role: "CORE" }),
+        expect.objectContaining({ id: "atom-2", role: "CORE" }),
+      ]),
+    }));
     expect(apiMock.classifySupport).toHaveBeenCalledWith(
       [
         { id: "atom-1", text: "Mara joined Orion in 2022." },
@@ -291,7 +301,7 @@ describe("multidocument claim decomposition workflow", () => {
       "href",
       "#argumentation-graph",
     );
-    const graphAtom = within(graphSection!).getByRole("button", { name: /^Atom 1:/ });
+    const graphAtom = within(graphSection!).getByRole("button", { name: /^Obligation 1,/ });
     await user.click(graphAtom);
     expect(graphAtom).toHaveFocus();
     expect(claimInput).not.toHaveFocus();
@@ -302,7 +312,7 @@ describe("multidocument claim decomposition workflow", () => {
     expect(navigationMock.replace).toHaveBeenCalledWith("/?panel=document", { scroll: false });
     await waitFor(() => expect(scrollIntoView).toHaveBeenCalledWith({ block: "start" }));
     Element.prototype.scrollIntoView = originalScrollIntoView;
-    await user.click(within(graphSection!).getByRole("button", { name: /^Atom 2:/ }));
+    await user.click(within(graphSection!).getByRole("button", { name: /^Obligation 2,/ }));
     await user.click(screen.getByRole("button", { name: "Predicate: became" }));
     expect(screen.getByLabelText("Atomic claim preview").querySelector("mark")).toHaveTextContent("became");
   });

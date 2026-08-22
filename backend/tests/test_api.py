@@ -22,6 +22,7 @@ from verigraph_backend.schemas import (
     AtomSupportClassification,
     EvidenceRelation,
     NLIRelation,
+    ObligationLinguisticSummary,
     ReferenceLabel,
     SupportClassificationResponse,
 )
@@ -41,6 +42,24 @@ SAMPLE = DemoCase(
         )
     ],
 )
+
+
+def linguistic_payload(atoms):
+    return {
+        "schemaVersion": 2,
+        "claimText": " ".join(atom["text"] for atom in atoms),
+        "composition": "SINGLE" if len(atoms) == 1 else "AND",
+        "atoms": [
+            {
+                **atom,
+                "sourceText": atom["text"],
+                "start": 0,
+                "end": len(atom["text"]),
+                "role": "CORE",
+            }
+            for atom in atoms
+        ],
+    }
 
 
 @pytest.fixture(autouse=True)
@@ -128,6 +147,7 @@ def test_retrieval_requires_one_mode_unique_ids_and_no_legacy_claim() -> None:
 def test_decomposition_success_and_provider_failure(monkeypatch) -> None:
     async def success(claim: str):
         return DecompositionResponse(
+            composition="SINGLE",
             atoms=[
                 DecomposedAtom(
                     id="atom-1",
@@ -135,6 +155,7 @@ def test_decomposition_success_and_provider_failure(monkeypatch) -> None:
                     source_text=claim,
                     start=0,
                     end=len(claim),
+                    role="CORE",
                 )
             ],
             model="test-model",
@@ -330,26 +351,35 @@ def test_linguistic_input_validation() -> None:
     endpoint = "/api/v1/analyze-linguistics"
     assert client.post(endpoint, json={"atoms": []}).status_code == 422
     atom = {"id": "atom-1", "text": "A fact."}
-    assert client.post(endpoint, json={"atoms": [atom, atom]}).status_code == 422
-    assert client.post(endpoint, json={"atoms": [{"id": "x", "text": "   "}]}).status_code == 422
+    assert client.post(endpoint, json=linguistic_payload([atom, atom])).status_code == 422
+    assert client.post(endpoint, json=linguistic_payload([{"id": "x", "text": "   "}])).status_code == 422
     assert client.post(
-        endpoint,
-        json={"atoms": [{"id": f"atom-{index}", "text": "A fact."} for index in range(13)]},
+        endpoint, json=linguistic_payload([{"id": f"atom-{index}", "text": "A fact."} for index in range(13)])
     ).status_code == 422
 
 
 def test_linguistic_success_preserves_atom_order(monkeypatch) -> None:
-    def success(atoms):
+    def success(claim_text, composition, atoms):
+        analyses = [
+            AtomLinguisticAnalysis(
+                atom_id=atom.id,
+                frames=[],
+                cues=[],
+                entities=[],
+                tokens=[],
+                status="partial",
+                unresolved=["subject", "predicate"],
+            )
+            for atom in atoms
+        ]
         return LinguisticAnalysisResponse(
-            analyses=[
-                AtomLinguisticAnalysis(
+            claim_analysis=analyses[0].model_copy(update={"atom_id": "claim"}),
+            analyses=analyses,
+            summaries=[
+                ObligationLinguisticSummary(
                     atom_id=atom.id,
-                    frames=[],
-                    cues=[],
-                    entities=[],
-                    tokens=[],
-                    status="partial",
-                    unresolved=["subject", "predicate"],
+                    analysis_status="partial",
+                    role_audit="INCONCLUSIVE",
                 )
                 for atom in atoms
             ],
@@ -359,7 +389,7 @@ def test_linguistic_success_preserves_atom_order(monkeypatch) -> None:
     monkeypatch.setattr(api, "analyze_linguistics", success)
     response = client.post(
         "/api/v1/analyze-linguistics",
-        json={"atoms": [{"id": "atom-2", "text": "Second."}, {"id": "atom-1", "text": "First."}]},
+        json=linguistic_payload([{"id": "atom-2", "text": "Second."}, {"id": "atom-1", "text": "First."}]),
     )
     assert response.status_code == 200
     assert response.json()["provider"] == "spacy"
@@ -374,12 +404,12 @@ def test_linguistic_success_preserves_atom_order(monkeypatch) -> None:
     ],
 )
 def test_linguistic_error_contracts(monkeypatch, error, status) -> None:
-    def failure(_atoms):
+    def failure(_claim_text, _composition, _atoms):
         raise error
 
     monkeypatch.setattr(api, "analyze_linguistics", failure)
     response = client.post(
         "/api/v1/analyze-linguistics",
-        json={"atoms": [{"id": "atom-1", "text": "A fact."}]},
+        json=linguistic_payload([{"id": "atom-1", "text": "A fact."}]),
     )
     assert response.status_code == status

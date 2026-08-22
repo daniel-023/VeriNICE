@@ -103,8 +103,32 @@ def main() -> int:
         run = read_json(run_path)
         if run.get("caseId") != case_id:
             raise RuntimeError(f"Recorded run does not match case id: {case_id}")
-        if not all(key in run for key in ("atoms", "evidence", "classifications", "linguistics")):
+        if not all(
+            key in run
+            for key in (
+                "schemaVersion",
+                "composition",
+                "warnings",
+                "atoms",
+                "evidence",
+                "classifications",
+                "linguistics",
+            )
+        ):
             raise RuntimeError(f"Recorded run is incomplete: {case_id}")
+        if run["schemaVersion"] != 2:
+            raise RuntimeError(f"Recorded run uses an unsupported schema version: {case_id}")
+        if run["composition"] not in {"SINGLE", "AND", "OR"}:
+            raise RuntimeError(f"Recorded run has an invalid composition: {case_id}")
+        if any("role" not in atom for atom in run["atoms"]):
+            raise RuntimeError(f"Recorded run has atoms without roles: {case_id}")
+        linguistics = run["linguistics"]
+        if not isinstance(linguistics, dict) or linguistics.get("schemaVersion") != 2:
+            raise RuntimeError(f"Recorded run has an unsupported linguistic schema: {case_id}")
+        if not all(key in linguistics for key in ("claimAnalysis", "analyses", "summaries", "claimWarnings")):
+            raise RuntimeError(f"Recorded run is missing linguistic audit data: {case_id}")
+        if len(linguistics["analyses"]) != len(run["atoms"]) or len(linguistics["summaries"]) != len(run["atoms"]):
+            raise RuntimeError(f"Recorded run has incomplete linguistic atom data: {case_id}")
         copy_json(run_path, output / "runs" / run_path.name)
         run_digests[case_id] = sha256(run_path)
 

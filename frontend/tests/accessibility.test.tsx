@@ -24,6 +24,7 @@ const atoms: DecomposedAtom[] = [
     sourceText: "Mara joined Orion in 2022 and became CTO.",
     start: 0,
     end: 46,
+    role: "CORE",
   },
 ];
 
@@ -155,6 +156,7 @@ describe("multidocument workbench accessibility", () => {
       <LinguisticPanel
         atom={atoms[0]}
         analysis={analysis}
+        summary={null}
         state="complete"
         error={null}
         onRetry={() => {}}
@@ -185,7 +187,7 @@ describe("multidocument workbench accessibility", () => {
 
   it("exposes selected-atom graph relations without neutral candidates", async () => {
     const graph = buildArgumentationGraph(
-      "Mara joined Orion in 2022.",
+      "case", "Mara joined Orion in 2022.", "SINGLE",
       atoms,
       [{
         atomId: "atom-1",
@@ -213,11 +215,11 @@ describe("multidocument workbench accessibility", () => {
     );
 
     expect(
-      getByRole("group", { name: "Claim, atomic claims, and evidence relationships" }),
+      getByRole("group", { name: "Case claim, verification obligations, and evidence relationships" }),
     ).toBeInTheDocument();
-    expect(getByRole("button", { name: /Atom 1: Mara joined Orion in 2022\./ })).toBeInTheDocument();
+    expect(getByRole("button", { name: /Obligation 1, CORE: Mara joined Orion in 2022\./ })).toBeInTheDocument();
     expect(
-      getByRole("button", { name: /Evidence from Source A: Mara joined Orion\. — supports Atom 1/ }),
+      getByRole("button", { name: /Evidence from Source A: Mara joined Orion\.\. supports obligation 1/ }),
     ).toBeInTheDocument();
     expect(queryByText("Orion published a report.")).not.toBeInTheDocument();
     const result = await axe.run(container, { rules: { "color-contrast": { enabled: false } } });
@@ -225,30 +227,26 @@ describe("multidocument workbench accessibility", () => {
   });
 
   it("preserves the selected atom when shared evidence is activated", () => {
-    const sharedEvidence = {
-      id: "evidence-doc-a:shared",
-      kind: "evidence" as const,
-      label: "Source A",
-      text: "The same sentence concerns both atoms.",
-      documentId: "doc-a",
-      spanId: "shared",
-      atomIds: ["atom-1", "atom-2"],
-    };
+    const sharedAtoms = [
+      { ...atoms[0], text: "First atom.", sourceText: "First atom.", end: 11 },
+      { ...atoms[0], id: "atom-2", text: "Second atom.", sourceText: "Second atom.", end: 12 },
+    ];
+    const graph = buildArgumentationGraph(
+      "case", "First atom. Second atom.", "AND", sharedAtoms,
+      [
+        { atomId: "atom-1", spans: [{ id: "shared", documentId: "doc-a", text: "The same sentence concerns both atoms.", start: 0, end: 38 }] },
+        { atomId: "atom-2", spans: [{ id: "shared", documentId: "doc-a", text: "The same sentence concerns both atoms.", start: 0, end: 38 }] },
+      ],
+      [
+        { atomId: "atom-1", relations: [{ spanId: "shared", documentId: "doc-a", relation: "ENTAILMENT" }] },
+        { atomId: "atom-2", relations: [{ spanId: "shared", documentId: "doc-a", relation: "ENTAILMENT" }] },
+      ],
+      sources,
+    );
     const onSelectEvidence = vi.fn();
     const { getByRole } = render(
       <ArgumentationGraph
-        graph={{
-          nodes: [
-            { id: "claim", kind: "claim", label: "Original claim", text: "A compound claim." },
-            { id: "atom-1", kind: "atom", label: "Atomic claim", text: "First atom.", atomId: "atom-1" },
-            { id: "atom-2", kind: "atom", label: "Atomic claim", text: "Second atom.", atomId: "atom-2" },
-            sharedEvidence,
-          ],
-          edges: [
-            { id: "edge-1", source: "atom-1", target: sharedEvidence.id, relation: "ENTAILMENT" },
-            { id: "edge-2", source: "atom-2", target: sharedEvidence.id, relation: "ENTAILMENT" },
-          ],
-        }}
+        graph={graph}
         selectedAtomId="atom-2"
         onSelectAtom={() => {}}
         onSelectEvidence={onSelectEvidence}
@@ -256,7 +254,8 @@ describe("multidocument workbench accessibility", () => {
     );
 
     fireEvent.click(getByRole("button", { name: /Evidence from Source A/ }));
-    expect(onSelectEvidence).toHaveBeenCalledWith(sharedEvidence, "atom-2");
+    expect(onSelectEvidence.mock.calls[0][0]).toMatchObject({ evidenceId: "shared" });
+    expect(onSelectEvidence.mock.calls[0][1]).toBe("atom-2");
   });
 
   it("announces NLI state and exposes relation counts without a verdict", async () => {

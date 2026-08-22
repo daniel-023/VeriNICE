@@ -1,5 +1,7 @@
 import type {
   AtomEvidence,
+  ClaimComposition,
+  DecomposedAtom,
   DecompositionResponse,
   DemoCase,
   DemoCaseSummary,
@@ -8,6 +10,7 @@ import type {
   Health,
   LinguisticAnalysisResponse,
   SupportClassificationResponse,
+  VerdictAggregationResult,
 } from "./types";
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
@@ -28,6 +31,12 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
 }
 
 type AtomInput = Array<{ id: string; text: string }>;
+type LinguisticAnalysisInput = {
+  schemaVersion: 2;
+  claimText: string;
+  composition: ClaimComposition;
+  atoms: DecomposedAtom[];
+};
 
 export const api = {
   health: () => request<Health>("/api/v1/health"),
@@ -66,9 +75,21 @@ export const api = {
         })),
       }),
     }),
-  analyzeLinguistics: (atoms: AtomInput) =>
+  analyzeLinguistics: (input: LinguisticAnalysisInput) =>
     request<LinguisticAnalysisResponse>("/api/v1/analyze-linguistics", {
       method: "POST",
-      body: JSON.stringify({ atoms }),
+      body: JSON.stringify(input),
     }),
+  aggregateVerdict: (input: {
+    claimId: string;
+    claim: string;
+    composition: ClaimComposition;
+    atoms: DecomposedAtom[];
+    evidence: AtomEvidence[];
+    classifications: SupportClassificationResponse["classifications"];
+    linguisticSummaries?: LinguisticAnalysisResponse["summaries"];
+  }) => request<VerdictAggregationResult>("/api/v1/aggregate-verdict", {
+    method: "POST",
+    body: JSON.stringify(input),
+  }),
 };

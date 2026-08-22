@@ -53,11 +53,17 @@ async def record_case(client: httpx.AsyncClient, case_id: str) -> dict[str, Any]
             await asyncio.sleep(float(attempt))
     assert decomposition is not None
     atoms = [{"id": atom["id"], "text": atom["text"]} for atom in decomposition["atoms"]]
+    linguistic_request = {
+        "schemaVersion": decomposition["schemaVersion"],
+        "claimText": case["claim"],
+        "composition": decomposition["composition"],
+        "atoms": decomposition["atoms"],
+    }
     retrieval_task = request(
         client, "POST", "/api/v1/retrieve", json={"caseId": case_id, "atoms": atoms}
     )
     linguistics_task = request(
-        client, "POST", "/api/v1/analyze-linguistics", json={"atoms": atoms}
+        client, "POST", "/api/v1/analyze-linguistics", json=linguistic_request
     )
     retrieval, linguistics = await asyncio.gather(retrieval_task, linguistics_task)
     nli = await request(
@@ -68,10 +74,13 @@ async def record_case(client: httpx.AsyncClient, case_id: str) -> dict[str, Any]
     )
     return {
         "caseId": case_id,
+        "schemaVersion": decomposition["schemaVersion"],
+        "composition": decomposition["composition"],
+        "warnings": decomposition["warnings"],
         "atoms": decomposition["atoms"],
         "evidence": retrieval["evidence"],
         "classifications": nli["classifications"],
-        "linguistics": linguistics["analyses"],
+        "linguistics": linguistics,
         "recordedWith": {
             "decompositionModel": decomposition["model"],
             "retrievalModel": retrieval["model"],

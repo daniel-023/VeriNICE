@@ -11,7 +11,8 @@ import { walkthroughApi } from "@/lib/walkthrough";
 import type {
   AtomEvidence,
   AtomSupportClassification,
-  ArgumentationNode,
+  ClaimComposition,
+  EvidenceNode,
   DecomposedAtom,
   DemoCase,
   DemoCaseSummary,
@@ -20,6 +21,7 @@ import type {
   MobilePanel,
   ReferenceLabel,
   StageState,
+  VerdictAggregationResult,
 } from "@/lib/types";
 import { AtomRail } from "./AtomRail";
 import { ArgumentationGraph } from "./ArgumentationGraph";
@@ -27,6 +29,7 @@ import { DocumentPanel } from "./DocumentPanel";
 import { LinguisticPanel } from "./LinguisticPanel";
 import { PipelinePanel } from "./PipelinePanel";
 import { SupportSummary } from "./SupportSummary";
+import { VerdictPanel } from "./VerdictPanel";
 import { VeriGraphLogo } from "./VeriGraphLogo";
 
 const CUSTOM_CASE = "custom";
@@ -78,6 +81,7 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
   const [documents, setDocuments] = useState<DemoDocument[]>(() => [customDocument(1)]);
   const [activeDocumentId, setActiveDocumentId] = useState("custom-source-1");
   const [atoms, setAtoms] = useState<DecomposedAtom[]>([]);
+  const [composition, setComposition] = useState<ClaimComposition>("SINGLE");
   const [evidence, setEvidence] = useState<AtomEvidence[]>([]);
   const [classifications, setClassifications] = useState<AtomSupportClassification[]>([]);
   const [selectedAtomId, setSelectedAtomId] = useState<string | null>(null);
@@ -87,6 +91,7 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
   const [decompositionError, setDecompositionError] = useState<string | null>(null);
   const [retrievalError, setRetrievalError] = useState<string | null>(null);
   const [nliError, setNliError] = useState<string | null>(null);
+  const [verdict, setVerdict] = useState<VerdictAggregationResult | null>(null);
   const [loading, setLoading] = useState(true);
   const [caseLoading, setCaseLoading] = useState(false);
   const linguistics = useLinguisticAnalysis();
@@ -170,6 +175,7 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
   const resetDecomposition = () => {
     requestVersionRef.current += 1;
     setAtoms([]);
+    setComposition("SINGLE");
     setEvidence([]);
     setClassifications([]);
     setSelectedAtomId(null);
@@ -332,6 +338,7 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
     setRetrievalError(null);
     setNliError(null);
     setAtoms([]);
+    setComposition("SINGLE");
     setEvidence([]);
     setClassifications([]);
     setSelectedAtomId(null);
@@ -349,6 +356,7 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
         const recorded = await walkthroughApi.run(referenceCase.id);
         if (requestVersionRef.current !== requestVersion) return;
         setAtoms(recorded.atoms);
+        setComposition(recorded.composition ?? (recorded.atoms.length > 1 ? "AND" : "SINGLE"));
         setEvidence(recorded.evidence);
         setClassifications(recorded.classifications);
         linguistics.loadRecorded(recorded.linguistics);
@@ -372,10 +380,16 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
       const result = await api.decompose(claim);
       if (requestVersionRef.current !== requestVersion) return;
       setAtoms(result.atoms);
+      setComposition(result.composition);
       setDecompositionState("complete");
       setRetrievalState("running");
       const atomInputs = result.atoms.map(({ id, text }) => ({ id, text }));
-      void linguistics.run(atomInputs);
+      void linguistics.run({
+        schemaVersion: result.schemaVersion,
+        claimText: claim,
+        composition: result.composition,
+        atoms: result.atoms,
+      });
       try {
         const retrieval = await retrieveAtoms(atomInputs);
         if (requestVersionRef.current !== requestVersion) return;
@@ -464,10 +478,10 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
     if (atom) selectAtom(atom, false);
   };
 
-  const selectGraphEvidence = (node: ArgumentationNode, atomId: string) => {
+  const selectGraphEvidence = (node: EvidenceNode, atomId: string) => {
     const ownerAtom = atoms.find((atom) => atom.id === atomId);
     if (ownerAtom) selectAtom(ownerAtom, false);
-    if (node.documentId) setActiveDocumentId(node.documentId);
+    setActiveDocumentId(node.documentId);
     setParams({ panel: "document" });
     window.requestAnimationFrame(() => {
       document.getElementById("verification-workbench")?.scrollIntoView({ block: "start" });
@@ -479,14 +493,56 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
     evidence.find((item) => item.atomId === selectedAtomId)?.spans ?? [];
   const selectedLinguisticAnalysis =
     linguistics.analyses.find((item) => item.atomId === selectedAtomId) ?? null;
+  const selectedLinguisticSummary =
+    linguistics.summaries.find((item) => item.atomId === selectedAtomId) ?? null;
   const selectedClassification =
     classifications.find((item) => item.atomId === selectedAtomId) ?? null;
   const selectedRelations = selectedClassification?.relations ?? [];
   const argumentationGraph = useMemo(
-    () => buildArgumentationGraph(claim, atoms, evidence, classifications, documents),
-    [claim, atoms, evidence, classifications, documents],
+    () => buildArgumentationGraph(
+      selectedCaseId,
+      claim,
+      composition,
+      atoms,
+      evidence,
+      classifications,
+      documents,
+      linguistics.summaries,
+    ),
+    [selectedCaseId, claim, composition, atoms, evidence, classifications, documents, linguistics.summaries],
   );
-  const graphLinkCount = argumentationGraph.edges.filter((edge) => edge.relation !== "DECOMPOSES").length;
+  useEffect(() => {
+    if (nliState !== "complete" || !atoms.length || classifications.length !== atoms.length) {
+      setVerdict(null);
+      return;
+    }
+    // Older recorded/test adapters predate aggregation; they remain graph-only.
+    const aggregateVerdict = (api as Partial<typeof api>).aggregateVerdict;
+    if (!aggregateVerdict) {
+      setVerdict(null);
+      return;
+    }
+    let cancelled = false;
+    void aggregateVerdict({
+      claimId: selectedCaseId,
+      claim,
+      composition,
+      atoms,
+      evidence,
+      classifications,
+      linguisticSummaries: linguistics.summaries,
+    }).then((result) => {
+      if (!cancelled) setVerdict(result);
+    }).catch(() => {
+      if (!cancelled) setVerdict(null);
+    });
+    return () => { cancelled = true; };
+  }, [selectedCaseId, claim, composition, atoms, evidence, classifications, linguistics.summaries, nliState]);
+  const graphLinkCount = argumentationGraph.stats.supportEdgeCount + argumentationGraph.stats.attackEdgeCount;
+  const obligationStates = useMemo(
+    () => Object.fromEntries((verdict?.obligations ?? []).map((item) => [item.obligationId, item.state])),
+    [verdict],
+  );
   const graphState: StageState =
     nliState === "complete"
       ? "complete"
@@ -692,6 +748,7 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
                 <LinguisticPanel
                   atom={selectedAtom}
                   analysis={selectedLinguisticAnalysis}
+                  summary={selectedLinguisticSummary}
                   state={linguistics.state}
                   error={linguistics.error}
                   onRetry={() => void linguistics.retry()}
@@ -738,12 +795,16 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
       </section>
 
       {nliState === "complete" ? (
-        <ArgumentationGraph
-          graph={argumentationGraph}
-          selectedAtomId={selectedAtomId}
-          onSelectAtom={selectGraphAtom}
-          onSelectEvidence={selectGraphEvidence}
-        />
+        <>
+          <ArgumentationGraph
+            graph={argumentationGraph}
+            selectedAtomId={selectedAtomId}
+            onSelectAtom={selectGraphAtom}
+            onSelectEvidence={selectGraphEvidence}
+            obligationStates={obligationStates}
+          />
+          {verdict ? <VerdictPanel result={verdict} referenceLabel={referenceCase?.label} /> : null}
+        </>
       ) : null}
 
       <footer className="provenance-strip">
@@ -752,8 +813,8 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
         </span>
         <span>
           {walkthrough
-            ? "Recorded local pipeline · derived graph · four-way verdict pending"
-            : "Embedding retrieval · DeBERTa NLI live · derived graph · four-way verdict pending"}
+            ? "Recorded local pipeline · derived graph · deterministic four-way verdict"
+            : "Embedding retrieval · DeBERTa NLI live · derived graph · deterministic four-way verdict"}
         </span>
       </footer>
     </main>

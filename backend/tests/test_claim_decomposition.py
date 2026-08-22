@@ -16,117 +16,61 @@ from verigraph_backend.claim_decomposition import (
 )
 
 
-def envelope(atoms):
-    return {
-        "status": "completed",
-        "output": [
-            {
-                "type": "message",
-                "content": [
-                    {
-                        "type": "output_text",
-                        "text": json.dumps({"atoms": atoms}),
-                    }
-                ],
-            }
-        ],
-    }
-
-
-def ollama_envelope(atoms):
+def envelope(draft: object) -> dict:
     return {
         "model": "test-model",
         "done": True,
-        "message": {
-            "role": "assistant",
-            "content": json.dumps({"atoms": atoms}),
-        },
+        "message": {"role": "assistant", "content": json.dumps(draft)},
     }
 
 
-def test_rewritten_atoms_share_and_preserve_exact_source_span() -> None:
+def obligation(text: str, source_text: str, role: str = "CORE") -> dict:
+    return {"text": text, "sourceText": source_text, "role": role}
+
+
+def test_normalizes_versioned_structured_decomposition() -> None:
     claim = "Mara joined Orion in 2022 and became its chief technology officer."
     result = parse_decomposition(
         claim,
         envelope(
-            [
-                {
-                    "text": "Mara joined Orion in 2022.",
-                    "source_text": claim,
-                    "essential": True,
-                },
-                {
-                    "text": "Mara became Orion's chief technology officer.",
-                    "source_text": claim,
-                    "essential": True,
-                },
-            ]
+            {
+                "composition": "AND",
+                "obligations": [
+                    obligation("Mara joined Orion in 2022.", "Mara joined Orion in 2022"),
+                    obligation(
+                        "Mara became Orion's chief technology officer.",
+                        "became its chief technology officer",
+                    ),
+                ],
+            }
         ),
         "test-model",
     )
+    assert result.schema_version == 2
+    assert result.composition == "AND"
     assert [atom.id for atom in result.atoms] == ["atom-1", "atom-2"]
-    assert all(atom.start == 0 and atom.end == len(claim) for atom in result.atoms)
-    assert all(claim[atom.start : atom.end] == atom.source_text for atom in result.atoms)
+    assert [atom.role.value for atom in result.atoms] == ["CORE", "CORE"]
+    assert result.atoms[1].start == 30
+    assert result.atoms[1].end == 65
+    assert result.warnings == []
 
 
-def test_repeated_source_text_uses_a_valid_exact_occurrence() -> None:
-    claim = "The archive opened. The archive opened."
+def test_repeated_source_text_warns_but_is_valid() -> None:
+    claim = "Mara joined Orion in 2022 and became its chief technology officer."
     result = parse_decomposition(
         claim,
         envelope(
-            [
-                {
-                    "text": "The archive opened.",
-                    "source_text": "The archive opened.",
-                    "essential": True,
-                }
-            ]
+            {
+                "composition": "AND",
+                "obligations": [
+                    obligation("Mara joined Orion in 2022.", claim),
+                    obligation("Mara became Orion's chief technology officer.", claim),
+                ],
+            }
         ),
         "test-model",
     )
-    assert result.atoms[0].start == 0
-    assert claim[result.atoms[0].start : result.atoms[0].end] == result.atoms[0].source_text
-
-
-def test_quote_normalization_returns_an_exact_claim_slice() -> None:
-    claim = 'Sen. McSally “supported a plan” and “raised the retirement age.'
-    result = parse_decomposition(
-        claim,
-        envelope(
-            [
-                {
-                    "text": "Sen. McSally raised the retirement age.",
-                    "source_text": '“raised the retirement age.”',
-                    "essential": True,
-                }
-            ]
-        ),
-        "test-model",
-    )
-    atom = result.atoms[0]
-    assert atom.source_text == "raised the retirement age."
-    assert claim[atom.start : atom.end] == atom.source_text
-
-
-def test_claim_derived_atom_uses_full_claim_when_excerpt_is_rewritten() -> None:
-    claim = "Martha McSally supported a plan to change Medicare into a voucher program."
-    result = parse_decomposition(
-        claim,
-        envelope(
-            [
-                {
-                    "text": "Martha McSally supported a Medicare voucher plan.",
-                    "source_text": "Martha McSally supported a voucher plan.",
-                    "essential": True,
-                }
-            ]
-        ),
-        "test-model",
-    )
-    atom = result.atoms[0]
-    assert atom.start == 0
-    assert atom.end == len(claim)
-    assert atom.source_text == claim
+    assert [warning.code for warning in result.warnings] == ["REUSED_SOURCE_TEXT"]
 
 
 def test_claim_offsets_use_browser_utf16_code_units() -> None:
@@ -134,13 +78,10 @@ def test_claim_offsets_use_browser_utf16_code_units() -> None:
     result = parse_decomposition(
         claim,
         envelope(
-            [
-                {
-                    "text": "The archive opened.",
-                    "source_text": "The archive opened.",
-                    "essential": True,
-                }
-            ]
+            {
+                "composition": "SINGLE",
+                "obligations": [obligation("The archive opened.", "The archive opened.")],
+            }
         ),
         "test-model",
     )
@@ -149,39 +90,31 @@ def test_claim_offsets_use_browser_utf16_code_units() -> None:
 
 
 @pytest.mark.parametrize(
-    "payload",
+    "draft",
     [
-        {"status": "completed", "output": []},
-        envelope([{"text": "Fact", "source_text": "invented", "essential": True}]),
-        {
-            "status": "completed",
-            "output": [{"content": [{"type": "refusal", "refusal": "no"}]}],
-        },
+        {"composition": "SINGLE", "obligations": [obligation("One.", "One."), obligation("Two.", "Two.")]},
+        {"composition": "AND", "obligations": [obligation("One.", "One.")]},
+        {"composition": "SINGLE", "obligations": [obligation("One.", "Missing.")]},
+        {"composition": "SINGLE", "obligations": [obligation("One.", "One.", "INVALID")]},
+        {"composition": "SINGLE", "obligations": [obligation("One.", "One."), obligation("One.", "One.")]},
     ],
 )
-def test_invalid_or_ungrounded_outputs_fail_without_fallback(payload) -> None:
-    with pytest.raises((DecompositionOutputError, DecompositionProviderError)):
-        parse_decomposition("Original claim.", payload, "test-model")
+def test_invalid_drafts_fail_hard_validation(draft: dict) -> None:
+    with pytest.raises(DecompositionOutputError):
+        parse_decomposition("One.", envelope(draft), "test-model")
 
 
 @pytest.mark.asyncio
-async def test_live_request_uses_ollama_schema_and_sends_only_claim(monkeypatch) -> None:
+async def test_live_request_uses_structured_schema(monkeypatch) -> None:
     claim = "The archive opened in 2021."
-    captured = {}
+    captured: dict = {}
 
     def handler(request: httpx.Request) -> httpx.Response:
         captured["body"] = json.loads(request.content)
-        captured["url"] = str(request.url)
         return httpx.Response(
             200,
-            json=ollama_envelope(
-                [
-                    {
-                        "text": claim,
-                        "source_text": claim,
-                        "essential": True,
-                    }
-                ]
+            json=envelope(
+                {"composition": "SINGLE", "obligations": [obligation(claim, claim)]}
             ),
         )
 
@@ -198,102 +131,83 @@ async def test_live_request_uses_ollama_schema_and_sends_only_claim(monkeypatch)
         result = await decompose_claim(claim, client=client)
 
     assert result.atoms[0].text == claim
-    assert captured["url"].endswith("/api/chat")
-    assert captured["body"]["stream"] is False
     assert captured["body"]["format"] == ATOM_OUTPUT_SCHEMA
     assert captured["body"]["options"]["temperature"] == 0
-    assert claim in json.dumps(captured["body"])
-    assert "document" not in json.dumps(captured["body"]).lower()
+    assert "obligations" in json.dumps(captured["body"]["format"])
 
 
 @pytest.mark.asyncio
-async def test_ungrounded_first_attempt_retries_with_varied_sampling(monkeypatch) -> None:
+async def test_invalid_first_response_is_repaired_once(monkeypatch) -> None:
     claim = "The archive opened in 2021."
     attempts: list[dict] = []
 
     def handler(request: httpx.Request) -> httpx.Response:
-        body = json.loads(request.content)
-        attempts.append(body)
+        attempts.append(json.loads(request.content))
         if len(attempts) == 1:
-            # First (deterministic) attempt returns an atom that cannot be
-            # grounded in the claim at all.
             return httpx.Response(
                 200,
-                json=ollama_envelope(
-                    [{"text": "Unrelated.", "source_text": "Unrelated.", "essential": True}]
+                json=envelope(
+                    {"composition": "SINGLE", "obligations": [obligation("Unrelated.", "Unrelated.")]}
                 ),
             )
         return httpx.Response(
             200,
-            json=ollama_envelope(
-                [{"text": claim, "source_text": claim, "essential": True}]
+            json=envelope(
+                {"composition": "SINGLE", "obligations": [obligation(claim, claim)]}
             ),
         )
 
     monkeypatch.setattr(
         claim_decomposition,
         "settings",
-        replace(
-            claim_decomposition.settings,
-            ollama_url="http://ollama.test:11434",
-            ollama_model="test-model",
-        ),
+        replace(claim_decomposition.settings, ollama_url="http://ollama.test:11434"),
     )
     async with httpx.AsyncClient(transport=httpx.MockTransport(handler)) as client:
         result = await decompose_claim(claim, client=client)
 
-    assert result.atoms[0].text == claim
     assert len(attempts) == 2
-    assert attempts[0]["options"]["temperature"] == 0
-    assert attempts[0]["options"]["seed"] == 0
-    assert attempts[1]["options"]["seed"] != attempts[0]["options"]["seed"]
-    assert attempts[1]["options"]["temperature"] != 0
+    assert "Validation errors" in attempts[1]["messages"][1]["content"]
+    assert result.warnings == []
 
 
 @pytest.mark.asyncio
-async def test_repeatedly_ungrounded_output_still_fails_after_retries(monkeypatch) -> None:
+async def test_failed_repair_returns_safe_fallback(monkeypatch) -> None:
+    claim = "🚀 The archive opened in 2021."
     attempts: list[dict] = []
 
     def handler(request: httpx.Request) -> httpx.Response:
         attempts.append(json.loads(request.content))
         return httpx.Response(
             200,
-            json=ollama_envelope(
-                [{"text": "Unrelated.", "source_text": "Unrelated.", "essential": True}]
+            json=envelope(
+                {"composition": "SINGLE", "obligations": [obligation("Unrelated.", "Unrelated.")]}
             ),
         )
 
     monkeypatch.setattr(
         claim_decomposition,
         "settings",
-        replace(
-            claim_decomposition.settings,
-            ollama_url="http://ollama.test:11434",
-            ollama_model="test-model",
-        ),
+        replace(claim_decomposition.settings, ollama_url="http://ollama.test:11434"),
     )
     async with httpx.AsyncClient(transport=httpx.MockTransport(handler)) as client:
-        with pytest.raises(DecompositionOutputError, match="not grounded"):
-            await decompose_claim("The archive opened in 2021.", client=client)
+        result = await decompose_claim(claim, client=client)
 
-    assert len(attempts) == claim_decomposition._MAX_ATTEMPTS
-    seeds = {body["options"]["seed"] for body in attempts}
-    assert len(seeds) == claim_decomposition._MAX_ATTEMPTS
+    assert len(attempts) == 2
+    assert result.composition == "SINGLE"
+    assert result.atoms[0].text == claim
+    assert result.atoms[0].end == len(claim) + 1
+    assert [warning.code for warning in result.warnings] == ["DECOMPOSITION_FALLBACK"]
 
 
 @pytest.mark.asyncio
-async def test_timeout_is_reported_as_provider_error(monkeypatch) -> None:
+async def test_provider_errors_do_not_fallback(monkeypatch) -> None:
     def handler(_: httpx.Request) -> httpx.Response:
         raise httpx.ReadTimeout("slow")
 
     monkeypatch.setattr(
         claim_decomposition,
         "settings",
-        replace(
-            claim_decomposition.settings,
-            ollama_url="http://ollama.test:11434",
-            ollama_model="test-model",
-        ),
+        replace(claim_decomposition.settings, ollama_url="http://ollama.test:11434"),
     )
     async with httpx.AsyncClient(transport=httpx.MockTransport(handler)) as client:
         with pytest.raises(DecompositionProviderError, match="timed out"):

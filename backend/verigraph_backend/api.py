@@ -44,6 +44,7 @@ from .nli_classification import (
     is_available as nli_available,
     warm as warm_nli,
 )
+from .verdict_aggregation import aggregate_verdict
 from .schemas import (
     DecompositionRequest,
     DecompositionResponse,
@@ -57,6 +58,8 @@ from .schemas import (
     RetrievalRequest,
     SupportClassificationRequest,
     SupportClassificationResponse,
+    VerdictAggregationRequest,
+    VerdictAggregationResult,
 )
 from .settings import settings
 
@@ -159,6 +162,7 @@ async def protect_public_endpoints(request: Request, call_next):
             "/api/v1/retrieve",
             "/api/v1/classify-support",
             "/api/v1/analyze-linguistics",
+            "/api/v1/aggregate-verdict",
         }
     ):
         client = request.client.host if request.client else "unknown"
@@ -288,6 +292,8 @@ async def analyze_linguistic_structure(
             return await asyncio.get_running_loop().run_in_executor(
                 _linguistics_worker,
                 analyze_linguistics,
+                request.claim_text,
+                request.composition,
                 request.atoms,
             )
     except LinguisticAnalysisConfigurationError as error:
@@ -302,3 +308,11 @@ async def analyze_linguistic_structure(
             status_code=500,
             detail="Local linguistic analysis failed. Please retry.",
         ) from error
+
+
+@app.post("/api/v1/aggregate-verdict", response_model=VerdictAggregationResult)
+def aggregate_case_verdict(request: VerdictAggregationRequest) -> VerdictAggregationResult:
+    try:
+        return aggregate_verdict(request)
+    except ValueError as error:
+        raise HTTPException(status_code=422, detail=str(error)) from error

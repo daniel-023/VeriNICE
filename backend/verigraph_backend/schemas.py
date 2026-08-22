@@ -22,6 +22,25 @@ class ReferenceLabel(str, Enum):
     conflicting_evidence = "CONFLICTING_EVIDENCE"
 
 
+class ClaimComposition(str, Enum):
+    """Flat logical composition supported by decomposition schema version 2."""
+
+    single = "SINGLE"
+    and_ = "AND"
+    or_ = "OR"
+
+
+class ObligationRole(str, Enum):
+    core = "CORE"
+    numeric_constraint = "NUMERIC_CONSTRAINT"
+    temporal_constraint = "TEMPORAL_CONSTRAINT"
+    attribution = "ATTRIBUTION"
+    location_constraint = "LOCATION_CONSTRAINT"
+    causal_relation = "CAUSAL_RELATION"
+    conditional = "CONDITIONAL"
+    modality_constraint = "MODALITY_CONSTRAINT"
+
+
 class DemoDocumentSummary(APIModel):
     id: str = Field(min_length=1, max_length=100)
     title: str = Field(min_length=1, max_length=300)
@@ -110,16 +129,49 @@ class DecompositionRequest(APIModel):
         return value
 
 
+class ObligationDraft(APIModel):
+    """Semantic content returned by the decomposition model."""
+
+    model_config = ConfigDict(alias_generator=to_camel, populate_by_name=True, extra="forbid")
+
+    text: str = Field(min_length=1)
+    source_text: str = Field(min_length=1)
+    role: ObligationRole
+
+
+class ClaimDecompositionDraft(APIModel):
+    model_config = ConfigDict(alias_generator=to_camel, populate_by_name=True, extra="forbid")
+
+    composition: ClaimComposition
+    obligations: List[ObligationDraft] = Field(min_length=1, max_length=12)
+
+
+class DecompositionWarning(APIModel):
+    code: str = Field(min_length=1, max_length=100)
+    message: str = Field(min_length=1, max_length=1000)
+
+
 class DecomposedAtom(APIModel):
     id: str
     text: str = Field(min_length=1)
     source_text: str = Field(min_length=1)
     start: int = Field(ge=0)
     end: int = Field(gt=0)
+    role: ObligationRole
+
+    @field_validator("id", "text", "source_text")
+    @classmethod
+    def reject_blank_text(cls, value: str) -> str:
+        if not value.strip():
+            raise ValueError("value cannot be blank")
+        return value
 
 
 class DecompositionResponse(APIModel):
-    atoms: List[DecomposedAtom]
+    schema_version: Literal[2] = 2
+    composition: ClaimComposition
+    atoms: List[DecomposedAtom] = Field(min_length=1, max_length=12)
+    warnings: List[DecompositionWarning] = Field(default_factory=list)
     provider: Literal["ollama"] = "ollama"
     model: str
 
@@ -273,7 +325,19 @@ class SupportClassificationResponse(APIModel):
 
 
 class LinguisticAnalysisRequest(APIModel):
-    atoms: List[PipelineAtom] = Field(min_length=1, max_length=12)
+    model_config = ConfigDict(alias_generator=to_camel, populate_by_name=True, extra="forbid")
+
+    schema_version: Literal[2]
+    claim_text: str = Field(min_length=1, max_length=5000)
+    composition: ClaimComposition
+    atoms: List[DecomposedAtom] = Field(min_length=1, max_length=12)
+
+    @field_validator("claim_text")
+    @classmethod
+    def reject_blank_claim_text(cls, value: str) -> str:
+        if not value.strip():
+            raise ValueError("claimText cannot be blank")
+        return value
 
     @model_validator(mode="after")
     def reject_duplicate_atom_ids(self) -> "LinguisticAnalysisRequest":
@@ -354,8 +418,52 @@ class AtomLinguisticAnalysis(APIModel):
     unresolved: List[Literal["subject", "predicate"]]
 
 
+class RoleAuditStatus(str, Enum):
+    match = "MATCH"
+    mismatch = "MISMATCH"
+    inconclusive = "INCONCLUSIVE"
+
+
+class LinguisticWarningCode(str, Enum):
+    role_cue_mismatch = "ROLE_CUE_MISMATCH"
+    multiple_proposition_frames = "MULTIPLE_PROPOSITION_FRAMES"
+    unresolved_subject = "UNRESOLVED_SUBJECT"
+    unresolved_predicate = "UNRESOLVED_PREDICATE"
+    partial_linguistic_analysis = "PARTIAL_LINGUISTIC_ANALYSIS"
+    negation_scope_unclear = "NEGATION_SCOPE_UNCLEAR"
+    attribution_scope_unclear = "ATTRIBUTION_SCOPE_UNCLEAR"
+    qualifier_attachment_unclear = "QUALIFIER_ATTACHMENT_UNCLEAR"
+    negation_not_preserved = "NEGATION_NOT_PRESERVED"
+    numeric_information_not_preserved = "NUMERIC_INFORMATION_NOT_PRESERVED"
+    temporal_information_not_preserved = "TEMPORAL_INFORMATION_NOT_PRESERVED"
+    attribution_not_preserved = "ATTRIBUTION_NOT_PRESERVED"
+    modality_not_preserved = "MODALITY_NOT_PRESERVED"
+    location_not_preserved = "LOCATION_NOT_PRESERVED"
+    claim_frame_not_covered = "CLAIM_FRAME_NOT_COVERED"
+
+
+class ObligationLinguisticSummary(APIModel):
+    atom_id: str = Field(min_length=1)
+    analysis_status: Literal["complete", "partial"]
+    role_audit: RoleAuditStatus
+    subjects: List[str] = Field(default_factory=list)
+    predicates: List[str] = Field(default_factory=list)
+    cue_kinds: List[
+        Literal["negation", "quantifier", "modality", "attribution", "temporal", "numeric"]
+    ] = Field(default_factory=list)
+    modifier_kinds: List[
+        Literal["temporal", "locative", "manner", "causal", "conditional", "purpose"]
+    ] = Field(default_factory=list)
+    entity_labels: List[str] = Field(default_factory=list)
+    warnings: List[LinguisticWarningCode] = Field(default_factory=list)
+
+
 class LinguisticAnalysisResponse(APIModel):
+    schema_version: Literal[2] = 2
+    claim_analysis: AtomLinguisticAnalysis
     analyses: List[AtomLinguisticAnalysis]
+    summaries: List[ObligationLinguisticSummary]
+    claim_warnings: List[LinguisticWarningCode] = Field(default_factory=list)
     provider: Literal["spacy"] = "spacy"
     model: str
 
@@ -371,3 +479,69 @@ class HealthResponse(APIModel):
     nli_model: str
     linguistics_model: str
     model_config = ConfigDict(extra="forbid")
+
+
+class ObligationEvidenceState(str, Enum):
+    supported = "SUPPORTED"
+    refuted = "REFUTED"
+    conflicting = "CONFLICTING"
+    unresolved = "UNRESOLVED"
+
+
+class AggregationWarning(APIModel):
+    code: str = Field(min_length=1, max_length=100)
+    message: str = Field(min_length=1, max_length=1000)
+
+
+class ClaimEvidencePositions(APIModel):
+    support_position: bool
+    attack_position: bool
+    support_obligation_ids: List[str] = Field(default_factory=list)
+    attack_obligation_ids: List[str] = Field(default_factory=list)
+    unresolved_obligation_ids: List[str] = Field(default_factory=list)
+
+
+class ObligationEvidenceSummary(APIModel):
+    obligation_id: str = Field(min_length=1)
+    state: ObligationEvidenceState
+    support_edge_ids: List[str] = Field(default_factory=list)
+    attack_edge_ids: List[str] = Field(default_factory=list)
+    neutral_candidate_count: int = Field(ge=0)
+
+
+class VerdictAggregationRequest(APIModel):
+    """Validated completed pipeline inputs; the reference label is deliberately absent."""
+
+    model_config = ConfigDict(alias_generator=to_camel, populate_by_name=True, extra="forbid")
+
+    claim_id: str = Field(min_length=1, max_length=100)
+    claim: str = Field(min_length=1, max_length=5000)
+    composition: ClaimComposition
+    atoms: List[DecomposedAtom] = Field(min_length=1, max_length=12)
+    evidence: List[AtomEvidence] = Field(min_length=1, max_length=12)
+    classifications: List[AtomSupportClassification] = Field(min_length=1, max_length=12)
+    linguistic_summaries: List[ObligationLinguisticSummary] = Field(default_factory=list, max_length=12)
+
+    @model_validator(mode="after")
+    def validate_atom_coverage(self) -> "VerdictAggregationRequest":
+        atom_ids = [atom.id for atom in self.atoms]
+        evidence_ids = [item.atom_id for item in self.evidence]
+        classification_ids = [item.atom_id for item in self.classifications]
+        if len(atom_ids) != len(set(atom_ids)):
+            raise ValueError("decomposition atom IDs must be unique")
+        if set(evidence_ids) != set(atom_ids) or len(evidence_ids) != len(atom_ids):
+            raise ValueError("evidence must cover every decomposition atom exactly once")
+        if set(classification_ids) != set(atom_ids) or len(classification_ids) != len(atom_ids):
+            raise ValueError("classifications must cover every decomposition atom exactly once")
+        return self
+
+
+class VerdictAggregationResult(APIModel):
+    aggregation_schema_version: Literal[1] = 1
+    claim_id: str
+    composition: ClaimComposition
+    verdict: ReferenceLabel
+    positions: ClaimEvidencePositions
+    obligations: List[ObligationEvidenceSummary]
+    warnings: List[AggregationWarning] = Field(default_factory=list)
+    rule_trace: List[str] = Field(default_factory=list)

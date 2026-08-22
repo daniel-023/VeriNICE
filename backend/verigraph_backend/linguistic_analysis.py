@@ -2,10 +2,12 @@ from __future__ import annotations
 
 import importlib
 import threading
-from typing import Any, Iterable, List, Optional, Sequence, Tuple
+from typing import Any, Iterable, List, Optional, Sequence, Tuple, Union
 
 from .schemas import (
     AtomLinguisticAnalysis,
+    ClaimComposition,
+    DecomposedAtom,
     LinguisticAnalysisResponse,
     LinguisticArgument,
     LinguisticCue,
@@ -13,8 +15,12 @@ from .schemas import (
     LinguisticModifier,
     LinguisticSpan,
     LinguisticToken,
+    LinguisticWarningCode,
+    ObligationLinguisticSummary,
+    ObligationRole,
     PipelineAtom,
     PropositionFrame,
+    RoleAuditStatus,
 )
 from .text_offsets import utf16_offset
 
@@ -469,7 +475,10 @@ def _entities(atom: PipelineAtom, doc: Any) -> List[LinguisticEntity]:
     return entities
 
 
-def analysis_from_doc(atom: PipelineAtom, doc: Any) -> AtomLinguisticAnalysis:
+_AnalyzedText = Union[PipelineAtom, DecomposedAtom]
+
+
+def analysis_from_doc(atom: _AnalyzedText, doc: Any) -> AtomLinguisticAnalysis:
     if doc.text != atom.text:
         raise LinguisticAnalysisError("The parser changed the atom text unexpectedly.")
     frames, unresolved = _frames(atom, doc)
@@ -499,7 +508,234 @@ def analysis_from_doc(atom: PipelineAtom, doc: Any) -> AtomLinguisticAnalysis:
     )
 
 
+def _has_cue(analysis: AtomLinguisticAnalysis, kind: str) -> bool:
+    return any(cue.kind == kind for cue in analysis.cues)
+
+
+def _has_modifier(analysis: AtomLinguisticAnalysis, kind: str) -> bool:
+    return any(modifier.kind == kind for frame in analysis.frames for modifier in frame.adjuncts)
+
+
+def _has_location_signal(analysis: AtomLinguisticAnalysis) -> bool:
+    return _has_modifier(analysis, "locative") or any(
+        entity.label in {"FAC", "GPE", "LOC"} for entity in analysis.entities
+    )
+
+
+def _has_attribution_signal(analysis: AtomLinguisticAnalysis) -> bool:
+    return _has_cue(analysis, "attribution") or any(
+        token.lemma.lower() in _ATTRIBUTION for token in analysis.tokens
+    )
+
+
+def _has_incompatible_qualifier(analysis: AtomLinguisticAnalysis, expected: str) -> bool:
+    signals = {
+        "NUMERIC_CONSTRAINT": _has_cue(analysis, "numeric") or _has_cue(analysis, "quantifier"),
+        "TEMPORAL_CONSTRAINT": _has_cue(analysis, "temporal"),
+        "ATTRIBUTION": _has_attribution_signal(analysis),
+        "LOCATION_CONSTRAINT": _has_location_signal(analysis),
+        "CAUSAL_RELATION": _has_modifier(analysis, "causal"),
+        "CONDITIONAL": _has_modifier(analysis, "conditional"),
+        "MODALITY_CONSTRAINT": _has_cue(analysis, "modality"),
+    }
+    return any(found for role, found in signals.items() if role != expected)
+
+
+def audit_role(atom: DecomposedAtom, analysis: AtomLinguisticAnalysis) -> RoleAuditStatus:
+    """Audit the model-selected role without changing it."""
+
+    if atom.role is ObligationRole.core:
+        return RoleAuditStatus.match if analysis.frames else RoleAuditStatus.inconclusive
+
+    expected = {
+        ObligationRole.numeric_constraint: _has_cue(analysis, "numeric")
+        or _has_cue(analysis, "quantifier"),
+        ObligationRole.temporal_constraint: _has_cue(analysis, "temporal"),
+        ObligationRole.attribution: _has_attribution_signal(analysis),
+        ObligationRole.location_constraint: _has_location_signal(analysis),
+        ObligationRole.causal_relation: _has_modifier(analysis, "causal"),
+        ObligationRole.conditional: _has_modifier(analysis, "conditional"),
+        ObligationRole.modality_constraint: _has_cue(analysis, "modality"),
+    }[atom.role]
+    if expected:
+        return RoleAuditStatus.match
+    if _has_incompatible_qualifier(analysis, atom.role.value):
+        return RoleAuditStatus.mismatch
+    if analysis.status == "partial" or not analysis.tokens:
+        return RoleAuditStatus.inconclusive
+    return RoleAuditStatus.inconclusive
+
+
+def obligation_warnings(
+    atom: DecomposedAtom,
+    analysis: AtomLinguisticAnalysis,
+    role_audit: RoleAuditStatus,
+) -> list[LinguisticWarningCode]:
+    warnings: list[LinguisticWarningCode] = []
+    if role_audit is RoleAuditStatus.mismatch:
+        warnings.append(LinguisticWarningCode.role_cue_mismatch)
+    if len(analysis.frames) > 1:
+        warnings.append(LinguisticWarningCode.multiple_proposition_frames)
+    if "subject" in analysis.unresolved:
+        warnings.append(LinguisticWarningCode.unresolved_subject)
+    if "predicate" in analysis.unresolved:
+        warnings.append(LinguisticWarningCode.unresolved_predicate)
+    if analysis.status == "partial":
+        warnings.append(LinguisticWarningCode.partial_linguistic_analysis)
+    if _has_cue(analysis, "negation") and (not analysis.frames or "predicate" in analysis.unresolved):
+        warnings.append(LinguisticWarningCode.negation_scope_unclear)
+    if _has_attribution_signal(analysis) and len(analysis.frames) > 1:
+        warnings.append(LinguisticWarningCode.attribution_scope_unclear)
+    if (
+        (_has_cue(analysis, "numeric") or _has_cue(analysis, "temporal"))
+        and len(analysis.frames) > 1
+    ):
+        warnings.append(LinguisticWarningCode.qualifier_attachment_unclear)
+    return warnings
+
+
+def _normalized(value: str) -> str:
+    return " ".join(value.lower().split())
+
+
+def _all_obligation_text(atoms: Sequence[DecomposedAtom]) -> str:
+    return " ".join(_normalized(f"{atom.text} {atom.source_text}") for atom in atoms)
+
+
+def _cue_preserved(
+    claim_analysis: AtomLinguisticAnalysis,
+    analyses: Sequence[AtomLinguisticAnalysis],
+    atoms: Sequence[DecomposedAtom],
+    kind: str,
+) -> bool:
+    claim_cues = [cue for cue in claim_analysis.cues if cue.kind == kind]
+    if not claim_cues:
+        return True
+    atom_text = _all_obligation_text(atoms)
+    return all(
+        any(cue.kind == kind and _normalized(cue.text) == _normalized(claim_cue.text)
+            for analysis in analyses for cue in analysis.cues)
+        or _normalized(claim_cue.text) in atom_text
+        for claim_cue in claim_cues
+    )
+
+
+def claim_preservation_warnings(
+    claim_analysis: AtomLinguisticAnalysis,
+    atoms: Sequence[DecomposedAtom],
+    analyses: Sequence[AtomLinguisticAnalysis],
+) -> list[LinguisticWarningCode]:
+    warnings: list[LinguisticWarningCode] = []
+    checks = (
+        ("negation", LinguisticWarningCode.negation_not_preserved),
+        ("numeric", LinguisticWarningCode.numeric_information_not_preserved),
+        ("quantifier", LinguisticWarningCode.numeric_information_not_preserved),
+        ("temporal", LinguisticWarningCode.temporal_information_not_preserved),
+        ("attribution", LinguisticWarningCode.attribution_not_preserved),
+        ("modality", LinguisticWarningCode.modality_not_preserved),
+    )
+    for kind, warning in checks:
+        if not _cue_preserved(claim_analysis, analyses, atoms, kind) and warning not in warnings:
+            warnings.append(warning)
+    claim_locations = [entity for entity in claim_analysis.entities if entity.label in {"FAC", "GPE", "LOC"}]
+    atom_text = _all_obligation_text(atoms)
+    if claim_locations and any(_normalized(entity.text) not in atom_text for entity in claim_locations):
+        warnings.append(LinguisticWarningCode.location_not_preserved)
+    atom_predicates = {
+        predicate
+        for analysis in analyses
+        for predicate in (
+            [frame.predicate.text.lower() for frame in analysis.frames if frame.predicate]
+            + [token.lemma.lower() for token in analysis.tokens]
+        )
+    }
+    if any(
+        frame.predicate is not None
+        and frame.predicate.text.lower() not in atom_predicates
+        for frame in claim_analysis.frames
+    ):
+        warnings.append(LinguisticWarningCode.claim_frame_not_covered)
+    return warnings
+
+
+def summary_from_analysis(
+    atom: DecomposedAtom,
+    analysis: AtomLinguisticAnalysis,
+    role_audit: RoleAuditStatus,
+    warnings: Sequence[LinguisticWarningCode],
+) -> ObligationLinguisticSummary:
+    return ObligationLinguisticSummary(
+        atom_id=atom.id,
+        analysis_status=analysis.status,
+        role_audit=role_audit,
+        subjects=list(dict.fromkeys(subject.text for frame in analysis.frames for subject in frame.subjects)),
+        predicates=list(
+            dict.fromkeys(
+                token.lemma for token in analysis.tokens
+                if any(
+                    frame.predicate
+                    and frame.predicate.start == token.start
+                    and frame.predicate.end == token.end
+                    for frame in analysis.frames
+                )
+            )
+        ),
+        cue_kinds=list(dict.fromkeys(cue.kind for cue in analysis.cues)),
+        modifier_kinds=list(
+            dict.fromkeys(modifier.kind for frame in analysis.frames for modifier in frame.adjuncts)
+        ),
+        entity_labels=list(dict.fromkeys(entity.label for entity in analysis.entities)),
+        warnings=list(warnings),
+    )
+
+
+def analyze_decomposition(
+    claim_text: str,
+    composition: ClaimComposition,
+    atoms: Sequence[DecomposedAtom],
+) -> LinguisticAnalysisResponse:
+    if not atoms:
+        raise LinguisticAnalysisError("At least one atom is required for linguistic analysis.")
+    del composition  # Flat composition is retained for downstream graph work, not interpreted here.
+    nlp = _load_model()
+    claim_atom = PipelineAtom(id="claim", text=claim_text)
+    try:
+        docs = list(nlp.pipe([claim_text, *(atom.text for atom in atoms)], batch_size=len(atoms) + 1))
+        if len(docs) != len(atoms) + 1:
+            raise LinguisticAnalysisError("The parser returned an incomplete analysis batch.")
+        claim_analysis = analysis_from_doc(claim_atom, docs[0])
+        analyses = [analysis_from_doc(atom, doc) for atom, doc in zip(atoms, docs[1:])]
+        audits = [audit_role(atom, analysis) for atom, analysis in zip(atoms, analyses)]
+        atom_warnings = [
+            obligation_warnings(atom, analysis, audit)
+            for atom, analysis, audit in zip(atoms, analyses, audits)
+        ]
+        summaries = [
+            summary_from_analysis(atom, analysis, audit, warnings)
+            for atom, analysis, audit, warnings in zip(atoms, analyses, audits, atom_warnings)
+        ]
+        claim_warnings = claim_preservation_warnings(claim_analysis, atoms, analyses)
+    except LinguisticAnalysisError:
+        raise
+    except Exception as error:
+        raise LinguisticAnalysisError("Local linguistic analysis failed.") from error
+    return LinguisticAnalysisResponse(
+        claim_analysis=claim_analysis,
+        analyses=analyses,
+        summaries=summaries,
+        claim_warnings=claim_warnings,
+        model=MODEL_ID,
+    )
+
+
 def analyze_atoms(atoms: Sequence[PipelineAtom]) -> LinguisticAnalysisResponse:
+    """Compatibility adapter for callers that only need atom-level parsing.
+
+    The live API always uses ``analyze_decomposition`` so it can audit the
+    original claim. Keeping this adapter preserves the extractor's established
+    batching contract for internal callers and regression tests.
+    """
+
     if not atoms:
         raise LinguisticAnalysisError("At least one atom is required for linguistic analysis.")
     nlp = _load_model()
@@ -508,11 +744,37 @@ def analyze_atoms(atoms: Sequence[PipelineAtom]) -> LinguisticAnalysisResponse:
         if len(docs) != len(atoms):
             raise LinguisticAnalysisError("The parser returned an incomplete analysis batch.")
         analyses = [analysis_from_doc(atom, doc) for atom, doc in zip(atoms, docs)]
+        typed_atoms = [
+            DecomposedAtom(
+                id=atom.id,
+                text=atom.text,
+                source_text=atom.text,
+                start=0,
+                end=utf16_offset(atom.text, len(atom.text)),
+                role=ObligationRole.core,
+            )
+            for atom in atoms
+        ]
+        audits = [audit_role(atom, analysis) for atom, analysis in zip(typed_atoms, analyses)]
+        warnings = [
+            obligation_warnings(atom, analysis, audit)
+            for atom, analysis, audit in zip(typed_atoms, analyses, audits)
+        ]
+        claim_analysis = analyses[0].model_copy(update={"atom_id": "claim"})
+        return LinguisticAnalysisResponse(
+            claim_analysis=claim_analysis,
+            analyses=analyses,
+            summaries=[
+                summary_from_analysis(atom, analysis, audit, warning)
+                for atom, analysis, audit, warning in zip(typed_atoms, analyses, audits, warnings)
+            ],
+            claim_warnings=[],
+            model=MODEL_ID,
+        )
     except LinguisticAnalysisError:
         raise
     except Exception as error:
         raise LinguisticAnalysisError("Local linguistic analysis failed.") from error
-    return LinguisticAnalysisResponse(analyses=analyses, model=MODEL_ID)
 
 
-analyze_linguistics = analyze_atoms
+analyze_linguistics = analyze_decomposition

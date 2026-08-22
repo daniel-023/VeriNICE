@@ -1,24 +1,25 @@
 import {
   Braces,
   Check,
-  CircleDashed,
   FileSearch,
+  Gavel,
   GitBranch,
   LoaderCircle,
   Scale,
-  Split,
 } from "lucide-react";
-import type { StageState } from "@/lib/types";
+import type { ReferenceLabel, StageState } from "@/lib/types";
 
-const PENDING_STAGES = [
-  { icon: Split, title: "Four-way Verdict" },
-];
+function verdictWord(verdict: ReferenceLabel): string {
+  return verdict.replaceAll("_", " ").toLowerCase();
+}
 
 export function PipelinePanel({
   decompositionState,
   retrievalState,
   nliState,
   graphState,
+  verdictState = "idle",
+  verdict = null,
   graphLinkCount,
   atomCount,
   evidenceCount,
@@ -31,6 +32,8 @@ export function PipelinePanel({
   retrievalState: StageState;
   nliState: StageState;
   graphState: StageState;
+  verdictState?: StageState;
+  verdict?: ReferenceLabel | null;
   graphLinkCount: number;
   atomCount: number;
   evidenceCount: number;
@@ -67,6 +70,16 @@ export function PipelinePanel({
           : retrievalState === "complete"
             ? "Waiting to classify the retrieved candidates."
             : "Runs automatically after candidate retrieval.";
+  const verdictCopy =
+    verdictState === "complete" && verdict
+      ? `Aggregated to ${verdictWord(verdict)}.`
+      : verdictState === "running"
+        ? "Applying the composition rule to every obligation."
+        : verdictState === "error"
+          ? "Aggregation is unavailable. The graph above is unchanged."
+          : graphState === "complete"
+            ? "Waiting to aggregate obligation states."
+            : "Runs automatically after the argumentation graph.";
 
   const stateLabel = (state: StageState) =>
     state === "complete"
@@ -84,7 +97,7 @@ export function PipelinePanel({
           <p className="eyebrow">Verification Pipeline</p>
           <h2 id="pipeline-heading">From Claim to Verdict</h2>
         </div>
-        <span>{recorded ? "4 recorded stages" : "4 live stages"}</span>
+        <span>{recorded ? "5 recorded stages" : "5 live stages"}</span>
       </div>
 
       <ol className="pipeline-stages">
@@ -163,7 +176,7 @@ export function PipelinePanel({
             {graphState === "complete" ? <Check size={19} aria-hidden="true" /> : <GitBranch size={19} aria-hidden="true" />}
           </span>
           <span className="stage-copy">
-            <small>04 · {recorded ? "RECORDED" : "DERIVED"}</small>
+            <small>04 · DERIVED</small>
             <strong>Argumentation Graph</strong>
             <p>
               {graphState === "complete"
@@ -179,25 +192,20 @@ export function PipelinePanel({
           <span className="stage-state">{stateLabel(graphState)}</span>
         </li>
 
-        {PENDING_STAGES.map(({ icon: Icon, title }, index) => (
-          <li className="pipeline-stage stage-pending" key={title}>
-            <span className="stage-icon">
-              <Icon size={19} aria-hidden="true" />
-            </span>
-            <span className="stage-copy">
-                <small>{String(index + 5).padStart(2, "0")} · NEXT</small>
-              <strong>{title}</strong>
-              <p>
-                {title === "Four-way Verdict"
-                  ? "Supported, Refuted, Not Enough Evidence, or Conflicting Evidence."
-                  : "This stage is reserved for the next implementation milestone."}
-              </p>
-            </span>
-            <span className="stage-state">
-              <CircleDashed size={13} aria-hidden="true" /> Pending
-            </span>
-          </li>
-        ))}
+        <li className={`pipeline-stage stage-${verdictState}`}>
+          <span className="stage-icon">
+            {verdictState === "complete" ? <Check size={19} aria-hidden="true" /> : <Gavel size={19} aria-hidden="true" />}
+          </span>
+          <span className="stage-copy">
+            <small>05 · DETERMINISTIC</small>
+            <strong>Four-way Verdict</strong>
+            <p>{verdictCopy}</p>
+            {verdictState === "complete" ? (
+              <a className="stage-link" href="#case-verdict">View Verdict</a>
+            ) : null}
+          </span>
+          <span className="stage-state">{stateLabel(verdictState)}</span>
+        </li>
       </ol>
     </section>
   );

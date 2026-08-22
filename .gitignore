@@ -17,6 +17,9 @@ artifacts/
 *.pid
 .env.local
 .env
+# Local environment variants may hold Basic Auth credentials. Keep the
+# committed `.env.example` as the only configuration template.
+.env*.local
 *.egg-info/
 *.tsbuildinfo
 __pycache__/

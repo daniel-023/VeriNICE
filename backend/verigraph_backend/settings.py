@@ -34,10 +34,10 @@ class Settings:
     )
     ollama_model: str = os.getenv("VERIGRAPH_OLLAMA_MODEL", "qwen2.5:3b")
     ollama_keep_alive: str = os.getenv("VERIGRAPH_OLLAMA_KEEP_ALIVE", "10m")
-    # Keep the local Qwen model within a typical laptop memory budget. The
-    # decomposition prompt fits within 2048 tokens; larger contexts are costly
-    # for CPU-only Ollama installations.
-    ollama_context_size: int = int(os.getenv("VERIGRAPH_OLLAMA_CONTEXT_SIZE", "2048"))
+    # The structured schema and compact few-shot examples need room alongside
+    # the input claim and JSON response. This remains configurable for smaller
+    # CPU-only Ollama installations.
+    ollama_context_size: int = int(os.getenv("VERIGRAPH_OLLAMA_CONTEXT_SIZE", "4096"))
     embedding_model: str = os.getenv(
         "VERIGRAPH_EMBEDDING_MODEL", "BAAI/bge-small-en-v1.5"
     )

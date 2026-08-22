@@ -1,75 +1,48 @@
 from __future__ import annotations
 
 import json
-import re
-from typing import Any, List, Literal, Optional
+from typing import Any, Optional
 
 import httpx
-from pydantic import BaseModel, ConfigDict, Field, ValidationError
+from pydantic import ValidationError
 
-from .schemas import DecomposedAtom, DecompositionResponse
+from .schemas import (
+    ClaimComposition,
+    ClaimDecompositionDraft,
+    DecomposedAtom,
+    DecompositionResponse,
+    DecompositionWarning,
+)
 from .settings import settings
 from .text_offsets import utf16_offset
 
 
-WICE_DECOMPOSITION_INSTRUCTIONS = """Segment one claim into its essential,
-independently verifiable facts. Return JSON matching the supplied schema.
+DECOMPOSITION_INSTRUCTIONS = """Decompose one claim into the smallest set of
+standalone verification obligations needed to verify the complete claim.
 
-Split coordinated predicates when they make separately verifiable assertions
-(for example, “X acquired Y and moved to Z” becomes two atoms). Do not return a
-multi-fact claim unchanged as one atom. Keep a single atom only when splitting
-would destroy the meaning of one indivisible assertion.
+Each obligation must be one independently verifiable proposition. Preserve the
+claim's polarity, attribution, modality, quantities, dates, locations, and
+causal relations. Do not add facts. sourceText must be copied exactly from one
+contiguous span of the claim. Use the most specific role. Never create support
+or attack relations, entities, isolated dates, numbers, or tokens.
 
-Write each `text` as a clear standalone fact, as in WiCE-style claim
-decomposition. You may restore an omitted subject or connective only when it is
-unambiguously licensed by the claim; do not invent facts or strengthen scope.
-Preserve negation, modality, attribution, time, quantities, and collective
-scope. `source_text` must be an exact contiguous substring of the original
-claim that grounds the rewritten fact. More than one fact may use the same
-`source_text`. Copy `source_text` character-for-character: never reorder,
-paraphrase, or normalize it. When a rewritten atom combines a shared modifier
-with a later clause, use the entire original claim as `source_text`. Before
-returning, verify mechanically that every `source_text` occurs verbatim in the
-claim. Do not verify the claim.
+Use SINGLE for one obligation, AND when every obligation must hold, and OR when
+any obligation is sufficient. This schema supports only flat composition.
 
-Example claim: In March 2018, the company partnered with Amazon Web Services
-(AWS) to offer AI-enabled conversational solutions to customers in India.
-Example atoms:
-- The company partnered with Amazon Web Services in March 2018.
-- The partnership offered AI-enabled conversational solutions to customers in India.
-For both atoms, `source_text` is the complete example claim exactly as written.
+Examples:
+Claim: The archive opened in 2021.
+JSON: {"composition":"SINGLE","obligations":[{"text":"The archive opened in 2021.","sourceText":"The archive opened in 2021","role":"CORE"}]}
+Claim: The minister said unemployment had fallen.
+JSON: {"composition":"SINGLE","obligations":[{"text":"The minister said that unemployment had fallen.","sourceText":"The minister said unemployment had fallen","role":"ATTRIBUTION"}]}
+Claim: The city cut emissions by 20% in 2023.
+JSON: {"composition":"AND","obligations":[{"text":"The city cut emissions.","sourceText":"The city cut emissions","role":"CORE"},{"text":"The city cut emissions by 20%.","sourceText":"by 20%","role":"NUMERIC_CONSTRAINT"},{"text":"The city cut emissions in 2023.","sourceText":"in 2023","role":"TEMPORAL_CONSTRAINT"}]}
+Claim: The bridge is in Paris or Lyon.
+JSON: {"composition":"OR","obligations":[{"text":"The bridge is in Paris.","sourceText":"in Paris","role":"LOCATION_CONSTRAINT"},{"text":"The bridge is in Lyon.","sourceText":"Lyon","role":"LOCATION_CONSTRAINT"}]}
 
-Example claim: A previous six-time winner of the Nations' Cup, Sebastian Vettel
-became Champion of Champions for the first time, defeating Tom Kristensen 2–0.
-Example atoms:
-- Sebastian Vettel was a previous six-time winner of the Nations' Cup.
-- Sebastian Vettel became Champion of Champions for the first time.
-- Sebastian Vettel defeated Tom Kristensen 2–0.
-"""
+Return only JSON conforming to the supplied schema."""
 
 
-ATOM_OUTPUT_SCHEMA = {
-    "type": "object",
-    "additionalProperties": False,
-    "required": ["atoms"],
-    "properties": {
-        "atoms": {
-            "type": "array",
-            "minItems": 1,
-            "maxItems": 12,
-            "items": {
-                "type": "object",
-                "additionalProperties": False,
-                "required": ["text", "source_text", "essential"],
-                "properties": {
-                    "text": {"type": "string", "minLength": 1},
-                    "source_text": {"type": "string", "minLength": 1},
-                    "essential": {"type": "boolean", "const": True},
-                },
-            },
-        }
-    },
-}
+ATOM_OUTPUT_SCHEMA = ClaimDecompositionDraft.model_json_schema(by_alias=True)
 
 
 class DecompositionError(RuntimeError):
@@ -88,85 +61,6 @@ class DecompositionOutputError(DecompositionError):
     pass
 
 
-class _LLMAtom(BaseModel):
-    model_config = ConfigDict(extra="forbid")
-
-    text: str = Field(min_length=1)
-    source_text: str = Field(min_length=1)
-    essential: Literal[True]
-
-
-class _LLMDecomposition(BaseModel):
-    model_config = ConfigDict(extra="forbid")
-
-    atoms: List[_LLMAtom] = Field(min_length=1, max_length=12)
-
-
-_GROUNDING_QUOTES = frozenset('"\'“”‘’')
-_GROUNDING_WORDS = re.compile(r"[A-Za-z0-9]+")
-
-
-def _soft_ground_source_text(claim: str, source_text: str) -> tuple[int, int] | None:
-    """Match quote/whitespace-only transcription differences without inventing text.
-
-    Some local models reproduce a quotation while normalising curly quotes or
-    adding a missing closing quote.  The returned range always slices the
-    original claim, and every non-quote, non-whitespace character must still
-    match exactly.
-    """
-
-    def compact(value: str) -> tuple[str, list[int]]:
-        characters: list[str] = []
-        offsets: list[int] = []
-        pending_space = False
-        for offset, character in enumerate(value):
-            if character in _GROUNDING_QUOTES:
-                continue
-            if character.isspace():
-                pending_space = bool(characters)
-                continue
-            if pending_space:
-                characters.append(" ")
-                offsets.append(offset)
-                pending_space = False
-            characters.append(character)
-            offsets.append(offset)
-        return "".join(characters), offsets
-
-    compact_claim, claim_offsets = compact(claim)
-    compact_source, _ = compact(source_text)
-    if not compact_source:
-        return None
-    normalized_start = compact_claim.find(compact_source)
-    if normalized_start < 0:
-        return None
-    normalized_end = normalized_start + len(compact_source)
-    return (
-        claim_offsets[normalized_start],
-        claim_offsets[normalized_end - 1] + 1,
-    )
-
-
-def _ground_source_text(claim: str, source_text: str) -> tuple[int, str] | None:
-    start = claim.find(source_text)
-    if start >= 0:
-        return start, source_text
-    soft_range = _soft_ground_source_text(claim, source_text)
-    if soft_range is None:
-        return None
-    start, end = soft_range
-    return start, claim[start:end]
-
-
-def _can_use_full_claim_grounding(claim: str, atom_text: str, source_text: str) -> bool:
-    """Allow a full-claim span only for a visibly claim-derived model result."""
-
-    claim_words = {word.lower() for word in _GROUNDING_WORDS.findall(claim) if len(word) > 2}
-    atom_words = {word.lower() for word in _GROUNDING_WORDS.findall(atom_text) if len(word) > 2}
-    source_words = {word.lower() for word in _GROUNDING_WORDS.findall(source_text) if len(word) > 2}
-    return len(claim_words & atom_words) >= 2 and len(claim_words & source_words) >= 2
-
-
 def _response_text(payload: Any) -> str:
     if not isinstance(payload, dict):
         raise DecompositionOutputError("The model returned an invalid response envelope.")
@@ -182,7 +76,7 @@ def _response_text(payload: Any) -> str:
             "The model stopped before completing the decomposition. Please retry."
         )
 
-    text_parts: List[str] = []
+    text_parts: list[str] = []
     for output in payload.get("output", []):
         if not isinstance(output, dict):
             continue
@@ -193,9 +87,7 @@ def _response_text(payload: Any) -> str:
                 raise DecompositionProviderError(
                     "The model declined this claim. Revise the claim and try again."
                 )
-            if content.get("type") == "output_text" and isinstance(
-                content.get("text"), str
-            ):
+            if content.get("type") == "output_text" and isinstance(content.get("text"), str):
                 text_parts.append(content["text"])
     if not text_parts:
         raise DecompositionOutputError(
@@ -204,79 +96,160 @@ def _response_text(payload: Any) -> str:
     return "".join(text_parts)
 
 
-def parse_decomposition(claim: str, payload: Any, model: str) -> DecompositionResponse:
-    try:
-        parsed = _LLMDecomposition.model_validate_json(_response_text(payload))
-    except (ValueError, ValidationError) as error:
-        raise DecompositionOutputError(
-            "The model returned malformed decomposition data. Please retry."
-        ) from error
+def _validate_and_normalize(
+    claim: str, draft: ClaimDecompositionDraft, model: str
+) -> DecompositionResponse:
+    obligations = draft.obligations
+    if draft.composition is ClaimComposition.single and len(obligations) != 1:
+        raise DecompositionOutputError("SINGLE decompositions must contain exactly one obligation.")
+    if draft.composition in {ClaimComposition.and_, ClaimComposition.or_} and len(obligations) < 2:
+        raise DecompositionOutputError("AND and OR decompositions must contain at least two obligations.")
 
-    atoms: List[DecomposedAtom] = []
-    for index, item in enumerate(parsed.atoms, start=1):
-        atom_text = item.text.strip()
-        if not atom_text or not item.source_text.strip():
+    texts = [item.text.strip() for item in obligations]
+    if len(texts) != len(set(texts)):
+        raise DecompositionOutputError("Decomposition obligations must not be exact duplicates.")
+
+    atoms: list[DecomposedAtom] = []
+    source_texts: list[str] = []
+    for index, obligation in enumerate(obligations, start=1):
+        text = obligation.text.strip()
+        source_text = obligation.source_text
+        if not text or not source_text.strip():
+            raise DecompositionOutputError("Decomposition obligations and sourceText values cannot be blank.")
+        start = claim.find(source_text)
+        if start < 0:
             raise DecompositionOutputError(
-                "The model returned an empty atom. Please retry."
+                "Every sourceText value must be an exact contiguous substring of the claim."
             )
-        grounded = _ground_source_text(claim, item.source_text)
-        if grounded is None:
-            if not _can_use_full_claim_grounding(claim, atom_text, item.source_text):
-                raise DecompositionOutputError(
-                    "A returned atom was not grounded in the original claim. Please retry."
-                )
-            grounded = (0, claim)
-        start, grounded_source_text = grounded
+        source_texts.append(source_text)
         atoms.append(
             DecomposedAtom(
                 id=f"atom-{index}",
-                text=atom_text,
-                source_text=grounded_source_text,
+                text=text,
+                source_text=source_text,
                 start=utf16_offset(claim, start),
-                end=utf16_offset(claim, start + len(grounded_source_text)),
+                end=utf16_offset(claim, start + len(source_text)),
+                role=obligation.role,
             )
         )
-    return DecompositionResponse(atoms=atoms, model=model)
+
+    warnings: list[DecompositionWarning] = []
+    if len(source_texts) != len(set(source_texts)):
+        warnings.append(
+            DecompositionWarning(
+                code="REUSED_SOURCE_TEXT",
+                message="One sourceText span grounds more than one obligation.",
+            )
+        )
+    if any(len(source.strip()) < 4 for source in source_texts):
+        warnings.append(
+            DecompositionWarning(
+                code="AMBIGUOUS_SOURCE_TEXT",
+                message="A very short sourceText span may be ambiguous in the original claim.",
+            )
+        )
+    return DecompositionResponse(
+        composition=draft.composition,
+        atoms=atoms,
+        warnings=warnings,
+        model=model,
+    )
 
 
-# The first attempt is fully deterministic (temperature 0, seed 0) so a
-# successful decomposition is reproducible. Ollama returns byte-identical
-# output for identical input+options, so a caller-level retry against that
-# same request can never recover from an output-shape failure (e.g. an
-# ungrounded atom) - only varying the sampling on retry gives it a chance.
-_MAX_ATTEMPTS = 3
+def parse_decomposition(claim: str, payload: Any, model: str) -> DecompositionResponse:
+    """Validate one model response and normalize its server-owned fields."""
+
+    try:
+        draft = ClaimDecompositionDraft.model_validate_json(_response_text(payload))
+    except (ValueError, ValidationError) as error:
+        raise DecompositionOutputError(
+            f"The model returned malformed decomposition data: {error}"
+        ) from error
+    return _validate_and_normalize(claim, draft, model)
 
 
-def _decomposition_options(attempt: int) -> dict[str, Any]:
-    if attempt == 0:
-        return {"temperature": 0, "seed": 0, "num_ctx": settings.ollama_context_size}
-    return {
-        "temperature": 0.4,
-        "seed": attempt,
-        "num_ctx": settings.ollama_context_size,
-    }
+def _decomposition_options() -> dict[str, Any]:
+    return {"temperature": 0, "seed": 0, "num_ctx": settings.ollama_context_size}
 
 
-def _decomposition_request_payload(claim: str, attempt: int) -> dict[str, Any]:
+def _decomposition_request_payload(
+    claim: str, *, repair_errors: str | None = None, invalid_json: str | None = None
+) -> dict[str, Any]:
+    request = (
+        f"Claim:\n{claim}\n\nRequired JSON schema:\n"
+        f"{json.dumps(ATOM_OUTPUT_SCHEMA, ensure_ascii=False)}"
+    )
+    if repair_errors is not None:
+        request += (
+            "\n\nYour previous response failed validation. Repair only the JSON."
+            f"\nValidation errors:\n{repair_errors}"
+            f"\nPrevious response:\n{invalid_json or '(unavailable)'}"
+        )
     return {
         "model": settings.ollama_model,
         "stream": False,
         "messages": [
-            {"role": "system", "content": WICE_DECOMPOSITION_INSTRUCTIONS},
-            {
-                "role": "user",
-                "content": (
-                    f"Claim:\n{claim}\n\n"
-                    "Copy every source_text verbatim from the claim above. If in doubt, "
-                    "use the complete claim exactly as written.\n\nRequired JSON schema:\n"
-                    f"{json.dumps(ATOM_OUTPUT_SCHEMA, ensure_ascii=False)}"
-                ),
-            },
+            {"role": "system", "content": DECOMPOSITION_INSTRUCTIONS},
+            {"role": "user", "content": request},
         ],
         "format": ATOM_OUTPUT_SCHEMA,
-        "options": _decomposition_options(attempt),
+        "options": _decomposition_options(),
         "keep_alive": settings.ollama_keep_alive,
     }
+
+
+async def _generate(
+    client: httpx.AsyncClient,
+    claim: str,
+    *,
+    repair_errors: str | None = None,
+    invalid_json: str | None = None,
+) -> Any:
+    try:
+        response = await client.post(
+            f"{settings.ollama_url.rstrip('/')}/api/chat",
+            headers={"Content-Type": "application/json"},
+            content=json.dumps(
+                _decomposition_request_payload(
+                    claim, repair_errors=repair_errors, invalid_json=invalid_json
+                )
+            ),
+        )
+        response.raise_for_status()
+        return response.json()
+    except httpx.TimeoutException as error:
+        raise DecompositionProviderError(
+            "The Ollama decomposition request timed out. Check that Ollama is running and retry."
+        ) from error
+    except httpx.HTTPStatusError as error:
+        raise DecompositionProviderError(
+            "Ollama rejected the decomposition request. Check that the configured model is installed."
+        ) from error
+    except (httpx.RequestError, ValueError) as error:
+        raise DecompositionProviderError("Ollama could not be reached. Start Ollama and retry.") from error
+
+
+def _fallback(claim: str, model: str) -> DecompositionResponse:
+    return DecompositionResponse(
+        composition=ClaimComposition.single,
+        atoms=[
+            DecomposedAtom(
+                id="atom-1",
+                text=claim,
+                source_text=claim,
+                start=0,
+                end=utf16_offset(claim, len(claim)),
+                role="CORE",
+            )
+        ],
+        warnings=[
+            DecompositionWarning(
+                code="DECOMPOSITION_FALLBACK",
+                message="Structured decomposition failed; the original claim was retained as one obligation.",
+            )
+        ],
+        model=model,
+    )
 
 
 async def decompose_claim(
@@ -290,42 +263,26 @@ async def decompose_claim(
         )
 
     owns_client = client is None
-    active_client = client or httpx.AsyncClient(
-        timeout=settings.request_timeout_seconds
-    )
+    active_client = client or httpx.AsyncClient(timeout=settings.request_timeout_seconds)
     try:
-        last_error: DecompositionOutputError | None = None
-        for attempt in range(_MAX_ATTEMPTS):
-            request_payload = _decomposition_request_payload(claim, attempt)
+        first_payload = await _generate(active_client, claim)
+        try:
+            return parse_decomposition(claim, first_payload, settings.ollama_model)
+        except DecompositionOutputError as first_error:
             try:
-                response = await active_client.post(
-                    f"{settings.ollama_url.rstrip('/')}/api/chat",
-                    headers={"Content-Type": "application/json"},
-                    content=json.dumps(request_payload),
-                )
-                response.raise_for_status()
-                return parse_decomposition(
-                    claim,
-                    response.json(),
-                    settings.ollama_model,
-                )
-            except DecompositionOutputError as error:
-                last_error = error
-                continue
-            except httpx.TimeoutException as error:
-                raise DecompositionProviderError(
-                    "The Ollama decomposition request timed out. Check that Ollama is running and retry."
-                ) from error
-            except httpx.HTTPStatusError as error:
-                raise DecompositionProviderError(
-                    "Ollama rejected the decomposition request. Check that the configured model is installed."
-                ) from error
-            except (httpx.RequestError, ValueError) as error:
-                raise DecompositionProviderError(
-                    "Ollama could not be reached. Start Ollama and retry."
-                ) from error
-        assert last_error is not None
-        raise last_error
+                previous_json = _response_text(first_payload)
+            except DecompositionError:
+                previous_json = None
+            repaired_payload = await _generate(
+                active_client,
+                claim,
+                repair_errors=str(first_error),
+                invalid_json=previous_json,
+            )
+            try:
+                return parse_decomposition(claim, repaired_payload, settings.ollama_model)
+            except DecompositionOutputError:
+                return _fallback(claim, settings.ollama_model)
     finally:
         if owns_client:
             await active_client.aclose()

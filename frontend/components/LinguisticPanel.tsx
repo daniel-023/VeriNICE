@@ -7,6 +7,7 @@ import type {
   LinguisticArgument,
   LinguisticModifier,
   LinguisticSpan,
+  ObligationLinguisticSummary,
   StageState,
 } from "@/lib/types";
 
@@ -14,6 +15,28 @@ function plainLabel(value: string): string {
   const text = value.replaceAll("_", " ");
   return `${text.charAt(0).toUpperCase()}${text.slice(1)}`;
 }
+
+const warningLabels: Record<string, string> = {
+  ROLE_CUE_MISMATCH: "The obligation type does not match the language cues found in the text.",
+  MULTIPLE_PROPOSITION_FRAMES: "This obligation still contains more than one proposition.",
+  UNRESOLVED_SUBJECT: "No subject could be resolved.",
+  UNRESOLVED_PREDICATE: "No predicate could be resolved.",
+  PARTIAL_LINGUISTIC_ANALYSIS: "Only part of this obligation could be analysed.",
+  NEGATION_SCOPE_UNCLEAR: "The scope of negation is unclear.",
+  ATTRIBUTION_SCOPE_UNCLEAR: "The reporting and embedded proposition scopes are unclear.",
+  QUALIFIER_ATTACHMENT_UNCLEAR: "A qualifier may attach to the wrong predicate.",
+};
+
+const roleLabels: Record<string, string> = {
+  CORE: "Core fact",
+  NUMERIC_CONSTRAINT: "Numeric constraint",
+  TEMPORAL_CONSTRAINT: "Temporal constraint",
+  ATTRIBUTION: "Attribution",
+  LOCATION_CONSTRAINT: "Location constraint",
+  CAUSAL_RELATION: "Causal relation",
+  CONDITIONAL: "Conditional",
+  MODALITY_CONSTRAINT: "Modality constraint",
+};
 
 const dependencyLabels: Record<string, string> = {
   advcl: "Adverbial clause",
@@ -136,12 +159,14 @@ function stateLabel(state: StageState, partial: boolean): string {
 export function LinguisticPanel({
   atom,
   analysis,
+  summary,
   state,
   error,
   onRetry,
 }: {
   atom: DecomposedAtom;
   analysis: AtomLinguisticAnalysis | null;
+  summary: ObligationLinguisticSummary | null;
   state: StageState;
   error: string | null;
   onRetry: () => void;
@@ -213,6 +238,23 @@ export function LinguisticPanel({
       <p className="linguistic-preview" aria-label="Atomic claim preview">
         <Preview text={atom.text} feature={activeFeature} />
       </p>
+
+      {summary ? (
+        <section className="linguistic-group" aria-label="Obligation audit">
+          <h4>Obligation audit</h4>
+          <dl className="linguistic-audit">
+            <div><dt>Proposed role</dt><dd>{plainLabel(atom.role)}</dd></div>
+            <div><dt>spaCy audit</dt><dd>{plainLabel(summary.roleAudit)}</dd></div>
+          </dl>
+          {summary.warnings.length ? (
+            <ul className="linguistic-warnings">
+              {summary.warnings.map((warning) => (
+                <li key={warning}>{warningLabels[warning] ?? plainLabel(warning)}</li>
+              ))}
+            </ul>
+          ) : <p className="linguistic-missing">No audit warnings</p>}
+        </section>
+      ) : null}
 
       {state === "running" ? (
         <p className="linguistic-state" aria-live="polite">Analyzing language…</p>

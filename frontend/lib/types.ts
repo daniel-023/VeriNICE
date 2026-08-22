@@ -34,10 +34,31 @@ export interface DecomposedAtom {
   sourceText: string;
   start: number;
   end: number;
+  role: ObligationRole;
+}
+
+export type ClaimComposition = "SINGLE" | "AND" | "OR";
+
+export type ObligationRole =
+  | "CORE"
+  | "NUMERIC_CONSTRAINT"
+  | "TEMPORAL_CONSTRAINT"
+  | "ATTRIBUTION"
+  | "LOCATION_CONSTRAINT"
+  | "CAUSAL_RELATION"
+  | "CONDITIONAL"
+  | "MODALITY_CONSTRAINT";
+
+export interface DecompositionWarning {
+  code: string;
+  message: string;
 }
 
 export interface DecompositionResponse {
+  schemaVersion: 2;
+  composition: ClaimComposition;
   atoms: DecomposedAtom[];
+  warnings: DecompositionWarning[];
   provider: "ollama";
   model: string;
 }
@@ -74,31 +95,117 @@ export interface AtomSupportClassification {
   relations: EvidenceRelation[];
 }
 
-export type ArgumentationNodeKind = "claim" | "atom" | "evidence";
+export type ArgumentationNodeType =
+  | "CASE_CLAIM"
+  | "VERIFICATION_OBLIGATION"
+  | "EVIDENCE";
 
-export interface ArgumentationNode {
+export interface CaseClaimNode {
   id: string;
-  kind: ArgumentationNodeKind;
-  label: string;
+  type: "CASE_CLAIM";
   text: string;
-  atomId?: string;
-  documentId?: string;
-  spanId?: string;
-  atomIds?: string[];
+  composition: ClaimComposition;
 }
 
-export type ArgumentationEdgeRelation = "DECOMPOSES" | NLIRelation;
+export interface VerificationObligationNode {
+  id: string;
+  type: "VERIFICATION_OBLIGATION";
+  atomId: string;
+  text: string;
+  role: ObligationRole;
+  sourceText: string;
+  start: number;
+  end: number;
+  linguistic?: ObligationLinguisticSummary;
+}
+
+export interface EvidenceNode {
+  id: string;
+  type: "EVIDENCE";
+  evidenceId: string;
+  documentId: string;
+  documentTitle: string;
+  documentUrl: string;
+  text: string;
+  start: number;
+  end: number;
+  bestRank: number;
+}
+
+export type ArgumentationNode =
+  | CaseClaimNode
+  | VerificationObligationNode
+  | EvidenceNode;
+
+export type ArgumentationEdgeType = "DECOMPOSES_TO" | "SUPPORTS" | "ATTACKS";
 
 export interface ArgumentationEdge {
   id: string;
   source: string;
   target: string;
-  relation: ArgumentationEdgeRelation;
+  type: ArgumentationEdgeType;
+  /** Present only on NLI-derived support and attack edges. */
+  nli?: { label: "ENTAILMENT" | "CONTRADICTION" };
+}
+
+export type GraphWarningCode =
+  | "MISSING_LINGUISTIC_SUMMARY"
+  | "MISSING_EVIDENCE"
+  | "MISSING_OBLIGATION"
+  | "DUPLICATE_NODE_ID"
+  | "DUPLICATE_EDGE_ID"
+  | "UNSUPPORTED_NLI_LABEL"
+  | "INVALID_SOURCE_OFFSETS"
+  | "EMPTY_OBLIGATION_TEXT";
+
+export interface GraphWarning {
+  code: GraphWarningCode;
+  message: string;
+}
+
+export interface GraphStats {
+  obligationCount: number;
+  evidenceCount: number;
+  supportEdgeCount: number;
+  attackEdgeCount: number;
+  omittedNeutralCount: number;
+  obligationsWithoutArgumentEdges: number;
 }
 
 export interface ArgumentationGraph {
+  schemaVersion: 2;
+  claimId: string;
   nodes: ArgumentationNode[];
   edges: ArgumentationEdge[];
+  warnings: GraphWarning[];
+  stats: GraphStats;
+}
+
+export type ObligationEvidenceState = "SUPPORTED" | "REFUTED" | "CONFLICTING" | "UNRESOLVED";
+
+export interface VerdictObligationSummary {
+  obligationId: string;
+  state: ObligationEvidenceState;
+  supportEdgeIds: string[];
+  attackEdgeIds: string[];
+  neutralCandidateCount: number;
+}
+
+export interface VerdictAggregationResult {
+  aggregationSchemaVersion: 1;
+  claimId: string;
+  composition: ClaimComposition;
+  verdict: ReferenceLabel;
+  positions: {
+    supportPosition: boolean;
+    attackPosition: boolean;
+    supportObligationIds: string[];
+    attackObligationIds: string[];
+    unresolvedObligationIds: string[];
+  };
+  obligations: VerdictObligationSummary[];
+  warnings: Array<{ code: string; message: string }>;
+  ruleTrace: string[];
 }
 
 export interface SupportClassificationResponse {
@@ -181,8 +288,43 @@ export interface AtomLinguisticAnalysis {
   unresolved: Array<"subject" | "predicate">;
 }
 
+export type RoleAuditStatus = "MATCH" | "MISMATCH" | "INCONCLUSIVE";
+
+export type LinguisticWarningCode =
+  | "ROLE_CUE_MISMATCH"
+  | "MULTIPLE_PROPOSITION_FRAMES"
+  | "UNRESOLVED_SUBJECT"
+  | "UNRESOLVED_PREDICATE"
+  | "PARTIAL_LINGUISTIC_ANALYSIS"
+  | "NEGATION_SCOPE_UNCLEAR"
+  | "ATTRIBUTION_SCOPE_UNCLEAR"
+  | "QUALIFIER_ATTACHMENT_UNCLEAR"
+  | "NEGATION_NOT_PRESERVED"
+  | "NUMERIC_INFORMATION_NOT_PRESERVED"
+  | "TEMPORAL_INFORMATION_NOT_PRESERVED"
+  | "ATTRIBUTION_NOT_PRESERVED"
+  | "MODALITY_NOT_PRESERVED"
+  | "LOCATION_NOT_PRESERVED"
+  | "CLAIM_FRAME_NOT_COVERED";
+
+export interface ObligationLinguisticSummary {
+  atomId: string;
+  analysisStatus: "complete" | "partial";
+  roleAudit: RoleAuditStatus;
+  subjects: string[];
+  predicates: string[];
+  cueKinds: LinguisticCueKind[];
+  modifierKinds: LinguisticModifierKind[];
+  entityLabels: string[];
+  warnings: LinguisticWarningCode[];
+}
+
 export interface LinguisticAnalysisResponse {
+  schemaVersion: 2;
+  claimAnalysis: AtomLinguisticAnalysis;
   analyses: AtomLinguisticAnalysis[];
+  summaries: ObligationLinguisticSummary[];
+  claimWarnings: LinguisticWarningCode[];
   provider: "spacy";
   model: string;
 }
@@ -190,10 +332,14 @@ export interface LinguisticAnalysisResponse {
 /** A complete, local pipeline run rendered by the static Vercel walkthrough. */
 export interface WalkthroughRun {
   caseId: string;
+  schemaVersion: 2;
+  composition: ClaimComposition;
+  warnings: DecompositionWarning[];
   atoms: DecomposedAtom[];
   evidence: AtomEvidence[];
   classifications: AtomSupportClassification[];
-  linguistics: AtomLinguisticAnalysis[];
+  /** Legacy recorded walkthroughs contain only atom analyses; new runs use v2. */
+  linguistics: LinguisticAnalysisResponse | AtomLinguisticAnalysis[];
   recordedWith: {
     decompositionModel: string;
     retrievalModel: string;
