@@ -1,5 +1,7 @@
 # VeriGraph Argumentation Graph Implementation Plan
 
+> **Status: delivered.** This plan is kept as the design record for the stage. Current behaviour is documented in `PIPELINE.md`; the implementation is in `frontend/lib/argumentationGraph.ts` and `frontend/components/ArgumentationGraph.tsx`.
+
 ## Scope
 
 This plan covers the third implementation stage, after structured claim decomposition and linguistic-analysis integration are stable.

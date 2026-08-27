@@ -1,5 +1,7 @@
 # VeriGraph Linguistic Analysis Integration Plan
 
+> **Status: delivered.** This plan is kept as the design record for the stage. Current behaviour is documented in `PIPELINE.md`; the implementation is in `backend/verigraph_backend/linguistic_analysis.py`.
+
 ## Scope
 
 This plan covers the second implementation stage, after structured claim decomposition is complete and schema version 2 is stable.

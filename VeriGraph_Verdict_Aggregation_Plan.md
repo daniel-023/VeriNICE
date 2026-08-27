@@ -1,5 +1,7 @@
 # VeriGraph Four-Way Verdict Aggregation Plan
 
+> **Status: delivered.** This plan is kept as the design record for the stage. Current behaviour is documented in `PIPELINE.md`; the implementation is in `backend/verigraph_backend/verdict_aggregation.py`.
+
 ## Scope
 
 This plan covers the fourth implementation stage, after structured claim decomposition, linguistic-analysis integration, and argumentation-graph construction are stable.

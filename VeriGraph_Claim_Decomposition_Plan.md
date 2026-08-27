@@ -1,5 +1,7 @@
 # VeriGraph Claim Decomposition Plan
 
+> **Status: delivered.** This plan is kept as the design record for the stage. Current behaviour is documented in `PIPELINE.md`; the implementation is in `backend/verigraph_backend/claim_decomposition.py`.
+
 ## Scope
 
 This plan covers only the claim decomposition stage. Linguistic analysis, argumentation-graph construction, and verdict aggregation should not be modified until this stage is stable.

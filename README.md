@@ -1,20 +1,30 @@
 # VeriGraph
 
-VeriGraph makes fact-verification steps inspectable without presenting a
-premature verdict. The current live pipeline is:
+VeriGraph lets an audience follow a fact check instead of asking them to trust
+one opaque score. It turns a complex claim into grounded verification
+obligations, finds candidate passages, labels sentence-level support and
+contradiction, and exposes the exact deterministic rule that produces the
+case verdict.
+
+The main contribution is the inspectable bridge from language models to a
+rule-governed argument graph. Linguistic analysis is useful supporting
+instrumentation: it catches lost entities, qualifiers, and role drift, but it
+does not supply evidence and cannot change a verdict.
+
+The current live pipeline is:
 
 ```text
 Claim + source documents
         ↓
-LLM claim decomposition (Qwen2.5 via Ollama)
+Schema-constrained claim decomposition (Qwen2.5 via Ollama)
         ↓
-Semantic candidate matching (BGE embeddings)
+Hybrid candidate retrieval (BGE embeddings + lexical anchors)
         ↓
-Sentence-level NLI (DeBERTa)
+Conservative sentence-level NLI (DeBERTa + explicit contradiction gates)
         ↓
 Deterministic atom–evidence argumentation graph
         ↓
-Four-way verdict — pending (SUPPORTED / REFUTED / NOT_ENOUGH_EVIDENCE /
+Deterministic four-way verdict (SUPPORTED / REFUTED / NOT_ENOUGH_EVIDENCE /
 CONFLICTING_EVIDENCE)
 ```
 
@@ -39,8 +49,9 @@ Requirements: Python 3, Node.js/npm, and Ollama Desktop. Native execution keeps
 the backend and model files on the host instead of in a container. Docker
 Desktop on macOS shares files into containers through a slow virtualized
 layer, which stalls model loads and file-watching; running natively avoids
-that entirely. The Ollama model can be overridden with
-`VERIGRAPH_OLLAMA_MODEL` when more memory is available.
+that entirely. Decomposition uses `qwen2.5:7b`, the model the published
+walkthrough was recorded with; `VERIGRAPH_OLLAMA_MODEL` overrides it, at the
+cost of no longer reproducing those runs.
 
 Optional local overrides can be placed in `.env.local`:
 
@@ -71,8 +82,8 @@ Useful commands:
 ./run-verigraph --record-walkthrough
 ```
 
-`--record-walkthrough` uses the already-running native services to run all 22
-approved cases across the four reference labels—and writes the static assets
+`--record-walkthrough` uses the already-running native services to run all 32
+approved cases—eight per reference label—and writes the static assets
 consumed by Vercel. It must complete successfully before deploying a new
 walkthrough.
 
@@ -98,14 +109,22 @@ set.
 
 ## Demo data and licences
 
-The approved 22-case AVeriTeC bundle is stored in `data/demo/averitec/` and
+The approved 32-case AVeriTeC bundle is stored in `data/demo/averitec/` and
 contains claims, reference labels, full source documents, titles, URLs, audit
 metadata, and a digest. Reference labels remain dataset metadata and are never
 used as pipeline outputs.
+
+The sample browser supports plain-language search plus topic, challenge, and
+reference-verdict filters. The private catalog is now balanced at eight cases
+per verdict and preserves every case from the earlier 22-case release. The
+static walkthrough remains a 22-run snapshot until the ten added cases have
+completed a fresh local model recording.
 
 See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for AVeriTeC attribution,
 source-text clearance, and model notices. VeriGraph code is released under the
 [MIT License](LICENSE).
 
 See [PIPELINE.md](PIPELINE.md) for model and API detail, and
-[RUNGUIDE.md](RUNGUIDE.md) for operational checks.
+[RUNGUIDE.md](RUNGUIDE.md) for operational checks. The AAAI-27 positioning,
+submission checklist, and acceptance-focused revisions are in
+[AAAI27_DEMO.md](AAAI27_DEMO.md).
