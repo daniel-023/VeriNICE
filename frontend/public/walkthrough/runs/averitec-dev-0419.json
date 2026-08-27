@@ -1,12 +1,40 @@
 {
   "caseId": "averitec-dev-0419",
+  "schemaVersion": 2,
+  "composition": "AND",
+  "warnings": [],
   "atoms": [
     {
       "id": "atom-1",
-      "text": "The U.S. Centers for Disease Control and Prevention fraudulently add deaths from poisoning, trauma, and unintentional injury to their tally of COVID-19 deaths.",
-      "sourceText": "The U.S. Centers for Disease Control and Prevention fraudulently add deaths from poisoning, trauma, and unintentional injury to their tally of COVID-19 deaths.",
-      "start": 0,
-      "end": 159
+      "text": "The U.S. Centers for Disease Control and Prevention fraudulently add deaths from poisoning.",
+      "sourceText": "fraudulently add deaths from poisoning",
+      "start": 52,
+      "end": 90,
+      "role": "CORE"
+    },
+    {
+      "id": "atom-2",
+      "text": "The U.S. Centers for Disease Control and Prevention fraudulently add deaths from trauma.",
+      "sourceText": "trauma",
+      "start": 92,
+      "end": 98,
+      "role": "CORE"
+    },
+    {
+      "id": "atom-3",
+      "text": "The U.S. Centers for Disease Control and Prevention fraudulently add deaths from unintentional injury.",
+      "sourceText": "unintentional injury",
+      "start": 104,
+      "end": 124,
+      "role": "CORE"
+    },
+    {
+      "id": "atom-4",
+      "text": "The U.S. Centers for Disease Control and Prevention add these deaths to their tally of COVID-19 deaths.",
+      "sourceText": "to their tally of COVID-19 deaths",
+      "start": 125,
+      "end": 158,
+      "role": "CORE"
     }
   ],
   "evidence": [
@@ -14,46 +42,211 @@
       "atomId": "atom-1",
       "spans": [
         {
-          "id": "doc-5dfdb3a51082::sentence-5",
-          "documentId": "doc-5dfdb3a51082",
-          "text": "On April 3, 2020, the CDC's National Center for Health Statistics issued guidance to physicians, coroners, and medical examiners who fill out death certificates to list COVID-19 as an underlying cause of death in the absence of a test \"if the circumstances are compelling within a reasonable degree of certainty.\"\n",
-          "start": 843,
-          "end": 1157
-        },
-        {
           "id": "doc-efeac11ee951::sentence-31",
           "documentId": "doc-efeac11ee951",
           "text": "See the CDC Guidance on Certifying COVID-19 Deaths (PDF).\n",
           "start": 3829,
-          "end": 3887
+          "end": 3887,
+          "context": "Where can healthcare facilities receive guidance regarding COVID-19 best practices regarding death?\n See the CDC Guidance on Certifying COVID-19 Deaths (PDF).\n Who can healthcare facilities contact for COVID-19 death related medical equipment and supplies, such as body bags and test kits?\n"
         },
         {
-          "id": "doc-efeac11ee951::sentence-16",
-          "documentId": "doc-efeac11ee951",
-          "text": "If a Coroner suspects COVID-19 is the cause of death, should COVID-19 be listed as the cause of death without laboratory test confirmation?\n",
-          "start": 1974,
-          "end": 2114
+          "id": "doc-5dfdb3a51082::sentence-5",
+          "documentId": "doc-5dfdb3a51082",
+          "text": "On April 3, 2020, the CDC's National Center for Health Statistics issued guidance to physicians, coroners, and medical examiners who fill out death certificates to list COVID-19 as an underlying cause of death in the absence of a test \"if the circumstances are compelling within a reasonable degree of certainty.\"\n",
+          "start": 843,
+          "end": 1157,
+          "context": "\"The idea that we’re going to allow people to massage and game the numbers is a real issue because we're going to undermine the [public's] trust.\"\n On April 3, 2020, the CDC's National Center for Health Statistics issued guidance to physicians, coroners, and medical examiners who fill out death certificates to list COVID-19 as an underlying cause of death in the absence of a test \"if the circumstances are compelling within a reasonable degree of certainty.\"\n The guidelines specify:\n"
         },
         {
-          "id": "doc-efeac11ee951::sentence-15",
+          "id": "doc-efeac11ee951::sentence-18",
           "documentId": "doc-efeac11ee951",
-          "text": "Yes, a Medical Examiner may conclude the cause of death is COVID-19 and list it in Part I of the death certificate.\n",
-          "start": 1858,
-          "end": 1974
+          "text": "Should a physician, Medical Examiner or Coroner include pre-existing conditions that may increase susceptibility to infection or exacerbate COVID-19, such as COPD or asthma on the death certificate?\n",
+          "start": 2217,
+          "end": 2416,
+          "context": "Yes, if COVID-19 is probable or suspected, list “Probable COVID-19” or “Suspected COVID-19” in Part I.\n Should a physician, Medical Examiner or Coroner include pre-existing conditions that may increase susceptibility to infection or exacerbate COVID-19, such as COPD or asthma on the death certificate?\n Yes, pre-existing conditions that may have increased susceptibility to or exacerbated COVID-19 should be listed in Part II of the death certificate.\n"
         },
         {
           "id": "doc-5dfdb3a51082::sentence-17",
           "documentId": "doc-5dfdb3a51082",
           "text": "As of this writing, the U.S. had more than 700,000 COVID-19 cases, with the death count nearing 40,000. ",
           "start": 3257,
-          "end": 3361
+          "end": 3361,
+          "context": "\"When the evidence tells you that COVID-19 was the likely cause of death then you should report it as the likely cause of death, whether you have a lab test or not. And medical examiners, physicians, and coroners are trained to make these determinations.\"\n As of this writing, the U.S. had more than 700,000 COVID-19 cases, with the death count nearing 40,000.  Our attempts to reach Scott Jensen for comment were unsuccessful."
         },
         {
-          "id": "doc-5dfdb3a51082::sentence-7",
+          "id": "doc-efeac11ee951::sentence-16",
+          "documentId": "doc-efeac11ee951",
+          "text": "If a Coroner suspects COVID-19 is the cause of death, should COVID-19 be listed as the cause of death without laboratory test confirmation?\n",
+          "start": 1974,
+          "end": 2114,
+          "context": "Yes, a Medical Examiner may conclude the cause of death is COVID-19 and list it in Part I of the death certificate.\n If a Coroner suspects COVID-19 is the cause of death, should COVID-19 be listed as the cause of death without laboratory test confirmation?\n Yes, if COVID-19 is probable or suspected, list “Probable COVID-19” or “Suspected COVID-19” in Part I.\n"
+        },
+        {
+          "id": "doc-5dfdb3a51082::sentence-1",
           "documentId": "doc-5dfdb3a51082",
-          "text": "In cases where a definite diagnosis of COVID–19 cannot be made, but it is suspected or likely (e.g., the circumstances are compelling within a reasonable degree of certainty), it is acceptable to report COVID–19 on a death certificate as 'probable' or 'presumed.' ",
-          "start": 1181,
-          "end": 1445
+          "text": "In April 2020, Dr. Scott Jensen, a Minnesota physician who serves in the Minnesota state Senate, gave television interviews in which he suggested that guidance issued by the Centers for Disease Control and Prevention (CDC) to health care providers on how to properly fill out death certificates for COVID-19 cases could artificially inflate the number of such cases in the U.S.\n",
+          "start": 0,
+          "end": 378,
+          "context": "In April 2020, Dr. Scott Jensen, a Minnesota physician who serves in the Minnesota state Senate, gave television interviews in which he suggested that guidance issued by the Centers for Disease Control and Prevention (CDC) to health care providers on how to properly fill out death certificates for COVID-19 cases could artificially inflate the number of such cases in the U.S.\n During an appearance on the Fox News prime time program \"Ingraham Angle,\" Jensen stated that he believed the guidelines issued by the CDC were \"ridiculous.\"\n"
+        }
+      ]
+    },
+    {
+      "atomId": "atom-2",
+      "spans": [
+        {
+          "id": "doc-5dfdb3a51082::sentence-5",
+          "documentId": "doc-5dfdb3a51082",
+          "text": "On April 3, 2020, the CDC's National Center for Health Statistics issued guidance to physicians, coroners, and medical examiners who fill out death certificates to list COVID-19 as an underlying cause of death in the absence of a test \"if the circumstances are compelling within a reasonable degree of certainty.\"\n",
+          "start": 843,
+          "end": 1157,
+          "context": "\"The idea that we’re going to allow people to massage and game the numbers is a real issue because we're going to undermine the [public's] trust.\"\n On April 3, 2020, the CDC's National Center for Health Statistics issued guidance to physicians, coroners, and medical examiners who fill out death certificates to list COVID-19 as an underlying cause of death in the absence of a test \"if the circumstances are compelling within a reasonable degree of certainty.\"\n The guidelines specify:\n"
+        },
+        {
+          "id": "doc-efeac11ee951::sentence-31",
+          "documentId": "doc-efeac11ee951",
+          "text": "See the CDC Guidance on Certifying COVID-19 Deaths (PDF).\n",
+          "start": 3829,
+          "end": 3887,
+          "context": "Where can healthcare facilities receive guidance regarding COVID-19 best practices regarding death?\n See the CDC Guidance on Certifying COVID-19 Deaths (PDF).\n Who can healthcare facilities contact for COVID-19 death related medical equipment and supplies, such as body bags and test kits?\n"
+        },
+        {
+          "id": "doc-5dfdb3a51082::sentence-1",
+          "documentId": "doc-5dfdb3a51082",
+          "text": "In April 2020, Dr. Scott Jensen, a Minnesota physician who serves in the Minnesota state Senate, gave television interviews in which he suggested that guidance issued by the Centers for Disease Control and Prevention (CDC) to health care providers on how to properly fill out death certificates for COVID-19 cases could artificially inflate the number of such cases in the U.S.\n",
+          "start": 0,
+          "end": 378,
+          "context": "In April 2020, Dr. Scott Jensen, a Minnesota physician who serves in the Minnesota state Senate, gave television interviews in which he suggested that guidance issued by the Centers for Disease Control and Prevention (CDC) to health care providers on how to properly fill out death certificates for COVID-19 cases could artificially inflate the number of such cases in the U.S.\n During an appearance on the Fox News prime time program \"Ingraham Angle,\" Jensen stated that he believed the guidelines issued by the CDC were \"ridiculous.\"\n"
+        },
+        {
+          "id": "doc-efeac11ee951::sentence-18",
+          "documentId": "doc-efeac11ee951",
+          "text": "Should a physician, Medical Examiner or Coroner include pre-existing conditions that may increase susceptibility to infection or exacerbate COVID-19, such as COPD or asthma on the death certificate?\n",
+          "start": 2217,
+          "end": 2416,
+          "context": "Yes, if COVID-19 is probable or suspected, list “Probable COVID-19” or “Suspected COVID-19” in Part I.\n Should a physician, Medical Examiner or Coroner include pre-existing conditions that may increase susceptibility to infection or exacerbate COVID-19, such as COPD or asthma on the death certificate?\n Yes, pre-existing conditions that may have increased susceptibility to or exacerbated COVID-19 should be listed in Part II of the death certificate.\n"
+        },
+        {
+          "id": "doc-efeac11ee951::sentence-23",
+          "documentId": "doc-efeac11ee951",
+          "text": "The Death Certificate Cause of Death will not be reported to the National Center for Health Statistics. ",
+          "start": 2915,
+          "end": 3019,
+          "context": "What happens if the physician, Medical Examiner or Coroner does not complete the Death Certificate Cause of Death correctly for COVID-19?\n The Death Certificate Cause of Death will not be reported to the National Center for Health Statistics.  The Death Certificate must be corrected by the certifier (physician, Medical Examiner or Coroner). "
+        },
+        {
+          "id": "doc-5dfdb3a51082::sentence-14",
+          "documentId": "doc-5dfdb3a51082",
+          "text": "Anderson noted that medical examiners' offices in the hard-hit state of New York are overwhelmed, and that the state has had an increase in unattended deaths in which COVID-19 was a likely factor, but no tests were available to confirm.\n",
+          "start": 2529,
+          "end": 2766,
+          "context": "\"I don’t think in any case are we over-estimating the deaths due to COVID-19. I think most likely we’re underestimating and in some cases we may be underestimating by a lot,\" Bob Anderson, who heads the mortality statistics branch at the CDC's National Center for Health Statistics, told us by phone.  Anderson noted that medical examiners' offices in the hard-hit state of New York are overwhelmed, and that the state has had an increase in unattended deaths in which COVID-19 was a likely factor, but no tests were available to confirm.\n \"We’re not asking [health care providers] to write [COVID-19] down for everyone who was possibly exposed. We're asking only if the patient showed symptoms, and they're reasonably certain\" the patient had the disease, Anderson told us. "
+        }
+      ]
+    },
+    {
+      "atomId": "atom-3",
+      "spans": [
+        {
+          "id": "doc-5dfdb3a51082::sentence-5",
+          "documentId": "doc-5dfdb3a51082",
+          "text": "On April 3, 2020, the CDC's National Center for Health Statistics issued guidance to physicians, coroners, and medical examiners who fill out death certificates to list COVID-19 as an underlying cause of death in the absence of a test \"if the circumstances are compelling within a reasonable degree of certainty.\"\n",
+          "start": 843,
+          "end": 1157,
+          "context": "\"The idea that we’re going to allow people to massage and game the numbers is a real issue because we're going to undermine the [public's] trust.\"\n On April 3, 2020, the CDC's National Center for Health Statistics issued guidance to physicians, coroners, and medical examiners who fill out death certificates to list COVID-19 as an underlying cause of death in the absence of a test \"if the circumstances are compelling within a reasonable degree of certainty.\"\n The guidelines specify:\n"
+        },
+        {
+          "id": "doc-efeac11ee951::sentence-23",
+          "documentId": "doc-efeac11ee951",
+          "text": "The Death Certificate Cause of Death will not be reported to the National Center for Health Statistics. ",
+          "start": 2915,
+          "end": 3019,
+          "context": "What happens if the physician, Medical Examiner or Coroner does not complete the Death Certificate Cause of Death correctly for COVID-19?\n The Death Certificate Cause of Death will not be reported to the National Center for Health Statistics.  The Death Certificate must be corrected by the certifier (physician, Medical Examiner or Coroner). "
+        },
+        {
+          "id": "doc-efeac11ee951::sentence-31",
+          "documentId": "doc-efeac11ee951",
+          "text": "See the CDC Guidance on Certifying COVID-19 Deaths (PDF).\n",
+          "start": 3829,
+          "end": 3887,
+          "context": "Where can healthcare facilities receive guidance regarding COVID-19 best practices regarding death?\n See the CDC Guidance on Certifying COVID-19 Deaths (PDF).\n Who can healthcare facilities contact for COVID-19 death related medical equipment and supplies, such as body bags and test kits?\n"
+        },
+        {
+          "id": "doc-5dfdb3a51082::sentence-1",
+          "documentId": "doc-5dfdb3a51082",
+          "text": "In April 2020, Dr. Scott Jensen, a Minnesota physician who serves in the Minnesota state Senate, gave television interviews in which he suggested that guidance issued by the Centers for Disease Control and Prevention (CDC) to health care providers on how to properly fill out death certificates for COVID-19 cases could artificially inflate the number of such cases in the U.S.\n",
+          "start": 0,
+          "end": 378,
+          "context": "In April 2020, Dr. Scott Jensen, a Minnesota physician who serves in the Minnesota state Senate, gave television interviews in which he suggested that guidance issued by the Centers for Disease Control and Prevention (CDC) to health care providers on how to properly fill out death certificates for COVID-19 cases could artificially inflate the number of such cases in the U.S.\n During an appearance on the Fox News prime time program \"Ingraham Angle,\" Jensen stated that he believed the guidelines issued by the CDC were \"ridiculous.\"\n"
+        },
+        {
+          "id": "doc-efeac11ee951::sentence-18",
+          "documentId": "doc-efeac11ee951",
+          "text": "Should a physician, Medical Examiner or Coroner include pre-existing conditions that may increase susceptibility to infection or exacerbate COVID-19, such as COPD or asthma on the death certificate?\n",
+          "start": 2217,
+          "end": 2416,
+          "context": "Yes, if COVID-19 is probable or suspected, list “Probable COVID-19” or “Suspected COVID-19” in Part I.\n Should a physician, Medical Examiner or Coroner include pre-existing conditions that may increase susceptibility to infection or exacerbate COVID-19, such as COPD or asthma on the death certificate?\n Yes, pre-existing conditions that may have increased susceptibility to or exacerbated COVID-19 should be listed in Part II of the death certificate.\n"
+        },
+        {
+          "id": "doc-5dfdb3a51082::sentence-14",
+          "documentId": "doc-5dfdb3a51082",
+          "text": "Anderson noted that medical examiners' offices in the hard-hit state of New York are overwhelmed, and that the state has had an increase in unattended deaths in which COVID-19 was a likely factor, but no tests were available to confirm.\n",
+          "start": 2529,
+          "end": 2766,
+          "context": "\"I don’t think in any case are we over-estimating the deaths due to COVID-19. I think most likely we’re underestimating and in some cases we may be underestimating by a lot,\" Bob Anderson, who heads the mortality statistics branch at the CDC's National Center for Health Statistics, told us by phone.  Anderson noted that medical examiners' offices in the hard-hit state of New York are overwhelmed, and that the state has had an increase in unattended deaths in which COVID-19 was a likely factor, but no tests were available to confirm.\n \"We’re not asking [health care providers] to write [COVID-19] down for everyone who was possibly exposed. We're asking only if the patient showed symptoms, and they're reasonably certain\" the patient had the disease, Anderson told us. "
+        }
+      ]
+    },
+    {
+      "atomId": "atom-4",
+      "spans": [
+        {
+          "id": "doc-5dfdb3a51082::sentence-5",
+          "documentId": "doc-5dfdb3a51082",
+          "text": "On April 3, 2020, the CDC's National Center for Health Statistics issued guidance to physicians, coroners, and medical examiners who fill out death certificates to list COVID-19 as an underlying cause of death in the absence of a test \"if the circumstances are compelling within a reasonable degree of certainty.\"\n",
+          "start": 843,
+          "end": 1157,
+          "context": "\"The idea that we’re going to allow people to massage and game the numbers is a real issue because we're going to undermine the [public's] trust.\"\n On April 3, 2020, the CDC's National Center for Health Statistics issued guidance to physicians, coroners, and medical examiners who fill out death certificates to list COVID-19 as an underlying cause of death in the absence of a test \"if the circumstances are compelling within a reasonable degree of certainty.\"\n The guidelines specify:\n"
+        },
+        {
+          "id": "doc-5dfdb3a51082::sentence-17",
+          "documentId": "doc-5dfdb3a51082",
+          "text": "As of this writing, the U.S. had more than 700,000 COVID-19 cases, with the death count nearing 40,000. ",
+          "start": 3257,
+          "end": 3361,
+          "context": "\"When the evidence tells you that COVID-19 was the likely cause of death then you should report it as the likely cause of death, whether you have a lab test or not. And medical examiners, physicians, and coroners are trained to make these determinations.\"\n As of this writing, the U.S. had more than 700,000 COVID-19 cases, with the death count nearing 40,000.  Our attempts to reach Scott Jensen for comment were unsuccessful."
+        },
+        {
+          "id": "doc-efeac11ee951::sentence-2",
+          "documentId": "doc-efeac11ee951",
+          "text": "Confirmed COVID-19 deaths are to be coded as COVID-19 or Coronavirus-19. ",
+          "start": 70,
+          "end": 143,
+          "context": "How should physicians list a COVID-19 death on the death certificate?\n Confirmed COVID-19 deaths are to be coded as COVID-19 or Coronavirus-19.  Do not use Novel Coronavirus, COVID without 19, COVID-19+ or positive, Coronavirus without 19, SARS, or SARS-CoV or SARS-2.\n"
+        },
+        {
+          "id": "doc-efeac11ee951::sentence-31",
+          "documentId": "doc-efeac11ee951",
+          "text": "See the CDC Guidance on Certifying COVID-19 Deaths (PDF).\n",
+          "start": 3829,
+          "end": 3887,
+          "context": "Where can healthcare facilities receive guidance regarding COVID-19 best practices regarding death?\n See the CDC Guidance on Certifying COVID-19 Deaths (PDF).\n Who can healthcare facilities contact for COVID-19 death related medical equipment and supplies, such as body bags and test kits?\n"
+        },
+        {
+          "id": "doc-5dfdb3a51082::sentence-13",
+          "documentId": "doc-5dfdb3a51082",
+          "text": "\"I don’t think in any case are we over-estimating the deaths due to COVID-19. I think most likely we’re underestimating and in some cases we may be underestimating by a lot,\" Bob Anderson, who heads the mortality statistics branch at the CDC's National Center for Health Statistics, told us by phone. ",
+          "start": 2228,
+          "end": 2529,
+          "context": "Experts, however, agree that COVID-19 cases in the U.S. are being undercounted, not overcounted, due to the lack of available diagnostic tests.\n \"I don’t think in any case are we over-estimating the deaths due to COVID-19. I think most likely we’re underestimating and in some cases we may be underestimating by a lot,\" Bob Anderson, who heads the mortality statistics branch at the CDC's National Center for Health Statistics, told us by phone.  Anderson noted that medical examiners' offices in the hard-hit state of New York are overwhelmed, and that the state has had an increase in unattended deaths in which COVID-19 was a likely factor, but no tests were available to confirm.\n"
+        },
+        {
+          "id": "doc-efeac11ee951::sentence-7",
+          "documentId": "doc-efeac11ee951",
+          "text": "The Cause of Death in Part I should be stroke and COVID-19 should be listed in Part II.\n",
+          "start": 759,
+          "end": 847,
+          "context": "If the patient was a confirmed COVID-19 case, but COVID-19 contributed to but did not cause the death, such as stroke, how should the death certificate be completed?\n The Cause of Death in Part I should be stroke and COVID-19 should be listed in Part II.\n If the patient died of Acute Respiratory Failure and had COVID-19, what should the physician include as the Cause of Death?\n"
         }
       ]
     }
@@ -61,6 +254,41 @@
   "classifications": [
     {
       "atomId": "atom-1",
+      "relations": [
+        {
+          "spanId": "doc-efeac11ee951::sentence-31",
+          "documentId": "doc-efeac11ee951",
+          "relation": "CONTRADICTION"
+        },
+        {
+          "spanId": "doc-5dfdb3a51082::sentence-5",
+          "documentId": "doc-5dfdb3a51082",
+          "relation": "CONTRADICTION"
+        },
+        {
+          "spanId": "doc-efeac11ee951::sentence-18",
+          "documentId": "doc-efeac11ee951",
+          "relation": "CONTRADICTION"
+        },
+        {
+          "spanId": "doc-5dfdb3a51082::sentence-17",
+          "documentId": "doc-5dfdb3a51082",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-efeac11ee951::sentence-16",
+          "documentId": "doc-efeac11ee951",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-5dfdb3a51082::sentence-1",
+          "documentId": "doc-5dfdb3a51082",
+          "relation": "NEUTRAL"
+        }
+      ]
+    },
+    {
+      "atomId": "atom-2",
       "relations": [
         {
           "spanId": "doc-5dfdb3a51082::sentence-5",
@@ -73,13 +301,68 @@
           "relation": "CONTRADICTION"
         },
         {
-          "spanId": "doc-efeac11ee951::sentence-16",
+          "spanId": "doc-5dfdb3a51082::sentence-1",
+          "documentId": "doc-5dfdb3a51082",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-efeac11ee951::sentence-18",
           "documentId": "doc-efeac11ee951",
           "relation": "CONTRADICTION"
         },
         {
-          "spanId": "doc-efeac11ee951::sentence-15",
+          "spanId": "doc-efeac11ee951::sentence-23",
           "documentId": "doc-efeac11ee951",
+          "relation": "CONTRADICTION"
+        },
+        {
+          "spanId": "doc-5dfdb3a51082::sentence-14",
+          "documentId": "doc-5dfdb3a51082",
+          "relation": "NEUTRAL"
+        }
+      ]
+    },
+    {
+      "atomId": "atom-3",
+      "relations": [
+        {
+          "spanId": "doc-5dfdb3a51082::sentence-5",
+          "documentId": "doc-5dfdb3a51082",
+          "relation": "CONTRADICTION"
+        },
+        {
+          "spanId": "doc-efeac11ee951::sentence-23",
+          "documentId": "doc-efeac11ee951",
+          "relation": "CONTRADICTION"
+        },
+        {
+          "spanId": "doc-efeac11ee951::sentence-31",
+          "documentId": "doc-efeac11ee951",
+          "relation": "CONTRADICTION"
+        },
+        {
+          "spanId": "doc-5dfdb3a51082::sentence-1",
+          "documentId": "doc-5dfdb3a51082",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-efeac11ee951::sentence-18",
+          "documentId": "doc-efeac11ee951",
+          "relation": "CONTRADICTION"
+        },
+        {
+          "spanId": "doc-5dfdb3a51082::sentence-14",
+          "documentId": "doc-5dfdb3a51082",
+          "relation": "CONTRADICTION"
+        }
+      ]
+    },
+    {
+      "atomId": "atom-4",
+      "relations": [
+        {
+          "spanId": "doc-5dfdb3a51082::sentence-5",
+          "documentId": "doc-5dfdb3a51082",
           "relation": "NEUTRAL"
         },
         {
@@ -88,28 +371,44 @@
           "relation": "NEUTRAL"
         },
         {
-          "spanId": "doc-5dfdb3a51082::sentence-7",
+          "spanId": "doc-efeac11ee951::sentence-2",
+          "documentId": "doc-efeac11ee951",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-efeac11ee951::sentence-31",
+          "documentId": "doc-efeac11ee951",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-5dfdb3a51082::sentence-13",
           "documentId": "doc-5dfdb3a51082",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-efeac11ee951::sentence-7",
+          "documentId": "doc-efeac11ee951",
           "relation": "NEUTRAL"
         }
       ]
     }
   ],
-  "linguistics": [
-    {
-      "atomId": "atom-1",
+  "linguistics": {
+    "schemaVersion": 2,
+    "claimAnalysis": {
+      "atomId": "claim",
       "frames": [
         {
-          "id": "atom-1-frame-1",
+          "id": "claim-frame-1",
           "predicate": {
-            "id": "atom-1-frame-1-predicate",
+            "id": "claim-frame-1-predicate",
             "text": "add",
             "start": 65,
             "end": 68
           },
           "subjects": [
             {
-              "id": "atom-1-frame-1-subject-1",
+              "id": "claim-frame-1-subject-1",
               "text": "The U.S. Centers for Disease Control and Prevention",
               "start": 0,
               "end": 51
@@ -117,7 +416,7 @@
           ],
           "coreArguments": [
             {
-              "id": "atom-1-frame-1-argument-1",
+              "id": "claim-frame-1-argument-1",
               "text": "deaths",
               "start": 69,
               "end": 75,
@@ -126,7 +425,7 @@
           ],
           "adjuncts": [
             {
-              "id": "atom-1-frame-1-adjunct-1",
+              "id": "claim-frame-1-adjunct-1",
               "text": "fraudulently",
               "start": 52,
               "end": 64,
@@ -135,13 +434,13 @@
           ],
           "otherModifiers": [
             {
-              "id": "atom-1-frame-1-other-modifier-1",
+              "id": "claim-frame-1-other-modifier-1",
               "text": "from poisoning, trauma, and unintentional injury",
               "start": 76,
               "end": 124
             },
             {
-              "id": "atom-1-frame-1-other-modifier-2",
+              "id": "claim-frame-1-other-modifier-2",
               "text": "to their tally of COVID-19 deaths",
               "start": 125,
               "end": 158
@@ -152,7 +451,7 @@
       "cues": [],
       "entities": [
         {
-          "id": "atom-1-entity-org-0-51",
+          "id": "claim-entity-org-0-51",
           "text": "The U.S. Centers for Disease Control and Prevention",
           "start": 0,
           "end": 51,
@@ -161,7 +460,7 @@
       ],
       "tokens": [
         {
-          "id": "atom-1-token-0",
+          "id": "claim-token-0",
           "text": "The",
           "start": 0,
           "end": 3,
@@ -172,7 +471,7 @@
           "head": "Centers"
         },
         {
-          "id": "atom-1-token-1",
+          "id": "claim-token-1",
           "text": "U.S.",
           "start": 4,
           "end": 8,
@@ -183,7 +482,7 @@
           "head": "Centers"
         },
         {
-          "id": "atom-1-token-2",
+          "id": "claim-token-2",
           "text": "Centers",
           "start": 9,
           "end": 16,
@@ -194,7 +493,7 @@
           "head": "add"
         },
         {
-          "id": "atom-1-token-3",
+          "id": "claim-token-3",
           "text": "for",
           "start": 17,
           "end": 20,
@@ -205,7 +504,7 @@
           "head": "Centers"
         },
         {
-          "id": "atom-1-token-4",
+          "id": "claim-token-4",
           "text": "Disease",
           "start": 21,
           "end": 28,
@@ -216,7 +515,7 @@
           "head": "Control"
         },
         {
-          "id": "atom-1-token-5",
+          "id": "claim-token-5",
           "text": "Control",
           "start": 29,
           "end": 36,
@@ -227,7 +526,7 @@
           "head": "for"
         },
         {
-          "id": "atom-1-token-6",
+          "id": "claim-token-6",
           "text": "and",
           "start": 37,
           "end": 40,
@@ -238,7 +537,7 @@
           "head": "Control"
         },
         {
-          "id": "atom-1-token-7",
+          "id": "claim-token-7",
           "text": "Prevention",
           "start": 41,
           "end": 51,
@@ -249,7 +548,7 @@
           "head": "Control"
         },
         {
-          "id": "atom-1-token-8",
+          "id": "claim-token-8",
           "text": "fraudulently",
           "start": 52,
           "end": 64,
@@ -260,7 +559,7 @@
           "head": "add"
         },
         {
-          "id": "atom-1-token-9",
+          "id": "claim-token-9",
           "text": "add",
           "start": 65,
           "end": 68,
@@ -271,7 +570,7 @@
           "head": "ROOT"
         },
         {
-          "id": "atom-1-token-10",
+          "id": "claim-token-10",
           "text": "deaths",
           "start": 69,
           "end": 75,
@@ -282,7 +581,7 @@
           "head": "add"
         },
         {
-          "id": "atom-1-token-11",
+          "id": "claim-token-11",
           "text": "from",
           "start": 76,
           "end": 80,
@@ -293,7 +592,7 @@
           "head": "add"
         },
         {
-          "id": "atom-1-token-12",
+          "id": "claim-token-12",
           "text": "poisoning",
           "start": 81,
           "end": 90,
@@ -304,7 +603,7 @@
           "head": "from"
         },
         {
-          "id": "atom-1-token-13",
+          "id": "claim-token-13",
           "text": ",",
           "start": 90,
           "end": 91,
@@ -315,7 +614,7 @@
           "head": "poisoning"
         },
         {
-          "id": "atom-1-token-14",
+          "id": "claim-token-14",
           "text": "trauma",
           "start": 92,
           "end": 98,
@@ -326,7 +625,7 @@
           "head": "poisoning"
         },
         {
-          "id": "atom-1-token-15",
+          "id": "claim-token-15",
           "text": ",",
           "start": 98,
           "end": 99,
@@ -337,7 +636,7 @@
           "head": "trauma"
         },
         {
-          "id": "atom-1-token-16",
+          "id": "claim-token-16",
           "text": "and",
           "start": 100,
           "end": 103,
@@ -348,7 +647,7 @@
           "head": "trauma"
         },
         {
-          "id": "atom-1-token-17",
+          "id": "claim-token-17",
           "text": "unintentional",
           "start": 104,
           "end": 117,
@@ -359,7 +658,7 @@
           "head": "injury"
         },
         {
-          "id": "atom-1-token-18",
+          "id": "claim-token-18",
           "text": "injury",
           "start": 118,
           "end": 124,
@@ -370,7 +669,7 @@
           "head": "trauma"
         },
         {
-          "id": "atom-1-token-19",
+          "id": "claim-token-19",
           "text": "to",
           "start": 125,
           "end": 127,
@@ -381,7 +680,7 @@
           "head": "add"
         },
         {
-          "id": "atom-1-token-20",
+          "id": "claim-token-20",
           "text": "their",
           "start": 128,
           "end": 133,
@@ -392,7 +691,7 @@
           "head": "tally"
         },
         {
-          "id": "atom-1-token-21",
+          "id": "claim-token-21",
           "text": "tally",
           "start": 134,
           "end": 139,
@@ -403,7 +702,7 @@
           "head": "to"
         },
         {
-          "id": "atom-1-token-22",
+          "id": "claim-token-22",
           "text": "of",
           "start": 140,
           "end": 142,
@@ -414,7 +713,7 @@
           "head": "tally"
         },
         {
-          "id": "atom-1-token-23",
+          "id": "claim-token-23",
           "text": "COVID-19",
           "start": 143,
           "end": 151,
@@ -425,7 +724,7 @@
           "head": "deaths"
         },
         {
-          "id": "atom-1-token-24",
+          "id": "claim-token-24",
           "text": "deaths",
           "start": 152,
           "end": 158,
@@ -436,7 +735,7 @@
           "head": "of"
         },
         {
-          "id": "atom-1-token-25",
+          "id": "claim-token-25",
           "text": ".",
           "start": 158,
           "end": 159,
@@ -449,8 +748,1065 @@
       ],
       "status": "complete",
       "unresolved": []
-    }
-  ],
+    },
+    "analyses": [
+      {
+        "atomId": "atom-1",
+        "frames": [
+          {
+            "id": "atom-1-frame-1",
+            "predicate": {
+              "id": "atom-1-frame-1-predicate",
+              "text": "add",
+              "start": 65,
+              "end": 68
+            },
+            "subjects": [
+              {
+                "id": "atom-1-frame-1-subject-1",
+                "text": "The U.S. Centers for Disease Control and Prevention",
+                "start": 0,
+                "end": 51
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-1-frame-1-argument-1",
+                "text": "deaths",
+                "start": 69,
+                "end": 75,
+                "role": "direct_object"
+              }
+            ],
+            "adjuncts": [
+              {
+                "id": "atom-1-frame-1-adjunct-1",
+                "text": "fraudulently",
+                "start": 52,
+                "end": 64,
+                "kind": "manner"
+              }
+            ],
+            "otherModifiers": [
+              {
+                "id": "atom-1-frame-1-other-modifier-1",
+                "text": "from poisoning",
+                "start": 76,
+                "end": 90
+              }
+            ]
+          }
+        ],
+        "cues": [],
+        "entities": [
+          {
+            "id": "atom-1-entity-org-0-51",
+            "text": "The U.S. Centers for Disease Control and Prevention",
+            "start": 0,
+            "end": 51,
+            "label": "ORG"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-1-token-0",
+            "text": "The",
+            "start": 0,
+            "end": 3,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "Centers"
+          },
+          {
+            "id": "atom-1-token-1",
+            "text": "U.S.",
+            "start": 4,
+            "end": 8,
+            "lemma": "U.S.",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Centers"
+          },
+          {
+            "id": "atom-1-token-2",
+            "text": "Centers",
+            "start": 9,
+            "end": 16,
+            "lemma": "Centers",
+            "pos": "PROPN",
+            "tag": "NNPS",
+            "dependency": "nsubj",
+            "head": "add"
+          },
+          {
+            "id": "atom-1-token-3",
+            "text": "for",
+            "start": 17,
+            "end": 20,
+            "lemma": "for",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "Centers"
+          },
+          {
+            "id": "atom-1-token-4",
+            "text": "Disease",
+            "start": 21,
+            "end": 28,
+            "lemma": "Disease",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Control"
+          },
+          {
+            "id": "atom-1-token-5",
+            "text": "Control",
+            "start": 29,
+            "end": 36,
+            "lemma": "Control",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "pobj",
+            "head": "for"
+          },
+          {
+            "id": "atom-1-token-6",
+            "text": "and",
+            "start": 37,
+            "end": 40,
+            "lemma": "and",
+            "pos": "CCONJ",
+            "tag": "CC",
+            "dependency": "cc",
+            "head": "Control"
+          },
+          {
+            "id": "atom-1-token-7",
+            "text": "Prevention",
+            "start": 41,
+            "end": 51,
+            "lemma": "Prevention",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "conj",
+            "head": "Control"
+          },
+          {
+            "id": "atom-1-token-8",
+            "text": "fraudulently",
+            "start": 52,
+            "end": 64,
+            "lemma": "fraudulently",
+            "pos": "ADV",
+            "tag": "RB",
+            "dependency": "advmod",
+            "head": "add"
+          },
+          {
+            "id": "atom-1-token-9",
+            "text": "add",
+            "start": 65,
+            "end": 68,
+            "lemma": "add",
+            "pos": "VERB",
+            "tag": "VBP",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-1-token-10",
+            "text": "deaths",
+            "start": 69,
+            "end": 75,
+            "lemma": "death",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "dobj",
+            "head": "add"
+          },
+          {
+            "id": "atom-1-token-11",
+            "text": "from",
+            "start": 76,
+            "end": 80,
+            "lemma": "from",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "add"
+          },
+          {
+            "id": "atom-1-token-12",
+            "text": "poisoning",
+            "start": 81,
+            "end": 90,
+            "lemma": "poisoning",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "pobj",
+            "head": "from"
+          },
+          {
+            "id": "atom-1-token-13",
+            "text": ".",
+            "start": 90,
+            "end": 91,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "add"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      },
+      {
+        "atomId": "atom-2",
+        "frames": [
+          {
+            "id": "atom-2-frame-1",
+            "predicate": {
+              "id": "atom-2-frame-1-predicate",
+              "text": "add",
+              "start": 65,
+              "end": 68
+            },
+            "subjects": [
+              {
+                "id": "atom-2-frame-1-subject-1",
+                "text": "The U.S. Centers for Disease Control and Prevention",
+                "start": 0,
+                "end": 51
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-2-frame-1-argument-1",
+                "text": "deaths from trauma",
+                "start": 69,
+                "end": 87,
+                "role": "direct_object"
+              }
+            ],
+            "adjuncts": [
+              {
+                "id": "atom-2-frame-1-adjunct-1",
+                "text": "fraudulently",
+                "start": 52,
+                "end": 64,
+                "kind": "manner"
+              }
+            ],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [],
+        "entities": [
+          {
+            "id": "atom-2-entity-org-0-51",
+            "text": "The U.S. Centers for Disease Control and Prevention",
+            "start": 0,
+            "end": 51,
+            "label": "ORG"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-2-token-0",
+            "text": "The",
+            "start": 0,
+            "end": 3,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "Centers"
+          },
+          {
+            "id": "atom-2-token-1",
+            "text": "U.S.",
+            "start": 4,
+            "end": 8,
+            "lemma": "U.S.",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Centers"
+          },
+          {
+            "id": "atom-2-token-2",
+            "text": "Centers",
+            "start": 9,
+            "end": 16,
+            "lemma": "Centers",
+            "pos": "PROPN",
+            "tag": "NNPS",
+            "dependency": "nsubj",
+            "head": "add"
+          },
+          {
+            "id": "atom-2-token-3",
+            "text": "for",
+            "start": 17,
+            "end": 20,
+            "lemma": "for",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "Centers"
+          },
+          {
+            "id": "atom-2-token-4",
+            "text": "Disease",
+            "start": 21,
+            "end": 28,
+            "lemma": "Disease",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Control"
+          },
+          {
+            "id": "atom-2-token-5",
+            "text": "Control",
+            "start": 29,
+            "end": 36,
+            "lemma": "Control",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "pobj",
+            "head": "for"
+          },
+          {
+            "id": "atom-2-token-6",
+            "text": "and",
+            "start": 37,
+            "end": 40,
+            "lemma": "and",
+            "pos": "CCONJ",
+            "tag": "CC",
+            "dependency": "cc",
+            "head": "Control"
+          },
+          {
+            "id": "atom-2-token-7",
+            "text": "Prevention",
+            "start": 41,
+            "end": 51,
+            "lemma": "Prevention",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "conj",
+            "head": "Control"
+          },
+          {
+            "id": "atom-2-token-8",
+            "text": "fraudulently",
+            "start": 52,
+            "end": 64,
+            "lemma": "fraudulently",
+            "pos": "ADV",
+            "tag": "RB",
+            "dependency": "advmod",
+            "head": "add"
+          },
+          {
+            "id": "atom-2-token-9",
+            "text": "add",
+            "start": 65,
+            "end": 68,
+            "lemma": "add",
+            "pos": "VERB",
+            "tag": "VBP",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-2-token-10",
+            "text": "deaths",
+            "start": 69,
+            "end": 75,
+            "lemma": "death",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "dobj",
+            "head": "add"
+          },
+          {
+            "id": "atom-2-token-11",
+            "text": "from",
+            "start": 76,
+            "end": 80,
+            "lemma": "from",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "deaths"
+          },
+          {
+            "id": "atom-2-token-12",
+            "text": "trauma",
+            "start": 81,
+            "end": 87,
+            "lemma": "trauma",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "pobj",
+            "head": "from"
+          },
+          {
+            "id": "atom-2-token-13",
+            "text": ".",
+            "start": 87,
+            "end": 88,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "add"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      },
+      {
+        "atomId": "atom-3",
+        "frames": [
+          {
+            "id": "atom-3-frame-1",
+            "predicate": {
+              "id": "atom-3-frame-1-predicate",
+              "text": "add",
+              "start": 65,
+              "end": 68
+            },
+            "subjects": [
+              {
+                "id": "atom-3-frame-1-subject-1",
+                "text": "The U.S. Centers for Disease Control and Prevention",
+                "start": 0,
+                "end": 51
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-3-frame-1-argument-1",
+                "text": "deaths from unintentional injury",
+                "start": 69,
+                "end": 101,
+                "role": "direct_object"
+              }
+            ],
+            "adjuncts": [
+              {
+                "id": "atom-3-frame-1-adjunct-1",
+                "text": "fraudulently",
+                "start": 52,
+                "end": 64,
+                "kind": "manner"
+              }
+            ],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [],
+        "entities": [
+          {
+            "id": "atom-3-entity-org-0-51",
+            "text": "The U.S. Centers for Disease Control and Prevention",
+            "start": 0,
+            "end": 51,
+            "label": "ORG"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-3-token-0",
+            "text": "The",
+            "start": 0,
+            "end": 3,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "Centers"
+          },
+          {
+            "id": "atom-3-token-1",
+            "text": "U.S.",
+            "start": 4,
+            "end": 8,
+            "lemma": "U.S.",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Centers"
+          },
+          {
+            "id": "atom-3-token-2",
+            "text": "Centers",
+            "start": 9,
+            "end": 16,
+            "lemma": "Centers",
+            "pos": "PROPN",
+            "tag": "NNPS",
+            "dependency": "nsubj",
+            "head": "add"
+          },
+          {
+            "id": "atom-3-token-3",
+            "text": "for",
+            "start": 17,
+            "end": 20,
+            "lemma": "for",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "Centers"
+          },
+          {
+            "id": "atom-3-token-4",
+            "text": "Disease",
+            "start": 21,
+            "end": 28,
+            "lemma": "Disease",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Control"
+          },
+          {
+            "id": "atom-3-token-5",
+            "text": "Control",
+            "start": 29,
+            "end": 36,
+            "lemma": "Control",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "pobj",
+            "head": "for"
+          },
+          {
+            "id": "atom-3-token-6",
+            "text": "and",
+            "start": 37,
+            "end": 40,
+            "lemma": "and",
+            "pos": "CCONJ",
+            "tag": "CC",
+            "dependency": "cc",
+            "head": "Control"
+          },
+          {
+            "id": "atom-3-token-7",
+            "text": "Prevention",
+            "start": 41,
+            "end": 51,
+            "lemma": "Prevention",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "conj",
+            "head": "Control"
+          },
+          {
+            "id": "atom-3-token-8",
+            "text": "fraudulently",
+            "start": 52,
+            "end": 64,
+            "lemma": "fraudulently",
+            "pos": "ADV",
+            "tag": "RB",
+            "dependency": "advmod",
+            "head": "add"
+          },
+          {
+            "id": "atom-3-token-9",
+            "text": "add",
+            "start": 65,
+            "end": 68,
+            "lemma": "add",
+            "pos": "VERB",
+            "tag": "VBP",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-3-token-10",
+            "text": "deaths",
+            "start": 69,
+            "end": 75,
+            "lemma": "death",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "dobj",
+            "head": "add"
+          },
+          {
+            "id": "atom-3-token-11",
+            "text": "from",
+            "start": 76,
+            "end": 80,
+            "lemma": "from",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "deaths"
+          },
+          {
+            "id": "atom-3-token-12",
+            "text": "unintentional",
+            "start": 81,
+            "end": 94,
+            "lemma": "unintentional",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "injury"
+          },
+          {
+            "id": "atom-3-token-13",
+            "text": "injury",
+            "start": 95,
+            "end": 101,
+            "lemma": "injury",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "pobj",
+            "head": "from"
+          },
+          {
+            "id": "atom-3-token-14",
+            "text": ".",
+            "start": 101,
+            "end": 102,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "add"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      },
+      {
+        "atomId": "atom-4",
+        "frames": [
+          {
+            "id": "atom-4-frame-1",
+            "predicate": {
+              "id": "atom-4-frame-1-predicate",
+              "text": "add",
+              "start": 52,
+              "end": 55
+            },
+            "subjects": [
+              {
+                "id": "atom-4-frame-1-subject-1",
+                "text": "The U.S. Centers for Disease Control and Prevention",
+                "start": 0,
+                "end": 51
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-4-frame-1-argument-1",
+                "text": "these deaths",
+                "start": 56,
+                "end": 68,
+                "role": "direct_object"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": [
+              {
+                "id": "atom-4-frame-1-other-modifier-1",
+                "text": "to their tally of COVID-19 deaths",
+                "start": 69,
+                "end": 102
+              }
+            ]
+          }
+        ],
+        "cues": [],
+        "entities": [
+          {
+            "id": "atom-4-entity-org-0-51",
+            "text": "The U.S. Centers for Disease Control and Prevention",
+            "start": 0,
+            "end": 51,
+            "label": "ORG"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-4-token-0",
+            "text": "The",
+            "start": 0,
+            "end": 3,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "Centers"
+          },
+          {
+            "id": "atom-4-token-1",
+            "text": "U.S.",
+            "start": 4,
+            "end": 8,
+            "lemma": "U.S.",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Centers"
+          },
+          {
+            "id": "atom-4-token-2",
+            "text": "Centers",
+            "start": 9,
+            "end": 16,
+            "lemma": "Centers",
+            "pos": "PROPN",
+            "tag": "NNPS",
+            "dependency": "nsubj",
+            "head": "add"
+          },
+          {
+            "id": "atom-4-token-3",
+            "text": "for",
+            "start": 17,
+            "end": 20,
+            "lemma": "for",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "Centers"
+          },
+          {
+            "id": "atom-4-token-4",
+            "text": "Disease",
+            "start": 21,
+            "end": 28,
+            "lemma": "Disease",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Control"
+          },
+          {
+            "id": "atom-4-token-5",
+            "text": "Control",
+            "start": 29,
+            "end": 36,
+            "lemma": "Control",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "pobj",
+            "head": "for"
+          },
+          {
+            "id": "atom-4-token-6",
+            "text": "and",
+            "start": 37,
+            "end": 40,
+            "lemma": "and",
+            "pos": "CCONJ",
+            "tag": "CC",
+            "dependency": "cc",
+            "head": "Control"
+          },
+          {
+            "id": "atom-4-token-7",
+            "text": "Prevention",
+            "start": 41,
+            "end": 51,
+            "lemma": "Prevention",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "conj",
+            "head": "Control"
+          },
+          {
+            "id": "atom-4-token-8",
+            "text": "add",
+            "start": 52,
+            "end": 55,
+            "lemma": "add",
+            "pos": "VERB",
+            "tag": "VBP",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-4-token-9",
+            "text": "these",
+            "start": 56,
+            "end": 61,
+            "lemma": "these",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "deaths"
+          },
+          {
+            "id": "atom-4-token-10",
+            "text": "deaths",
+            "start": 62,
+            "end": 68,
+            "lemma": "death",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "dobj",
+            "head": "add"
+          },
+          {
+            "id": "atom-4-token-11",
+            "text": "to",
+            "start": 69,
+            "end": 71,
+            "lemma": "to",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "add"
+          },
+          {
+            "id": "atom-4-token-12",
+            "text": "their",
+            "start": 72,
+            "end": 77,
+            "lemma": "their",
+            "pos": "PRON",
+            "tag": "PRP$",
+            "dependency": "poss",
+            "head": "tally"
+          },
+          {
+            "id": "atom-4-token-13",
+            "text": "tally",
+            "start": 78,
+            "end": 83,
+            "lemma": "tally",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "pobj",
+            "head": "to"
+          },
+          {
+            "id": "atom-4-token-14",
+            "text": "of",
+            "start": 84,
+            "end": 86,
+            "lemma": "of",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "tally"
+          },
+          {
+            "id": "atom-4-token-15",
+            "text": "COVID-19",
+            "start": 87,
+            "end": 95,
+            "lemma": "covid-19",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "compound",
+            "head": "deaths"
+          },
+          {
+            "id": "atom-4-token-16",
+            "text": "deaths",
+            "start": 96,
+            "end": 102,
+            "lemma": "death",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "pobj",
+            "head": "of"
+          },
+          {
+            "id": "atom-4-token-17",
+            "text": ".",
+            "start": 102,
+            "end": 103,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "add"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      }
+    ],
+    "summaries": [
+      {
+        "atomId": "atom-1",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "The U.S. Centers for Disease Control and Prevention"
+        ],
+        "predicates": [
+          "add"
+        ],
+        "cueKinds": [],
+        "modifierKinds": [
+          "manner"
+        ],
+        "entityLabels": [
+          "ORG"
+        ],
+        "warnings": []
+      },
+      {
+        "atomId": "atom-2",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "The U.S. Centers for Disease Control and Prevention"
+        ],
+        "predicates": [
+          "add"
+        ],
+        "cueKinds": [],
+        "modifierKinds": [
+          "manner"
+        ],
+        "entityLabels": [
+          "ORG"
+        ],
+        "warnings": []
+      },
+      {
+        "atomId": "atom-3",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "The U.S. Centers for Disease Control and Prevention"
+        ],
+        "predicates": [
+          "add"
+        ],
+        "cueKinds": [],
+        "modifierKinds": [
+          "manner"
+        ],
+        "entityLabels": [
+          "ORG"
+        ],
+        "warnings": []
+      },
+      {
+        "atomId": "atom-4",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "The U.S. Centers for Disease Control and Prevention"
+        ],
+        "predicates": [
+          "add"
+        ],
+        "cueKinds": [],
+        "modifierKinds": [],
+        "entityLabels": [
+          "ORG"
+        ],
+        "warnings": []
+      }
+    ],
+    "claimWarnings": [],
+    "provider": "spacy",
+    "model": "en_core_web_sm@3.8.0"
+  },
+  "verdict": {
+    "aggregationSchemaVersion": 1,
+    "claimId": "averitec-dev-0419",
+    "composition": "AND",
+    "verdict": "REFUTED",
+    "positions": {
+      "supportPosition": false,
+      "attackPosition": true,
+      "supportObligationIds": [],
+      "attackObligationIds": [
+        "atom-1",
+        "atom-2",
+        "atom-3"
+      ],
+      "unresolvedObligationIds": [
+        "atom-4"
+      ]
+    },
+    "obligations": [
+      {
+        "obligationId": "atom-1",
+        "state": "REFUTED",
+        "supportEdgeIds": [],
+        "attackEdgeIds": [
+          "edge:ATTACKS:evidence:doc-efeac11ee951:doc-efeac11ee951::sentence-31:obligation:averitec-dev-0419:atom-1",
+          "edge:ATTACKS:evidence:doc-5dfdb3a51082:doc-5dfdb3a51082::sentence-5:obligation:averitec-dev-0419:atom-1",
+          "edge:ATTACKS:evidence:doc-efeac11ee951:doc-efeac11ee951::sentence-18:obligation:averitec-dev-0419:atom-1"
+        ],
+        "neutralCandidateCount": 3
+      },
+      {
+        "obligationId": "atom-2",
+        "state": "REFUTED",
+        "supportEdgeIds": [],
+        "attackEdgeIds": [
+          "edge:ATTACKS:evidence:doc-5dfdb3a51082:doc-5dfdb3a51082::sentence-5:obligation:averitec-dev-0419:atom-2",
+          "edge:ATTACKS:evidence:doc-efeac11ee951:doc-efeac11ee951::sentence-31:obligation:averitec-dev-0419:atom-2",
+          "edge:ATTACKS:evidence:doc-efeac11ee951:doc-efeac11ee951::sentence-18:obligation:averitec-dev-0419:atom-2",
+          "edge:ATTACKS:evidence:doc-efeac11ee951:doc-efeac11ee951::sentence-23:obligation:averitec-dev-0419:atom-2"
+        ],
+        "neutralCandidateCount": 2
+      },
+      {
+        "obligationId": "atom-3",
+        "state": "REFUTED",
+        "supportEdgeIds": [],
+        "attackEdgeIds": [
+          "edge:ATTACKS:evidence:doc-5dfdb3a51082:doc-5dfdb3a51082::sentence-5:obligation:averitec-dev-0419:atom-3",
+          "edge:ATTACKS:evidence:doc-efeac11ee951:doc-efeac11ee951::sentence-23:obligation:averitec-dev-0419:atom-3",
+          "edge:ATTACKS:evidence:doc-efeac11ee951:doc-efeac11ee951::sentence-31:obligation:averitec-dev-0419:atom-3",
+          "edge:ATTACKS:evidence:doc-efeac11ee951:doc-efeac11ee951::sentence-18:obligation:averitec-dev-0419:atom-3",
+          "edge:ATTACKS:evidence:doc-5dfdb3a51082:doc-5dfdb3a51082::sentence-14:obligation:averitec-dev-0419:atom-3"
+        ],
+        "neutralCandidateCount": 1
+      },
+      {
+        "obligationId": "atom-4",
+        "state": "UNRESOLVED",
+        "supportEdgeIds": [],
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 6
+      }
+    ],
+    "warnings": [
+      {
+        "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
+        "message": "Obligation atom-4 has no supporting or attacking evidence."
+      },
+      {
+        "code": "ONLY_NEUTRAL_CANDIDATES",
+        "message": "Obligation atom-4 has only neutral retrieved candidates."
+      }
+    ],
+    "ruleTrace": [
+      "AND support requires support for every obligation; AND attack requires an attack on any obligation.",
+      "Support position: no; attack position: yes.",
+      "Final verdict: REFUTED."
+    ]
+  },
   "recordedWith": {
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",

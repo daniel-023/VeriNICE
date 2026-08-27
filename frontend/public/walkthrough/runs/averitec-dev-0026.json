@@ -1,12 +1,16 @@
 {
   "caseId": "averitec-dev-0026",
+  "schemaVersion": 2,
+  "composition": "SINGLE",
+  "warnings": [],
   "atoms": [
     {
       "id": "atom-1",
       "text": "Ivermectin is a treatment for coronavirus.",
       "sourceText": "Ivermectin is a treatment for coronavirus.",
       "start": 0,
-      "end": 42
+      "end": 42,
+      "role": "CORE"
     }
   ],
   "evidence": [
@@ -18,42 +22,48 @@
           "documentId": "doc-41f1926ad4ef",
           "text": "The authors concluded ivermectin as a better choice for the treatment of patients with mild to moderate COVID-19 disease [7].",
           "start": 2491,
-          "end": 2616
+          "end": 2616,
+          "context": "In a Randomized Trial of 116 patients treated with Ivermectin-Doxycycline(n = 60) or Hydroxychloroquine-Azithromycin(n = 56) therapy the authors found Ivermectin-Doxycycline combination therapy had a better success of symptomatic relief; shortened recovery duration, reduced adverse effects, and superior patient compliance compared to the Hydroxychloroquine-Azithromycin combination.  The authors concluded ivermectin as a better choice for the treatment of patients with mild to moderate COVID-19 disease [7]. In a retrospective study of 280 patients with SARS-CoV-2 infection treated with ivermectin (n = 173) or standard of care(n = 107) the authors found lower mortality in the ivermectin group (25.2% versus 15.0%, OR 0.52, 95% CI 0.29–0.96). "
         },
         {
           "id": "doc-41f1926ad4ef::sentence-29",
           "documentId": "doc-41f1926ad4ef",
           "text": "However, repurposing existing drugs as possible COVID-19 treatment is astute usage of existing resources, and we await results of well-designed large scale randomized controlled clinical trials exploring treatment efficacy of ivermectin to treat SARS-CoV-2.\n",
           "start": 5283,
-          "end": 5541
+          "end": 5541,
+          "context": "The clinical efficacy and utility of ivermectin in SARS CoV-2 infected patients are unpredictable at this stage, as we are dealing with a completely novel virus.  However, repurposing existing drugs as possible COVID-19 treatment is astute usage of existing resources, and we await results of well-designed large scale randomized controlled clinical trials exploring treatment efficacy of ivermectin to treat SARS-CoV-2.\n Declaration of competing interest\n"
         },
         {
           "id": "doc-41f1926ad4ef::sentence-28",
           "documentId": "doc-41f1926ad4ef",
           "text": "The clinical efficacy and utility of ivermectin in SARS CoV-2 infected patients are unpredictable at this stage, as we are dealing with a completely novel virus. ",
           "start": 5121,
-          "end": 5283
+          "end": 5283,
+          "context": "On April 10, 2020, FDA issued a statement concerning self-administration of ivermectin against COVID-19 referring to recently published in vitro study [4].\n The clinical efficacy and utility of ivermectin in SARS CoV-2 infected patients are unpredictable at this stage, as we are dealing with a completely novel virus.  However, repurposing existing drugs as possible COVID-19 treatment is astute usage of existing resources, and we await results of well-designed large scale randomized controlled clinical trials exploring treatment efficacy of ivermectin to treat SARS-CoV-2.\n"
         },
         {
           "id": "doc-640b644a3867::sentence-5",
           "documentId": "doc-640b644a3867",
           "text": "Ivermectin is also highly effective against strongyloides, scabies, and ticks, and it has recently been shown to be an effective endectocide that kills feeding mosquitoes with the potential to reduce malaria transmission.\n",
           "start": 477,
-          "end": 699
+          "end": 699,
+          "context": "Since 1987, about 3·7 billion treatments have been given worldwide primarily for mass drug administration (MDA) campaigns for onchocerciasis and lymphatic filariasis in sub-Saharan Africa.  Ivermectin is also highly effective against strongyloides, scabies, and ticks, and it has recently been shown to be an effective endectocide that kills feeding mosquitoes with the potential to reduce malaria transmission.\n 1- Kobylinski KC\n"
         },
         {
           "id": "doc-640b644a3867::sentence-13",
           "documentId": "doc-640b644a3867",
           "text": "The use of ivermectin will expand. ",
           "start": 868,
-          "end": 903
+          "end": 903,
+          "context": ".\n The use of ivermectin will expand.  For example, findings showed that ivermectin combined with diethylcarbamazine and albendazole is more effective than diethylcarbamazine plus albendazole as part of an MDA campaign for the treatment of lymphatic filariasis, resulting in greatly expanded use of ivermectin in MDA programmes worldwide.\n"
         },
         {
           "id": "doc-640b644a3867::sentence-1",
           "documentId": "doc-640b644a3867",
           "text": "Ivermectin is one of the most important antibiotics discovered. ",
           "start": 0,
-          "end": 64
+          "end": 64,
+          "context": "Ivermectin is one of the most important antibiotics discovered.  It is recognised as a landmark drug by the American Chemical Society and its discoverers received the Nobel Prize in 2015. "
         }
       ]
     }
@@ -85,7 +95,7 @@
         {
           "spanId": "doc-640b644a3867::sentence-13",
           "documentId": "doc-640b644a3867",
-          "relation": "NEUTRAL"
+          "relation": "CONTRADICTION"
         },
         {
           "spanId": "doc-640b644a3867::sentence-1",
@@ -95,21 +105,22 @@
       ]
     }
   ],
-  "linguistics": [
-    {
-      "atomId": "atom-1",
+  "linguistics": {
+    "schemaVersion": 2,
+    "claimAnalysis": {
+      "atomId": "claim",
       "frames": [
         {
-          "id": "atom-1-frame-1",
+          "id": "claim-frame-1",
           "predicate": {
-            "id": "atom-1-frame-1-predicate",
+            "id": "claim-frame-1-predicate",
             "text": "is",
             "start": 11,
             "end": 13
           },
           "subjects": [
             {
-              "id": "atom-1-frame-1-subject-1",
+              "id": "claim-frame-1-subject-1",
               "text": "Ivermectin",
               "start": 0,
               "end": 10
@@ -117,7 +128,7 @@
           ],
           "coreArguments": [
             {
-              "id": "atom-1-frame-1-argument-1",
+              "id": "claim-frame-1-argument-1",
               "text": "a treatment for coronavirus",
               "start": 14,
               "end": 41,
@@ -131,7 +142,7 @@
       "cues": [],
       "entities": [
         {
-          "id": "atom-1-entity-norp-0-10",
+          "id": "claim-entity-norp-0-10",
           "text": "Ivermectin",
           "start": 0,
           "end": 10,
@@ -140,7 +151,7 @@
       ],
       "tokens": [
         {
-          "id": "atom-1-token-0",
+          "id": "claim-token-0",
           "text": "Ivermectin",
           "start": 0,
           "end": 10,
@@ -151,7 +162,7 @@
           "head": "is"
         },
         {
-          "id": "atom-1-token-1",
+          "id": "claim-token-1",
           "text": "is",
           "start": 11,
           "end": 13,
@@ -162,7 +173,7 @@
           "head": "ROOT"
         },
         {
-          "id": "atom-1-token-2",
+          "id": "claim-token-2",
           "text": "a",
           "start": 14,
           "end": 15,
@@ -173,7 +184,7 @@
           "head": "treatment"
         },
         {
-          "id": "atom-1-token-3",
+          "id": "claim-token-3",
           "text": "treatment",
           "start": 16,
           "end": 25,
@@ -184,7 +195,7 @@
           "head": "is"
         },
         {
-          "id": "atom-1-token-4",
+          "id": "claim-token-4",
           "text": "for",
           "start": 26,
           "end": 29,
@@ -195,7 +206,7 @@
           "head": "treatment"
         },
         {
-          "id": "atom-1-token-5",
+          "id": "claim-token-5",
           "text": "coronavirus",
           "start": 30,
           "end": 41,
@@ -206,7 +217,7 @@
           "head": "for"
         },
         {
-          "id": "atom-1-token-6",
+          "id": "claim-token-6",
           "text": ".",
           "start": 41,
           "end": 42,
@@ -219,8 +230,196 @@
       ],
       "status": "complete",
       "unresolved": []
-    }
-  ],
+    },
+    "analyses": [
+      {
+        "atomId": "atom-1",
+        "frames": [
+          {
+            "id": "atom-1-frame-1",
+            "predicate": {
+              "id": "atom-1-frame-1-predicate",
+              "text": "is",
+              "start": 11,
+              "end": 13
+            },
+            "subjects": [
+              {
+                "id": "atom-1-frame-1-subject-1",
+                "text": "Ivermectin",
+                "start": 0,
+                "end": 10
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-1-frame-1-argument-1",
+                "text": "a treatment for coronavirus",
+                "start": 14,
+                "end": 41,
+                "role": "subject_complement"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [],
+        "entities": [
+          {
+            "id": "atom-1-entity-norp-0-10",
+            "text": "Ivermectin",
+            "start": 0,
+            "end": 10,
+            "label": "NORP"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-1-token-0",
+            "text": "Ivermectin",
+            "start": 0,
+            "end": 10,
+            "lemma": "Ivermectin",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "nsubj",
+            "head": "is"
+          },
+          {
+            "id": "atom-1-token-1",
+            "text": "is",
+            "start": 11,
+            "end": 13,
+            "lemma": "be",
+            "pos": "AUX",
+            "tag": "VBZ",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-1-token-2",
+            "text": "a",
+            "start": 14,
+            "end": 15,
+            "lemma": "a",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "treatment"
+          },
+          {
+            "id": "atom-1-token-3",
+            "text": "treatment",
+            "start": 16,
+            "end": 25,
+            "lemma": "treatment",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "attr",
+            "head": "is"
+          },
+          {
+            "id": "atom-1-token-4",
+            "text": "for",
+            "start": 26,
+            "end": 29,
+            "lemma": "for",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "treatment"
+          },
+          {
+            "id": "atom-1-token-5",
+            "text": "coronavirus",
+            "start": 30,
+            "end": 41,
+            "lemma": "coronavirus",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "pobj",
+            "head": "for"
+          },
+          {
+            "id": "atom-1-token-6",
+            "text": ".",
+            "start": 41,
+            "end": 42,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "is"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      }
+    ],
+    "summaries": [
+      {
+        "atomId": "atom-1",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "Ivermectin"
+        ],
+        "predicates": [
+          "be"
+        ],
+        "cueKinds": [],
+        "modifierKinds": [],
+        "entityLabels": [
+          "NORP"
+        ],
+        "warnings": []
+      }
+    ],
+    "claimWarnings": [],
+    "provider": "spacy",
+    "model": "en_core_web_sm@3.8.0"
+  },
+  "verdict": {
+    "aggregationSchemaVersion": 1,
+    "claimId": "averitec-dev-0026",
+    "composition": "SINGLE",
+    "verdict": "CONFLICTING_EVIDENCE",
+    "positions": {
+      "supportPosition": true,
+      "attackPosition": true,
+      "supportObligationIds": [
+        "atom-1"
+      ],
+      "attackObligationIds": [
+        "atom-1"
+      ],
+      "unresolvedObligationIds": []
+    },
+    "obligations": [
+      {
+        "obligationId": "atom-1",
+        "state": "CONFLICTING",
+        "supportEdgeIds": [
+          "edge:SUPPORTS:evidence:doc-41f1926ad4ef:doc-41f1926ad4ef::sentence-14:obligation:averitec-dev-0026:atom-1",
+          "edge:SUPPORTS:evidence:doc-41f1926ad4ef:doc-41f1926ad4ef::sentence-29:obligation:averitec-dev-0026:atom-1",
+          "edge:SUPPORTS:evidence:doc-41f1926ad4ef:doc-41f1926ad4ef::sentence-28:obligation:averitec-dev-0026:atom-1"
+        ],
+        "attackEdgeIds": [
+          "edge:ATTACKS:evidence:doc-640b644a3867:doc-640b644a3867::sentence-5:obligation:averitec-dev-0026:atom-1",
+          "edge:ATTACKS:evidence:doc-640b644a3867:doc-640b644a3867::sentence-13:obligation:averitec-dev-0026:atom-1",
+          "edge:ATTACKS:evidence:doc-640b644a3867:doc-640b644a3867::sentence-1:obligation:averitec-dev-0026:atom-1"
+        ],
+        "neutralCandidateCount": 0
+      }
+    ],
+    "warnings": [],
+    "ruleTrace": [
+      "SINGLE uses its only obligation's support and attack positions.",
+      "Support position: yes; attack position: yes.",
+      "Final verdict: CONFLICTING_EVIDENCE."
+    ]
+  },
   "recordedWith": {
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",

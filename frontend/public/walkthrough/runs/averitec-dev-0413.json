@@ -1,12 +1,24 @@
 {
   "caseId": "averitec-dev-0413",
+  "schemaVersion": 2,
+  "composition": "AND",
+  "warnings": [],
   "atoms": [
     {
       "id": "atom-1",
-      "text": "Over the past 40 years, the Uyghur population in Xinjiang, in China, grew from 5.55 million to 12 million.",
-      "sourceText": "Over the past 40 years, the Uyghur population in Xinjiang, in China, grew from 5.55 million to 12 million.",
-      "start": 0,
-      "end": 106
+      "text": "Over the past 40 years, the Uyghur population in Xinjiang, in China, grew.",
+      "sourceText": "grew",
+      "start": 69,
+      "end": 73,
+      "role": "NUMERIC_CONSTRAINT"
+    },
+    {
+      "id": "atom-2",
+      "text": "The Uyghur population in Xinjiang, in China, grew from 5.55 million to 12 million.",
+      "sourceText": "from 5.55 million to 12 million",
+      "start": 74,
+      "end": 105,
+      "role": "NUMERIC_CONSTRAINT"
     }
   ],
   "evidence": [
@@ -14,46 +26,105 @@
       "atomId": "atom-1",
       "spans": [
         {
-          "id": "doc-8c62afe872e1::sentence-16",
-          "documentId": "doc-8c62afe872e1",
-          "text": "The Xinjiang Uyghur Autonomous Region in China’s northwest is enormous, including about one-sixth of China’s total land area. ",
-          "start": 1476,
-          "end": 1602
-        },
-        {
           "id": "doc-22d3f92a3016::sentence-19",
           "documentId": "doc-22d3f92a3016",
           "text": "The hundreds of millions of dollars the government pours into birth control has transformed Xinjiang from one of China’s fastest-growing regions to among its slowest in just a few years, according to new research obtained by The Associated Press in advance of publication by China scholar Adrian Zenz.\n",
           "start": 2598,
-          "end": 2900
+          "end": 2900,
+          "context": "Across the Xinjiang region, birth rates continue to plummet, falling nearly 24% last year alone — compared to just 4.2% nationwide, statistics show.\n The hundreds of millions of dollars the government pours into birth control has transformed Xinjiang from one of China’s fastest-growing regions to among its slowest in just a few years, according to new research obtained by The Associated Press in advance of publication by China scholar Adrian Zenz.\n “This kind of drop is unprecedented....there’s a ruthlessness to it,” said Zenz, a leading expert in the policing of China’s minority regions. "
         },
         {
-          "id": "doc-8c62afe872e1::sentence-21",
+          "id": "doc-8c62afe872e1::sentence-16",
           "documentId": "doc-8c62afe872e1",
-          "text": "As big as Alaska and having more people than Florida, Xinjiang today looms larger in the consciousness of for Americans than ever before. ",
-          "start": 2032,
-          "end": 2170
+          "text": "The Xinjiang Uyghur Autonomous Region in China’s northwest is enormous, including about one-sixth of China’s total land area. ",
+          "start": 1476,
+          "end": 1602,
+          "context": "Some background:\n The Xinjiang Uyghur Autonomous Region in China’s northwest is enormous, including about one-sixth of China’s total land area.  It is sparsely populated, with just 24 million people (38 people/square mile) and includes sweeping deserts and beautiful mountains. "
         },
         {
           "id": "doc-8c62afe872e1::sentence-45",
           "documentId": "doc-8c62afe872e1",
           "text": "In 1945, perhaps 6% of Xinjiang’s population was Han, rising to 40% at the start of 1980s. ",
           "start": 4769,
-          "end": 4860
-        },
-        {
-          "id": "doc-22d3f92a3016::sentence-4",
-          "documentId": "doc-22d3f92a3016",
-          "text": "The campaign over the past four years in the far west region of Xinjiang is leading to what some experts are calling a form of “demographic genocide.”\n",
-          "start": 631,
-          "end": 782
+          "end": 4860,
+          "context": "Uyghurs say that Han entrepreneurs enjoy better access to capital and networks.  In 1945, perhaps 6% of Xinjiang’s population was Han, rising to 40% at the start of 1980s.  It may be slightly lower now and most migrants move on their own rather than in accordance with state directives, but Han dominate Urumqi and other northern Xinjiang employment centers while poorer and rural southern Xinjiang is predominantly Uyghur. "
         },
         {
           "id": "doc-22d3f92a3016::sentence-47",
           "documentId": "doc-22d3f92a3016",
           "text": "After the People’s Liberation Army swept through in 1949, China’s new Communist rulers ordered thousands of soldiers to settle in Xinjiang, pushing the Han population from 6.7% that year to more than 40% by 1980. ",
           "start": 6784,
-          "end": 6997
+          "end": 6997,
+          "context": "For centuries, the majority was Muslim in the arid, landlocked region China now calls “Xinjiang” — meaning “New Frontier” in Mandarin.\n After the People’s Liberation Army swept through in 1949, China’s new Communist rulers ordered thousands of soldiers to settle in Xinjiang, pushing the Han population from 6.7% that year to more than 40% by 1980.  The move sowed anxiety about Chinese migration that persists to this day. "
+        },
+        {
+          "id": "doc-22d3f92a3016::sentence-4",
+          "documentId": "doc-22d3f92a3016",
+          "text": "The campaign over the past four years in the far west region of Xinjiang is leading to what some experts are calling a form of “demographic genocide.”\n",
+          "start": 631,
+          "end": 782,
+          "context": "While individual women have spoken out before about forced birth control, the practice is far more widespread and systematic than previously known, according to an AP investigation based on government statistics, state documents and interviews with 30 ex-detainees, family members and a former detention camp instructor.  The campaign over the past four years in the far west region of Xinjiang is leading to what some experts are calling a form of “demographic genocide.”\n The state regularly subjects minority women to pregnancy checks, and forces intrauterine devices, sterilization and even abortion on hundreds of thousands, the interviews and data show. "
+        },
+        {
+          "id": "doc-8c62afe872e1::sentence-21",
+          "documentId": "doc-8c62afe872e1",
+          "text": "As big as Alaska and having more people than Florida, Xinjiang today looms larger in the consciousness of for Americans than ever before. ",
+          "start": 2032,
+          "end": 2170,
+          "context": "Xi Jinping’s Belt and Road Initiative aims to tie China closer to Xinjiang’s neighbors and develop the region.\n As big as Alaska and having more people than Florida, Xinjiang today looms larger in the consciousness of for Americans than ever before.  For three years, they have gradually learned about the systematic extrajudicial detention of a million people, perhaps one-tenth of the region’s Uyghur population. "
+        }
+      ]
+    },
+    {
+      "atomId": "atom-2",
+      "spans": [
+        {
+          "id": "doc-8c62afe872e1::sentence-16",
+          "documentId": "doc-8c62afe872e1",
+          "text": "The Xinjiang Uyghur Autonomous Region in China’s northwest is enormous, including about one-sixth of China’s total land area. ",
+          "start": 1476,
+          "end": 1602,
+          "context": "Some background:\n The Xinjiang Uyghur Autonomous Region in China’s northwest is enormous, including about one-sixth of China’s total land area.  It is sparsely populated, with just 24 million people (38 people/square mile) and includes sweeping deserts and beautiful mountains. "
+        },
+        {
+          "id": "doc-22d3f92a3016::sentence-19",
+          "documentId": "doc-22d3f92a3016",
+          "text": "The hundreds of millions of dollars the government pours into birth control has transformed Xinjiang from one of China’s fastest-growing regions to among its slowest in just a few years, according to new research obtained by The Associated Press in advance of publication by China scholar Adrian Zenz.\n",
+          "start": 2598,
+          "end": 2900,
+          "context": "Across the Xinjiang region, birth rates continue to plummet, falling nearly 24% last year alone — compared to just 4.2% nationwide, statistics show.\n The hundreds of millions of dollars the government pours into birth control has transformed Xinjiang from one of China’s fastest-growing regions to among its slowest in just a few years, according to new research obtained by The Associated Press in advance of publication by China scholar Adrian Zenz.\n “This kind of drop is unprecedented....there’s a ruthlessness to it,” said Zenz, a leading expert in the policing of China’s minority regions. "
+        },
+        {
+          "id": "doc-8c62afe872e1::sentence-55",
+          "documentId": "doc-8c62afe872e1",
+          "text": "\"China's Xinjiang Problem: How did we get here?\"\n",
+          "start": 5743,
+          "end": 5792,
+          "context": "Dru Gladney - Professor & Chair of Anthropology, Pomona College\n \"China's Xinjiang Problem: How did we get here?\"\n \"Cultural Genocide in Xinjiang\""
+        },
+        {
+          "id": "doc-22d3f92a3016::sentence-47",
+          "documentId": "doc-22d3f92a3016",
+          "text": "After the People’s Liberation Army swept through in 1949, China’s new Communist rulers ordered thousands of soldiers to settle in Xinjiang, pushing the Han population from 6.7% that year to more than 40% by 1980. ",
+          "start": 6784,
+          "end": 6997,
+          "context": "For centuries, the majority was Muslim in the arid, landlocked region China now calls “Xinjiang” — meaning “New Frontier” in Mandarin.\n After the People’s Liberation Army swept through in 1949, China’s new Communist rulers ordered thousands of soldiers to settle in Xinjiang, pushing the Han population from 6.7% that year to more than 40% by 1980.  The move sowed anxiety about Chinese migration that persists to this day. "
+        },
+        {
+          "id": "doc-8c62afe872e1::sentence-21",
+          "documentId": "doc-8c62afe872e1",
+          "text": "As big as Alaska and having more people than Florida, Xinjiang today looms larger in the consciousness of for Americans than ever before. ",
+          "start": 2032,
+          "end": 2170,
+          "context": "Xi Jinping’s Belt and Road Initiative aims to tie China closer to Xinjiang’s neighbors and develop the region.\n As big as Alaska and having more people than Florida, Xinjiang today looms larger in the consciousness of for Americans than ever before.  For three years, they have gradually learned about the systematic extrajudicial detention of a million people, perhaps one-tenth of the region’s Uyghur population. "
+        },
+        {
+          "id": "doc-22d3f92a3016::sentence-141",
+          "documentId": "doc-22d3f92a3016",
+          "text": "Chinese health statistics also show a sterilization boom in Xinjiang.\n",
+          "start": 17404,
+          "end": 17474,
+          "context": "“Only Uighurs had to wear it.”\n Chinese health statistics also show a sterilization boom in Xinjiang.\n Budget documents obtained by Zenz show that starting in 2016, the Xinjiang government began pumping tens of millions of dollars into a birth control surgery program and cash incentives for women to get sterilized. "
         }
       ]
     }
@@ -61,6 +132,41 @@
   "classifications": [
     {
       "atomId": "atom-1",
+      "relations": [
+        {
+          "spanId": "doc-22d3f92a3016::sentence-19",
+          "documentId": "doc-22d3f92a3016",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-8c62afe872e1::sentence-16",
+          "documentId": "doc-8c62afe872e1",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-8c62afe872e1::sentence-45",
+          "documentId": "doc-8c62afe872e1",
+          "relation": "ENTAILMENT"
+        },
+        {
+          "spanId": "doc-22d3f92a3016::sentence-47",
+          "documentId": "doc-22d3f92a3016",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-22d3f92a3016::sentence-4",
+          "documentId": "doc-22d3f92a3016",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-8c62afe872e1::sentence-21",
+          "documentId": "doc-8c62afe872e1",
+          "relation": "NEUTRAL"
+        }
+      ]
+    },
+    {
+      "atomId": "atom-2",
       "relations": [
         {
           "spanId": "doc-8c62afe872e1::sentence-16",
@@ -73,43 +179,44 @@
           "relation": "NEUTRAL"
         },
         {
-          "spanId": "doc-8c62afe872e1::sentence-21",
+          "spanId": "doc-8c62afe872e1::sentence-55",
           "documentId": "doc-8c62afe872e1",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-8c62afe872e1::sentence-45",
-          "documentId": "doc-8c62afe872e1",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-22d3f92a3016::sentence-4",
-          "documentId": "doc-22d3f92a3016",
           "relation": "NEUTRAL"
         },
         {
           "spanId": "doc-22d3f92a3016::sentence-47",
           "documentId": "doc-22d3f92a3016",
           "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-8c62afe872e1::sentence-21",
+          "documentId": "doc-8c62afe872e1",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-22d3f92a3016::sentence-141",
+          "documentId": "doc-22d3f92a3016",
+          "relation": "NEUTRAL"
         }
       ]
     }
   ],
-  "linguistics": [
-    {
-      "atomId": "atom-1",
+  "linguistics": {
+    "schemaVersion": 2,
+    "claimAnalysis": {
+      "atomId": "claim",
       "frames": [
         {
-          "id": "atom-1-frame-1",
+          "id": "claim-frame-1",
           "predicate": {
-            "id": "atom-1-frame-1-predicate",
+            "id": "claim-frame-1-predicate",
             "text": "grew",
             "start": 69,
             "end": 73
           },
           "subjects": [
             {
-              "id": "atom-1-frame-1-subject-1",
+              "id": "claim-frame-1-subject-1",
               "text": "the Uyghur population in Xinjiang, in China",
               "start": 24,
               "end": 67
@@ -118,7 +225,7 @@
           "coreArguments": [],
           "adjuncts": [
             {
-              "id": "atom-1-frame-1-adjunct-1",
+              "id": "claim-frame-1-adjunct-1",
               "text": "Over the past 40 years",
               "start": 0,
               "end": 22,
@@ -127,7 +234,7 @@
           ],
           "otherModifiers": [
             {
-              "id": "atom-1-frame-1-other-modifier-1",
+              "id": "claim-frame-1-other-modifier-1",
               "text": "from 5.55 million to 12 million",
               "start": 74,
               "end": 105
@@ -137,14 +244,14 @@
       ],
       "cues": [
         {
-          "id": "atom-1-cue-temporal-5-22",
+          "id": "claim-cue-temporal-5-22",
           "text": "the past 40 years",
           "start": 5,
           "end": 22,
           "kind": "temporal"
         },
         {
-          "id": "atom-1-cue-numeric-79-105",
+          "id": "claim-cue-numeric-79-105",
           "text": "5.55 million to 12 million",
           "start": 79,
           "end": 105,
@@ -153,21 +260,21 @@
       ],
       "entities": [
         {
-          "id": "atom-1-entity-org-28-34",
+          "id": "claim-entity-org-28-34",
           "text": "Uyghur",
           "start": 28,
           "end": 34,
           "label": "ORG"
         },
         {
-          "id": "atom-1-entity-gpe-49-57",
+          "id": "claim-entity-gpe-49-57",
           "text": "Xinjiang",
           "start": 49,
           "end": 57,
           "label": "GPE"
         },
         {
-          "id": "atom-1-entity-gpe-62-67",
+          "id": "claim-entity-gpe-62-67",
           "text": "China",
           "start": 62,
           "end": 67,
@@ -176,7 +283,7 @@
       ],
       "tokens": [
         {
-          "id": "atom-1-token-0",
+          "id": "claim-token-0",
           "text": "Over",
           "start": 0,
           "end": 4,
@@ -187,7 +294,7 @@
           "head": "grew"
         },
         {
-          "id": "atom-1-token-1",
+          "id": "claim-token-1",
           "text": "the",
           "start": 5,
           "end": 8,
@@ -198,7 +305,7 @@
           "head": "years"
         },
         {
-          "id": "atom-1-token-2",
+          "id": "claim-token-2",
           "text": "past",
           "start": 9,
           "end": 13,
@@ -209,7 +316,7 @@
           "head": "years"
         },
         {
-          "id": "atom-1-token-3",
+          "id": "claim-token-3",
           "text": "40",
           "start": 14,
           "end": 16,
@@ -220,7 +327,7 @@
           "head": "years"
         },
         {
-          "id": "atom-1-token-4",
+          "id": "claim-token-4",
           "text": "years",
           "start": 17,
           "end": 22,
@@ -231,7 +338,7 @@
           "head": "Over"
         },
         {
-          "id": "atom-1-token-5",
+          "id": "claim-token-5",
           "text": ",",
           "start": 22,
           "end": 23,
@@ -242,7 +349,7 @@
           "head": "grew"
         },
         {
-          "id": "atom-1-token-6",
+          "id": "claim-token-6",
           "text": "the",
           "start": 24,
           "end": 27,
@@ -253,7 +360,7 @@
           "head": "population"
         },
         {
-          "id": "atom-1-token-7",
+          "id": "claim-token-7",
           "text": "Uyghur",
           "start": 28,
           "end": 34,
@@ -264,7 +371,7 @@
           "head": "population"
         },
         {
-          "id": "atom-1-token-8",
+          "id": "claim-token-8",
           "text": "population",
           "start": 35,
           "end": 45,
@@ -275,7 +382,7 @@
           "head": "grew"
         },
         {
-          "id": "atom-1-token-9",
+          "id": "claim-token-9",
           "text": "in",
           "start": 46,
           "end": 48,
@@ -286,7 +393,7 @@
           "head": "population"
         },
         {
-          "id": "atom-1-token-10",
+          "id": "claim-token-10",
           "text": "Xinjiang",
           "start": 49,
           "end": 57,
@@ -297,7 +404,7 @@
           "head": "in"
         },
         {
-          "id": "atom-1-token-11",
+          "id": "claim-token-11",
           "text": ",",
           "start": 57,
           "end": 58,
@@ -308,7 +415,7 @@
           "head": "population"
         },
         {
-          "id": "atom-1-token-12",
+          "id": "claim-token-12",
           "text": "in",
           "start": 59,
           "end": 61,
@@ -319,7 +426,7 @@
           "head": "population"
         },
         {
-          "id": "atom-1-token-13",
+          "id": "claim-token-13",
           "text": "China",
           "start": 62,
           "end": 67,
@@ -330,7 +437,7 @@
           "head": "in"
         },
         {
-          "id": "atom-1-token-14",
+          "id": "claim-token-14",
           "text": ",",
           "start": 67,
           "end": 68,
@@ -341,7 +448,7 @@
           "head": "population"
         },
         {
-          "id": "atom-1-token-15",
+          "id": "claim-token-15",
           "text": "grew",
           "start": 69,
           "end": 73,
@@ -352,7 +459,7 @@
           "head": "ROOT"
         },
         {
-          "id": "atom-1-token-16",
+          "id": "claim-token-16",
           "text": "from",
           "start": 74,
           "end": 78,
@@ -363,7 +470,7 @@
           "head": "grew"
         },
         {
-          "id": "atom-1-token-17",
+          "id": "claim-token-17",
           "text": "5.55",
           "start": 79,
           "end": 83,
@@ -374,7 +481,7 @@
           "head": "million"
         },
         {
-          "id": "atom-1-token-18",
+          "id": "claim-token-18",
           "text": "million",
           "start": 84,
           "end": 91,
@@ -385,7 +492,7 @@
           "head": "from"
         },
         {
-          "id": "atom-1-token-19",
+          "id": "claim-token-19",
           "text": "to",
           "start": 92,
           "end": 94,
@@ -396,7 +503,7 @@
           "head": "from"
         },
         {
-          "id": "atom-1-token-20",
+          "id": "claim-token-20",
           "text": "12",
           "start": 95,
           "end": 97,
@@ -407,7 +514,7 @@
           "head": "million"
         },
         {
-          "id": "atom-1-token-21",
+          "id": "claim-token-21",
           "text": "million",
           "start": 98,
           "end": 105,
@@ -418,7 +525,7 @@
           "head": "to"
         },
         {
-          "id": "atom-1-token-22",
+          "id": "claim-token-22",
           "text": ".",
           "start": 105,
           "end": 106,
@@ -431,8 +538,624 @@
       ],
       "status": "complete",
       "unresolved": []
-    }
-  ],
+    },
+    "analyses": [
+      {
+        "atomId": "atom-1",
+        "frames": [
+          {
+            "id": "atom-1-frame-1",
+            "predicate": {
+              "id": "atom-1-frame-1-predicate",
+              "text": "grew",
+              "start": 69,
+              "end": 73
+            },
+            "subjects": [
+              {
+                "id": "atom-1-frame-1-subject-1",
+                "text": "the Uyghur population in Xinjiang, in China",
+                "start": 24,
+                "end": 67
+              }
+            ],
+            "coreArguments": [],
+            "adjuncts": [
+              {
+                "id": "atom-1-frame-1-adjunct-1",
+                "text": "Over the past 40 years",
+                "start": 0,
+                "end": 22,
+                "kind": "temporal"
+              }
+            ],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [
+          {
+            "id": "atom-1-cue-temporal-5-22",
+            "text": "the past 40 years",
+            "start": 5,
+            "end": 22,
+            "kind": "temporal"
+          }
+        ],
+        "entities": [
+          {
+            "id": "atom-1-entity-org-28-34",
+            "text": "Uyghur",
+            "start": 28,
+            "end": 34,
+            "label": "ORG"
+          },
+          {
+            "id": "atom-1-entity-gpe-49-57",
+            "text": "Xinjiang",
+            "start": 49,
+            "end": 57,
+            "label": "GPE"
+          },
+          {
+            "id": "atom-1-entity-gpe-62-67",
+            "text": "China",
+            "start": 62,
+            "end": 67,
+            "label": "GPE"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-1-token-0",
+            "text": "Over",
+            "start": 0,
+            "end": 4,
+            "lemma": "over",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "grew"
+          },
+          {
+            "id": "atom-1-token-1",
+            "text": "the",
+            "start": 5,
+            "end": 8,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "years"
+          },
+          {
+            "id": "atom-1-token-2",
+            "text": "past",
+            "start": 9,
+            "end": 13,
+            "lemma": "past",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "years"
+          },
+          {
+            "id": "atom-1-token-3",
+            "text": "40",
+            "start": 14,
+            "end": 16,
+            "lemma": "40",
+            "pos": "NUM",
+            "tag": "CD",
+            "dependency": "nummod",
+            "head": "years"
+          },
+          {
+            "id": "atom-1-token-4",
+            "text": "years",
+            "start": 17,
+            "end": 22,
+            "lemma": "year",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "pobj",
+            "head": "Over"
+          },
+          {
+            "id": "atom-1-token-5",
+            "text": ",",
+            "start": 22,
+            "end": 23,
+            "lemma": ",",
+            "pos": "PUNCT",
+            "tag": ",",
+            "dependency": "punct",
+            "head": "grew"
+          },
+          {
+            "id": "atom-1-token-6",
+            "text": "the",
+            "start": 24,
+            "end": 27,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "population"
+          },
+          {
+            "id": "atom-1-token-7",
+            "text": "Uyghur",
+            "start": 28,
+            "end": 34,
+            "lemma": "uyghur",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "population"
+          },
+          {
+            "id": "atom-1-token-8",
+            "text": "population",
+            "start": 35,
+            "end": 45,
+            "lemma": "population",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "nsubj",
+            "head": "grew"
+          },
+          {
+            "id": "atom-1-token-9",
+            "text": "in",
+            "start": 46,
+            "end": 48,
+            "lemma": "in",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "population"
+          },
+          {
+            "id": "atom-1-token-10",
+            "text": "Xinjiang",
+            "start": 49,
+            "end": 57,
+            "lemma": "Xinjiang",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "pobj",
+            "head": "in"
+          },
+          {
+            "id": "atom-1-token-11",
+            "text": ",",
+            "start": 57,
+            "end": 58,
+            "lemma": ",",
+            "pos": "PUNCT",
+            "tag": ",",
+            "dependency": "punct",
+            "head": "population"
+          },
+          {
+            "id": "atom-1-token-12",
+            "text": "in",
+            "start": 59,
+            "end": 61,
+            "lemma": "in",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "population"
+          },
+          {
+            "id": "atom-1-token-13",
+            "text": "China",
+            "start": 62,
+            "end": 67,
+            "lemma": "China",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "pobj",
+            "head": "in"
+          },
+          {
+            "id": "atom-1-token-14",
+            "text": ",",
+            "start": 67,
+            "end": 68,
+            "lemma": ",",
+            "pos": "PUNCT",
+            "tag": ",",
+            "dependency": "punct",
+            "head": "population"
+          },
+          {
+            "id": "atom-1-token-15",
+            "text": "grew",
+            "start": 69,
+            "end": 73,
+            "lemma": "grow",
+            "pos": "VERB",
+            "tag": "VBD",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-1-token-16",
+            "text": ".",
+            "start": 73,
+            "end": 74,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "grew"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      },
+      {
+        "atomId": "atom-2",
+        "frames": [
+          {
+            "id": "atom-2-frame-1",
+            "predicate": {
+              "id": "atom-2-frame-1-predicate",
+              "text": "grew",
+              "start": 45,
+              "end": 49
+            },
+            "subjects": [
+              {
+                "id": "atom-2-frame-1-subject-1",
+                "text": "The Uyghur population in Xinjiang, in China",
+                "start": 0,
+                "end": 43
+              }
+            ],
+            "coreArguments": [],
+            "adjuncts": [],
+            "otherModifiers": [
+              {
+                "id": "atom-2-frame-1-other-modifier-1",
+                "text": "from 5.55 million to 12 million",
+                "start": 50,
+                "end": 81
+              }
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "atom-2-cue-numeric-55-81",
+            "text": "5.55 million to 12 million",
+            "start": 55,
+            "end": 81,
+            "kind": "numeric"
+          }
+        ],
+        "entities": [
+          {
+            "id": "atom-2-entity-org-4-10",
+            "text": "Uyghur",
+            "start": 4,
+            "end": 10,
+            "label": "ORG"
+          },
+          {
+            "id": "atom-2-entity-gpe-25-33",
+            "text": "Xinjiang",
+            "start": 25,
+            "end": 33,
+            "label": "GPE"
+          },
+          {
+            "id": "atom-2-entity-gpe-38-43",
+            "text": "China",
+            "start": 38,
+            "end": 43,
+            "label": "GPE"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-2-token-0",
+            "text": "The",
+            "start": 0,
+            "end": 3,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "population"
+          },
+          {
+            "id": "atom-2-token-1",
+            "text": "Uyghur",
+            "start": 4,
+            "end": 10,
+            "lemma": "uyghur",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "population"
+          },
+          {
+            "id": "atom-2-token-2",
+            "text": "population",
+            "start": 11,
+            "end": 21,
+            "lemma": "population",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "nsubj",
+            "head": "grew"
+          },
+          {
+            "id": "atom-2-token-3",
+            "text": "in",
+            "start": 22,
+            "end": 24,
+            "lemma": "in",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "population"
+          },
+          {
+            "id": "atom-2-token-4",
+            "text": "Xinjiang",
+            "start": 25,
+            "end": 33,
+            "lemma": "Xinjiang",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "pobj",
+            "head": "in"
+          },
+          {
+            "id": "atom-2-token-5",
+            "text": ",",
+            "start": 33,
+            "end": 34,
+            "lemma": ",",
+            "pos": "PUNCT",
+            "tag": ",",
+            "dependency": "punct",
+            "head": "population"
+          },
+          {
+            "id": "atom-2-token-6",
+            "text": "in",
+            "start": 35,
+            "end": 37,
+            "lemma": "in",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "population"
+          },
+          {
+            "id": "atom-2-token-7",
+            "text": "China",
+            "start": 38,
+            "end": 43,
+            "lemma": "China",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "pobj",
+            "head": "in"
+          },
+          {
+            "id": "atom-2-token-8",
+            "text": ",",
+            "start": 43,
+            "end": 44,
+            "lemma": ",",
+            "pos": "PUNCT",
+            "tag": ",",
+            "dependency": "punct",
+            "head": "population"
+          },
+          {
+            "id": "atom-2-token-9",
+            "text": "grew",
+            "start": 45,
+            "end": 49,
+            "lemma": "grow",
+            "pos": "VERB",
+            "tag": "VBD",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-2-token-10",
+            "text": "from",
+            "start": 50,
+            "end": 54,
+            "lemma": "from",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "grew"
+          },
+          {
+            "id": "atom-2-token-11",
+            "text": "5.55",
+            "start": 55,
+            "end": 59,
+            "lemma": "5.55",
+            "pos": "NUM",
+            "tag": "CD",
+            "dependency": "compound",
+            "head": "million"
+          },
+          {
+            "id": "atom-2-token-12",
+            "text": "million",
+            "start": 60,
+            "end": 67,
+            "lemma": "million",
+            "pos": "NUM",
+            "tag": "CD",
+            "dependency": "pobj",
+            "head": "from"
+          },
+          {
+            "id": "atom-2-token-13",
+            "text": "to",
+            "start": 68,
+            "end": 70,
+            "lemma": "to",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "from"
+          },
+          {
+            "id": "atom-2-token-14",
+            "text": "12",
+            "start": 71,
+            "end": 73,
+            "lemma": "12",
+            "pos": "NUM",
+            "tag": "CD",
+            "dependency": "compound",
+            "head": "million"
+          },
+          {
+            "id": "atom-2-token-15",
+            "text": "million",
+            "start": 74,
+            "end": 81,
+            "lemma": "million",
+            "pos": "NUM",
+            "tag": "CD",
+            "dependency": "pobj",
+            "head": "to"
+          },
+          {
+            "id": "atom-2-token-16",
+            "text": ".",
+            "start": 81,
+            "end": 82,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "grew"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      }
+    ],
+    "summaries": [
+      {
+        "atomId": "atom-1",
+        "analysisStatus": "complete",
+        "roleAudit": "MISMATCH",
+        "subjects": [
+          "the Uyghur population in Xinjiang, in China"
+        ],
+        "predicates": [
+          "grow"
+        ],
+        "cueKinds": [
+          "temporal"
+        ],
+        "modifierKinds": [
+          "temporal"
+        ],
+        "entityLabels": [
+          "ORG",
+          "GPE"
+        ],
+        "warnings": [
+          "ROLE_CUE_MISMATCH"
+        ]
+      },
+      {
+        "atomId": "atom-2",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "The Uyghur population in Xinjiang, in China"
+        ],
+        "predicates": [
+          "grow"
+        ],
+        "cueKinds": [
+          "numeric"
+        ],
+        "modifierKinds": [],
+        "entityLabels": [
+          "ORG",
+          "GPE"
+        ],
+        "warnings": []
+      }
+    ],
+    "claimWarnings": [],
+    "provider": "spacy",
+    "model": "en_core_web_sm@3.8.0"
+  },
+  "verdict": {
+    "aggregationSchemaVersion": 1,
+    "claimId": "averitec-dev-0413",
+    "composition": "AND",
+    "verdict": "NOT_ENOUGH_EVIDENCE",
+    "positions": {
+      "supportPosition": false,
+      "attackPosition": false,
+      "supportObligationIds": [
+        "atom-1"
+      ],
+      "attackObligationIds": [],
+      "unresolvedObligationIds": [
+        "atom-2"
+      ]
+    },
+    "obligations": [
+      {
+        "obligationId": "atom-1",
+        "state": "SUPPORTED",
+        "supportEdgeIds": [
+          "edge:SUPPORTS:evidence:doc-8c62afe872e1:doc-8c62afe872e1::sentence-45:obligation:averitec-dev-0413:atom-1"
+        ],
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 5
+      },
+      {
+        "obligationId": "atom-2",
+        "state": "UNRESOLVED",
+        "supportEdgeIds": [],
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 6
+      }
+    ],
+    "warnings": [
+      {
+        "code": "LINGUISTIC_AUDIT_WARNING",
+        "message": "Linguistic analysis for obligation atom-1 requires inspection; it does not change the verdict."
+      },
+      {
+        "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
+        "message": "Obligation atom-2 has no supporting or attacking evidence."
+      },
+      {
+        "code": "ONLY_NEUTRAL_CANDIDATES",
+        "message": "Obligation atom-2 has only neutral retrieved candidates."
+      }
+    ],
+    "ruleTrace": [
+      "AND support requires support for every obligation; AND attack requires an attack on any obligation.",
+      "Support position: no; attack position: no.",
+      "Final verdict: NOT_ENOUGH_EVIDENCE."
+    ]
+  },
   "recordedWith": {
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",

@@ -1,33 +1,40 @@
 {
   "caseId": "averitec-dev-0100",
+  "schemaVersion": 2,
+  "composition": "AND",
+  "warnings": [],
   "atoms": [
     {
       "id": "atom-1",
-      "text": "US president Joe Biden (candidate at the time of claim) supports the new green deal",
-      "sourceText": "US president Joe Biden (candidate at the time of claim) supports the new green deal (The Green New Deal is a nonbinding resolution, introduced by Rep. Alexandria Ocasio-Cortez and Sen. Ed Markey last year, to tackle climate change.)",
+      "text": "US president Joe Biden (candidate at the time of claim) supports the new green deal.",
+      "sourceText": "US president Joe Biden (candidate at the time of claim) supports the new green deal",
       "start": 0,
-      "end": 232
+      "end": 83,
+      "role": "ATTRIBUTION"
     },
     {
       "id": "atom-2",
-      "text": "The Green New Deal is a nonbinding resolution",
-      "sourceText": "US president Joe Biden (candidate at the time of claim) supports the new green deal (The Green New Deal is a nonbinding resolution, introduced by Rep. Alexandria Ocasio-Cortez and Sen. Ed Markey last year, to tackle climate change.)",
-      "start": 0,
-      "end": 232
+      "text": "The Green New Deal is a nonbinding resolution.",
+      "sourceText": "The Green New Deal is a nonbinding resolution",
+      "start": 85,
+      "end": 130,
+      "role": "CORE"
     },
     {
       "id": "atom-3",
-      "text": "The Green New Deal was introduced by Rep. Alexandria Ocasio-Cortez and Sen. Ed Markey last year",
-      "sourceText": "US president Joe Biden (candidate at the time of claim) supports the new green deal (The Green New Deal is a nonbinding resolution, introduced by Rep. Alexandria Ocasio-Cortez and Sen. Ed Markey last year, to tackle climate change.)",
-      "start": 0,
-      "end": 232
+      "text": "The Green New Deal was introduced by Rep. Alexandria Ocasio-Cortez and Sen. Ed Markey last year.",
+      "sourceText": "introduced by Rep. Alexandria Ocasio-Cortez and Sen. Ed Markey last year",
+      "start": 132,
+      "end": 204,
+      "role": "CORE"
     },
     {
       "id": "atom-4",
-      "text": "The Green New Deal aims to tackle climate change",
-      "sourceText": "US president Joe Biden (candidate at the time of claim) supports the new green deal (The Green New Deal is a nonbinding resolution, introduced by Rep. Alexandria Ocasio-Cortez and Sen. Ed Markey last year, to tackle climate change.)",
-      "start": 0,
-      "end": 232
+      "text": "The Green New Deal aims to tackle climate change.",
+      "sourceText": "to tackle climate change",
+      "start": 206,
+      "end": 230,
+      "role": "CORE"
     }
   ],
   "evidence": [
@@ -39,42 +46,48 @@
           "documentId": "doc-3da0494639bb",
           "text": "If you set aside the most attention-grabbing left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the left-wing of the Democratic party. ",
           "start": 1113,
-          "end": 1420
-        },
-        {
-          "id": "doc-3da0494639bb::sentence-6",
-          "documentId": "doc-3da0494639bb",
-          "text": "Part of Biden’s “Build Back Better” agenda, these plans are a Green New Deal in all but name. ",
-          "start": 1019,
-          "end": 1113
+          "end": 1420,
+          "context": "Part of Biden’s “Build Back Better” agenda, these plans are a Green New Deal in all but name.  If you set aside the most attention-grabbing left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the left-wing of the Democratic party.  Firstly, like the Green New Deal, Biden’s plans reframe climate action as a jobs, infrastructure and clean energy stimulus.\n"
         },
         {
           "id": "doc-7f2ff8371330::sentence-2",
           "documentId": "doc-7f2ff8371330",
           "text": "On March 11, 2021, Biden won his first major economic victory when he signed the American Rescue Plan Act of 2021 into law. ",
           "start": 216,
-          "end": 340
+          "end": 340,
+          "context": "President Joe Biden campaigned on an economic platform to shore up the middle class, extend healthcare, raise taxes on the wealthy, and invest trillions of dollars in green energy infrastructure, among other issues.\n On March 11, 2021, Biden won his first major economic victory when he signed the American Rescue Plan Act of 2021 into law.  It's one part of his Build Back Better Plan, which also includes the American Jobs Plan and the American Families Plan. "
         },
         {
-          "id": "doc-7f2ff8371330::sentence-145",
-          "documentId": "doc-7f2ff8371330",
-          "text": "The president's website said he supported the idea of a Green New Deal and that he wanted to ensure the U.S. has a carbon-pollution-free power sector by 2035 and reaches net-zero emissions no later than 2050. ",
-          "start": 15882,
-          "end": 16091
-        },
-        {
-          "id": "doc-3da0494639bb::sentence-8",
+          "id": "doc-3da0494639bb::sentence-6",
           "documentId": "doc-3da0494639bb",
-          "text": "Firstly, like the Green New Deal, Biden’s plans reframe climate action as a jobs, infrastructure and clean energy stimulus.\n",
-          "start": 1420,
-          "end": 1544
+          "text": "Part of Biden’s “Build Back Better” agenda, these plans are a Green New Deal in all but name. ",
+          "start": 1019,
+          "end": 1113,
+          "context": "Biden proposes to pair these investments with new performance standards, most notably a clean electricity standard that would transition the United States to a carbon pollution-free power sector by 2035.\n Part of Biden’s “Build Back Better” agenda, these plans are a Green New Deal in all but name.  If you set aside the most attention-grabbing left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the left-wing of the Democratic party. "
         },
         {
           "id": "doc-7f2ff8371330::sentence-1",
           "documentId": "doc-7f2ff8371330",
           "text": "President Joe Biden campaigned on an economic platform to shore up the middle class, extend healthcare, raise taxes on the wealthy, and invest trillions of dollars in green energy infrastructure, among other issues.\n",
           "start": 0,
-          "end": 216
+          "end": 216,
+          "context": "President Joe Biden campaigned on an economic platform to shore up the middle class, extend healthcare, raise taxes on the wealthy, and invest trillions of dollars in green energy infrastructure, among other issues.\n On March 11, 2021, Biden won his first major economic victory when he signed the American Rescue Plan Act of 2021 into law. "
+        },
+        {
+          "id": "doc-7f2ff8371330::sentence-145",
+          "documentId": "doc-7f2ff8371330",
+          "text": "The president's website said he supported the idea of a Green New Deal and that he wanted to ensure the U.S. has a carbon-pollution-free power sector by 2035 and reaches net-zero emissions no later than 2050. ",
+          "start": 15882,
+          "end": 16091,
+          "context": "The rest of the money would come from renewed appropriations for routine federal infrastructure spending.\n The president's website said he supported the idea of a Green New Deal and that he wanted to ensure the U.S. has a carbon-pollution-free power sector by 2035 and reaches net-zero emissions no later than 2050.  He also promised to rejoin the Paris Agreement, which he did in January 2021.\n"
+        },
+        {
+          "id": "doc-3da0494639bb::sentence-8",
+          "documentId": "doc-3da0494639bb",
+          "text": "Firstly, like the Green New Deal, Biden’s plans reframe climate action as a jobs, infrastructure and clean energy stimulus.\n",
+          "start": 1420,
+          "end": 1544,
+          "context": "If you set aside the most attention-grabbing left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the left-wing of the Democratic party.  Firstly, like the Green New Deal, Biden’s plans reframe climate action as a jobs, infrastructure and clean energy stimulus.\n After three decades of economic elites failing to pitch a carbon tax as a solution to the supposed “market failure” of greenhouse gas emissions, Biden has elected to focus instead on economy-wide performance standards as the cutting edge of decarbonization. "
         }
       ]
     },
@@ -86,42 +99,48 @@
           "documentId": "doc-3da0494639bb",
           "text": "If you set aside the most attention-grabbing left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the left-wing of the Democratic party. ",
           "start": 1113,
-          "end": 1420
+          "end": 1420,
+          "context": "Part of Biden’s “Build Back Better” agenda, these plans are a Green New Deal in all but name.  If you set aside the most attention-grabbing left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the left-wing of the Democratic party.  Firstly, like the Green New Deal, Biden’s plans reframe climate action as a jobs, infrastructure and clean energy stimulus.\n"
         },
         {
           "id": "doc-3da0494639bb::sentence-6",
           "documentId": "doc-3da0494639bb",
           "text": "Part of Biden’s “Build Back Better” agenda, these plans are a Green New Deal in all but name. ",
           "start": 1019,
-          "end": 1113
-        },
-        {
-          "id": "doc-3da0494639bb::sentence-14",
-          "documentId": "doc-3da0494639bb",
-          "text": "Biden’s plans draw upon the Green New Deal-inflected recommendations issued by the joint taskforce convened by surrogates of the Biden and Bernie Sanders campaigns, including Ocasio-Cortez. ",
-          "start": 2438,
-          "end": 2628
+          "end": 1113,
+          "context": "Biden proposes to pair these investments with new performance standards, most notably a clean electricity standard that would transition the United States to a carbon pollution-free power sector by 2035.\n Part of Biden’s “Build Back Better” agenda, these plans are a Green New Deal in all but name.  If you set aside the most attention-grabbing left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the left-wing of the Democratic party. "
         },
         {
           "id": "doc-7f2ff8371330::sentence-145",
           "documentId": "doc-7f2ff8371330",
           "text": "The president's website said he supported the idea of a Green New Deal and that he wanted to ensure the U.S. has a carbon-pollution-free power sector by 2035 and reaches net-zero emissions no later than 2050. ",
           "start": 15882,
-          "end": 16091
+          "end": 16091,
+          "context": "The rest of the money would come from renewed appropriations for routine federal infrastructure spending.\n The president's website said he supported the idea of a Green New Deal and that he wanted to ensure the U.S. has a carbon-pollution-free power sector by 2035 and reaches net-zero emissions no later than 2050.  He also promised to rejoin the Paris Agreement, which he did in January 2021.\n"
         },
         {
-          "id": "doc-7f2ff8371330::sentence-131",
+          "id": "doc-3da0494639bb::sentence-38",
+          "documentId": "doc-3da0494639bb",
+          "text": "Julian Brave NoiseCat is director of Green New Deal Strategy for Data for Progress",
+          "start": 6368,
+          "end": 6450,
+          "context": "But come fall, it’s progressive ideas that just might carry him and his party to the presidency.\n Julian Brave NoiseCat is director of Green New Deal Strategy for Data for Progress"
+        },
+        {
+          "id": "doc-7f2ff8371330::sentence-34",
           "documentId": "doc-7f2ff8371330",
-          "text": "\"Biden does not accept the defeatist view that the forces of automation and globalization render us helpless to retain well-paid union jobs and create more of them here in America. He does not buy for one second that the vitality of U.S. manufacturing is a thing of the past.\"\n",
-          "start": 14072,
-          "end": 14349
+          "text": "The Consolidated Appropriations Act, 2021, passed in December 2020, provided $25 billion to the U.S. Treasury Emergency Rental Assistance program, which is still being distributed to those in need.\n",
+          "start": 4102,
+          "end": 4300,
+          "context": "While the moratorium on evictions and foreclosures has expired, there is still help with rental and mortgage payments available.  The Consolidated Appropriations Act, 2021, passed in December 2020, provided $25 billion to the U.S. Treasury Emergency Rental Assistance program, which is still being distributed to those in need.\n The National Low Income Housing Coalition provides a searchable list of all the housing relief programs available on its website. "
         },
         {
           "id": "doc-7f2ff8371330::sentence-18",
           "documentId": "doc-7f2ff8371330",
           "text": "President Joe Biden formally announced his $1.9 trillion COVID-19 stimulus plan on Jan. 14, 2021. ",
           "start": 1889,
-          "end": 1987
+          "end": 1987,
+          "context": "The American Rescue Plan\n President Joe Biden formally announced his $1.9 trillion COVID-19 stimulus plan on Jan. 14, 2021.  On March 11, 2021, he made it a reality. "
         }
       ]
     },
@@ -133,42 +152,48 @@
           "documentId": "doc-3da0494639bb",
           "text": "If you set aside the most attention-grabbing left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the left-wing of the Democratic party. ",
           "start": 1113,
-          "end": 1420
+          "end": 1420,
+          "context": "Part of Biden’s “Build Back Better” agenda, these plans are a Green New Deal in all but name.  If you set aside the most attention-grabbing left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the left-wing of the Democratic party.  Firstly, like the Green New Deal, Biden’s plans reframe climate action as a jobs, infrastructure and clean energy stimulus.\n"
         },
         {
           "id": "doc-3da0494639bb::sentence-14",
           "documentId": "doc-3da0494639bb",
           "text": "Biden’s plans draw upon the Green New Deal-inflected recommendations issued by the joint taskforce convened by surrogates of the Biden and Bernie Sanders campaigns, including Ocasio-Cortez. ",
           "start": 2438,
-          "end": 2628
+          "end": 2628,
+          "context": "This is, in the broadest strokes, the climate policy gospel according to many progressives.  Biden’s plans draw upon the Green New Deal-inflected recommendations issued by the joint taskforce convened by surrogates of the Biden and Bernie Sanders campaigns, including Ocasio-Cortez.  They also crib heavily from plans devised by Washington governor Jay Inslee’s climate-focused presidential campaign and are delightfully similar to policies drafted by Data for Progress, an upstart leftwing thinktank where I work. "
         },
         {
           "id": "doc-3da0494639bb::sentence-6",
           "documentId": "doc-3da0494639bb",
           "text": "Part of Biden’s “Build Back Better” agenda, these plans are a Green New Deal in all but name. ",
           "start": 1019,
-          "end": 1113
+          "end": 1113,
+          "context": "Biden proposes to pair these investments with new performance standards, most notably a clean electricity standard that would transition the United States to a carbon pollution-free power sector by 2035.\n Part of Biden’s “Build Back Better” agenda, these plans are a Green New Deal in all but name.  If you set aside the most attention-grabbing left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the left-wing of the Democratic party. "
         },
         {
           "id": "doc-7f2ff8371330::sentence-18",
           "documentId": "doc-7f2ff8371330",
           "text": "President Joe Biden formally announced his $1.9 trillion COVID-19 stimulus plan on Jan. 14, 2021. ",
           "start": 1889,
-          "end": 1987
+          "end": 1987,
+          "context": "The American Rescue Plan\n President Joe Biden formally announced his $1.9 trillion COVID-19 stimulus plan on Jan. 14, 2021.  On March 11, 2021, he made it a reality. "
         },
         {
           "id": "doc-7f2ff8371330::sentence-145",
           "documentId": "doc-7f2ff8371330",
           "text": "The president's website said he supported the idea of a Green New Deal and that he wanted to ensure the U.S. has a carbon-pollution-free power sector by 2035 and reaches net-zero emissions no later than 2050. ",
           "start": 15882,
-          "end": 16091
+          "end": 16091,
+          "context": "The rest of the money would come from renewed appropriations for routine federal infrastructure spending.\n The president's website said he supported the idea of a Green New Deal and that he wanted to ensure the U.S. has a carbon-pollution-free power sector by 2035 and reaches net-zero emissions no later than 2050.  He also promised to rejoin the Paris Agreement, which he did in January 2021.\n"
         },
         {
           "id": "doc-7f2ff8371330::sentence-2",
           "documentId": "doc-7f2ff8371330",
           "text": "On March 11, 2021, Biden won his first major economic victory when he signed the American Rescue Plan Act of 2021 into law. ",
           "start": 216,
-          "end": 340
+          "end": 340,
+          "context": "President Joe Biden campaigned on an economic platform to shore up the middle class, extend healthcare, raise taxes on the wealthy, and invest trillions of dollars in green energy infrastructure, among other issues.\n On March 11, 2021, Biden won his first major economic victory when he signed the American Rescue Plan Act of 2021 into law.  It's one part of his Build Back Better Plan, which also includes the American Jobs Plan and the American Families Plan. "
         }
       ]
     },
@@ -180,42 +205,48 @@
           "documentId": "doc-3da0494639bb",
           "text": "Firstly, like the Green New Deal, Biden’s plans reframe climate action as a jobs, infrastructure and clean energy stimulus.\n",
           "start": 1420,
-          "end": 1544
+          "end": 1544,
+          "context": "If you set aside the most attention-grabbing left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the left-wing of the Democratic party.  Firstly, like the Green New Deal, Biden’s plans reframe climate action as a jobs, infrastructure and clean energy stimulus.\n After three decades of economic elites failing to pitch a carbon tax as a solution to the supposed “market failure” of greenhouse gas emissions, Biden has elected to focus instead on economy-wide performance standards as the cutting edge of decarbonization. "
         },
         {
           "id": "doc-3da0494639bb::sentence-6",
           "documentId": "doc-3da0494639bb",
           "text": "Part of Biden’s “Build Back Better” agenda, these plans are a Green New Deal in all but name. ",
           "start": 1019,
-          "end": 1113
+          "end": 1113,
+          "context": "Biden proposes to pair these investments with new performance standards, most notably a clean electricity standard that would transition the United States to a carbon pollution-free power sector by 2035.\n Part of Biden’s “Build Back Better” agenda, these plans are a Green New Deal in all but name.  If you set aside the most attention-grabbing left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the left-wing of the Democratic party. "
         },
         {
           "id": "doc-3da0494639bb::sentence-7",
           "documentId": "doc-3da0494639bb",
           "text": "If you set aside the most attention-grabbing left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the left-wing of the Democratic party. ",
           "start": 1113,
-          "end": 1420
+          "end": 1420,
+          "context": "Part of Biden’s “Build Back Better” agenda, these plans are a Green New Deal in all but name.  If you set aside the most attention-grabbing left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the left-wing of the Democratic party.  Firstly, like the Green New Deal, Biden’s plans reframe climate action as a jobs, infrastructure and clean energy stimulus.\n"
         },
         {
           "id": "doc-7f2ff8371330::sentence-145",
           "documentId": "doc-7f2ff8371330",
           "text": "The president's website said he supported the idea of a Green New Deal and that he wanted to ensure the U.S. has a carbon-pollution-free power sector by 2035 and reaches net-zero emissions no later than 2050. ",
           "start": 15882,
-          "end": 16091
+          "end": 16091,
+          "context": "The rest of the money would come from renewed appropriations for routine federal infrastructure spending.\n The president's website said he supported the idea of a Green New Deal and that he wanted to ensure the U.S. has a carbon-pollution-free power sector by 2035 and reaches net-zero emissions no later than 2050.  He also promised to rejoin the Paris Agreement, which he did in January 2021.\n"
         },
         {
           "id": "doc-7f2ff8371330::sentence-147",
           "documentId": "doc-7f2ff8371330",
           "text": "He also wanted to establish a new Environmental and Climate Justice Division within the Justice Department. ",
           "start": 16169,
-          "end": 16277
+          "end": 16277,
+          "context": "He also promised to rejoin the Paris Agreement, which he did in January 2021.\n He also wanted to establish a new Environmental and Climate Justice Division within the Justice Department.  To build a 100% clean energy economy and create millions of \"good union jobs,\" Biden's plan was to make investments in new infrastructure, public transit, clean electricity, the electric vehicle industry, buildings and housing, and agriculture.\n"
         },
         {
           "id": "doc-7f2ff8371330::sentence-1",
           "documentId": "doc-7f2ff8371330",
           "text": "President Joe Biden campaigned on an economic platform to shore up the middle class, extend healthcare, raise taxes on the wealthy, and invest trillions of dollars in green energy infrastructure, among other issues.\n",
           "start": 0,
-          "end": 216
+          "end": 216,
+          "context": "President Joe Biden campaigned on an economic platform to shore up the middle class, extend healthcare, raise taxes on the wealthy, and invest trillions of dollars in green energy infrastructure, among other issues.\n On March 11, 2021, Biden won his first major economic victory when he signed the American Rescue Plan Act of 2021 into law. "
         }
       ]
     }
@@ -230,12 +261,17 @@
           "relation": "NEUTRAL"
         },
         {
+          "spanId": "doc-7f2ff8371330::sentence-2",
+          "documentId": "doc-7f2ff8371330",
+          "relation": "NEUTRAL"
+        },
+        {
           "spanId": "doc-3da0494639bb::sentence-6",
           "documentId": "doc-3da0494639bb",
           "relation": "NEUTRAL"
         },
         {
-          "spanId": "doc-7f2ff8371330::sentence-2",
+          "spanId": "doc-7f2ff8371330::sentence-1",
           "documentId": "doc-7f2ff8371330",
           "relation": "NEUTRAL"
         },
@@ -247,11 +283,6 @@
         {
           "spanId": "doc-3da0494639bb::sentence-8",
           "documentId": "doc-3da0494639bb",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-7f2ff8371330::sentence-1",
-          "documentId": "doc-7f2ff8371330",
           "relation": "NEUTRAL"
         }
       ]
@@ -270,17 +301,17 @@
           "relation": "NEUTRAL"
         },
         {
-          "spanId": "doc-3da0494639bb::sentence-14",
-          "documentId": "doc-3da0494639bb",
-          "relation": "NEUTRAL"
-        },
-        {
           "spanId": "doc-7f2ff8371330::sentence-145",
           "documentId": "doc-7f2ff8371330",
           "relation": "NEUTRAL"
         },
         {
-          "spanId": "doc-7f2ff8371330::sentence-131",
+          "spanId": "doc-3da0494639bb::sentence-38",
+          "documentId": "doc-3da0494639bb",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-7f2ff8371330::sentence-34",
           "documentId": "doc-7f2ff8371330",
           "relation": "NEUTRAL"
         },
@@ -307,7 +338,7 @@
         {
           "spanId": "doc-3da0494639bb::sentence-6",
           "documentId": "doc-3da0494639bb",
-          "relation": "NEUTRAL"
+          "relation": "CONTRADICTION"
         },
         {
           "spanId": "doc-7f2ff8371330::sentence-18",
@@ -337,12 +368,12 @@
         {
           "spanId": "doc-3da0494639bb::sentence-6",
           "documentId": "doc-3da0494639bb",
-          "relation": "NEUTRAL"
+          "relation": "ENTAILMENT"
         },
         {
           "spanId": "doc-3da0494639bb::sentence-7",
           "documentId": "doc-3da0494639bb",
-          "relation": "NEUTRAL"
+          "relation": "ENTAILMENT"
         },
         {
           "spanId": "doc-7f2ff8371330::sentence-145",
@@ -362,21 +393,22 @@
       ]
     }
   ],
-  "linguistics": [
-    {
-      "atomId": "atom-1",
+  "linguistics": {
+    "schemaVersion": 2,
+    "claimAnalysis": {
+      "atomId": "claim",
       "frames": [
         {
-          "id": "atom-1-frame-1",
+          "id": "claim-frame-1",
           "predicate": {
-            "id": "atom-1-frame-1-predicate",
+            "id": "claim-frame-1-predicate",
             "text": "supports",
             "start": 56,
             "end": 64
           },
           "subjects": [
             {
-              "id": "atom-1-frame-1-subject-1",
+              "id": "claim-frame-1-subject-1",
               "text": "US president Joe Biden (candidate at the time of claim",
               "start": 0,
               "end": 54
@@ -384,7 +416,7 @@
           ],
           "coreArguments": [
             {
-              "id": "atom-1-frame-1-argument-1",
+              "id": "claim-frame-1-argument-1",
               "text": "the new green deal",
               "start": 65,
               "end": 83,
@@ -393,36 +425,99 @@
           ],
           "adjuncts": [],
           "otherModifiers": []
+        },
+        {
+          "id": "claim-frame-2",
+          "predicate": {
+            "id": "claim-frame-2-predicate",
+            "text": "is",
+            "start": 104,
+            "end": 106
+          },
+          "subjects": [
+            {
+              "id": "claim-frame-2-subject-1",
+              "text": "The Green New Deal",
+              "start": 85,
+              "end": 103
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "claim-frame-2-argument-1",
+              "text": "US president Joe Biden (candidate at the time of claim) supports the new green deal",
+              "start": 0,
+              "end": 83,
+              "role": "clausal_complement"
+            },
+            {
+              "id": "claim-frame-2-argument-2",
+              "text": "a nonbinding resolution, introduced by Rep. Alexandria Ocasio-Cortez and Sen. Ed Markey last year, to tackle climate change",
+              "start": 107,
+              "end": 230,
+              "role": "subject_complement"
+            }
+          ],
+          "adjuncts": [],
+          "otherModifiers": []
         }
       ],
       "cues": [
         {
-          "id": "atom-1-cue-attribution-49-54",
+          "id": "claim-cue-attribution-49-54",
           "text": "claim",
           "start": 49,
           "end": 54,
           "kind": "attribution"
+        },
+        {
+          "id": "claim-cue-temporal-195-204",
+          "text": "last year",
+          "start": 195,
+          "end": 204,
+          "kind": "temporal"
         }
       ],
       "entities": [
         {
-          "id": "atom-1-entity-gpe-0-2",
+          "id": "claim-entity-gpe-0-2",
           "text": "US",
           "start": 0,
           "end": 2,
           "label": "GPE"
         },
         {
-          "id": "atom-1-entity-person-13-22",
+          "id": "claim-entity-person-13-22",
           "text": "Joe Biden",
           "start": 13,
           "end": 22,
+          "label": "PERSON"
+        },
+        {
+          "id": "claim-entity-work_of_art-85-103",
+          "text": "The Green New Deal",
+          "start": 85,
+          "end": 103,
+          "label": "WORK_OF_ART"
+        },
+        {
+          "id": "claim-entity-person-151-175",
+          "text": "Alexandria Ocasio-Cortez",
+          "start": 151,
+          "end": 175,
+          "label": "PERSON"
+        },
+        {
+          "id": "claim-entity-person-185-194",
+          "text": "Ed Markey",
+          "start": 185,
+          "end": 194,
           "label": "PERSON"
         }
       ],
       "tokens": [
         {
-          "id": "atom-1-token-0",
+          "id": "claim-token-0",
           "text": "US",
           "start": 0,
           "end": 2,
@@ -433,7 +528,7 @@
           "head": "president"
         },
         {
-          "id": "atom-1-token-1",
+          "id": "claim-token-1",
           "text": "president",
           "start": 3,
           "end": 12,
@@ -444,7 +539,7 @@
           "head": "supports"
         },
         {
-          "id": "atom-1-token-2",
+          "id": "claim-token-2",
           "text": "Joe",
           "start": 13,
           "end": 16,
@@ -455,7 +550,7 @@
           "head": "Biden"
         },
         {
-          "id": "atom-1-token-3",
+          "id": "claim-token-3",
           "text": "Biden",
           "start": 17,
           "end": 22,
@@ -466,7 +561,7 @@
           "head": "president"
         },
         {
-          "id": "atom-1-token-4",
+          "id": "claim-token-4",
           "text": "(",
           "start": 23,
           "end": 24,
@@ -477,7 +572,7 @@
           "head": "candidate"
         },
         {
-          "id": "atom-1-token-5",
+          "id": "claim-token-5",
           "text": "candidate",
           "start": 24,
           "end": 33,
@@ -488,7 +583,7 @@
           "head": "president"
         },
         {
-          "id": "atom-1-token-6",
+          "id": "claim-token-6",
           "text": "at",
           "start": 34,
           "end": 36,
@@ -499,7 +594,7 @@
           "head": "candidate"
         },
         {
-          "id": "atom-1-token-7",
+          "id": "claim-token-7",
           "text": "the",
           "start": 37,
           "end": 40,
@@ -510,7 +605,7 @@
           "head": "time"
         },
         {
-          "id": "atom-1-token-8",
+          "id": "claim-token-8",
           "text": "time",
           "start": 41,
           "end": 45,
@@ -521,7 +616,7 @@
           "head": "at"
         },
         {
-          "id": "atom-1-token-9",
+          "id": "claim-token-9",
           "text": "of",
           "start": 46,
           "end": 48,
@@ -532,7 +627,7 @@
           "head": "time"
         },
         {
-          "id": "atom-1-token-10",
+          "id": "claim-token-10",
           "text": "claim",
           "start": 49,
           "end": 54,
@@ -543,7 +638,7 @@
           "head": "of"
         },
         {
-          "id": "atom-1-token-11",
+          "id": "claim-token-11",
           "text": ")",
           "start": 54,
           "end": 55,
@@ -554,18 +649,18 @@
           "head": "president"
         },
         {
-          "id": "atom-1-token-12",
+          "id": "claim-token-12",
           "text": "supports",
           "start": 56,
           "end": 64,
           "lemma": "support",
           "pos": "VERB",
           "tag": "VBZ",
-          "dependency": "ROOT",
-          "head": "ROOT"
+          "dependency": "ccomp",
+          "head": "is"
         },
         {
-          "id": "atom-1-token-13",
+          "id": "claim-token-13",
           "text": "the",
           "start": 65,
           "end": 68,
@@ -576,7 +671,7 @@
           "head": "deal"
         },
         {
-          "id": "atom-1-token-14",
+          "id": "claim-token-14",
           "text": "new",
           "start": 69,
           "end": 72,
@@ -587,7 +682,7 @@
           "head": "deal"
         },
         {
-          "id": "atom-1-token-15",
+          "id": "claim-token-15",
           "text": "green",
           "start": 73,
           "end": 78,
@@ -598,7 +693,7 @@
           "head": "deal"
         },
         {
-          "id": "atom-1-token-16",
+          "id": "claim-token-16",
           "text": "deal",
           "start": 79,
           "end": 83,
@@ -607,51 +702,23 @@
           "tag": "NN",
           "dependency": "dobj",
           "head": "supports"
-        }
-      ],
-      "status": "complete",
-      "unresolved": []
-    },
-    {
-      "atomId": "atom-2",
-      "frames": [
+        },
         {
-          "id": "atom-2-frame-1",
-          "predicate": {
-            "id": "atom-2-frame-1-predicate",
-            "text": "is",
-            "start": 19,
-            "end": 21
-          },
-          "subjects": [
-            {
-              "id": "atom-2-frame-1-subject-1",
-              "text": "The Green New Deal",
-              "start": 0,
-              "end": 18
-            }
-          ],
-          "coreArguments": [
-            {
-              "id": "atom-2-frame-1-argument-1",
-              "text": "a nonbinding resolution",
-              "start": 22,
-              "end": 45,
-              "role": "subject_complement"
-            }
-          ],
-          "adjuncts": [],
-          "otherModifiers": []
-        }
-      ],
-      "cues": [],
-      "entities": [],
-      "tokens": [
+          "id": "claim-token-17",
+          "text": "(",
+          "start": 84,
+          "end": 85,
+          "lemma": "(",
+          "pos": "PUNCT",
+          "tag": "-LRB-",
+          "dependency": "punct",
+          "head": "is"
+        },
         {
-          "id": "atom-2-token-0",
+          "id": "claim-token-18",
           "text": "The",
-          "start": 0,
-          "end": 3,
+          "start": 85,
+          "end": 88,
           "lemma": "the",
           "pos": "DET",
           "tag": "DT",
@@ -659,10 +726,10 @@
           "head": "Deal"
         },
         {
-          "id": "atom-2-token-1",
+          "id": "claim-token-19",
           "text": "Green",
-          "start": 4,
-          "end": 9,
+          "start": 89,
+          "end": 94,
           "lemma": "Green",
           "pos": "PROPN",
           "tag": "NNP",
@@ -670,10 +737,10 @@
           "head": "Deal"
         },
         {
-          "id": "atom-2-token-2",
+          "id": "claim-token-20",
           "text": "New",
-          "start": 10,
-          "end": 13,
+          "start": 95,
+          "end": 98,
           "lemma": "New",
           "pos": "PROPN",
           "tag": "NNP",
@@ -681,10 +748,10 @@
           "head": "Deal"
         },
         {
-          "id": "atom-2-token-3",
+          "id": "claim-token-21",
           "text": "Deal",
-          "start": 14,
-          "end": 18,
+          "start": 99,
+          "end": 103,
           "lemma": "Deal",
           "pos": "PROPN",
           "tag": "NNP",
@@ -692,10 +759,10 @@
           "head": "is"
         },
         {
-          "id": "atom-2-token-4",
+          "id": "claim-token-22",
           "text": "is",
-          "start": 19,
-          "end": 21,
+          "start": 104,
+          "end": 106,
           "lemma": "be",
           "pos": "AUX",
           "tag": "VBZ",
@@ -703,10 +770,10 @@
           "head": "ROOT"
         },
         {
-          "id": "atom-2-token-5",
+          "id": "claim-token-23",
           "text": "a",
-          "start": 22,
-          "end": 23,
+          "start": 107,
+          "end": 108,
           "lemma": "a",
           "pos": "DET",
           "tag": "DT",
@@ -714,10 +781,10 @@
           "head": "resolution"
         },
         {
-          "id": "atom-2-token-6",
+          "id": "claim-token-24",
           "text": "nonbinding",
-          "start": 24,
-          "end": 34,
+          "start": 109,
+          "end": 119,
           "lemma": "nonbinding",
           "pos": "NOUN",
           "tag": "NN",
@@ -725,157 +792,43 @@
           "head": "resolution"
         },
         {
-          "id": "atom-2-token-7",
+          "id": "claim-token-25",
           "text": "resolution",
-          "start": 35,
-          "end": 45,
+          "start": 120,
+          "end": 130,
           "lemma": "resolution",
           "pos": "NOUN",
           "tag": "NN",
           "dependency": "attr",
           "head": "is"
-        }
-      ],
-      "status": "complete",
-      "unresolved": []
-    },
-    {
-      "atomId": "atom-3",
-      "frames": [
-        {
-          "id": "atom-3-frame-1",
-          "predicate": {
-            "id": "atom-3-frame-1-predicate",
-            "text": "introduced",
-            "start": 23,
-            "end": 33
-          },
-          "subjects": [
-            {
-              "id": "atom-3-frame-1-subject-1",
-              "text": "The Green New Deal",
-              "start": 0,
-              "end": 18
-            }
-          ],
-          "coreArguments": [
-            {
-              "id": "atom-3-frame-1-argument-1",
-              "text": "by Rep. Alexandria Ocasio-Cortez and Sen. Ed Markey",
-              "start": 34,
-              "end": 85,
-              "role": "passive_agent"
-            }
-          ],
-          "adjuncts": [
-            {
-              "id": "atom-3-frame-1-adjunct-1",
-              "text": "last year",
-              "start": 86,
-              "end": 95,
-              "kind": "temporal"
-            }
-          ],
-          "otherModifiers": []
-        }
-      ],
-      "cues": [
-        {
-          "id": "atom-3-cue-temporal-86-95",
-          "text": "last year",
-          "start": 86,
-          "end": 95,
-          "kind": "temporal"
-        }
-      ],
-      "entities": [
-        {
-          "id": "atom-3-entity-person-42-66",
-          "text": "Alexandria Ocasio-Cortez",
-          "start": 42,
-          "end": 66,
-          "label": "PERSON"
         },
         {
-          "id": "atom-3-entity-person-76-85",
-          "text": "Ed Markey",
-          "start": 76,
-          "end": 85,
-          "label": "PERSON"
-        }
-      ],
-      "tokens": [
-        {
-          "id": "atom-3-token-0",
-          "text": "The",
-          "start": 0,
-          "end": 3,
-          "lemma": "the",
-          "pos": "DET",
-          "tag": "DT",
-          "dependency": "det",
-          "head": "Deal"
+          "id": "claim-token-26",
+          "text": ",",
+          "start": 130,
+          "end": 131,
+          "lemma": ",",
+          "pos": "PUNCT",
+          "tag": ",",
+          "dependency": "punct",
+          "head": "resolution"
         },
         {
-          "id": "atom-3-token-1",
-          "text": "Green",
-          "start": 4,
-          "end": 9,
-          "lemma": "Green",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "compound",
-          "head": "Deal"
-        },
-        {
-          "id": "atom-3-token-2",
-          "text": "New",
-          "start": 10,
-          "end": 13,
-          "lemma": "New",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "compound",
-          "head": "Deal"
-        },
-        {
-          "id": "atom-3-token-3",
-          "text": "Deal",
-          "start": 14,
-          "end": 18,
-          "lemma": "Deal",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "nsubjpass",
-          "head": "introduced"
-        },
-        {
-          "id": "atom-3-token-4",
-          "text": "was",
-          "start": 19,
-          "end": 22,
-          "lemma": "be",
-          "pos": "AUX",
-          "tag": "VBD",
-          "dependency": "auxpass",
-          "head": "introduced"
-        },
-        {
-          "id": "atom-3-token-5",
+          "id": "claim-token-27",
           "text": "introduced",
-          "start": 23,
-          "end": 33,
+          "start": 132,
+          "end": 142,
           "lemma": "introduce",
           "pos": "VERB",
           "tag": "VBN",
-          "dependency": "ROOT",
-          "head": "ROOT"
+          "dependency": "acl",
+          "head": "resolution"
         },
         {
-          "id": "atom-3-token-6",
+          "id": "claim-token-28",
           "text": "by",
-          "start": 34,
-          "end": 36,
+          "start": 143,
+          "end": 145,
           "lemma": "by",
           "pos": "ADP",
           "tag": "IN",
@@ -883,10 +836,10 @@
           "head": "introduced"
         },
         {
-          "id": "atom-3-token-7",
+          "id": "claim-token-29",
           "text": "Rep.",
-          "start": 37,
-          "end": 41,
+          "start": 146,
+          "end": 150,
           "lemma": "Rep.",
           "pos": "PROPN",
           "tag": "NNP",
@@ -894,10 +847,10 @@
           "head": "Cortez"
         },
         {
-          "id": "atom-3-token-8",
+          "id": "claim-token-30",
           "text": "Alexandria",
-          "start": 42,
-          "end": 52,
+          "start": 151,
+          "end": 161,
           "lemma": "Alexandria",
           "pos": "PROPN",
           "tag": "NNP",
@@ -905,10 +858,10 @@
           "head": "Cortez"
         },
         {
-          "id": "atom-3-token-9",
+          "id": "claim-token-31",
           "text": "Ocasio",
-          "start": 53,
-          "end": 59,
+          "start": 162,
+          "end": 168,
           "lemma": "Ocasio",
           "pos": "PROPN",
           "tag": "NNP",
@@ -916,10 +869,10 @@
           "head": "Cortez"
         },
         {
-          "id": "atom-3-token-10",
+          "id": "claim-token-32",
           "text": "-",
-          "start": 59,
-          "end": 60,
+          "start": 168,
+          "end": 169,
           "lemma": "-",
           "pos": "PUNCT",
           "tag": "HYPH",
@@ -927,10 +880,10 @@
           "head": "Cortez"
         },
         {
-          "id": "atom-3-token-11",
+          "id": "claim-token-33",
           "text": "Cortez",
-          "start": 60,
-          "end": 66,
+          "start": 169,
+          "end": 175,
           "lemma": "Cortez",
           "pos": "PROPN",
           "tag": "NNP",
@@ -938,10 +891,10 @@
           "head": "by"
         },
         {
-          "id": "atom-3-token-12",
+          "id": "claim-token-34",
           "text": "and",
-          "start": 67,
-          "end": 70,
+          "start": 176,
+          "end": 179,
           "lemma": "and",
           "pos": "CCONJ",
           "tag": "CC",
@@ -949,10 +902,10 @@
           "head": "Cortez"
         },
         {
-          "id": "atom-3-token-13",
+          "id": "claim-token-35",
           "text": "Sen.",
-          "start": 71,
-          "end": 75,
+          "start": 180,
+          "end": 184,
           "lemma": "Sen.",
           "pos": "PROPN",
           "tag": "NNP",
@@ -960,10 +913,10 @@
           "head": "Markey"
         },
         {
-          "id": "atom-3-token-14",
+          "id": "claim-token-36",
           "text": "Ed",
-          "start": 76,
-          "end": 78,
+          "start": 185,
+          "end": 187,
           "lemma": "Ed",
           "pos": "PROPN",
           "tag": "NNP",
@@ -971,10 +924,10 @@
           "head": "Markey"
         },
         {
-          "id": "atom-3-token-15",
+          "id": "claim-token-37",
           "text": "Markey",
-          "start": 79,
-          "end": 85,
+          "start": 188,
+          "end": 194,
           "lemma": "Markey",
           "pos": "PROPN",
           "tag": "NNP",
@@ -982,10 +935,10 @@
           "head": "Cortez"
         },
         {
-          "id": "atom-3-token-16",
+          "id": "claim-token-38",
           "text": "last",
-          "start": 86,
-          "end": 90,
+          "start": 195,
+          "end": 199,
           "lemma": "last",
           "pos": "ADJ",
           "tag": "JJ",
@@ -993,136 +946,32 @@
           "head": "year"
         },
         {
-          "id": "atom-3-token-17",
+          "id": "claim-token-39",
           "text": "year",
-          "start": 91,
-          "end": 95,
+          "start": 200,
+          "end": 204,
           "lemma": "year",
           "pos": "NOUN",
           "tag": "NN",
           "dependency": "npadvmod",
           "head": "introduced"
-        }
-      ],
-      "status": "complete",
-      "unresolved": []
-    },
-    {
-      "atomId": "atom-4",
-      "frames": [
-        {
-          "id": "atom-4-frame-1",
-          "predicate": {
-            "id": "atom-4-frame-1-predicate",
-            "text": "aims",
-            "start": 19,
-            "end": 23
-          },
-          "subjects": [
-            {
-              "id": "atom-4-frame-1-subject-1",
-              "text": "The Green New Deal",
-              "start": 0,
-              "end": 18
-            }
-          ],
-          "coreArguments": [
-            {
-              "id": "atom-4-frame-1-argument-1",
-              "text": "to tackle climate change",
-              "start": 24,
-              "end": 48,
-              "role": "clausal_complement"
-            }
-          ],
-          "adjuncts": [],
-          "otherModifiers": []
         },
         {
-          "id": "atom-4-frame-2",
-          "predicate": {
-            "id": "atom-4-frame-2-predicate",
-            "text": "tackle",
-            "start": 27,
-            "end": 33
-          },
-          "subjects": [],
-          "coreArguments": [
-            {
-              "id": "atom-4-frame-2-argument-1",
-              "text": "climate change",
-              "start": 34,
-              "end": 48,
-              "role": "direct_object"
-            }
-          ],
-          "adjuncts": [],
-          "otherModifiers": []
-        }
-      ],
-      "cues": [],
-      "entities": [],
-      "tokens": [
-        {
-          "id": "atom-4-token-0",
-          "text": "The",
-          "start": 0,
-          "end": 3,
-          "lemma": "the",
-          "pos": "DET",
-          "tag": "DT",
-          "dependency": "det",
-          "head": "Deal"
+          "id": "claim-token-40",
+          "text": ",",
+          "start": 204,
+          "end": 205,
+          "lemma": ",",
+          "pos": "PUNCT",
+          "tag": ",",
+          "dependency": "punct",
+          "head": "resolution"
         },
         {
-          "id": "atom-4-token-1",
-          "text": "Green",
-          "start": 4,
-          "end": 9,
-          "lemma": "Green",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "compound",
-          "head": "Deal"
-        },
-        {
-          "id": "atom-4-token-2",
-          "text": "New",
-          "start": 10,
-          "end": 13,
-          "lemma": "New",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "compound",
-          "head": "Deal"
-        },
-        {
-          "id": "atom-4-token-3",
-          "text": "Deal",
-          "start": 14,
-          "end": 18,
-          "lemma": "Deal",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "nsubj",
-          "head": "aims"
-        },
-        {
-          "id": "atom-4-token-4",
-          "text": "aims",
-          "start": 19,
-          "end": 23,
-          "lemma": "aim",
-          "pos": "VERB",
-          "tag": "VBZ",
-          "dependency": "ROOT",
-          "head": "ROOT"
-        },
-        {
-          "id": "atom-4-token-5",
+          "id": "claim-token-41",
           "text": "to",
-          "start": 24,
-          "end": 26,
+          "start": 206,
+          "end": 208,
           "lemma": "to",
           "pos": "PART",
           "tag": "TO",
@@ -1130,21 +979,21 @@
           "head": "tackle"
         },
         {
-          "id": "atom-4-token-6",
+          "id": "claim-token-42",
           "text": "tackle",
-          "start": 27,
-          "end": 33,
+          "start": 209,
+          "end": 215,
           "lemma": "tackle",
           "pos": "VERB",
           "tag": "VB",
-          "dependency": "xcomp",
-          "head": "aims"
+          "dependency": "relcl",
+          "head": "resolution"
         },
         {
-          "id": "atom-4-token-7",
+          "id": "claim-token-43",
           "text": "climate",
-          "start": 34,
-          "end": 41,
+          "start": 216,
+          "end": 223,
           "lemma": "climate",
           "pos": "NOUN",
           "tag": "NN",
@@ -1152,23 +1001,1054 @@
           "head": "change"
         },
         {
-          "id": "atom-4-token-8",
+          "id": "claim-token-44",
           "text": "change",
-          "start": 42,
-          "end": 48,
+          "start": 224,
+          "end": 230,
           "lemma": "change",
           "pos": "NOUN",
           "tag": "NN",
           "dependency": "dobj",
           "head": "tackle"
+        },
+        {
+          "id": "claim-token-45",
+          "text": ".",
+          "start": 230,
+          "end": 231,
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "is"
+        },
+        {
+          "id": "claim-token-46",
+          "text": ")",
+          "start": 231,
+          "end": 232,
+          "lemma": ")",
+          "pos": "PUNCT",
+          "tag": "-RRB-",
+          "dependency": "punct",
+          "head": "is"
         }
       ],
-      "status": "partial",
-      "unresolved": [
-        "subject"
+      "status": "complete",
+      "unresolved": []
+    },
+    "analyses": [
+      {
+        "atomId": "atom-1",
+        "frames": [
+          {
+            "id": "atom-1-frame-1",
+            "predicate": {
+              "id": "atom-1-frame-1-predicate",
+              "text": "supports",
+              "start": 56,
+              "end": 64
+            },
+            "subjects": [
+              {
+                "id": "atom-1-frame-1-subject-1",
+                "text": "US president Joe Biden (candidate at the time of claim",
+                "start": 0,
+                "end": 54
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-1-frame-1-argument-1",
+                "text": "the new green deal",
+                "start": 65,
+                "end": 83,
+                "role": "direct_object"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [
+          {
+            "id": "atom-1-cue-attribution-49-54",
+            "text": "claim",
+            "start": 49,
+            "end": 54,
+            "kind": "attribution"
+          }
+        ],
+        "entities": [
+          {
+            "id": "atom-1-entity-gpe-0-2",
+            "text": "US",
+            "start": 0,
+            "end": 2,
+            "label": "GPE"
+          },
+          {
+            "id": "atom-1-entity-person-13-22",
+            "text": "Joe Biden",
+            "start": 13,
+            "end": 22,
+            "label": "PERSON"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-1-token-0",
+            "text": "US",
+            "start": 0,
+            "end": 2,
+            "lemma": "US",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "president"
+          },
+          {
+            "id": "atom-1-token-1",
+            "text": "president",
+            "start": 3,
+            "end": 12,
+            "lemma": "president",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "nsubj",
+            "head": "supports"
+          },
+          {
+            "id": "atom-1-token-2",
+            "text": "Joe",
+            "start": 13,
+            "end": 16,
+            "lemma": "Joe",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Biden"
+          },
+          {
+            "id": "atom-1-token-3",
+            "text": "Biden",
+            "start": 17,
+            "end": 22,
+            "lemma": "Biden",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "appos",
+            "head": "president"
+          },
+          {
+            "id": "atom-1-token-4",
+            "text": "(",
+            "start": 23,
+            "end": 24,
+            "lemma": "(",
+            "pos": "PUNCT",
+            "tag": "-LRB-",
+            "dependency": "punct",
+            "head": "candidate"
+          },
+          {
+            "id": "atom-1-token-5",
+            "text": "candidate",
+            "start": 24,
+            "end": 33,
+            "lemma": "candidate",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "appos",
+            "head": "president"
+          },
+          {
+            "id": "atom-1-token-6",
+            "text": "at",
+            "start": 34,
+            "end": 36,
+            "lemma": "at",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "candidate"
+          },
+          {
+            "id": "atom-1-token-7",
+            "text": "the",
+            "start": 37,
+            "end": 40,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "time"
+          },
+          {
+            "id": "atom-1-token-8",
+            "text": "time",
+            "start": 41,
+            "end": 45,
+            "lemma": "time",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "pobj",
+            "head": "at"
+          },
+          {
+            "id": "atom-1-token-9",
+            "text": "of",
+            "start": 46,
+            "end": 48,
+            "lemma": "of",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "time"
+          },
+          {
+            "id": "atom-1-token-10",
+            "text": "claim",
+            "start": 49,
+            "end": 54,
+            "lemma": "claim",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "pobj",
+            "head": "of"
+          },
+          {
+            "id": "atom-1-token-11",
+            "text": ")",
+            "start": 54,
+            "end": 55,
+            "lemma": ")",
+            "pos": "PUNCT",
+            "tag": "-RRB-",
+            "dependency": "punct",
+            "head": "president"
+          },
+          {
+            "id": "atom-1-token-12",
+            "text": "supports",
+            "start": 56,
+            "end": 64,
+            "lemma": "support",
+            "pos": "VERB",
+            "tag": "VBZ",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-1-token-13",
+            "text": "the",
+            "start": 65,
+            "end": 68,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "deal"
+          },
+          {
+            "id": "atom-1-token-14",
+            "text": "new",
+            "start": 69,
+            "end": 72,
+            "lemma": "new",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "deal"
+          },
+          {
+            "id": "atom-1-token-15",
+            "text": "green",
+            "start": 73,
+            "end": 78,
+            "lemma": "green",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "deal"
+          },
+          {
+            "id": "atom-1-token-16",
+            "text": "deal",
+            "start": 79,
+            "end": 83,
+            "lemma": "deal",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "dobj",
+            "head": "supports"
+          },
+          {
+            "id": "atom-1-token-17",
+            "text": ".",
+            "start": 83,
+            "end": 84,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "supports"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      },
+      {
+        "atomId": "atom-2",
+        "frames": [
+          {
+            "id": "atom-2-frame-1",
+            "predicate": {
+              "id": "atom-2-frame-1-predicate",
+              "text": "is",
+              "start": 19,
+              "end": 21
+            },
+            "subjects": [
+              {
+                "id": "atom-2-frame-1-subject-1",
+                "text": "The Green New Deal",
+                "start": 0,
+                "end": 18
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-2-frame-1-argument-1",
+                "text": "a nonbinding resolution",
+                "start": 22,
+                "end": 45,
+                "role": "subject_complement"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [],
+        "entities": [],
+        "tokens": [
+          {
+            "id": "atom-2-token-0",
+            "text": "The",
+            "start": 0,
+            "end": 3,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "Deal"
+          },
+          {
+            "id": "atom-2-token-1",
+            "text": "Green",
+            "start": 4,
+            "end": 9,
+            "lemma": "Green",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Deal"
+          },
+          {
+            "id": "atom-2-token-2",
+            "text": "New",
+            "start": 10,
+            "end": 13,
+            "lemma": "New",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Deal"
+          },
+          {
+            "id": "atom-2-token-3",
+            "text": "Deal",
+            "start": 14,
+            "end": 18,
+            "lemma": "Deal",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "nsubj",
+            "head": "is"
+          },
+          {
+            "id": "atom-2-token-4",
+            "text": "is",
+            "start": 19,
+            "end": 21,
+            "lemma": "be",
+            "pos": "AUX",
+            "tag": "VBZ",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-2-token-5",
+            "text": "a",
+            "start": 22,
+            "end": 23,
+            "lemma": "a",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "resolution"
+          },
+          {
+            "id": "atom-2-token-6",
+            "text": "nonbinding",
+            "start": 24,
+            "end": 34,
+            "lemma": "nonbinding",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "compound",
+            "head": "resolution"
+          },
+          {
+            "id": "atom-2-token-7",
+            "text": "resolution",
+            "start": 35,
+            "end": 45,
+            "lemma": "resolution",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "attr",
+            "head": "is"
+          },
+          {
+            "id": "atom-2-token-8",
+            "text": ".",
+            "start": 45,
+            "end": 46,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "is"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      },
+      {
+        "atomId": "atom-3",
+        "frames": [
+          {
+            "id": "atom-3-frame-1",
+            "predicate": {
+              "id": "atom-3-frame-1-predicate",
+              "text": "introduced",
+              "start": 23,
+              "end": 33
+            },
+            "subjects": [
+              {
+                "id": "atom-3-frame-1-subject-1",
+                "text": "The Green New Deal",
+                "start": 0,
+                "end": 18
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-3-frame-1-argument-1",
+                "text": "by Rep. Alexandria Ocasio-Cortez and Sen. Ed Markey",
+                "start": 34,
+                "end": 85,
+                "role": "passive_agent"
+              }
+            ],
+            "adjuncts": [
+              {
+                "id": "atom-3-frame-1-adjunct-1",
+                "text": "last year",
+                "start": 86,
+                "end": 95,
+                "kind": "temporal"
+              }
+            ],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [
+          {
+            "id": "atom-3-cue-temporal-86-95",
+            "text": "last year",
+            "start": 86,
+            "end": 95,
+            "kind": "temporal"
+          }
+        ],
+        "entities": [
+          {
+            "id": "atom-3-entity-person-42-66",
+            "text": "Alexandria Ocasio-Cortez",
+            "start": 42,
+            "end": 66,
+            "label": "PERSON"
+          },
+          {
+            "id": "atom-3-entity-person-76-85",
+            "text": "Ed Markey",
+            "start": 76,
+            "end": 85,
+            "label": "PERSON"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-3-token-0",
+            "text": "The",
+            "start": 0,
+            "end": 3,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "Deal"
+          },
+          {
+            "id": "atom-3-token-1",
+            "text": "Green",
+            "start": 4,
+            "end": 9,
+            "lemma": "Green",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Deal"
+          },
+          {
+            "id": "atom-3-token-2",
+            "text": "New",
+            "start": 10,
+            "end": 13,
+            "lemma": "New",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Deal"
+          },
+          {
+            "id": "atom-3-token-3",
+            "text": "Deal",
+            "start": 14,
+            "end": 18,
+            "lemma": "Deal",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "nsubjpass",
+            "head": "introduced"
+          },
+          {
+            "id": "atom-3-token-4",
+            "text": "was",
+            "start": 19,
+            "end": 22,
+            "lemma": "be",
+            "pos": "AUX",
+            "tag": "VBD",
+            "dependency": "auxpass",
+            "head": "introduced"
+          },
+          {
+            "id": "atom-3-token-5",
+            "text": "introduced",
+            "start": 23,
+            "end": 33,
+            "lemma": "introduce",
+            "pos": "VERB",
+            "tag": "VBN",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-3-token-6",
+            "text": "by",
+            "start": 34,
+            "end": 36,
+            "lemma": "by",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "agent",
+            "head": "introduced"
+          },
+          {
+            "id": "atom-3-token-7",
+            "text": "Rep.",
+            "start": 37,
+            "end": 41,
+            "lemma": "Rep.",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Cortez"
+          },
+          {
+            "id": "atom-3-token-8",
+            "text": "Alexandria",
+            "start": 42,
+            "end": 52,
+            "lemma": "Alexandria",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Cortez"
+          },
+          {
+            "id": "atom-3-token-9",
+            "text": "Ocasio",
+            "start": 53,
+            "end": 59,
+            "lemma": "Ocasio",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Cortez"
+          },
+          {
+            "id": "atom-3-token-10",
+            "text": "-",
+            "start": 59,
+            "end": 60,
+            "lemma": "-",
+            "pos": "PUNCT",
+            "tag": "HYPH",
+            "dependency": "punct",
+            "head": "Cortez"
+          },
+          {
+            "id": "atom-3-token-11",
+            "text": "Cortez",
+            "start": 60,
+            "end": 66,
+            "lemma": "Cortez",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "pobj",
+            "head": "by"
+          },
+          {
+            "id": "atom-3-token-12",
+            "text": "and",
+            "start": 67,
+            "end": 70,
+            "lemma": "and",
+            "pos": "CCONJ",
+            "tag": "CC",
+            "dependency": "cc",
+            "head": "Cortez"
+          },
+          {
+            "id": "atom-3-token-13",
+            "text": "Sen.",
+            "start": 71,
+            "end": 75,
+            "lemma": "Sen.",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Markey"
+          },
+          {
+            "id": "atom-3-token-14",
+            "text": "Ed",
+            "start": 76,
+            "end": 78,
+            "lemma": "Ed",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Markey"
+          },
+          {
+            "id": "atom-3-token-15",
+            "text": "Markey",
+            "start": 79,
+            "end": 85,
+            "lemma": "Markey",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "conj",
+            "head": "Cortez"
+          },
+          {
+            "id": "atom-3-token-16",
+            "text": "last",
+            "start": 86,
+            "end": 90,
+            "lemma": "last",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "year"
+          },
+          {
+            "id": "atom-3-token-17",
+            "text": "year",
+            "start": 91,
+            "end": 95,
+            "lemma": "year",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "npadvmod",
+            "head": "introduced"
+          },
+          {
+            "id": "atom-3-token-18",
+            "text": ".",
+            "start": 95,
+            "end": 96,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "introduced"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      },
+      {
+        "atomId": "atom-4",
+        "frames": [
+          {
+            "id": "atom-4-frame-1",
+            "predicate": {
+              "id": "atom-4-frame-1-predicate",
+              "text": "aims",
+              "start": 19,
+              "end": 23
+            },
+            "subjects": [
+              {
+                "id": "atom-4-frame-1-subject-1",
+                "text": "The Green New Deal",
+                "start": 0,
+                "end": 18
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-4-frame-1-argument-1",
+                "text": "to tackle climate change",
+                "start": 24,
+                "end": 48,
+                "role": "clausal_complement"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": []
+          },
+          {
+            "id": "atom-4-frame-2",
+            "predicate": {
+              "id": "atom-4-frame-2-predicate",
+              "text": "tackle",
+              "start": 27,
+              "end": 33
+            },
+            "subjects": [],
+            "coreArguments": [
+              {
+                "id": "atom-4-frame-2-argument-1",
+                "text": "climate change",
+                "start": 34,
+                "end": 48,
+                "role": "direct_object"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [],
+        "entities": [],
+        "tokens": [
+          {
+            "id": "atom-4-token-0",
+            "text": "The",
+            "start": 0,
+            "end": 3,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "Deal"
+          },
+          {
+            "id": "atom-4-token-1",
+            "text": "Green",
+            "start": 4,
+            "end": 9,
+            "lemma": "Green",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Deal"
+          },
+          {
+            "id": "atom-4-token-2",
+            "text": "New",
+            "start": 10,
+            "end": 13,
+            "lemma": "New",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Deal"
+          },
+          {
+            "id": "atom-4-token-3",
+            "text": "Deal",
+            "start": 14,
+            "end": 18,
+            "lemma": "Deal",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "nsubj",
+            "head": "aims"
+          },
+          {
+            "id": "atom-4-token-4",
+            "text": "aims",
+            "start": 19,
+            "end": 23,
+            "lemma": "aim",
+            "pos": "VERB",
+            "tag": "VBZ",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-4-token-5",
+            "text": "to",
+            "start": 24,
+            "end": 26,
+            "lemma": "to",
+            "pos": "PART",
+            "tag": "TO",
+            "dependency": "aux",
+            "head": "tackle"
+          },
+          {
+            "id": "atom-4-token-6",
+            "text": "tackle",
+            "start": 27,
+            "end": 33,
+            "lemma": "tackle",
+            "pos": "VERB",
+            "tag": "VB",
+            "dependency": "xcomp",
+            "head": "aims"
+          },
+          {
+            "id": "atom-4-token-7",
+            "text": "climate",
+            "start": 34,
+            "end": 41,
+            "lemma": "climate",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "compound",
+            "head": "change"
+          },
+          {
+            "id": "atom-4-token-8",
+            "text": "change",
+            "start": 42,
+            "end": 48,
+            "lemma": "change",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "dobj",
+            "head": "tackle"
+          },
+          {
+            "id": "atom-4-token-9",
+            "text": ".",
+            "start": 48,
+            "end": 49,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "aims"
+          }
+        ],
+        "status": "partial",
+        "unresolved": [
+          "subject"
+        ]
+      }
+    ],
+    "summaries": [
+      {
+        "atomId": "atom-1",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "US president Joe Biden (candidate at the time of claim"
+        ],
+        "predicates": [
+          "support"
+        ],
+        "cueKinds": [
+          "attribution"
+        ],
+        "modifierKinds": [],
+        "entityLabels": [
+          "GPE",
+          "PERSON"
+        ],
+        "warnings": []
+      },
+      {
+        "atomId": "atom-2",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "The Green New Deal"
+        ],
+        "predicates": [
+          "be"
+        ],
+        "cueKinds": [],
+        "modifierKinds": [],
+        "entityLabels": [],
+        "warnings": []
+      },
+      {
+        "atomId": "atom-3",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "The Green New Deal"
+        ],
+        "predicates": [
+          "introduce"
+        ],
+        "cueKinds": [
+          "temporal"
+        ],
+        "modifierKinds": [
+          "temporal"
+        ],
+        "entityLabels": [
+          "PERSON"
+        ],
+        "warnings": []
+      },
+      {
+        "atomId": "atom-4",
+        "analysisStatus": "partial",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "The Green New Deal"
+        ],
+        "predicates": [
+          "aim",
+          "tackle"
+        ],
+        "cueKinds": [],
+        "modifierKinds": [],
+        "entityLabels": [],
+        "warnings": [
+          "MULTIPLE_PROPOSITION_FRAMES",
+          "UNRESOLVED_SUBJECT",
+          "PARTIAL_LINGUISTIC_ANALYSIS"
+        ]
+      }
+    ],
+    "claimWarnings": [],
+    "provider": "spacy",
+    "model": "en_core_web_sm@3.8.0"
+  },
+  "verdict": {
+    "aggregationSchemaVersion": 1,
+    "claimId": "averitec-dev-0100",
+    "composition": "AND",
+    "verdict": "REFUTED",
+    "positions": {
+      "supportPosition": false,
+      "attackPosition": true,
+      "supportObligationIds": [
+        "atom-4"
+      ],
+      "attackObligationIds": [
+        "atom-1",
+        "atom-3"
+      ],
+      "unresolvedObligationIds": [
+        "atom-2"
       ]
-    }
-  ],
+    },
+    "obligations": [
+      {
+        "obligationId": "atom-1",
+        "state": "REFUTED",
+        "supportEdgeIds": [],
+        "attackEdgeIds": [
+          "edge:ATTACKS:evidence:doc-7f2ff8371330:doc-7f2ff8371330::sentence-145:obligation:averitec-dev-0100:atom-1"
+        ],
+        "neutralCandidateCount": 5
+      },
+      {
+        "obligationId": "atom-2",
+        "state": "UNRESOLVED",
+        "supportEdgeIds": [],
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 6
+      },
+      {
+        "obligationId": "atom-3",
+        "state": "REFUTED",
+        "supportEdgeIds": [],
+        "attackEdgeIds": [
+          "edge:ATTACKS:evidence:doc-3da0494639bb:doc-3da0494639bb::sentence-7:obligation:averitec-dev-0100:atom-3",
+          "edge:ATTACKS:evidence:doc-3da0494639bb:doc-3da0494639bb::sentence-6:obligation:averitec-dev-0100:atom-3"
+        ],
+        "neutralCandidateCount": 4
+      },
+      {
+        "obligationId": "atom-4",
+        "state": "SUPPORTED",
+        "supportEdgeIds": [
+          "edge:SUPPORTS:evidence:doc-3da0494639bb:doc-3da0494639bb::sentence-8:obligation:averitec-dev-0100:atom-4",
+          "edge:SUPPORTS:evidence:doc-3da0494639bb:doc-3da0494639bb::sentence-6:obligation:averitec-dev-0100:atom-4",
+          "edge:SUPPORTS:evidence:doc-3da0494639bb:doc-3da0494639bb::sentence-7:obligation:averitec-dev-0100:atom-4",
+          "edge:SUPPORTS:evidence:doc-7f2ff8371330:doc-7f2ff8371330::sentence-145:obligation:averitec-dev-0100:atom-4"
+        ],
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 2
+      }
+    ],
+    "warnings": [
+      {
+        "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
+        "message": "Obligation atom-2 has no supporting or attacking evidence."
+      },
+      {
+        "code": "ONLY_NEUTRAL_CANDIDATES",
+        "message": "Obligation atom-2 has only neutral retrieved candidates."
+      },
+      {
+        "code": "PARTIAL_LINGUISTIC_ANALYSIS",
+        "message": "Linguistic analysis for obligation atom-4 requires inspection; it does not change the verdict."
+      }
+    ],
+    "ruleTrace": [
+      "AND support requires support for every obligation; AND attack requires an attack on any obligation.",
+      "Support position: no; attack position: yes.",
+      "Final verdict: REFUTED."
+    ]
+  },
   "recordedWith": {
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",

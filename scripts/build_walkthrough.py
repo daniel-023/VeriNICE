@@ -85,6 +85,18 @@ def main() -> int:
     (output / "catalog.json").write_text(
         json.dumps(selected_catalog, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
+    metadata_path = args.bundle / "metadata.json"
+    if metadata_path.is_file():
+        metadata = read_json(metadata_path)
+        selected_metadata = {
+            case_id: metadata[case_id]
+            for case_id in selected_ids
+            if case_id in metadata
+        }
+        (output / "metadata.json").write_text(
+            json.dumps(selected_metadata, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
 
     missing_runs: list[str] = []
     run_digests: dict[str, str] = {}
@@ -113,6 +125,7 @@ def main() -> int:
                 "evidence",
                 "classifications",
                 "linguistics",
+                "verdict",
             )
         ):
             raise RuntimeError(f"Recorded run is incomplete: {case_id}")
@@ -129,6 +142,18 @@ def main() -> int:
             raise RuntimeError(f"Recorded run is missing linguistic audit data: {case_id}")
         if len(linguistics["analyses"]) != len(run["atoms"]) or len(linguistics["summaries"]) != len(run["atoms"]):
             raise RuntimeError(f"Recorded run has incomplete linguistic atom data: {case_id}")
+        verdict = run["verdict"]
+        if not isinstance(verdict, dict) or verdict.get("aggregationSchemaVersion") != 1:
+            raise RuntimeError(f"Recorded run has an unsupported verdict schema: {case_id}")
+        if verdict.get("verdict") not in {
+            "SUPPORTED",
+            "REFUTED",
+            "NOT_ENOUGH_EVIDENCE",
+            "CONFLICTING_EVIDENCE",
+        }:
+            raise RuntimeError(f"Recorded run has an invalid verdict: {case_id}")
+        if len(verdict.get("obligations", [])) != len(run["atoms"]):
+            raise RuntimeError(f"Recorded verdict does not cover every obligation: {case_id}")
         copy_json(run_path, output / "runs" / run_path.name)
         run_digests[case_id] = sha256(run_path)
 

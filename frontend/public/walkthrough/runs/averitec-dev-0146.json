@@ -1,12 +1,24 @@
 {
   "caseId": "averitec-dev-0146",
+  "schemaVersion": 2,
+  "composition": "AND",
+  "warnings": [],
   "atoms": [
     {
       "id": "atom-1",
       "text": "Right after a time where we're going through a pandemic that lost 22 million jobs at the height, we've already added back 11.6 million jobs.",
       "sourceText": "Right after a time where we're going through a pandemic that lost 22 million jobs at the height, we've already added back 11.6 million jobs.",
       "start": 0,
-      "end": 140
+      "end": 140,
+      "role": "CORE"
+    },
+    {
+      "id": "atom-2",
+      "text": "We've added back 11.6 million jobs.",
+      "sourceText": "we've already added back 11.6 million jobs.",
+      "start": 97,
+      "end": 140,
+      "role": "NUMERIC_CONSTRAINT"
     }
   ],
   "evidence": [
@@ -18,42 +30,101 @@
           "documentId": "doc-a46f0d421238",
           "text": "Source: U.S. Bureau of Labor Statistics\n",
           "start": 1249,
-          "end": 1289
+          "end": 1289,
+          "context": "NOTES\n Source: U.S. Bureau of Labor Statistics\n Release: Employment Situation\n"
         },
         {
           "id": "doc-24baaeff66a9::sentence-6",
           "documentId": "doc-24baaeff66a9",
           "text": "CDC also said it issued federal quarantine orders to the 195 U.S. citizens who repatriated to the U.S. from China on Jan. 29 because of the 2019-nCoV outbreak, the first mandatory quarantine in over 50 years. ",
           "start": 818,
-          "end": 1027
+          "end": 1027,
+          "context": "In a CDC call with clinicians, the agency stressed that its guidance will continue to change over time as more is learned about the outbreak, and urged clinicians to continue to check CDC’s resources for updates.\n CDC also said it issued federal quarantine orders to the 195 U.S. citizens who repatriated to the U.S. from China on Jan. 29 because of the 2019-nCoV outbreak, the first mandatory quarantine in over 50 years.  The individuals will be held at the March Air Reserve Base in California for the 14-day quarantine that started when the plane took off from China. "
         },
         {
           "id": "doc-24baaeff66a9::sentence-9",
           "documentId": "doc-24baaeff66a9",
           "text": "“If we take strong measures now, we may be able to blunt the impact of the virus on the United States,” said Nancy Messonnier, M.D., director of CDC’s National Center for Immunization and Respiratory Diseases.\n",
           "start": 1330,
-          "end": 1540
+          "end": 1540,
+          "context": "CDC said the decision comes after deliberating over data and new information, and because the passengers came from the epicenter of the outbreak in Wuhan.  “If we take strong measures now, we may be able to blunt the impact of the virus on the United States,” said Nancy Messonnier, M.D., director of CDC’s National Center for Immunization and Respiratory Diseases.\n The World Health Organization reports nearly 10,000 cases worldwide and more than 200 deaths in China. "
         },
         {
           "id": "doc-a46f0d421238::sentence-44",
           "documentId": "doc-a46f0d421238",
           "text": "Thousands of Persons,Seasonally Adjusted\n",
           "start": 1072,
-          "end": 1113
+          "end": 1113,
+          "context": "Units:\n Thousands of Persons,Seasonally Adjusted\n Frequency:\n"
         },
         {
           "id": "doc-a46f0d421238::sentence-58",
           "documentId": "doc-a46f0d421238",
           "text": "Generally, the U.S. labor force and levels of employment and unemployment are subject to fluctuations due to seasonal changes in weather, major holidays, and the opening and closing of schools. ",
           "start": 2229,
-          "end": 2423
+          "end": 2423,
+          "context": "Additionally, those who are newly employed have increased their personal incomes, which means (all else constant) their disposable incomes have also increased, thus fostering further economic expansion.\n Generally, the U.S. labor force and levels of employment and unemployment are subject to fluctuations due to seasonal changes in weather, major holidays, and the opening and closing of schools.  The Bureau of Labor Statistics (BLS) adjusts the data to offset the seasonal effects to show non-seasonal changes: for example, women's participation in the labor force; or a general decline in the number of employees, a possible indication of a downturn in the economy. "
         },
         {
           "id": "doc-24baaeff66a9::sentence-2",
           "documentId": "doc-24baaeff66a9",
           "text": "Health and Human Services Secretary Alex Azar today declared the novel coronavirus (2019-nCoV) a public health emergency and ordered all U.S. citizens returning from the Wuhan, China, region to be quarantined for two weeks. ",
           "start": 74,
-          "end": 298
+          "end": 298,
+          "context": "U.S. declares coronavirus a public health emergency, CDC updates guidance\n Health and Human Services Secretary Alex Azar today declared the novel coronavirus (2019-nCoV) a public health emergency and ordered all U.S. citizens returning from the Wuhan, China, region to be quarantined for two weeks.  The U.S. State Department yesterday issued a “do not travel” advisory for China due to the virus.\n"
+        }
+      ]
+    },
+    {
+      "atomId": "atom-2",
+      "spans": [
+        {
+          "id": "doc-a46f0d421238::sentence-56",
+          "documentId": "doc-a46f0d421238",
+          "text": "Increases in employment might indicate that businesses are hiring which might also suggest that businesses are growing. ",
+          "start": 1906,
+          "end": 2026,
+          "context": "This measure provides useful insights into the current economic situation because it can represent the number of jobs added or lost in an economy.  Increases in employment might indicate that businesses are hiring which might also suggest that businesses are growing.  Additionally, those who are newly employed have increased their personal incomes, which means (all else constant) their disposable incomes have also increased, thus fostering further economic expansion.\n"
+        },
+        {
+          "id": "doc-a46f0d421238::sentence-49",
+          "documentId": "doc-a46f0d421238",
+          "text": "Source: U.S. Bureau of Labor Statistics\n",
+          "start": 1249,
+          "end": 1289,
+          "context": "NOTES\n Source: U.S. Bureau of Labor Statistics\n Release: Employment Situation\n"
+        },
+        {
+          "id": "doc-a46f0d421238::sentence-55",
+          "documentId": "doc-a46f0d421238",
+          "text": "This measure provides useful insights into the current economic situation because it can represent the number of jobs added or lost in an economy. ",
+          "start": 1759,
+          "end": 1906,
+          "context": "This measure accounts for approximately 80 percent of the workers who contribute to Gross Domestic Product (GDP).\n This measure provides useful insights into the current economic situation because it can represent the number of jobs added or lost in an economy.  Increases in employment might indicate that businesses are hiring which might also suggest that businesses are growing. "
+        },
+        {
+          "id": "doc-24baaeff66a9::sentence-9",
+          "documentId": "doc-24baaeff66a9",
+          "text": "“If we take strong measures now, we may be able to blunt the impact of the virus on the United States,” said Nancy Messonnier, M.D., director of CDC’s National Center for Immunization and Respiratory Diseases.\n",
+          "start": 1330,
+          "end": 1540,
+          "context": "CDC said the decision comes after deliberating over data and new information, and because the passengers came from the epicenter of the outbreak in Wuhan.  “If we take strong measures now, we may be able to blunt the impact of the virus on the United States,” said Nancy Messonnier, M.D., director of CDC’s National Center for Immunization and Respiratory Diseases.\n The World Health Organization reports nearly 10,000 cases worldwide and more than 200 deaths in China. "
+        },
+        {
+          "id": "doc-24baaeff66a9::sentence-6",
+          "documentId": "doc-24baaeff66a9",
+          "text": "CDC also said it issued federal quarantine orders to the 195 U.S. citizens who repatriated to the U.S. from China on Jan. 29 because of the 2019-nCoV outbreak, the first mandatory quarantine in over 50 years. ",
+          "start": 818,
+          "end": 1027,
+          "context": "In a CDC call with clinicians, the agency stressed that its guidance will continue to change over time as more is learned about the outbreak, and urged clinicians to continue to check CDC’s resources for updates.\n CDC also said it issued federal quarantine orders to the 195 U.S. citizens who repatriated to the U.S. from China on Jan. 29 because of the 2019-nCoV outbreak, the first mandatory quarantine in over 50 years.  The individuals will be held at the March Air Reserve Base in California for the 14-day quarantine that started when the plane took off from China. "
+        },
+        {
+          "id": "doc-24baaeff66a9::sentence-10",
+          "documentId": "doc-24baaeff66a9",
+          "text": "The World Health Organization reports nearly 10,000 cases worldwide and more than 200 deaths in China. ",
+          "start": 1540,
+          "end": 1643,
+          "context": "“If we take strong measures now, we may be able to blunt the impact of the virus on the United States,” said Nancy Messonnier, M.D., director of CDC’s National Center for Immunization and Respiratory Diseases.\n The World Health Organization reports nearly 10,000 cases worldwide and more than 200 deaths in China.  The CDC said the virus does spread from person-to-person, and the New England Journal of Medicine reported a case that seemed to support possible asymptomatic transmission of the infection.\n"
         }
       ]
     }
@@ -93,23 +164,59 @@
           "relation": "NEUTRAL"
         }
       ]
+    },
+    {
+      "atomId": "atom-2",
+      "relations": [
+        {
+          "spanId": "doc-a46f0d421238::sentence-56",
+          "documentId": "doc-a46f0d421238",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-a46f0d421238::sentence-49",
+          "documentId": "doc-a46f0d421238",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-a46f0d421238::sentence-55",
+          "documentId": "doc-a46f0d421238",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-24baaeff66a9::sentence-9",
+          "documentId": "doc-24baaeff66a9",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-24baaeff66a9::sentence-6",
+          "documentId": "doc-24baaeff66a9",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-24baaeff66a9::sentence-10",
+          "documentId": "doc-24baaeff66a9",
+          "relation": "NEUTRAL"
+        }
+      ]
     }
   ],
-  "linguistics": [
-    {
-      "atomId": "atom-1",
+  "linguistics": {
+    "schemaVersion": 2,
+    "claimAnalysis": {
+      "atomId": "claim",
       "frames": [
         {
-          "id": "atom-1-frame-1",
+          "id": "claim-frame-1",
           "predicate": {
-            "id": "atom-1-frame-1-predicate",
+            "id": "claim-frame-1-predicate",
             "text": "added",
             "start": 111,
             "end": 116
           },
           "subjects": [
             {
-              "id": "atom-1-frame-1-subject-1",
+              "id": "claim-frame-1-subject-1",
               "text": "we",
               "start": 97,
               "end": 99
@@ -117,7 +224,7 @@
           ],
           "coreArguments": [
             {
-              "id": "atom-1-frame-1-argument-1",
+              "id": "claim-frame-1-argument-1",
               "text": "11.6 million jobs",
               "start": 122,
               "end": 139,
@@ -126,21 +233,21 @@
           ],
           "adjuncts": [
             {
-              "id": "atom-1-frame-1-adjunct-1",
+              "id": "claim-frame-1-adjunct-1",
               "text": "Right after a time where we're going through a pandemic that lost 22 million jobs at the height",
               "start": 0,
               "end": 95,
               "kind": "temporal"
             },
             {
-              "id": "atom-1-frame-1-adjunct-2",
+              "id": "claim-frame-1-adjunct-2",
               "text": "already",
               "start": 103,
               "end": 110,
               "kind": "manner"
             },
             {
-              "id": "atom-1-frame-1-adjunct-3",
+              "id": "claim-frame-1-adjunct-3",
               "text": "back",
               "start": 117,
               "end": 121,
@@ -152,14 +259,14 @@
       ],
       "cues": [
         {
-          "id": "atom-1-cue-numeric-66-76",
+          "id": "claim-cue-numeric-66-76",
           "text": "22 million",
           "start": 66,
           "end": 76,
           "kind": "numeric"
         },
         {
-          "id": "atom-1-cue-numeric-122-134",
+          "id": "claim-cue-numeric-122-134",
           "text": "11.6 million",
           "start": 122,
           "end": 134,
@@ -169,7 +276,7 @@
       "entities": [],
       "tokens": [
         {
-          "id": "atom-1-token-0",
+          "id": "claim-token-0",
           "text": "Right",
           "start": 0,
           "end": 5,
@@ -180,7 +287,7 @@
           "head": "after"
         },
         {
-          "id": "atom-1-token-1",
+          "id": "claim-token-1",
           "text": "after",
           "start": 6,
           "end": 11,
@@ -191,7 +298,7 @@
           "head": "added"
         },
         {
-          "id": "atom-1-token-2",
+          "id": "claim-token-2",
           "text": "a",
           "start": 12,
           "end": 13,
@@ -202,7 +309,7 @@
           "head": "time"
         },
         {
-          "id": "atom-1-token-3",
+          "id": "claim-token-3",
           "text": "time",
           "start": 14,
           "end": 18,
@@ -213,7 +320,7 @@
           "head": "after"
         },
         {
-          "id": "atom-1-token-4",
+          "id": "claim-token-4",
           "text": "where",
           "start": 19,
           "end": 24,
@@ -224,7 +331,7 @@
           "head": "going"
         },
         {
-          "id": "atom-1-token-5",
+          "id": "claim-token-5",
           "text": "we",
           "start": 25,
           "end": 27,
@@ -235,7 +342,7 @@
           "head": "going"
         },
         {
-          "id": "atom-1-token-6",
+          "id": "claim-token-6",
           "text": "'re",
           "start": 27,
           "end": 30,
@@ -246,7 +353,7 @@
           "head": "going"
         },
         {
-          "id": "atom-1-token-7",
+          "id": "claim-token-7",
           "text": "going",
           "start": 31,
           "end": 36,
@@ -257,7 +364,7 @@
           "head": "time"
         },
         {
-          "id": "atom-1-token-8",
+          "id": "claim-token-8",
           "text": "through",
           "start": 37,
           "end": 44,
@@ -268,7 +375,7 @@
           "head": "going"
         },
         {
-          "id": "atom-1-token-9",
+          "id": "claim-token-9",
           "text": "a",
           "start": 45,
           "end": 46,
@@ -279,7 +386,7 @@
           "head": "pandemic"
         },
         {
-          "id": "atom-1-token-10",
+          "id": "claim-token-10",
           "text": "pandemic",
           "start": 47,
           "end": 55,
@@ -290,7 +397,7 @@
           "head": "through"
         },
         {
-          "id": "atom-1-token-11",
+          "id": "claim-token-11",
           "text": "that",
           "start": 56,
           "end": 60,
@@ -301,7 +408,7 @@
           "head": "lost"
         },
         {
-          "id": "atom-1-token-12",
+          "id": "claim-token-12",
           "text": "lost",
           "start": 61,
           "end": 65,
@@ -312,7 +419,7 @@
           "head": "pandemic"
         },
         {
-          "id": "atom-1-token-13",
+          "id": "claim-token-13",
           "text": "22",
           "start": 66,
           "end": 68,
@@ -323,7 +430,7 @@
           "head": "million"
         },
         {
-          "id": "atom-1-token-14",
+          "id": "claim-token-14",
           "text": "million",
           "start": 69,
           "end": 76,
@@ -334,7 +441,7 @@
           "head": "jobs"
         },
         {
-          "id": "atom-1-token-15",
+          "id": "claim-token-15",
           "text": "jobs",
           "start": 77,
           "end": 81,
@@ -345,7 +452,7 @@
           "head": "lost"
         },
         {
-          "id": "atom-1-token-16",
+          "id": "claim-token-16",
           "text": "at",
           "start": 82,
           "end": 84,
@@ -356,7 +463,7 @@
           "head": "lost"
         },
         {
-          "id": "atom-1-token-17",
+          "id": "claim-token-17",
           "text": "the",
           "start": 85,
           "end": 88,
@@ -367,7 +474,7 @@
           "head": "height"
         },
         {
-          "id": "atom-1-token-18",
+          "id": "claim-token-18",
           "text": "height",
           "start": 89,
           "end": 95,
@@ -378,7 +485,7 @@
           "head": "at"
         },
         {
-          "id": "atom-1-token-19",
+          "id": "claim-token-19",
           "text": ",",
           "start": 95,
           "end": 96,
@@ -389,7 +496,7 @@
           "head": "added"
         },
         {
-          "id": "atom-1-token-20",
+          "id": "claim-token-20",
           "text": "we",
           "start": 97,
           "end": 99,
@@ -400,7 +507,7 @@
           "head": "added"
         },
         {
-          "id": "atom-1-token-21",
+          "id": "claim-token-21",
           "text": "'ve",
           "start": 99,
           "end": 102,
@@ -411,7 +518,7 @@
           "head": "added"
         },
         {
-          "id": "atom-1-token-22",
+          "id": "claim-token-22",
           "text": "already",
           "start": 103,
           "end": 110,
@@ -422,7 +529,7 @@
           "head": "added"
         },
         {
-          "id": "atom-1-token-23",
+          "id": "claim-token-23",
           "text": "added",
           "start": 111,
           "end": 116,
@@ -433,7 +540,7 @@
           "head": "ROOT"
         },
         {
-          "id": "atom-1-token-24",
+          "id": "claim-token-24",
           "text": "back",
           "start": 117,
           "end": 121,
@@ -444,7 +551,7 @@
           "head": "added"
         },
         {
-          "id": "atom-1-token-25",
+          "id": "claim-token-25",
           "text": "11.6",
           "start": 122,
           "end": 126,
@@ -455,7 +562,7 @@
           "head": "million"
         },
         {
-          "id": "atom-1-token-26",
+          "id": "claim-token-26",
           "text": "million",
           "start": 127,
           "end": 134,
@@ -466,7 +573,7 @@
           "head": "jobs"
         },
         {
-          "id": "atom-1-token-27",
+          "id": "claim-token-27",
           "text": "jobs",
           "start": 135,
           "end": 139,
@@ -477,7 +584,7 @@
           "head": "added"
         },
         {
-          "id": "atom-1-token-28",
+          "id": "claim-token-28",
           "text": ".",
           "start": 139,
           "end": 140,
@@ -490,8 +597,647 @@
       ],
       "status": "complete",
       "unresolved": []
-    }
-  ],
+    },
+    "analyses": [
+      {
+        "atomId": "atom-1",
+        "frames": [
+          {
+            "id": "atom-1-frame-1",
+            "predicate": {
+              "id": "atom-1-frame-1-predicate",
+              "text": "added",
+              "start": 111,
+              "end": 116
+            },
+            "subjects": [
+              {
+                "id": "atom-1-frame-1-subject-1",
+                "text": "we",
+                "start": 97,
+                "end": 99
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-1-frame-1-argument-1",
+                "text": "11.6 million jobs",
+                "start": 122,
+                "end": 139,
+                "role": "direct_object"
+              }
+            ],
+            "adjuncts": [
+              {
+                "id": "atom-1-frame-1-adjunct-1",
+                "text": "Right after a time where we're going through a pandemic that lost 22 million jobs at the height",
+                "start": 0,
+                "end": 95,
+                "kind": "temporal"
+              },
+              {
+                "id": "atom-1-frame-1-adjunct-2",
+                "text": "already",
+                "start": 103,
+                "end": 110,
+                "kind": "manner"
+              },
+              {
+                "id": "atom-1-frame-1-adjunct-3",
+                "text": "back",
+                "start": 117,
+                "end": 121,
+                "kind": "manner"
+              }
+            ],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [
+          {
+            "id": "atom-1-cue-numeric-66-76",
+            "text": "22 million",
+            "start": 66,
+            "end": 76,
+            "kind": "numeric"
+          },
+          {
+            "id": "atom-1-cue-numeric-122-134",
+            "text": "11.6 million",
+            "start": 122,
+            "end": 134,
+            "kind": "numeric"
+          }
+        ],
+        "entities": [],
+        "tokens": [
+          {
+            "id": "atom-1-token-0",
+            "text": "Right",
+            "start": 0,
+            "end": 5,
+            "lemma": "right",
+            "pos": "ADV",
+            "tag": "RB",
+            "dependency": "advmod",
+            "head": "after"
+          },
+          {
+            "id": "atom-1-token-1",
+            "text": "after",
+            "start": 6,
+            "end": 11,
+            "lemma": "after",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "added"
+          },
+          {
+            "id": "atom-1-token-2",
+            "text": "a",
+            "start": 12,
+            "end": 13,
+            "lemma": "a",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "time"
+          },
+          {
+            "id": "atom-1-token-3",
+            "text": "time",
+            "start": 14,
+            "end": 18,
+            "lemma": "time",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "pobj",
+            "head": "after"
+          },
+          {
+            "id": "atom-1-token-4",
+            "text": "where",
+            "start": 19,
+            "end": 24,
+            "lemma": "where",
+            "pos": "SCONJ",
+            "tag": "WRB",
+            "dependency": "advmod",
+            "head": "going"
+          },
+          {
+            "id": "atom-1-token-5",
+            "text": "we",
+            "start": 25,
+            "end": 27,
+            "lemma": "we",
+            "pos": "PRON",
+            "tag": "PRP",
+            "dependency": "nsubj",
+            "head": "going"
+          },
+          {
+            "id": "atom-1-token-6",
+            "text": "'re",
+            "start": 27,
+            "end": 30,
+            "lemma": "be",
+            "pos": "AUX",
+            "tag": "VBP",
+            "dependency": "aux",
+            "head": "going"
+          },
+          {
+            "id": "atom-1-token-7",
+            "text": "going",
+            "start": 31,
+            "end": 36,
+            "lemma": "go",
+            "pos": "VERB",
+            "tag": "VBG",
+            "dependency": "relcl",
+            "head": "time"
+          },
+          {
+            "id": "atom-1-token-8",
+            "text": "through",
+            "start": 37,
+            "end": 44,
+            "lemma": "through",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "going"
+          },
+          {
+            "id": "atom-1-token-9",
+            "text": "a",
+            "start": 45,
+            "end": 46,
+            "lemma": "a",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "pandemic"
+          },
+          {
+            "id": "atom-1-token-10",
+            "text": "pandemic",
+            "start": 47,
+            "end": 55,
+            "lemma": "pandemic",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "pobj",
+            "head": "through"
+          },
+          {
+            "id": "atom-1-token-11",
+            "text": "that",
+            "start": 56,
+            "end": 60,
+            "lemma": "that",
+            "pos": "PRON",
+            "tag": "WDT",
+            "dependency": "nsubj",
+            "head": "lost"
+          },
+          {
+            "id": "atom-1-token-12",
+            "text": "lost",
+            "start": 61,
+            "end": 65,
+            "lemma": "lose",
+            "pos": "VERB",
+            "tag": "VBD",
+            "dependency": "relcl",
+            "head": "pandemic"
+          },
+          {
+            "id": "atom-1-token-13",
+            "text": "22",
+            "start": 66,
+            "end": 68,
+            "lemma": "22",
+            "pos": "NUM",
+            "tag": "CD",
+            "dependency": "compound",
+            "head": "million"
+          },
+          {
+            "id": "atom-1-token-14",
+            "text": "million",
+            "start": 69,
+            "end": 76,
+            "lemma": "million",
+            "pos": "NUM",
+            "tag": "CD",
+            "dependency": "nummod",
+            "head": "jobs"
+          },
+          {
+            "id": "atom-1-token-15",
+            "text": "jobs",
+            "start": 77,
+            "end": 81,
+            "lemma": "job",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "dobj",
+            "head": "lost"
+          },
+          {
+            "id": "atom-1-token-16",
+            "text": "at",
+            "start": 82,
+            "end": 84,
+            "lemma": "at",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "lost"
+          },
+          {
+            "id": "atom-1-token-17",
+            "text": "the",
+            "start": 85,
+            "end": 88,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "height"
+          },
+          {
+            "id": "atom-1-token-18",
+            "text": "height",
+            "start": 89,
+            "end": 95,
+            "lemma": "height",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "pobj",
+            "head": "at"
+          },
+          {
+            "id": "atom-1-token-19",
+            "text": ",",
+            "start": 95,
+            "end": 96,
+            "lemma": ",",
+            "pos": "PUNCT",
+            "tag": ",",
+            "dependency": "punct",
+            "head": "added"
+          },
+          {
+            "id": "atom-1-token-20",
+            "text": "we",
+            "start": 97,
+            "end": 99,
+            "lemma": "we",
+            "pos": "PRON",
+            "tag": "PRP",
+            "dependency": "nsubj",
+            "head": "added"
+          },
+          {
+            "id": "atom-1-token-21",
+            "text": "'ve",
+            "start": 99,
+            "end": 102,
+            "lemma": "have",
+            "pos": "AUX",
+            "tag": "VBP",
+            "dependency": "aux",
+            "head": "added"
+          },
+          {
+            "id": "atom-1-token-22",
+            "text": "already",
+            "start": 103,
+            "end": 110,
+            "lemma": "already",
+            "pos": "ADV",
+            "tag": "RB",
+            "dependency": "advmod",
+            "head": "added"
+          },
+          {
+            "id": "atom-1-token-23",
+            "text": "added",
+            "start": 111,
+            "end": 116,
+            "lemma": "add",
+            "pos": "VERB",
+            "tag": "VBN",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-1-token-24",
+            "text": "back",
+            "start": 117,
+            "end": 121,
+            "lemma": "back",
+            "pos": "ADV",
+            "tag": "RB",
+            "dependency": "advmod",
+            "head": "added"
+          },
+          {
+            "id": "atom-1-token-25",
+            "text": "11.6",
+            "start": 122,
+            "end": 126,
+            "lemma": "11.6",
+            "pos": "NUM",
+            "tag": "CD",
+            "dependency": "compound",
+            "head": "million"
+          },
+          {
+            "id": "atom-1-token-26",
+            "text": "million",
+            "start": 127,
+            "end": 134,
+            "lemma": "million",
+            "pos": "NUM",
+            "tag": "CD",
+            "dependency": "nummod",
+            "head": "jobs"
+          },
+          {
+            "id": "atom-1-token-27",
+            "text": "jobs",
+            "start": 135,
+            "end": 139,
+            "lemma": "job",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "dobj",
+            "head": "added"
+          },
+          {
+            "id": "atom-1-token-28",
+            "text": ".",
+            "start": 139,
+            "end": 140,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "added"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      },
+      {
+        "atomId": "atom-2",
+        "frames": [
+          {
+            "id": "atom-2-frame-1",
+            "predicate": {
+              "id": "atom-2-frame-1-predicate",
+              "text": "added",
+              "start": 6,
+              "end": 11
+            },
+            "subjects": [
+              {
+                "id": "atom-2-frame-1-subject-1",
+                "text": "We",
+                "start": 0,
+                "end": 2
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-2-frame-1-argument-1",
+                "text": "11.6 million jobs",
+                "start": 17,
+                "end": 34,
+                "role": "direct_object"
+              }
+            ],
+            "adjuncts": [
+              {
+                "id": "atom-2-frame-1-adjunct-1",
+                "text": "back",
+                "start": 12,
+                "end": 16,
+                "kind": "manner"
+              }
+            ],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [
+          {
+            "id": "atom-2-cue-numeric-17-29",
+            "text": "11.6 million",
+            "start": 17,
+            "end": 29,
+            "kind": "numeric"
+          }
+        ],
+        "entities": [],
+        "tokens": [
+          {
+            "id": "atom-2-token-0",
+            "text": "We",
+            "start": 0,
+            "end": 2,
+            "lemma": "we",
+            "pos": "PRON",
+            "tag": "PRP",
+            "dependency": "nsubj",
+            "head": "added"
+          },
+          {
+            "id": "atom-2-token-1",
+            "text": "'ve",
+            "start": 2,
+            "end": 5,
+            "lemma": "have",
+            "pos": "AUX",
+            "tag": "VBP",
+            "dependency": "aux",
+            "head": "added"
+          },
+          {
+            "id": "atom-2-token-2",
+            "text": "added",
+            "start": 6,
+            "end": 11,
+            "lemma": "add",
+            "pos": "VERB",
+            "tag": "VBN",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-2-token-3",
+            "text": "back",
+            "start": 12,
+            "end": 16,
+            "lemma": "back",
+            "pos": "ADV",
+            "tag": "RB",
+            "dependency": "advmod",
+            "head": "added"
+          },
+          {
+            "id": "atom-2-token-4",
+            "text": "11.6",
+            "start": 17,
+            "end": 21,
+            "lemma": "11.6",
+            "pos": "NUM",
+            "tag": "CD",
+            "dependency": "compound",
+            "head": "million"
+          },
+          {
+            "id": "atom-2-token-5",
+            "text": "million",
+            "start": 22,
+            "end": 29,
+            "lemma": "million",
+            "pos": "NUM",
+            "tag": "CD",
+            "dependency": "nummod",
+            "head": "jobs"
+          },
+          {
+            "id": "atom-2-token-6",
+            "text": "jobs",
+            "start": 30,
+            "end": 34,
+            "lemma": "job",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "dobj",
+            "head": "added"
+          },
+          {
+            "id": "atom-2-token-7",
+            "text": ".",
+            "start": 34,
+            "end": 35,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "added"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      }
+    ],
+    "summaries": [
+      {
+        "atomId": "atom-1",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "we"
+        ],
+        "predicates": [
+          "add"
+        ],
+        "cueKinds": [
+          "numeric"
+        ],
+        "modifierKinds": [
+          "temporal",
+          "manner"
+        ],
+        "entityLabels": [],
+        "warnings": []
+      },
+      {
+        "atomId": "atom-2",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "We"
+        ],
+        "predicates": [
+          "add"
+        ],
+        "cueKinds": [
+          "numeric"
+        ],
+        "modifierKinds": [
+          "manner"
+        ],
+        "entityLabels": [],
+        "warnings": []
+      }
+    ],
+    "claimWarnings": [],
+    "provider": "spacy",
+    "model": "en_core_web_sm@3.8.0"
+  },
+  "verdict": {
+    "aggregationSchemaVersion": 1,
+    "claimId": "averitec-dev-0146",
+    "composition": "AND",
+    "verdict": "NOT_ENOUGH_EVIDENCE",
+    "positions": {
+      "supportPosition": false,
+      "attackPosition": false,
+      "supportObligationIds": [],
+      "attackObligationIds": [],
+      "unresolvedObligationIds": [
+        "atom-1",
+        "atom-2"
+      ]
+    },
+    "obligations": [
+      {
+        "obligationId": "atom-1",
+        "state": "UNRESOLVED",
+        "supportEdgeIds": [],
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 6
+      },
+      {
+        "obligationId": "atom-2",
+        "state": "UNRESOLVED",
+        "supportEdgeIds": [],
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 6
+      }
+    ],
+    "warnings": [
+      {
+        "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
+        "message": "Obligation atom-1 has no supporting or attacking evidence."
+      },
+      {
+        "code": "ONLY_NEUTRAL_CANDIDATES",
+        "message": "Obligation atom-1 has only neutral retrieved candidates."
+      },
+      {
+        "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
+        "message": "Obligation atom-2 has no supporting or attacking evidence."
+      },
+      {
+        "code": "ONLY_NEUTRAL_CANDIDATES",
+        "message": "Obligation atom-2 has only neutral retrieved candidates."
+      }
+    ],
+    "ruleTrace": [
+      "AND support requires support for every obligation; AND attack requires an attack on any obligation.",
+      "Support position: no; attack position: no.",
+      "Final verdict: NOT_ENOUGH_EVIDENCE."
+    ]
+  },
   "recordedWith": {
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",

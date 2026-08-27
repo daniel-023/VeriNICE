@@ -1,26 +1,32 @@
 {
   "caseId": "averitec-dev-0010",
+  "schemaVersion": 2,
+  "composition": "AND",
+  "warnings": [],
   "atoms": [
     {
       "id": "atom-1",
-      "text": "Donald Trump, when he thinks of climate change, he says hoax.",
-      "sourceText": "Donald Trump, when he thinks of climate change, he says hoax. Well, guess what? Speaking of hoaxes, remember what he said about these increasing violent hurricanes and the frequency?",
-      "start": 0,
-      "end": 182
+      "text": "Donald Trump says hoax when he thinks of climate change.",
+      "sourceText": "he says hoax. Well, guess what? Speaking of hoaxes, remember what he said about these increasing violent hurricanes and the frequency?",
+      "start": 48,
+      "end": 182,
+      "role": "ATTRIBUTION"
     },
     {
       "id": "atom-2",
-      "text": "He actually said, maybe we should detonate a nuclear bomb over the Atlantic.",
-      "sourceText": "Donald Trump, when he thinks of climate change, he says hoax. Well, guess what? Speaking of hoaxes, remember what he said about these increasing violent hurricanes and the frequency? He actually said, maybe we should detonate a nuclear bomb over the Atlantic. By the way, the same stable genius who said the biggest problem we had in the Revolutionary War is we didn’t have enough airports.",
-      "start": 0,
-      "end": 390
+      "text": "Donald Trump said maybe we should detonate a nuclear bomb over the Atlantic.",
+      "sourceText": "He actually said, maybe we should detonate a nuclear bomb over the Atlantic.",
+      "start": 183,
+      "end": 259,
+      "role": "ATTRIBUTION"
     },
     {
       "id": "atom-3",
-      "text": "The same stable genius who said the biggest problem we had in the Revolutionary War is we didn’t have enough airports.",
-      "sourceText": "the same stable genius who said the biggest problem we had in the Revolutionary War is we didn’t have enough airports.",
-      "start": 272,
-      "end": 390
+      "text": "Donald Trump said the biggest problem we had in the Revolutionary War is we didn’t have enough airports.",
+      "sourceText": "By the way, the same stable genius who said the biggest problem we had in the Revolutionary War is we didn’t have enough airports.",
+      "start": 260,
+      "end": 390,
+      "role": "ATTRIBUTION"
     }
   ],
   "evidence": [
@@ -32,42 +38,48 @@
           "documentId": "doc-a9e260356e8f",
           "text": "About 3 weeks after Trump's 2016 election, National Geographic published an article titled, \"Nuking Hurricanes: The Surprising History of a Really Bad Idea.\" ",
           "start": 5565,
-          "end": 5723
+          "end": 5723,
+          "context": "- The page states: \"Apart from the fact that this might not even alter the storm, this approach neglects the problem that the released radioactive fallout would fairly quickly move with the tradewinds to affect land areas and cause devastating environmental problems. Needless to say, this is not a good idea.\"\n About 3 weeks after Trump's 2016 election, National Geographic published an article titled, \"Nuking Hurricanes: The Surprising History of a Really Bad Idea.\"  It found, among other problems, that:\n"
         },
         {
           "id": "doc-a9e260356e8f::sentence-46",
           "documentId": "doc-a9e260356e8f",
           "text": "- Trump called this story \"ridiculous\" in a Monday tweet from the G7 summit. ",
           "start": 4535,
-          "end": 4612
+          "end": 4612,
+          "context": "- \"What people near the president do is they say 'I love a president who asks questions like that, who’s willing to ask tough questions.' ... It takes strong people to respond to him in the right way when stuff like this comes up. For me, alarm bells weren't going off when I heard about it, but I did think somebody is going to use this to feed into 'the president is crazy' narrative.\"\n - Trump called this story \"ridiculous\" in a Monday tweet from the G7 summit.  He added, \"I never said this. Just more FAKE NEWS!\"\n"
         },
         {
           "id": "doc-a9e260356e8f::sentence-40",
           "documentId": "doc-a9e260356e8f",
           "text": "- The sources said that Trump's \"bomb the hurricanes\" idea — which he floated early in the first year and a bit of his presidency before John Bolton took over as national security adviser — went nowhere and never entered a formal policy process.\n",
           "start": 3415,
-          "end": 3661
+          "end": 3661,
+          "context": "- The source added that this NSC memo captured \"multiple topics, not just hurricanes. … It wasn't that somebody was so terrified of the bombing idea that they wrote it down. They just captured the president’s comments.\"\n - The sources said that Trump's \"bomb the hurricanes\" idea — which he floated early in the first year and a bit of his presidency before John Bolton took over as national security adviser — went nowhere and never entered a formal policy process.\n White House response: A senior administration official said, \"We don't comment on private discussions that the president may or may not have had with his national security team.\"\n"
         },
         {
           "id": "doc-1389236b080c::sentence-12",
           "documentId": "doc-1389236b080c",
           "text": "But Trump said he wasn't letting the rain dampen his spirits about the event.\n",
           "start": 1708,
-          "end": 1786
+          "end": 1786,
+          "context": "The teleprompter screen had been \"hard to look at anyway cause it was raining all over it.\"\n But Trump said he wasn't letting the rain dampen his spirits about the event.\n \"I do the speech very well, so I was able to do it without a teleprompter, but the teleprompter did go out,\" he said. "
         },
         {
           "id": "doc-1389236b080c::sentence-6",
           "documentId": "doc-1389236b080c",
           "text": "Trump, speaking to reporters on the White House lawn en route to his property in Bedminster, New Jersey, acknowledged Friday he had some technical problems because of the soggy conditions during his speech.\n",
           "start": 861,
-          "end": 1068
+          "end": 1068,
+          "context": "\"Our Army manned the air, it rammed the ramparts, it took over the airports, it did everything it had to do, and at Fort McHenry, under the rocket's red glare it had nothing but victory.\"\n Trump, speaking to reporters on the White House lawn en route to his property in Bedminster, New Jersey, acknowledged Friday he had some technical problems because of the soggy conditions during his speech.\n \"We had a lot of rain. I stood in the rain. The teleprompter went out,\" he said in response to a question from NBC's Kelly O'Donnell. "
         },
         {
           "id": "doc-1389236b080c::sentence-2",
           "documentId": "doc-1389236b080c",
           "text": "President Donald Trump — who used to mock predecessor Barack Obama for using the devices during speeches — said Friday that technical problems with the teleprompter during his \"Salute to America\" led to his head-scratching remarks about the Continental Army securing not-yet existent \"airports\" during the Revolutionary War.\n",
           "start": 34,
-          "end": 359
+          "end": 359,
+          "context": "No wonder he hates teleprompters.\n President Donald Trump — who used to mock predecessor Barack Obama for using the devices during speeches — said Friday that technical problems with the teleprompter during his \"Salute to America\" led to his head-scratching remarks about the Continental Army securing not-yet existent \"airports\" during the Revolutionary War.\n \"In June of 1775, the Continental Congress created a unified Army out of the Revolutionary Forces encamped around Boston and New York, and named after the great George Washington, commander in chief,\" Trump said during his address Thursday — although the army was not named after Washington. "
         }
       ]
     },
@@ -75,46 +87,52 @@
       "atomId": "atom-2",
       "spans": [
         {
-          "id": "doc-a9e260356e8f::sentence-31",
+          "id": "doc-a9e260356e8f::sentence-29",
           "documentId": "doc-a9e260356e8f",
-          "text": "\"They start forming off the coast of Africa, as they're moving across the Atlantic, we drop a bomb inside the eye of the hurricane and it disrupts it. Why can't we do that?\" the source added, paraphrasing the president's remarks.\n",
-          "start": 2060,
-          "end": 2290
+          "text": "President Trump has suggested multiple times to senior Homeland Security and national security officials that they explore using nuclear bombs to stop hurricanes from hitting the United States, according to sources who have heard the president's private remarks and been briefed on a National Security Council memorandum that recorded those comments.\n",
+          "start": 1543,
+          "end": 1894,
+          "context": "Illustration: Lazaro Gamio/Axios\n President Trump has suggested multiple times to senior Homeland Security and national security officials that they explore using nuclear bombs to stop hurricanes from hitting the United States, according to sources who have heard the president's private remarks and been briefed on a National Security Council memorandum that recorded those comments.\n Behind the scenes: During one hurricane briefing at the White House, Trump said, \"I got it. I got it. Why don't we nuke them?\" according to one source who was there. "
         },
         {
-          "id": "doc-a9e260356e8f::sentence-49",
+          "id": "doc-a9e260356e8f::sentence-40",
           "documentId": "doc-a9e260356e8f",
-          "text": "The notion that detonating a nuclear bomb over the eye of a hurricane could be used to counteract convection currents dates to the Eisenhower era, when it was floated by a government scientist.\n",
-          "start": 4712,
-          "end": 4906
+          "text": "- The sources said that Trump's \"bomb the hurricanes\" idea — which he floated early in the first year and a bit of his presidency before John Bolton took over as national security adviser — went nowhere and never entered a formal policy process.\n",
+          "start": 3415,
+          "end": 3661,
+          "context": "- The source added that this NSC memo captured \"multiple topics, not just hurricanes. … It wasn't that somebody was so terrified of the bombing idea that they wrote it down. They just captured the president’s comments.\"\n - The sources said that Trump's \"bomb the hurricanes\" idea — which he floated early in the first year and a bit of his presidency before John Bolton took over as national security adviser — went nowhere and never entered a formal policy process.\n White House response: A senior administration official said, \"We don't comment on private discussions that the president may or may not have had with his national security team.\"\n"
         },
         {
-          "id": "doc-a9e260356e8f::sentence-55",
+          "id": "doc-a9e260356e8f::sentence-30",
           "documentId": "doc-a9e260356e8f",
-          "text": "- Dropping a nuclear bomb into a hurricane would be banned under the terms of the Peaceful Nuclear Explosions Treaty between the U.S. and the former Soviet Union. ",
-          "start": 5761,
-          "end": 5924
-        },
-        {
-          "id": "doc-1389236b080c::sentence-9",
-          "documentId": "doc-1389236b080c",
-          "text": "One of those moments was in the passage about 1775, he said.\n",
-          "start": 1276,
-          "end": 1337
+          "text": "Behind the scenes: During one hurricane briefing at the White House, Trump said, \"I got it. I got it. Why don't we nuke them?\" according to one source who was there. ",
+          "start": 1894,
+          "end": 2060,
+          "context": "President Trump has suggested multiple times to senior Homeland Security and national security officials that they explore using nuclear bombs to stop hurricanes from hitting the United States, according to sources who have heard the president's private remarks and been briefed on a National Security Council memorandum that recorded those comments.\n Behind the scenes: During one hurricane briefing at the White House, Trump said, \"I got it. I got it. Why don't we nuke them?\" according to one source who was there.  \"They start forming off the coast of Africa, as they're moving across the Atlantic, we drop a bomb inside the eye of the hurricane and it disrupts it. Why can't we do that?\" the source added, paraphrasing the president's remarks.\n"
         },
         {
           "id": "doc-1389236b080c::sentence-2",
           "documentId": "doc-1389236b080c",
           "text": "President Donald Trump — who used to mock predecessor Barack Obama for using the devices during speeches — said Friday that technical problems with the teleprompter during his \"Salute to America\" led to his head-scratching remarks about the Continental Army securing not-yet existent \"airports\" during the Revolutionary War.\n",
           "start": 34,
-          "end": 359
+          "end": 359,
+          "context": "No wonder he hates teleprompters.\n President Donald Trump — who used to mock predecessor Barack Obama for using the devices during speeches — said Friday that technical problems with the teleprompter during his \"Salute to America\" led to his head-scratching remarks about the Continental Army securing not-yet existent \"airports\" during the Revolutionary War.\n \"In June of 1775, the Continental Congress created a unified Army out of the Revolutionary Forces encamped around Boston and New York, and named after the great George Washington, commander in chief,\" Trump said during his address Thursday — although the army was not named after Washington. "
         },
         {
-          "id": "doc-1389236b080c::sentence-7",
+          "id": "doc-1389236b080c::sentence-3",
           "documentId": "doc-1389236b080c",
-          "text": "\"We had a lot of rain. I stood in the rain. The teleprompter went out,\" he said in response to a question from NBC's Kelly O'Donnell. ",
-          "start": 1068,
-          "end": 1202
+          "text": "\"In June of 1775, the Continental Congress created a unified Army out of the Revolutionary Forces encamped around Boston and New York, and named after the great George Washington, commander in chief,\" Trump said during his address Thursday — although the army was not named after Washington. ",
+          "start": 359,
+          "end": 651,
+          "context": "President Donald Trump — who used to mock predecessor Barack Obama for using the devices during speeches — said Friday that technical problems with the teleprompter during his \"Salute to America\" led to his head-scratching remarks about the Continental Army securing not-yet existent \"airports\" during the Revolutionary War.\n \"In June of 1775, the Continental Congress created a unified Army out of the Revolutionary Forces encamped around Boston and New York, and named after the great George Washington, commander in chief,\" Trump said during his address Thursday — although the army was not named after Washington.  It then got stranger.\n"
+        },
+        {
+          "id": "doc-1389236b080c::sentence-6",
+          "documentId": "doc-1389236b080c",
+          "text": "Trump, speaking to reporters on the White House lawn en route to his property in Bedminster, New Jersey, acknowledged Friday he had some technical problems because of the soggy conditions during his speech.\n",
+          "start": 861,
+          "end": 1068,
+          "context": "\"Our Army manned the air, it rammed the ramparts, it took over the airports, it did everything it had to do, and at Fort McHenry, under the rocket's red glare it had nothing but victory.\"\n Trump, speaking to reporters on the White House lawn en route to his property in Bedminster, New Jersey, acknowledged Friday he had some technical problems because of the soggy conditions during his speech.\n \"We had a lot of rain. I stood in the rain. The teleprompter went out,\" he said in response to a question from NBC's Kelly O'Donnell. "
         }
       ]
     },
@@ -126,42 +144,48 @@
           "documentId": "doc-1389236b080c",
           "text": "President Donald Trump — who used to mock predecessor Barack Obama for using the devices during speeches — said Friday that technical problems with the teleprompter during his \"Salute to America\" led to his head-scratching remarks about the Continental Army securing not-yet existent \"airports\" during the Revolutionary War.\n",
           "start": 34,
-          "end": 359
-        },
-        {
-          "id": "doc-1389236b080c::sentence-3",
-          "documentId": "doc-1389236b080c",
-          "text": "\"In June of 1775, the Continental Congress created a unified Army out of the Revolutionary Forces encamped around Boston and New York, and named after the great George Washington, commander in chief,\" Trump said during his address Thursday — although the army was not named after Washington. ",
-          "start": 359,
-          "end": 651
-        },
-        {
-          "id": "doc-a9e260356e8f::sentence-54",
-          "documentId": "doc-a9e260356e8f",
-          "text": "It found, among other problems, that:\n",
-          "start": 5723,
-          "end": 5761
-        },
-        {
-          "id": "doc-1389236b080c::sentence-9",
-          "documentId": "doc-1389236b080c",
-          "text": "One of those moments was in the passage about 1775, he said.\n",
-          "start": 1276,
-          "end": 1337
-        },
-        {
-          "id": "doc-a9e260356e8f::sentence-48",
-          "documentId": "doc-a9e260356e8f",
-          "text": "The big picture: Trump didn't invent this idea. ",
-          "start": 4664,
-          "end": 4712
+          "end": 359,
+          "context": "No wonder he hates teleprompters.\n President Donald Trump — who used to mock predecessor Barack Obama for using the devices during speeches — said Friday that technical problems with the teleprompter during his \"Salute to America\" led to his head-scratching remarks about the Continental Army securing not-yet existent \"airports\" during the Revolutionary War.\n \"In June of 1775, the Continental Congress created a unified Army out of the Revolutionary Forces encamped around Boston and New York, and named after the great George Washington, commander in chief,\" Trump said during his address Thursday — although the army was not named after Washington. "
         },
         {
           "id": "doc-a9e260356e8f::sentence-33",
           "documentId": "doc-a9e260356e8f",
           "text": "- Trump replied by asking incredulously how many hurricanes the U.S. could handle and reiterating his suggestion that the government intervene before they make landfall.\n",
           "start": 2408,
-          "end": 2578
+          "end": 2578,
+          "context": "- Asked how the briefer reacted, the source recalled he said something to the effect of, \"Sir, we'll look into that.\"\n - Trump replied by asking incredulously how many hurricanes the U.S. could handle and reiterating his suggestion that the government intervene before they make landfall.\n - The briefer \"was knocked back on his heels,\" the source in the room added. "
+        },
+        {
+          "id": "doc-1389236b080c::sentence-3",
+          "documentId": "doc-1389236b080c",
+          "text": "\"In June of 1775, the Continental Congress created a unified Army out of the Revolutionary Forces encamped around Boston and New York, and named after the great George Washington, commander in chief,\" Trump said during his address Thursday — although the army was not named after Washington. ",
+          "start": 359,
+          "end": 651,
+          "context": "President Donald Trump — who used to mock predecessor Barack Obama for using the devices during speeches — said Friday that technical problems with the teleprompter during his \"Salute to America\" led to his head-scratching remarks about the Continental Army securing not-yet existent \"airports\" during the Revolutionary War.\n \"In June of 1775, the Continental Congress created a unified Army out of the Revolutionary Forces encamped around Boston and New York, and named after the great George Washington, commander in chief,\" Trump said during his address Thursday — although the army was not named after Washington.  It then got stranger.\n"
+        },
+        {
+          "id": "doc-a9e260356e8f::sentence-48",
+          "documentId": "doc-a9e260356e8f",
+          "text": "The big picture: Trump didn't invent this idea. ",
+          "start": 4664,
+          "end": 4712,
+          "context": "He added, \"I never said this. Just more FAKE NEWS!\"\n The big picture: Trump didn't invent this idea.  The notion that detonating a nuclear bomb over the eye of a hurricane could be used to counteract convection currents dates to the Eisenhower era, when it was floated by a government scientist.\n"
+        },
+        {
+          "id": "doc-1389236b080c::sentence-6",
+          "documentId": "doc-1389236b080c",
+          "text": "Trump, speaking to reporters on the White House lawn en route to his property in Bedminster, New Jersey, acknowledged Friday he had some technical problems because of the soggy conditions during his speech.\n",
+          "start": 861,
+          "end": 1068,
+          "context": "\"Our Army manned the air, it rammed the ramparts, it took over the airports, it did everything it had to do, and at Fort McHenry, under the rocket's red glare it had nothing but victory.\"\n Trump, speaking to reporters on the White House lawn en route to his property in Bedminster, New Jersey, acknowledged Friday he had some technical problems because of the soggy conditions during his speech.\n \"We had a lot of rain. I stood in the rain. The teleprompter went out,\" he said in response to a question from NBC's Kelly O'Donnell. "
+        },
+        {
+          "id": "doc-a9e260356e8f::sentence-40",
+          "documentId": "doc-a9e260356e8f",
+          "text": "- The sources said that Trump's \"bomb the hurricanes\" idea — which he floated early in the first year and a bit of his presidency before John Bolton took over as national security adviser — went nowhere and never entered a formal policy process.\n",
+          "start": 3415,
+          "end": 3661,
+          "context": "- The source added that this NSC memo captured \"multiple topics, not just hurricanes. … It wasn't that somebody was so terrified of the bombing idea that they wrote it down. They just captured the president’s comments.\"\n - The sources said that Trump's \"bomb the hurricanes\" idea — which he floated early in the first year and a bit of his presidency before John Bolton took over as national security adviser — went nowhere and never entered a formal policy process.\n White House response: A senior administration official said, \"We don't comment on private discussions that the president may or may not have had with his national security team.\"\n"
         }
       ]
     }
@@ -206,32 +230,32 @@
       "atomId": "atom-2",
       "relations": [
         {
-          "spanId": "doc-a9e260356e8f::sentence-31",
+          "spanId": "doc-a9e260356e8f::sentence-29",
           "documentId": "doc-a9e260356e8f",
           "relation": "NEUTRAL"
         },
         {
-          "spanId": "doc-a9e260356e8f::sentence-49",
+          "spanId": "doc-a9e260356e8f::sentence-40",
           "documentId": "doc-a9e260356e8f",
           "relation": "NEUTRAL"
         },
         {
-          "spanId": "doc-a9e260356e8f::sentence-55",
+          "spanId": "doc-a9e260356e8f::sentence-30",
           "documentId": "doc-a9e260356e8f",
-          "relation": "CONTRADICTION"
-        },
-        {
-          "spanId": "doc-1389236b080c::sentence-9",
-          "documentId": "doc-1389236b080c",
-          "relation": "CONTRADICTION"
+          "relation": "ENTAILMENT"
         },
         {
           "spanId": "doc-1389236b080c::sentence-2",
           "documentId": "doc-1389236b080c",
+          "relation": "CONTRADICTION"
+        },
+        {
+          "spanId": "doc-1389236b080c::sentence-3",
+          "documentId": "doc-1389236b080c",
           "relation": "NEUTRAL"
         },
         {
-          "spanId": "doc-1389236b080c::sentence-7",
+          "spanId": "doc-1389236b080c::sentence-6",
           "documentId": "doc-1389236b080c",
           "relation": "NEUTRAL"
         }
@@ -246,48 +270,49 @@
           "relation": "CONTRADICTION"
         },
         {
-          "spanId": "doc-1389236b080c::sentence-3",
-          "documentId": "doc-1389236b080c",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-a9e260356e8f::sentence-54",
+          "spanId": "doc-a9e260356e8f::sentence-33",
           "documentId": "doc-a9e260356e8f",
-          "relation": "NEUTRAL"
+          "relation": "CONTRADICTION"
         },
         {
-          "spanId": "doc-1389236b080c::sentence-9",
+          "spanId": "doc-1389236b080c::sentence-3",
           "documentId": "doc-1389236b080c",
           "relation": "NEUTRAL"
         },
         {
           "spanId": "doc-a9e260356e8f::sentence-48",
           "documentId": "doc-a9e260356e8f",
+          "relation": "CONTRADICTION"
+        },
+        {
+          "spanId": "doc-1389236b080c::sentence-6",
+          "documentId": "doc-1389236b080c",
           "relation": "NEUTRAL"
         },
         {
-          "spanId": "doc-a9e260356e8f::sentence-33",
+          "spanId": "doc-a9e260356e8f::sentence-40",
           "documentId": "doc-a9e260356e8f",
           "relation": "NEUTRAL"
         }
       ]
     }
   ],
-  "linguistics": [
-    {
-      "atomId": "atom-1",
+  "linguistics": {
+    "schemaVersion": 2,
+    "claimAnalysis": {
+      "atomId": "claim",
       "frames": [
         {
-          "id": "atom-1-frame-1",
+          "id": "claim-frame-1",
           "predicate": {
-            "id": "atom-1-frame-1-predicate",
+            "id": "claim-frame-1-predicate",
             "text": "thinks",
             "start": 22,
             "end": 28
           },
           "subjects": [
             {
-              "id": "atom-1-frame-1-subject-1",
+              "id": "claim-frame-1-subject-1",
               "text": "he",
               "start": 19,
               "end": 21
@@ -296,7 +321,7 @@
           "coreArguments": [],
           "adjuncts": [
             {
-              "id": "atom-1-frame-1-adjunct-1",
+              "id": "claim-frame-1-adjunct-1",
               "text": "when",
               "start": 14,
               "end": 18,
@@ -305,35 +330,323 @@
           ],
           "otherModifiers": [
             {
-              "id": "atom-1-frame-1-other-modifier-1",
+              "id": "claim-frame-1-other-modifier-1",
               "text": "of climate change",
               "start": 29,
               "end": 46
             }
           ]
+        },
+        {
+          "id": "claim-frame-2",
+          "predicate": {
+            "id": "claim-frame-2-predicate",
+            "text": "guess",
+            "start": 68,
+            "end": 73
+          },
+          "subjects": [],
+          "coreArguments": [
+            {
+              "id": "claim-frame-2-argument-1",
+              "text": "what",
+              "start": 74,
+              "end": 78,
+              "role": "direct_object"
+            }
+          ],
+          "adjuncts": [],
+          "otherModifiers": []
+        },
+        {
+          "id": "claim-frame-3",
+          "predicate": {
+            "id": "claim-frame-3-predicate",
+            "text": "Speaking",
+            "start": 80,
+            "end": 88
+          },
+          "subjects": [],
+          "coreArguments": [],
+          "adjuncts": [],
+          "otherModifiers": [
+            {
+              "id": "claim-frame-3-other-modifier-1",
+              "text": "of hoaxes",
+              "start": 89,
+              "end": 98
+            }
+          ]
+        },
+        {
+          "id": "claim-frame-4",
+          "predicate": {
+            "id": "claim-frame-4-predicate",
+            "text": "remember",
+            "start": 100,
+            "end": 108
+          },
+          "subjects": [],
+          "coreArguments": [
+            {
+              "id": "claim-frame-4-argument-1",
+              "text": "what he said about these increasing violent hurricanes and the frequency",
+              "start": 109,
+              "end": 181,
+              "role": "clausal_complement"
+            }
+          ],
+          "adjuncts": [],
+          "otherModifiers": [
+            {
+              "id": "claim-frame-4-other-modifier-1",
+              "text": "Speaking of hoaxes",
+              "start": 80,
+              "end": 98
+            }
+          ]
+        },
+        {
+          "id": "claim-frame-5",
+          "predicate": {
+            "id": "claim-frame-5-predicate",
+            "text": "said",
+            "start": 117,
+            "end": 121
+          },
+          "subjects": [
+            {
+              "id": "claim-frame-5-subject-1",
+              "text": "he",
+              "start": 114,
+              "end": 116
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "claim-frame-5-argument-1",
+              "text": "what",
+              "start": 109,
+              "end": 113,
+              "role": "direct_object"
+            }
+          ],
+          "adjuncts": [],
+          "otherModifiers": [
+            {
+              "id": "claim-frame-5-other-modifier-1",
+              "text": "about these increasing violent hurricanes and the frequency",
+              "start": 122,
+              "end": 181
+            }
+          ]
+        },
+        {
+          "id": "claim-frame-6",
+          "predicate": {
+            "id": "claim-frame-6-predicate",
+            "text": "said",
+            "start": 195,
+            "end": 199
+          },
+          "subjects": [
+            {
+              "id": "claim-frame-6-subject-1",
+              "text": "He",
+              "start": 183,
+              "end": 185
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "claim-frame-6-argument-1",
+              "text": "maybe we should detonate a nuclear bomb over the Atlantic",
+              "start": 201,
+              "end": 258,
+              "role": "clausal_complement"
+            }
+          ],
+          "adjuncts": [
+            {
+              "id": "claim-frame-6-adjunct-1",
+              "text": "actually",
+              "start": 186,
+              "end": 194,
+              "kind": "manner"
+            }
+          ],
+          "otherModifiers": []
+        },
+        {
+          "id": "claim-frame-7",
+          "predicate": {
+            "id": "claim-frame-7-predicate",
+            "text": "detonate",
+            "start": 217,
+            "end": 225
+          },
+          "subjects": [
+            {
+              "id": "claim-frame-7-subject-1",
+              "text": "we",
+              "start": 207,
+              "end": 209
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "claim-frame-7-argument-1",
+              "text": "a nuclear bomb",
+              "start": 226,
+              "end": 240,
+              "role": "direct_object"
+            }
+          ],
+          "adjuncts": [
+            {
+              "id": "claim-frame-7-adjunct-1",
+              "text": "maybe",
+              "start": 201,
+              "end": 206,
+              "kind": "manner"
+            }
+          ],
+          "otherModifiers": [
+            {
+              "id": "claim-frame-7-other-modifier-1",
+              "text": "over the Atlantic",
+              "start": 241,
+              "end": 258
+            }
+          ]
+        },
+        {
+          "id": "claim-frame-8",
+          "predicate": {
+            "id": "claim-frame-8-predicate",
+            "text": "is",
+            "start": 356,
+            "end": 358
+          },
+          "subjects": [
+            {
+              "id": "claim-frame-8-subject-1",
+              "text": "the biggest problem we had in the Revolutionary War",
+              "start": 304,
+              "end": 355
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "claim-frame-8-argument-1",
+              "text": "we didn’t have enough airports",
+              "start": 359,
+              "end": 389,
+              "role": "clausal_complement"
+            }
+          ],
+          "adjuncts": [],
+          "otherModifiers": []
+        },
+        {
+          "id": "claim-frame-9",
+          "predicate": {
+            "id": "claim-frame-9-predicate",
+            "text": "have",
+            "start": 369,
+            "end": 373
+          },
+          "subjects": [
+            {
+              "id": "claim-frame-9-subject-1",
+              "text": "we",
+              "start": 359,
+              "end": 361
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "claim-frame-9-argument-1",
+              "text": "enough airports",
+              "start": 374,
+              "end": 389,
+              "role": "direct_object"
+            }
+          ],
+          "adjuncts": [],
+          "otherModifiers": []
         }
       ],
       "cues": [
         {
-          "id": "atom-1-cue-attribution-51-55",
+          "id": "claim-cue-attribution-51-55",
           "text": "says",
           "start": 51,
           "end": 55,
           "kind": "attribution"
+        },
+        {
+          "id": "claim-cue-attribution-117-121",
+          "text": "said",
+          "start": 117,
+          "end": 121,
+          "kind": "attribution"
+        },
+        {
+          "id": "claim-cue-attribution-195-199",
+          "text": "said",
+          "start": 195,
+          "end": 199,
+          "kind": "attribution"
+        },
+        {
+          "id": "claim-cue-modality-210-216",
+          "text": "should",
+          "start": 210,
+          "end": 216,
+          "kind": "modality"
+        },
+        {
+          "id": "claim-cue-attribution-299-303",
+          "text": "said",
+          "start": 299,
+          "end": 303,
+          "kind": "attribution"
+        },
+        {
+          "id": "claim-cue-negation-365-368",
+          "text": "n’t",
+          "start": 365,
+          "end": 368,
+          "kind": "negation"
         }
       ],
       "entities": [
         {
-          "id": "atom-1-entity-person-0-12",
+          "id": "claim-entity-person-0-12",
           "text": "Donald Trump",
           "start": 0,
           "end": 12,
           "label": "PERSON"
+        },
+        {
+          "id": "claim-entity-loc-250-258",
+          "text": "Atlantic",
+          "start": 250,
+          "end": 258,
+          "label": "LOC"
+        },
+        {
+          "id": "claim-entity-event-334-355",
+          "text": "the Revolutionary War",
+          "start": 334,
+          "end": 355,
+          "label": "EVENT"
         }
       ],
       "tokens": [
         {
-          "id": "atom-1-token-0",
+          "id": "claim-token-0",
           "text": "Donald",
           "start": 0,
           "end": 6,
@@ -344,7 +657,7 @@
           "head": "Trump"
         },
         {
-          "id": "atom-1-token-1",
+          "id": "claim-token-1",
           "text": "Trump",
           "start": 7,
           "end": 12,
@@ -355,7 +668,7 @@
           "head": "ROOT"
         },
         {
-          "id": "atom-1-token-2",
+          "id": "claim-token-2",
           "text": ",",
           "start": 12,
           "end": 13,
@@ -366,7 +679,7 @@
           "head": "Trump"
         },
         {
-          "id": "atom-1-token-3",
+          "id": "claim-token-3",
           "text": "when",
           "start": 14,
           "end": 18,
@@ -377,7 +690,7 @@
           "head": "thinks"
         },
         {
-          "id": "atom-1-token-4",
+          "id": "claim-token-4",
           "text": "he",
           "start": 19,
           "end": 21,
@@ -388,7 +701,7 @@
           "head": "thinks"
         },
         {
-          "id": "atom-1-token-5",
+          "id": "claim-token-5",
           "text": "thinks",
           "start": 22,
           "end": 28,
@@ -399,7 +712,7 @@
           "head": "says"
         },
         {
-          "id": "atom-1-token-6",
+          "id": "claim-token-6",
           "text": "of",
           "start": 29,
           "end": 31,
@@ -410,7 +723,7 @@
           "head": "thinks"
         },
         {
-          "id": "atom-1-token-7",
+          "id": "claim-token-7",
           "text": "climate",
           "start": 32,
           "end": 39,
@@ -421,7 +734,7 @@
           "head": "change"
         },
         {
-          "id": "atom-1-token-8",
+          "id": "claim-token-8",
           "text": "change",
           "start": 40,
           "end": 46,
@@ -432,7 +745,7 @@
           "head": "of"
         },
         {
-          "id": "atom-1-token-9",
+          "id": "claim-token-9",
           "text": ",",
           "start": 46,
           "end": 47,
@@ -443,7 +756,7 @@
           "head": "says"
         },
         {
-          "id": "atom-1-token-10",
+          "id": "claim-token-10",
           "text": "he",
           "start": 48,
           "end": 50,
@@ -454,7 +767,7 @@
           "head": "says"
         },
         {
-          "id": "atom-1-token-11",
+          "id": "claim-token-11",
           "text": "says",
           "start": 51,
           "end": 55,
@@ -465,7 +778,7 @@
           "head": "Trump"
         },
         {
-          "id": "atom-1-token-12",
+          "id": "claim-token-12",
           "text": "hoax",
           "start": 56,
           "end": 60,
@@ -476,7 +789,7 @@
           "head": "says"
         },
         {
-          "id": "atom-1-token-13",
+          "id": "claim-token-13",
           "text": ".",
           "start": 60,
           "end": 61,
@@ -484,126 +797,134 @@
           "pos": "PUNCT",
           "tag": ".",
           "dependency": "punct",
-          "head": "says"
-        }
-      ],
-      "status": "complete",
-      "unresolved": []
-    },
-    {
-      "atomId": "atom-2",
-      "frames": [
-        {
-          "id": "atom-2-frame-1",
-          "predicate": {
-            "id": "atom-2-frame-1-predicate",
-            "text": "said",
-            "start": 12,
-            "end": 16
-          },
-          "subjects": [
-            {
-              "id": "atom-2-frame-1-subject-1",
-              "text": "He",
-              "start": 0,
-              "end": 2
-            }
-          ],
-          "coreArguments": [
-            {
-              "id": "atom-2-frame-1-argument-1",
-              "text": "maybe we should detonate a nuclear bomb over the Atlantic",
-              "start": 18,
-              "end": 75,
-              "role": "clausal_complement"
-            }
-          ],
-          "adjuncts": [
-            {
-              "id": "atom-2-frame-1-adjunct-1",
-              "text": "actually",
-              "start": 3,
-              "end": 11,
-              "kind": "manner"
-            }
-          ],
-          "otherModifiers": []
+          "head": "Trump"
         },
         {
-          "id": "atom-2-frame-2",
-          "predicate": {
-            "id": "atom-2-frame-2-predicate",
-            "text": "detonate",
-            "start": 34,
-            "end": 42
-          },
-          "subjects": [
-            {
-              "id": "atom-2-frame-2-subject-1",
-              "text": "we",
-              "start": 24,
-              "end": 26
-            }
-          ],
-          "coreArguments": [
-            {
-              "id": "atom-2-frame-2-argument-1",
-              "text": "a nuclear bomb",
-              "start": 43,
-              "end": 57,
-              "role": "direct_object"
-            }
-          ],
-          "adjuncts": [
-            {
-              "id": "atom-2-frame-2-adjunct-1",
-              "text": "maybe",
-              "start": 18,
-              "end": 23,
-              "kind": "manner"
-            }
-          ],
-          "otherModifiers": [
-            {
-              "id": "atom-2-frame-2-other-modifier-1",
-              "text": "over the Atlantic",
-              "start": 58,
-              "end": 75
-            }
-          ]
-        }
-      ],
-      "cues": [
-        {
-          "id": "atom-2-cue-attribution-12-16",
-          "text": "said",
-          "start": 12,
-          "end": 16,
-          "kind": "attribution"
+          "id": "claim-token-14",
+          "text": "Well",
+          "start": 62,
+          "end": 66,
+          "lemma": "well",
+          "pos": "INTJ",
+          "tag": "UH",
+          "dependency": "intj",
+          "head": "guess"
         },
         {
-          "id": "atom-2-cue-modality-27-33",
-          "text": "should",
-          "start": 27,
-          "end": 33,
-          "kind": "modality"
-        }
-      ],
-      "entities": [
+          "id": "claim-token-15",
+          "text": ",",
+          "start": 66,
+          "end": 67,
+          "lemma": ",",
+          "pos": "PUNCT",
+          "tag": ",",
+          "dependency": "punct",
+          "head": "guess"
+        },
         {
-          "id": "atom-2-entity-loc-67-75",
-          "text": "Atlantic",
-          "start": 67,
-          "end": 75,
-          "label": "LOC"
-        }
-      ],
-      "tokens": [
+          "id": "claim-token-16",
+          "text": "guess",
+          "start": 68,
+          "end": 73,
+          "lemma": "guess",
+          "pos": "VERB",
+          "tag": "VB",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
         {
-          "id": "atom-2-token-0",
-          "text": "He",
-          "start": 0,
-          "end": 2,
+          "id": "claim-token-17",
+          "text": "what",
+          "start": 74,
+          "end": 78,
+          "lemma": "what",
+          "pos": "PRON",
+          "tag": "WP",
+          "dependency": "dobj",
+          "head": "guess"
+        },
+        {
+          "id": "claim-token-18",
+          "text": "?",
+          "start": 78,
+          "end": 79,
+          "lemma": "?",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "guess"
+        },
+        {
+          "id": "claim-token-19",
+          "text": "Speaking",
+          "start": 80,
+          "end": 88,
+          "lemma": "speak",
+          "pos": "VERB",
+          "tag": "VBG",
+          "dependency": "advcl",
+          "head": "remember"
+        },
+        {
+          "id": "claim-token-20",
+          "text": "of",
+          "start": 89,
+          "end": 91,
+          "lemma": "of",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "Speaking"
+        },
+        {
+          "id": "claim-token-21",
+          "text": "hoaxes",
+          "start": 92,
+          "end": 98,
+          "lemma": "hoax",
+          "pos": "NOUN",
+          "tag": "NNS",
+          "dependency": "pobj",
+          "head": "of"
+        },
+        {
+          "id": "claim-token-22",
+          "text": ",",
+          "start": 98,
+          "end": 99,
+          "lemma": ",",
+          "pos": "PUNCT",
+          "tag": ",",
+          "dependency": "punct",
+          "head": "remember"
+        },
+        {
+          "id": "claim-token-23",
+          "text": "remember",
+          "start": 100,
+          "end": 108,
+          "lemma": "remember",
+          "pos": "VERB",
+          "tag": "VB",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "claim-token-24",
+          "text": "what",
+          "start": 109,
+          "end": 113,
+          "lemma": "what",
+          "pos": "PRON",
+          "tag": "WP",
+          "dependency": "dobj",
+          "head": "said"
+        },
+        {
+          "id": "claim-token-25",
+          "text": "he",
+          "start": 114,
+          "end": 116,
           "lemma": "he",
           "pos": "PRON",
           "tag": "PRP",
@@ -611,10 +932,131 @@
           "head": "said"
         },
         {
-          "id": "atom-2-token-1",
+          "id": "claim-token-26",
+          "text": "said",
+          "start": 117,
+          "end": 121,
+          "lemma": "say",
+          "pos": "VERB",
+          "tag": "VBD",
+          "dependency": "ccomp",
+          "head": "remember"
+        },
+        {
+          "id": "claim-token-27",
+          "text": "about",
+          "start": 122,
+          "end": 127,
+          "lemma": "about",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "said"
+        },
+        {
+          "id": "claim-token-28",
+          "text": "these",
+          "start": 128,
+          "end": 133,
+          "lemma": "these",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "hurricanes"
+        },
+        {
+          "id": "claim-token-29",
+          "text": "increasing",
+          "start": 134,
+          "end": 144,
+          "lemma": "increase",
+          "pos": "VERB",
+          "tag": "VBG",
+          "dependency": "amod",
+          "head": "hurricanes"
+        },
+        {
+          "id": "claim-token-30",
+          "text": "violent",
+          "start": 145,
+          "end": 152,
+          "lemma": "violent",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "hurricanes"
+        },
+        {
+          "id": "claim-token-31",
+          "text": "hurricanes",
+          "start": 153,
+          "end": 163,
+          "lemma": "hurricane",
+          "pos": "NOUN",
+          "tag": "NNS",
+          "dependency": "pobj",
+          "head": "about"
+        },
+        {
+          "id": "claim-token-32",
+          "text": "and",
+          "start": 164,
+          "end": 167,
+          "lemma": "and",
+          "pos": "CCONJ",
+          "tag": "CC",
+          "dependency": "cc",
+          "head": "hurricanes"
+        },
+        {
+          "id": "claim-token-33",
+          "text": "the",
+          "start": 168,
+          "end": 171,
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "frequency"
+        },
+        {
+          "id": "claim-token-34",
+          "text": "frequency",
+          "start": 172,
+          "end": 181,
+          "lemma": "frequency",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "conj",
+          "head": "hurricanes"
+        },
+        {
+          "id": "claim-token-35",
+          "text": "?",
+          "start": 181,
+          "end": 182,
+          "lemma": "?",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "remember"
+        },
+        {
+          "id": "claim-token-36",
+          "text": "He",
+          "start": 183,
+          "end": 185,
+          "lemma": "he",
+          "pos": "PRON",
+          "tag": "PRP",
+          "dependency": "nsubj",
+          "head": "said"
+        },
+        {
+          "id": "claim-token-37",
           "text": "actually",
-          "start": 3,
-          "end": 11,
+          "start": 186,
+          "end": 194,
           "lemma": "actually",
           "pos": "ADV",
           "tag": "RB",
@@ -622,10 +1064,10 @@
           "head": "said"
         },
         {
-          "id": "atom-2-token-2",
+          "id": "claim-token-38",
           "text": "said",
-          "start": 12,
-          "end": 16,
+          "start": 195,
+          "end": 199,
           "lemma": "say",
           "pos": "VERB",
           "tag": "VBD",
@@ -633,10 +1075,10 @@
           "head": "ROOT"
         },
         {
-          "id": "atom-2-token-3",
+          "id": "claim-token-39",
           "text": ",",
-          "start": 16,
-          "end": 17,
+          "start": 199,
+          "end": 200,
           "lemma": ",",
           "pos": "PUNCT",
           "tag": ",",
@@ -644,10 +1086,10 @@
           "head": "said"
         },
         {
-          "id": "atom-2-token-4",
+          "id": "claim-token-40",
           "text": "maybe",
-          "start": 18,
-          "end": 23,
+          "start": 201,
+          "end": 206,
           "lemma": "maybe",
           "pos": "ADV",
           "tag": "RB",
@@ -655,10 +1097,10 @@
           "head": "detonate"
         },
         {
-          "id": "atom-2-token-5",
+          "id": "claim-token-41",
           "text": "we",
-          "start": 24,
-          "end": 26,
+          "start": 207,
+          "end": 209,
           "lemma": "we",
           "pos": "PRON",
           "tag": "PRP",
@@ -666,10 +1108,10 @@
           "head": "detonate"
         },
         {
-          "id": "atom-2-token-6",
+          "id": "claim-token-42",
           "text": "should",
-          "start": 27,
-          "end": 33,
+          "start": 210,
+          "end": 216,
           "lemma": "should",
           "pos": "AUX",
           "tag": "MD",
@@ -677,10 +1119,10 @@
           "head": "detonate"
         },
         {
-          "id": "atom-2-token-7",
+          "id": "claim-token-43",
           "text": "detonate",
-          "start": 34,
-          "end": 42,
+          "start": 217,
+          "end": 225,
           "lemma": "detonate",
           "pos": "VERB",
           "tag": "VB",
@@ -688,10 +1130,10 @@
           "head": "said"
         },
         {
-          "id": "atom-2-token-8",
+          "id": "claim-token-44",
           "text": "a",
-          "start": 43,
-          "end": 44,
+          "start": 226,
+          "end": 227,
           "lemma": "a",
           "pos": "DET",
           "tag": "DT",
@@ -699,10 +1141,10 @@
           "head": "bomb"
         },
         {
-          "id": "atom-2-token-9",
+          "id": "claim-token-45",
           "text": "nuclear",
-          "start": 45,
-          "end": 52,
+          "start": 228,
+          "end": 235,
           "lemma": "nuclear",
           "pos": "ADJ",
           "tag": "JJ",
@@ -710,10 +1152,10 @@
           "head": "bomb"
         },
         {
-          "id": "atom-2-token-10",
+          "id": "claim-token-46",
           "text": "bomb",
-          "start": 53,
-          "end": 57,
+          "start": 236,
+          "end": 240,
           "lemma": "bomb",
           "pos": "NOUN",
           "tag": "NN",
@@ -721,10 +1163,10 @@
           "head": "detonate"
         },
         {
-          "id": "atom-2-token-11",
+          "id": "claim-token-47",
           "text": "over",
-          "start": 58,
-          "end": 62,
+          "start": 241,
+          "end": 245,
           "lemma": "over",
           "pos": "ADP",
           "tag": "IN",
@@ -732,10 +1174,10 @@
           "head": "detonate"
         },
         {
-          "id": "atom-2-token-12",
+          "id": "claim-token-48",
           "text": "the",
-          "start": 63,
-          "end": 66,
+          "start": 246,
+          "end": 249,
           "lemma": "the",
           "pos": "DET",
           "tag": "DT",
@@ -743,10 +1185,10 @@
           "head": "Atlantic"
         },
         {
-          "id": "atom-2-token-13",
+          "id": "claim-token-49",
           "text": "Atlantic",
-          "start": 67,
-          "end": 75,
+          "start": 250,
+          "end": 258,
           "lemma": "Atlantic",
           "pos": "PROPN",
           "tag": "NNP",
@@ -754,111 +1196,65 @@
           "head": "over"
         },
         {
-          "id": "atom-2-token-14",
+          "id": "claim-token-50",
           "text": ".",
-          "start": 75,
-          "end": 76,
+          "start": 258,
+          "end": 259,
           "lemma": ".",
           "pos": "PUNCT",
           "tag": ".",
           "dependency": "punct",
           "head": "said"
-        }
-      ],
-      "status": "complete",
-      "unresolved": []
-    },
-    {
-      "atomId": "atom-3",
-      "frames": [
-        {
-          "id": "atom-3-frame-1",
-          "predicate": {
-            "id": "atom-3-frame-1-predicate",
-            "text": "is",
-            "start": 84,
-            "end": 86
-          },
-          "subjects": [
-            {
-              "id": "atom-3-frame-1-subject-1",
-              "text": "the biggest problem we had in the Revolutionary War",
-              "start": 32,
-              "end": 83
-            }
-          ],
-          "coreArguments": [
-            {
-              "id": "atom-3-frame-1-argument-1",
-              "text": "we didn’t have enough airports",
-              "start": 87,
-              "end": 117,
-              "role": "clausal_complement"
-            }
-          ],
-          "adjuncts": [],
-          "otherModifiers": []
         },
         {
-          "id": "atom-3-frame-2",
-          "predicate": {
-            "id": "atom-3-frame-2-predicate",
-            "text": "have",
-            "start": 97,
-            "end": 101
-          },
-          "subjects": [
-            {
-              "id": "atom-3-frame-2-subject-1",
-              "text": "we",
-              "start": 87,
-              "end": 89
-            }
-          ],
-          "coreArguments": [
-            {
-              "id": "atom-3-frame-2-argument-1",
-              "text": "enough airports",
-              "start": 102,
-              "end": 117,
-              "role": "direct_object"
-            }
-          ],
-          "adjuncts": [],
-          "otherModifiers": []
-        }
-      ],
-      "cues": [
-        {
-          "id": "atom-3-cue-attribution-27-31",
-          "text": "said",
-          "start": 27,
-          "end": 31,
-          "kind": "attribution"
+          "id": "claim-token-51",
+          "text": "By",
+          "start": 260,
+          "end": 262,
+          "lemma": "by",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "genius"
         },
         {
-          "id": "atom-3-cue-negation-93-96",
-          "text": "n’t",
-          "start": 93,
-          "end": 96,
-          "kind": "negation"
-        }
-      ],
-      "entities": [
+          "id": "claim-token-52",
+          "text": "the",
+          "start": 263,
+          "end": 266,
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "way"
+        },
         {
-          "id": "atom-3-entity-event-62-83",
-          "text": "the Revolutionary War",
-          "start": 62,
-          "end": 83,
-          "label": "EVENT"
-        }
-      ],
-      "tokens": [
+          "id": "claim-token-53",
+          "text": "way",
+          "start": 267,
+          "end": 270,
+          "lemma": "way",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "pobj",
+          "head": "By"
+        },
         {
-          "id": "atom-3-token-0",
-          "text": "The",
-          "start": 0,
-          "end": 3,
+          "id": "claim-token-54",
+          "text": ",",
+          "start": 270,
+          "end": 271,
+          "lemma": ",",
+          "pos": "PUNCT",
+          "tag": ",",
+          "dependency": "punct",
+          "head": "genius"
+        },
+        {
+          "id": "claim-token-55",
+          "text": "the",
+          "start": 272,
+          "end": 275,
           "lemma": "the",
           "pos": "DET",
           "tag": "DT",
@@ -866,10 +1262,10 @@
           "head": "genius"
         },
         {
-          "id": "atom-3-token-1",
+          "id": "claim-token-56",
           "text": "same",
-          "start": 4,
-          "end": 8,
+          "start": 276,
+          "end": 280,
           "lemma": "same",
           "pos": "ADJ",
           "tag": "JJ",
@@ -877,10 +1273,10 @@
           "head": "genius"
         },
         {
-          "id": "atom-3-token-2",
+          "id": "claim-token-57",
           "text": "stable",
-          "start": 9,
-          "end": 15,
+          "start": 281,
+          "end": 287,
           "lemma": "stable",
           "pos": "ADJ",
           "tag": "JJ",
@@ -888,10 +1284,10 @@
           "head": "genius"
         },
         {
-          "id": "atom-3-token-3",
+          "id": "claim-token-58",
           "text": "genius",
-          "start": 16,
-          "end": 22,
+          "start": 288,
+          "end": 294,
           "lemma": "genius",
           "pos": "NOUN",
           "tag": "NN",
@@ -899,10 +1295,10 @@
           "head": "ROOT"
         },
         {
-          "id": "atom-3-token-4",
+          "id": "claim-token-59",
           "text": "who",
-          "start": 23,
-          "end": 26,
+          "start": 295,
+          "end": 298,
           "lemma": "who",
           "pos": "PRON",
           "tag": "WP",
@@ -910,10 +1306,10 @@
           "head": "said"
         },
         {
-          "id": "atom-3-token-5",
+          "id": "claim-token-60",
           "text": "said",
-          "start": 27,
-          "end": 31,
+          "start": 299,
+          "end": 303,
           "lemma": "say",
           "pos": "VERB",
           "tag": "VBD",
@@ -921,10 +1317,10 @@
           "head": "genius"
         },
         {
-          "id": "atom-3-token-6",
+          "id": "claim-token-61",
           "text": "the",
-          "start": 32,
-          "end": 35,
+          "start": 304,
+          "end": 307,
           "lemma": "the",
           "pos": "DET",
           "tag": "DT",
@@ -932,10 +1328,10 @@
           "head": "problem"
         },
         {
-          "id": "atom-3-token-7",
+          "id": "claim-token-62",
           "text": "biggest",
-          "start": 36,
-          "end": 43,
+          "start": 308,
+          "end": 315,
           "lemma": "big",
           "pos": "ADJ",
           "tag": "JJS",
@@ -943,10 +1339,10 @@
           "head": "problem"
         },
         {
-          "id": "atom-3-token-8",
+          "id": "claim-token-63",
           "text": "problem",
-          "start": 44,
-          "end": 51,
+          "start": 316,
+          "end": 323,
           "lemma": "problem",
           "pos": "NOUN",
           "tag": "NN",
@@ -954,10 +1350,10 @@
           "head": "is"
         },
         {
-          "id": "atom-3-token-9",
+          "id": "claim-token-64",
           "text": "we",
-          "start": 52,
-          "end": 54,
+          "start": 324,
+          "end": 326,
           "lemma": "we",
           "pos": "PRON",
           "tag": "PRP",
@@ -965,10 +1361,10 @@
           "head": "had"
         },
         {
-          "id": "atom-3-token-10",
+          "id": "claim-token-65",
           "text": "had",
-          "start": 55,
-          "end": 58,
+          "start": 327,
+          "end": 330,
           "lemma": "have",
           "pos": "VERB",
           "tag": "VBD",
@@ -976,10 +1372,10 @@
           "head": "problem"
         },
         {
-          "id": "atom-3-token-11",
+          "id": "claim-token-66",
           "text": "in",
-          "start": 59,
-          "end": 61,
+          "start": 331,
+          "end": 333,
           "lemma": "in",
           "pos": "ADP",
           "tag": "IN",
@@ -987,10 +1383,10 @@
           "head": "had"
         },
         {
-          "id": "atom-3-token-12",
+          "id": "claim-token-67",
           "text": "the",
-          "start": 62,
-          "end": 65,
+          "start": 334,
+          "end": 337,
           "lemma": "the",
           "pos": "DET",
           "tag": "DT",
@@ -998,10 +1394,10 @@
           "head": "War"
         },
         {
-          "id": "atom-3-token-13",
+          "id": "claim-token-68",
           "text": "Revolutionary",
-          "start": 66,
-          "end": 79,
+          "start": 338,
+          "end": 351,
           "lemma": "Revolutionary",
           "pos": "PROPN",
           "tag": "NNP",
@@ -1009,10 +1405,10 @@
           "head": "War"
         },
         {
-          "id": "atom-3-token-14",
+          "id": "claim-token-69",
           "text": "War",
-          "start": 80,
-          "end": 83,
+          "start": 352,
+          "end": 355,
           "lemma": "War",
           "pos": "PROPN",
           "tag": "NNP",
@@ -1020,10 +1416,10 @@
           "head": "in"
         },
         {
-          "id": "atom-3-token-15",
+          "id": "claim-token-70",
           "text": "is",
-          "start": 84,
-          "end": 86,
+          "start": 356,
+          "end": 358,
           "lemma": "be",
           "pos": "AUX",
           "tag": "VBZ",
@@ -1031,10 +1427,10 @@
           "head": "said"
         },
         {
-          "id": "atom-3-token-16",
+          "id": "claim-token-71",
           "text": "we",
-          "start": 87,
-          "end": 89,
+          "start": 359,
+          "end": 361,
           "lemma": "we",
           "pos": "PRON",
           "tag": "PRP",
@@ -1042,10 +1438,10 @@
           "head": "have"
         },
         {
-          "id": "atom-3-token-17",
+          "id": "claim-token-72",
           "text": "did",
-          "start": 90,
-          "end": 93,
+          "start": 362,
+          "end": 365,
           "lemma": "do",
           "pos": "AUX",
           "tag": "VBD",
@@ -1053,10 +1449,10 @@
           "head": "have"
         },
         {
-          "id": "atom-3-token-18",
+          "id": "claim-token-73",
           "text": "n’t",
-          "start": 93,
-          "end": 96,
+          "start": 365,
+          "end": 368,
           "lemma": "not",
           "pos": "PART",
           "tag": "RB",
@@ -1064,10 +1460,10 @@
           "head": "have"
         },
         {
-          "id": "atom-3-token-19",
+          "id": "claim-token-74",
           "text": "have",
-          "start": 97,
-          "end": 101,
+          "start": 369,
+          "end": 373,
           "lemma": "have",
           "pos": "VERB",
           "tag": "VB",
@@ -1075,10 +1471,10 @@
           "head": "is"
         },
         {
-          "id": "atom-3-token-20",
+          "id": "claim-token-75",
           "text": "enough",
-          "start": 102,
-          "end": 108,
+          "start": 374,
+          "end": 380,
           "lemma": "enough",
           "pos": "ADJ",
           "tag": "JJ",
@@ -1086,10 +1482,10 @@
           "head": "airports"
         },
         {
-          "id": "atom-3-token-21",
+          "id": "claim-token-76",
           "text": "airports",
-          "start": 109,
-          "end": 117,
+          "start": 381,
+          "end": 389,
           "lemma": "airport",
           "pos": "NOUN",
           "tag": "NNS",
@@ -1097,10 +1493,10 @@
           "head": "have"
         },
         {
-          "id": "atom-3-token-22",
+          "id": "claim-token-77",
           "text": ".",
-          "start": 117,
-          "end": 118,
+          "start": 389,
+          "end": 390,
           "lemma": ".",
           "pos": "PUNCT",
           "tag": ".",
@@ -1108,10 +1504,1011 @@
           "head": "genius"
         }
       ],
-      "status": "complete",
-      "unresolved": []
-    }
-  ],
+      "status": "partial",
+      "unresolved": [
+        "subject"
+      ]
+    },
+    "analyses": [
+      {
+        "atomId": "atom-1",
+        "frames": [
+          {
+            "id": "atom-1-frame-1",
+            "predicate": {
+              "id": "atom-1-frame-1-predicate",
+              "text": "says",
+              "start": 13,
+              "end": 17
+            },
+            "subjects": [
+              {
+                "id": "atom-1-frame-1-subject-1",
+                "text": "Donald Trump",
+                "start": 0,
+                "end": 12
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-1-frame-1-argument-1",
+                "text": "hoax",
+                "start": 18,
+                "end": 22,
+                "role": "direct_object"
+              }
+            ],
+            "adjuncts": [
+              {
+                "id": "atom-1-frame-1-adjunct-1",
+                "text": "when he thinks of climate change",
+                "start": 23,
+                "end": 55,
+                "kind": "temporal"
+              }
+            ],
+            "otherModifiers": []
+          },
+          {
+            "id": "atom-1-frame-2",
+            "predicate": {
+              "id": "atom-1-frame-2-predicate",
+              "text": "thinks",
+              "start": 31,
+              "end": 37
+            },
+            "subjects": [
+              {
+                "id": "atom-1-frame-2-subject-1",
+                "text": "he",
+                "start": 28,
+                "end": 30
+              }
+            ],
+            "coreArguments": [],
+            "adjuncts": [
+              {
+                "id": "atom-1-frame-2-adjunct-1",
+                "text": "when",
+                "start": 23,
+                "end": 27,
+                "kind": "temporal"
+              }
+            ],
+            "otherModifiers": [
+              {
+                "id": "atom-1-frame-2-other-modifier-1",
+                "text": "of climate change",
+                "start": 38,
+                "end": 55
+              }
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "atom-1-cue-attribution-13-17",
+            "text": "says",
+            "start": 13,
+            "end": 17,
+            "kind": "attribution"
+          }
+        ],
+        "entities": [
+          {
+            "id": "atom-1-entity-person-0-12",
+            "text": "Donald Trump",
+            "start": 0,
+            "end": 12,
+            "label": "PERSON"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-1-token-0",
+            "text": "Donald",
+            "start": 0,
+            "end": 6,
+            "lemma": "Donald",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Trump"
+          },
+          {
+            "id": "atom-1-token-1",
+            "text": "Trump",
+            "start": 7,
+            "end": 12,
+            "lemma": "Trump",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "nsubj",
+            "head": "says"
+          },
+          {
+            "id": "atom-1-token-2",
+            "text": "says",
+            "start": 13,
+            "end": 17,
+            "lemma": "say",
+            "pos": "VERB",
+            "tag": "VBZ",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-1-token-3",
+            "text": "hoax",
+            "start": 18,
+            "end": 22,
+            "lemma": "hoax",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "dobj",
+            "head": "says"
+          },
+          {
+            "id": "atom-1-token-4",
+            "text": "when",
+            "start": 23,
+            "end": 27,
+            "lemma": "when",
+            "pos": "SCONJ",
+            "tag": "WRB",
+            "dependency": "advmod",
+            "head": "thinks"
+          },
+          {
+            "id": "atom-1-token-5",
+            "text": "he",
+            "start": 28,
+            "end": 30,
+            "lemma": "he",
+            "pos": "PRON",
+            "tag": "PRP",
+            "dependency": "nsubj",
+            "head": "thinks"
+          },
+          {
+            "id": "atom-1-token-6",
+            "text": "thinks",
+            "start": 31,
+            "end": 37,
+            "lemma": "think",
+            "pos": "VERB",
+            "tag": "VBZ",
+            "dependency": "advcl",
+            "head": "says"
+          },
+          {
+            "id": "atom-1-token-7",
+            "text": "of",
+            "start": 38,
+            "end": 40,
+            "lemma": "of",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "thinks"
+          },
+          {
+            "id": "atom-1-token-8",
+            "text": "climate",
+            "start": 41,
+            "end": 48,
+            "lemma": "climate",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "compound",
+            "head": "change"
+          },
+          {
+            "id": "atom-1-token-9",
+            "text": "change",
+            "start": 49,
+            "end": 55,
+            "lemma": "change",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "pobj",
+            "head": "of"
+          },
+          {
+            "id": "atom-1-token-10",
+            "text": ".",
+            "start": 55,
+            "end": 56,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "says"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      },
+      {
+        "atomId": "atom-2",
+        "frames": [
+          {
+            "id": "atom-2-frame-1",
+            "predicate": {
+              "id": "atom-2-frame-1-predicate",
+              "text": "said",
+              "start": 13,
+              "end": 17
+            },
+            "subjects": [
+              {
+                "id": "atom-2-frame-1-subject-1",
+                "text": "Donald Trump",
+                "start": 0,
+                "end": 12
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-2-frame-1-argument-1",
+                "text": "maybe we should detonate a nuclear bomb over the Atlantic",
+                "start": 18,
+                "end": 75,
+                "role": "clausal_complement"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": []
+          },
+          {
+            "id": "atom-2-frame-2",
+            "predicate": {
+              "id": "atom-2-frame-2-predicate",
+              "text": "detonate",
+              "start": 34,
+              "end": 42
+            },
+            "subjects": [
+              {
+                "id": "atom-2-frame-2-subject-1",
+                "text": "we",
+                "start": 24,
+                "end": 26
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-2-frame-2-argument-1",
+                "text": "a nuclear bomb",
+                "start": 43,
+                "end": 57,
+                "role": "direct_object"
+              }
+            ],
+            "adjuncts": [
+              {
+                "id": "atom-2-frame-2-adjunct-1",
+                "text": "maybe",
+                "start": 18,
+                "end": 23,
+                "kind": "manner"
+              }
+            ],
+            "otherModifiers": [
+              {
+                "id": "atom-2-frame-2-other-modifier-1",
+                "text": "over the Atlantic",
+                "start": 58,
+                "end": 75
+              }
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "atom-2-cue-attribution-13-17",
+            "text": "said",
+            "start": 13,
+            "end": 17,
+            "kind": "attribution"
+          },
+          {
+            "id": "atom-2-cue-modality-27-33",
+            "text": "should",
+            "start": 27,
+            "end": 33,
+            "kind": "modality"
+          }
+        ],
+        "entities": [
+          {
+            "id": "atom-2-entity-person-0-12",
+            "text": "Donald Trump",
+            "start": 0,
+            "end": 12,
+            "label": "PERSON"
+          },
+          {
+            "id": "atom-2-entity-loc-67-75",
+            "text": "Atlantic",
+            "start": 67,
+            "end": 75,
+            "label": "LOC"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-2-token-0",
+            "text": "Donald",
+            "start": 0,
+            "end": 6,
+            "lemma": "Donald",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Trump"
+          },
+          {
+            "id": "atom-2-token-1",
+            "text": "Trump",
+            "start": 7,
+            "end": 12,
+            "lemma": "Trump",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "nsubj",
+            "head": "said"
+          },
+          {
+            "id": "atom-2-token-2",
+            "text": "said",
+            "start": 13,
+            "end": 17,
+            "lemma": "say",
+            "pos": "VERB",
+            "tag": "VBD",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-2-token-3",
+            "text": "maybe",
+            "start": 18,
+            "end": 23,
+            "lemma": "maybe",
+            "pos": "ADV",
+            "tag": "RB",
+            "dependency": "advmod",
+            "head": "detonate"
+          },
+          {
+            "id": "atom-2-token-4",
+            "text": "we",
+            "start": 24,
+            "end": 26,
+            "lemma": "we",
+            "pos": "PRON",
+            "tag": "PRP",
+            "dependency": "nsubj",
+            "head": "detonate"
+          },
+          {
+            "id": "atom-2-token-5",
+            "text": "should",
+            "start": 27,
+            "end": 33,
+            "lemma": "should",
+            "pos": "AUX",
+            "tag": "MD",
+            "dependency": "aux",
+            "head": "detonate"
+          },
+          {
+            "id": "atom-2-token-6",
+            "text": "detonate",
+            "start": 34,
+            "end": 42,
+            "lemma": "detonate",
+            "pos": "VERB",
+            "tag": "VB",
+            "dependency": "ccomp",
+            "head": "said"
+          },
+          {
+            "id": "atom-2-token-7",
+            "text": "a",
+            "start": 43,
+            "end": 44,
+            "lemma": "a",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "bomb"
+          },
+          {
+            "id": "atom-2-token-8",
+            "text": "nuclear",
+            "start": 45,
+            "end": 52,
+            "lemma": "nuclear",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "bomb"
+          },
+          {
+            "id": "atom-2-token-9",
+            "text": "bomb",
+            "start": 53,
+            "end": 57,
+            "lemma": "bomb",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "dobj",
+            "head": "detonate"
+          },
+          {
+            "id": "atom-2-token-10",
+            "text": "over",
+            "start": 58,
+            "end": 62,
+            "lemma": "over",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "detonate"
+          },
+          {
+            "id": "atom-2-token-11",
+            "text": "the",
+            "start": 63,
+            "end": 66,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "Atlantic"
+          },
+          {
+            "id": "atom-2-token-12",
+            "text": "Atlantic",
+            "start": 67,
+            "end": 75,
+            "lemma": "Atlantic",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "pobj",
+            "head": "over"
+          },
+          {
+            "id": "atom-2-token-13",
+            "text": ".",
+            "start": 75,
+            "end": 76,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "said"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      },
+      {
+        "atomId": "atom-3",
+        "frames": [
+          {
+            "id": "atom-3-frame-1",
+            "predicate": {
+              "id": "atom-3-frame-1-predicate",
+              "text": "said",
+              "start": 13,
+              "end": 17
+            },
+            "subjects": [
+              {
+                "id": "atom-3-frame-1-subject-1",
+                "text": "Donald Trump",
+                "start": 0,
+                "end": 12
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-3-frame-1-argument-1",
+                "text": "the biggest problem we had in the Revolutionary War is we didn’t have enough airports",
+                "start": 18,
+                "end": 103,
+                "role": "clausal_complement"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": []
+          },
+          {
+            "id": "atom-3-frame-2",
+            "predicate": {
+              "id": "atom-3-frame-2-predicate",
+              "text": "is",
+              "start": 70,
+              "end": 72
+            },
+            "subjects": [
+              {
+                "id": "atom-3-frame-2-subject-1",
+                "text": "the biggest problem we had in the Revolutionary War",
+                "start": 18,
+                "end": 69
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-3-frame-2-argument-1",
+                "text": "we didn’t have enough airports",
+                "start": 73,
+                "end": 103,
+                "role": "clausal_complement"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": []
+          },
+          {
+            "id": "atom-3-frame-3",
+            "predicate": {
+              "id": "atom-3-frame-3-predicate",
+              "text": "have",
+              "start": 83,
+              "end": 87
+            },
+            "subjects": [
+              {
+                "id": "atom-3-frame-3-subject-1",
+                "text": "we",
+                "start": 73,
+                "end": 75
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-3-frame-3-argument-1",
+                "text": "enough airports",
+                "start": 88,
+                "end": 103,
+                "role": "direct_object"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [
+          {
+            "id": "atom-3-cue-attribution-13-17",
+            "text": "said",
+            "start": 13,
+            "end": 17,
+            "kind": "attribution"
+          },
+          {
+            "id": "atom-3-cue-negation-79-82",
+            "text": "n’t",
+            "start": 79,
+            "end": 82,
+            "kind": "negation"
+          }
+        ],
+        "entities": [
+          {
+            "id": "atom-3-entity-person-0-12",
+            "text": "Donald Trump",
+            "start": 0,
+            "end": 12,
+            "label": "PERSON"
+          },
+          {
+            "id": "atom-3-entity-event-48-69",
+            "text": "the Revolutionary War",
+            "start": 48,
+            "end": 69,
+            "label": "EVENT"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-3-token-0",
+            "text": "Donald",
+            "start": 0,
+            "end": 6,
+            "lemma": "Donald",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Trump"
+          },
+          {
+            "id": "atom-3-token-1",
+            "text": "Trump",
+            "start": 7,
+            "end": 12,
+            "lemma": "Trump",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "nsubj",
+            "head": "said"
+          },
+          {
+            "id": "atom-3-token-2",
+            "text": "said",
+            "start": 13,
+            "end": 17,
+            "lemma": "say",
+            "pos": "VERB",
+            "tag": "VBD",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-3-token-3",
+            "text": "the",
+            "start": 18,
+            "end": 21,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "problem"
+          },
+          {
+            "id": "atom-3-token-4",
+            "text": "biggest",
+            "start": 22,
+            "end": 29,
+            "lemma": "big",
+            "pos": "ADJ",
+            "tag": "JJS",
+            "dependency": "amod",
+            "head": "problem"
+          },
+          {
+            "id": "atom-3-token-5",
+            "text": "problem",
+            "start": 30,
+            "end": 37,
+            "lemma": "problem",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "nsubj",
+            "head": "is"
+          },
+          {
+            "id": "atom-3-token-6",
+            "text": "we",
+            "start": 38,
+            "end": 40,
+            "lemma": "we",
+            "pos": "PRON",
+            "tag": "PRP",
+            "dependency": "nsubj",
+            "head": "had"
+          },
+          {
+            "id": "atom-3-token-7",
+            "text": "had",
+            "start": 41,
+            "end": 44,
+            "lemma": "have",
+            "pos": "VERB",
+            "tag": "VBD",
+            "dependency": "relcl",
+            "head": "problem"
+          },
+          {
+            "id": "atom-3-token-8",
+            "text": "in",
+            "start": 45,
+            "end": 47,
+            "lemma": "in",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "had"
+          },
+          {
+            "id": "atom-3-token-9",
+            "text": "the",
+            "start": 48,
+            "end": 51,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "War"
+          },
+          {
+            "id": "atom-3-token-10",
+            "text": "Revolutionary",
+            "start": 52,
+            "end": 65,
+            "lemma": "Revolutionary",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "War"
+          },
+          {
+            "id": "atom-3-token-11",
+            "text": "War",
+            "start": 66,
+            "end": 69,
+            "lemma": "War",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "pobj",
+            "head": "in"
+          },
+          {
+            "id": "atom-3-token-12",
+            "text": "is",
+            "start": 70,
+            "end": 72,
+            "lemma": "be",
+            "pos": "AUX",
+            "tag": "VBZ",
+            "dependency": "ccomp",
+            "head": "said"
+          },
+          {
+            "id": "atom-3-token-13",
+            "text": "we",
+            "start": 73,
+            "end": 75,
+            "lemma": "we",
+            "pos": "PRON",
+            "tag": "PRP",
+            "dependency": "nsubj",
+            "head": "have"
+          },
+          {
+            "id": "atom-3-token-14",
+            "text": "did",
+            "start": 76,
+            "end": 79,
+            "lemma": "do",
+            "pos": "AUX",
+            "tag": "VBD",
+            "dependency": "aux",
+            "head": "have"
+          },
+          {
+            "id": "atom-3-token-15",
+            "text": "n’t",
+            "start": 79,
+            "end": 82,
+            "lemma": "not",
+            "pos": "PART",
+            "tag": "RB",
+            "dependency": "neg",
+            "head": "have"
+          },
+          {
+            "id": "atom-3-token-16",
+            "text": "have",
+            "start": 83,
+            "end": 87,
+            "lemma": "have",
+            "pos": "VERB",
+            "tag": "VB",
+            "dependency": "ccomp",
+            "head": "is"
+          },
+          {
+            "id": "atom-3-token-17",
+            "text": "enough",
+            "start": 88,
+            "end": 94,
+            "lemma": "enough",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "airports"
+          },
+          {
+            "id": "atom-3-token-18",
+            "text": "airports",
+            "start": 95,
+            "end": 103,
+            "lemma": "airport",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "dobj",
+            "head": "have"
+          },
+          {
+            "id": "atom-3-token-19",
+            "text": ".",
+            "start": 103,
+            "end": 104,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "said"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      }
+    ],
+    "summaries": [
+      {
+        "atomId": "atom-1",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "Donald Trump",
+          "he"
+        ],
+        "predicates": [
+          "say",
+          "think"
+        ],
+        "cueKinds": [
+          "attribution"
+        ],
+        "modifierKinds": [
+          "temporal"
+        ],
+        "entityLabels": [
+          "PERSON"
+        ],
+        "warnings": [
+          "MULTIPLE_PROPOSITION_FRAMES",
+          "ATTRIBUTION_SCOPE_UNCLEAR"
+        ]
+      },
+      {
+        "atomId": "atom-2",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "Donald Trump",
+          "we"
+        ],
+        "predicates": [
+          "say",
+          "detonate"
+        ],
+        "cueKinds": [
+          "attribution",
+          "modality"
+        ],
+        "modifierKinds": [
+          "manner"
+        ],
+        "entityLabels": [
+          "PERSON",
+          "LOC"
+        ],
+        "warnings": [
+          "MULTIPLE_PROPOSITION_FRAMES",
+          "ATTRIBUTION_SCOPE_UNCLEAR"
+        ]
+      },
+      {
+        "atomId": "atom-3",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "Donald Trump",
+          "the biggest problem we had in the Revolutionary War",
+          "we"
+        ],
+        "predicates": [
+          "say",
+          "be",
+          "have"
+        ],
+        "cueKinds": [
+          "attribution",
+          "negation"
+        ],
+        "modifierKinds": [],
+        "entityLabels": [
+          "PERSON",
+          "EVENT"
+        ],
+        "warnings": [
+          "MULTIPLE_PROPOSITION_FRAMES",
+          "ATTRIBUTION_SCOPE_UNCLEAR"
+        ]
+      }
+    ],
+    "claimWarnings": [
+      "CLAIM_FRAME_NOT_COVERED"
+    ],
+    "provider": "spacy",
+    "model": "en_core_web_sm@3.8.0"
+  },
+  "verdict": {
+    "aggregationSchemaVersion": 1,
+    "claimId": "averitec-dev-0010",
+    "composition": "AND",
+    "verdict": "REFUTED",
+    "positions": {
+      "supportPosition": false,
+      "attackPosition": true,
+      "supportObligationIds": [
+        "atom-2"
+      ],
+      "attackObligationIds": [
+        "atom-2",
+        "atom-3"
+      ],
+      "unresolvedObligationIds": [
+        "atom-1"
+      ]
+    },
+    "obligations": [
+      {
+        "obligationId": "atom-1",
+        "state": "UNRESOLVED",
+        "supportEdgeIds": [],
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 6
+      },
+      {
+        "obligationId": "atom-2",
+        "state": "CONFLICTING",
+        "supportEdgeIds": [
+          "edge:SUPPORTS:evidence:doc-a9e260356e8f:doc-a9e260356e8f::sentence-30:obligation:averitec-dev-0010:atom-2"
+        ],
+        "attackEdgeIds": [
+          "edge:ATTACKS:evidence:doc-1389236b080c:doc-1389236b080c::sentence-2:obligation:averitec-dev-0010:atom-2"
+        ],
+        "neutralCandidateCount": 4
+      },
+      {
+        "obligationId": "atom-3",
+        "state": "REFUTED",
+        "supportEdgeIds": [],
+        "attackEdgeIds": [
+          "edge:ATTACKS:evidence:doc-1389236b080c:doc-1389236b080c::sentence-2:obligation:averitec-dev-0010:atom-3",
+          "edge:ATTACKS:evidence:doc-a9e260356e8f:doc-a9e260356e8f::sentence-33:obligation:averitec-dev-0010:atom-3",
+          "edge:ATTACKS:evidence:doc-a9e260356e8f:doc-a9e260356e8f::sentence-48:obligation:averitec-dev-0010:atom-3"
+        ],
+        "neutralCandidateCount": 3
+      }
+    ],
+    "warnings": [
+      {
+        "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
+        "message": "Obligation atom-1 has no supporting or attacking evidence."
+      },
+      {
+        "code": "ONLY_NEUTRAL_CANDIDATES",
+        "message": "Obligation atom-1 has only neutral retrieved candidates."
+      },
+      {
+        "code": "LINGUISTIC_AUDIT_WARNING",
+        "message": "Linguistic analysis for obligation atom-1 requires inspection; it does not change the verdict."
+      },
+      {
+        "code": "LINGUISTIC_AUDIT_WARNING",
+        "message": "Linguistic analysis for obligation atom-2 requires inspection; it does not change the verdict."
+      },
+      {
+        "code": "LINGUISTIC_AUDIT_WARNING",
+        "message": "Linguistic analysis for obligation atom-3 requires inspection; it does not change the verdict."
+      }
+    ],
+    "ruleTrace": [
+      "AND support requires support for every obligation; AND attack requires an attack on any obligation.",
+      "Support position: no; attack position: yes.",
+      "Final verdict: REFUTED."
+    ]
+  },
   "recordedWith": {
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",

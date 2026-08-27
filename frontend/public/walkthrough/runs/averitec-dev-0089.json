@@ -1,26 +1,32 @@
 {
   "caseId": "averitec-dev-0089",
+  "schemaVersion": 2,
+  "composition": "AND",
+  "warnings": [],
   "atoms": [
     {
       "id": "atom-1",
       "text": "Most deaths in the 1918 influenza pandemic originated from bacterial pneumonia.",
-      "sourceText": "Most deaths in the 1918 influenza pandemic originated from bacterial pneumonia caused by face masks and that Dr Anthony Fauci, the US government’s top expert in the fight against Covid-19, knew about it.",
+      "sourceText": "Most deaths in the 1918 influenza pandemic originated from bacterial pneumonia",
       "start": 0,
-      "end": 203
+      "end": 78,
+      "role": "CORE"
     },
     {
       "id": "atom-2",
-      "text": "Face masks caused bacterial pneumonia.",
-      "sourceText": "Most deaths in the 1918 influenza pandemic originated from bacterial pneumonia caused by face masks and that Dr Anthony Fauci, the US government’s top expert in the fight against Covid-19, knew about it.",
-      "start": 0,
-      "end": 203
+      "text": "Bacterial pneumonia was caused by face masks.",
+      "sourceText": "bacterial pneumonia caused by face masks",
+      "start": 59,
+      "end": 99,
+      "role": "CAUSAL_RELATION"
     },
     {
       "id": "atom-3",
       "text": "Dr Anthony Fauci, the US government’s top expert in the fight against Covid-19, knew about it.",
-      "sourceText": "Most deaths in the 1918 influenza pandemic originated from bacterial pneumonia caused by face masks and that Dr Anthony Fauci, the US government’s top expert in the fight against Covid-19, knew about it.",
-      "start": 0,
-      "end": 203
+      "sourceText": "Dr Anthony Fauci, the US government’s top expert in the fight against Covid-19, knew about it",
+      "start": 109,
+      "end": 202,
+      "role": "ATTRIBUTION"
     }
   ],
   "evidence": [
@@ -32,42 +38,48 @@
           "documentId": "doc-1fd8789c830b",
           "text": "The majority of deaths in the 1918–1919 influenza pandemic likely resulted directly from secondary bacterial pneumonia caused by common upper respiratory–tract bacteria. ",
           "start": 1122,
-          "end": 1292
+          "end": 1292,
+          "context": "Conclusions\n The majority of deaths in the 1918–1919 influenza pandemic likely resulted directly from secondary bacterial pneumonia caused by common upper respiratory–tract bacteria.  Less substantial data from the subsequent 1957 and 1968 pandemics are consistent with these findings. "
         },
         {
           "id": "doc-1fd8789c830b::sentence-129",
           "documentId": "doc-1fd8789c830b",
           "text": "In the most recent influenza pandemic that did not involve the use of antibiotics to suppress bacteria (the 1918–1919 pandemic), histological and bacteriologic evidence suggests that the vast majority of influenza deaths resulted from secondary bacterial pneumonia. ",
           "start": 21614,
-          "end": 21880
+          "end": 21880,
+          "context": "DISCUSSION\n In the most recent influenza pandemic that did not involve the use of antibiotics to suppress bacteria (the 1918–1919 pandemic), histological and bacteriologic evidence suggests that the vast majority of influenza deaths resulted from secondary bacterial pneumonia.  Compelling evidence for this conclusion includes the examination of 58 recut and restained autopsy specimens that showed changes fully consistent with classical descriptions of extensive bacterial pneumonia [25], culture results from numerous international autopsy series, and consistent epidemiologic and clinical findings (table 3).\n"
         },
         {
           "id": "doc-1fd8789c830b::sentence-24",
           "documentId": "doc-1fd8789c830b",
           "text": "Based on contemporary and modern evidence, we conclude here that influenza A virus infection in conjunction with bacterial infection led to most of the deaths during the 1918–1919 pandemic.\n",
           "start": 3189,
-          "end": 3379
+          "end": 3379,
+          "context": "With the recent reconstruction of the 1918 pandemic influenza virus, investigators have begun to examine why it was so highly fatal [6, 7].  Based on contemporary and modern evidence, we conclude here that influenza A virus infection in conjunction with bacterial infection led to most of the deaths during the 1918–1919 pandemic.\n METHODS\n"
         },
         {
           "id": "doc-4efdcbc2c487::sentence-12",
           "documentId": "doc-4efdcbc2c487",
           "text": "Conclusions: pH1N1 influenza seasons were characterized by marked increases in invasive S. aureus and S. pyogenes infections among children and adults, with the highest increase in S. pneumoniae BSI among children.\n",
           "start": 1790,
-          "end": 2005
+          "end": 2005,
+          "context": "The pH1N1/2009-2010 influenza outbreak was characterized by (1) higher rates of S. pneumoniae bacteremia among children but not among adults (IRRs for S. pneumoniae BSI among children aged 0-4 years during the summer and winter of 2009-2010 were 14.8 [95% confidence interval {CI}, 5-43.7] and 6.5 [95% CI, 3.6-11.8], compared with 2006-2009 summers and influenza-active winter weeks, respectively [P < .0001]), higher rates of S. aureus BSI in all age groups (IRRs during the summer and winter of 2009-2010 were 1.6 [95% CI, 1.4-1.9] and 1.5 [95% CI, 1.2-1.7], compared with 2006-2009 summers and influenza-active weeks, respectively [P < .0001]), higher rates of S. pyogenes BSI during 2009-2010 influenza season (IRR 2.7 [95% CI, 1.6-4.6] and 3.3 [95% CI, 1.9-5.8] during the summer and winter of 2009-2010, compared with 2006-2009 summers and influenza-active weeks, respectively [P < .0001]).\n Conclusions: pH1N1 influenza seasons were characterized by marked increases in invasive S. aureus and S. pyogenes infections among children and adults, with the highest increase in S. pneumoniae BSI among children.\n Similar articles\n"
         },
         {
           "id": "doc-4efdcbc2c487::sentence-1",
           "documentId": "doc-4efdcbc2c487",
           "text": "Invasive bacterial infections in relation to influenza outbreaks, 2006-2010\n",
           "start": 0,
-          "end": 76
+          "end": 76,
+          "context": "Invasive bacterial infections in relation to influenza outbreaks, 2006-2010\n - PMID: 22021918\n"
         },
         {
           "id": "doc-4efdcbc2c487::sentence-4",
           "documentId": "doc-4efdcbc2c487",
           "text": "Invasive bacterial infections in relation to influenza outbreaks, 2006-2010\n",
           "start": 119,
-          "end": 195
+          "end": 195,
+          "context": "- DOI: 10.1093/cid/cir726\n Invasive bacterial infections in relation to influenza outbreaks, 2006-2010\n Abstract\n"
         }
       ]
     },
@@ -75,46 +87,52 @@
       "atomId": "atom-2",
       "spans": [
         {
-          "id": "doc-1fd8789c830b::sentence-56",
+          "id": "doc-1fd8789c830b::sentence-54",
           "documentId": "doc-1fd8789c830b",
-          "text": "Surprising aspects of 1918–1919 influenza-associated pneumonia fatalities included the following: (1) the high incidence of secondary pneumonia associated with standard bacterial pneumopathogens; (2) the frequency of pneumonia caused by both mixed pneumopathogens (particularly pneumococci and streptococci) and by other mixed upper respiratory–tract bacteria; (3) the aggressiveness of bacterial invasion of the lung, often resulting in “phenomenal” [30] numbers of bacteria and polymorphonuclear neutrophils, as well as extensive necrosis, vasculitis, and hemorrhage [20, 32, 33]; and (4) the predominance of bronchopneumonia and lobular pneumonia, as opposed to lobar pneumonia, consistent with diffuse predisposing bronchiolar damage [27-33].\n",
-          "start": 9552,
-          "end": 10299
+          "text": "Bacteria were commonly observed in cases of pneumonia caused by each of these pathogens. ",
+          "start": 9375,
+          "end": 9464,
+          "context": "As described above, in cases for which a single lung pathogen was recovered from culture, the anatomical-pathological type of the pneumonia usually corresponded to what was expected.  Bacteria were commonly observed in cases of pneumonia caused by each of these pathogens.  Such findings reflect the characteristic pathology of bacterial pneumonia [10, 25, 27].\n"
         },
         {
           "id": "doc-1fd8789c830b::sentence-50",
           "documentId": "doc-1fd8789c830b",
           "text": "Although the cause of influenza was disputed in 1918, there was almost universal agreement among experts [e.g., 20, 27–33] that deaths were virtually never caused by the unidentified etiologic agent itself, but resulted directly from severe secondary pneumonia caused by well-known bacterial “pneumopathogens” that colonized the upper respiratory tract (predominantly pneumococci, streptococci, and staphylococci). ",
           "start": 8469,
-          "end": 8884
+          "end": 8884,
+          "context": "Published pathologic and/or bacteriologic findings from the 1918–1919 influenza pandemic\n Although the cause of influenza was disputed in 1918, there was almost universal agreement among experts [e.g., 20, 27–33] that deaths were virtually never caused by the unidentified etiologic agent itself, but resulted directly from severe secondary pneumonia caused by well-known bacterial “pneumopathogens” that colonized the upper respiratory tract (predominantly pneumococci, streptococci, and staphylococci).  Without this secondary bacterial pneumonia, experts generally believed that most patients would have recovered [20]. "
         },
         {
-          "id": "doc-1fd8789c830b::sentence-54",
+          "id": "doc-1fd8789c830b::sentence-56",
           "documentId": "doc-1fd8789c830b",
-          "text": "Bacteria were commonly observed in cases of pneumonia caused by each of these pathogens. ",
-          "start": 9375,
-          "end": 9464
-        },
-        {
-          "id": "doc-4efdcbc2c487::sentence-8",
-          "documentId": "doc-4efdcbc2c487",
-          "text": "The age-specific incidence of BSI due to Streptococcus pneumoniae, Staphylococcus aureus, and Streptococcus pyogenes was determined. ",
-          "start": 512,
-          "end": 645
+          "text": "Surprising aspects of 1918–1919 influenza-associated pneumonia fatalities included the following: (1) the high incidence of secondary pneumonia associated with standard bacterial pneumopathogens; (2) the frequency of pneumonia caused by both mixed pneumopathogens (particularly pneumococci and streptococci) and by other mixed upper respiratory–tract bacteria; (3) the aggressiveness of bacterial invasion of the lung, often resulting in “phenomenal” [30] numbers of bacteria and polymorphonuclear neutrophils, as well as extensive necrosis, vasculitis, and hemorrhage [20, 32, 33]; and (4) the predominance of bronchopneumonia and lobular pneumonia, as opposed to lobar pneumonia, consistent with diffuse predisposing bronchiolar damage [27-33].\n",
+          "start": 9552,
+          "end": 10299,
+          "context": "Such findings reflect the characteristic pathology of bacterial pneumonia [10, 25, 27].\n Surprising aspects of 1918–1919 influenza-associated pneumonia fatalities included the following: (1) the high incidence of secondary pneumonia associated with standard bacterial pneumopathogens; (2) the frequency of pneumonia caused by both mixed pneumopathogens (particularly pneumococci and streptococci) and by other mixed upper respiratory–tract bacteria; (3) the aggressiveness of bacterial invasion of the lung, often resulting in “phenomenal” [30] numbers of bacteria and polymorphonuclear neutrophils, as well as extensive necrosis, vasculitis, and hemorrhage [20, 32, 33]; and (4) the predominance of bronchopneumonia and lobular pneumonia, as opposed to lobar pneumonia, consistent with diffuse predisposing bronchiolar damage [27-33].\n Contemporary views of the natural history of severe influenza during the 1918–1919 influenza pandemic\n"
         },
         {
           "id": "doc-4efdcbc2c487::sentence-84",
           "documentId": "doc-4efdcbc2c487",
           "text": "A Perfect Storm: Increased Colonization and Failure of Vaccination Leads to Severe Secondary Bacterial Infection in Influenza Virus-Infected Obese Mice.mBio. ",
           "start": 4263,
-          "end": 4421
+          "end": 4421,
+          "context": "-\n A Perfect Storm: Increased Colonization and Failure of Vaccination Leads to Severe Secondary Bacterial Infection in Influenza Virus-Infected Obese Mice.mBio.  2017 Sep 19;8(5):e00889-17. "
         },
         {
-          "id": "doc-4efdcbc2c487::sentence-11",
+          "id": "doc-4efdcbc2c487::sentence-8",
           "documentId": "doc-4efdcbc2c487",
-          "text": "The pH1N1/2009-2010 influenza outbreak was characterized by (1) higher rates of S. pneumoniae bacteremia among children but not among adults (IRRs for S. pneumoniae BSI among children aged 0-4 years during the summer and winter of 2009-2010 were 14.8 [95% confidence interval {CI}, 5-43.7] and 6.5 [95% CI, 3.6-11.8], compared with 2006-2009 summers and influenza-active winter weeks, respectively [P < .0001]), higher rates of S. aureus BSI in all age groups (IRRs during the summer and winter of 2009-2010 were 1.6 [95% CI, 1.4-1.9] and 1.5 [95% CI, 1.2-1.7], compared with 2006-2009 summers and influenza-active weeks, respectively [P < .0001]), higher rates of S. pyogenes BSI during 2009-2010 influenza season (IRR 2.7 [95% CI, 1.6-4.6] and 3.3 [95% CI, 1.9-5.8] during the summer and winter of 2009-2010, compared with 2006-2009 summers and influenza-active weeks, respectively [P < .0001]).\n",
-          "start": 892,
-          "end": 1790
+          "text": "The age-specific incidence of BSI due to Streptococcus pneumoniae, Staphylococcus aureus, and Streptococcus pyogenes was determined. ",
+          "start": 512,
+          "end": 645,
+          "context": "Methods: Eight hospitals, accounting for 33% of hospitalizations in Israel, provided data on BSI during 2006-2010.  The age-specific incidence of BSI due to Streptococcus pneumoniae, Staphylococcus aureus, and Streptococcus pyogenes was determined.  BSI incidence rate ratios (IRRs) during seasonal and pH1N1 influenza seasons were assessed.\n"
+        },
+        {
+          "id": "doc-4efdcbc2c487::sentence-12",
+          "documentId": "doc-4efdcbc2c487",
+          "text": "Conclusions: pH1N1 influenza seasons were characterized by marked increases in invasive S. aureus and S. pyogenes infections among children and adults, with the highest increase in S. pneumoniae BSI among children.\n",
+          "start": 1790,
+          "end": 2005,
+          "context": "The pH1N1/2009-2010 influenza outbreak was characterized by (1) higher rates of S. pneumoniae bacteremia among children but not among adults (IRRs for S. pneumoniae BSI among children aged 0-4 years during the summer and winter of 2009-2010 were 14.8 [95% confidence interval {CI}, 5-43.7] and 6.5 [95% CI, 3.6-11.8], compared with 2006-2009 summers and influenza-active winter weeks, respectively [P < .0001]), higher rates of S. aureus BSI in all age groups (IRRs during the summer and winter of 2009-2010 were 1.6 [95% CI, 1.4-1.9] and 1.5 [95% CI, 1.2-1.7], compared with 2006-2009 summers and influenza-active weeks, respectively [P < .0001]), higher rates of S. pyogenes BSI during 2009-2010 influenza season (IRR 2.7 [95% CI, 1.6-4.6] and 3.3 [95% CI, 1.9-5.8] during the summer and winter of 2009-2010, compared with 2006-2009 summers and influenza-active weeks, respectively [P < .0001]).\n Conclusions: pH1N1 influenza seasons were characterized by marked increases in invasive S. aureus and S. pyogenes infections among children and adults, with the highest increase in S. pneumoniae BSI among children.\n Similar articles\n"
         }
       ]
     },
@@ -126,42 +144,48 @@
           "documentId": "doc-4efdcbc2c487",
           "text": "Staphylococcus aureus Bacteremia in Patients Infected With COVID-19: A Case Series.Open Forum Infect Dis. ",
           "start": 3228,
-          "end": 3334
+          "end": 3334,
+          "context": "-\n Staphylococcus aureus Bacteremia in Patients Infected With COVID-19: A Case Series.Open Forum Infect Dis.  2020 Nov 12;7(11):ofaa518. "
         },
         {
           "id": "doc-1fd8789c830b::sentence-161",
           "documentId": "doc-1fd8789c830b",
           "text": "We believe that the weight of 90 years of evidence (table 3), including the exceptional but largely forgotten work of an earlier generation of pathologists, indicates that the vast majority of pulmonary deaths from pandemic influenza viruses have resulted from poorly understood interactions between the infecting virus and secondary infections due to bacteria that colonize the upper respiratory tract. ",
           "start": 27668,
-          "end": 28072
+          "end": 28072,
+          "context": "These include viral neuraminidase (NA)–induced exposure of bacterial adherence receptors; bacterial NA-induced upregulation of influenza infection; interleukin 10–induced susceptibility to pneumococci and possibly staphylococci [76]; interferon type 1 effects [77]; viral PB1-F2 effects, the proaptotic and mitochondriopathic effects of which are correlated with enhanced bacterial infection [78]; and virus-induced desensitization to bacterial Toll-like receptor ligands [79].\n We believe that the weight of 90 years of evidence (table 3), including the exceptional but largely forgotten work of an earlier generation of pathologists, indicates that the vast majority of pulmonary deaths from pandemic influenza viruses have resulted from poorly understood interactions between the infecting virus and secondary infections due to bacteria that colonize the upper respiratory tract.  The data are consistent with a natural history in which the virus, highly cytopathic to bronchial and bronchiolar epithelial cells, extends rapidly and diffusely down the respiratory tree, damages the epithelium sufficiently to break down the mucociliary barrier to bacterial spread, and if able to gain access to the distal respiratory tree—perhaps on the basis of receptor affinity [80]—creates both a direct pathway for secondary bacterial spread and an environment (cell necrosis and proteinaceous edema fluid) favorable to bacterial growth. "
         },
         {
           "id": "doc-1fd8789c830b::sentence-50",
           "documentId": "doc-1fd8789c830b",
           "text": "Although the cause of influenza was disputed in 1918, there was almost universal agreement among experts [e.g., 20, 27–33] that deaths were virtually never caused by the unidentified etiologic agent itself, but resulted directly from severe secondary pneumonia caused by well-known bacterial “pneumopathogens” that colonized the upper respiratory tract (predominantly pneumococci, streptococci, and staphylococci). ",
           "start": 8469,
-          "end": 8884
+          "end": 8884,
+          "context": "Published pathologic and/or bacteriologic findings from the 1918–1919 influenza pandemic\n Although the cause of influenza was disputed in 1918, there was almost universal agreement among experts [e.g., 20, 27–33] that deaths were virtually never caused by the unidentified etiologic agent itself, but resulted directly from severe secondary pneumonia caused by well-known bacterial “pneumopathogens” that colonized the upper respiratory tract (predominantly pneumococci, streptococci, and staphylococci).  Without this secondary bacterial pneumonia, experts generally believed that most patients would have recovered [20]. "
         },
         {
           "id": "doc-1fd8789c830b::sentence-151",
           "documentId": "doc-1fd8789c830b",
           "text": "The pneumonia deaths during the influenza pandemic in 1918 proved so highly similar, pathologically, to the then-recent pneumonia deaths from the measles epidemics that noted experts considered them to be the result of one newly emerging disease: epidemic bacterial pneumonia precipitated by prevalent respiratory tract agents [20, 33, 63].\n",
           "start": 25126,
-          "end": 25467
+          "end": 25467,
+          "context": "This view was dramatically supported in 1917–1918 by the measles epidemics in US Army training camps, in which most deaths resulted from streptococcal pneumonia or, less commonly, pneumococcal pneumonia [20, 30, 32].  The pneumonia deaths during the influenza pandemic in 1918 proved so highly similar, pathologically, to the then-recent pneumonia deaths from the measles epidemics that noted experts considered them to be the result of one newly emerging disease: epidemic bacterial pneumonia precipitated by prevalent respiratory tract agents [20, 33, 63].\n The question of whether the pathogenesis of severe influenza-associated pneumonia was primarily viral (i.e., assumed to be an unknown etiologic agent in 1918) or a combination of viral and bacterial agents was carefully considered by pathologists in 1918–1919, without definitive resolution [26, 33]. "
         },
         {
           "id": "doc-4efdcbc2c487::sentence-76",
           "documentId": "doc-4efdcbc2c487",
           "text": "CXCR1/2 Antagonism Is Protective during Influenza and Post-Influenza Pneumococcal Infection.Front Immunol. ",
           "start": 4031,
-          "end": 4138
+          "end": 4138,
+          "context": "-\n CXCR1/2 Antagonism Is Protective during Influenza and Post-Influenza Pneumococcal Infection.Front Immunol.  2017 Dec 13;8:1799. "
         },
         {
           "id": "doc-4efdcbc2c487::sentence-78",
           "documentId": "doc-4efdcbc2c487",
           "text": "doi: 10.3389/fimmu.2017.01799. ",
           "start": 4158,
-          "end": 4189
+          "end": 4189,
+          "context": "2017 Dec 13;8:1799.  doi: 10.3389/fimmu.2017.01799.  eCollection 2017. "
         }
       ]
     }
@@ -206,23 +230,18 @@
       "atomId": "atom-2",
       "relations": [
         {
-          "spanId": "doc-1fd8789c830b::sentence-56",
+          "spanId": "doc-1fd8789c830b::sentence-54",
           "documentId": "doc-1fd8789c830b",
-          "relation": "NEUTRAL"
+          "relation": "CONTRADICTION"
         },
         {
           "spanId": "doc-1fd8789c830b::sentence-50",
           "documentId": "doc-1fd8789c830b",
-          "relation": "NEUTRAL"
+          "relation": "CONTRADICTION"
         },
         {
-          "spanId": "doc-1fd8789c830b::sentence-54",
+          "spanId": "doc-1fd8789c830b::sentence-56",
           "documentId": "doc-1fd8789c830b",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-4efdcbc2c487::sentence-8",
-          "documentId": "doc-4efdcbc2c487",
           "relation": "CONTRADICTION"
         },
         {
@@ -231,7 +250,12 @@
           "relation": "CONTRADICTION"
         },
         {
-          "spanId": "doc-4efdcbc2c487::sentence-11",
+          "spanId": "doc-4efdcbc2c487::sentence-8",
+          "documentId": "doc-4efdcbc2c487",
+          "relation": "CONTRADICTION"
+        },
+        {
+          "spanId": "doc-4efdcbc2c487::sentence-12",
           "documentId": "doc-4efdcbc2c487",
           "relation": "NEUTRAL"
         }
@@ -273,58 +297,102 @@
       ]
     }
   ],
-  "linguistics": [
-    {
-      "atomId": "atom-1",
+  "linguistics": {
+    "schemaVersion": 2,
+    "claimAnalysis": {
+      "atomId": "claim",
       "frames": [
         {
-          "id": "atom-1-frame-1",
+          "id": "claim-frame-1",
           "predicate": {
-            "id": "atom-1-frame-1-predicate",
+            "id": "claim-frame-1-predicate",
             "text": "originated",
             "start": 43,
             "end": 53
           },
           "subjects": [
             {
-              "id": "atom-1-frame-1-subject-1",
+              "id": "claim-frame-1-subject-1",
               "text": "Most deaths in the 1918 influenza pandemic",
               "start": 0,
               "end": 42
             }
           ],
           "coreArguments": [],
+          "adjuncts": [
+            {
+              "id": "claim-frame-1-adjunct-1",
+              "text": "from bacterial pneumonia caused by face masks",
+              "start": 54,
+              "end": 99,
+              "kind": "causal"
+            }
+          ],
+          "otherModifiers": []
+        },
+        {
+          "id": "claim-frame-2",
+          "predicate": {
+            "id": "claim-frame-2-predicate",
+            "text": "knew",
+            "start": 189,
+            "end": 193
+          },
+          "subjects": [
+            {
+              "id": "claim-frame-2-subject-1",
+              "text": "Dr Anthony Fauci, the US government’s top expert in the fight against Covid-19",
+              "start": 109,
+              "end": 187
+            }
+          ],
+          "coreArguments": [],
           "adjuncts": [],
           "otherModifiers": [
             {
-              "id": "atom-1-frame-1-other-modifier-1",
-              "text": "from bacterial pneumonia",
-              "start": 54,
-              "end": 78
+              "id": "claim-frame-2-other-modifier-1",
+              "text": "about it",
+              "start": 194,
+              "end": 202
             }
           ]
         }
       ],
       "cues": [
         {
-          "id": "atom-1-cue-quantifier-0-4",
+          "id": "claim-cue-quantifier-0-4",
           "text": "Most",
           "start": 0,
           "end": 4,
           "kind": "quantifier"
         },
         {
-          "id": "atom-1-cue-temporal-19-23",
+          "id": "claim-cue-temporal-19-23",
           "text": "1918",
           "start": 19,
           "end": 23,
           "kind": "temporal"
         }
       ],
-      "entities": [],
+      "entities": [
+        {
+          "id": "claim-entity-person-112-125",
+          "text": "Anthony Fauci",
+          "start": 112,
+          "end": 125,
+          "label": "PERSON"
+        },
+        {
+          "id": "claim-entity-gpe-131-133",
+          "text": "US",
+          "start": 131,
+          "end": 133,
+          "label": "GPE"
+        }
+      ],
       "tokens": [
         {
-          "id": "atom-1-token-0",
+          "id": "claim-token-0",
           "text": "Most",
           "start": 0,
           "end": 4,
@@ -335,7 +403,7 @@
           "head": "deaths"
         },
         {
-          "id": "atom-1-token-1",
+          "id": "claim-token-1",
           "text": "deaths",
           "start": 5,
           "end": 11,
@@ -346,7 +414,7 @@
           "head": "originated"
         },
         {
-          "id": "atom-1-token-2",
+          "id": "claim-token-2",
           "text": "in",
           "start": 12,
           "end": 14,
@@ -357,7 +425,7 @@
           "head": "deaths"
         },
         {
-          "id": "atom-1-token-3",
+          "id": "claim-token-3",
           "text": "the",
           "start": 15,
           "end": 18,
@@ -368,7 +436,7 @@
           "head": "pandemic"
         },
         {
-          "id": "atom-1-token-4",
+          "id": "claim-token-4",
           "text": "1918",
           "start": 19,
           "end": 23,
@@ -379,7 +447,7 @@
           "head": "pandemic"
         },
         {
-          "id": "atom-1-token-5",
+          "id": "claim-token-5",
           "text": "influenza",
           "start": 24,
           "end": 33,
@@ -390,7 +458,7 @@
           "head": "pandemic"
         },
         {
-          "id": "atom-1-token-6",
+          "id": "claim-token-6",
           "text": "pandemic",
           "start": 34,
           "end": 42,
@@ -401,7 +469,7 @@
           "head": "in"
         },
         {
-          "id": "atom-1-token-7",
+          "id": "claim-token-7",
           "text": "originated",
           "start": 43,
           "end": 53,
@@ -412,7 +480,7 @@
           "head": "ROOT"
         },
         {
-          "id": "atom-1-token-8",
+          "id": "claim-token-8",
           "text": "from",
           "start": 54,
           "end": 58,
@@ -423,7 +491,7 @@
           "head": "originated"
         },
         {
-          "id": "atom-1-token-9",
+          "id": "claim-token-9",
           "text": "bacterial",
           "start": 59,
           "end": 68,
@@ -434,7 +502,7 @@
           "head": "pneumonia"
         },
         {
-          "id": "atom-1-token-10",
+          "id": "claim-token-10",
           "text": "pneumonia",
           "start": 69,
           "end": 78,
@@ -445,10 +513,285 @@
           "head": "from"
         },
         {
-          "id": "atom-1-token-11",
+          "id": "claim-token-11",
+          "text": "caused",
+          "start": 79,
+          "end": 85,
+          "lemma": "cause",
+          "pos": "VERB",
+          "tag": "VBN",
+          "dependency": "acl",
+          "head": "pneumonia"
+        },
+        {
+          "id": "claim-token-12",
+          "text": "by",
+          "start": 86,
+          "end": 88,
+          "lemma": "by",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "agent",
+          "head": "caused"
+        },
+        {
+          "id": "claim-token-13",
+          "text": "face",
+          "start": 89,
+          "end": 93,
+          "lemma": "face",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "compound",
+          "head": "masks"
+        },
+        {
+          "id": "claim-token-14",
+          "text": "masks",
+          "start": 94,
+          "end": 99,
+          "lemma": "mask",
+          "pos": "NOUN",
+          "tag": "NNS",
+          "dependency": "pobj",
+          "head": "by"
+        },
+        {
+          "id": "claim-token-15",
+          "text": "and",
+          "start": 100,
+          "end": 103,
+          "lemma": "and",
+          "pos": "CCONJ",
+          "tag": "CC",
+          "dependency": "cc",
+          "head": "originated"
+        },
+        {
+          "id": "claim-token-16",
+          "text": "that",
+          "start": 104,
+          "end": 108,
+          "lemma": "that",
+          "pos": "SCONJ",
+          "tag": "IN",
+          "dependency": "mark",
+          "head": "knew"
+        },
+        {
+          "id": "claim-token-17",
+          "text": "Dr",
+          "start": 109,
+          "end": 111,
+          "lemma": "Dr",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "Fauci"
+        },
+        {
+          "id": "claim-token-18",
+          "text": "Anthony",
+          "start": 112,
+          "end": 119,
+          "lemma": "Anthony",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "Fauci"
+        },
+        {
+          "id": "claim-token-19",
+          "text": "Fauci",
+          "start": 120,
+          "end": 125,
+          "lemma": "Fauci",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "nsubj",
+          "head": "knew"
+        },
+        {
+          "id": "claim-token-20",
+          "text": ",",
+          "start": 125,
+          "end": 126,
+          "lemma": ",",
+          "pos": "PUNCT",
+          "tag": ",",
+          "dependency": "punct",
+          "head": "Fauci"
+        },
+        {
+          "id": "claim-token-21",
+          "text": "the",
+          "start": 127,
+          "end": 130,
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "government"
+        },
+        {
+          "id": "claim-token-22",
+          "text": "US",
+          "start": 131,
+          "end": 133,
+          "lemma": "US",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "government"
+        },
+        {
+          "id": "claim-token-23",
+          "text": "government",
+          "start": 134,
+          "end": 144,
+          "lemma": "government",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "poss",
+          "head": "expert"
+        },
+        {
+          "id": "claim-token-24",
+          "text": "’s",
+          "start": 144,
+          "end": 146,
+          "lemma": "’s",
+          "pos": "PART",
+          "tag": "POS",
+          "dependency": "case",
+          "head": "government"
+        },
+        {
+          "id": "claim-token-25",
+          "text": "top",
+          "start": 147,
+          "end": 150,
+          "lemma": "top",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "expert"
+        },
+        {
+          "id": "claim-token-26",
+          "text": "expert",
+          "start": 151,
+          "end": 157,
+          "lemma": "expert",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "appos",
+          "head": "Fauci"
+        },
+        {
+          "id": "claim-token-27",
+          "text": "in",
+          "start": 158,
+          "end": 160,
+          "lemma": "in",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "expert"
+        },
+        {
+          "id": "claim-token-28",
+          "text": "the",
+          "start": 161,
+          "end": 164,
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "fight"
+        },
+        {
+          "id": "claim-token-29",
+          "text": "fight",
+          "start": 165,
+          "end": 170,
+          "lemma": "fight",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "pobj",
+          "head": "in"
+        },
+        {
+          "id": "claim-token-30",
+          "text": "against",
+          "start": 171,
+          "end": 178,
+          "lemma": "against",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "fight"
+        },
+        {
+          "id": "claim-token-31",
+          "text": "Covid-19",
+          "start": 179,
+          "end": 187,
+          "lemma": "Covid-19",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "pobj",
+          "head": "against"
+        },
+        {
+          "id": "claim-token-32",
+          "text": ",",
+          "start": 187,
+          "end": 188,
+          "lemma": ",",
+          "pos": "PUNCT",
+          "tag": ",",
+          "dependency": "punct",
+          "head": "Fauci"
+        },
+        {
+          "id": "claim-token-33",
+          "text": "knew",
+          "start": 189,
+          "end": 193,
+          "lemma": "know",
+          "pos": "VERB",
+          "tag": "VBD",
+          "dependency": "conj",
+          "head": "originated"
+        },
+        {
+          "id": "claim-token-34",
+          "text": "about",
+          "start": 194,
+          "end": 199,
+          "lemma": "about",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "knew"
+        },
+        {
+          "id": "claim-token-35",
+          "text": "it",
+          "start": 200,
+          "end": 202,
+          "lemma": "it",
+          "pos": "PRON",
+          "tag": "PRP",
+          "dependency": "pobj",
+          "head": "about"
+        },
+        {
+          "id": "claim-token-36",
           "text": ".",
-          "start": 78,
-          "end": 79,
+          "start": 202,
+          "end": 203,
           "lemma": ".",
           "pos": "PUNCT",
           "tag": ".",
@@ -459,385 +802,725 @@
       "status": "complete",
       "unresolved": []
     },
-    {
-      "atomId": "atom-2",
-      "frames": [
-        {
-          "id": "atom-2-frame-1",
-          "predicate": {
-            "id": "atom-2-frame-1-predicate",
-            "text": "caused",
-            "start": 11,
-            "end": 17
+    "analyses": [
+      {
+        "atomId": "atom-1",
+        "frames": [
+          {
+            "id": "atom-1-frame-1",
+            "predicate": {
+              "id": "atom-1-frame-1-predicate",
+              "text": "originated",
+              "start": 43,
+              "end": 53
+            },
+            "subjects": [
+              {
+                "id": "atom-1-frame-1-subject-1",
+                "text": "Most deaths in the 1918 influenza pandemic",
+                "start": 0,
+                "end": 42
+              }
+            ],
+            "coreArguments": [],
+            "adjuncts": [],
+            "otherModifiers": [
+              {
+                "id": "atom-1-frame-1-other-modifier-1",
+                "text": "from bacterial pneumonia",
+                "start": 54,
+                "end": 78
+              }
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "atom-1-cue-quantifier-0-4",
+            "text": "Most",
+            "start": 0,
+            "end": 4,
+            "kind": "quantifier"
           },
-          "subjects": [
-            {
-              "id": "atom-2-frame-1-subject-1",
-              "text": "Face masks",
-              "start": 0,
-              "end": 10
-            }
-          ],
-          "coreArguments": [
-            {
-              "id": "atom-2-frame-1-argument-1",
-              "text": "bacterial pneumonia",
-              "start": 18,
-              "end": 37,
-              "role": "direct_object"
-            }
-          ],
-          "adjuncts": [],
-          "otherModifiers": []
-        }
-      ],
-      "cues": [],
-      "entities": [],
-      "tokens": [
-        {
-          "id": "atom-2-token-0",
-          "text": "Face",
-          "start": 0,
-          "end": 4,
-          "lemma": "face",
-          "pos": "NOUN",
-          "tag": "NN",
-          "dependency": "compound",
-          "head": "masks"
-        },
-        {
-          "id": "atom-2-token-1",
-          "text": "masks",
-          "start": 5,
-          "end": 10,
-          "lemma": "mask",
-          "pos": "NOUN",
-          "tag": "NNS",
-          "dependency": "nsubj",
-          "head": "caused"
-        },
-        {
-          "id": "atom-2-token-2",
-          "text": "caused",
-          "start": 11,
-          "end": 17,
-          "lemma": "cause",
-          "pos": "VERB",
-          "tag": "VBD",
-          "dependency": "ROOT",
-          "head": "ROOT"
-        },
-        {
-          "id": "atom-2-token-3",
-          "text": "bacterial",
-          "start": 18,
-          "end": 27,
-          "lemma": "bacterial",
-          "pos": "ADJ",
-          "tag": "JJ",
-          "dependency": "amod",
-          "head": "pneumonia"
-        },
-        {
-          "id": "atom-2-token-4",
-          "text": "pneumonia",
-          "start": 28,
-          "end": 37,
-          "lemma": "pneumonia",
-          "pos": "NOUN",
-          "tag": "NN",
-          "dependency": "dobj",
-          "head": "caused"
-        },
-        {
-          "id": "atom-2-token-5",
-          "text": ".",
-          "start": 37,
-          "end": 38,
-          "lemma": ".",
-          "pos": "PUNCT",
-          "tag": ".",
-          "dependency": "punct",
-          "head": "caused"
-        }
-      ],
-      "status": "complete",
-      "unresolved": []
-    },
-    {
-      "atomId": "atom-3",
-      "frames": [
-        {
-          "id": "atom-3-frame-1",
-          "predicate": {
-            "id": "atom-3-frame-1-predicate",
+          {
+            "id": "atom-1-cue-temporal-19-23",
+            "text": "1918",
+            "start": 19,
+            "end": 23,
+            "kind": "temporal"
+          }
+        ],
+        "entities": [],
+        "tokens": [
+          {
+            "id": "atom-1-token-0",
+            "text": "Most",
+            "start": 0,
+            "end": 4,
+            "lemma": "Most",
+            "pos": "ADJ",
+            "tag": "JJS",
+            "dependency": "amod",
+            "head": "deaths"
+          },
+          {
+            "id": "atom-1-token-1",
+            "text": "deaths",
+            "start": 5,
+            "end": 11,
+            "lemma": "death",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "nsubj",
+            "head": "originated"
+          },
+          {
+            "id": "atom-1-token-2",
+            "text": "in",
+            "start": 12,
+            "end": 14,
+            "lemma": "in",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "deaths"
+          },
+          {
+            "id": "atom-1-token-3",
+            "text": "the",
+            "start": 15,
+            "end": 18,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "pandemic"
+          },
+          {
+            "id": "atom-1-token-4",
+            "text": "1918",
+            "start": 19,
+            "end": 23,
+            "lemma": "1918",
+            "pos": "NUM",
+            "tag": "CD",
+            "dependency": "nummod",
+            "head": "pandemic"
+          },
+          {
+            "id": "atom-1-token-5",
+            "text": "influenza",
+            "start": 24,
+            "end": 33,
+            "lemma": "influenza",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "compound",
+            "head": "pandemic"
+          },
+          {
+            "id": "atom-1-token-6",
+            "text": "pandemic",
+            "start": 34,
+            "end": 42,
+            "lemma": "pandemic",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "pobj",
+            "head": "in"
+          },
+          {
+            "id": "atom-1-token-7",
+            "text": "originated",
+            "start": 43,
+            "end": 53,
+            "lemma": "originate",
+            "pos": "VERB",
+            "tag": "VBD",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-1-token-8",
+            "text": "from",
+            "start": 54,
+            "end": 58,
+            "lemma": "from",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "originated"
+          },
+          {
+            "id": "atom-1-token-9",
+            "text": "bacterial",
+            "start": 59,
+            "end": 68,
+            "lemma": "bacterial",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "pneumonia"
+          },
+          {
+            "id": "atom-1-token-10",
+            "text": "pneumonia",
+            "start": 69,
+            "end": 78,
+            "lemma": "pneumonia",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "pobj",
+            "head": "from"
+          },
+          {
+            "id": "atom-1-token-11",
+            "text": ".",
+            "start": 78,
+            "end": 79,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "originated"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      },
+      {
+        "atomId": "atom-2",
+        "frames": [
+          {
+            "id": "atom-2-frame-1",
+            "predicate": {
+              "id": "atom-2-frame-1-predicate",
+              "text": "caused",
+              "start": 24,
+              "end": 30
+            },
+            "subjects": [
+              {
+                "id": "atom-2-frame-1-subject-1",
+                "text": "Bacterial pneumonia",
+                "start": 0,
+                "end": 19
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-2-frame-1-argument-1",
+                "text": "by face masks",
+                "start": 31,
+                "end": 44,
+                "role": "passive_agent"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [],
+        "entities": [],
+        "tokens": [
+          {
+            "id": "atom-2-token-0",
+            "text": "Bacterial",
+            "start": 0,
+            "end": 9,
+            "lemma": "bacterial",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "pneumonia"
+          },
+          {
+            "id": "atom-2-token-1",
+            "text": "pneumonia",
+            "start": 10,
+            "end": 19,
+            "lemma": "pneumonia",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "nsubjpass",
+            "head": "caused"
+          },
+          {
+            "id": "atom-2-token-2",
+            "text": "was",
+            "start": 20,
+            "end": 23,
+            "lemma": "be",
+            "pos": "AUX",
+            "tag": "VBD",
+            "dependency": "auxpass",
+            "head": "caused"
+          },
+          {
+            "id": "atom-2-token-3",
+            "text": "caused",
+            "start": 24,
+            "end": 30,
+            "lemma": "cause",
+            "pos": "VERB",
+            "tag": "VBN",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-2-token-4",
+            "text": "by",
+            "start": 31,
+            "end": 33,
+            "lemma": "by",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "agent",
+            "head": "caused"
+          },
+          {
+            "id": "atom-2-token-5",
+            "text": "face",
+            "start": 34,
+            "end": 38,
+            "lemma": "face",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "compound",
+            "head": "masks"
+          },
+          {
+            "id": "atom-2-token-6",
+            "text": "masks",
+            "start": 39,
+            "end": 44,
+            "lemma": "mask",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "pobj",
+            "head": "by"
+          },
+          {
+            "id": "atom-2-token-7",
+            "text": ".",
+            "start": 44,
+            "end": 45,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "caused"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      },
+      {
+        "atomId": "atom-3",
+        "frames": [
+          {
+            "id": "atom-3-frame-1",
+            "predicate": {
+              "id": "atom-3-frame-1-predicate",
+              "text": "knew",
+              "start": 80,
+              "end": 84
+            },
+            "subjects": [
+              {
+                "id": "atom-3-frame-1-subject-1",
+                "text": "Dr Anthony Fauci, the US government’s top expert in the fight against Covid-19",
+                "start": 0,
+                "end": 78
+              }
+            ],
+            "coreArguments": [],
+            "adjuncts": [],
+            "otherModifiers": [
+              {
+                "id": "atom-3-frame-1-other-modifier-1",
+                "text": "about it",
+                "start": 85,
+                "end": 93
+              }
+            ]
+          }
+        ],
+        "cues": [],
+        "entities": [
+          {
+            "id": "atom-3-entity-person-3-16",
+            "text": "Anthony Fauci",
+            "start": 3,
+            "end": 16,
+            "label": "PERSON"
+          },
+          {
+            "id": "atom-3-entity-gpe-22-24",
+            "text": "US",
+            "start": 22,
+            "end": 24,
+            "label": "GPE"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-3-token-0",
+            "text": "Dr",
+            "start": 0,
+            "end": 2,
+            "lemma": "Dr",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Fauci"
+          },
+          {
+            "id": "atom-3-token-1",
+            "text": "Anthony",
+            "start": 3,
+            "end": 10,
+            "lemma": "Anthony",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Fauci"
+          },
+          {
+            "id": "atom-3-token-2",
+            "text": "Fauci",
+            "start": 11,
+            "end": 16,
+            "lemma": "Fauci",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "nsubj",
+            "head": "knew"
+          },
+          {
+            "id": "atom-3-token-3",
+            "text": ",",
+            "start": 16,
+            "end": 17,
+            "lemma": ",",
+            "pos": "PUNCT",
+            "tag": ",",
+            "dependency": "punct",
+            "head": "Fauci"
+          },
+          {
+            "id": "atom-3-token-4",
+            "text": "the",
+            "start": 18,
+            "end": 21,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "government"
+          },
+          {
+            "id": "atom-3-token-5",
+            "text": "US",
+            "start": 22,
+            "end": 24,
+            "lemma": "US",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "government"
+          },
+          {
+            "id": "atom-3-token-6",
+            "text": "government",
+            "start": 25,
+            "end": 35,
+            "lemma": "government",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "poss",
+            "head": "expert"
+          },
+          {
+            "id": "atom-3-token-7",
+            "text": "’s",
+            "start": 35,
+            "end": 37,
+            "lemma": "’s",
+            "pos": "PART",
+            "tag": "POS",
+            "dependency": "case",
+            "head": "government"
+          },
+          {
+            "id": "atom-3-token-8",
+            "text": "top",
+            "start": 38,
+            "end": 41,
+            "lemma": "top",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "expert"
+          },
+          {
+            "id": "atom-3-token-9",
+            "text": "expert",
+            "start": 42,
+            "end": 48,
+            "lemma": "expert",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "appos",
+            "head": "Fauci"
+          },
+          {
+            "id": "atom-3-token-10",
+            "text": "in",
+            "start": 49,
+            "end": 51,
+            "lemma": "in",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "expert"
+          },
+          {
+            "id": "atom-3-token-11",
+            "text": "the",
+            "start": 52,
+            "end": 55,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "fight"
+          },
+          {
+            "id": "atom-3-token-12",
+            "text": "fight",
+            "start": 56,
+            "end": 61,
+            "lemma": "fight",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "pobj",
+            "head": "in"
+          },
+          {
+            "id": "atom-3-token-13",
+            "text": "against",
+            "start": 62,
+            "end": 69,
+            "lemma": "against",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "fight"
+          },
+          {
+            "id": "atom-3-token-14",
+            "text": "Covid-19",
+            "start": 70,
+            "end": 78,
+            "lemma": "Covid-19",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "pobj",
+            "head": "against"
+          },
+          {
+            "id": "atom-3-token-15",
+            "text": ",",
+            "start": 78,
+            "end": 79,
+            "lemma": ",",
+            "pos": "PUNCT",
+            "tag": ",",
+            "dependency": "punct",
+            "head": "Fauci"
+          },
+          {
+            "id": "atom-3-token-16",
             "text": "knew",
             "start": 80,
-            "end": 84
+            "end": 84,
+            "lemma": "know",
+            "pos": "VERB",
+            "tag": "VBD",
+            "dependency": "ROOT",
+            "head": "ROOT"
           },
-          "subjects": [
-            {
-              "id": "atom-3-frame-1-subject-1",
-              "text": "Dr Anthony Fauci, the US government’s top expert in the fight against Covid-19",
-              "start": 0,
-              "end": 78
-            }
-          ],
-          "coreArguments": [],
-          "adjuncts": [],
-          "otherModifiers": [
-            {
-              "id": "atom-3-frame-1-other-modifier-1",
-              "text": "about it",
-              "start": 85,
-              "end": 93
-            }
-          ]
-        }
+          {
+            "id": "atom-3-token-17",
+            "text": "about",
+            "start": 85,
+            "end": 90,
+            "lemma": "about",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "knew"
+          },
+          {
+            "id": "atom-3-token-18",
+            "text": "it",
+            "start": 91,
+            "end": 93,
+            "lemma": "it",
+            "pos": "PRON",
+            "tag": "PRP",
+            "dependency": "pobj",
+            "head": "about"
+          },
+          {
+            "id": "atom-3-token-19",
+            "text": ".",
+            "start": 93,
+            "end": 94,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "knew"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      }
+    ],
+    "summaries": [
+      {
+        "atomId": "atom-1",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "Most deaths in the 1918 influenza pandemic"
+        ],
+        "predicates": [
+          "originate"
+        ],
+        "cueKinds": [
+          "quantifier",
+          "temporal"
+        ],
+        "modifierKinds": [],
+        "entityLabels": [],
+        "warnings": []
+      },
+      {
+        "atomId": "atom-2",
+        "analysisStatus": "complete",
+        "roleAudit": "INCONCLUSIVE",
+        "subjects": [
+          "Bacterial pneumonia"
+        ],
+        "predicates": [
+          "cause"
+        ],
+        "cueKinds": [],
+        "modifierKinds": [],
+        "entityLabels": [],
+        "warnings": []
+      },
+      {
+        "atomId": "atom-3",
+        "analysisStatus": "complete",
+        "roleAudit": "MISMATCH",
+        "subjects": [
+          "Dr Anthony Fauci, the US government’s top expert in the fight against Covid-19"
+        ],
+        "predicates": [
+          "know"
+        ],
+        "cueKinds": [],
+        "modifierKinds": [],
+        "entityLabels": [
+          "PERSON",
+          "GPE"
+        ],
+        "warnings": [
+          "ROLE_CUE_MISMATCH"
+        ]
+      }
+    ],
+    "claimWarnings": [],
+    "provider": "spacy",
+    "model": "en_core_web_sm@3.8.0"
+  },
+  "verdict": {
+    "aggregationSchemaVersion": 1,
+    "claimId": "averitec-dev-0089",
+    "composition": "AND",
+    "verdict": "REFUTED",
+    "positions": {
+      "supportPosition": false,
+      "attackPosition": true,
+      "supportObligationIds": [
+        "atom-1"
       ],
-      "cues": [],
-      "entities": [
-        {
-          "id": "atom-3-entity-person-3-16",
-          "text": "Anthony Fauci",
-          "start": 3,
-          "end": 16,
-          "label": "PERSON"
-        },
-        {
-          "id": "atom-3-entity-gpe-22-24",
-          "text": "US",
-          "start": 22,
-          "end": 24,
-          "label": "GPE"
-        }
+      "attackObligationIds": [
+        "atom-1",
+        "atom-2"
       ],
-      "tokens": [
-        {
-          "id": "atom-3-token-0",
-          "text": "Dr",
-          "start": 0,
-          "end": 2,
-          "lemma": "Dr",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "compound",
-          "head": "Fauci"
-        },
-        {
-          "id": "atom-3-token-1",
-          "text": "Anthony",
-          "start": 3,
-          "end": 10,
-          "lemma": "Anthony",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "compound",
-          "head": "Fauci"
-        },
-        {
-          "id": "atom-3-token-2",
-          "text": "Fauci",
-          "start": 11,
-          "end": 16,
-          "lemma": "Fauci",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "nsubj",
-          "head": "knew"
-        },
-        {
-          "id": "atom-3-token-3",
-          "text": ",",
-          "start": 16,
-          "end": 17,
-          "lemma": ",",
-          "pos": "PUNCT",
-          "tag": ",",
-          "dependency": "punct",
-          "head": "Fauci"
-        },
-        {
-          "id": "atom-3-token-4",
-          "text": "the",
-          "start": 18,
-          "end": 21,
-          "lemma": "the",
-          "pos": "DET",
-          "tag": "DT",
-          "dependency": "det",
-          "head": "government"
-        },
-        {
-          "id": "atom-3-token-5",
-          "text": "US",
-          "start": 22,
-          "end": 24,
-          "lemma": "US",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "compound",
-          "head": "government"
-        },
-        {
-          "id": "atom-3-token-6",
-          "text": "government",
-          "start": 25,
-          "end": 35,
-          "lemma": "government",
-          "pos": "NOUN",
-          "tag": "NN",
-          "dependency": "poss",
-          "head": "expert"
-        },
-        {
-          "id": "atom-3-token-7",
-          "text": "’s",
-          "start": 35,
-          "end": 37,
-          "lemma": "’s",
-          "pos": "PART",
-          "tag": "POS",
-          "dependency": "case",
-          "head": "government"
-        },
-        {
-          "id": "atom-3-token-8",
-          "text": "top",
-          "start": 38,
-          "end": 41,
-          "lemma": "top",
-          "pos": "ADJ",
-          "tag": "JJ",
-          "dependency": "amod",
-          "head": "expert"
-        },
-        {
-          "id": "atom-3-token-9",
-          "text": "expert",
-          "start": 42,
-          "end": 48,
-          "lemma": "expert",
-          "pos": "NOUN",
-          "tag": "NN",
-          "dependency": "appos",
-          "head": "Fauci"
-        },
-        {
-          "id": "atom-3-token-10",
-          "text": "in",
-          "start": 49,
-          "end": 51,
-          "lemma": "in",
-          "pos": "ADP",
-          "tag": "IN",
-          "dependency": "prep",
-          "head": "expert"
-        },
-        {
-          "id": "atom-3-token-11",
-          "text": "the",
-          "start": 52,
-          "end": 55,
-          "lemma": "the",
-          "pos": "DET",
-          "tag": "DT",
-          "dependency": "det",
-          "head": "fight"
-        },
-        {
-          "id": "atom-3-token-12",
-          "text": "fight",
-          "start": 56,
-          "end": 61,
-          "lemma": "fight",
-          "pos": "NOUN",
-          "tag": "NN",
-          "dependency": "pobj",
-          "head": "in"
-        },
-        {
-          "id": "atom-3-token-13",
-          "text": "against",
-          "start": 62,
-          "end": 69,
-          "lemma": "against",
-          "pos": "ADP",
-          "tag": "IN",
-          "dependency": "prep",
-          "head": "fight"
-        },
-        {
-          "id": "atom-3-token-14",
-          "text": "Covid-19",
-          "start": 70,
-          "end": 78,
-          "lemma": "Covid-19",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "pobj",
-          "head": "against"
-        },
-        {
-          "id": "atom-3-token-15",
-          "text": ",",
-          "start": 78,
-          "end": 79,
-          "lemma": ",",
-          "pos": "PUNCT",
-          "tag": ",",
-          "dependency": "punct",
-          "head": "Fauci"
-        },
-        {
-          "id": "atom-3-token-16",
-          "text": "knew",
-          "start": 80,
-          "end": 84,
-          "lemma": "know",
-          "pos": "VERB",
-          "tag": "VBD",
-          "dependency": "ROOT",
-          "head": "ROOT"
-        },
-        {
-          "id": "atom-3-token-17",
-          "text": "about",
-          "start": 85,
-          "end": 90,
-          "lemma": "about",
-          "pos": "ADP",
-          "tag": "IN",
-          "dependency": "prep",
-          "head": "knew"
-        },
-        {
-          "id": "atom-3-token-18",
-          "text": "it",
-          "start": 91,
-          "end": 93,
-          "lemma": "it",
-          "pos": "PRON",
-          "tag": "PRP",
-          "dependency": "pobj",
-          "head": "about"
-        },
-        {
-          "id": "atom-3-token-19",
-          "text": ".",
-          "start": 93,
-          "end": 94,
-          "lemma": ".",
-          "pos": "PUNCT",
-          "tag": ".",
-          "dependency": "punct",
-          "head": "knew"
-        }
-      ],
-      "status": "complete",
-      "unresolved": []
-    }
-  ],
+      "unresolvedObligationIds": [
+        "atom-3"
+      ]
+    },
+    "obligations": [
+      {
+        "obligationId": "atom-1",
+        "state": "CONFLICTING",
+        "supportEdgeIds": [
+          "edge:SUPPORTS:evidence:doc-1fd8789c830b:doc-1fd8789c830b::sentence-12:obligation:averitec-dev-0089:atom-1",
+          "edge:SUPPORTS:evidence:doc-1fd8789c830b:doc-1fd8789c830b::sentence-129:obligation:averitec-dev-0089:atom-1"
+        ],
+        "attackEdgeIds": [
+          "edge:ATTACKS:evidence:doc-1fd8789c830b:doc-1fd8789c830b::sentence-24:obligation:averitec-dev-0089:atom-1"
+        ],
+        "neutralCandidateCount": 3
+      },
+      {
+        "obligationId": "atom-2",
+        "state": "REFUTED",
+        "supportEdgeIds": [],
+        "attackEdgeIds": [
+          "edge:ATTACKS:evidence:doc-1fd8789c830b:doc-1fd8789c830b::sentence-54:obligation:averitec-dev-0089:atom-2",
+          "edge:ATTACKS:evidence:doc-1fd8789c830b:doc-1fd8789c830b::sentence-50:obligation:averitec-dev-0089:atom-2",
+          "edge:ATTACKS:evidence:doc-1fd8789c830b:doc-1fd8789c830b::sentence-56:obligation:averitec-dev-0089:atom-2",
+          "edge:ATTACKS:evidence:doc-4efdcbc2c487:doc-4efdcbc2c487::sentence-84:obligation:averitec-dev-0089:atom-2",
+          "edge:ATTACKS:evidence:doc-4efdcbc2c487:doc-4efdcbc2c487::sentence-8:obligation:averitec-dev-0089:atom-2"
+        ],
+        "neutralCandidateCount": 1
+      },
+      {
+        "obligationId": "atom-3",
+        "state": "UNRESOLVED",
+        "supportEdgeIds": [],
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 6
+      }
+    ],
+    "warnings": [
+      {
+        "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
+        "message": "Obligation atom-3 has no supporting or attacking evidence."
+      },
+      {
+        "code": "ONLY_NEUTRAL_CANDIDATES",
+        "message": "Obligation atom-3 has only neutral retrieved candidates."
+      },
+      {
+        "code": "LINGUISTIC_AUDIT_WARNING",
+        "message": "Linguistic analysis for obligation atom-3 requires inspection; it does not change the verdict."
+      }
+    ],
+    "ruleTrace": [
+      "AND support requires support for every obligation; AND attack requires an attack on any obligation.",
+      "Support position: no; attack position: yes.",
+      "Final verdict: REFUTED."
+    ]
+  },
   "recordedWith": {
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",

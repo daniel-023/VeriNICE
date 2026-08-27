@@ -1,19 +1,48 @@
 {
   "caseId": "averitec-dev-0145",
+  "schemaVersion": 2,
+  "composition": "AND",
+  "warnings": [],
   "atoms": [
     {
       "id": "atom-1",
-      "text": "When Joe Biden was US vice-president they took a month to act on information that might have saved Kayla Mueller, a humanitarian worker",
-      "sourceText": "When Joe Biden was US vice-president they took a month to act on information that might have saved Kayla Mueller, a humanitarian worker held hostage and sexually abused by the Islamic State terrorist group",
-      "start": 0,
-      "end": 205
+      "text": "When Joe Biden was US vice-president they took a month to act on information.",
+      "sourceText": "they took a month to act on information",
+      "start": 37,
+      "end": 76,
+      "role": "TEMPORAL_CONSTRAINT"
     },
     {
       "id": "atom-2",
-      "text": "Kayla Mueller was a humanitarian worker held hostage and sexually abused by the Islamic State terrorist group",
-      "sourceText": "When Joe Biden was US vice-president they took a month to act on information that might have saved Kayla Mueller, a humanitarian worker held hostage and sexually abused by the Islamic State terrorist group",
-      "start": 0,
-      "end": 205
+      "text": "The information might have saved Kayla Mueller.",
+      "sourceText": "might have saved Kayla Mueller",
+      "start": 82,
+      "end": 112,
+      "role": "CAUSAL_RELATION"
+    },
+    {
+      "id": "atom-3",
+      "text": "Kayla Mueller was a humanitarian worker.",
+      "sourceText": "a humanitarian worker",
+      "start": 114,
+      "end": 135,
+      "role": "CORE"
+    },
+    {
+      "id": "atom-4",
+      "text": "Kayla Mueller was held hostage.",
+      "sourceText": "held hostage",
+      "start": 136,
+      "end": 148,
+      "role": "CORE"
+    },
+    {
+      "id": "atom-5",
+      "text": "Kayla Mueller was sexually abused by the Islamic State terrorist group.",
+      "sourceText": "sexually abused by the Islamic State terrorist group",
+      "start": 153,
+      "end": 205,
+      "role": "CORE"
     }
   ],
   "evidence": [
@@ -21,46 +50,52 @@
       "atomId": "atom-1",
       "spans": [
         {
-          "id": "doc-7c93b0e065ec::sentence-1",
-          "documentId": "doc-7c93b0e065ec",
-          "text": "— -- American aid worker Kayla Mueller, 26, was kidnapped by the terror group ISIS in Syria in 2013 and held until she was killed 18 months later. ",
-          "start": 0,
-          "end": 147
-        },
-        {
-          "id": "doc-7c93b0e065ec::sentence-10",
-          "documentId": "doc-7c93b0e065ec",
-          "text": "December 2012: Kayla Mueller of Prescott, Arizona, who had already dedicated much of her life to humanitarian work around the world, travels to Turkey to help Syrian refugees. ",
-          "start": 1495,
-          "end": 1671
-        },
-        {
-          "id": "doc-7c93b0e065ec::sentence-47",
-          "documentId": "doc-7c93b0e065ec",
-          "text": "Aug. 10, 2014: With the deadline approaching, Kayla's father, Carl Mueller, records a video in which he pleads for Kayla's life. ",
-          "start": 6883,
-          "end": 7012
-        },
-        {
-          "id": "doc-7db65afcd050::sentence-28",
-          "documentId": "doc-7db65afcd050",
-          "text": "The question of U.S. rescue efforts has taken center stage again with the death of Mueller, a 26-year-old aid worker who was taken captive in Syria in 2013. ",
-          "start": 5320,
-          "end": 5477
-        },
-        {
           "id": "doc-7db65afcd050::sentence-27",
           "documentId": "doc-7db65afcd050",
           "text": "Responding to the general criticism of the United States being slow to act, President Obama told BuzzFeed this week, “I don’t think it’s accurate then to say that the United States government hasn’t done everything that we could. We devoted enormous resources—and always devote enormous resources—to freeing captives or hostages anywhere in the world, and I deployed an entire operation at significant risk to rescue not only [Mueller], but the other individuals that had been held, and probably missed them by a day or two, precisely because we had that commitment.”\n",
           "start": 4752,
-          "end": 5320
+          "end": 5320,
+          "context": "But family members of the Americans held by ISIS, including the parents of Foley and Sotloff, as well as Foley’s brother, have said the U.S. government did not do enough to rescue their loved ones.\n Responding to the general criticism of the United States being slow to act, President Obama told BuzzFeed this week, “I don’t think it’s accurate then to say that the United States government hasn’t done everything that we could. We devoted enormous resources—and always devote enormous resources—to freeing captives or hostages anywhere in the world, and I deployed an entire operation at significant risk to rescue not only [Mueller], but the other individuals that had been held, and probably missed them by a day or two, precisely because we had that commitment.”\n The question of U.S. rescue efforts has taken center stage again with the death of Mueller, a 26-year-old aid worker who was taken captive in Syria in 2013. "
         },
         {
-          "id": "doc-7db65afcd050::sentence-6",
+          "id": "doc-37870187453f::sentence-22",
+          "documentId": "doc-37870187453f",
+          "text": "Two days before the Democratic National Convention, he picked Senator Joseph Biden of Delaware as his vice presidential running mate.\n",
+          "start": 2263,
+          "end": 2397,
+          "context": "After a hard-fought Democratic primary against Senator and former First Lady Hillary Clinton, Obama secured the Democratic Party nomination in June 2008.  Two days before the Democratic National Convention, he picked Senator Joseph Biden of Delaware as his vice presidential running mate.\n The 2008 presidential campaign featured the Democratic ticket of Barack Obama and Joseph Biden against the Republican ticket of Senator John McCain of Arizona and his vice presidential running mate, Governor Sarah Palin of Alaska. "
+        },
+        {
+          "id": "doc-37870187453f::sentence-23",
+          "documentId": "doc-37870187453f",
+          "text": "The 2008 presidential campaign featured the Democratic ticket of Barack Obama and Joseph Biden against the Republican ticket of Senator John McCain of Arizona and his vice presidential running mate, Governor Sarah Palin of Alaska. ",
+          "start": 2397,
+          "end": 2628,
+          "context": "Two days before the Democratic National Convention, he picked Senator Joseph Biden of Delaware as his vice presidential running mate.\n The 2008 presidential campaign featured the Democratic ticket of Barack Obama and Joseph Biden against the Republican ticket of Senator John McCain of Arizona and his vice presidential running mate, Governor Sarah Palin of Alaska.  Obama and Biden won the election handily, 53 percent of the popular vote to 46 percent and 365 Electoral College votes to 173.\n"
+        },
+        {
+          "id": "doc-7db65afcd050::sentence-18",
           "documentId": "doc-7db65afcd050",
-          "text": "The captives included American journalists James Foley and Steven Sotloff, as well aid worker Kayla Mueller. ",
-          "start": 1065,
-          "end": 1174
+          "text": "“Very specific information was available as early as mid-March. And that’s what’s been so tough for us as families, because apparently they were held in the same place all those months,” Foley said.\n",
+          "start": 2968,
+          "end": 3167,
+          "context": "And yet, there was no movement on the U.S. side.  “Very specific information was available as early as mid-March. And that’s what’s been so tough for us as families, because apparently they were held in the same place all those months,” Foley said.\n Last August, after the administration disclosed the failed raid, National Security Adviser Ben Rhodes pushed back against the suggestion that the United States hadn’t done enough to win the release of the American captives.\n"
+        },
+        {
+          "id": "doc-7c93b0e065ec::sentence-82",
+          "documentId": "doc-7c93b0e065ec",
+          "text": "June 24, 2015: President Obama announces a change to the U.S. government hostage policy, which will no longer threaten the families of those held abroad with prosecution for raising ransom payments.",
+          "start": 11566,
+          "end": 11764,
+          "context": "The military raid also captures Sayyaf's wife, who confirms Kayla was repeatedly raped by ISIS's leader Abu Bakr al-Baghdadi.\n June 24, 2015: President Obama announces a change to the U.S. government hostage policy, which will no longer threaten the families of those held abroad with prosecution for raising ransom payments."
+        },
+        {
+          "id": "doc-7c93b0e065ec::sentence-27",
+          "documentId": "doc-7c93b0e065ec",
+          "text": "The White House denies the request.\n",
+          "start": 3839,
+          "end": 3875,
+          "context": "May 11, 2014: The Muellers, along with the families of other American hostages who had been captured by ISIS at that point, request a meeting with President Obama.  The White House denies the request.\n May 23, 2014: ISIS makes contact with the Muellers via email, offering to provide more proof of life by allowing Kayla to answer any three questions her parents choose.\n"
         }
       ]
     },
@@ -72,42 +107,207 @@
           "documentId": "doc-7c93b0e065ec",
           "text": "— -- American aid worker Kayla Mueller, 26, was kidnapped by the terror group ISIS in Syria in 2013 and held until she was killed 18 months later. ",
           "start": 0,
-          "end": 147
+          "end": 147,
+          "context": "— -- American aid worker Kayla Mueller, 26, was kidnapped by the terror group ISIS in Syria in 2013 and held until she was killed 18 months later.  A new investigation by ABC News' \"20/20\" reveals for the first time the behind-the-scenes struggle to get Kayla back and how Kayla's parents say they felt abandoned by the people who could have helped save their daughter, including the U.S. government.\n"
         },
         {
-          "id": "doc-7c93b0e065ec::sentence-10",
+          "id": "doc-7c93b0e065ec::sentence-61",
           "documentId": "doc-7c93b0e065ec",
-          "text": "December 2012: Kayla Mueller of Prescott, Arizona, who had already dedicated much of her life to humanitarian work around the world, travels to Turkey to help Syrian refugees. ",
-          "start": 1495,
-          "end": 1671
+          "text": "Sept. 19, 2014: After weeks of disconcerting unresponsiveness to the Muellers' pleas, ISIS sends an email about Kayla, telling her parents that she is alive and it is still possible to save her. ",
+          "start": 8509,
+          "end": 8704,
+          "context": "\"Please, I ask for your mercy.\"\n Sept. 19, 2014: After weeks of disconcerting unresponsiveness to the Muellers' pleas, ISIS sends an email about Kayla, telling her parents that she is alive and it is still possible to save her.  But another demand is added: The U.S. must stop its \"criminal bombardment\" of ISIS.\n"
         },
         {
-          "id": "doc-7db65afcd050::sentence-6",
+          "id": "doc-7db65afcd050::sentence-47",
           "documentId": "doc-7db65afcd050",
-          "text": "The captives included American journalists James Foley and Steven Sotloff, as well aid worker Kayla Mueller. ",
-          "start": 1065,
-          "end": 1174
-        },
-        {
-          "id": "doc-7c93b0e065ec::sentence-18",
-          "documentId": "doc-7c93b0e065ec",
-          "text": "The Doctors Without Borders worker is released a few weeks later, followed by Alkari, but over the next four months, Kayla is believed to have been kept in a series of ad hoc ISIS detention centers, where she is accused of being a spy and abused.\n",
-          "start": 2613,
-          "end": 2860
+          "text": "On Wednesday, reports surfaced that Mueller may have been given as a bride to an ISIS fighter. ",
+          "start": 7706,
+          "end": 7801,
+          "context": "“Alkhani” generally avoided writing about her after her capture, but in September 2013 posted, “My heart is in your detention cell/it lives your pain all day/you are not alone/you are not alone.”\n On Wednesday, reports surfaced that Mueller may have been given as a bride to an ISIS fighter.  But British sources questioned the claim, saying it was the first they had heard of it and it didn’t crop up in any “chatter they were monitoring” or in communications between London and Washington. "
         },
         {
           "id": "doc-7db65afcd050::sentence-29",
           "documentId": "doc-7db65afcd050",
           "text": "U.S. officials and Mueller’s family confirmed this week that she was killed while held hostage by ISIS, although the cause of her death has not been determined.\n",
           "start": 5477,
-          "end": 5638
+          "end": 5638,
+          "context": "The question of U.S. rescue efforts has taken center stage again with the death of Mueller, a 26-year-old aid worker who was taken captive in Syria in 2013.  U.S. officials and Mueller’s family confirmed this week that she was killed while held hostage by ISIS, although the cause of her death has not been determined.\n Questions are now being asked of Mueller’s then-boyfriend, who was with her when they and two others were snatched by ISIS after visiting a Doctors Without Borders hospital near Aleppo on Aug. 4, 2013. "
         },
         {
-          "id": "doc-7db65afcd050::sentence-30",
+          "id": "doc-37870187453f::sentence-32",
+          "documentId": "doc-37870187453f",
+          "text": "The purpose of the act was to save and create jobs and to provide relief to those most affected by the economic crisis of 2008-2009.\n",
+          "start": 3565,
+          "end": 3698,
+          "context": "The American Recovery and Reinvestment Act is signed into law by President Obama while in Denver, Colorado.  The purpose of the act was to save and create jobs and to provide relief to those most affected by the economic crisis of 2008-2009.\n The president overturns a rule that restricted the amount of federal money that could be used on embryonic stem cell research.\n"
+        },
+        {
+          "id": "doc-37870187453f::sentence-78",
+          "documentId": "doc-37870187453f",
+          "text": "Representative Gabrielle Giffords was shot in the head; she resigned her seat in the House to focus on her recovery. ",
+          "start": 8559,
+          "end": 8676,
+          "context": "At a constituent meeting in Tucson, Arizona, a gunman open fired, shooting 19 people, killing 6 of them.  Representative Gabrielle Giffords was shot in the head; she resigned her seat in the House to focus on her recovery.  The President and First Lady traveled to Tucson, and Obama offered his remarks during a memorial service for the victims.\n"
+        }
+      ]
+    },
+    {
+      "atomId": "atom-3",
+      "spans": [
+        {
+          "id": "doc-7c93b0e065ec::sentence-10",
+          "documentId": "doc-7c93b0e065ec",
+          "text": "December 2012: Kayla Mueller of Prescott, Arizona, who had already dedicated much of her life to humanitarian work around the world, travels to Turkey to help Syrian refugees. ",
+          "start": 1495,
+          "end": 1671,
+          "context": "At some point in 2011, the terror group formerly known as al Qaeda in Iraq slips into Syria, where it expands amid the chaos and in 2013 changes its name to the Islamic State of Iraq and Syria, or ISIS.\n December 2012: Kayla Mueller of Prescott, Arizona, who had already dedicated much of her life to humanitarian work around the world, travels to Turkey to help Syrian refugees.  A few months later, in the spring of 2013, she tells an Arizona newspaper, \"For as long as I live, I will not let this suffering be normal.\" "
+        },
+        {
+          "id": "doc-7c93b0e065ec::sentence-1",
+          "documentId": "doc-7c93b0e065ec",
+          "text": "— -- American aid worker Kayla Mueller, 26, was kidnapped by the terror group ISIS in Syria in 2013 and held until she was killed 18 months later. ",
+          "start": 0,
+          "end": 147,
+          "context": "— -- American aid worker Kayla Mueller, 26, was kidnapped by the terror group ISIS in Syria in 2013 and held until she was killed 18 months later.  A new investigation by ABC News' \"20/20\" reveals for the first time the behind-the-scenes struggle to get Kayla back and how Kayla's parents say they felt abandoned by the people who could have helped save their daughter, including the U.S. government.\n"
+        },
+        {
+          "id": "doc-7db65afcd050::sentence-6",
           "documentId": "doc-7db65afcd050",
-          "text": "Questions are now being asked of Mueller’s then-boyfriend, who was with her when they and two others were snatched by ISIS after visiting a Doctors Without Borders hospital near Aleppo on Aug. 4, 2013. ",
-          "start": 5638,
-          "end": 5840
+          "text": "The captives included American journalists James Foley and Steven Sotloff, as well aid worker Kayla Mueller. ",
+          "start": 1065,
+          "end": 1174,
+          "context": "But the British were not absolutely sure in which location the Westerners were held.  The captives included American journalists James Foley and Steven Sotloff, as well aid worker Kayla Mueller.  The information—based on debriefings of European captives who had been released, satellite and drone surveillance, and electronic eavesdropping—was not definitive in May.\n"
+        },
+        {
+          "id": "doc-7db65afcd050::sentence-29",
+          "documentId": "doc-7db65afcd050",
+          "text": "U.S. officials and Mueller’s family confirmed this week that she was killed while held hostage by ISIS, although the cause of her death has not been determined.\n",
+          "start": 5477,
+          "end": 5638,
+          "context": "The question of U.S. rescue efforts has taken center stage again with the death of Mueller, a 26-year-old aid worker who was taken captive in Syria in 2013.  U.S. officials and Mueller’s family confirmed this week that she was killed while held hostage by ISIS, although the cause of her death has not been determined.\n Questions are now being asked of Mueller’s then-boyfriend, who was with her when they and two others were snatched by ISIS after visiting a Doctors Without Borders hospital near Aleppo on Aug. 4, 2013. "
+        },
+        {
+          "id": "doc-37870187453f::sentence-37",
+          "documentId": "doc-37870187453f",
+          "text": "She is confirmed in August.\n",
+          "start": 4084,
+          "end": 4112,
+          "context": "Obama nominates federal judge Sonia Sotomayor to take over for retiring Justice David Souter.  She is confirmed in August.\n The president gives a speech at Cairo University in Egypt, discussing the U.S. relations with countries in the Middle East.\n"
+        },
+        {
+          "id": "doc-37870187453f::sentence-26",
+          "documentId": "doc-37870187453f",
+          "text": "Guantánamo Bay is a detention center where individuals considered to be a national threat to the United States are detained and questioned in controversial conditions. ",
+          "start": 2862,
+          "end": 3030,
+          "context": "Obama signs an executive order to close the U.S. military prison at Guantánamo Bay, Cuba, within one year.  Guantánamo Bay is a detention center where individuals considered to be a national threat to the United States are detained and questioned in controversial conditions.  His executive order encountered strong Congressional resistance, and the prison remained open after he left office.\n"
+        }
+      ]
+    },
+    {
+      "atomId": "atom-4",
+      "spans": [
+        {
+          "id": "doc-7c93b0e065ec::sentence-1",
+          "documentId": "doc-7c93b0e065ec",
+          "text": "— -- American aid worker Kayla Mueller, 26, was kidnapped by the terror group ISIS in Syria in 2013 and held until she was killed 18 months later. ",
+          "start": 0,
+          "end": 147,
+          "context": "— -- American aid worker Kayla Mueller, 26, was kidnapped by the terror group ISIS in Syria in 2013 and held until she was killed 18 months later.  A new investigation by ABC News' \"20/20\" reveals for the first time the behind-the-scenes struggle to get Kayla back and how Kayla's parents say they felt abandoned by the people who could have helped save their daughter, including the U.S. government.\n"
+        },
+        {
+          "id": "doc-7db65afcd050::sentence-29",
+          "documentId": "doc-7db65afcd050",
+          "text": "U.S. officials and Mueller’s family confirmed this week that she was killed while held hostage by ISIS, although the cause of her death has not been determined.\n",
+          "start": 5477,
+          "end": 5638,
+          "context": "The question of U.S. rescue efforts has taken center stage again with the death of Mueller, a 26-year-old aid worker who was taken captive in Syria in 2013.  U.S. officials and Mueller’s family confirmed this week that she was killed while held hostage by ISIS, although the cause of her death has not been determined.\n Questions are now being asked of Mueller’s then-boyfriend, who was with her when they and two others were snatched by ISIS after visiting a Doctors Without Borders hospital near Aleppo on Aug. 4, 2013. "
+        },
+        {
+          "id": "doc-7c93b0e065ec::sentence-52",
+          "documentId": "doc-7c93b0e065ec",
+          "text": "Aug. 19, 2014: A video appears online showing another American hostage, journalist James Foley, who is believed to have been held at same locations as Kayla, as he is beheaded by a black-clad ISIS fighter later dubbed \"Jihadi John.\" ",
+          "start": 7237,
+          "end": 7470,
+          "context": "Aug. 14, 2014: Kayla turns 26 years old.\n Aug. 19, 2014: A video appears online showing another American hostage, journalist James Foley, who is believed to have been held at same locations as Kayla, as he is beheaded by a black-clad ISIS fighter later dubbed \"Jihadi John.\"  The killer demands the U.S. stop airstrikes against ISIS targets and threatens the life of another American journalist, Steven Sotloff.\n"
+        },
+        {
+          "id": "doc-7db65afcd050::sentence-6",
+          "documentId": "doc-7db65afcd050",
+          "text": "The captives included American journalists James Foley and Steven Sotloff, as well aid worker Kayla Mueller. ",
+          "start": 1065,
+          "end": 1174,
+          "context": "But the British were not absolutely sure in which location the Westerners were held.  The captives included American journalists James Foley and Steven Sotloff, as well aid worker Kayla Mueller.  The information—based on debriefings of European captives who had been released, satellite and drone surveillance, and electronic eavesdropping—was not definitive in May.\n"
+        },
+        {
+          "id": "doc-37870187453f::sentence-26",
+          "documentId": "doc-37870187453f",
+          "text": "Guantánamo Bay is a detention center where individuals considered to be a national threat to the United States are detained and questioned in controversial conditions. ",
+          "start": 2862,
+          "end": 3030,
+          "context": "Obama signs an executive order to close the U.S. military prison at Guantánamo Bay, Cuba, within one year.  Guantánamo Bay is a detention center where individuals considered to be a national threat to the United States are detained and questioned in controversial conditions.  His executive order encountered strong Congressional resistance, and the prison remained open after he left office.\n"
+        },
+        {
+          "id": "doc-37870187453f::sentence-55",
+          "documentId": "doc-37870187453f",
+          "text": "The oil rig was leased by BP.\n",
+          "start": 6095,
+          "end": 6125,
+          "context": "An explosion on an oil rig off the coast of Louisiana results in 11 deaths and a massive oil spill in the Gulf of Mexico.  The oil rig was leased by BP.\n Obama delivers a eulogy for the 29 West Virginia coal miners who died in an explosion earlier in the month.\n"
+        }
+      ]
+    },
+    {
+      "atomId": "atom-5",
+      "spans": [
+        {
+          "id": "doc-7c93b0e065ec::sentence-1",
+          "documentId": "doc-7c93b0e065ec",
+          "text": "— -- American aid worker Kayla Mueller, 26, was kidnapped by the terror group ISIS in Syria in 2013 and held until she was killed 18 months later. ",
+          "start": 0,
+          "end": 147,
+          "context": "— -- American aid worker Kayla Mueller, 26, was kidnapped by the terror group ISIS in Syria in 2013 and held until she was killed 18 months later.  A new investigation by ABC News' \"20/20\" reveals for the first time the behind-the-scenes struggle to get Kayla back and how Kayla's parents say they felt abandoned by the people who could have helped save their daughter, including the U.S. government.\n"
+        },
+        {
+          "id": "doc-7c93b0e065ec::sentence-10",
+          "documentId": "doc-7c93b0e065ec",
+          "text": "December 2012: Kayla Mueller of Prescott, Arizona, who had already dedicated much of her life to humanitarian work around the world, travels to Turkey to help Syrian refugees. ",
+          "start": 1495,
+          "end": 1671,
+          "context": "At some point in 2011, the terror group formerly known as al Qaeda in Iraq slips into Syria, where it expands amid the chaos and in 2013 changes its name to the Islamic State of Iraq and Syria, or ISIS.\n December 2012: Kayla Mueller of Prescott, Arizona, who had already dedicated much of her life to humanitarian work around the world, travels to Turkey to help Syrian refugees.  A few months later, in the spring of 2013, she tells an Arizona newspaper, \"For as long as I live, I will not let this suffering be normal.\" "
+        },
+        {
+          "id": "doc-7db65afcd050::sentence-29",
+          "documentId": "doc-7db65afcd050",
+          "text": "U.S. officials and Mueller’s family confirmed this week that she was killed while held hostage by ISIS, although the cause of her death has not been determined.\n",
+          "start": 5477,
+          "end": 5638,
+          "context": "The question of U.S. rescue efforts has taken center stage again with the death of Mueller, a 26-year-old aid worker who was taken captive in Syria in 2013.  U.S. officials and Mueller’s family confirmed this week that she was killed while held hostage by ISIS, although the cause of her death has not been determined.\n Questions are now being asked of Mueller’s then-boyfriend, who was with her when they and two others were snatched by ISIS after visiting a Doctors Without Borders hospital near Aleppo on Aug. 4, 2013. "
+        },
+        {
+          "id": "doc-7db65afcd050::sentence-6",
+          "documentId": "doc-7db65afcd050",
+          "text": "The captives included American journalists James Foley and Steven Sotloff, as well aid worker Kayla Mueller. ",
+          "start": 1065,
+          "end": 1174,
+          "context": "But the British were not absolutely sure in which location the Westerners were held.  The captives included American journalists James Foley and Steven Sotloff, as well aid worker Kayla Mueller.  The information—based on debriefings of European captives who had been released, satellite and drone surveillance, and electronic eavesdropping—was not definitive in May.\n"
+        },
+        {
+          "id": "doc-37870187453f::sentence-83",
+          "documentId": "doc-37870187453f",
+          "text": "Obama announces the death of Osama Bin Laden, who was the leader of Al-Qaeda, the terrorist group that claimed responsibility for the U.S. terrorist attacks on September 11, 2001. ",
+          "start": 9133,
+          "end": 9313,
+          "context": "This order permits the United States to resume military trials for detainees\n Obama announces the death of Osama Bin Laden, who was the leader of Al-Qaeda, the terrorist group that claimed responsibility for the U.S. terrorist attacks on September 11, 2001.  (Bin Laden was killed on May 2, 2011, in Pakistan but it was still May 1 in the United States when the president announced his death.)\n"
+        },
+        {
+          "id": "doc-37870187453f::sentence-26",
+          "documentId": "doc-37870187453f",
+          "text": "Guantánamo Bay is a detention center where individuals considered to be a national threat to the United States are detained and questioned in controversial conditions. ",
+          "start": 2862,
+          "end": 3030,
+          "context": "Obama signs an executive order to close the U.S. military prison at Guantánamo Bay, Cuba, within one year.  Guantánamo Bay is a detention center where individuals considered to be a national threat to the United States are detained and questioned in controversial conditions.  His executive order encountered strong Congressional resistance, and the prison remained open after he left office.\n"
         }
       ]
     }
@@ -117,33 +317,33 @@
       "atomId": "atom-1",
       "relations": [
         {
-          "spanId": "doc-7c93b0e065ec::sentence-1",
-          "documentId": "doc-7c93b0e065ec",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-7c93b0e065ec::sentence-10",
-          "documentId": "doc-7c93b0e065ec",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-7c93b0e065ec::sentence-47",
-          "documentId": "doc-7c93b0e065ec",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-7db65afcd050::sentence-28",
-          "documentId": "doc-7db65afcd050",
-          "relation": "NEUTRAL"
-        },
-        {
           "spanId": "doc-7db65afcd050::sentence-27",
           "documentId": "doc-7db65afcd050",
           "relation": "NEUTRAL"
         },
         {
-          "spanId": "doc-7db65afcd050::sentence-6",
+          "spanId": "doc-37870187453f::sentence-22",
+          "documentId": "doc-37870187453f",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-37870187453f::sentence-23",
+          "documentId": "doc-37870187453f",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-7db65afcd050::sentence-18",
           "documentId": "doc-7db65afcd050",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-7c93b0e065ec::sentence-82",
+          "documentId": "doc-7c93b0e065ec",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-7c93b0e065ec::sentence-27",
+          "documentId": "doc-7c93b0e065ec",
           "relation": "NEUTRAL"
         }
       ]
@@ -157,9 +357,84 @@
           "relation": "NEUTRAL"
         },
         {
+          "spanId": "doc-7c93b0e065ec::sentence-61",
+          "documentId": "doc-7c93b0e065ec",
+          "relation": "ENTAILMENT"
+        },
+        {
+          "spanId": "doc-7db65afcd050::sentence-47",
+          "documentId": "doc-7db65afcd050",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-7db65afcd050::sentence-29",
+          "documentId": "doc-7db65afcd050",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-37870187453f::sentence-32",
+          "documentId": "doc-37870187453f",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-37870187453f::sentence-78",
+          "documentId": "doc-37870187453f",
+          "relation": "NEUTRAL"
+        }
+      ]
+    },
+    {
+      "atomId": "atom-3",
+      "relations": [
+        {
           "spanId": "doc-7c93b0e065ec::sentence-10",
           "documentId": "doc-7c93b0e065ec",
+          "relation": "ENTAILMENT"
+        },
+        {
+          "spanId": "doc-7c93b0e065ec::sentence-1",
+          "documentId": "doc-7c93b0e065ec",
+          "relation": "ENTAILMENT"
+        },
+        {
+          "spanId": "doc-7db65afcd050::sentence-6",
+          "documentId": "doc-7db65afcd050",
+          "relation": "ENTAILMENT"
+        },
+        {
+          "spanId": "doc-7db65afcd050::sentence-29",
+          "documentId": "doc-7db65afcd050",
+          "relation": "ENTAILMENT"
+        },
+        {
+          "spanId": "doc-37870187453f::sentence-37",
+          "documentId": "doc-37870187453f",
           "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-37870187453f::sentence-26",
+          "documentId": "doc-37870187453f",
+          "relation": "NEUTRAL"
+        }
+      ]
+    },
+    {
+      "atomId": "atom-4",
+      "relations": [
+        {
+          "spanId": "doc-7c93b0e065ec::sentence-1",
+          "documentId": "doc-7c93b0e065ec",
+          "relation": "ENTAILMENT"
+        },
+        {
+          "spanId": "doc-7db65afcd050::sentence-29",
+          "documentId": "doc-7db65afcd050",
+          "relation": "ENTAILMENT"
+        },
+        {
+          "spanId": "doc-7c93b0e065ec::sentence-52",
+          "documentId": "doc-7c93b0e065ec",
+          "relation": "ENTAILMENT"
         },
         {
           "spanId": "doc-7db65afcd050::sentence-6",
@@ -167,7 +442,27 @@
           "relation": "NEUTRAL"
         },
         {
-          "spanId": "doc-7c93b0e065ec::sentence-18",
+          "spanId": "doc-37870187453f::sentence-26",
+          "documentId": "doc-37870187453f",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-37870187453f::sentence-55",
+          "documentId": "doc-37870187453f",
+          "relation": "NEUTRAL"
+        }
+      ]
+    },
+    {
+      "atomId": "atom-5",
+      "relations": [
+        {
+          "spanId": "doc-7c93b0e065ec::sentence-1",
+          "documentId": "doc-7c93b0e065ec",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-7c93b0e065ec::sentence-10",
           "documentId": "doc-7c93b0e065ec",
           "relation": "NEUTRAL"
         },
@@ -177,28 +472,39 @@
           "relation": "NEUTRAL"
         },
         {
-          "spanId": "doc-7db65afcd050::sentence-30",
+          "spanId": "doc-7db65afcd050::sentence-6",
           "documentId": "doc-7db65afcd050",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-37870187453f::sentence-83",
+          "documentId": "doc-37870187453f",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-37870187453f::sentence-26",
+          "documentId": "doc-37870187453f",
           "relation": "NEUTRAL"
         }
       ]
     }
   ],
-  "linguistics": [
-    {
-      "atomId": "atom-1",
+  "linguistics": {
+    "schemaVersion": 2,
+    "claimAnalysis": {
+      "atomId": "claim",
       "frames": [
         {
-          "id": "atom-1-frame-1",
+          "id": "claim-frame-1",
           "predicate": {
-            "id": "atom-1-frame-1-predicate",
+            "id": "claim-frame-1-predicate",
             "text": "was",
             "start": 15,
             "end": 18
           },
           "subjects": [
             {
-              "id": "atom-1-frame-1-subject-1",
+              "id": "claim-frame-1-subject-1",
               "text": "Joe Biden",
               "start": 5,
               "end": 14
@@ -206,21 +512,21 @@
           ],
           "coreArguments": [
             {
-              "id": "atom-1-frame-1-argument-1",
+              "id": "claim-frame-1-argument-1",
               "text": "US vice",
               "start": 19,
               "end": 26,
               "role": "subject_complement"
             },
             {
-              "id": "atom-1-frame-1-argument-2",
+              "id": "claim-frame-1-argument-2",
               "text": "-",
               "start": 26,
               "end": 27,
               "role": "subject_complement"
             },
             {
-              "id": "atom-1-frame-1-argument-3",
+              "id": "claim-frame-1-argument-3",
               "text": "president",
               "start": 27,
               "end": 36,
@@ -229,7 +535,7 @@
           ],
           "adjuncts": [
             {
-              "id": "atom-1-frame-1-adjunct-1",
+              "id": "claim-frame-1-adjunct-1",
               "text": "When",
               "start": 0,
               "end": 4,
@@ -239,16 +545,16 @@
           "otherModifiers": []
         },
         {
-          "id": "atom-1-frame-2",
+          "id": "claim-frame-2",
           "predicate": {
-            "id": "atom-1-frame-2-predicate",
+            "id": "claim-frame-2-predicate",
             "text": "took",
             "start": 42,
             "end": 46
           },
           "subjects": [
             {
-              "id": "atom-1-frame-2-subject-1",
+              "id": "claim-frame-2-subject-1",
               "text": "they",
               "start": 37,
               "end": 41
@@ -256,23 +562,23 @@
           ],
           "coreArguments": [
             {
-              "id": "atom-1-frame-2-argument-1",
+              "id": "claim-frame-2-argument-1",
               "text": "a month",
               "start": 47,
               "end": 54,
               "role": "direct_object"
             },
             {
-              "id": "atom-1-frame-2-argument-2",
-              "text": "to act on information that might have saved Kayla Mueller, a humanitarian worker",
+              "id": "claim-frame-2-argument-2",
+              "text": "to act on information that might have saved Kayla Mueller, a humanitarian worker held hostage and sexually abused by the Islamic State terrorist group",
               "start": 55,
-              "end": 135,
+              "end": 205,
               "role": "clausal_complement"
             }
           ],
           "adjuncts": [
             {
-              "id": "atom-1-frame-2-adjunct-1",
+              "id": "claim-frame-2-adjunct-1",
               "text": "When Joe Biden was US vice-president",
               "start": 0,
               "end": 36,
@@ -282,9 +588,9 @@
           "otherModifiers": []
         },
         {
-          "id": "atom-1-frame-3",
+          "id": "claim-frame-3",
           "predicate": {
-            "id": "atom-1-frame-3-predicate",
+            "id": "claim-frame-3-predicate",
             "text": "act",
             "start": 58,
             "end": 61
@@ -294,56 +600,106 @@
           "adjuncts": [],
           "otherModifiers": [
             {
-              "id": "atom-1-frame-3-other-modifier-1",
-              "text": "on information that might have saved Kayla Mueller, a humanitarian worker",
+              "id": "claim-frame-3-other-modifier-1",
+              "text": "on information that might have saved Kayla Mueller, a humanitarian worker held hostage and sexually abused by the Islamic State terrorist group",
               "start": 62,
-              "end": 135
+              "end": 205
             }
           ]
+        },
+        {
+          "id": "claim-frame-4",
+          "predicate": {
+            "id": "claim-frame-4-predicate",
+            "text": "abused",
+            "start": 162,
+            "end": 168
+          },
+          "subjects": [
+            {
+              "id": "claim-frame-4-subject-1",
+              "text": "a humanitarian worker",
+              "start": 114,
+              "end": 135
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "claim-frame-4-argument-1",
+              "text": "by the Islamic State terrorist group",
+              "start": 169,
+              "end": 205,
+              "role": "passive_agent"
+            }
+          ],
+          "adjuncts": [
+            {
+              "id": "claim-frame-4-adjunct-1",
+              "text": "sexually",
+              "start": 153,
+              "end": 161,
+              "kind": "manner"
+            }
+          ],
+          "otherModifiers": []
         }
       ],
       "cues": [
         {
-          "id": "atom-1-cue-temporal-47-54",
+          "id": "claim-cue-temporal-47-54",
           "text": "a month",
           "start": 47,
           "end": 54,
           "kind": "temporal"
         },
         {
-          "id": "atom-1-cue-modality-82-87",
+          "id": "claim-cue-modality-82-87",
           "text": "might",
           "start": 82,
           "end": 87,
           "kind": "modality"
+        },
+        {
+          "id": "claim-cue-attribution-184-189",
+          "text": "State",
+          "start": 184,
+          "end": 189,
+          "kind": "attribution"
         }
       ],
       "entities": [
         {
-          "id": "atom-1-entity-person-5-14",
+          "id": "claim-entity-person-5-14",
           "text": "Joe Biden",
           "start": 5,
           "end": 14,
           "label": "PERSON"
         },
         {
-          "id": "atom-1-entity-gpe-19-21",
+          "id": "claim-entity-gpe-19-21",
           "text": "US",
           "start": 19,
           "end": 21,
           "label": "GPE"
         },
         {
-          "id": "atom-1-entity-person-99-112",
+          "id": "claim-entity-person-99-112",
           "text": "Kayla Mueller",
           "start": 99,
           "end": 112,
           "label": "PERSON"
+        },
+        {
+          "id": "claim-entity-norp-176-183",
+          "text": "Islamic",
+          "start": 176,
+          "end": 183,
+          "label": "NORP"
         }
       ],
       "tokens": [
         {
-          "id": "atom-1-token-0",
+          "id": "claim-token-0",
           "text": "When",
           "start": 0,
           "end": 4,
@@ -354,7 +710,7 @@
           "head": "was"
         },
         {
-          "id": "atom-1-token-1",
+          "id": "claim-token-1",
           "text": "Joe",
           "start": 5,
           "end": 8,
@@ -365,7 +721,7 @@
           "head": "Biden"
         },
         {
-          "id": "atom-1-token-2",
+          "id": "claim-token-2",
           "text": "Biden",
           "start": 9,
           "end": 14,
@@ -376,7 +732,7 @@
           "head": "was"
         },
         {
-          "id": "atom-1-token-3",
+          "id": "claim-token-3",
           "text": "was",
           "start": 15,
           "end": 18,
@@ -387,7 +743,7 @@
           "head": "took"
         },
         {
-          "id": "atom-1-token-4",
+          "id": "claim-token-4",
           "text": "US",
           "start": 19,
           "end": 21,
@@ -398,7 +754,7 @@
           "head": "vice"
         },
         {
-          "id": "atom-1-token-5",
+          "id": "claim-token-5",
           "text": "vice",
           "start": 22,
           "end": 26,
@@ -409,7 +765,7 @@
           "head": "was"
         },
         {
-          "id": "atom-1-token-6",
+          "id": "claim-token-6",
           "text": "-",
           "start": 26,
           "end": 27,
@@ -420,7 +776,7 @@
           "head": "was"
         },
         {
-          "id": "atom-1-token-7",
+          "id": "claim-token-7",
           "text": "president",
           "start": 27,
           "end": 36,
@@ -431,7 +787,7 @@
           "head": "was"
         },
         {
-          "id": "atom-1-token-8",
+          "id": "claim-token-8",
           "text": "they",
           "start": 37,
           "end": 41,
@@ -442,7 +798,7 @@
           "head": "took"
         },
         {
-          "id": "atom-1-token-9",
+          "id": "claim-token-9",
           "text": "took",
           "start": 42,
           "end": 46,
@@ -453,7 +809,7 @@
           "head": "ROOT"
         },
         {
-          "id": "atom-1-token-10",
+          "id": "claim-token-10",
           "text": "a",
           "start": 47,
           "end": 48,
@@ -464,7 +820,7 @@
           "head": "month"
         },
         {
-          "id": "atom-1-token-11",
+          "id": "claim-token-11",
           "text": "month",
           "start": 49,
           "end": 54,
@@ -475,7 +831,7 @@
           "head": "took"
         },
         {
-          "id": "atom-1-token-12",
+          "id": "claim-token-12",
           "text": "to",
           "start": 55,
           "end": 57,
@@ -486,7 +842,7 @@
           "head": "act"
         },
         {
-          "id": "atom-1-token-13",
+          "id": "claim-token-13",
           "text": "act",
           "start": 58,
           "end": 61,
@@ -497,7 +853,7 @@
           "head": "took"
         },
         {
-          "id": "atom-1-token-14",
+          "id": "claim-token-14",
           "text": "on",
           "start": 62,
           "end": 64,
@@ -508,7 +864,7 @@
           "head": "act"
         },
         {
-          "id": "atom-1-token-15",
+          "id": "claim-token-15",
           "text": "information",
           "start": 65,
           "end": 76,
@@ -519,7 +875,7 @@
           "head": "on"
         },
         {
-          "id": "atom-1-token-16",
+          "id": "claim-token-16",
           "text": "that",
           "start": 77,
           "end": 81,
@@ -530,7 +886,7 @@
           "head": "saved"
         },
         {
-          "id": "atom-1-token-17",
+          "id": "claim-token-17",
           "text": "might",
           "start": 82,
           "end": 87,
@@ -541,7 +897,7 @@
           "head": "saved"
         },
         {
-          "id": "atom-1-token-18",
+          "id": "claim-token-18",
           "text": "have",
           "start": 88,
           "end": 92,
@@ -552,7 +908,7 @@
           "head": "saved"
         },
         {
-          "id": "atom-1-token-19",
+          "id": "claim-token-19",
           "text": "saved",
           "start": 93,
           "end": 98,
@@ -563,7 +919,7 @@
           "head": "information"
         },
         {
-          "id": "atom-1-token-20",
+          "id": "claim-token-20",
           "text": "Kayla",
           "start": 99,
           "end": 104,
@@ -574,7 +930,7 @@
           "head": "Mueller"
         },
         {
-          "id": "atom-1-token-21",
+          "id": "claim-token-21",
           "text": "Mueller",
           "start": 105,
           "end": 112,
@@ -585,7 +941,7 @@
           "head": "saved"
         },
         {
-          "id": "atom-1-token-22",
+          "id": "claim-token-22",
           "text": ",",
           "start": 112,
           "end": 113,
@@ -596,7 +952,7 @@
           "head": "Mueller"
         },
         {
-          "id": "atom-1-token-23",
+          "id": "claim-token-23",
           "text": "a",
           "start": 114,
           "end": 115,
@@ -607,7 +963,7 @@
           "head": "worker"
         },
         {
-          "id": "atom-1-token-24",
+          "id": "claim-token-24",
           "text": "humanitarian",
           "start": 116,
           "end": 128,
@@ -618,191 +974,32 @@
           "head": "worker"
         },
         {
-          "id": "atom-1-token-25",
+          "id": "claim-token-25",
           "text": "worker",
           "start": 129,
           "end": 135,
           "lemma": "worker",
           "pos": "NOUN",
           "tag": "NN",
-          "dependency": "appos",
-          "head": "Mueller"
-        }
-      ],
-      "status": "partial",
-      "unresolved": [
-        "subject"
-      ]
-    },
-    {
-      "atomId": "atom-2",
-      "frames": [
-        {
-          "id": "atom-2-frame-1",
-          "predicate": {
-            "id": "atom-2-frame-1-predicate",
-            "text": "was",
-            "start": 14,
-            "end": 17
-          },
-          "subjects": [
-            {
-              "id": "atom-2-frame-1-subject-1",
-              "text": "Kayla Mueller",
-              "start": 0,
-              "end": 13
-            }
-          ],
-          "coreArguments": [
-            {
-              "id": "atom-2-frame-1-argument-1",
-              "text": "a humanitarian worker held hostage and sexually abused by the Islamic State terrorist group",
-              "start": 18,
-              "end": 109,
-              "role": "subject_complement"
-            }
-          ],
-          "adjuncts": [],
-          "otherModifiers": []
-        },
-        {
-          "id": "atom-2-frame-2",
-          "predicate": {
-            "id": "atom-2-frame-2-predicate",
-            "text": "abused",
-            "start": 66,
-            "end": 72
-          },
-          "subjects": [],
-          "coreArguments": [
-            {
-              "id": "atom-2-frame-2-argument-1",
-              "text": "by the Islamic State terrorist group",
-              "start": 73,
-              "end": 109,
-              "role": "passive_agent"
-            }
-          ],
-          "adjuncts": [
-            {
-              "id": "atom-2-frame-2-adjunct-1",
-              "text": "sexually",
-              "start": 57,
-              "end": 65,
-              "kind": "manner"
-            }
-          ],
-          "otherModifiers": []
-        }
-      ],
-      "cues": [
-        {
-          "id": "atom-2-cue-attribution-88-93",
-          "text": "State",
-          "start": 88,
-          "end": 93,
-          "kind": "attribution"
-        }
-      ],
-      "entities": [
-        {
-          "id": "atom-2-entity-person-0-13",
-          "text": "Kayla Mueller",
-          "start": 0,
-          "end": 13,
-          "label": "PERSON"
-        },
-        {
-          "id": "atom-2-entity-norp-80-87",
-          "text": "Islamic",
-          "start": 80,
-          "end": 87,
-          "label": "NORP"
-        }
-      ],
-      "tokens": [
-        {
-          "id": "atom-2-token-0",
-          "text": "Kayla",
-          "start": 0,
-          "end": 5,
-          "lemma": "Kayla",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "compound",
-          "head": "Mueller"
-        },
-        {
-          "id": "atom-2-token-1",
-          "text": "Mueller",
-          "start": 6,
-          "end": 13,
-          "lemma": "Mueller",
-          "pos": "PROPN",
-          "tag": "NNP",
           "dependency": "nsubj",
-          "head": "was"
+          "head": "held"
         },
         {
-          "id": "atom-2-token-2",
-          "text": "was",
-          "start": 14,
-          "end": 17,
-          "lemma": "be",
-          "pos": "AUX",
-          "tag": "VBD",
-          "dependency": "ROOT",
-          "head": "ROOT"
-        },
-        {
-          "id": "atom-2-token-3",
-          "text": "a",
-          "start": 18,
-          "end": 19,
-          "lemma": "a",
-          "pos": "DET",
-          "tag": "DT",
-          "dependency": "det",
-          "head": "worker"
-        },
-        {
-          "id": "atom-2-token-4",
-          "text": "humanitarian",
-          "start": 20,
-          "end": 32,
-          "lemma": "humanitarian",
-          "pos": "ADJ",
-          "tag": "JJ",
-          "dependency": "amod",
-          "head": "worker"
-        },
-        {
-          "id": "atom-2-token-5",
-          "text": "worker",
-          "start": 33,
-          "end": 39,
-          "lemma": "worker",
-          "pos": "NOUN",
-          "tag": "NN",
-          "dependency": "attr",
-          "head": "was"
-        },
-        {
-          "id": "atom-2-token-6",
+          "id": "claim-token-26",
           "text": "held",
-          "start": 40,
-          "end": 44,
+          "start": 136,
+          "end": 140,
           "lemma": "hold",
           "pos": "VERB",
           "tag": "VBD",
-          "dependency": "acl",
-          "head": "worker"
+          "dependency": "relcl",
+          "head": "Mueller"
         },
         {
-          "id": "atom-2-token-7",
+          "id": "claim-token-27",
           "text": "hostage",
-          "start": 45,
-          "end": 52,
+          "start": 141,
+          "end": 148,
           "lemma": "hostage",
           "pos": "NOUN",
           "tag": "NN",
@@ -810,10 +1007,10 @@
           "head": "held"
         },
         {
-          "id": "atom-2-token-8",
+          "id": "claim-token-28",
           "text": "and",
-          "start": 53,
-          "end": 56,
+          "start": 149,
+          "end": 152,
           "lemma": "and",
           "pos": "CCONJ",
           "tag": "CC",
@@ -821,10 +1018,10 @@
           "head": "held"
         },
         {
-          "id": "atom-2-token-9",
+          "id": "claim-token-29",
           "text": "sexually",
-          "start": 57,
-          "end": 65,
+          "start": 153,
+          "end": 161,
           "lemma": "sexually",
           "pos": "ADV",
           "tag": "RB",
@@ -832,10 +1029,10 @@
           "head": "abused"
         },
         {
-          "id": "atom-2-token-10",
+          "id": "claim-token-30",
           "text": "abused",
-          "start": 66,
-          "end": 72,
+          "start": 162,
+          "end": 168,
           "lemma": "abuse",
           "pos": "VERB",
           "tag": "VBN",
@@ -843,10 +1040,10 @@
           "head": "held"
         },
         {
-          "id": "atom-2-token-11",
+          "id": "claim-token-31",
           "text": "by",
-          "start": 73,
-          "end": 75,
+          "start": 169,
+          "end": 171,
           "lemma": "by",
           "pos": "ADP",
           "tag": "IN",
@@ -854,10 +1051,10 @@
           "head": "abused"
         },
         {
-          "id": "atom-2-token-12",
+          "id": "claim-token-32",
           "text": "the",
-          "start": 76,
-          "end": 79,
+          "start": 172,
+          "end": 175,
           "lemma": "the",
           "pos": "DET",
           "tag": "DT",
@@ -865,10 +1062,10 @@
           "head": "group"
         },
         {
-          "id": "atom-2-token-13",
+          "id": "claim-token-33",
           "text": "Islamic",
-          "start": 80,
-          "end": 87,
+          "start": 176,
+          "end": 183,
           "lemma": "Islamic",
           "pos": "PROPN",
           "tag": "NNP",
@@ -876,10 +1073,10 @@
           "head": "State"
         },
         {
-          "id": "atom-2-token-14",
+          "id": "claim-token-34",
           "text": "State",
-          "start": 88,
-          "end": 93,
+          "start": 184,
+          "end": 189,
           "lemma": "State",
           "pos": "PROPN",
           "tag": "NNP",
@@ -887,10 +1084,10 @@
           "head": "group"
         },
         {
-          "id": "atom-2-token-15",
+          "id": "claim-token-35",
           "text": "terrorist",
-          "start": 94,
-          "end": 103,
+          "start": 190,
+          "end": 199,
           "lemma": "terrorist",
           "pos": "NOUN",
           "tag": "NN",
@@ -898,10 +1095,10 @@
           "head": "group"
         },
         {
-          "id": "atom-2-token-16",
+          "id": "claim-token-36",
           "text": "group",
-          "start": 104,
-          "end": 109,
+          "start": 200,
+          "end": 205,
           "lemma": "group",
           "pos": "NOUN",
           "tag": "NN",
@@ -913,8 +1110,1139 @@
       "unresolved": [
         "subject"
       ]
-    }
-  ],
+    },
+    "analyses": [
+      {
+        "atomId": "atom-1",
+        "frames": [
+          {
+            "id": "atom-1-frame-1",
+            "predicate": {
+              "id": "atom-1-frame-1-predicate",
+              "text": "was",
+              "start": 15,
+              "end": 18
+            },
+            "subjects": [
+              {
+                "id": "atom-1-frame-1-subject-1",
+                "text": "Joe Biden",
+                "start": 5,
+                "end": 14
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-1-frame-1-argument-1",
+                "text": "US vice",
+                "start": 19,
+                "end": 26,
+                "role": "subject_complement"
+              },
+              {
+                "id": "atom-1-frame-1-argument-2",
+                "text": "-",
+                "start": 26,
+                "end": 27,
+                "role": "subject_complement"
+              },
+              {
+                "id": "atom-1-frame-1-argument-3",
+                "text": "president",
+                "start": 27,
+                "end": 36,
+                "role": "subject_complement"
+              }
+            ],
+            "adjuncts": [
+              {
+                "id": "atom-1-frame-1-adjunct-1",
+                "text": "When",
+                "start": 0,
+                "end": 4,
+                "kind": "temporal"
+              }
+            ],
+            "otherModifiers": []
+          },
+          {
+            "id": "atom-1-frame-2",
+            "predicate": {
+              "id": "atom-1-frame-2-predicate",
+              "text": "took",
+              "start": 42,
+              "end": 46
+            },
+            "subjects": [
+              {
+                "id": "atom-1-frame-2-subject-1",
+                "text": "they",
+                "start": 37,
+                "end": 41
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-1-frame-2-argument-1",
+                "text": "a month",
+                "start": 47,
+                "end": 54,
+                "role": "direct_object"
+              },
+              {
+                "id": "atom-1-frame-2-argument-2",
+                "text": "to act on information",
+                "start": 55,
+                "end": 76,
+                "role": "clausal_complement"
+              }
+            ],
+            "adjuncts": [
+              {
+                "id": "atom-1-frame-2-adjunct-1",
+                "text": "When Joe Biden was US vice-president",
+                "start": 0,
+                "end": 36,
+                "kind": "temporal"
+              }
+            ],
+            "otherModifiers": []
+          },
+          {
+            "id": "atom-1-frame-3",
+            "predicate": {
+              "id": "atom-1-frame-3-predicate",
+              "text": "act",
+              "start": 58,
+              "end": 61
+            },
+            "subjects": [],
+            "coreArguments": [],
+            "adjuncts": [],
+            "otherModifiers": [
+              {
+                "id": "atom-1-frame-3-other-modifier-1",
+                "text": "on information",
+                "start": 62,
+                "end": 76
+              }
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "atom-1-cue-temporal-47-54",
+            "text": "a month",
+            "start": 47,
+            "end": 54,
+            "kind": "temporal"
+          }
+        ],
+        "entities": [
+          {
+            "id": "atom-1-entity-person-5-14",
+            "text": "Joe Biden",
+            "start": 5,
+            "end": 14,
+            "label": "PERSON"
+          },
+          {
+            "id": "atom-1-entity-gpe-19-21",
+            "text": "US",
+            "start": 19,
+            "end": 21,
+            "label": "GPE"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-1-token-0",
+            "text": "When",
+            "start": 0,
+            "end": 4,
+            "lemma": "when",
+            "pos": "SCONJ",
+            "tag": "WRB",
+            "dependency": "advmod",
+            "head": "was"
+          },
+          {
+            "id": "atom-1-token-1",
+            "text": "Joe",
+            "start": 5,
+            "end": 8,
+            "lemma": "Joe",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Biden"
+          },
+          {
+            "id": "atom-1-token-2",
+            "text": "Biden",
+            "start": 9,
+            "end": 14,
+            "lemma": "Biden",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "nsubj",
+            "head": "was"
+          },
+          {
+            "id": "atom-1-token-3",
+            "text": "was",
+            "start": 15,
+            "end": 18,
+            "lemma": "be",
+            "pos": "AUX",
+            "tag": "VBD",
+            "dependency": "advcl",
+            "head": "took"
+          },
+          {
+            "id": "atom-1-token-4",
+            "text": "US",
+            "start": 19,
+            "end": 21,
+            "lemma": "US",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "vice"
+          },
+          {
+            "id": "atom-1-token-5",
+            "text": "vice",
+            "start": 22,
+            "end": 26,
+            "lemma": "vice",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "attr",
+            "head": "was"
+          },
+          {
+            "id": "atom-1-token-6",
+            "text": "-",
+            "start": 26,
+            "end": 27,
+            "lemma": "-",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "attr",
+            "head": "was"
+          },
+          {
+            "id": "atom-1-token-7",
+            "text": "president",
+            "start": 27,
+            "end": 36,
+            "lemma": "president",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "acomp",
+            "head": "was"
+          },
+          {
+            "id": "atom-1-token-8",
+            "text": "they",
+            "start": 37,
+            "end": 41,
+            "lemma": "they",
+            "pos": "PRON",
+            "tag": "PRP",
+            "dependency": "nsubj",
+            "head": "took"
+          },
+          {
+            "id": "atom-1-token-9",
+            "text": "took",
+            "start": 42,
+            "end": 46,
+            "lemma": "take",
+            "pos": "VERB",
+            "tag": "VBD",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-1-token-10",
+            "text": "a",
+            "start": 47,
+            "end": 48,
+            "lemma": "a",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "month"
+          },
+          {
+            "id": "atom-1-token-11",
+            "text": "month",
+            "start": 49,
+            "end": 54,
+            "lemma": "month",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "dobj",
+            "head": "took"
+          },
+          {
+            "id": "atom-1-token-12",
+            "text": "to",
+            "start": 55,
+            "end": 57,
+            "lemma": "to",
+            "pos": "PART",
+            "tag": "TO",
+            "dependency": "aux",
+            "head": "act"
+          },
+          {
+            "id": "atom-1-token-13",
+            "text": "act",
+            "start": 58,
+            "end": 61,
+            "lemma": "act",
+            "pos": "VERB",
+            "tag": "VB",
+            "dependency": "xcomp",
+            "head": "took"
+          },
+          {
+            "id": "atom-1-token-14",
+            "text": "on",
+            "start": 62,
+            "end": 64,
+            "lemma": "on",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "act"
+          },
+          {
+            "id": "atom-1-token-15",
+            "text": "information",
+            "start": 65,
+            "end": 76,
+            "lemma": "information",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "pobj",
+            "head": "on"
+          },
+          {
+            "id": "atom-1-token-16",
+            "text": ".",
+            "start": 76,
+            "end": 77,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "took"
+          }
+        ],
+        "status": "partial",
+        "unresolved": [
+          "subject"
+        ]
+      },
+      {
+        "atomId": "atom-2",
+        "frames": [
+          {
+            "id": "atom-2-frame-1",
+            "predicate": {
+              "id": "atom-2-frame-1-predicate",
+              "text": "saved",
+              "start": 27,
+              "end": 32
+            },
+            "subjects": [
+              {
+                "id": "atom-2-frame-1-subject-1",
+                "text": "The information",
+                "start": 0,
+                "end": 15
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-2-frame-1-argument-1",
+                "text": "Kayla Mueller",
+                "start": 33,
+                "end": 46,
+                "role": "direct_object"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [
+          {
+            "id": "atom-2-cue-modality-16-21",
+            "text": "might",
+            "start": 16,
+            "end": 21,
+            "kind": "modality"
+          }
+        ],
+        "entities": [
+          {
+            "id": "atom-2-entity-person-33-46",
+            "text": "Kayla Mueller",
+            "start": 33,
+            "end": 46,
+            "label": "PERSON"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-2-token-0",
+            "text": "The",
+            "start": 0,
+            "end": 3,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "information"
+          },
+          {
+            "id": "atom-2-token-1",
+            "text": "information",
+            "start": 4,
+            "end": 15,
+            "lemma": "information",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "nsubj",
+            "head": "saved"
+          },
+          {
+            "id": "atom-2-token-2",
+            "text": "might",
+            "start": 16,
+            "end": 21,
+            "lemma": "might",
+            "pos": "AUX",
+            "tag": "MD",
+            "dependency": "aux",
+            "head": "saved"
+          },
+          {
+            "id": "atom-2-token-3",
+            "text": "have",
+            "start": 22,
+            "end": 26,
+            "lemma": "have",
+            "pos": "AUX",
+            "tag": "VB",
+            "dependency": "aux",
+            "head": "saved"
+          },
+          {
+            "id": "atom-2-token-4",
+            "text": "saved",
+            "start": 27,
+            "end": 32,
+            "lemma": "save",
+            "pos": "VERB",
+            "tag": "VBN",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-2-token-5",
+            "text": "Kayla",
+            "start": 33,
+            "end": 38,
+            "lemma": "Kayla",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Mueller"
+          },
+          {
+            "id": "atom-2-token-6",
+            "text": "Mueller",
+            "start": 39,
+            "end": 46,
+            "lemma": "Mueller",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "dobj",
+            "head": "saved"
+          },
+          {
+            "id": "atom-2-token-7",
+            "text": ".",
+            "start": 46,
+            "end": 47,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "saved"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      },
+      {
+        "atomId": "atom-3",
+        "frames": [
+          {
+            "id": "atom-3-frame-1",
+            "predicate": {
+              "id": "atom-3-frame-1-predicate",
+              "text": "was",
+              "start": 14,
+              "end": 17
+            },
+            "subjects": [
+              {
+                "id": "atom-3-frame-1-subject-1",
+                "text": "Kayla Mueller",
+                "start": 0,
+                "end": 13
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-3-frame-1-argument-1",
+                "text": "a humanitarian worker",
+                "start": 18,
+                "end": 39,
+                "role": "subject_complement"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [],
+        "entities": [
+          {
+            "id": "atom-3-entity-person-0-13",
+            "text": "Kayla Mueller",
+            "start": 0,
+            "end": 13,
+            "label": "PERSON"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-3-token-0",
+            "text": "Kayla",
+            "start": 0,
+            "end": 5,
+            "lemma": "Kayla",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Mueller"
+          },
+          {
+            "id": "atom-3-token-1",
+            "text": "Mueller",
+            "start": 6,
+            "end": 13,
+            "lemma": "Mueller",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "nsubj",
+            "head": "was"
+          },
+          {
+            "id": "atom-3-token-2",
+            "text": "was",
+            "start": 14,
+            "end": 17,
+            "lemma": "be",
+            "pos": "AUX",
+            "tag": "VBD",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-3-token-3",
+            "text": "a",
+            "start": 18,
+            "end": 19,
+            "lemma": "a",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "worker"
+          },
+          {
+            "id": "atom-3-token-4",
+            "text": "humanitarian",
+            "start": 20,
+            "end": 32,
+            "lemma": "humanitarian",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "worker"
+          },
+          {
+            "id": "atom-3-token-5",
+            "text": "worker",
+            "start": 33,
+            "end": 39,
+            "lemma": "worker",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "attr",
+            "head": "was"
+          },
+          {
+            "id": "atom-3-token-6",
+            "text": ".",
+            "start": 39,
+            "end": 40,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "was"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      },
+      {
+        "atomId": "atom-4",
+        "frames": [
+          {
+            "id": "atom-4-frame-1",
+            "predicate": {
+              "id": "atom-4-frame-1-predicate",
+              "text": "held",
+              "start": 18,
+              "end": 22
+            },
+            "subjects": [
+              {
+                "id": "atom-4-frame-1-subject-1",
+                "text": "Kayla Mueller",
+                "start": 0,
+                "end": 13
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-4-frame-1-argument-1",
+                "text": "hostage",
+                "start": 23,
+                "end": 30,
+                "role": "object_complement"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [],
+        "entities": [
+          {
+            "id": "atom-4-entity-person-0-13",
+            "text": "Kayla Mueller",
+            "start": 0,
+            "end": 13,
+            "label": "PERSON"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-4-token-0",
+            "text": "Kayla",
+            "start": 0,
+            "end": 5,
+            "lemma": "Kayla",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Mueller"
+          },
+          {
+            "id": "atom-4-token-1",
+            "text": "Mueller",
+            "start": 6,
+            "end": 13,
+            "lemma": "Mueller",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "nsubjpass",
+            "head": "held"
+          },
+          {
+            "id": "atom-4-token-2",
+            "text": "was",
+            "start": 14,
+            "end": 17,
+            "lemma": "be",
+            "pos": "AUX",
+            "tag": "VBD",
+            "dependency": "auxpass",
+            "head": "held"
+          },
+          {
+            "id": "atom-4-token-3",
+            "text": "held",
+            "start": 18,
+            "end": 22,
+            "lemma": "hold",
+            "pos": "VERB",
+            "tag": "VBN",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-4-token-4",
+            "text": "hostage",
+            "start": 23,
+            "end": 30,
+            "lemma": "hostage",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "oprd",
+            "head": "held"
+          },
+          {
+            "id": "atom-4-token-5",
+            "text": ".",
+            "start": 30,
+            "end": 31,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "held"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      },
+      {
+        "atomId": "atom-5",
+        "frames": [
+          {
+            "id": "atom-5-frame-1",
+            "predicate": {
+              "id": "atom-5-frame-1-predicate",
+              "text": "abused",
+              "start": 27,
+              "end": 33
+            },
+            "subjects": [
+              {
+                "id": "atom-5-frame-1-subject-1",
+                "text": "Kayla Mueller",
+                "start": 0,
+                "end": 13
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-5-frame-1-argument-1",
+                "text": "by the Islamic State terrorist group",
+                "start": 34,
+                "end": 70,
+                "role": "passive_agent"
+              }
+            ],
+            "adjuncts": [
+              {
+                "id": "atom-5-frame-1-adjunct-1",
+                "text": "sexually",
+                "start": 18,
+                "end": 26,
+                "kind": "manner"
+              }
+            ],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [
+          {
+            "id": "atom-5-cue-attribution-49-54",
+            "text": "State",
+            "start": 49,
+            "end": 54,
+            "kind": "attribution"
+          }
+        ],
+        "entities": [
+          {
+            "id": "atom-5-entity-person-0-13",
+            "text": "Kayla Mueller",
+            "start": 0,
+            "end": 13,
+            "label": "PERSON"
+          },
+          {
+            "id": "atom-5-entity-norp-41-48",
+            "text": "Islamic",
+            "start": 41,
+            "end": 48,
+            "label": "NORP"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-5-token-0",
+            "text": "Kayla",
+            "start": 0,
+            "end": 5,
+            "lemma": "Kayla",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Mueller"
+          },
+          {
+            "id": "atom-5-token-1",
+            "text": "Mueller",
+            "start": 6,
+            "end": 13,
+            "lemma": "Mueller",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "nsubjpass",
+            "head": "abused"
+          },
+          {
+            "id": "atom-5-token-2",
+            "text": "was",
+            "start": 14,
+            "end": 17,
+            "lemma": "be",
+            "pos": "AUX",
+            "tag": "VBD",
+            "dependency": "auxpass",
+            "head": "abused"
+          },
+          {
+            "id": "atom-5-token-3",
+            "text": "sexually",
+            "start": 18,
+            "end": 26,
+            "lemma": "sexually",
+            "pos": "ADV",
+            "tag": "RB",
+            "dependency": "advmod",
+            "head": "abused"
+          },
+          {
+            "id": "atom-5-token-4",
+            "text": "abused",
+            "start": 27,
+            "end": 33,
+            "lemma": "abuse",
+            "pos": "VERB",
+            "tag": "VBN",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-5-token-5",
+            "text": "by",
+            "start": 34,
+            "end": 36,
+            "lemma": "by",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "agent",
+            "head": "abused"
+          },
+          {
+            "id": "atom-5-token-6",
+            "text": "the",
+            "start": 37,
+            "end": 40,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "group"
+          },
+          {
+            "id": "atom-5-token-7",
+            "text": "Islamic",
+            "start": 41,
+            "end": 48,
+            "lemma": "Islamic",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "State"
+          },
+          {
+            "id": "atom-5-token-8",
+            "text": "State",
+            "start": 49,
+            "end": 54,
+            "lemma": "State",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "nmod",
+            "head": "group"
+          },
+          {
+            "id": "atom-5-token-9",
+            "text": "terrorist",
+            "start": 55,
+            "end": 64,
+            "lemma": "terrorist",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "amod",
+            "head": "group"
+          },
+          {
+            "id": "atom-5-token-10",
+            "text": "group",
+            "start": 65,
+            "end": 70,
+            "lemma": "group",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "pobj",
+            "head": "by"
+          },
+          {
+            "id": "atom-5-token-11",
+            "text": ".",
+            "start": 70,
+            "end": 71,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "abused"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      }
+    ],
+    "summaries": [
+      {
+        "atomId": "atom-1",
+        "analysisStatus": "partial",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "Joe Biden",
+          "they"
+        ],
+        "predicates": [
+          "be",
+          "take",
+          "act"
+        ],
+        "cueKinds": [
+          "temporal"
+        ],
+        "modifierKinds": [
+          "temporal"
+        ],
+        "entityLabels": [
+          "PERSON",
+          "GPE"
+        ],
+        "warnings": [
+          "MULTIPLE_PROPOSITION_FRAMES",
+          "UNRESOLVED_SUBJECT",
+          "PARTIAL_LINGUISTIC_ANALYSIS",
+          "QUALIFIER_ATTACHMENT_UNCLEAR"
+        ]
+      },
+      {
+        "atomId": "atom-2",
+        "analysisStatus": "complete",
+        "roleAudit": "MISMATCH",
+        "subjects": [
+          "The information"
+        ],
+        "predicates": [
+          "save"
+        ],
+        "cueKinds": [
+          "modality"
+        ],
+        "modifierKinds": [],
+        "entityLabels": [
+          "PERSON"
+        ],
+        "warnings": [
+          "ROLE_CUE_MISMATCH"
+        ]
+      },
+      {
+        "atomId": "atom-3",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "Kayla Mueller"
+        ],
+        "predicates": [
+          "be"
+        ],
+        "cueKinds": [],
+        "modifierKinds": [],
+        "entityLabels": [
+          "PERSON"
+        ],
+        "warnings": []
+      },
+      {
+        "atomId": "atom-4",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "Kayla Mueller"
+        ],
+        "predicates": [
+          "hold"
+        ],
+        "cueKinds": [],
+        "modifierKinds": [],
+        "entityLabels": [
+          "PERSON"
+        ],
+        "warnings": []
+      },
+      {
+        "atomId": "atom-5",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "Kayla Mueller"
+        ],
+        "predicates": [
+          "abuse"
+        ],
+        "cueKinds": [
+          "attribution"
+        ],
+        "modifierKinds": [
+          "manner"
+        ],
+        "entityLabels": [
+          "PERSON",
+          "NORP"
+        ],
+        "warnings": []
+      }
+    ],
+    "claimWarnings": [],
+    "provider": "spacy",
+    "model": "en_core_web_sm@3.8.0"
+  },
+  "verdict": {
+    "aggregationSchemaVersion": 1,
+    "claimId": "averitec-dev-0145",
+    "composition": "AND",
+    "verdict": "NOT_ENOUGH_EVIDENCE",
+    "positions": {
+      "supportPosition": false,
+      "attackPosition": false,
+      "supportObligationIds": [
+        "atom-2",
+        "atom-3",
+        "atom-4"
+      ],
+      "attackObligationIds": [],
+      "unresolvedObligationIds": [
+        "atom-1",
+        "atom-5"
+      ]
+    },
+    "obligations": [
+      {
+        "obligationId": "atom-1",
+        "state": "UNRESOLVED",
+        "supportEdgeIds": [],
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 6
+      },
+      {
+        "obligationId": "atom-2",
+        "state": "SUPPORTED",
+        "supportEdgeIds": [
+          "edge:SUPPORTS:evidence:doc-7c93b0e065ec:doc-7c93b0e065ec::sentence-61:obligation:averitec-dev-0145:atom-2"
+        ],
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 5
+      },
+      {
+        "obligationId": "atom-3",
+        "state": "SUPPORTED",
+        "supportEdgeIds": [
+          "edge:SUPPORTS:evidence:doc-7c93b0e065ec:doc-7c93b0e065ec::sentence-10:obligation:averitec-dev-0145:atom-3",
+          "edge:SUPPORTS:evidence:doc-7c93b0e065ec:doc-7c93b0e065ec::sentence-1:obligation:averitec-dev-0145:atom-3",
+          "edge:SUPPORTS:evidence:doc-7db65afcd050:doc-7db65afcd050::sentence-6:obligation:averitec-dev-0145:atom-3",
+          "edge:SUPPORTS:evidence:doc-7db65afcd050:doc-7db65afcd050::sentence-29:obligation:averitec-dev-0145:atom-3"
+        ],
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 2
+      },
+      {
+        "obligationId": "atom-4",
+        "state": "SUPPORTED",
+        "supportEdgeIds": [
+          "edge:SUPPORTS:evidence:doc-7c93b0e065ec:doc-7c93b0e065ec::sentence-1:obligation:averitec-dev-0145:atom-4",
+          "edge:SUPPORTS:evidence:doc-7db65afcd050:doc-7db65afcd050::sentence-29:obligation:averitec-dev-0145:atom-4",
+          "edge:SUPPORTS:evidence:doc-7c93b0e065ec:doc-7c93b0e065ec::sentence-52:obligation:averitec-dev-0145:atom-4"
+        ],
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 3
+      },
+      {
+        "obligationId": "atom-5",
+        "state": "UNRESOLVED",
+        "supportEdgeIds": [],
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 6
+      }
+    ],
+    "warnings": [
+      {
+        "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
+        "message": "Obligation atom-1 has no supporting or attacking evidence."
+      },
+      {
+        "code": "ONLY_NEUTRAL_CANDIDATES",
+        "message": "Obligation atom-1 has only neutral retrieved candidates."
+      },
+      {
+        "code": "PARTIAL_LINGUISTIC_ANALYSIS",
+        "message": "Linguistic analysis for obligation atom-1 requires inspection; it does not change the verdict."
+      },
+      {
+        "code": "LINGUISTIC_AUDIT_WARNING",
+        "message": "Linguistic analysis for obligation atom-2 requires inspection; it does not change the verdict."
+      },
+      {
+        "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
+        "message": "Obligation atom-5 has no supporting or attacking evidence."
+      },
+      {
+        "code": "ONLY_NEUTRAL_CANDIDATES",
+        "message": "Obligation atom-5 has only neutral retrieved candidates."
+      }
+    ],
+    "ruleTrace": [
+      "AND support requires support for every obligation; AND attack requires an attack on any obligation.",
+      "Support position: no; attack position: no.",
+      "Final verdict: NOT_ENOUGH_EVIDENCE."
+    ]
+  },
   "recordedWith": {
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",

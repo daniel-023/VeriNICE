@@ -16,6 +16,35 @@ from walkthrough_cases import CURATED_CASE_IDS
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT = ROOT / "data" / "walkthrough" / "runs"
+_AGGREGATION_SCHEMA = "VerdictAggregationRequest"
+
+
+def validate_api_contract(openapi: dict[str, Any]) -> None:
+    """Fail before inference when the running backend predates this recorder.
+
+    Local Uvicorn processes do not reload source changes by default.  In that
+    situation the recorder and the checked-in schemas can disagree even though
+    both are individually valid, and the mismatch otherwise appears only after
+    the expensive decomposition/retrieval/NLI stages have run.
+    """
+    schemas = openapi.get("components", {}).get("schemas", {})
+    aggregation = schemas.get(_AGGREGATION_SCHEMA)
+    if not isinstance(aggregation, dict):
+        raise RuntimeError(
+            "The running backend does not expose the current verdict aggregation API. "
+            "Stop the local VeriGraph process, run ./run-verigraph --start again, "
+            "then retry recording."
+        )
+
+    properties = aggregation.get("properties", {})
+    required = set(aggregation.get("required", []))
+    if "claim" in properties or "claim" in required or "claimId" not in properties:
+        raise RuntimeError(
+            "The running backend is stale: its verdict aggregation request schema "
+            "does not match the current pipeline. Stop it with Ctrl-C, run "
+            "./run-verigraph --start again, then rerun ./run-verigraph "
+            "--record-walkthrough."
+        )
 
 
 async def request(client: httpx.AsyncClient, method: str, path: str, **kwargs: Any) -> Any:
@@ -72,6 +101,19 @@ async def record_case(client: httpx.AsyncClient, case_id: str) -> dict[str, Any]
         "/api/v1/classify-support",
         json={"atoms": atoms, "evidence": retrieval["evidence"]},
     )
+    verdict = await request(
+        client,
+        "POST",
+        "/api/v1/aggregate-verdict",
+        json={
+            "claimId": case_id,
+            "composition": decomposition["composition"],
+            "atoms": decomposition["atoms"],
+            "evidence": retrieval["evidence"],
+            "classifications": nli["classifications"],
+            "linguisticSummaries": linguistics["summaries"],
+        },
+    )
     return {
         "caseId": case_id,
         "schemaVersion": decomposition["schemaVersion"],
@@ -81,6 +123,7 @@ async def record_case(client: httpx.AsyncClient, case_id: str) -> dict[str, Any]
         "evidence": retrieval["evidence"],
         "classifications": nli["classifications"],
         "linguistics": linguistics,
+        "verdict": verdict,
         "recordedWith": {
             "decompositionModel": decomposition["model"],
             "retrievalModel": retrieval["model"],
@@ -108,6 +151,8 @@ async def main_async() -> int:
 
     args.output.mkdir(parents=True, exist_ok=True)
     async with httpx.AsyncClient(base_url=args.api, timeout=args.timeout) as client:
+        openapi = await request(client, "GET", "/openapi.json")
+        validate_api_contract(openapi)
         catalog = await request(client, "GET", "/api/v1/demo-cases")
         selected = args.case_ids or (
             [item["id"] for item in catalog] if args.all else list(CURATED_CASE_IDS)

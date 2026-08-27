@@ -1,19 +1,16 @@
 {
   "caseId": "averitec-dev-0392",
+  "schemaVersion": 2,
+  "composition": "SINGLE",
+  "warnings": [],
   "atoms": [
     {
       "id": "atom-1",
-      "text": "The sky has turned orange in several parts of the United States.",
+      "text": "The sky has turned orange to blood red in several parts of the United States.",
       "sourceText": "The sky has turned orange to blood red in several parts of the United States.",
       "start": 0,
-      "end": 77
-    },
-    {
-      "id": "atom-2",
-      "text": "The sky has turned blood red in several parts of the United States.",
-      "sourceText": "The sky has turned orange to blood red in several parts of the United States.",
-      "start": 0,
-      "end": 77
+      "end": 77,
+      "role": "CORE"
     }
   ],
   "evidence": [
@@ -25,89 +22,48 @@
           "documentId": "doc-7d4923c19c25",
           "text": "This causes the red and orange colored sky.\n",
           "start": 4836,
-          "end": 4880
+          "end": 4880,
+          "context": "If there a sufficient amount of smoke, Mie scattering will dominate over Rayleigh scattering, which is how light is primarily scattered in the atmosphere.  This causes the red and orange colored sky.\n In the early afternoon, S-NPP flew over the region at near nadir at approximately 2:35pm AEDT on 31 December 2019. "
+        },
+        {
+          "id": "doc-7d4923c19c25::sentence-7",
+          "documentId": "doc-7d4923c19c25",
+          "text": "The scene has been described as apocalyptic, with the sky literally turning dark orange and blood red. ",
+          "start": 448,
+          "end": 551,
+          "context": "Over 4000 people were forced to seek refuge on the beach and even boats in the water yesterday as deadly blazes closed in.  The scene has been described as apocalyptic, with the sky literally turning dark orange and blood red.  In addition, there have been at least 2 confirmed fatalities as a result of this wildfire.\n"
         },
         {
           "id": "doc-4cbdb3ff10fa::sentence-16",
           "documentId": "doc-4cbdb3ff10fa",
           "text": "That's a phenomenon called Mie scattering, and it's why skies turn orange and red due to wildfire smoke (it doesn't have to do with the color of the flames themselves).\n",
           "start": 1660,
-          "end": 1829
-        },
-        {
-          "id": "doc-149989fb127e::sentence-10",
-          "documentId": "doc-149989fb127e",
-          "text": "“Because the sun is low on the horizon, sunlight passes through more air at sunset and sunrise than during the day, when the sun is higher in the sky. More atmosphere means more molecules to scatter the violet and blue light away from your eyes. If the path is long enough, all of the blue and violet light scatters out of your line of sight. The other colors continue on their way to your eyes. This is why sunsets are often yellow, orange, and red.”\n",
-          "start": 834,
-          "end": 1286
-        },
-        {
-          "id": "doc-7d4923c19c25::sentence-40",
-          "documentId": "doc-7d4923c19c25",
-          "text": "The reason for the sky turning red is the way smoke particles scatter sunlight. ",
-          "start": 4475,
-          "end": 4555
-        },
-        {
-          "id": "doc-7d4923c19c25::sentence-7",
-          "documentId": "doc-7d4923c19c25",
-          "text": "The scene has been described as apocalyptic, with the sky literally turning dark orange and blood red. ",
-          "start": 448,
-          "end": 551
-        },
-        {
-          "id": "doc-4cbdb3ff10fa::sentence-12",
-          "documentId": "doc-4cbdb3ff10fa",
-          "text": "Wildfire smoke causes these striking changes to the sky because sunlight interacts with particles in the atmosphere and scatters differently depending on how it hits them. ",
-          "start": 1085,
-          "end": 1257
-        }
-      ]
-    },
-    {
-      "atomId": "atom-2",
-      "spans": [
-        {
-          "id": "doc-7d4923c19c25::sentence-43",
-          "documentId": "doc-7d4923c19c25",
-          "text": "This causes the red and orange colored sky.\n",
-          "start": 4836,
-          "end": 4880
-        },
-        {
-          "id": "doc-7d4923c19c25::sentence-40",
-          "documentId": "doc-7d4923c19c25",
-          "text": "The reason for the sky turning red is the way smoke particles scatter sunlight. ",
-          "start": 4475,
-          "end": 4555
-        },
-        {
-          "id": "doc-7d4923c19c25::sentence-7",
-          "documentId": "doc-7d4923c19c25",
-          "text": "The scene has been described as apocalyptic, with the sky literally turning dark orange and blood red. ",
-          "start": 448,
-          "end": 551
+          "end": 1829,
+          "context": "Particles from smoke, meanwhile — like volatile organic compounds, dust, and soot — are much larger than gas molecules, and they scatter light with longer wavelengths.  That's a phenomenon called Mie scattering, and it's why skies turn orange and red due to wildfire smoke (it doesn't have to do with the color of the flames themselves).\n From Washington to San Francisco, here are nine striking and apocalyptic images of the smoke-discolored skies.\n"
         },
         {
           "id": "doc-4cbdb3ff10fa::sentence-26",
           "documentId": "doc-4cbdb3ff10fa",
           "text": "In the area around the Sumner Grade Fire in Sumner, Washington, a blood-red sky surrounded the setting sun.\n",
           "start": 2839,
-          "end": 2947
+          "end": 2947,
+          "context": "Just north of San Francisco, the town of Sausalito was also blanketed in orange.\n In the area around the Sumner Grade Fire in Sumner, Washington, a blood-red sky surrounded the setting sun.\n And in Seattle and Mercer Island, Washington, smoke from multiple brushfires turned the sunset over Lake Washington a dull purple.\n"
         },
         {
-          "id": "doc-4cbdb3ff10fa::sentence-16",
-          "documentId": "doc-4cbdb3ff10fa",
-          "text": "That's a phenomenon called Mie scattering, and it's why skies turn orange and red due to wildfire smoke (it doesn't have to do with the color of the flames themselves).\n",
-          "start": 1660,
-          "end": 1829
+          "id": "doc-149989fb127e::sentence-10",
+          "documentId": "doc-149989fb127e",
+          "text": "“Because the sun is low on the horizon, sunlight passes through more air at sunset and sunrise than during the day, when the sun is higher in the sky. More atmosphere means more molecules to scatter the violet and blue light away from your eyes. If the path is long enough, all of the blue and violet light scatters out of your line of sight. The other colors continue on their way to your eyes. This is why sunsets are often yellow, orange, and red.”\n",
+          "start": 834,
+          "end": 1286,
+          "context": "Scattering also explains the colors of the sunrise and sunset, Ackerman says.\n “Because the sun is low on the horizon, sunlight passes through more air at sunset and sunrise than during the day, when the sun is higher in the sky. More atmosphere means more molecules to scatter the violet and blue light away from your eyes. If the path is long enough, all of the blue and violet light scatters out of your line of sight. The other colors continue on their way to your eyes. This is why sunsets are often yellow, orange, and red.”\n And because red has the longest wavelength of any visible light, the sun is red when it’s on the horizon, where its extremely long path through the atmosphere blocks all other colors.\n"
         },
         {
-          "id": "doc-4cbdb3ff10fa::sentence-12",
-          "documentId": "doc-4cbdb3ff10fa",
-          "text": "Wildfire smoke causes these striking changes to the sky because sunlight interacts with particles in the atmosphere and scatters differently depending on how it hits them. ",
-          "start": 1085,
-          "end": 1257
+          "id": "doc-149989fb127e::sentence-11",
+          "documentId": "doc-149989fb127e",
+          "text": "And because red has the longest wavelength of any visible light, the sun is red when it’s on the horizon, where its extremely long path through the atmosphere blocks all other colors.\n",
+          "start": 1286,
+          "end": 1470,
+          "context": "“Because the sun is low on the horizon, sunlight passes through more air at sunset and sunrise than during the day, when the sun is higher in the sky. More atmosphere means more molecules to scatter the violet and blue light away from your eyes. If the path is long enough, all of the blue and violet light scatters out of your line of sight. The other colors continue on their way to your eyes. This is why sunsets are often yellow, orange, and red.”\n And because red has the longest wavelength of any visible light, the sun is red when it’s on the horizon, where its extremely long path through the atmosphere blocks all other colors.\n Tags: curiosities, weather"
         }
       ]
     }
@@ -122,9 +78,19 @@
           "relation": "NEUTRAL"
         },
         {
+          "spanId": "doc-7d4923c19c25::sentence-7",
+          "documentId": "doc-7d4923c19c25",
+          "relation": "NEUTRAL"
+        },
+        {
           "spanId": "doc-4cbdb3ff10fa::sentence-16",
           "documentId": "doc-4cbdb3ff10fa",
           "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-4cbdb3ff10fa::sentence-26",
+          "documentId": "doc-4cbdb3ff10fa",
+          "relation": "ENTAILMENT"
         },
         {
           "spanId": "doc-149989fb127e::sentence-10",
@@ -132,73 +98,29 @@
           "relation": "NEUTRAL"
         },
         {
-          "spanId": "doc-7d4923c19c25::sentence-40",
-          "documentId": "doc-7d4923c19c25",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-7d4923c19c25::sentence-7",
-          "documentId": "doc-7d4923c19c25",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-4cbdb3ff10fa::sentence-12",
-          "documentId": "doc-4cbdb3ff10fa",
-          "relation": "NEUTRAL"
-        }
-      ]
-    },
-    {
-      "atomId": "atom-2",
-      "relations": [
-        {
-          "spanId": "doc-7d4923c19c25::sentence-43",
-          "documentId": "doc-7d4923c19c25",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-7d4923c19c25::sentence-40",
-          "documentId": "doc-7d4923c19c25",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-7d4923c19c25::sentence-7",
-          "documentId": "doc-7d4923c19c25",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-4cbdb3ff10fa::sentence-26",
-          "documentId": "doc-4cbdb3ff10fa",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-4cbdb3ff10fa::sentence-16",
-          "documentId": "doc-4cbdb3ff10fa",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-4cbdb3ff10fa::sentence-12",
-          "documentId": "doc-4cbdb3ff10fa",
+          "spanId": "doc-149989fb127e::sentence-11",
+          "documentId": "doc-149989fb127e",
           "relation": "NEUTRAL"
         }
       ]
     }
   ],
-  "linguistics": [
-    {
-      "atomId": "atom-1",
+  "linguistics": {
+    "schemaVersion": 2,
+    "claimAnalysis": {
+      "atomId": "claim",
       "frames": [
         {
-          "id": "atom-1-frame-1",
+          "id": "claim-frame-1",
           "predicate": {
-            "id": "atom-1-frame-1-predicate",
+            "id": "claim-frame-1-predicate",
             "text": "turned",
             "start": 12,
             "end": 18
           },
           "subjects": [
             {
-              "id": "atom-1-frame-1-subject-1",
+              "id": "claim-frame-1-subject-1",
               "text": "The sky",
               "start": 0,
               "end": 7
@@ -206,45 +128,45 @@
           ],
           "coreArguments": [
             {
-              "id": "atom-1-frame-1-argument-1",
-              "text": "orange",
+              "id": "claim-frame-1-argument-1",
+              "text": "orange to blood",
               "start": 19,
-              "end": 25,
+              "end": 34,
+              "role": "object_complement"
+            },
+            {
+              "id": "claim-frame-1-argument-2",
+              "text": "red in several parts of the United States",
+              "start": 35,
+              "end": 76,
               "role": "object_complement"
             }
           ],
           "adjuncts": [],
-          "otherModifiers": [
-            {
-              "id": "atom-1-frame-1-other-modifier-1",
-              "text": "in several parts of the United States",
-              "start": 26,
-              "end": 63
-            }
-          ]
+          "otherModifiers": []
         }
       ],
       "cues": [
         {
-          "id": "atom-1-cue-quantifier-29-36",
+          "id": "claim-cue-quantifier-42-49",
           "text": "several",
-          "start": 29,
-          "end": 36,
+          "start": 42,
+          "end": 49,
           "kind": "quantifier"
         }
       ],
       "entities": [
         {
-          "id": "atom-1-entity-gpe-46-63",
+          "id": "claim-entity-gpe-59-76",
           "text": "the United States",
-          "start": 46,
-          "end": 63,
+          "start": 59,
+          "end": 76,
           "label": "GPE"
         }
       ],
       "tokens": [
         {
-          "id": "atom-1-token-0",
+          "id": "claim-token-0",
           "text": "The",
           "start": 0,
           "end": 3,
@@ -255,7 +177,7 @@
           "head": "sky"
         },
         {
-          "id": "atom-1-token-1",
+          "id": "claim-token-1",
           "text": "sky",
           "start": 4,
           "end": 7,
@@ -266,7 +188,7 @@
           "head": "turned"
         },
         {
-          "id": "atom-1-token-2",
+          "id": "claim-token-2",
           "text": "has",
           "start": 8,
           "end": 11,
@@ -277,7 +199,7 @@
           "head": "turned"
         },
         {
-          "id": "atom-1-token-3",
+          "id": "claim-token-3",
           "text": "turned",
           "start": 12,
           "end": 18,
@@ -288,7 +210,7 @@
           "head": "ROOT"
         },
         {
-          "id": "atom-1-token-4",
+          "id": "claim-token-4",
           "text": "orange",
           "start": 19,
           "end": 25,
@@ -299,21 +221,54 @@
           "head": "turned"
         },
         {
-          "id": "atom-1-token-5",
-          "text": "in",
+          "id": "claim-token-5",
+          "text": "to",
           "start": 26,
           "end": 28,
+          "lemma": "to",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "orange"
+        },
+        {
+          "id": "claim-token-6",
+          "text": "blood",
+          "start": 29,
+          "end": 34,
+          "lemma": "blood",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "pobj",
+          "head": "to"
+        },
+        {
+          "id": "claim-token-7",
+          "text": "red",
+          "start": 35,
+          "end": 38,
+          "lemma": "red",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "oprd",
+          "head": "turned"
+        },
+        {
+          "id": "claim-token-8",
+          "text": "in",
+          "start": 39,
+          "end": 41,
           "lemma": "in",
           "pos": "ADP",
           "tag": "IN",
           "dependency": "prep",
-          "head": "turned"
+          "head": "red"
         },
         {
-          "id": "atom-1-token-6",
+          "id": "claim-token-9",
           "text": "several",
-          "start": 29,
-          "end": 36,
+          "start": 42,
+          "end": 49,
           "lemma": "several",
           "pos": "ADJ",
           "tag": "JJ",
@@ -321,10 +276,10 @@
           "head": "parts"
         },
         {
-          "id": "atom-1-token-7",
+          "id": "claim-token-10",
           "text": "parts",
-          "start": 37,
-          "end": 42,
+          "start": 50,
+          "end": 55,
           "lemma": "part",
           "pos": "NOUN",
           "tag": "NNS",
@@ -332,10 +287,10 @@
           "head": "in"
         },
         {
-          "id": "atom-1-token-8",
+          "id": "claim-token-11",
           "text": "of",
-          "start": 43,
-          "end": 45,
+          "start": 56,
+          "end": 58,
           "lemma": "of",
           "pos": "ADP",
           "tag": "IN",
@@ -343,10 +298,10 @@
           "head": "parts"
         },
         {
-          "id": "atom-1-token-9",
+          "id": "claim-token-12",
           "text": "the",
-          "start": 46,
-          "end": 49,
+          "start": 59,
+          "end": 62,
           "lemma": "the",
           "pos": "DET",
           "tag": "DT",
@@ -354,10 +309,10 @@
           "head": "States"
         },
         {
-          "id": "atom-1-token-10",
+          "id": "claim-token-13",
           "text": "United",
-          "start": 50,
-          "end": 56,
+          "start": 63,
+          "end": 69,
           "lemma": "United",
           "pos": "PROPN",
           "tag": "NNP",
@@ -365,10 +320,10 @@
           "head": "States"
         },
         {
-          "id": "atom-1-token-11",
+          "id": "claim-token-14",
           "text": "States",
-          "start": 57,
-          "end": 63,
+          "start": 70,
+          "end": 76,
           "lemma": "States",
           "pos": "PROPN",
           "tag": "NNP",
@@ -376,10 +331,10 @@
           "head": "of"
         },
         {
-          "id": "atom-1-token-12",
+          "id": "claim-token-15",
           "text": ".",
-          "start": 63,
-          "end": 64,
+          "start": 76,
+          "end": 77,
           "lemma": ".",
           "pos": "PUNCT",
           "tag": ".",
@@ -390,223 +345,303 @@
       "status": "complete",
       "unresolved": []
     },
-    {
-      "atomId": "atom-2",
-      "frames": [
-        {
-          "id": "atom-2-frame-1",
-          "predicate": {
-            "id": "atom-2-frame-1-predicate",
+    "analyses": [
+      {
+        "atomId": "atom-1",
+        "frames": [
+          {
+            "id": "atom-1-frame-1",
+            "predicate": {
+              "id": "atom-1-frame-1-predicate",
+              "text": "turned",
+              "start": 12,
+              "end": 18
+            },
+            "subjects": [
+              {
+                "id": "atom-1-frame-1-subject-1",
+                "text": "The sky",
+                "start": 0,
+                "end": 7
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-1-frame-1-argument-1",
+                "text": "orange to blood",
+                "start": 19,
+                "end": 34,
+                "role": "object_complement"
+              },
+              {
+                "id": "atom-1-frame-1-argument-2",
+                "text": "red in several parts of the United States",
+                "start": 35,
+                "end": 76,
+                "role": "object_complement"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [
+          {
+            "id": "atom-1-cue-quantifier-42-49",
+            "text": "several",
+            "start": 42,
+            "end": 49,
+            "kind": "quantifier"
+          }
+        ],
+        "entities": [
+          {
+            "id": "atom-1-entity-gpe-59-76",
+            "text": "the United States",
+            "start": 59,
+            "end": 76,
+            "label": "GPE"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-1-token-0",
+            "text": "The",
+            "start": 0,
+            "end": 3,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "sky"
+          },
+          {
+            "id": "atom-1-token-1",
+            "text": "sky",
+            "start": 4,
+            "end": 7,
+            "lemma": "sky",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "nsubj",
+            "head": "turned"
+          },
+          {
+            "id": "atom-1-token-2",
+            "text": "has",
+            "start": 8,
+            "end": 11,
+            "lemma": "have",
+            "pos": "AUX",
+            "tag": "VBZ",
+            "dependency": "aux",
+            "head": "turned"
+          },
+          {
+            "id": "atom-1-token-3",
             "text": "turned",
             "start": 12,
-            "end": 18
+            "end": 18,
+            "lemma": "turn",
+            "pos": "VERB",
+            "tag": "VBN",
+            "dependency": "ROOT",
+            "head": "ROOT"
           },
-          "subjects": [
-            {
-              "id": "atom-2-frame-1-subject-1",
-              "text": "The sky",
-              "start": 0,
-              "end": 7
-            }
-          ],
-          "coreArguments": [
-            {
-              "id": "atom-2-frame-1-argument-1",
-              "text": "blood",
-              "start": 19,
-              "end": 24,
-              "role": "direct_object"
-            },
-            {
-              "id": "atom-2-frame-1-argument-2",
-              "text": "red in several parts of the United States",
-              "start": 25,
-              "end": 66,
-              "role": "object_complement"
-            }
-          ],
-          "adjuncts": [],
-          "otherModifiers": []
-        }
+          {
+            "id": "atom-1-token-4",
+            "text": "orange",
+            "start": 19,
+            "end": 25,
+            "lemma": "orange",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "oprd",
+            "head": "turned"
+          },
+          {
+            "id": "atom-1-token-5",
+            "text": "to",
+            "start": 26,
+            "end": 28,
+            "lemma": "to",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "orange"
+          },
+          {
+            "id": "atom-1-token-6",
+            "text": "blood",
+            "start": 29,
+            "end": 34,
+            "lemma": "blood",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "pobj",
+            "head": "to"
+          },
+          {
+            "id": "atom-1-token-7",
+            "text": "red",
+            "start": 35,
+            "end": 38,
+            "lemma": "red",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "oprd",
+            "head": "turned"
+          },
+          {
+            "id": "atom-1-token-8",
+            "text": "in",
+            "start": 39,
+            "end": 41,
+            "lemma": "in",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "red"
+          },
+          {
+            "id": "atom-1-token-9",
+            "text": "several",
+            "start": 42,
+            "end": 49,
+            "lemma": "several",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "parts"
+          },
+          {
+            "id": "atom-1-token-10",
+            "text": "parts",
+            "start": 50,
+            "end": 55,
+            "lemma": "part",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "pobj",
+            "head": "in"
+          },
+          {
+            "id": "atom-1-token-11",
+            "text": "of",
+            "start": 56,
+            "end": 58,
+            "lemma": "of",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "parts"
+          },
+          {
+            "id": "atom-1-token-12",
+            "text": "the",
+            "start": 59,
+            "end": 62,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "States"
+          },
+          {
+            "id": "atom-1-token-13",
+            "text": "United",
+            "start": 63,
+            "end": 69,
+            "lemma": "United",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "States"
+          },
+          {
+            "id": "atom-1-token-14",
+            "text": "States",
+            "start": 70,
+            "end": 76,
+            "lemma": "States",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "pobj",
+            "head": "of"
+          },
+          {
+            "id": "atom-1-token-15",
+            "text": ".",
+            "start": 76,
+            "end": 77,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "turned"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      }
+    ],
+    "summaries": [
+      {
+        "atomId": "atom-1",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "The sky"
+        ],
+        "predicates": [
+          "turn"
+        ],
+        "cueKinds": [
+          "quantifier"
+        ],
+        "modifierKinds": [],
+        "entityLabels": [
+          "GPE"
+        ],
+        "warnings": []
+      }
+    ],
+    "claimWarnings": [],
+    "provider": "spacy",
+    "model": "en_core_web_sm@3.8.0"
+  },
+  "verdict": {
+    "aggregationSchemaVersion": 1,
+    "claimId": "averitec-dev-0392",
+    "composition": "SINGLE",
+    "verdict": "SUPPORTED",
+    "positions": {
+      "supportPosition": true,
+      "attackPosition": false,
+      "supportObligationIds": [
+        "atom-1"
       ],
-      "cues": [
-        {
-          "id": "atom-2-cue-quantifier-32-39",
-          "text": "several",
-          "start": 32,
-          "end": 39,
-          "kind": "quantifier"
-        }
-      ],
-      "entities": [
-        {
-          "id": "atom-2-entity-gpe-49-66",
-          "text": "the United States",
-          "start": 49,
-          "end": 66,
-          "label": "GPE"
-        }
-      ],
-      "tokens": [
-        {
-          "id": "atom-2-token-0",
-          "text": "The",
-          "start": 0,
-          "end": 3,
-          "lemma": "the",
-          "pos": "DET",
-          "tag": "DT",
-          "dependency": "det",
-          "head": "sky"
-        },
-        {
-          "id": "atom-2-token-1",
-          "text": "sky",
-          "start": 4,
-          "end": 7,
-          "lemma": "sky",
-          "pos": "NOUN",
-          "tag": "NN",
-          "dependency": "nsubj",
-          "head": "turned"
-        },
-        {
-          "id": "atom-2-token-2",
-          "text": "has",
-          "start": 8,
-          "end": 11,
-          "lemma": "have",
-          "pos": "AUX",
-          "tag": "VBZ",
-          "dependency": "aux",
-          "head": "turned"
-        },
-        {
-          "id": "atom-2-token-3",
-          "text": "turned",
-          "start": 12,
-          "end": 18,
-          "lemma": "turn",
-          "pos": "VERB",
-          "tag": "VBN",
-          "dependency": "ROOT",
-          "head": "ROOT"
-        },
-        {
-          "id": "atom-2-token-4",
-          "text": "blood",
-          "start": 19,
-          "end": 24,
-          "lemma": "blood",
-          "pos": "NOUN",
-          "tag": "NN",
-          "dependency": "dobj",
-          "head": "turned"
-        },
-        {
-          "id": "atom-2-token-5",
-          "text": "red",
-          "start": 25,
-          "end": 28,
-          "lemma": "red",
-          "pos": "ADJ",
-          "tag": "JJ",
-          "dependency": "oprd",
-          "head": "turned"
-        },
-        {
-          "id": "atom-2-token-6",
-          "text": "in",
-          "start": 29,
-          "end": 31,
-          "lemma": "in",
-          "pos": "ADP",
-          "tag": "IN",
-          "dependency": "prep",
-          "head": "red"
-        },
-        {
-          "id": "atom-2-token-7",
-          "text": "several",
-          "start": 32,
-          "end": 39,
-          "lemma": "several",
-          "pos": "ADJ",
-          "tag": "JJ",
-          "dependency": "amod",
-          "head": "parts"
-        },
-        {
-          "id": "atom-2-token-8",
-          "text": "parts",
-          "start": 40,
-          "end": 45,
-          "lemma": "part",
-          "pos": "NOUN",
-          "tag": "NNS",
-          "dependency": "pobj",
-          "head": "in"
-        },
-        {
-          "id": "atom-2-token-9",
-          "text": "of",
-          "start": 46,
-          "end": 48,
-          "lemma": "of",
-          "pos": "ADP",
-          "tag": "IN",
-          "dependency": "prep",
-          "head": "parts"
-        },
-        {
-          "id": "atom-2-token-10",
-          "text": "the",
-          "start": 49,
-          "end": 52,
-          "lemma": "the",
-          "pos": "DET",
-          "tag": "DT",
-          "dependency": "det",
-          "head": "States"
-        },
-        {
-          "id": "atom-2-token-11",
-          "text": "United",
-          "start": 53,
-          "end": 59,
-          "lemma": "United",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "compound",
-          "head": "States"
-        },
-        {
-          "id": "atom-2-token-12",
-          "text": "States",
-          "start": 60,
-          "end": 66,
-          "lemma": "States",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "pobj",
-          "head": "of"
-        },
-        {
-          "id": "atom-2-token-13",
-          "text": ".",
-          "start": 66,
-          "end": 67,
-          "lemma": ".",
-          "pos": "PUNCT",
-          "tag": ".",
-          "dependency": "punct",
-          "head": "turned"
-        }
-      ],
-      "status": "complete",
-      "unresolved": []
-    }
-  ],
+      "attackObligationIds": [],
+      "unresolvedObligationIds": []
+    },
+    "obligations": [
+      {
+        "obligationId": "atom-1",
+        "state": "SUPPORTED",
+        "supportEdgeIds": [
+          "edge:SUPPORTS:evidence:doc-4cbdb3ff10fa:doc-4cbdb3ff10fa::sentence-26:obligation:averitec-dev-0392:atom-1"
+        ],
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 5
+      }
+    ],
+    "warnings": [],
+    "ruleTrace": [
+      "SINGLE uses its only obligation's support and attack positions.",
+      "Support position: yes; attack position: no.",
+      "Final verdict: SUPPORTED."
+    ]
+  },
   "recordedWith": {
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",

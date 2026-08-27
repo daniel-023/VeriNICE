@@ -1,26 +1,32 @@
 {
   "caseId": "averitec-dev-0495",
+  "schemaVersion": 2,
+  "composition": "AND",
+  "warnings": [],
   "atoms": [
     {
       "id": "atom-1",
       "text": "This Democratic Party of Joe Biden is pushing the so-called Green New Deal.",
       "sourceText": "This Democratic Party of Joe Biden is pushing the so-called Green New Deal.",
       "start": 0,
-      "end": 75
+      "end": 75,
+      "role": "CORE"
     },
     {
       "id": "atom-2",
-      "text": "They would essentially ban animal agriculture.",
-      "sourceText": "If given power, they would essentially ban animal agriculture and eliminate gas-powered cars.",
-      "start": 76,
-      "end": 169
+      "text": "If given power they would essentially ban animal agriculture.",
+      "sourceText": "they would essentially ban animal agriculture",
+      "start": 92,
+      "end": 137,
+      "role": "CONDITIONAL"
     },
     {
       "id": "atom-3",
-      "text": "They would eliminate gas-powered cars.",
-      "sourceText": "If given power, they would essentially ban animal agriculture and eliminate gas-powered cars.",
-      "start": 76,
-      "end": 169
+      "text": "If given power they would eliminate gas-powered cars.",
+      "sourceText": "eliminate gas-powered cars",
+      "start": 142,
+      "end": 168,
+      "role": "CONDITIONAL"
     }
   ],
   "evidence": [
@@ -32,42 +38,48 @@
           "documentId": "doc-f70c7d8aac56",
           "text": "The Sunrise Movement, which supported Vermont Sen. Bernie Sanders in the Democratic primary, in April called on Biden to adopt the frameworks of the Green New Deal. ",
           "start": 7277,
-          "end": 7442
+          "end": 7442,
+          "context": "He added that including a fee on imports would \"get other countries to join us in fixing the economics of free dumping into the trash dump of the sky.\"\n The Sunrise Movement, which supported Vermont Sen. Bernie Sanders in the Democratic primary, in April called on Biden to adopt the frameworks of the Green New Deal.  When Biden released the new plan July 14, the group tweeted its support.\n"
         },
         {
           "id": "doc-5e4a01b775ac::sentence-7",
           "documentId": "doc-5e4a01b775ac",
           "text": "What is the Green New Deal?\n",
           "start": 691,
-          "end": 719
+          "end": 719,
+          "context": "What the candidate positions (including Trump) are on the Green New Deal\n What is the Green New Deal?\n The Democratic debate over environmental issues has centered heavily around the Green New Deal, a plan to rapidly switch to clean energy to head off the worst projected effects of climate change.\n"
         },
         {
           "id": "doc-5e4a01b775ac::sentence-8",
           "documentId": "doc-5e4a01b775ac",
           "text": "The Democratic debate over environmental issues has centered heavily around the Green New Deal, a plan to rapidly switch to clean energy to head off the worst projected effects of climate change.\n",
           "start": 719,
-          "end": 915
-        },
-        {
-          "id": "doc-5e4a01b775ac::sentence-49",
-          "documentId": "doc-5e4a01b775ac",
-          "text": "Democratic candidates have put out a wide range of environmental plans so far, some of which cite the Green New Deal as an influence, that often have overlapping features.\n",
-          "start": 8363,
-          "end": 8535
+          "end": 915,
+          "context": "What is the Green New Deal?\n The Democratic debate over environmental issues has centered heavily around the Green New Deal, a plan to rapidly switch to clean energy to head off the worst projected effects of climate change.\n However, unlike other ideas that Democrats are discussing on the campaign trail, the Green New Deal is not a clear policy proposal in and of itself. "
         },
         {
           "id": "doc-f70c7d8aac56::sentence-67",
           "documentId": "doc-f70c7d8aac56",
           "text": "Joe Biden for President, Joe’s Plan for a Clean Energy Revolution and Environmental Justice, accessed July 21, 2020\n",
           "start": 8078,
-          "end": 8194
+          "end": 8194,
+          "context": "C-SPAN, Joe Biden Remarks on Energy Policy in Wilmington, Delaware, July 14, 2020\n Joe Biden for President, Joe’s Plan for a Clean Energy Revolution and Environmental Justice, accessed July 21, 2020\n Joe Biden for President, Build Back Better: Joe Biden’s Jobs and Economic Recovery Plan for Working Families, accessed July 21, 2020\n"
         },
         {
           "id": "doc-af46153b534f::sentence-41",
           "documentId": "doc-af46153b534f",
           "text": "For instance, the Green New Deal proposed by Democrats calls for phasing out carbon-emitting vehicles within a decade — which would require not only very fast production of electric vehicles but also a sudden withdrawal of combustion vehicles from roads.\n",
           "start": 4078,
-          "end": 4333
+          "end": 4333,
+          "context": "That's what environmental activists want, for the sake of curbing climate change.  For instance, the Green New Deal proposed by Democrats calls for phasing out carbon-emitting vehicles within a decade — which would require not only very fast production of electric vehicles but also a sudden withdrawal of combustion vehicles from roads.\n That's an ambitious target. "
+        },
+        {
+          "id": "doc-af46153b534f::sentence-40",
+          "documentId": "doc-af46153b534f",
+          "text": "That's what environmental activists want, for the sake of curbing climate change. ",
+          "start": 3996,
+          "end": 4078,
+          "context": "One possibility is that they might get replaced quite quickly with electric vehicles.\n That's what environmental activists want, for the sake of curbing climate change.  For instance, the Green New Deal proposed by Democrats calls for phasing out carbon-emitting vehicles within a decade — which would require not only very fast production of electric vehicles but also a sudden withdrawal of combustion vehicles from roads.\n"
         }
       ]
     },
@@ -79,42 +91,48 @@
           "documentId": "doc-af46153b534f",
           "text": "That's what environmental activists want, for the sake of curbing climate change. ",
           "start": 3996,
-          "end": 4078
-        },
-        {
-          "id": "doc-5e4a01b775ac::sentence-57",
-          "documentId": "doc-5e4a01b775ac",
-          "text": "In general, they’ve also pledged to pursue rules that would require power plants, buildings, and vehicles to slash pollution, jumping off efforts by President Barack Obama that Trump halted or reversed and taking them further.\n",
-          "start": 9780,
-          "end": 10007
+          "end": 4078,
+          "context": "One possibility is that they might get replaced quite quickly with electric vehicles.\n That's what environmental activists want, for the sake of curbing climate change.  For instance, the Green New Deal proposed by Democrats calls for phasing out carbon-emitting vehicles within a decade — which would require not only very fast production of electric vehicles but also a sudden withdrawal of combustion vehicles from roads.\n"
         },
         {
           "id": "doc-af46153b534f::sentence-39",
           "documentId": "doc-af46153b534f",
           "text": "One possibility is that they might get replaced quite quickly with electric vehicles.\n",
           "start": 3910,
-          "end": 3996
+          "end": 3996,
+          "context": "The next question is, what happens to all the combustion vehicles already on the road?\n One possibility is that they might get replaced quite quickly with electric vehicles.\n That's what environmental activists want, for the sake of curbing climate change. "
+        },
+        {
+          "id": "doc-5e4a01b775ac::sentence-57",
+          "documentId": "doc-5e4a01b775ac",
+          "text": "In general, they’ve also pledged to pursue rules that would require power plants, buildings, and vehicles to slash pollution, jumping off efforts by President Barack Obama that Trump halted or reversed and taking them further.\n",
+          "start": 9780,
+          "end": 10007,
+          "context": "Every Democratic candidate has pledged to rejoin the Paris Climate agreement, with some saying they would try to set its targets even higher.  In general, they’ve also pledged to pursue rules that would require power plants, buildings, and vehicles to slash pollution, jumping off efforts by President Barack Obama that Trump halted or reversed and taking them further.\n Sanders has gone the furthest in this regard, pledging to run all transportation and power on renewable energy by 2030. "
         },
         {
           "id": "doc-5e4a01b775ac::sentence-30",
           "documentId": "doc-5e4a01b775ac",
           "text": "If the United States and other countries tackle the problem too slowly, it could require them to either accept more devastating consequences from climate change or make sudden and more drastic sacrifices to head them off. ",
           "start": 4986,
-          "end": 5208
+          "end": 5208,
+          "context": "Green New Deal advocates argue that the scale of the problem requires massive coordinated action across the government and private sector and that by tackling the issue as soon as possible, the changes can be implemented in ways that would benefit Americans by creating jobs, providing cleaner air and water, and expanding the safety net.\n If the United States and other countries tackle the problem too slowly, it could require them to either accept more devastating consequences from climate change or make sudden and more drastic sacrifices to head them off.  That could also make the necessary solutions less politically palatable, hindering their goals even further.\n"
+        },
+        {
+          "id": "doc-f70c7d8aac56::sentence-9",
+          "documentId": "doc-f70c7d8aac56",
+          "text": "The plan’s big goals are to eradicate carbon pollution from the power sector by 2035 and to achieve net-zero emissions by 2050.\n",
+          "start": 325,
+          "end": 453,
+          "context": "-\n The plan’s big goals are to eradicate carbon pollution from the power sector by 2035 and to achieve net-zero emissions by 2050.\n -\n"
         },
         {
           "id": "doc-f70c7d8aac56::sentence-52",
           "documentId": "doc-f70c7d8aac56",
           "text": "For all the proposals Biden wants to implement to fight climate change, some climate activists say his plan doesn’t go far enough to reduce carbon emissions and protect Indigenous lands from fossil fuel pollution.\n",
           "start": 5925,
-          "end": 6139
-        },
-        {
-          "id": "doc-5e4a01b775ac::sentence-31",
-          "documentId": "doc-5e4a01b775ac",
-          "text": "That could also make the necessary solutions less politically palatable, hindering their goals even further.\n",
-          "start": 5208,
-          "end": 5317
+          "end": 6139,
+          "context": "\"It is a go to the moon project to get people to work,\" Inslee said July 14 on MSNBC’s \"Andrea Mitchell Reports.\" \"This would have been a good plan a year ago. It’s a great plan now, because it answers the needs of the moment.\"\n For all the proposals Biden wants to implement to fight climate change, some climate activists say his plan doesn’t go far enough to reduce carbon emissions and protect Indigenous lands from fossil fuel pollution.\n The plan’s focus on carbon capture and removal technology is one of the \"false solutions\" throughout Biden’s agenda, said Tom Goldtooth, executive director of the Indigenous Environmental Network. "
         }
       ]
     },
@@ -126,42 +144,48 @@
           "documentId": "doc-af46153b534f",
           "text": "On the other hand, gas-powered cars are cheaper to buy than electric vehicles. ",
           "start": 2356,
-          "end": 2435
-        },
-        {
-          "id": "doc-af46153b534f::sentence-39",
-          "documentId": "doc-af46153b534f",
-          "text": "One possibility is that they might get replaced quite quickly with electric vehicles.\n",
-          "start": 3910,
-          "end": 3996
+          "end": 2435,
+          "context": "\"They're enjoyable, they're quiet ... and there's loads of torque\" — which means instant acceleration, he says.\n On the other hand, gas-powered cars are cheaper to buy than electric vehicles.  It's also quicker to fill up at the pump than it is to recharge, and the country is packed with gas stations, while charging station infrastructure is still in its infancy.\n"
         },
         {
           "id": "doc-af46153b534f::sentence-1",
           "documentId": "doc-af46153b534f",
           "text": "As More Electric Cars Arrive, What's The Future For Gas-Powered Engines?\n",
           "start": 0,
-          "end": 73
+          "end": 73,
+          "context": "As More Electric Cars Arrive, What's The Future For Gas-Powered Engines?\n As More Electric Cars Arrive, What's The Future For Gas-Powered Engines?\n"
         },
         {
           "id": "doc-5e4a01b775ac::sentence-57",
           "documentId": "doc-5e4a01b775ac",
           "text": "In general, they’ve also pledged to pursue rules that would require power plants, buildings, and vehicles to slash pollution, jumping off efforts by President Barack Obama that Trump halted or reversed and taking them further.\n",
           "start": 9780,
-          "end": 10007
+          "end": 10007,
+          "context": "Every Democratic candidate has pledged to rejoin the Paris Climate agreement, with some saying they would try to set its targets even higher.  In general, they’ve also pledged to pursue rules that would require power plants, buildings, and vehicles to slash pollution, jumping off efforts by President Barack Obama that Trump halted or reversed and taking them further.\n Sanders has gone the furthest in this regard, pledging to run all transportation and power on renewable energy by 2030. "
         },
         {
           "id": "doc-f70c7d8aac56::sentence-9",
           "documentId": "doc-f70c7d8aac56",
           "text": "The plan’s big goals are to eradicate carbon pollution from the power sector by 2035 and to achieve net-zero emissions by 2050.\n",
           "start": 325,
-          "end": 453
+          "end": 453,
+          "context": "-\n The plan’s big goals are to eradicate carbon pollution from the power sector by 2035 and to achieve net-zero emissions by 2050.\n -\n"
         },
         {
-          "id": "doc-5e4a01b775ac::sentence-67",
+          "id": "doc-5e4a01b775ac::sentence-71",
           "documentId": "doc-5e4a01b775ac",
-          "text": "A related idea backed by Warren is to attach a “border carbon adjustment” to imported goods to encourage manufacturers abroad to cut down on pollution. ",
-          "start": 11266,
-          "end": 11418
+          "text": "But other candidates have suggested it's necessary to provide enough energy to transition to a zero-emissions economy.\n",
+          "start": 11872,
+          "end": 11991,
+          "context": "Many of the candidates like Harris, Warren, Sanders and Booker, oppose the practice and have pledged to pursue restricting or eliminating its use, warning of potential environmental consequences.  But other candidates have suggested it's necessary to provide enough energy to transition to a zero-emissions economy.\n They also disagree over nuclear power, with Warren, Gabbard and Sanders oppose due to safety concerns, while others, including Sen. Michael Bennett, Booker and Yang support it as a source of clean power.\n"
+        },
+        {
+          "id": "doc-f70c7d8aac56::sentence-38",
+          "documentId": "doc-f70c7d8aac56",
+          "text": "\"Biden will also transform the energy sources that power the transportation sector, making it easier for mobility to be powered by electricity and clean fuels,\" the plan says.\n",
+          "start": 4055,
+          "end": 4231,
+          "context": "Biden also wants to make infrastructure more resilient to disasters exacerbated by a changing climate.\n \"Biden will also transform the energy sources that power the transportation sector, making it easier for mobility to be powered by electricity and clean fuels,\" the plan says.\n The plan states that Biden’s infrastructure investments will address disparities in accessing clean air and water, transportation, high-speed internet, jobs, and educational opportunities. "
         }
       ]
     }
@@ -186,17 +210,17 @@
           "relation": "NEUTRAL"
         },
         {
-          "spanId": "doc-5e4a01b775ac::sentence-49",
-          "documentId": "doc-5e4a01b775ac",
-          "relation": "NEUTRAL"
-        },
-        {
           "spanId": "doc-f70c7d8aac56::sentence-67",
           "documentId": "doc-f70c7d8aac56",
           "relation": "NEUTRAL"
         },
         {
           "spanId": "doc-af46153b534f::sentence-41",
+          "documentId": "doc-af46153b534f",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-af46153b534f::sentence-40",
           "documentId": "doc-af46153b534f",
           "relation": "NEUTRAL"
         }
@@ -211,14 +235,14 @@
           "relation": "NEUTRAL"
         },
         {
-          "spanId": "doc-5e4a01b775ac::sentence-57",
-          "documentId": "doc-5e4a01b775ac",
-          "relation": "CONTRADICTION"
-        },
-        {
           "spanId": "doc-af46153b534f::sentence-39",
           "documentId": "doc-af46153b534f",
-          "relation": "CONTRADICTION"
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-5e4a01b775ac::sentence-57",
+          "documentId": "doc-5e4a01b775ac",
+          "relation": "NEUTRAL"
         },
         {
           "spanId": "doc-5e4a01b775ac::sentence-30",
@@ -226,13 +250,13 @@
           "relation": "NEUTRAL"
         },
         {
-          "spanId": "doc-f70c7d8aac56::sentence-52",
+          "spanId": "doc-f70c7d8aac56::sentence-9",
           "documentId": "doc-f70c7d8aac56",
           "relation": "NEUTRAL"
         },
         {
-          "spanId": "doc-5e4a01b775ac::sentence-31",
-          "documentId": "doc-5e4a01b775ac",
+          "spanId": "doc-f70c7d8aac56::sentence-52",
+          "documentId": "doc-f70c7d8aac56",
           "relation": "NEUTRAL"
         }
       ]
@@ -242,11 +266,6 @@
       "relations": [
         {
           "spanId": "doc-af46153b534f::sentence-23",
-          "documentId": "doc-af46153b534f",
-          "relation": "CONTRADICTION"
-        },
-        {
-          "spanId": "doc-af46153b534f::sentence-39",
           "documentId": "doc-af46153b534f",
           "relation": "NEUTRAL"
         },
@@ -258,36 +277,42 @@
         {
           "spanId": "doc-5e4a01b775ac::sentence-57",
           "documentId": "doc-5e4a01b775ac",
-          "relation": "CONTRADICTION"
+          "relation": "NEUTRAL"
         },
         {
           "spanId": "doc-f70c7d8aac56::sentence-9",
           "documentId": "doc-f70c7d8aac56",
-          "relation": "CONTRADICTION"
+          "relation": "NEUTRAL"
         },
         {
-          "spanId": "doc-5e4a01b775ac::sentence-67",
+          "spanId": "doc-5e4a01b775ac::sentence-71",
           "documentId": "doc-5e4a01b775ac",
-          "relation": "CONTRADICTION"
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-f70c7d8aac56::sentence-38",
+          "documentId": "doc-f70c7d8aac56",
+          "relation": "NEUTRAL"
         }
       ]
     }
   ],
-  "linguistics": [
-    {
-      "atomId": "atom-1",
+  "linguistics": {
+    "schemaVersion": 2,
+    "claimAnalysis": {
+      "atomId": "claim",
       "frames": [
         {
-          "id": "atom-1-frame-1",
+          "id": "claim-frame-1",
           "predicate": {
-            "id": "atom-1-frame-1-predicate",
+            "id": "claim-frame-1-predicate",
             "text": "pushing",
             "start": 38,
             "end": 45
           },
           "subjects": [
             {
-              "id": "atom-1-frame-1-subject-1",
+              "id": "claim-frame-1-subject-1",
               "text": "This Democratic Party of Joe Biden",
               "start": 0,
               "end": 34
@@ -295,7 +320,7 @@
           ],
           "coreArguments": [
             {
-              "id": "atom-1-frame-1-argument-1",
+              "id": "claim-frame-1-argument-1",
               "text": "the so-called Green New Deal",
               "start": 46,
               "end": 74,
@@ -304,19 +329,119 @@
           ],
           "adjuncts": [],
           "otherModifiers": []
+        },
+        {
+          "id": "claim-frame-2",
+          "predicate": {
+            "id": "claim-frame-2-predicate",
+            "text": "given",
+            "start": 79,
+            "end": 84
+          },
+          "subjects": [],
+          "coreArguments": [
+            {
+              "id": "claim-frame-2-argument-1",
+              "text": "power",
+              "start": 85,
+              "end": 90,
+              "role": "direct_object"
+            }
+          ],
+          "adjuncts": [],
+          "otherModifiers": []
+        },
+        {
+          "id": "claim-frame-3",
+          "predicate": {
+            "id": "claim-frame-3-predicate",
+            "text": "ban",
+            "start": 115,
+            "end": 118
+          },
+          "subjects": [
+            {
+              "id": "claim-frame-3-subject-1",
+              "text": "they",
+              "start": 92,
+              "end": 96
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "claim-frame-3-argument-1",
+              "text": "animal agriculture",
+              "start": 119,
+              "end": 137,
+              "role": "direct_object"
+            }
+          ],
+          "adjuncts": [
+            {
+              "id": "claim-frame-3-adjunct-1",
+              "text": "If given power",
+              "start": 76,
+              "end": 90,
+              "kind": "conditional"
+            },
+            {
+              "id": "claim-frame-3-adjunct-2",
+              "text": "essentially",
+              "start": 103,
+              "end": 114,
+              "kind": "manner"
+            }
+          ],
+          "otherModifiers": []
+        },
+        {
+          "id": "claim-frame-4",
+          "predicate": {
+            "id": "claim-frame-4-predicate",
+            "text": "eliminate",
+            "start": 142,
+            "end": 151
+          },
+          "subjects": [
+            {
+              "id": "claim-frame-4-subject-1",
+              "text": "they",
+              "start": 92,
+              "end": 96
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "claim-frame-4-argument-1",
+              "text": "gas-powered cars",
+              "start": 152,
+              "end": 168,
+              "role": "direct_object"
+            }
+          ],
+          "adjuncts": [],
+          "otherModifiers": []
         }
       ],
-      "cues": [],
+      "cues": [
+        {
+          "id": "claim-cue-modality-97-102",
+          "text": "would",
+          "start": 97,
+          "end": 102,
+          "kind": "modality"
+        }
+      ],
       "entities": [
         {
-          "id": "atom-1-entity-org-0-34",
+          "id": "claim-entity-org-0-34",
           "text": "This Democratic Party of Joe Biden",
           "start": 0,
           "end": 34,
           "label": "ORG"
         },
         {
-          "id": "atom-1-entity-product-60-74",
+          "id": "claim-entity-product-60-74",
           "text": "Green New Deal",
           "start": 60,
           "end": 74,
@@ -325,7 +450,7 @@
       ],
       "tokens": [
         {
-          "id": "atom-1-token-0",
+          "id": "claim-token-0",
           "text": "This",
           "start": 0,
           "end": 4,
@@ -336,7 +461,7 @@
           "head": "Party"
         },
         {
-          "id": "atom-1-token-1",
+          "id": "claim-token-1",
           "text": "Democratic",
           "start": 5,
           "end": 15,
@@ -347,7 +472,7 @@
           "head": "Party"
         },
         {
-          "id": "atom-1-token-2",
+          "id": "claim-token-2",
           "text": "Party",
           "start": 16,
           "end": 21,
@@ -358,7 +483,7 @@
           "head": "pushing"
         },
         {
-          "id": "atom-1-token-3",
+          "id": "claim-token-3",
           "text": "of",
           "start": 22,
           "end": 24,
@@ -369,7 +494,7 @@
           "head": "Party"
         },
         {
-          "id": "atom-1-token-4",
+          "id": "claim-token-4",
           "text": "Joe",
           "start": 25,
           "end": 28,
@@ -380,7 +505,7 @@
           "head": "Biden"
         },
         {
-          "id": "atom-1-token-5",
+          "id": "claim-token-5",
           "text": "Biden",
           "start": 29,
           "end": 34,
@@ -391,7 +516,7 @@
           "head": "of"
         },
         {
-          "id": "atom-1-token-6",
+          "id": "claim-token-6",
           "text": "is",
           "start": 35,
           "end": 37,
@@ -402,7 +527,7 @@
           "head": "pushing"
         },
         {
-          "id": "atom-1-token-7",
+          "id": "claim-token-7",
           "text": "pushing",
           "start": 38,
           "end": 45,
@@ -413,7 +538,7 @@
           "head": "ROOT"
         },
         {
-          "id": "atom-1-token-8",
+          "id": "claim-token-8",
           "text": "the",
           "start": 46,
           "end": 49,
@@ -424,7 +549,7 @@
           "head": "Deal"
         },
         {
-          "id": "atom-1-token-9",
+          "id": "claim-token-9",
           "text": "so",
           "start": 50,
           "end": 52,
@@ -435,7 +560,7 @@
           "head": "called"
         },
         {
-          "id": "atom-1-token-10",
+          "id": "claim-token-10",
           "text": "-",
           "start": 52,
           "end": 53,
@@ -446,7 +571,7 @@
           "head": "called"
         },
         {
-          "id": "atom-1-token-11",
+          "id": "claim-token-11",
           "text": "called",
           "start": 53,
           "end": 59,
@@ -457,7 +582,7 @@
           "head": "Deal"
         },
         {
-          "id": "atom-1-token-12",
+          "id": "claim-token-12",
           "text": "Green",
           "start": 60,
           "end": 65,
@@ -468,7 +593,7 @@
           "head": "Deal"
         },
         {
-          "id": "atom-1-token-13",
+          "id": "claim-token-13",
           "text": "New",
           "start": 66,
           "end": 69,
@@ -479,7 +604,7 @@
           "head": "Deal"
         },
         {
-          "id": "atom-1-token-14",
+          "id": "claim-token-14",
           "text": "Deal",
           "start": 70,
           "end": 74,
@@ -490,7 +615,7 @@
           "head": "pushing"
         },
         {
-          "id": "atom-1-token-15",
+          "id": "claim-token-15",
           "text": ".",
           "start": 74,
           "end": 75,
@@ -499,67 +624,56 @@
           "tag": ".",
           "dependency": "punct",
           "head": "pushing"
-        }
-      ],
-      "status": "complete",
-      "unresolved": []
-    },
-    {
-      "atomId": "atom-2",
-      "frames": [
+        },
         {
-          "id": "atom-2-frame-1",
-          "predicate": {
-            "id": "atom-2-frame-1-predicate",
-            "text": "ban",
-            "start": 23,
-            "end": 26
-          },
-          "subjects": [
-            {
-              "id": "atom-2-frame-1-subject-1",
-              "text": "They",
-              "start": 0,
-              "end": 4
-            }
-          ],
-          "coreArguments": [
-            {
-              "id": "atom-2-frame-1-argument-1",
-              "text": "animal agriculture",
-              "start": 27,
-              "end": 45,
-              "role": "direct_object"
-            }
-          ],
-          "adjuncts": [
-            {
-              "id": "atom-2-frame-1-adjunct-1",
-              "text": "essentially",
-              "start": 11,
-              "end": 22,
-              "kind": "manner"
-            }
-          ],
-          "otherModifiers": []
-        }
-      ],
-      "cues": [
+          "id": "claim-token-16",
+          "text": "If",
+          "start": 76,
+          "end": 78,
+          "lemma": "if",
+          "pos": "SCONJ",
+          "tag": "IN",
+          "dependency": "mark",
+          "head": "given"
+        },
         {
-          "id": "atom-2-cue-modality-5-10",
-          "text": "would",
-          "start": 5,
-          "end": 10,
-          "kind": "modality"
-        }
-      ],
-      "entities": [],
-      "tokens": [
+          "id": "claim-token-17",
+          "text": "given",
+          "start": 79,
+          "end": 84,
+          "lemma": "give",
+          "pos": "VERB",
+          "tag": "VBN",
+          "dependency": "advcl",
+          "head": "ban"
+        },
         {
-          "id": "atom-2-token-0",
-          "text": "They",
-          "start": 0,
-          "end": 4,
+          "id": "claim-token-18",
+          "text": "power",
+          "start": 85,
+          "end": 90,
+          "lemma": "power",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "dobj",
+          "head": "given"
+        },
+        {
+          "id": "claim-token-19",
+          "text": ",",
+          "start": 90,
+          "end": 91,
+          "lemma": ",",
+          "pos": "PUNCT",
+          "tag": ",",
+          "dependency": "punct",
+          "head": "ban"
+        },
+        {
+          "id": "claim-token-20",
+          "text": "they",
+          "start": 92,
+          "end": 96,
           "lemma": "they",
           "pos": "PRON",
           "tag": "PRP",
@@ -567,10 +681,10 @@
           "head": "ban"
         },
         {
-          "id": "atom-2-token-1",
+          "id": "claim-token-21",
           "text": "would",
-          "start": 5,
-          "end": 10,
+          "start": 97,
+          "end": 102,
           "lemma": "would",
           "pos": "AUX",
           "tag": "MD",
@@ -578,10 +692,10 @@
           "head": "ban"
         },
         {
-          "id": "atom-2-token-2",
+          "id": "claim-token-22",
           "text": "essentially",
-          "start": 11,
-          "end": 22,
+          "start": 103,
+          "end": 114,
           "lemma": "essentially",
           "pos": "ADV",
           "tag": "RB",
@@ -589,10 +703,10 @@
           "head": "ban"
         },
         {
-          "id": "atom-2-token-3",
+          "id": "claim-token-23",
           "text": "ban",
-          "start": 23,
-          "end": 26,
+          "start": 115,
+          "end": 118,
           "lemma": "ban",
           "pos": "VERB",
           "tag": "VB",
@@ -600,10 +714,10 @@
           "head": "ROOT"
         },
         {
-          "id": "atom-2-token-4",
+          "id": "claim-token-24",
           "text": "animal",
-          "start": 27,
-          "end": 33,
+          "start": 119,
+          "end": 125,
           "lemma": "animal",
           "pos": "NOUN",
           "tag": "NN",
@@ -611,10 +725,10 @@
           "head": "agriculture"
         },
         {
-          "id": "atom-2-token-5",
+          "id": "claim-token-25",
           "text": "agriculture",
-          "start": 34,
-          "end": 45,
+          "start": 126,
+          "end": 137,
           "lemma": "agriculture",
           "pos": "NOUN",
           "tag": "NN",
@@ -622,101 +736,32 @@
           "head": "ban"
         },
         {
-          "id": "atom-2-token-6",
-          "text": ".",
-          "start": 45,
-          "end": 46,
-          "lemma": ".",
-          "pos": "PUNCT",
-          "tag": ".",
-          "dependency": "punct",
+          "id": "claim-token-26",
+          "text": "and",
+          "start": 138,
+          "end": 141,
+          "lemma": "and",
+          "pos": "CCONJ",
+          "tag": "CC",
+          "dependency": "cc",
           "head": "ban"
-        }
-      ],
-      "status": "complete",
-      "unresolved": []
-    },
-    {
-      "atomId": "atom-3",
-      "frames": [
-        {
-          "id": "atom-3-frame-1",
-          "predicate": {
-            "id": "atom-3-frame-1-predicate",
-            "text": "eliminate",
-            "start": 11,
-            "end": 20
-          },
-          "subjects": [
-            {
-              "id": "atom-3-frame-1-subject-1",
-              "text": "They",
-              "start": 0,
-              "end": 4
-            }
-          ],
-          "coreArguments": [
-            {
-              "id": "atom-3-frame-1-argument-1",
-              "text": "gas-powered cars",
-              "start": 21,
-              "end": 37,
-              "role": "direct_object"
-            }
-          ],
-          "adjuncts": [],
-          "otherModifiers": []
-        }
-      ],
-      "cues": [
-        {
-          "id": "atom-3-cue-modality-5-10",
-          "text": "would",
-          "start": 5,
-          "end": 10,
-          "kind": "modality"
-        }
-      ],
-      "entities": [],
-      "tokens": [
-        {
-          "id": "atom-3-token-0",
-          "text": "They",
-          "start": 0,
-          "end": 4,
-          "lemma": "they",
-          "pos": "PRON",
-          "tag": "PRP",
-          "dependency": "nsubj",
-          "head": "eliminate"
         },
         {
-          "id": "atom-3-token-1",
-          "text": "would",
-          "start": 5,
-          "end": 10,
-          "lemma": "would",
-          "pos": "AUX",
-          "tag": "MD",
-          "dependency": "aux",
-          "head": "eliminate"
-        },
-        {
-          "id": "atom-3-token-2",
+          "id": "claim-token-27",
           "text": "eliminate",
-          "start": 11,
-          "end": 20,
+          "start": 142,
+          "end": 151,
           "lemma": "eliminate",
           "pos": "VERB",
           "tag": "VB",
-          "dependency": "ROOT",
-          "head": "ROOT"
+          "dependency": "conj",
+          "head": "ban"
         },
         {
-          "id": "atom-3-token-3",
+          "id": "claim-token-28",
           "text": "gas",
-          "start": 21,
-          "end": 24,
+          "start": 152,
+          "end": 155,
           "lemma": "gas",
           "pos": "NOUN",
           "tag": "NN",
@@ -724,10 +769,10 @@
           "head": "powered"
         },
         {
-          "id": "atom-3-token-4",
+          "id": "claim-token-29",
           "text": "-",
-          "start": 24,
-          "end": 25,
+          "start": 155,
+          "end": 156,
           "lemma": "-",
           "pos": "PUNCT",
           "tag": "HYPH",
@@ -735,10 +780,10 @@
           "head": "powered"
         },
         {
-          "id": "atom-3-token-5",
+          "id": "claim-token-30",
           "text": "powered",
-          "start": 25,
-          "end": 32,
+          "start": 156,
+          "end": 163,
           "lemma": "power",
           "pos": "VERB",
           "tag": "VBN",
@@ -746,10 +791,10 @@
           "head": "cars"
         },
         {
-          "id": "atom-3-token-6",
+          "id": "claim-token-31",
           "text": "cars",
-          "start": 33,
-          "end": 37,
+          "start": 164,
+          "end": 168,
           "lemma": "car",
           "pos": "NOUN",
           "tag": "NNS",
@@ -757,21 +802,741 @@
           "head": "eliminate"
         },
         {
-          "id": "atom-3-token-7",
+          "id": "claim-token-32",
           "text": ".",
-          "start": 37,
-          "end": 38,
+          "start": 168,
+          "end": 169,
           "lemma": ".",
           "pos": "PUNCT",
           "tag": ".",
           "dependency": "punct",
-          "head": "eliminate"
+          "head": "ban"
         }
       ],
-      "status": "complete",
-      "unresolved": []
-    }
-  ],
+      "status": "partial",
+      "unresolved": [
+        "subject"
+      ]
+    },
+    "analyses": [
+      {
+        "atomId": "atom-1",
+        "frames": [
+          {
+            "id": "atom-1-frame-1",
+            "predicate": {
+              "id": "atom-1-frame-1-predicate",
+              "text": "pushing",
+              "start": 38,
+              "end": 45
+            },
+            "subjects": [
+              {
+                "id": "atom-1-frame-1-subject-1",
+                "text": "This Democratic Party of Joe Biden",
+                "start": 0,
+                "end": 34
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-1-frame-1-argument-1",
+                "text": "the so-called Green New Deal",
+                "start": 46,
+                "end": 74,
+                "role": "direct_object"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [],
+        "entities": [
+          {
+            "id": "atom-1-entity-org-0-34",
+            "text": "This Democratic Party of Joe Biden",
+            "start": 0,
+            "end": 34,
+            "label": "ORG"
+          },
+          {
+            "id": "atom-1-entity-product-60-74",
+            "text": "Green New Deal",
+            "start": 60,
+            "end": 74,
+            "label": "PRODUCT"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-1-token-0",
+            "text": "This",
+            "start": 0,
+            "end": 4,
+            "lemma": "this",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "Party"
+          },
+          {
+            "id": "atom-1-token-1",
+            "text": "Democratic",
+            "start": 5,
+            "end": 15,
+            "lemma": "Democratic",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Party"
+          },
+          {
+            "id": "atom-1-token-2",
+            "text": "Party",
+            "start": 16,
+            "end": 21,
+            "lemma": "Party",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "nsubj",
+            "head": "pushing"
+          },
+          {
+            "id": "atom-1-token-3",
+            "text": "of",
+            "start": 22,
+            "end": 24,
+            "lemma": "of",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "Party"
+          },
+          {
+            "id": "atom-1-token-4",
+            "text": "Joe",
+            "start": 25,
+            "end": 28,
+            "lemma": "Joe",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Biden"
+          },
+          {
+            "id": "atom-1-token-5",
+            "text": "Biden",
+            "start": 29,
+            "end": 34,
+            "lemma": "Biden",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "pobj",
+            "head": "of"
+          },
+          {
+            "id": "atom-1-token-6",
+            "text": "is",
+            "start": 35,
+            "end": 37,
+            "lemma": "be",
+            "pos": "AUX",
+            "tag": "VBZ",
+            "dependency": "aux",
+            "head": "pushing"
+          },
+          {
+            "id": "atom-1-token-7",
+            "text": "pushing",
+            "start": 38,
+            "end": 45,
+            "lemma": "push",
+            "pos": "VERB",
+            "tag": "VBG",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-1-token-8",
+            "text": "the",
+            "start": 46,
+            "end": 49,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "Deal"
+          },
+          {
+            "id": "atom-1-token-9",
+            "text": "so",
+            "start": 50,
+            "end": 52,
+            "lemma": "so",
+            "pos": "ADV",
+            "tag": "RB",
+            "dependency": "advmod",
+            "head": "called"
+          },
+          {
+            "id": "atom-1-token-10",
+            "text": "-",
+            "start": 52,
+            "end": 53,
+            "lemma": "-",
+            "pos": "PUNCT",
+            "tag": "HYPH",
+            "dependency": "punct",
+            "head": "called"
+          },
+          {
+            "id": "atom-1-token-11",
+            "text": "called",
+            "start": 53,
+            "end": 59,
+            "lemma": "call",
+            "pos": "VERB",
+            "tag": "VBN",
+            "dependency": "amod",
+            "head": "Deal"
+          },
+          {
+            "id": "atom-1-token-12",
+            "text": "Green",
+            "start": 60,
+            "end": 65,
+            "lemma": "Green",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Deal"
+          },
+          {
+            "id": "atom-1-token-13",
+            "text": "New",
+            "start": 66,
+            "end": 69,
+            "lemma": "New",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Deal"
+          },
+          {
+            "id": "atom-1-token-14",
+            "text": "Deal",
+            "start": 70,
+            "end": 74,
+            "lemma": "Deal",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "dobj",
+            "head": "pushing"
+          },
+          {
+            "id": "atom-1-token-15",
+            "text": ".",
+            "start": 74,
+            "end": 75,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "pushing"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      },
+      {
+        "atomId": "atom-2",
+        "frames": [
+          {
+            "id": "atom-2-frame-1",
+            "predicate": {
+              "id": "atom-2-frame-1-predicate",
+              "text": "ban",
+              "start": 38,
+              "end": 41
+            },
+            "subjects": [
+              {
+                "id": "atom-2-frame-1-subject-1",
+                "text": "they",
+                "start": 15,
+                "end": 19
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-2-frame-1-argument-1",
+                "text": "animal agriculture",
+                "start": 42,
+                "end": 60,
+                "role": "direct_object"
+              }
+            ],
+            "adjuncts": [
+              {
+                "id": "atom-2-frame-1-adjunct-1",
+                "text": "essentially",
+                "start": 26,
+                "end": 37,
+                "kind": "manner"
+              }
+            ],
+            "otherModifiers": [
+              {
+                "id": "atom-2-frame-1-other-modifier-1",
+                "text": "given power",
+                "start": 3,
+                "end": 14
+              }
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "atom-2-cue-modality-20-25",
+            "text": "would",
+            "start": 20,
+            "end": 25,
+            "kind": "modality"
+          }
+        ],
+        "entities": [],
+        "tokens": [
+          {
+            "id": "atom-2-token-0",
+            "text": "If",
+            "start": 0,
+            "end": 2,
+            "lemma": "if",
+            "pos": "SCONJ",
+            "tag": "IN",
+            "dependency": "mark",
+            "head": "ban"
+          },
+          {
+            "id": "atom-2-token-1",
+            "text": "given",
+            "start": 3,
+            "end": 8,
+            "lemma": "give",
+            "pos": "VERB",
+            "tag": "VBN",
+            "dependency": "prep",
+            "head": "ban"
+          },
+          {
+            "id": "atom-2-token-2",
+            "text": "power",
+            "start": 9,
+            "end": 14,
+            "lemma": "power",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "pobj",
+            "head": "given"
+          },
+          {
+            "id": "atom-2-token-3",
+            "text": "they",
+            "start": 15,
+            "end": 19,
+            "lemma": "they",
+            "pos": "PRON",
+            "tag": "PRP",
+            "dependency": "nsubj",
+            "head": "ban"
+          },
+          {
+            "id": "atom-2-token-4",
+            "text": "would",
+            "start": 20,
+            "end": 25,
+            "lemma": "would",
+            "pos": "AUX",
+            "tag": "MD",
+            "dependency": "aux",
+            "head": "ban"
+          },
+          {
+            "id": "atom-2-token-5",
+            "text": "essentially",
+            "start": 26,
+            "end": 37,
+            "lemma": "essentially",
+            "pos": "ADV",
+            "tag": "RB",
+            "dependency": "advmod",
+            "head": "ban"
+          },
+          {
+            "id": "atom-2-token-6",
+            "text": "ban",
+            "start": 38,
+            "end": 41,
+            "lemma": "ban",
+            "pos": "VERB",
+            "tag": "VB",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-2-token-7",
+            "text": "animal",
+            "start": 42,
+            "end": 48,
+            "lemma": "animal",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "compound",
+            "head": "agriculture"
+          },
+          {
+            "id": "atom-2-token-8",
+            "text": "agriculture",
+            "start": 49,
+            "end": 60,
+            "lemma": "agriculture",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "dobj",
+            "head": "ban"
+          },
+          {
+            "id": "atom-2-token-9",
+            "text": ".",
+            "start": 60,
+            "end": 61,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "ban"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      },
+      {
+        "atomId": "atom-3",
+        "frames": [
+          {
+            "id": "atom-3-frame-1",
+            "predicate": {
+              "id": "atom-3-frame-1-predicate",
+              "text": "eliminate",
+              "start": 26,
+              "end": 35
+            },
+            "subjects": [
+              {
+                "id": "atom-3-frame-1-subject-1",
+                "text": "they",
+                "start": 15,
+                "end": 19
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-3-frame-1-argument-1",
+                "text": "gas-powered cars",
+                "start": 36,
+                "end": 52,
+                "role": "direct_object"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": [
+              {
+                "id": "atom-3-frame-1-other-modifier-1",
+                "text": "given power",
+                "start": 3,
+                "end": 14
+              }
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "atom-3-cue-modality-20-25",
+            "text": "would",
+            "start": 20,
+            "end": 25,
+            "kind": "modality"
+          }
+        ],
+        "entities": [],
+        "tokens": [
+          {
+            "id": "atom-3-token-0",
+            "text": "If",
+            "start": 0,
+            "end": 2,
+            "lemma": "if",
+            "pos": "SCONJ",
+            "tag": "IN",
+            "dependency": "mark",
+            "head": "eliminate"
+          },
+          {
+            "id": "atom-3-token-1",
+            "text": "given",
+            "start": 3,
+            "end": 8,
+            "lemma": "give",
+            "pos": "VERB",
+            "tag": "VBN",
+            "dependency": "prep",
+            "head": "eliminate"
+          },
+          {
+            "id": "atom-3-token-2",
+            "text": "power",
+            "start": 9,
+            "end": 14,
+            "lemma": "power",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "pobj",
+            "head": "given"
+          },
+          {
+            "id": "atom-3-token-3",
+            "text": "they",
+            "start": 15,
+            "end": 19,
+            "lemma": "they",
+            "pos": "PRON",
+            "tag": "PRP",
+            "dependency": "nsubj",
+            "head": "eliminate"
+          },
+          {
+            "id": "atom-3-token-4",
+            "text": "would",
+            "start": 20,
+            "end": 25,
+            "lemma": "would",
+            "pos": "AUX",
+            "tag": "MD",
+            "dependency": "aux",
+            "head": "eliminate"
+          },
+          {
+            "id": "atom-3-token-5",
+            "text": "eliminate",
+            "start": 26,
+            "end": 35,
+            "lemma": "eliminate",
+            "pos": "VERB",
+            "tag": "VB",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-3-token-6",
+            "text": "gas",
+            "start": 36,
+            "end": 39,
+            "lemma": "gas",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "npadvmod",
+            "head": "powered"
+          },
+          {
+            "id": "atom-3-token-7",
+            "text": "-",
+            "start": 39,
+            "end": 40,
+            "lemma": "-",
+            "pos": "PUNCT",
+            "tag": "HYPH",
+            "dependency": "punct",
+            "head": "powered"
+          },
+          {
+            "id": "atom-3-token-8",
+            "text": "powered",
+            "start": 40,
+            "end": 47,
+            "lemma": "power",
+            "pos": "VERB",
+            "tag": "VBN",
+            "dependency": "amod",
+            "head": "cars"
+          },
+          {
+            "id": "atom-3-token-9",
+            "text": "cars",
+            "start": 48,
+            "end": 52,
+            "lemma": "car",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "dobj",
+            "head": "eliminate"
+          },
+          {
+            "id": "atom-3-token-10",
+            "text": ".",
+            "start": 52,
+            "end": 53,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "eliminate"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      }
+    ],
+    "summaries": [
+      {
+        "atomId": "atom-1",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "This Democratic Party of Joe Biden"
+        ],
+        "predicates": [
+          "push"
+        ],
+        "cueKinds": [],
+        "modifierKinds": [],
+        "entityLabels": [
+          "ORG",
+          "PRODUCT"
+        ],
+        "warnings": []
+      },
+      {
+        "atomId": "atom-2",
+        "analysisStatus": "complete",
+        "roleAudit": "MISMATCH",
+        "subjects": [
+          "they"
+        ],
+        "predicates": [
+          "ban"
+        ],
+        "cueKinds": [
+          "modality"
+        ],
+        "modifierKinds": [
+          "manner"
+        ],
+        "entityLabels": [],
+        "warnings": [
+          "ROLE_CUE_MISMATCH"
+        ]
+      },
+      {
+        "atomId": "atom-3",
+        "analysisStatus": "complete",
+        "roleAudit": "MISMATCH",
+        "subjects": [
+          "they"
+        ],
+        "predicates": [
+          "eliminate"
+        ],
+        "cueKinds": [
+          "modality"
+        ],
+        "modifierKinds": [],
+        "entityLabels": [],
+        "warnings": [
+          "ROLE_CUE_MISMATCH"
+        ]
+      }
+    ],
+    "claimWarnings": [
+      "CLAIM_FRAME_NOT_COVERED"
+    ],
+    "provider": "spacy",
+    "model": "en_core_web_sm@3.8.0"
+  },
+  "verdict": {
+    "aggregationSchemaVersion": 1,
+    "claimId": "averitec-dev-0495",
+    "composition": "AND",
+    "verdict": "REFUTED",
+    "positions": {
+      "supportPosition": false,
+      "attackPosition": true,
+      "supportObligationIds": [],
+      "attackObligationIds": [
+        "atom-1"
+      ],
+      "unresolvedObligationIds": [
+        "atom-2",
+        "atom-3"
+      ]
+    },
+    "obligations": [
+      {
+        "obligationId": "atom-1",
+        "state": "REFUTED",
+        "supportEdgeIds": [],
+        "attackEdgeIds": [
+          "edge:ATTACKS:evidence:doc-f70c7d8aac56:doc-f70c7d8aac56::sentence-59:obligation:averitec-dev-0495:atom-1"
+        ],
+        "neutralCandidateCount": 5
+      },
+      {
+        "obligationId": "atom-2",
+        "state": "UNRESOLVED",
+        "supportEdgeIds": [],
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 6
+      },
+      {
+        "obligationId": "atom-3",
+        "state": "UNRESOLVED",
+        "supportEdgeIds": [],
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 6
+      }
+    ],
+    "warnings": [
+      {
+        "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
+        "message": "Obligation atom-2 has no supporting or attacking evidence."
+      },
+      {
+        "code": "ONLY_NEUTRAL_CANDIDATES",
+        "message": "Obligation atom-2 has only neutral retrieved candidates."
+      },
+      {
+        "code": "LINGUISTIC_AUDIT_WARNING",
+        "message": "Linguistic analysis for obligation atom-2 requires inspection; it does not change the verdict."
+      },
+      {
+        "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
+        "message": "Obligation atom-3 has no supporting or attacking evidence."
+      },
+      {
+        "code": "ONLY_NEUTRAL_CANDIDATES",
+        "message": "Obligation atom-3 has only neutral retrieved candidates."
+      },
+      {
+        "code": "LINGUISTIC_AUDIT_WARNING",
+        "message": "Linguistic analysis for obligation atom-3 requires inspection; it does not change the verdict."
+      }
+    ],
+    "ruleTrace": [
+      "AND support requires support for every obligation; AND attack requires an attack on any obligation.",
+      "Support position: no; attack position: yes.",
+      "Final verdict: REFUTED."
+    ]
+  },
   "recordedWith": {
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",

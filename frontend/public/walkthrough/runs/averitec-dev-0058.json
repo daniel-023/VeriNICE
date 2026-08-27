@@ -1,26 +1,32 @@
 {
   "caseId": "averitec-dev-0058",
+  "schemaVersion": 2,
+  "composition": "AND",
+  "warnings": [],
   "atoms": [
     {
       "id": "atom-1",
       "text": "Russia sent medical aid to the US.",
-      "sourceText": "Russia sent medical aid to the US, in the form of medical equipment to help coronavirus patients.",
+      "sourceText": "Russia sent medical aid to the US",
       "start": 0,
-      "end": 97
+      "end": 33,
+      "role": "CORE"
     },
     {
       "id": "atom-2",
-      "text": "The aid was in the form of medical equipment.",
-      "sourceText": "Russia sent medical aid to the US, in the form of medical equipment to help coronavirus patients.",
-      "start": 0,
-      "end": 97
+      "text": "The medical aid was in the form of medical equipment.",
+      "sourceText": "in the form of medical equipment",
+      "start": 35,
+      "end": 67,
+      "role": "CORE"
     },
     {
       "id": "atom-3",
-      "text": "The aid was sent to help coronavirus patients.",
-      "sourceText": "Russia sent medical aid to the US, in the form of medical equipment to help coronavirus patients.",
-      "start": 0,
-      "end": 97
+      "text": "The medical aid was to help coronavirus patients.",
+      "sourceText": "to help coronavirus patients",
+      "start": 68,
+      "end": 96,
+      "role": "CORE"
     }
   ],
   "evidence": [
@@ -32,42 +38,48 @@
           "documentId": "doc-bacc7d0e399e",
           "text": "Turning the Tables, Russia Sends Virus Aid to U.S.\n",
           "start": 27,
-          "end": 78
+          "end": 78,
+          "context": "Supported by\n Turning the Tables, Russia Sends Virus Aid to U.S.\n A planeload of coronavirus aid to New York was a propaganda coup for the Kremlin — tempered by an intensifying epidemic at home.\n"
         },
         {
           "id": "doc-ff8f3576e3da::sentence-16",
           "documentId": "doc-ff8f3576e3da",
           "text": "The US sent $5.6 million in medical supplies to Russia to help it combat the coronavirus pandemic. ",
           "start": 2405,
-          "end": 2504
+          "end": 2504,
+          "context": "Democrats were also outraged over the difference in the cost and amount of medical aid provided by Russia to the US versus that delivered by the US to Russia.\n The US sent $5.6 million in medical supplies to Russia to help it combat the coronavirus pandemic.  A video posted to the Twitter account of the US Embassy in Moscow in June showed an American military cargo plane arriving with some of the aid, including 200 ventilators.\n"
         },
         {
           "id": "doc-ff8f3576e3da::sentence-15",
           "documentId": "doc-ff8f3576e3da",
           "text": "Democrats were also outraged over the difference in the cost and amount of medical aid provided by Russia to the US versus that delivered by the US to Russia.\n",
           "start": 2246,
-          "end": 2405
+          "end": 2405,
+          "context": "(Russia first said it would charge the US $660,000 for the machines and other supplies — roughly half the cost of the shipment — but later a government official told BuzzFeed News that it had not billed Washington because the countries had agreed to swap medical aid).  Democrats were also outraged over the difference in the cost and amount of medical aid provided by Russia to the US versus that delivered by the US to Russia.\n The US sent $5.6 million in medical supplies to Russia to help it combat the coronavirus pandemic. "
         },
         {
           "id": "doc-ff8f3576e3da::sentence-19",
           "documentId": "doc-ff8f3576e3da",
           "text": "Speaking alongside members of his coronavirus task force in the White House Rose Garden on March 30, Trump said, “Russia sent us a very, very large planeload of things, medical equipment, which was very nice.”\n",
           "start": 2848,
-          "end": 3058
+          "end": 3058,
+          "context": "The Kremlin, the US State Department, and Trump himself hailed the delivery as a rare example of collaboration between the two adversarial nations to fight a common enemy.\n Speaking alongside members of his coronavirus task force in the White House Rose Garden on March 30, Trump said, “Russia sent us a very, very large planeload of things, medical equipment, which was very nice.”\n The US and Russia remain among the countries with the highest number of cases of COVID-19, and both are currently experiencing new waves of infections. "
         },
         {
           "id": "doc-bacc7d0e399e::sentence-63",
           "documentId": "doc-bacc7d0e399e",
           "text": "The government-backed Russian Direct Investment Fund, which paid for half the shipment, said it was working with U.S. companies to deliver medical supplies to Russia if they are needed.\n",
           "start": 8919,
-          "end": 9105
+          "end": 9105,
+          "context": "Russia, however, insisted the aid flight to New York was part of a longer-term strategy to fight the pandemic on a global level.  The government-backed Russian Direct Investment Fund, which paid for half the shipment, said it was working with U.S. companies to deliver medical supplies to Russia if they are needed.\n On Thursday, the latest target of Russia’s virus diplomacy emerged: Serbia. "
         },
         {
           "id": "doc-bacc7d0e399e::sentence-10",
           "documentId": "doc-bacc7d0e399e",
           "text": "After plans for the shipment stirred criticism on both sides of the Atlantic, the Foreign Ministry in Moscow said on Thursday that the two countries had in fact evenly split the cost of the medical goods and that Russia could depend on future aid from the United States in fighting the coronavirus.\n",
           "start": 1152,
-          "end": 1451
+          "end": 1451,
+          "context": "But with the pandemic increasingly bearing down on Russia, the Kremlin’s propaganda machine appeared to avoid trumpeting the aid shipment lest Russians think that the government was ignoring their own plight.\n After plans for the shipment stirred criticism on both sides of the Atlantic, the Foreign Ministry in Moscow said on Thursday that the two countries had in fact evenly split the cost of the medical goods and that Russia could depend on future aid from the United States in fighting the coronavirus.\n “We are certain that if it’s necessary they will in the future be able to help Russia,” the Russian Foreign Ministry spokeswoman, Maria Zakharova, said in a statement.\n"
         }
       ]
     },
@@ -79,42 +91,48 @@
           "documentId": "doc-ff8f3576e3da",
           "text": "The US sent $5.6 million in medical supplies to Russia to help it combat the coronavirus pandemic. ",
           "start": 2405,
-          "end": 2504
-        },
-        {
-          "id": "doc-bacc7d0e399e::sentence-3",
-          "documentId": "doc-bacc7d0e399e",
-          "text": "Turning the Tables, Russia Sends Virus Aid to U.S.\n",
-          "start": 27,
-          "end": 78
-        },
-        {
-          "id": "doc-ff8f3576e3da::sentence-17",
-          "documentId": "doc-ff8f3576e3da",
-          "text": "A video posted to the Twitter account of the US Embassy in Moscow in June showed an American military cargo plane arriving with some of the aid, including 200 ventilators.\n",
-          "start": 2504,
-          "end": 2676
+          "end": 2504,
+          "context": "Democrats were also outraged over the difference in the cost and amount of medical aid provided by Russia to the US versus that delivered by the US to Russia.\n The US sent $5.6 million in medical supplies to Russia to help it combat the coronavirus pandemic.  A video posted to the Twitter account of the US Embassy in Moscow in June showed an American military cargo plane arriving with some of the aid, including 200 ventilators.\n"
         },
         {
           "id": "doc-bacc7d0e399e::sentence-45",
           "documentId": "doc-bacc7d0e399e",
           "text": "- Hospitals and medical centers. ",
           "start": 6212,
-          "end": 6245
+          "end": 6245,
+          "context": "A survey released in August found that many American parents of school-age children are opposed to mandated vaccines for students, but were more supportive of mask mandates for students, teachers and staff members who do not have their shots.\n - Hospitals and medical centers.  Many hospitals and major health systems are requiring employees to get a Covid-19 vaccine, citing rising caseloads fueled by the Delta variant and stubbornly low vaccination rates in their communities, even within their work force.\n"
         },
         {
-          "id": "doc-bacc7d0e399e::sentence-63",
+          "id": "doc-bacc7d0e399e::sentence-3",
           "documentId": "doc-bacc7d0e399e",
-          "text": "The government-backed Russian Direct Investment Fund, which paid for half the shipment, said it was working with U.S. companies to deliver medical supplies to Russia if they are needed.\n",
-          "start": 8919,
-          "end": 9105
+          "text": "Turning the Tables, Russia Sends Virus Aid to U.S.\n",
+          "start": 27,
+          "end": 78,
+          "context": "Supported by\n Turning the Tables, Russia Sends Virus Aid to U.S.\n A planeload of coronavirus aid to New York was a propaganda coup for the Kremlin — tempered by an intensifying epidemic at home.\n"
         },
         {
           "id": "doc-ff8f3576e3da::sentence-15",
           "documentId": "doc-ff8f3576e3da",
           "text": "Democrats were also outraged over the difference in the cost and amount of medical aid provided by Russia to the US versus that delivered by the US to Russia.\n",
           "start": 2246,
-          "end": 2405
+          "end": 2405,
+          "context": "(Russia first said it would charge the US $660,000 for the machines and other supplies — roughly half the cost of the shipment — but later a government official told BuzzFeed News that it had not billed Washington because the countries had agreed to swap medical aid).  Democrats were also outraged over the difference in the cost and amount of medical aid provided by Russia to the US versus that delivered by the US to Russia.\n The US sent $5.6 million in medical supplies to Russia to help it combat the coronavirus pandemic. "
+        },
+        {
+          "id": "doc-ff8f3576e3da::sentence-17",
+          "documentId": "doc-ff8f3576e3da",
+          "text": "A video posted to the Twitter account of the US Embassy in Moscow in June showed an American military cargo plane arriving with some of the aid, including 200 ventilators.\n",
+          "start": 2504,
+          "end": 2676,
+          "context": "The US sent $5.6 million in medical supplies to Russia to help it combat the coronavirus pandemic.  A video posted to the Twitter account of the US Embassy in Moscow in June showed an American military cargo plane arriving with some of the aid, including 200 ventilators.\n The Kremlin, the US State Department, and Trump himself hailed the delivery as a rare example of collaboration between the two adversarial nations to fight a common enemy.\n"
+        },
+        {
+          "id": "doc-bacc7d0e399e::sentence-16",
+          "documentId": "doc-bacc7d0e399e",
+          "text": "While the pandemic does not yet appear to have reached the scale seen in Western Europe and the United States, in Russia, opposition politicians and medical workers have warned of a potential shortage of equipment in the coming weeks.\n",
+          "start": 2476,
+          "end": 2711,
+          "context": "But the propaganda victory was bittersweet as the spread of the coronavirus gathered pace in Russia, perhaps explaining why the plane’s landing in New York received only cursory treatment on Thursday’s main Russian state television news broadcasts.  While the pandemic does not yet appear to have reached the scale seen in Western Europe and the United States, in Russia, opposition politicians and medical workers have warned of a potential shortage of equipment in the coming weeks.\n In the Perm region in the Ural Mountains, the authorities on Wednesday urged residents to start sewing their own masks.\n"
         }
       ]
     },
@@ -126,42 +144,48 @@
           "documentId": "doc-ff8f3576e3da",
           "text": "The US sent $5.6 million in medical supplies to Russia to help it combat the coronavirus pandemic. ",
           "start": 2405,
-          "end": 2504
-        },
-        {
-          "id": "doc-bacc7d0e399e::sentence-4",
-          "documentId": "doc-bacc7d0e399e",
-          "text": "A planeload of coronavirus aid to New York was a propaganda coup for the Kremlin — tempered by an intensifying epidemic at home.\n",
-          "start": 78,
-          "end": 207
-        },
-        {
-          "id": "doc-bacc7d0e399e::sentence-3",
-          "documentId": "doc-bacc7d0e399e",
-          "text": "Turning the Tables, Russia Sends Virus Aid to U.S.\n",
-          "start": 27,
-          "end": 78
+          "end": 2504,
+          "context": "Democrats were also outraged over the difference in the cost and amount of medical aid provided by Russia to the US versus that delivered by the US to Russia.\n The US sent $5.6 million in medical supplies to Russia to help it combat the coronavirus pandemic.  A video posted to the Twitter account of the US Embassy in Moscow in June showed an American military cargo plane arriving with some of the aid, including 200 ventilators.\n"
         },
         {
           "id": "doc-bacc7d0e399e::sentence-32",
           "documentId": "doc-bacc7d0e399e",
           "text": "On Aug. 23, the Food and Drug Administration granted full approval to Pfizer-BioNTech’s coronavirus vaccine for people 16 and up, paving the way for an increase in mandates in both the public and private sectors. ",
           "start": 4864,
-          "end": 5077
+          "end": 5077,
+          "context": "- Vaccine rules.  On Aug. 23, the Food and Drug Administration granted full approval to Pfizer-BioNTech’s coronavirus vaccine for people 16 and up, paving the way for an increase in mandates in both the public and private sectors.  Private companies have been increasingly mandating vaccines for employees. "
+        },
+        {
+          "id": "doc-bacc7d0e399e::sentence-4",
+          "documentId": "doc-bacc7d0e399e",
+          "text": "A planeload of coronavirus aid to New York was a propaganda coup for the Kremlin — tempered by an intensifying epidemic at home.\n",
+          "start": 78,
+          "end": 207,
+          "context": "Turning the Tables, Russia Sends Virus Aid to U.S.\n A planeload of coronavirus aid to New York was a propaganda coup for the Kremlin — tempered by an intensifying epidemic at home.\n MOSCOW — In the early 1990s, amid the poverty-ridden collapse of the Soviet Union, American food aid in the form of a flood of cheap chicken thighs — Russians called them “Bush legs” — symbolized the humiliating downfall of a superpower.\n"
+        },
+        {
+          "id": "doc-bacc7d0e399e::sentence-54",
+          "documentId": "doc-bacc7d0e399e",
+          "text": "President Biden announced that all civilian federal employees would have to be vaccinated against the coronavirus or submit to regular testing, social distancing, mask requirements and restrictions on most travel.\n",
+          "start": 7173,
+          "end": 7387,
+          "context": "The Pentagon announced that it would seek to make coronavirus vaccinations mandatory for the country’s 1.3 million active-duty troops “no later” than the middle of September.  President Biden announced that all civilian federal employees would have to be vaccinated against the coronavirus or submit to regular testing, social distancing, mask requirements and restrictions on most travel.\n The Russian military said last week that it had also dispatched at least 15 planeloads of medical equipment and personnel to help Italy fight the virus. "
         },
         {
           "id": "doc-ff8f3576e3da::sentence-1",
           "documentId": "doc-ff8f3576e3da",
           "text": "As the US was bracing for a major wave of seriously ill coronavirus patients in March, President Donald Trump asked President Vladimir Putin in a phone call for help. ",
           "start": 0,
-          "end": 167
+          "end": 167,
+          "context": "As the US was bracing for a major wave of seriously ill coronavirus patients in March, President Donald Trump asked President Vladimir Putin in a phone call for help.  In response, Moscow sent 45 ventilators and other medical supplies in crates stamped “From Russia, With Love.”\n"
         },
         {
           "id": "doc-ff8f3576e3da::sentence-19",
           "documentId": "doc-ff8f3576e3da",
           "text": "Speaking alongside members of his coronavirus task force in the White House Rose Garden on March 30, Trump said, “Russia sent us a very, very large planeload of things, medical equipment, which was very nice.”\n",
           "start": 2848,
-          "end": 3058
+          "end": 3058,
+          "context": "The Kremlin, the US State Department, and Trump himself hailed the delivery as a rare example of collaboration between the two adversarial nations to fight a common enemy.\n Speaking alongside members of his coronavirus task force in the White House Rose Garden on March 30, Trump said, “Russia sent us a very, very large planeload of things, medical equipment, which was very nice.”\n The US and Russia remain among the countries with the highest number of cases of COVID-19, and both are currently experiencing new waves of infections. "
         }
       ]
     }
@@ -173,12 +197,12 @@
         {
           "spanId": "doc-bacc7d0e399e::sentence-3",
           "documentId": "doc-bacc7d0e399e",
-          "relation": "CONTRADICTION"
+          "relation": "NEUTRAL"
         },
         {
           "spanId": "doc-ff8f3576e3da::sentence-16",
           "documentId": "doc-ff8f3576e3da",
-          "relation": "CONTRADICTION"
+          "relation": "ENTAILMENT"
         },
         {
           "spanId": "doc-ff8f3576e3da::sentence-15",
@@ -193,12 +217,12 @@
         {
           "spanId": "doc-bacc7d0e399e::sentence-63",
           "documentId": "doc-bacc7d0e399e",
-          "relation": "CONTRADICTION"
+          "relation": "ENTAILMENT"
         },
         {
           "spanId": "doc-bacc7d0e399e::sentence-10",
           "documentId": "doc-bacc7d0e399e",
-          "relation": "CONTRADICTION"
+          "relation": "NEUTRAL"
         }
       ]
     },
@@ -208,16 +232,6 @@
         {
           "spanId": "doc-ff8f3576e3da::sentence-16",
           "documentId": "doc-ff8f3576e3da",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-bacc7d0e399e::sentence-3",
-          "documentId": "doc-bacc7d0e399e",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-ff8f3576e3da::sentence-17",
-          "documentId": "doc-ff8f3576e3da",
           "relation": "ENTAILMENT"
         },
         {
@@ -226,13 +240,23 @@
           "relation": "NEUTRAL"
         },
         {
-          "spanId": "doc-bacc7d0e399e::sentence-63",
+          "spanId": "doc-bacc7d0e399e::sentence-3",
           "documentId": "doc-bacc7d0e399e",
           "relation": "NEUTRAL"
         },
         {
           "spanId": "doc-ff8f3576e3da::sentence-15",
           "documentId": "doc-ff8f3576e3da",
+          "relation": "NEUTRAL"
+        },
+        {
+          "spanId": "doc-ff8f3576e3da::sentence-17",
+          "documentId": "doc-ff8f3576e3da",
+          "relation": "ENTAILMENT"
+        },
+        {
+          "spanId": "doc-bacc7d0e399e::sentence-16",
+          "documentId": "doc-bacc7d0e399e",
           "relation": "NEUTRAL"
         }
       ]
@@ -246,17 +270,17 @@
           "relation": "NEUTRAL"
         },
         {
+          "spanId": "doc-bacc7d0e399e::sentence-32",
+          "documentId": "doc-bacc7d0e399e",
+          "relation": "NEUTRAL"
+        },
+        {
           "spanId": "doc-bacc7d0e399e::sentence-4",
           "documentId": "doc-bacc7d0e399e",
           "relation": "NEUTRAL"
         },
         {
-          "spanId": "doc-bacc7d0e399e::sentence-3",
-          "documentId": "doc-bacc7d0e399e",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-bacc7d0e399e::sentence-32",
+          "spanId": "doc-bacc7d0e399e::sentence-54",
           "documentId": "doc-bacc7d0e399e",
           "relation": "NEUTRAL"
         },
@@ -273,21 +297,22 @@
       ]
     }
   ],
-  "linguistics": [
-    {
-      "atomId": "atom-1",
+  "linguistics": {
+    "schemaVersion": 2,
+    "claimAnalysis": {
+      "atomId": "claim",
       "frames": [
         {
-          "id": "atom-1-frame-1",
+          "id": "claim-frame-1",
           "predicate": {
-            "id": "atom-1-frame-1-predicate",
+            "id": "claim-frame-1-predicate",
             "text": "sent",
             "start": 7,
             "end": 11
           },
           "subjects": [
             {
-              "id": "atom-1-frame-1-subject-1",
+              "id": "claim-frame-1-subject-1",
               "text": "Russia",
               "start": 0,
               "end": 6
@@ -295,18 +320,52 @@
           ],
           "coreArguments": [
             {
-              "id": "atom-1-frame-1-argument-1",
+              "id": "claim-frame-1-argument-1",
               "text": "medical aid",
               "start": 12,
               "end": 23,
               "role": "direct_object"
             },
             {
-              "id": "atom-1-frame-1-argument-2",
+              "id": "claim-frame-1-argument-2",
               "text": "to the US",
               "start": 24,
               "end": 33,
               "role": "indirect_object"
+            }
+          ],
+          "adjuncts": [],
+          "otherModifiers": [
+            {
+              "id": "claim-frame-1-other-modifier-1",
+              "text": "in the form of medical equipment",
+              "start": 35,
+              "end": 67
+            },
+            {
+              "id": "claim-frame-1-other-modifier-2",
+              "text": "to help coronavirus patients",
+              "start": 68,
+              "end": 96
+            }
+          ]
+        },
+        {
+          "id": "claim-frame-2",
+          "predicate": {
+            "id": "claim-frame-2-predicate",
+            "text": "help",
+            "start": 71,
+            "end": 75
+          },
+          "subjects": [],
+          "coreArguments": [
+            {
+              "id": "claim-frame-2-argument-1",
+              "text": "coronavirus patients",
+              "start": 76,
+              "end": 96,
+              "role": "direct_object"
             }
           ],
           "adjuncts": [],
@@ -316,14 +375,14 @@
       "cues": [],
       "entities": [
         {
-          "id": "atom-1-entity-gpe-0-6",
+          "id": "claim-entity-gpe-0-6",
           "text": "Russia",
           "start": 0,
           "end": 6,
           "label": "GPE"
         },
         {
-          "id": "atom-1-entity-gpe-31-33",
+          "id": "claim-entity-gpe-31-33",
           "text": "US",
           "start": 31,
           "end": 33,
@@ -332,7 +391,7 @@
       ],
       "tokens": [
         {
-          "id": "atom-1-token-0",
+          "id": "claim-token-0",
           "text": "Russia",
           "start": 0,
           "end": 6,
@@ -343,7 +402,7 @@
           "head": "sent"
         },
         {
-          "id": "atom-1-token-1",
+          "id": "claim-token-1",
           "text": "sent",
           "start": 7,
           "end": 11,
@@ -354,7 +413,7 @@
           "head": "ROOT"
         },
         {
-          "id": "atom-1-token-2",
+          "id": "claim-token-2",
           "text": "medical",
           "start": 12,
           "end": 19,
@@ -365,7 +424,7 @@
           "head": "aid"
         },
         {
-          "id": "atom-1-token-3",
+          "id": "claim-token-3",
           "text": "aid",
           "start": 20,
           "end": 23,
@@ -376,7 +435,7 @@
           "head": "sent"
         },
         {
-          "id": "atom-1-token-4",
+          "id": "claim-token-4",
           "text": "to",
           "start": 24,
           "end": 26,
@@ -387,7 +446,7 @@
           "head": "sent"
         },
         {
-          "id": "atom-1-token-5",
+          "id": "claim-token-5",
           "text": "the",
           "start": 27,
           "end": 30,
@@ -398,7 +457,7 @@
           "head": "US"
         },
         {
-          "id": "atom-1-token-6",
+          "id": "claim-token-6",
           "text": "US",
           "start": 31,
           "end": 33,
@@ -409,103 +468,32 @@
           "head": "to"
         },
         {
-          "id": "atom-1-token-7",
-          "text": ".",
+          "id": "claim-token-7",
+          "text": ",",
           "start": 33,
           "end": 34,
-          "lemma": ".",
+          "lemma": ",",
           "pos": "PUNCT",
-          "tag": ".",
+          "tag": ",",
           "dependency": "punct",
           "head": "sent"
-        }
-      ],
-      "status": "complete",
-      "unresolved": []
-    },
-    {
-      "atomId": "atom-2",
-      "frames": [
-        {
-          "id": "atom-2-frame-1",
-          "predicate": {
-            "id": "atom-2-frame-1-predicate",
-            "text": "was",
-            "start": 8,
-            "end": 11
-          },
-          "subjects": [
-            {
-              "id": "atom-2-frame-1-subject-1",
-              "text": "The aid",
-              "start": 0,
-              "end": 7
-            }
-          ],
-          "coreArguments": [],
-          "adjuncts": [],
-          "otherModifiers": [
-            {
-              "id": "atom-2-frame-1-other-modifier-1",
-              "text": "in the form of medical equipment",
-              "start": 12,
-              "end": 44
-            }
-          ]
-        }
-      ],
-      "cues": [],
-      "entities": [],
-      "tokens": [
-        {
-          "id": "atom-2-token-0",
-          "text": "The",
-          "start": 0,
-          "end": 3,
-          "lemma": "the",
-          "pos": "DET",
-          "tag": "DT",
-          "dependency": "det",
-          "head": "aid"
         },
         {
-          "id": "atom-2-token-1",
-          "text": "aid",
-          "start": 4,
-          "end": 7,
-          "lemma": "aid",
-          "pos": "NOUN",
-          "tag": "NN",
-          "dependency": "nsubj",
-          "head": "was"
-        },
-        {
-          "id": "atom-2-token-2",
-          "text": "was",
-          "start": 8,
-          "end": 11,
-          "lemma": "be",
-          "pos": "AUX",
-          "tag": "VBD",
-          "dependency": "ROOT",
-          "head": "ROOT"
-        },
-        {
-          "id": "atom-2-token-3",
+          "id": "claim-token-8",
           "text": "in",
-          "start": 12,
-          "end": 14,
+          "start": 35,
+          "end": 37,
           "lemma": "in",
           "pos": "ADP",
           "tag": "IN",
           "dependency": "prep",
-          "head": "was"
+          "head": "sent"
         },
         {
-          "id": "atom-2-token-4",
+          "id": "claim-token-9",
           "text": "the",
-          "start": 15,
-          "end": 18,
+          "start": 38,
+          "end": 41,
           "lemma": "the",
           "pos": "DET",
           "tag": "DT",
@@ -513,10 +501,10 @@
           "head": "form"
         },
         {
-          "id": "atom-2-token-5",
+          "id": "claim-token-10",
           "text": "form",
-          "start": 19,
-          "end": 23,
+          "start": 42,
+          "end": 46,
           "lemma": "form",
           "pos": "NOUN",
           "tag": "NN",
@@ -524,10 +512,10 @@
           "head": "in"
         },
         {
-          "id": "atom-2-token-6",
+          "id": "claim-token-11",
           "text": "of",
-          "start": 24,
-          "end": 26,
+          "start": 47,
+          "end": 49,
           "lemma": "of",
           "pos": "ADP",
           "tag": "IN",
@@ -535,10 +523,10 @@
           "head": "form"
         },
         {
-          "id": "atom-2-token-7",
+          "id": "claim-token-12",
           "text": "medical",
-          "start": 27,
-          "end": 34,
+          "start": 50,
+          "end": 57,
           "lemma": "medical",
           "pos": "ADJ",
           "tag": "JJ",
@@ -546,10 +534,10 @@
           "head": "equipment"
         },
         {
-          "id": "atom-2-token-8",
+          "id": "claim-token-13",
           "text": "equipment",
-          "start": 35,
-          "end": 44,
+          "start": 58,
+          "end": 67,
           "lemma": "equipment",
           "pos": "NOUN",
           "tag": "NN",
@@ -557,124 +545,10 @@
           "head": "of"
         },
         {
-          "id": "atom-2-token-9",
-          "text": ".",
-          "start": 44,
-          "end": 45,
-          "lemma": ".",
-          "pos": "PUNCT",
-          "tag": ".",
-          "dependency": "punct",
-          "head": "was"
-        }
-      ],
-      "status": "complete",
-      "unresolved": []
-    },
-    {
-      "atomId": "atom-3",
-      "frames": [
-        {
-          "id": "atom-3-frame-1",
-          "predicate": {
-            "id": "atom-3-frame-1-predicate",
-            "text": "sent",
-            "start": 12,
-            "end": 16
-          },
-          "subjects": [
-            {
-              "id": "atom-3-frame-1-subject-1",
-              "text": "The aid",
-              "start": 0,
-              "end": 7
-            }
-          ],
-          "coreArguments": [],
-          "adjuncts": [],
-          "otherModifiers": [
-            {
-              "id": "atom-3-frame-1-other-modifier-1",
-              "text": "to help coronavirus patients",
-              "start": 17,
-              "end": 45
-            }
-          ]
-        },
-        {
-          "id": "atom-3-frame-2",
-          "predicate": {
-            "id": "atom-3-frame-2-predicate",
-            "text": "help",
-            "start": 20,
-            "end": 24
-          },
-          "subjects": [],
-          "coreArguments": [
-            {
-              "id": "atom-3-frame-2-argument-1",
-              "text": "coronavirus patients",
-              "start": 25,
-              "end": 45,
-              "role": "direct_object"
-            }
-          ],
-          "adjuncts": [],
-          "otherModifiers": []
-        }
-      ],
-      "cues": [],
-      "entities": [],
-      "tokens": [
-        {
-          "id": "atom-3-token-0",
-          "text": "The",
-          "start": 0,
-          "end": 3,
-          "lemma": "the",
-          "pos": "DET",
-          "tag": "DT",
-          "dependency": "det",
-          "head": "aid"
-        },
-        {
-          "id": "atom-3-token-1",
-          "text": "aid",
-          "start": 4,
-          "end": 7,
-          "lemma": "aid",
-          "pos": "NOUN",
-          "tag": "NN",
-          "dependency": "nsubjpass",
-          "head": "sent"
-        },
-        {
-          "id": "atom-3-token-2",
-          "text": "was",
-          "start": 8,
-          "end": 11,
-          "lemma": "be",
-          "pos": "AUX",
-          "tag": "VBD",
-          "dependency": "auxpass",
-          "head": "sent"
-        },
-        {
-          "id": "atom-3-token-3",
-          "text": "sent",
-          "start": 12,
-          "end": 16,
-          "lemma": "send",
-          "pos": "VERB",
-          "tag": "VBN",
-          "dependency": "ROOT",
-          "head": "ROOT"
-        },
-        {
-          "id": "atom-3-token-4",
+          "id": "claim-token-14",
           "text": "to",
-          "start": 17,
-          "end": 19,
+          "start": 68,
+          "end": 70,
           "lemma": "to",
           "pos": "PART",
           "tag": "TO",
@@ -682,10 +556,10 @@
           "head": "help"
         },
         {
-          "id": "atom-3-token-5",
+          "id": "claim-token-15",
           "text": "help",
-          "start": 20,
-          "end": 24,
+          "start": 71,
+          "end": 75,
           "lemma": "help",
           "pos": "VERB",
           "tag": "VB",
@@ -693,10 +567,10 @@
           "head": "sent"
         },
         {
-          "id": "atom-3-token-6",
+          "id": "claim-token-16",
           "text": "coronavirus",
-          "start": 25,
-          "end": 36,
+          "start": 76,
+          "end": 87,
           "lemma": "coronavirus",
           "pos": "NOUN",
           "tag": "NN",
@@ -704,10 +578,10 @@
           "head": "patients"
         },
         {
-          "id": "atom-3-token-7",
+          "id": "claim-token-17",
           "text": "patients",
-          "start": 37,
-          "end": 45,
+          "start": 88,
+          "end": 96,
           "lemma": "patient",
           "pos": "NOUN",
           "tag": "NNS",
@@ -715,10 +589,10 @@
           "head": "help"
         },
         {
-          "id": "atom-3-token-8",
+          "id": "claim-token-18",
           "text": ".",
-          "start": 45,
-          "end": 46,
+          "start": 96,
+          "end": 97,
           "lemma": ".",
           "pos": "PUNCT",
           "tag": ".",
@@ -730,8 +604,604 @@
       "unresolved": [
         "subject"
       ]
-    }
-  ],
+    },
+    "analyses": [
+      {
+        "atomId": "atom-1",
+        "frames": [
+          {
+            "id": "atom-1-frame-1",
+            "predicate": {
+              "id": "atom-1-frame-1-predicate",
+              "text": "sent",
+              "start": 7,
+              "end": 11
+            },
+            "subjects": [
+              {
+                "id": "atom-1-frame-1-subject-1",
+                "text": "Russia",
+                "start": 0,
+                "end": 6
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-1-frame-1-argument-1",
+                "text": "medical aid",
+                "start": 12,
+                "end": 23,
+                "role": "direct_object"
+              },
+              {
+                "id": "atom-1-frame-1-argument-2",
+                "text": "to the US",
+                "start": 24,
+                "end": 33,
+                "role": "indirect_object"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [],
+        "entities": [
+          {
+            "id": "atom-1-entity-gpe-0-6",
+            "text": "Russia",
+            "start": 0,
+            "end": 6,
+            "label": "GPE"
+          },
+          {
+            "id": "atom-1-entity-gpe-31-33",
+            "text": "US",
+            "start": 31,
+            "end": 33,
+            "label": "GPE"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-1-token-0",
+            "text": "Russia",
+            "start": 0,
+            "end": 6,
+            "lemma": "Russia",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "nsubj",
+            "head": "sent"
+          },
+          {
+            "id": "atom-1-token-1",
+            "text": "sent",
+            "start": 7,
+            "end": 11,
+            "lemma": "send",
+            "pos": "VERB",
+            "tag": "VBD",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-1-token-2",
+            "text": "medical",
+            "start": 12,
+            "end": 19,
+            "lemma": "medical",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "aid"
+          },
+          {
+            "id": "atom-1-token-3",
+            "text": "aid",
+            "start": 20,
+            "end": 23,
+            "lemma": "aid",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "dobj",
+            "head": "sent"
+          },
+          {
+            "id": "atom-1-token-4",
+            "text": "to",
+            "start": 24,
+            "end": 26,
+            "lemma": "to",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "dative",
+            "head": "sent"
+          },
+          {
+            "id": "atom-1-token-5",
+            "text": "the",
+            "start": 27,
+            "end": 30,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "US"
+          },
+          {
+            "id": "atom-1-token-6",
+            "text": "US",
+            "start": 31,
+            "end": 33,
+            "lemma": "US",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "pobj",
+            "head": "to"
+          },
+          {
+            "id": "atom-1-token-7",
+            "text": ".",
+            "start": 33,
+            "end": 34,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "sent"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      },
+      {
+        "atomId": "atom-2",
+        "frames": [
+          {
+            "id": "atom-2-frame-1",
+            "predicate": {
+              "id": "atom-2-frame-1-predicate",
+              "text": "was",
+              "start": 16,
+              "end": 19
+            },
+            "subjects": [
+              {
+                "id": "atom-2-frame-1-subject-1",
+                "text": "The medical aid",
+                "start": 0,
+                "end": 15
+              }
+            ],
+            "coreArguments": [],
+            "adjuncts": [],
+            "otherModifiers": [
+              {
+                "id": "atom-2-frame-1-other-modifier-1",
+                "text": "in the form of medical equipment",
+                "start": 20,
+                "end": 52
+              }
+            ]
+          }
+        ],
+        "cues": [],
+        "entities": [],
+        "tokens": [
+          {
+            "id": "atom-2-token-0",
+            "text": "The",
+            "start": 0,
+            "end": 3,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "aid"
+          },
+          {
+            "id": "atom-2-token-1",
+            "text": "medical",
+            "start": 4,
+            "end": 11,
+            "lemma": "medical",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "aid"
+          },
+          {
+            "id": "atom-2-token-2",
+            "text": "aid",
+            "start": 12,
+            "end": 15,
+            "lemma": "aid",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "nsubj",
+            "head": "was"
+          },
+          {
+            "id": "atom-2-token-3",
+            "text": "was",
+            "start": 16,
+            "end": 19,
+            "lemma": "be",
+            "pos": "AUX",
+            "tag": "VBD",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-2-token-4",
+            "text": "in",
+            "start": 20,
+            "end": 22,
+            "lemma": "in",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "was"
+          },
+          {
+            "id": "atom-2-token-5",
+            "text": "the",
+            "start": 23,
+            "end": 26,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "form"
+          },
+          {
+            "id": "atom-2-token-6",
+            "text": "form",
+            "start": 27,
+            "end": 31,
+            "lemma": "form",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "pobj",
+            "head": "in"
+          },
+          {
+            "id": "atom-2-token-7",
+            "text": "of",
+            "start": 32,
+            "end": 34,
+            "lemma": "of",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "form"
+          },
+          {
+            "id": "atom-2-token-8",
+            "text": "medical",
+            "start": 35,
+            "end": 42,
+            "lemma": "medical",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "equipment"
+          },
+          {
+            "id": "atom-2-token-9",
+            "text": "equipment",
+            "start": 43,
+            "end": 52,
+            "lemma": "equipment",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "pobj",
+            "head": "of"
+          },
+          {
+            "id": "atom-2-token-10",
+            "text": ".",
+            "start": 52,
+            "end": 53,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "was"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      },
+      {
+        "atomId": "atom-3",
+        "frames": [
+          {
+            "id": "atom-3-frame-1",
+            "predicate": {
+              "id": "atom-3-frame-1-predicate",
+              "text": "was",
+              "start": 16,
+              "end": 19
+            },
+            "subjects": [
+              {
+                "id": "atom-3-frame-1-subject-1",
+                "text": "The medical aid",
+                "start": 0,
+                "end": 15
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-3-frame-1-argument-1",
+                "text": "to help coronavirus patients",
+                "start": 20,
+                "end": 48,
+                "role": "clausal_complement"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": []
+          },
+          {
+            "id": "atom-3-frame-2",
+            "predicate": {
+              "id": "atom-3-frame-2-predicate",
+              "text": "help",
+              "start": 23,
+              "end": 27
+            },
+            "subjects": [],
+            "coreArguments": [
+              {
+                "id": "atom-3-frame-2-argument-1",
+                "text": "coronavirus patients",
+                "start": 28,
+                "end": 48,
+                "role": "direct_object"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [],
+        "entities": [],
+        "tokens": [
+          {
+            "id": "atom-3-token-0",
+            "text": "The",
+            "start": 0,
+            "end": 3,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "aid"
+          },
+          {
+            "id": "atom-3-token-1",
+            "text": "medical",
+            "start": 4,
+            "end": 11,
+            "lemma": "medical",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "aid"
+          },
+          {
+            "id": "atom-3-token-2",
+            "text": "aid",
+            "start": 12,
+            "end": 15,
+            "lemma": "aid",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "nsubj",
+            "head": "was"
+          },
+          {
+            "id": "atom-3-token-3",
+            "text": "was",
+            "start": 16,
+            "end": 19,
+            "lemma": "be",
+            "pos": "AUX",
+            "tag": "VBD",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-3-token-4",
+            "text": "to",
+            "start": 20,
+            "end": 22,
+            "lemma": "to",
+            "pos": "PART",
+            "tag": "TO",
+            "dependency": "aux",
+            "head": "help"
+          },
+          {
+            "id": "atom-3-token-5",
+            "text": "help",
+            "start": 23,
+            "end": 27,
+            "lemma": "help",
+            "pos": "VERB",
+            "tag": "VB",
+            "dependency": "xcomp",
+            "head": "was"
+          },
+          {
+            "id": "atom-3-token-6",
+            "text": "coronavirus",
+            "start": 28,
+            "end": 39,
+            "lemma": "coronavirus",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "compound",
+            "head": "patients"
+          },
+          {
+            "id": "atom-3-token-7",
+            "text": "patients",
+            "start": 40,
+            "end": 48,
+            "lemma": "patient",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "dobj",
+            "head": "help"
+          },
+          {
+            "id": "atom-3-token-8",
+            "text": ".",
+            "start": 48,
+            "end": 49,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "was"
+          }
+        ],
+        "status": "partial",
+        "unresolved": [
+          "subject"
+        ]
+      }
+    ],
+    "summaries": [
+      {
+        "atomId": "atom-1",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "Russia"
+        ],
+        "predicates": [
+          "send"
+        ],
+        "cueKinds": [],
+        "modifierKinds": [],
+        "entityLabels": [
+          "GPE"
+        ],
+        "warnings": []
+      },
+      {
+        "atomId": "atom-2",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "The medical aid"
+        ],
+        "predicates": [
+          "be"
+        ],
+        "cueKinds": [],
+        "modifierKinds": [],
+        "entityLabels": [],
+        "warnings": []
+      },
+      {
+        "atomId": "atom-3",
+        "analysisStatus": "partial",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "The medical aid"
+        ],
+        "predicates": [
+          "be",
+          "help"
+        ],
+        "cueKinds": [],
+        "modifierKinds": [],
+        "entityLabels": [],
+        "warnings": [
+          "MULTIPLE_PROPOSITION_FRAMES",
+          "UNRESOLVED_SUBJECT",
+          "PARTIAL_LINGUISTIC_ANALYSIS"
+        ]
+      }
+    ],
+    "claimWarnings": [],
+    "provider": "spacy",
+    "model": "en_core_web_sm@3.8.0"
+  },
+  "verdict": {
+    "aggregationSchemaVersion": 1,
+    "claimId": "averitec-dev-0058",
+    "composition": "AND",
+    "verdict": "NOT_ENOUGH_EVIDENCE",
+    "positions": {
+      "supportPosition": false,
+      "attackPosition": false,
+      "supportObligationIds": [
+        "atom-1",
+        "atom-2"
+      ],
+      "attackObligationIds": [],
+      "unresolvedObligationIds": [
+        "atom-3"
+      ]
+    },
+    "obligations": [
+      {
+        "obligationId": "atom-1",
+        "state": "SUPPORTED",
+        "supportEdgeIds": [
+          "edge:SUPPORTS:evidence:doc-ff8f3576e3da:doc-ff8f3576e3da::sentence-16:obligation:averitec-dev-0058:atom-1",
+          "edge:SUPPORTS:evidence:doc-ff8f3576e3da:doc-ff8f3576e3da::sentence-15:obligation:averitec-dev-0058:atom-1",
+          "edge:SUPPORTS:evidence:doc-ff8f3576e3da:doc-ff8f3576e3da::sentence-19:obligation:averitec-dev-0058:atom-1",
+          "edge:SUPPORTS:evidence:doc-bacc7d0e399e:doc-bacc7d0e399e::sentence-63:obligation:averitec-dev-0058:atom-1"
+        ],
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 2
+      },
+      {
+        "obligationId": "atom-2",
+        "state": "SUPPORTED",
+        "supportEdgeIds": [
+          "edge:SUPPORTS:evidence:doc-ff8f3576e3da:doc-ff8f3576e3da::sentence-16:obligation:averitec-dev-0058:atom-2",
+          "edge:SUPPORTS:evidence:doc-ff8f3576e3da:doc-ff8f3576e3da::sentence-17:obligation:averitec-dev-0058:atom-2"
+        ],
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 4
+      },
+      {
+        "obligationId": "atom-3",
+        "state": "UNRESOLVED",
+        "supportEdgeIds": [],
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 6
+      }
+    ],
+    "warnings": [
+      {
+        "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
+        "message": "Obligation atom-3 has no supporting or attacking evidence."
+      },
+      {
+        "code": "ONLY_NEUTRAL_CANDIDATES",
+        "message": "Obligation atom-3 has only neutral retrieved candidates."
+      },
+      {
+        "code": "PARTIAL_LINGUISTIC_ANALYSIS",
+        "message": "Linguistic analysis for obligation atom-3 requires inspection; it does not change the verdict."
+      }
+    ],
+    "ruleTrace": [
+      "AND support requires support for every obligation; AND attack requires an attack on any obligation.",
+      "Support position: no; attack position: no.",
+      "Final verdict: NOT_ENOUGH_EVIDENCE."
+    ]
+  },
   "recordedWith": {
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",

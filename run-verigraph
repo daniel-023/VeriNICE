@@ -25,7 +25,7 @@ local_env() {
   fi
   export PYTHONPATH="${script_dir}/backend"
   export VERIGRAPH_OLLAMA_URL="${VERIGRAPH_OLLAMA_URL:-http://127.0.0.1:11434}"
-  export VERIGRAPH_OLLAMA_MODEL="${VERIGRAPH_OLLAMA_MODEL:-qwen2.5:3b}"
+  export VERIGRAPH_OLLAMA_MODEL="${VERIGRAPH_OLLAMA_MODEL:-qwen2.5:7b}"
   export VERIGRAPH_EMBEDDING_MODEL_PATH="${VERIGRAPH_EMBEDDING_MODEL_PATH:-${script_dir}/data/models/bge-small-en-v1.5}"
   export VERIGRAPH_NLI_MODEL_PATH="${VERIGRAPH_NLI_MODEL_PATH:-${script_dir}/data/models/deberta-v3-base-mnli-fever-anli}"
   export VERIGRAPH_BACKEND_URL="${VERIGRAPH_BACKEND_URL:-http://127.0.0.1:8001}"
@@ -146,9 +146,9 @@ case "${1:-}" in
     [[ -x "${venv}/bin/python" ]] || { echo "Run ./run-verigraph --prepare first." >&2; exit 1; }
     wait_for_local_ui
     "${venv}/bin/python" "${script_dir}/scripts/record_walkthrough.py" \
-      --api "${VERIGRAPH_BACKEND_URL}"
+      --api "${VERIGRAPH_BACKEND_URL}" --all
     "${venv}/bin/python" "${script_dir}/scripts/build_walkthrough.py" \
-      --require-complete
+      --all --require-complete
     echo "Recorded walkthrough assets are ready in frontend/public/walkthrough/."
     ;;
   --check)

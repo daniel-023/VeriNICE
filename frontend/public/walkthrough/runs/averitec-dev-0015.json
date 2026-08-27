@@ -1,26 +1,37 @@
 {
   "caseId": "averitec-dev-0015",
+  "schemaVersion": 2,
+  "composition": "AND",
+  "warnings": [
+    {
+      "code": "REUSED_SOURCE_TEXT",
+      "message": "One sourceText span grounds more than one obligation."
+    }
+  ],
   "atoms": [
     {
       "id": "atom-1",
       "text": "Illegal drug activities have decreased in areas where barriers are deployed in the United States.",
       "sourceText": "Illegal drug, border crossings, and human smuggling activities have decreased in areas where barriers are deployed in the United States.",
       "start": 0,
-      "end": 136
+      "end": 136,
+      "role": "CORE"
     },
     {
       "id": "atom-2",
       "text": "Border crossings activities have decreased in areas where barriers are deployed in the United States.",
       "sourceText": "Illegal drug, border crossings, and human smuggling activities have decreased in areas where barriers are deployed in the United States.",
       "start": 0,
-      "end": 136
+      "end": 136,
+      "role": "CORE"
     },
     {
       "id": "atom-3",
       "text": "Human smuggling activities have decreased in areas where barriers are deployed in the United States.",
       "sourceText": "Illegal drug, border crossings, and human smuggling activities have decreased in areas where barriers are deployed in the United States.",
       "start": 0,
-      "end": 136
+      "end": 136,
+      "role": "CORE"
     }
   ],
   "evidence": [
@@ -32,42 +43,48 @@
           "documentId": "doc-ce677b332c51",
           "text": "6. The barrier is unlikely to stop most kinds of drugs coming into the US\n",
           "start": 10299,
-          "end": 10373
+          "end": 10373,
+          "context": "\"These people have nowhere to go. They can't go home - they will be killed if they go home - and they can't get into the US, so they are stuck in this purgatory right now and we don't see that ending any time soon,\" she says.\n 6. The barrier is unlikely to stop most kinds of drugs coming into the US\n Mr Trump has claimed in the past that 90% of heroin in the US comes across the southern border and that a wall would help the fight against drugs.\n"
         },
         {
           "id": "doc-ce677b332c51::sentence-77",
           "documentId": "doc-ce677b332c51",
           "text": "However strengthening and extending the border barrier is unlikely to do much to reduce illegal drugs - such as heroin, cocaine and methamphetamine - because most come through established border checkpoints, known as ports of entry.\n",
           "start": 10520,
-          "end": 10753
+          "end": 10753,
+          "context": "Mr Trump has claimed in the past that 90% of heroin in the US comes across the southern border and that a wall would help the fight against drugs.\n However strengthening and extending the border barrier is unlikely to do much to reduce illegal drugs - such as heroin, cocaine and methamphetamine - because most come through established border checkpoints, known as ports of entry.\n While the majority of the heroin in the US does come from Mexico, the Drug Enforcement Administration says most of it is hidden in privately owned vehicles or transporter lorries, mixed with other goods, and smuggled through legal entry points.\n"
         },
         {
           "id": "doc-ce677b332c51::sentence-50",
           "documentId": "doc-ce677b332c51",
           "text": "4. Illegal crossings appear to have fallen this year\n",
           "start": 6177,
-          "end": 6230
+          "end": 6230,
+          "context": "Meanwhile, Democrats in the House of Representatives have also launched separate legal action.\n 4. Illegal crossings appear to have fallen this year\n Mr Trump made reducing illegal immigration a top priority of his administration and it has been a key part of his re-election campaign.\n"
         },
         {
           "id": "doc-e9ea0a467bd3::sentence-57",
           "documentId": "doc-e9ea0a467bd3",
           "text": "Clinical trials are underway in the US and other countries to evaluate new antiviral drugs for treating patients with COVID-19.\n",
           "start": 4059,
-          "end": 4187
+          "end": 4187,
+          "context": "People have been seriously harmed and have even died after taking products not approved for COVID-19, even products approved or prescribed for other uses.  Clinical trials are underway in the US and other countries to evaluate new antiviral drugs for treating patients with COVID-19.\n For all patients who have COVID-19 or other coronaviruses, supportive care is recommended:\n"
         },
         {
           "id": "doc-e9ea0a467bd3::sentence-17",
           "documentId": "doc-e9ea0a467bd3",
           "text": "MERS cases continue to occur, primarily in the Arabian Peninsula; however, as of 2019, there have been only two confirmed cases of MERS in the US, both in 2014.\n",
           "start": 1320,
-          "end": 1481
+          "end": 1481,
+          "context": "About 3 or 4 out of every 10 patients reported with MERS have died.  MERS cases continue to occur, primarily in the Arabian Peninsula; however, as of 2019, there have been only two confirmed cases of MERS in the US, both in 2014.\n Severe Acute Respiratory Syndrome (SARS)\n"
         },
         {
           "id": "doc-e9ea0a467bd3::sentence-56",
           "documentId": "doc-e9ea0a467bd3",
           "text": "People have been seriously harmed and have even died after taking products not approved for COVID-19, even products approved or prescribed for other uses. ",
           "start": 3904,
-          "end": 4059
+          "end": 4059,
+          "context": "If you are infected, contact a healthcare professional to see if you are eligible as treatments used for COVID-19 should only be prescribed by a healthcare professional.  People have been seriously harmed and have even died after taking products not approved for COVID-19, even products approved or prescribed for other uses.  Clinical trials are underway in the US and other countries to evaluate new antiviral drugs for treating patients with COVID-19.\n"
         }
       ]
     },
@@ -79,42 +96,48 @@
           "documentId": "doc-ce677b332c51",
           "text": "4. Illegal crossings appear to have fallen this year\n",
           "start": 6177,
-          "end": 6230
+          "end": 6230,
+          "context": "Meanwhile, Democrats in the House of Representatives have also launched separate legal action.\n 4. Illegal crossings appear to have fallen this year\n Mr Trump made reducing illegal immigration a top priority of his administration and it has been a key part of his re-election campaign.\n"
         },
         {
           "id": "doc-ce677b332c51::sentence-54",
           "documentId": "doc-ce677b332c51",
           "text": "How much this fall in numbers is down to the new barriers is unclear, though, and immigration experts say the drop is likely to be the result of the deterrent effect of a whole raft of anti-immigration measures introduced by Mr Trump's administration rather than the barrier alone.\n",
           "start": 6701,
-          "end": 6983
+          "end": 6983,
+          "context": "In particular, the number of children and those travelling in family groups apprehended at the border has dropped significantly in the 12 months to October, compared with the previous year.\n How much this fall in numbers is down to the new barriers is unclear, though, and immigration experts say the drop is likely to be the result of the deterrent effect of a whole raft of anti-immigration measures introduced by Mr Trump's administration rather than the barrier alone.\n Those fleeing violence or persecution to the US have found asylum rules tightened, been forced to wait in camps for long periods as their cases are determined and come up against new limits on the number of refugees accepted into the country.\n"
         },
         {
           "id": "doc-ce677b332c51::sentence-71",
           "documentId": "doc-ce677b332c51",
           "text": "Coronavirus restrictions have meant the border has been closed for all but essential travel and immigration hearings have been postponed.\n",
           "start": 9657,
-          "end": 9795
+          "end": 9795,
+          "context": "But Andrea Leiner, director of strategic planning for GRM, says coronavirus and July's Hurricane Hanna have had dire consequences.\n Coronavirus restrictions have meant the border has been closed for all but essential travel and immigration hearings have been postponed.\n Hurricane Hanna not only brought floods to the camp but also caused an infestation of rats, snakes and mosquitoes, forcing many residents to flee.\n"
         },
         {
           "id": "doc-e9ea0a467bd3::sentence-82",
           "documentId": "doc-e9ea0a467bd3",
           "text": "Tools and resources to help leaders across sectors ensure that their communications foster positive social norms that encourage the public to follow evidence-based public health prevention measures for COVID-19\n",
           "start": 5650,
-          "end": 5861
+          "end": 5861,
+          "context": "COVID-19 Communications: Promoting Prevention Measures and Vaccine Confidence\n Tools and resources to help leaders across sectors ensure that their communications foster positive social norms that encourage the public to follow evidence-based public health prevention measures for COVID-19\n Masks: Dos & Don’ts\n"
         },
         {
           "id": "doc-e9ea0a467bd3::sentence-84",
           "documentId": "doc-e9ea0a467bd3",
           "text": "It is easy to be confused by guidance that changes over time or differs by state, but it is still a good idea to wear a mask in public, especially if you have not been fully vaccinated.\n",
           "start": 5881,
-          "end": 6067
+          "end": 6067,
+          "context": "Masks: Dos & Don’ts\n It is easy to be confused by guidance that changes over time or differs by state, but it is still a good idea to wear a mask in public, especially if you have not been fully vaccinated.\n 5 Tips to Help #StopTheSpread of COVID-19\n"
         },
         {
           "id": "doc-e9ea0a467bd3::sentence-17",
           "documentId": "doc-e9ea0a467bd3",
           "text": "MERS cases continue to occur, primarily in the Arabian Peninsula; however, as of 2019, there have been only two confirmed cases of MERS in the US, both in 2014.\n",
           "start": 1320,
-          "end": 1481
+          "end": 1481,
+          "context": "About 3 or 4 out of every 10 patients reported with MERS have died.  MERS cases continue to occur, primarily in the Arabian Peninsula; however, as of 2019, there have been only two confirmed cases of MERS in the US, both in 2014.\n Severe Acute Respiratory Syndrome (SARS)\n"
         }
       ]
     },
@@ -126,42 +149,48 @@
           "documentId": "doc-ce677b332c51",
           "text": "4. Illegal crossings appear to have fallen this year\n",
           "start": 6177,
-          "end": 6230
+          "end": 6230,
+          "context": "Meanwhile, Democrats in the House of Representatives have also launched separate legal action.\n 4. Illegal crossings appear to have fallen this year\n Mr Trump made reducing illegal immigration a top priority of his administration and it has been a key part of his re-election campaign.\n"
         },
         {
           "id": "doc-ce677b332c51::sentence-75",
           "documentId": "doc-ce677b332c51",
           "text": "6. The barrier is unlikely to stop most kinds of drugs coming into the US\n",
           "start": 10299,
-          "end": 10373
+          "end": 10373,
+          "context": "\"These people have nowhere to go. They can't go home - they will be killed if they go home - and they can't get into the US, so they are stuck in this purgatory right now and we don't see that ending any time soon,\" she says.\n 6. The barrier is unlikely to stop most kinds of drugs coming into the US\n Mr Trump has claimed in the past that 90% of heroin in the US comes across the southern border and that a wall would help the fight against drugs.\n"
         },
         {
           "id": "doc-ce677b332c51::sentence-54",
           "documentId": "doc-ce677b332c51",
           "text": "How much this fall in numbers is down to the new barriers is unclear, though, and immigration experts say the drop is likely to be the result of the deterrent effect of a whole raft of anti-immigration measures introduced by Mr Trump's administration rather than the barrier alone.\n",
           "start": 6701,
-          "end": 6983
+          "end": 6983,
+          "context": "In particular, the number of children and those travelling in family groups apprehended at the border has dropped significantly in the 12 months to October, compared with the previous year.\n How much this fall in numbers is down to the new barriers is unclear, though, and immigration experts say the drop is likely to be the result of the deterrent effect of a whole raft of anti-immigration measures introduced by Mr Trump's administration rather than the barrier alone.\n Those fleeing violence or persecution to the US have found asylum rules tightened, been forced to wait in camps for long periods as their cases are determined and come up against new limits on the number of refugees accepted into the country.\n"
         },
         {
           "id": "doc-e9ea0a467bd3::sentence-41",
           "documentId": "doc-e9ea0a467bd3",
           "text": "Human coronaviruses can be spread primarily through:\n",
           "start": 3064,
-          "end": 3117
+          "end": 3117,
+          "context": "Prevention\n Human coronaviruses can be spread primarily through:\n - coughing and sneezing\n"
         },
         {
           "id": "doc-e9ea0a467bd3::sentence-17",
           "documentId": "doc-e9ea0a467bd3",
           "text": "MERS cases continue to occur, primarily in the Arabian Peninsula; however, as of 2019, there have been only two confirmed cases of MERS in the US, both in 2014.\n",
           "start": 1320,
-          "end": 1481
+          "end": 1481,
+          "context": "About 3 or 4 out of every 10 patients reported with MERS have died.  MERS cases continue to occur, primarily in the Arabian Peninsula; however, as of 2019, there have been only two confirmed cases of MERS in the US, both in 2014.\n Severe Acute Respiratory Syndrome (SARS)\n"
         },
         {
           "id": "doc-e9ea0a467bd3::sentence-84",
           "documentId": "doc-e9ea0a467bd3",
           "text": "It is easy to be confused by guidance that changes over time or differs by state, but it is still a good idea to wear a mask in public, especially if you have not been fully vaccinated.\n",
           "start": 5881,
-          "end": 6067
+          "end": 6067,
+          "context": "Masks: Dos & Don’ts\n It is easy to be confused by guidance that changes over time or differs by state, but it is still a good idea to wear a mask in public, especially if you have not been fully vaccinated.\n 5 Tips to Help #StopTheSpread of COVID-19\n"
         }
       ]
     }
@@ -273,34 +302,35 @@
       ]
     }
   ],
-  "linguistics": [
-    {
-      "atomId": "atom-1",
+  "linguistics": {
+    "schemaVersion": 2,
+    "claimAnalysis": {
+      "atomId": "claim",
       "frames": [
         {
-          "id": "atom-1-frame-1",
+          "id": "claim-frame-1",
           "predicate": {
-            "id": "atom-1-frame-1-predicate",
+            "id": "claim-frame-1-predicate",
             "text": "decreased",
-            "start": 29,
-            "end": 38
+            "start": 68,
+            "end": 77
           },
           "subjects": [
             {
-              "id": "atom-1-frame-1-subject-1",
-              "text": "Illegal drug activities",
+              "id": "claim-frame-1-subject-1",
+              "text": "Illegal drug, border crossings, and human smuggling activities",
               "start": 0,
-              "end": 23
+              "end": 62
             }
           ],
           "coreArguments": [],
           "adjuncts": [],
           "otherModifiers": [
             {
-              "id": "atom-1-frame-1-other-modifier-1",
+              "id": "claim-frame-1-other-modifier-1",
               "text": "in areas where barriers are deployed in the United States",
-              "start": 39,
-              "end": 96
+              "start": 78,
+              "end": 135
             }
           ]
         }
@@ -308,16 +338,16 @@
       "cues": [],
       "entities": [
         {
-          "id": "atom-1-entity-gpe-79-96",
+          "id": "claim-entity-gpe-118-135",
           "text": "the United States",
-          "start": 79,
-          "end": 96,
+          "start": 118,
+          "end": 135,
           "label": "GPE"
         }
       ],
       "tokens": [
         {
-          "id": "atom-1-token-0",
+          "id": "claim-token-0",
           "text": "Illegal",
           "start": 0,
           "end": 7,
@@ -325,224 +355,35 @@
           "pos": "ADJ",
           "tag": "JJ",
           "dependency": "amod",
-          "head": "activities"
+          "head": "drug"
         },
         {
-          "id": "atom-1-token-1",
+          "id": "claim-token-1",
           "text": "drug",
           "start": 8,
           "end": 12,
           "lemma": "drug",
           "pos": "NOUN",
           "tag": "NN",
-          "dependency": "compound",
-          "head": "activities"
-        },
-        {
-          "id": "atom-1-token-2",
-          "text": "activities",
-          "start": 13,
-          "end": 23,
-          "lemma": "activity",
-          "pos": "NOUN",
-          "tag": "NNS",
           "dependency": "nsubj",
           "head": "decreased"
         },
         {
-          "id": "atom-1-token-3",
-          "text": "have",
-          "start": 24,
-          "end": 28,
-          "lemma": "have",
-          "pos": "AUX",
-          "tag": "VBP",
-          "dependency": "aux",
-          "head": "decreased"
-        },
-        {
-          "id": "atom-1-token-4",
-          "text": "decreased",
-          "start": 29,
-          "end": 38,
-          "lemma": "decrease",
-          "pos": "VERB",
-          "tag": "VBN",
-          "dependency": "ROOT",
-          "head": "ROOT"
-        },
-        {
-          "id": "atom-1-token-5",
-          "text": "in",
-          "start": 39,
-          "end": 41,
-          "lemma": "in",
-          "pos": "ADP",
-          "tag": "IN",
-          "dependency": "prep",
-          "head": "decreased"
-        },
-        {
-          "id": "atom-1-token-6",
-          "text": "areas",
-          "start": 42,
-          "end": 47,
-          "lemma": "area",
-          "pos": "NOUN",
-          "tag": "NNS",
-          "dependency": "pobj",
-          "head": "in"
-        },
-        {
-          "id": "atom-1-token-7",
-          "text": "where",
-          "start": 48,
-          "end": 53,
-          "lemma": "where",
-          "pos": "SCONJ",
-          "tag": "WRB",
-          "dependency": "advmod",
-          "head": "deployed"
-        },
-        {
-          "id": "atom-1-token-8",
-          "text": "barriers",
-          "start": 54,
-          "end": 62,
-          "lemma": "barrier",
-          "pos": "NOUN",
-          "tag": "NNS",
-          "dependency": "nsubjpass",
-          "head": "deployed"
-        },
-        {
-          "id": "atom-1-token-9",
-          "text": "are",
-          "start": 63,
-          "end": 66,
-          "lemma": "be",
-          "pos": "AUX",
-          "tag": "VBP",
-          "dependency": "auxpass",
-          "head": "deployed"
-        },
-        {
-          "id": "atom-1-token-10",
-          "text": "deployed",
-          "start": 67,
-          "end": 75,
-          "lemma": "deploy",
-          "pos": "VERB",
-          "tag": "VBN",
-          "dependency": "relcl",
-          "head": "areas"
-        },
-        {
-          "id": "atom-1-token-11",
-          "text": "in",
-          "start": 76,
-          "end": 78,
-          "lemma": "in",
-          "pos": "ADP",
-          "tag": "IN",
-          "dependency": "prep",
-          "head": "deployed"
-        },
-        {
-          "id": "atom-1-token-12",
-          "text": "the",
-          "start": 79,
-          "end": 82,
-          "lemma": "the",
-          "pos": "DET",
-          "tag": "DT",
-          "dependency": "det",
-          "head": "States"
-        },
-        {
-          "id": "atom-1-token-13",
-          "text": "United",
-          "start": 83,
-          "end": 89,
-          "lemma": "United",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "compound",
-          "head": "States"
-        },
-        {
-          "id": "atom-1-token-14",
-          "text": "States",
-          "start": 90,
-          "end": 96,
-          "lemma": "States",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "pobj",
-          "head": "in"
-        },
-        {
-          "id": "atom-1-token-15",
-          "text": ".",
-          "start": 96,
-          "end": 97,
-          "lemma": ".",
+          "id": "claim-token-2",
+          "text": ",",
+          "start": 12,
+          "end": 13,
+          "lemma": ",",
           "pos": "PUNCT",
-          "tag": ".",
+          "tag": ",",
           "dependency": "punct",
-          "head": "decreased"
-        }
-      ],
-      "status": "complete",
-      "unresolved": []
-    },
-    {
-      "atomId": "atom-2",
-      "frames": [
+          "head": "drug"
+        },
         {
-          "id": "atom-2-frame-1",
-          "predicate": {
-            "id": "atom-2-frame-1-predicate",
-            "text": "decreased",
-            "start": 33,
-            "end": 42
-          },
-          "subjects": [
-            {
-              "id": "atom-2-frame-1-subject-1",
-              "text": "Border crossings activities",
-              "start": 0,
-              "end": 27
-            }
-          ],
-          "coreArguments": [],
-          "adjuncts": [],
-          "otherModifiers": [
-            {
-              "id": "atom-2-frame-1-other-modifier-1",
-              "text": "in areas where barriers are deployed in the United States",
-              "start": 43,
-              "end": 100
-            }
-          ]
-        }
-      ],
-      "cues": [],
-      "entities": [
-        {
-          "id": "atom-2-entity-gpe-83-100",
-          "text": "the United States",
-          "start": 83,
-          "end": 100,
-          "label": "GPE"
-        }
-      ],
-      "tokens": [
-        {
-          "id": "atom-2-token-0",
-          "text": "Border",
-          "start": 0,
-          "end": 6,
+          "id": "claim-token-3",
+          "text": "border",
+          "start": 14,
+          "end": 20,
           "lemma": "border",
           "pos": "NOUN",
           "tag": "NN",
@@ -550,32 +391,76 @@
           "head": "crossings"
         },
         {
-          "id": "atom-2-token-1",
+          "id": "claim-token-4",
           "text": "crossings",
-          "start": 7,
-          "end": 16,
+          "start": 21,
+          "end": 30,
           "lemma": "crossing",
           "pos": "NOUN",
           "tag": "NNS",
+          "dependency": "conj",
+          "head": "drug"
+        },
+        {
+          "id": "claim-token-5",
+          "text": ",",
+          "start": 30,
+          "end": 31,
+          "lemma": ",",
+          "pos": "PUNCT",
+          "tag": ",",
+          "dependency": "punct",
+          "head": "crossings"
+        },
+        {
+          "id": "claim-token-6",
+          "text": "and",
+          "start": 32,
+          "end": 35,
+          "lemma": "and",
+          "pos": "CCONJ",
+          "tag": "CC",
+          "dependency": "cc",
+          "head": "crossings"
+        },
+        {
+          "id": "claim-token-7",
+          "text": "human",
+          "start": 36,
+          "end": 41,
+          "lemma": "human",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "smuggling"
+        },
+        {
+          "id": "claim-token-8",
+          "text": "smuggling",
+          "start": 42,
+          "end": 51,
+          "lemma": "smuggling",
+          "pos": "NOUN",
+          "tag": "NN",
           "dependency": "compound",
           "head": "activities"
         },
         {
-          "id": "atom-2-token-2",
+          "id": "claim-token-9",
           "text": "activities",
-          "start": 17,
-          "end": 27,
+          "start": 52,
+          "end": 62,
           "lemma": "activity",
           "pos": "NOUN",
           "tag": "NNS",
-          "dependency": "nsubj",
-          "head": "decreased"
+          "dependency": "conj",
+          "head": "crossings"
         },
         {
-          "id": "atom-2-token-3",
+          "id": "claim-token-10",
           "text": "have",
-          "start": 28,
-          "end": 32,
+          "start": 63,
+          "end": 67,
           "lemma": "have",
           "pos": "AUX",
           "tag": "VBP",
@@ -583,10 +468,10 @@
           "head": "decreased"
         },
         {
-          "id": "atom-2-token-4",
+          "id": "claim-token-11",
           "text": "decreased",
-          "start": 33,
-          "end": 42,
+          "start": 68,
+          "end": 77,
           "lemma": "decrease",
           "pos": "VERB",
           "tag": "VBN",
@@ -594,10 +479,10 @@
           "head": "ROOT"
         },
         {
-          "id": "atom-2-token-5",
+          "id": "claim-token-12",
           "text": "in",
-          "start": 43,
-          "end": 45,
+          "start": 78,
+          "end": 80,
           "lemma": "in",
           "pos": "ADP",
           "tag": "IN",
@@ -605,10 +490,10 @@
           "head": "decreased"
         },
         {
-          "id": "atom-2-token-6",
+          "id": "claim-token-13",
           "text": "areas",
-          "start": 46,
-          "end": 51,
+          "start": 81,
+          "end": 86,
           "lemma": "area",
           "pos": "NOUN",
           "tag": "NNS",
@@ -616,10 +501,10 @@
           "head": "in"
         },
         {
-          "id": "atom-2-token-7",
+          "id": "claim-token-14",
           "text": "where",
-          "start": 52,
-          "end": 57,
+          "start": 87,
+          "end": 92,
           "lemma": "where",
           "pos": "SCONJ",
           "tag": "WRB",
@@ -627,10 +512,10 @@
           "head": "deployed"
         },
         {
-          "id": "atom-2-token-8",
+          "id": "claim-token-15",
           "text": "barriers",
-          "start": 58,
-          "end": 66,
+          "start": 93,
+          "end": 101,
           "lemma": "barrier",
           "pos": "NOUN",
           "tag": "NNS",
@@ -638,10 +523,10 @@
           "head": "deployed"
         },
         {
-          "id": "atom-2-token-9",
+          "id": "claim-token-16",
           "text": "are",
-          "start": 67,
-          "end": 70,
+          "start": 102,
+          "end": 105,
           "lemma": "be",
           "pos": "AUX",
           "tag": "VBP",
@@ -649,10 +534,10 @@
           "head": "deployed"
         },
         {
-          "id": "atom-2-token-10",
+          "id": "claim-token-17",
           "text": "deployed",
-          "start": 71,
-          "end": 79,
+          "start": 106,
+          "end": 114,
           "lemma": "deploy",
           "pos": "VERB",
           "tag": "VBN",
@@ -660,10 +545,10 @@
           "head": "areas"
         },
         {
-          "id": "atom-2-token-11",
+          "id": "claim-token-18",
           "text": "in",
-          "start": 80,
-          "end": 82,
+          "start": 115,
+          "end": 117,
           "lemma": "in",
           "pos": "ADP",
           "tag": "IN",
@@ -671,10 +556,10 @@
           "head": "deployed"
         },
         {
-          "id": "atom-2-token-12",
+          "id": "claim-token-19",
           "text": "the",
-          "start": 83,
-          "end": 86,
+          "start": 118,
+          "end": 121,
           "lemma": "the",
           "pos": "DET",
           "tag": "DT",
@@ -682,10 +567,10 @@
           "head": "States"
         },
         {
-          "id": "atom-2-token-13",
+          "id": "claim-token-20",
           "text": "United",
-          "start": 87,
-          "end": 93,
+          "start": 122,
+          "end": 128,
           "lemma": "United",
           "pos": "PROPN",
           "tag": "NNP",
@@ -693,10 +578,10 @@
           "head": "States"
         },
         {
-          "id": "atom-2-token-14",
+          "id": "claim-token-21",
           "text": "States",
-          "start": 94,
-          "end": 100,
+          "start": 129,
+          "end": 135,
           "lemma": "States",
           "pos": "PROPN",
           "tag": "NNP",
@@ -704,10 +589,10 @@
           "head": "in"
         },
         {
-          "id": "atom-2-token-15",
+          "id": "claim-token-22",
           "text": ".",
-          "start": 100,
-          "end": 101,
+          "start": 135,
+          "end": 136,
           "lemma": ".",
           "pos": "PUNCT",
           "tag": ".",
@@ -718,229 +603,791 @@
       "status": "complete",
       "unresolved": []
     },
-    {
-      "atomId": "atom-3",
-      "frames": [
-        {
-          "id": "atom-3-frame-1",
-          "predicate": {
-            "id": "atom-3-frame-1-predicate",
+    "analyses": [
+      {
+        "atomId": "atom-1",
+        "frames": [
+          {
+            "id": "atom-1-frame-1",
+            "predicate": {
+              "id": "atom-1-frame-1-predicate",
+              "text": "decreased",
+              "start": 29,
+              "end": 38
+            },
+            "subjects": [
+              {
+                "id": "atom-1-frame-1-subject-1",
+                "text": "Illegal drug activities",
+                "start": 0,
+                "end": 23
+              }
+            ],
+            "coreArguments": [],
+            "adjuncts": [],
+            "otherModifiers": [
+              {
+                "id": "atom-1-frame-1-other-modifier-1",
+                "text": "in areas where barriers are deployed in the United States",
+                "start": 39,
+                "end": 96
+              }
+            ]
+          }
+        ],
+        "cues": [],
+        "entities": [
+          {
+            "id": "atom-1-entity-gpe-79-96",
+            "text": "the United States",
+            "start": 79,
+            "end": 96,
+            "label": "GPE"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-1-token-0",
+            "text": "Illegal",
+            "start": 0,
+            "end": 7,
+            "lemma": "illegal",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "activities"
+          },
+          {
+            "id": "atom-1-token-1",
+            "text": "drug",
+            "start": 8,
+            "end": 12,
+            "lemma": "drug",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "compound",
+            "head": "activities"
+          },
+          {
+            "id": "atom-1-token-2",
+            "text": "activities",
+            "start": 13,
+            "end": 23,
+            "lemma": "activity",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "nsubj",
+            "head": "decreased"
+          },
+          {
+            "id": "atom-1-token-3",
+            "text": "have",
+            "start": 24,
+            "end": 28,
+            "lemma": "have",
+            "pos": "AUX",
+            "tag": "VBP",
+            "dependency": "aux",
+            "head": "decreased"
+          },
+          {
+            "id": "atom-1-token-4",
+            "text": "decreased",
+            "start": 29,
+            "end": 38,
+            "lemma": "decrease",
+            "pos": "VERB",
+            "tag": "VBN",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-1-token-5",
+            "text": "in",
+            "start": 39,
+            "end": 41,
+            "lemma": "in",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "decreased"
+          },
+          {
+            "id": "atom-1-token-6",
+            "text": "areas",
+            "start": 42,
+            "end": 47,
+            "lemma": "area",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "pobj",
+            "head": "in"
+          },
+          {
+            "id": "atom-1-token-7",
+            "text": "where",
+            "start": 48,
+            "end": 53,
+            "lemma": "where",
+            "pos": "SCONJ",
+            "tag": "WRB",
+            "dependency": "advmod",
+            "head": "deployed"
+          },
+          {
+            "id": "atom-1-token-8",
+            "text": "barriers",
+            "start": 54,
+            "end": 62,
+            "lemma": "barrier",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "nsubjpass",
+            "head": "deployed"
+          },
+          {
+            "id": "atom-1-token-9",
+            "text": "are",
+            "start": 63,
+            "end": 66,
+            "lemma": "be",
+            "pos": "AUX",
+            "tag": "VBP",
+            "dependency": "auxpass",
+            "head": "deployed"
+          },
+          {
+            "id": "atom-1-token-10",
+            "text": "deployed",
+            "start": 67,
+            "end": 75,
+            "lemma": "deploy",
+            "pos": "VERB",
+            "tag": "VBN",
+            "dependency": "relcl",
+            "head": "areas"
+          },
+          {
+            "id": "atom-1-token-11",
+            "text": "in",
+            "start": 76,
+            "end": 78,
+            "lemma": "in",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "deployed"
+          },
+          {
+            "id": "atom-1-token-12",
+            "text": "the",
+            "start": 79,
+            "end": 82,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "States"
+          },
+          {
+            "id": "atom-1-token-13",
+            "text": "United",
+            "start": 83,
+            "end": 89,
+            "lemma": "United",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "States"
+          },
+          {
+            "id": "atom-1-token-14",
+            "text": "States",
+            "start": 90,
+            "end": 96,
+            "lemma": "States",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "pobj",
+            "head": "in"
+          },
+          {
+            "id": "atom-1-token-15",
+            "text": ".",
+            "start": 96,
+            "end": 97,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "decreased"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      },
+      {
+        "atomId": "atom-2",
+        "frames": [
+          {
+            "id": "atom-2-frame-1",
+            "predicate": {
+              "id": "atom-2-frame-1-predicate",
+              "text": "decreased",
+              "start": 33,
+              "end": 42
+            },
+            "subjects": [
+              {
+                "id": "atom-2-frame-1-subject-1",
+                "text": "Border crossings activities",
+                "start": 0,
+                "end": 27
+              }
+            ],
+            "coreArguments": [],
+            "adjuncts": [],
+            "otherModifiers": [
+              {
+                "id": "atom-2-frame-1-other-modifier-1",
+                "text": "in areas where barriers are deployed in the United States",
+                "start": 43,
+                "end": 100
+              }
+            ]
+          }
+        ],
+        "cues": [],
+        "entities": [
+          {
+            "id": "atom-2-entity-gpe-83-100",
+            "text": "the United States",
+            "start": 83,
+            "end": 100,
+            "label": "GPE"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-2-token-0",
+            "text": "Border",
+            "start": 0,
+            "end": 6,
+            "lemma": "border",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "compound",
+            "head": "crossings"
+          },
+          {
+            "id": "atom-2-token-1",
+            "text": "crossings",
+            "start": 7,
+            "end": 16,
+            "lemma": "crossing",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "compound",
+            "head": "activities"
+          },
+          {
+            "id": "atom-2-token-2",
+            "text": "activities",
+            "start": 17,
+            "end": 27,
+            "lemma": "activity",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "nsubj",
+            "head": "decreased"
+          },
+          {
+            "id": "atom-2-token-3",
+            "text": "have",
+            "start": 28,
+            "end": 32,
+            "lemma": "have",
+            "pos": "AUX",
+            "tag": "VBP",
+            "dependency": "aux",
+            "head": "decreased"
+          },
+          {
+            "id": "atom-2-token-4",
+            "text": "decreased",
+            "start": 33,
+            "end": 42,
+            "lemma": "decrease",
+            "pos": "VERB",
+            "tag": "VBN",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-2-token-5",
+            "text": "in",
+            "start": 43,
+            "end": 45,
+            "lemma": "in",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "decreased"
+          },
+          {
+            "id": "atom-2-token-6",
+            "text": "areas",
+            "start": 46,
+            "end": 51,
+            "lemma": "area",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "pobj",
+            "head": "in"
+          },
+          {
+            "id": "atom-2-token-7",
+            "text": "where",
+            "start": 52,
+            "end": 57,
+            "lemma": "where",
+            "pos": "SCONJ",
+            "tag": "WRB",
+            "dependency": "advmod",
+            "head": "deployed"
+          },
+          {
+            "id": "atom-2-token-8",
+            "text": "barriers",
+            "start": 58,
+            "end": 66,
+            "lemma": "barrier",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "nsubjpass",
+            "head": "deployed"
+          },
+          {
+            "id": "atom-2-token-9",
+            "text": "are",
+            "start": 67,
+            "end": 70,
+            "lemma": "be",
+            "pos": "AUX",
+            "tag": "VBP",
+            "dependency": "auxpass",
+            "head": "deployed"
+          },
+          {
+            "id": "atom-2-token-10",
+            "text": "deployed",
+            "start": 71,
+            "end": 79,
+            "lemma": "deploy",
+            "pos": "VERB",
+            "tag": "VBN",
+            "dependency": "relcl",
+            "head": "areas"
+          },
+          {
+            "id": "atom-2-token-11",
+            "text": "in",
+            "start": 80,
+            "end": 82,
+            "lemma": "in",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "deployed"
+          },
+          {
+            "id": "atom-2-token-12",
+            "text": "the",
+            "start": 83,
+            "end": 86,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "States"
+          },
+          {
+            "id": "atom-2-token-13",
+            "text": "United",
+            "start": 87,
+            "end": 93,
+            "lemma": "United",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "States"
+          },
+          {
+            "id": "atom-2-token-14",
+            "text": "States",
+            "start": 94,
+            "end": 100,
+            "lemma": "States",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "pobj",
+            "head": "in"
+          },
+          {
+            "id": "atom-2-token-15",
+            "text": ".",
+            "start": 100,
+            "end": 101,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "decreased"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      },
+      {
+        "atomId": "atom-3",
+        "frames": [
+          {
+            "id": "atom-3-frame-1",
+            "predicate": {
+              "id": "atom-3-frame-1-predicate",
+              "text": "decreased",
+              "start": 32,
+              "end": 41
+            },
+            "subjects": [
+              {
+                "id": "atom-3-frame-1-subject-1",
+                "text": "Human smuggling activities",
+                "start": 0,
+                "end": 26
+              }
+            ],
+            "coreArguments": [],
+            "adjuncts": [],
+            "otherModifiers": [
+              {
+                "id": "atom-3-frame-1-other-modifier-1",
+                "text": "in areas where barriers are deployed in the United States",
+                "start": 42,
+                "end": 99
+              }
+            ]
+          }
+        ],
+        "cues": [],
+        "entities": [
+          {
+            "id": "atom-3-entity-gpe-82-99",
+            "text": "the United States",
+            "start": 82,
+            "end": 99,
+            "label": "GPE"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-3-token-0",
+            "text": "Human",
+            "start": 0,
+            "end": 5,
+            "lemma": "human",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "activities"
+          },
+          {
+            "id": "atom-3-token-1",
+            "text": "smuggling",
+            "start": 6,
+            "end": 15,
+            "lemma": "smuggling",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "compound",
+            "head": "activities"
+          },
+          {
+            "id": "atom-3-token-2",
+            "text": "activities",
+            "start": 16,
+            "end": 26,
+            "lemma": "activity",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "nsubj",
+            "head": "decreased"
+          },
+          {
+            "id": "atom-3-token-3",
+            "text": "have",
+            "start": 27,
+            "end": 31,
+            "lemma": "have",
+            "pos": "AUX",
+            "tag": "VBP",
+            "dependency": "aux",
+            "head": "decreased"
+          },
+          {
+            "id": "atom-3-token-4",
             "text": "decreased",
             "start": 32,
-            "end": 41
+            "end": 41,
+            "lemma": "decrease",
+            "pos": "VERB",
+            "tag": "VBN",
+            "dependency": "ROOT",
+            "head": "ROOT"
           },
-          "subjects": [
-            {
-              "id": "atom-3-frame-1-subject-1",
-              "text": "Human smuggling activities",
-              "start": 0,
-              "end": 26
-            }
-          ],
-          "coreArguments": [],
-          "adjuncts": [],
-          "otherModifiers": [
-            {
-              "id": "atom-3-frame-1-other-modifier-1",
-              "text": "in areas where barriers are deployed in the United States",
-              "start": 42,
-              "end": 99
-            }
-          ]
-        }
+          {
+            "id": "atom-3-token-5",
+            "text": "in",
+            "start": 42,
+            "end": 44,
+            "lemma": "in",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "decreased"
+          },
+          {
+            "id": "atom-3-token-6",
+            "text": "areas",
+            "start": 45,
+            "end": 50,
+            "lemma": "area",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "pobj",
+            "head": "in"
+          },
+          {
+            "id": "atom-3-token-7",
+            "text": "where",
+            "start": 51,
+            "end": 56,
+            "lemma": "where",
+            "pos": "SCONJ",
+            "tag": "WRB",
+            "dependency": "advmod",
+            "head": "deployed"
+          },
+          {
+            "id": "atom-3-token-8",
+            "text": "barriers",
+            "start": 57,
+            "end": 65,
+            "lemma": "barrier",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "nsubjpass",
+            "head": "deployed"
+          },
+          {
+            "id": "atom-3-token-9",
+            "text": "are",
+            "start": 66,
+            "end": 69,
+            "lemma": "be",
+            "pos": "AUX",
+            "tag": "VBP",
+            "dependency": "auxpass",
+            "head": "deployed"
+          },
+          {
+            "id": "atom-3-token-10",
+            "text": "deployed",
+            "start": 70,
+            "end": 78,
+            "lemma": "deploy",
+            "pos": "VERB",
+            "tag": "VBN",
+            "dependency": "relcl",
+            "head": "areas"
+          },
+          {
+            "id": "atom-3-token-11",
+            "text": "in",
+            "start": 79,
+            "end": 81,
+            "lemma": "in",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "deployed"
+          },
+          {
+            "id": "atom-3-token-12",
+            "text": "the",
+            "start": 82,
+            "end": 85,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "States"
+          },
+          {
+            "id": "atom-3-token-13",
+            "text": "United",
+            "start": 86,
+            "end": 92,
+            "lemma": "United",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "States"
+          },
+          {
+            "id": "atom-3-token-14",
+            "text": "States",
+            "start": 93,
+            "end": 99,
+            "lemma": "States",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "pobj",
+            "head": "in"
+          },
+          {
+            "id": "atom-3-token-15",
+            "text": ".",
+            "start": 99,
+            "end": 100,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "decreased"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      }
+    ],
+    "summaries": [
+      {
+        "atomId": "atom-1",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "Illegal drug activities"
+        ],
+        "predicates": [
+          "decrease"
+        ],
+        "cueKinds": [],
+        "modifierKinds": [],
+        "entityLabels": [
+          "GPE"
+        ],
+        "warnings": []
+      },
+      {
+        "atomId": "atom-2",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "Border crossings activities"
+        ],
+        "predicates": [
+          "decrease"
+        ],
+        "cueKinds": [],
+        "modifierKinds": [],
+        "entityLabels": [
+          "GPE"
+        ],
+        "warnings": []
+      },
+      {
+        "atomId": "atom-3",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "Human smuggling activities"
+        ],
+        "predicates": [
+          "decrease"
+        ],
+        "cueKinds": [],
+        "modifierKinds": [],
+        "entityLabels": [
+          "GPE"
+        ],
+        "warnings": []
+      }
+    ],
+    "claimWarnings": [],
+    "provider": "spacy",
+    "model": "en_core_web_sm@3.8.0"
+  },
+  "verdict": {
+    "aggregationSchemaVersion": 1,
+    "claimId": "averitec-dev-0015",
+    "composition": "AND",
+    "verdict": "NOT_ENOUGH_EVIDENCE",
+    "positions": {
+      "supportPosition": false,
+      "attackPosition": false,
+      "supportObligationIds": [
+        "atom-2",
+        "atom-3"
       ],
-      "cues": [],
-      "entities": [
-        {
-          "id": "atom-3-entity-gpe-82-99",
-          "text": "the United States",
-          "start": 82,
-          "end": 99,
-          "label": "GPE"
-        }
-      ],
-      "tokens": [
-        {
-          "id": "atom-3-token-0",
-          "text": "Human",
-          "start": 0,
-          "end": 5,
-          "lemma": "human",
-          "pos": "ADJ",
-          "tag": "JJ",
-          "dependency": "amod",
-          "head": "activities"
-        },
-        {
-          "id": "atom-3-token-1",
-          "text": "smuggling",
-          "start": 6,
-          "end": 15,
-          "lemma": "smuggling",
-          "pos": "NOUN",
-          "tag": "NN",
-          "dependency": "compound",
-          "head": "activities"
-        },
-        {
-          "id": "atom-3-token-2",
-          "text": "activities",
-          "start": 16,
-          "end": 26,
-          "lemma": "activity",
-          "pos": "NOUN",
-          "tag": "NNS",
-          "dependency": "nsubj",
-          "head": "decreased"
-        },
-        {
-          "id": "atom-3-token-3",
-          "text": "have",
-          "start": 27,
-          "end": 31,
-          "lemma": "have",
-          "pos": "AUX",
-          "tag": "VBP",
-          "dependency": "aux",
-          "head": "decreased"
-        },
-        {
-          "id": "atom-3-token-4",
-          "text": "decreased",
-          "start": 32,
-          "end": 41,
-          "lemma": "decrease",
-          "pos": "VERB",
-          "tag": "VBN",
-          "dependency": "ROOT",
-          "head": "ROOT"
-        },
-        {
-          "id": "atom-3-token-5",
-          "text": "in",
-          "start": 42,
-          "end": 44,
-          "lemma": "in",
-          "pos": "ADP",
-          "tag": "IN",
-          "dependency": "prep",
-          "head": "decreased"
-        },
-        {
-          "id": "atom-3-token-6",
-          "text": "areas",
-          "start": 45,
-          "end": 50,
-          "lemma": "area",
-          "pos": "NOUN",
-          "tag": "NNS",
-          "dependency": "pobj",
-          "head": "in"
-        },
-        {
-          "id": "atom-3-token-7",
-          "text": "where",
-          "start": 51,
-          "end": 56,
-          "lemma": "where",
-          "pos": "SCONJ",
-          "tag": "WRB",
-          "dependency": "advmod",
-          "head": "deployed"
-        },
-        {
-          "id": "atom-3-token-8",
-          "text": "barriers",
-          "start": 57,
-          "end": 65,
-          "lemma": "barrier",
-          "pos": "NOUN",
-          "tag": "NNS",
-          "dependency": "nsubjpass",
-          "head": "deployed"
-        },
-        {
-          "id": "atom-3-token-9",
-          "text": "are",
-          "start": 66,
-          "end": 69,
-          "lemma": "be",
-          "pos": "AUX",
-          "tag": "VBP",
-          "dependency": "auxpass",
-          "head": "deployed"
-        },
-        {
-          "id": "atom-3-token-10",
-          "text": "deployed",
-          "start": 70,
-          "end": 78,
-          "lemma": "deploy",
-          "pos": "VERB",
-          "tag": "VBN",
-          "dependency": "relcl",
-          "head": "areas"
-        },
-        {
-          "id": "atom-3-token-11",
-          "text": "in",
-          "start": 79,
-          "end": 81,
-          "lemma": "in",
-          "pos": "ADP",
-          "tag": "IN",
-          "dependency": "prep",
-          "head": "deployed"
-        },
-        {
-          "id": "atom-3-token-12",
-          "text": "the",
-          "start": 82,
-          "end": 85,
-          "lemma": "the",
-          "pos": "DET",
-          "tag": "DT",
-          "dependency": "det",
-          "head": "States"
-        },
-        {
-          "id": "atom-3-token-13",
-          "text": "United",
-          "start": 86,
-          "end": 92,
-          "lemma": "United",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "compound",
-          "head": "States"
-        },
-        {
-          "id": "atom-3-token-14",
-          "text": "States",
-          "start": 93,
-          "end": 99,
-          "lemma": "States",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "pobj",
-          "head": "in"
-        },
-        {
-          "id": "atom-3-token-15",
-          "text": ".",
-          "start": 99,
-          "end": 100,
-          "lemma": ".",
-          "pos": "PUNCT",
-          "tag": ".",
-          "dependency": "punct",
-          "head": "decreased"
-        }
-      ],
-      "status": "complete",
-      "unresolved": []
-    }
-  ],
+      "attackObligationIds": [],
+      "unresolvedObligationIds": [
+        "atom-1"
+      ]
+    },
+    "obligations": [
+      {
+        "obligationId": "atom-1",
+        "state": "UNRESOLVED",
+        "supportEdgeIds": [],
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 6
+      },
+      {
+        "obligationId": "atom-2",
+        "state": "SUPPORTED",
+        "supportEdgeIds": [
+          "edge:SUPPORTS:evidence:doc-ce677b332c51:doc-ce677b332c51::sentence-54:obligation:averitec-dev-0015:atom-2"
+        ],
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 5
+      },
+      {
+        "obligationId": "atom-3",
+        "state": "SUPPORTED",
+        "supportEdgeIds": [
+          "edge:SUPPORTS:evidence:doc-ce677b332c51:doc-ce677b332c51::sentence-54:obligation:averitec-dev-0015:atom-3"
+        ],
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 5
+      }
+    ],
+    "warnings": [
+      {
+        "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
+        "message": "Obligation atom-1 has no supporting or attacking evidence."
+      },
+      {
+        "code": "ONLY_NEUTRAL_CANDIDATES",
+        "message": "Obligation atom-1 has only neutral retrieved candidates."
+      }
+    ],
+    "ruleTrace": [
+      "AND support requires support for every obligation; AND attack requires an attack on any obligation.",
+      "Support position: no; attack position: no.",
+      "Final verdict: NOT_ENOUGH_EVIDENCE."
+    ]
+  },
   "recordedWith": {
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",

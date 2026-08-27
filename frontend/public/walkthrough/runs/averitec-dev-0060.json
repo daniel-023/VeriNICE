@@ -1,19 +1,24 @@
 {
   "caseId": "averitec-dev-0060",
+  "schemaVersion": 2,
+  "composition": "AND",
+  "warnings": [],
   "atoms": [
     {
       "id": "atom-1",
-      "text": "UK Employees unable to work in tier 3 areas will get a combination of Job Support Scheme and Universal Credit",
-      "sourceText": "UK Employees unable to work in tier 3 areas will get a combination of Job Support Scheme and Universal Credit, which will mean they get 80% of their wages.",
+      "text": "UK Employees unable to work in tier 3 areas will get a combination of Job Support Scheme and Universal Credit.",
+      "sourceText": "UK Employees unable to work in tier 3 areas will get a combination of Job Support Scheme and Universal Credit,",
       "start": 0,
-      "end": 155
+      "end": 110,
+      "role": "CORE"
     },
     {
       "id": "atom-2",
-      "text": "they get 80% of their wages",
-      "sourceText": "UK Employees unable to work in tier 3 areas will get a combination of Job Support Scheme and Universal Credit, which will mean they get 80% of their wages.",
-      "start": 0,
-      "end": 155
+      "text": "they get 80% of their wages.",
+      "sourceText": "they get 80% of their wages",
+      "start": 127,
+      "end": 154,
+      "role": "NUMERIC_CONSTRAINT"
     }
   ],
   "evidence": [
@@ -21,46 +26,52 @@
       "atomId": "atom-1",
       "spans": [
         {
-          "id": "doc-71e4a935f783::sentence-1",
-          "documentId": "doc-71e4a935f783",
-          "text": "Job Support Scheme: Concern mounts at Covid shutdown 'ripple effect'\n",
-          "start": 0,
-          "end": 69
-        },
-        {
           "id": "doc-d819ca86a555::sentence-21",
           "documentId": "doc-d819ca86a555",
           "text": "- Universal credit\n",
           "start": 1695,
-          "end": 1714
+          "end": 1714,
+          "context": "If you've been made redundant - or been told that you will soon be made redundant - there are three main types of financial support that you may be entitled to:\n - Universal credit\n - New Style Jobseeker's Allowance (New Style JSA), or\n"
         },
         {
-          "id": "doc-f5ffa35607dc::sentence-36",
-          "documentId": "doc-f5ffa35607dc",
-          "text": "- The Government will support eligible businesses by paying two thirds of each employees’ salary (or 67%), up to a maximum of £2,100 a month.\n",
-          "start": 3970,
-          "end": 4112
+          "id": "doc-71e4a935f783::sentence-1",
+          "documentId": "doc-71e4a935f783",
+          "text": "Job Support Scheme: Concern mounts at Covid shutdown 'ripple effect'\n",
+          "start": 0,
+          "end": 69,
+          "context": "Job Support Scheme: Concern mounts at Covid shutdown 'ripple effect'\n - Published\n"
         },
         {
           "id": "doc-d819ca86a555::sentence-20",
           "documentId": "doc-d819ca86a555",
           "text": "If you've been made redundant - or been told that you will soon be made redundant - there are three main types of financial support that you may be entitled to:\n",
           "start": 1534,
-          "end": 1695
+          "end": 1695,
+          "context": "The selection process must be fair, you must be given notice, and you are entitled to tax-free redundancy pay.\n If you've been made redundant - or been told that you will soon be made redundant - there are three main types of financial support that you may be entitled to:\n - Universal credit\n"
         },
         {
-          "id": "doc-71e4a935f783::sentence-14",
-          "documentId": "doc-71e4a935f783",
-          "text": "The expanded scheme, announced on Friday and available to firms ordered to shut down, will provide two-thirds of wages to employees unable to work.\n",
-          "start": 1516,
-          "end": 1664
+          "id": "doc-f5ffa35607dc::sentence-36",
+          "documentId": "doc-f5ffa35607dc",
+          "text": "- The Government will support eligible businesses by paying two thirds of each employees’ salary (or 67%), up to a maximum of £2,100 a month.\n",
+          "start": 3970,
+          "end": 4112,
+          "context": "This includes businesses that are required to provide only delivery and collection services from their premises, or food and drink outdoors from their premises.\n - The Government will support eligible businesses by paying two thirds of each employees’ salary (or 67%), up to a maximum of £2,100 a month.\n - Under the scheme, employers will not be required to contribute towards wages and only asked to cover NICS and pension contributions. "
         },
         {
           "id": "doc-f5ffa35607dc::sentence-57",
           "documentId": "doc-f5ffa35607dc",
           "text": "A one off payment of £1,000 to the employer for each eligible employee will be claimable in February 2021.\n",
           "start": 6614,
-          "end": 6721
+          "end": 6721,
+          "context": "For those employees transferred to a new employer under a TUPE, they must have been furloughed and a successful claim made by their new employer in order to qualify.\n A one off payment of £1,000 to the employer for each eligible employee will be claimable in February 2021.\n The Government have started to release details of how the claim will work, but guidance on how to access the online claim service on Gov.UK is not expected until the end of January 2021.\n"
+        },
+        {
+          "id": "doc-71e4a935f783::sentence-14",
+          "documentId": "doc-71e4a935f783",
+          "text": "The expanded scheme, announced on Friday and available to firms ordered to shut down, will provide two-thirds of wages to employees unable to work.\n",
+          "start": 1516,
+          "end": 1664,
+          "context": "It \"tops up\" the wages of employees who can't work their normal hours.\n The expanded scheme, announced on Friday and available to firms ordered to shut down, will provide two-thirds of wages to employees unable to work.\n On Monday, Boris Johnson is expected to announce a tiered system of measures for England in an effort to stall rising infection rates.\n"
         }
       ]
     },
@@ -72,42 +83,48 @@
           "documentId": "doc-d819ca86a555",
           "text": "At first it paid 80% of the wages, but in August and September it paid 60%, with employers paying 20%.\n",
           "start": 363,
-          "end": 466
+          "end": 466,
+          "context": "The government has been paying towards the wages of people who couldn't work, or whose employers could no longer afford to pay them, up to a monthly limit of £2,500.\n At first it paid 80% of the wages, but in August and September it paid 60%, with employers paying 20%.\n How many people are still on it?\n"
         },
         {
           "id": "doc-f5ffa35607dc::sentence-5",
           "documentId": "doc-f5ffa35607dc",
           "text": "Employers will pay Employers NIC, Pension Contributions and 20% of wages to make up 80% of the total to a cap of £2,500. ",
           "start": 541,
-          "end": 662
+          "end": 662,
+          "context": "During October the CJRS scheme will pay up to 60% of wages, up to a cap of £1,875, for the hours an employee does not work.  Employers will pay Employers NIC, Pension Contributions and 20% of wages to make up 80% of the total to a cap of £2,500.  This cap is proportional to the hours not worked.\n"
         },
         {
           "id": "doc-f5ffa35607dc::sentence-17",
           "documentId": "doc-f5ffa35607dc",
           "text": "This means that an employee earns 77% of their normal wage where the Government contribution has not been capped.\n",
           "start": 1723,
-          "end": 1837
-        },
-        {
-          "id": "doc-f5ffa35607dc::sentence-36",
-          "documentId": "doc-f5ffa35607dc",
-          "text": "- The Government will support eligible businesses by paying two thirds of each employees’ salary (or 67%), up to a maximum of £2,100 a month.\n",
-          "start": 3970,
-          "end": 4112
+          "end": 1837,
+          "context": "The remaining unpaid third is effectively the employee’s contribution to the scheme.  This means that an employee earns 77% of their normal wage where the Government contribution has not been capped.\n Please note that there is still some detail to be released by HMRC on what constitutes ‘usual pay’, particularly for those whose pay has changed since March to a new pay arrangement with their employers, and some of the finer details of how the Job Support Scheme will operate.\n"
         },
         {
           "id": "doc-71e4a935f783::sentence-13",
           "documentId": "doc-71e4a935f783",
           "text": "It \"tops up\" the wages of employees who can't work their normal hours.\n",
           "start": 1445,
-          "end": 1516
+          "end": 1516,
+          "context": "The Job Support Scheme was announced by Mr Sunak on 24 September and will replace the \"furlough\" scheme from 1 November for six months.\n It \"tops up\" the wages of employees who can't work their normal hours.\n The expanded scheme, announced on Friday and available to firms ordered to shut down, will provide two-thirds of wages to employees unable to work.\n"
         },
         {
           "id": "doc-71e4a935f783::sentence-4",
           "documentId": "doc-71e4a935f783",
           "text": "On Friday, the chancellor said staff at UK companies told to close would get 67% of their wages from the government under the expanded Job Support Scheme.\n",
           "start": 225,
-          "end": 380
+          "end": 380,
+          "context": "The Labour Party and business groups have voiced concern at the \"ripple effect\" of Covid shutdowns that are expected to be announced on Monday.\n On Friday, the chancellor said staff at UK companies told to close would get 67% of their wages from the government under the expanded Job Support Scheme.\n But no specific help was announced for workers who may be indirectly affected - for example, those in supply chains.\n"
+        },
+        {
+          "id": "doc-d819ca86a555::sentence-5",
+          "documentId": "doc-d819ca86a555",
+          "text": "The government has been paying towards the wages of people who couldn't work, or whose employers could no longer afford to pay them, up to a monthly limit of £2,500.\n",
+          "start": 197,
+          "end": 363,
+          "context": "How did furlough work?\n The government has been paying towards the wages of people who couldn't work, or whose employers could no longer afford to pay them, up to a monthly limit of £2,500.\n At first it paid 80% of the wages, but in August and September it paid 60%, with employers paying 20%.\n"
         }
       ]
     }
@@ -117,12 +134,17 @@
       "atomId": "atom-1",
       "relations": [
         {
+          "spanId": "doc-d819ca86a555::sentence-21",
+          "documentId": "doc-d819ca86a555",
+          "relation": "NEUTRAL"
+        },
+        {
           "spanId": "doc-71e4a935f783::sentence-1",
           "documentId": "doc-71e4a935f783",
           "relation": "NEUTRAL"
         },
         {
-          "spanId": "doc-d819ca86a555::sentence-21",
+          "spanId": "doc-d819ca86a555::sentence-20",
           "documentId": "doc-d819ca86a555",
           "relation": "NEUTRAL"
         },
@@ -132,18 +154,13 @@
           "relation": "NEUTRAL"
         },
         {
-          "spanId": "doc-d819ca86a555::sentence-20",
-          "documentId": "doc-d819ca86a555",
+          "spanId": "doc-f5ffa35607dc::sentence-57",
+          "documentId": "doc-f5ffa35607dc",
           "relation": "NEUTRAL"
         },
         {
           "spanId": "doc-71e4a935f783::sentence-14",
           "documentId": "doc-71e4a935f783",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-f5ffa35607dc::sentence-57",
-          "documentId": "doc-f5ffa35607dc",
           "relation": "NEUTRAL"
         }
       ]
@@ -167,31 +184,32 @@
           "relation": "CONTRADICTION"
         },
         {
-          "spanId": "doc-f5ffa35607dc::sentence-36",
-          "documentId": "doc-f5ffa35607dc",
-          "relation": "ENTAILMENT"
-        },
-        {
           "spanId": "doc-71e4a935f783::sentence-13",
           "documentId": "doc-71e4a935f783",
-          "relation": "NEUTRAL"
+          "relation": "ENTAILMENT"
         },
         {
           "spanId": "doc-71e4a935f783::sentence-4",
           "documentId": "doc-71e4a935f783",
           "relation": "CONTRADICTION"
+        },
+        {
+          "spanId": "doc-d819ca86a555::sentence-5",
+          "documentId": "doc-d819ca86a555",
+          "relation": "CONTRADICTION"
         }
       ]
     }
   ],
-  "linguistics": [
-    {
-      "atomId": "atom-1",
+  "linguistics": {
+    "schemaVersion": 2,
+    "claimAnalysis": {
+      "atomId": "claim",
       "frames": [
         {
-          "id": "atom-1-frame-1",
+          "id": "claim-frame-1",
           "predicate": {
-            "id": "atom-1-frame-1-predicate",
+            "id": "claim-frame-1-predicate",
             "text": "work",
             "start": 23,
             "end": 27
@@ -201,7 +219,7 @@
           "adjuncts": [],
           "otherModifiers": [
             {
-              "id": "atom-1-frame-1-other-modifier-1",
+              "id": "claim-frame-1-other-modifier-1",
               "text": "in tier 3 areas",
               "start": 28,
               "end": 43
@@ -209,16 +227,16 @@
           ]
         },
         {
-          "id": "atom-1-frame-2",
+          "id": "claim-frame-2",
           "predicate": {
-            "id": "atom-1-frame-2-predicate",
+            "id": "claim-frame-2-predicate",
             "text": "get",
             "start": 49,
             "end": 52
           },
           "subjects": [
             {
-              "id": "atom-1-frame-2-subject-1",
+              "id": "claim-frame-2-subject-1",
               "text": "UK Employees unable to work in tier 3 areas",
               "start": 0,
               "end": 43
@@ -226,10 +244,38 @@
           ],
           "coreArguments": [
             {
-              "id": "atom-1-frame-2-argument-1",
-              "text": "a combination of Job Support Scheme and Universal Credit",
+              "id": "claim-frame-2-argument-1",
+              "text": "a combination of Job Support Scheme and Universal Credit, which will mean they get 80% of their wages",
               "start": 53,
-              "end": 109,
+              "end": 154,
+              "role": "direct_object"
+            }
+          ],
+          "adjuncts": [],
+          "otherModifiers": []
+        },
+        {
+          "id": "claim-frame-3",
+          "predicate": {
+            "id": "claim-frame-3-predicate",
+            "text": "get",
+            "start": 132,
+            "end": 135
+          },
+          "subjects": [
+            {
+              "id": "claim-frame-3-subject-1",
+              "text": "they",
+              "start": 127,
+              "end": 131
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "claim-frame-3-argument-1",
+              "text": "80% of their wages",
+              "start": 136,
+              "end": 154,
               "role": "direct_object"
             }
           ],
@@ -239,30 +285,44 @@
       ],
       "cues": [
         {
-          "id": "atom-1-cue-numeric-36-37",
+          "id": "claim-cue-numeric-36-37",
           "text": "3",
           "start": 36,
           "end": 37,
           "kind": "numeric"
         },
         {
-          "id": "atom-1-cue-modality-44-48",
+          "id": "claim-cue-modality-44-48",
           "text": "will",
           "start": 44,
           "end": 48,
           "kind": "modality"
+        },
+        {
+          "id": "claim-cue-modality-117-121",
+          "text": "will",
+          "start": 117,
+          "end": 121,
+          "kind": "modality"
+        },
+        {
+          "id": "claim-cue-numeric-136-139",
+          "text": "80%",
+          "start": 136,
+          "end": 139,
+          "kind": "numeric"
         }
       ],
       "entities": [
         {
-          "id": "atom-1-entity-gpe-0-2",
+          "id": "claim-entity-gpe-0-2",
           "text": "UK",
           "start": 0,
           "end": 2,
           "label": "GPE"
         },
         {
-          "id": "atom-1-entity-org-93-109",
+          "id": "claim-entity-org-93-109",
           "text": "Universal Credit",
           "start": 93,
           "end": 109,
@@ -271,7 +331,7 @@
       ],
       "tokens": [
         {
-          "id": "atom-1-token-0",
+          "id": "claim-token-0",
           "text": "UK",
           "start": 0,
           "end": 2,
@@ -282,7 +342,7 @@
           "head": "Employees"
         },
         {
-          "id": "atom-1-token-1",
+          "id": "claim-token-1",
           "text": "Employees",
           "start": 3,
           "end": 12,
@@ -293,7 +353,7 @@
           "head": "get"
         },
         {
-          "id": "atom-1-token-2",
+          "id": "claim-token-2",
           "text": "unable",
           "start": 13,
           "end": 19,
@@ -304,7 +364,7 @@
           "head": "Employees"
         },
         {
-          "id": "atom-1-token-3",
+          "id": "claim-token-3",
           "text": "to",
           "start": 20,
           "end": 22,
@@ -315,7 +375,7 @@
           "head": "work"
         },
         {
-          "id": "atom-1-token-4",
+          "id": "claim-token-4",
           "text": "work",
           "start": 23,
           "end": 27,
@@ -326,7 +386,7 @@
           "head": "unable"
         },
         {
-          "id": "atom-1-token-5",
+          "id": "claim-token-5",
           "text": "in",
           "start": 28,
           "end": 30,
@@ -337,7 +397,7 @@
           "head": "work"
         },
         {
-          "id": "atom-1-token-6",
+          "id": "claim-token-6",
           "text": "tier",
           "start": 31,
           "end": 35,
@@ -348,7 +408,7 @@
           "head": "areas"
         },
         {
-          "id": "atom-1-token-7",
+          "id": "claim-token-7",
           "text": "3",
           "start": 36,
           "end": 37,
@@ -359,7 +419,7 @@
           "head": "areas"
         },
         {
-          "id": "atom-1-token-8",
+          "id": "claim-token-8",
           "text": "areas",
           "start": 38,
           "end": 43,
@@ -370,7 +430,7 @@
           "head": "in"
         },
         {
-          "id": "atom-1-token-9",
+          "id": "claim-token-9",
           "text": "will",
           "start": 44,
           "end": 48,
@@ -381,7 +441,7 @@
           "head": "get"
         },
         {
-          "id": "atom-1-token-10",
+          "id": "claim-token-10",
           "text": "get",
           "start": 49,
           "end": 52,
@@ -392,7 +452,7 @@
           "head": "ROOT"
         },
         {
-          "id": "atom-1-token-11",
+          "id": "claim-token-11",
           "text": "a",
           "start": 53,
           "end": 54,
@@ -403,7 +463,7 @@
           "head": "combination"
         },
         {
-          "id": "atom-1-token-12",
+          "id": "claim-token-12",
           "text": "combination",
           "start": 55,
           "end": 66,
@@ -414,7 +474,7 @@
           "head": "get"
         },
         {
-          "id": "atom-1-token-13",
+          "id": "claim-token-13",
           "text": "of",
           "start": 67,
           "end": 69,
@@ -425,7 +485,7 @@
           "head": "combination"
         },
         {
-          "id": "atom-1-token-14",
+          "id": "claim-token-14",
           "text": "Job",
           "start": 70,
           "end": 73,
@@ -436,7 +496,7 @@
           "head": "Scheme"
         },
         {
-          "id": "atom-1-token-15",
+          "id": "claim-token-15",
           "text": "Support",
           "start": 74,
           "end": 81,
@@ -447,7 +507,7 @@
           "head": "Scheme"
         },
         {
-          "id": "atom-1-token-16",
+          "id": "claim-token-16",
           "text": "Scheme",
           "start": 82,
           "end": 88,
@@ -458,7 +518,7 @@
           "head": "of"
         },
         {
-          "id": "atom-1-token-17",
+          "id": "claim-token-17",
           "text": "and",
           "start": 89,
           "end": 92,
@@ -469,7 +529,7 @@
           "head": "Scheme"
         },
         {
-          "id": "atom-1-token-18",
+          "id": "claim-token-18",
           "text": "Universal",
           "start": 93,
           "end": 102,
@@ -480,7 +540,7 @@
           "head": "Credit"
         },
         {
-          "id": "atom-1-token-19",
+          "id": "claim-token-19",
           "text": "Credit",
           "start": 103,
           "end": 109,
@@ -489,61 +549,56 @@
           "tag": "NNP",
           "dependency": "conj",
           "head": "Scheme"
-        }
-      ],
-      "status": "partial",
-      "unresolved": [
-        "subject"
-      ]
-    },
-    {
-      "atomId": "atom-2",
-      "frames": [
+        },
         {
-          "id": "atom-2-frame-1",
-          "predicate": {
-            "id": "atom-2-frame-1-predicate",
-            "text": "get",
-            "start": 5,
-            "end": 8
-          },
-          "subjects": [
-            {
-              "id": "atom-2-frame-1-subject-1",
-              "text": "they",
-              "start": 0,
-              "end": 4
-            }
-          ],
-          "coreArguments": [
-            {
-              "id": "atom-2-frame-1-argument-1",
-              "text": "80% of their wages",
-              "start": 9,
-              "end": 27,
-              "role": "direct_object"
-            }
-          ],
-          "adjuncts": [],
-          "otherModifiers": []
-        }
-      ],
-      "cues": [
+          "id": "claim-token-20",
+          "text": ",",
+          "start": 109,
+          "end": 110,
+          "lemma": ",",
+          "pos": "PUNCT",
+          "tag": ",",
+          "dependency": "punct",
+          "head": "Credit"
+        },
         {
-          "id": "atom-2-cue-numeric-9-12",
-          "text": "80%",
-          "start": 9,
-          "end": 12,
-          "kind": "numeric"
-        }
-      ],
-      "entities": [],
-      "tokens": [
+          "id": "claim-token-21",
+          "text": "which",
+          "start": 111,
+          "end": 116,
+          "lemma": "which",
+          "pos": "PRON",
+          "tag": "WDT",
+          "dependency": "nsubj",
+          "head": "mean"
+        },
         {
-          "id": "atom-2-token-0",
+          "id": "claim-token-22",
+          "text": "will",
+          "start": 117,
+          "end": 121,
+          "lemma": "will",
+          "pos": "AUX",
+          "tag": "MD",
+          "dependency": "aux",
+          "head": "mean"
+        },
+        {
+          "id": "claim-token-23",
+          "text": "mean",
+          "start": 122,
+          "end": 126,
+          "lemma": "mean",
+          "pos": "VERB",
+          "tag": "VB",
+          "dependency": "relcl",
+          "head": "combination"
+        },
+        {
+          "id": "claim-token-24",
           "text": "they",
-          "start": 0,
-          "end": 4,
+          "start": 127,
+          "end": 131,
           "lemma": "they",
           "pos": "PRON",
           "tag": "PRP",
@@ -551,21 +606,21 @@
           "head": "get"
         },
         {
-          "id": "atom-2-token-1",
+          "id": "claim-token-25",
           "text": "get",
-          "start": 5,
-          "end": 8,
+          "start": 132,
+          "end": 135,
           "lemma": "get",
           "pos": "VERB",
           "tag": "VBP",
-          "dependency": "ROOT",
-          "head": "ROOT"
+          "dependency": "ccomp",
+          "head": "mean"
         },
         {
-          "id": "atom-2-token-2",
+          "id": "claim-token-26",
           "text": "80",
-          "start": 9,
-          "end": 11,
+          "start": 136,
+          "end": 138,
           "lemma": "80",
           "pos": "NUM",
           "tag": "CD",
@@ -573,10 +628,10 @@
           "head": "%"
         },
         {
-          "id": "atom-2-token-3",
+          "id": "claim-token-27",
           "text": "%",
-          "start": 11,
-          "end": 12,
+          "start": 138,
+          "end": 139,
           "lemma": "%",
           "pos": "NOUN",
           "tag": "NN",
@@ -584,10 +639,10 @@
           "head": "get"
         },
         {
-          "id": "atom-2-token-4",
+          "id": "claim-token-28",
           "text": "of",
-          "start": 13,
-          "end": 15,
+          "start": 140,
+          "end": 142,
           "lemma": "of",
           "pos": "ADP",
           "tag": "IN",
@@ -595,10 +650,10 @@
           "head": "%"
         },
         {
-          "id": "atom-2-token-5",
+          "id": "claim-token-29",
           "text": "their",
-          "start": 16,
-          "end": 21,
+          "start": 143,
+          "end": 148,
           "lemma": "their",
           "pos": "PRON",
           "tag": "PRP$",
@@ -606,21 +661,604 @@
           "head": "wages"
         },
         {
-          "id": "atom-2-token-6",
+          "id": "claim-token-30",
           "text": "wages",
-          "start": 22,
-          "end": 27,
+          "start": 149,
+          "end": 154,
           "lemma": "wage",
           "pos": "NOUN",
           "tag": "NNS",
           "dependency": "pobj",
           "head": "of"
+        },
+        {
+          "id": "claim-token-31",
+          "text": ".",
+          "start": 154,
+          "end": 155,
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "get"
         }
       ],
-      "status": "complete",
-      "unresolved": []
-    }
-  ],
+      "status": "partial",
+      "unresolved": [
+        "subject"
+      ]
+    },
+    "analyses": [
+      {
+        "atomId": "atom-1",
+        "frames": [
+          {
+            "id": "atom-1-frame-1",
+            "predicate": {
+              "id": "atom-1-frame-1-predicate",
+              "text": "work",
+              "start": 23,
+              "end": 27
+            },
+            "subjects": [],
+            "coreArguments": [],
+            "adjuncts": [],
+            "otherModifiers": [
+              {
+                "id": "atom-1-frame-1-other-modifier-1",
+                "text": "in tier 3 areas",
+                "start": 28,
+                "end": 43
+              }
+            ]
+          },
+          {
+            "id": "atom-1-frame-2",
+            "predicate": {
+              "id": "atom-1-frame-2-predicate",
+              "text": "get",
+              "start": 49,
+              "end": 52
+            },
+            "subjects": [
+              {
+                "id": "atom-1-frame-2-subject-1",
+                "text": "UK Employees unable to work in tier 3 areas",
+                "start": 0,
+                "end": 43
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-1-frame-2-argument-1",
+                "text": "a combination of Job Support Scheme and Universal Credit",
+                "start": 53,
+                "end": 109,
+                "role": "direct_object"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [
+          {
+            "id": "atom-1-cue-numeric-36-37",
+            "text": "3",
+            "start": 36,
+            "end": 37,
+            "kind": "numeric"
+          },
+          {
+            "id": "atom-1-cue-modality-44-48",
+            "text": "will",
+            "start": 44,
+            "end": 48,
+            "kind": "modality"
+          }
+        ],
+        "entities": [
+          {
+            "id": "atom-1-entity-gpe-0-2",
+            "text": "UK",
+            "start": 0,
+            "end": 2,
+            "label": "GPE"
+          },
+          {
+            "id": "atom-1-entity-org-93-109",
+            "text": "Universal Credit",
+            "start": 93,
+            "end": 109,
+            "label": "ORG"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-1-token-0",
+            "text": "UK",
+            "start": 0,
+            "end": 2,
+            "lemma": "UK",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Employees"
+          },
+          {
+            "id": "atom-1-token-1",
+            "text": "Employees",
+            "start": 3,
+            "end": 12,
+            "lemma": "Employees",
+            "pos": "PROPN",
+            "tag": "NNPS",
+            "dependency": "nsubj",
+            "head": "get"
+          },
+          {
+            "id": "atom-1-token-2",
+            "text": "unable",
+            "start": 13,
+            "end": 19,
+            "lemma": "unable",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "Employees"
+          },
+          {
+            "id": "atom-1-token-3",
+            "text": "to",
+            "start": 20,
+            "end": 22,
+            "lemma": "to",
+            "pos": "PART",
+            "tag": "TO",
+            "dependency": "aux",
+            "head": "work"
+          },
+          {
+            "id": "atom-1-token-4",
+            "text": "work",
+            "start": 23,
+            "end": 27,
+            "lemma": "work",
+            "pos": "VERB",
+            "tag": "VB",
+            "dependency": "xcomp",
+            "head": "unable"
+          },
+          {
+            "id": "atom-1-token-5",
+            "text": "in",
+            "start": 28,
+            "end": 30,
+            "lemma": "in",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "work"
+          },
+          {
+            "id": "atom-1-token-6",
+            "text": "tier",
+            "start": 31,
+            "end": 35,
+            "lemma": "tier",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "nmod",
+            "head": "areas"
+          },
+          {
+            "id": "atom-1-token-7",
+            "text": "3",
+            "start": 36,
+            "end": 37,
+            "lemma": "3",
+            "pos": "NUM",
+            "tag": "CD",
+            "dependency": "nummod",
+            "head": "areas"
+          },
+          {
+            "id": "atom-1-token-8",
+            "text": "areas",
+            "start": 38,
+            "end": 43,
+            "lemma": "area",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "pobj",
+            "head": "in"
+          },
+          {
+            "id": "atom-1-token-9",
+            "text": "will",
+            "start": 44,
+            "end": 48,
+            "lemma": "will",
+            "pos": "AUX",
+            "tag": "MD",
+            "dependency": "aux",
+            "head": "get"
+          },
+          {
+            "id": "atom-1-token-10",
+            "text": "get",
+            "start": 49,
+            "end": 52,
+            "lemma": "get",
+            "pos": "VERB",
+            "tag": "VB",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-1-token-11",
+            "text": "a",
+            "start": 53,
+            "end": 54,
+            "lemma": "a",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "combination"
+          },
+          {
+            "id": "atom-1-token-12",
+            "text": "combination",
+            "start": 55,
+            "end": 66,
+            "lemma": "combination",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "dobj",
+            "head": "get"
+          },
+          {
+            "id": "atom-1-token-13",
+            "text": "of",
+            "start": 67,
+            "end": 69,
+            "lemma": "of",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "combination"
+          },
+          {
+            "id": "atom-1-token-14",
+            "text": "Job",
+            "start": 70,
+            "end": 73,
+            "lemma": "Job",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Scheme"
+          },
+          {
+            "id": "atom-1-token-15",
+            "text": "Support",
+            "start": 74,
+            "end": 81,
+            "lemma": "Support",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Scheme"
+          },
+          {
+            "id": "atom-1-token-16",
+            "text": "Scheme",
+            "start": 82,
+            "end": 88,
+            "lemma": "Scheme",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "pobj",
+            "head": "of"
+          },
+          {
+            "id": "atom-1-token-17",
+            "text": "and",
+            "start": 89,
+            "end": 92,
+            "lemma": "and",
+            "pos": "CCONJ",
+            "tag": "CC",
+            "dependency": "cc",
+            "head": "Scheme"
+          },
+          {
+            "id": "atom-1-token-18",
+            "text": "Universal",
+            "start": 93,
+            "end": 102,
+            "lemma": "Universal",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Credit"
+          },
+          {
+            "id": "atom-1-token-19",
+            "text": "Credit",
+            "start": 103,
+            "end": 109,
+            "lemma": "Credit",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "conj",
+            "head": "Scheme"
+          },
+          {
+            "id": "atom-1-token-20",
+            "text": ".",
+            "start": 109,
+            "end": 110,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "get"
+          }
+        ],
+        "status": "partial",
+        "unresolved": [
+          "subject"
+        ]
+      },
+      {
+        "atomId": "atom-2",
+        "frames": [
+          {
+            "id": "atom-2-frame-1",
+            "predicate": {
+              "id": "atom-2-frame-1-predicate",
+              "text": "get",
+              "start": 5,
+              "end": 8
+            },
+            "subjects": [
+              {
+                "id": "atom-2-frame-1-subject-1",
+                "text": "they",
+                "start": 0,
+                "end": 4
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-2-frame-1-argument-1",
+                "text": "80% of their wages",
+                "start": 9,
+                "end": 27,
+                "role": "direct_object"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [
+          {
+            "id": "atom-2-cue-numeric-9-12",
+            "text": "80%",
+            "start": 9,
+            "end": 12,
+            "kind": "numeric"
+          }
+        ],
+        "entities": [],
+        "tokens": [
+          {
+            "id": "atom-2-token-0",
+            "text": "they",
+            "start": 0,
+            "end": 4,
+            "lemma": "they",
+            "pos": "PRON",
+            "tag": "PRP",
+            "dependency": "nsubj",
+            "head": "get"
+          },
+          {
+            "id": "atom-2-token-1",
+            "text": "get",
+            "start": 5,
+            "end": 8,
+            "lemma": "get",
+            "pos": "VERB",
+            "tag": "VBP",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-2-token-2",
+            "text": "80",
+            "start": 9,
+            "end": 11,
+            "lemma": "80",
+            "pos": "NUM",
+            "tag": "CD",
+            "dependency": "nummod",
+            "head": "%"
+          },
+          {
+            "id": "atom-2-token-3",
+            "text": "%",
+            "start": 11,
+            "end": 12,
+            "lemma": "%",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "dobj",
+            "head": "get"
+          },
+          {
+            "id": "atom-2-token-4",
+            "text": "of",
+            "start": 13,
+            "end": 15,
+            "lemma": "of",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "%"
+          },
+          {
+            "id": "atom-2-token-5",
+            "text": "their",
+            "start": 16,
+            "end": 21,
+            "lemma": "their",
+            "pos": "PRON",
+            "tag": "PRP$",
+            "dependency": "poss",
+            "head": "wages"
+          },
+          {
+            "id": "atom-2-token-6",
+            "text": "wages",
+            "start": 22,
+            "end": 27,
+            "lemma": "wage",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "pobj",
+            "head": "of"
+          },
+          {
+            "id": "atom-2-token-7",
+            "text": ".",
+            "start": 27,
+            "end": 28,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "get"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      }
+    ],
+    "summaries": [
+      {
+        "atomId": "atom-1",
+        "analysisStatus": "partial",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "UK Employees unable to work in tier 3 areas"
+        ],
+        "predicates": [
+          "work",
+          "get"
+        ],
+        "cueKinds": [
+          "numeric",
+          "modality"
+        ],
+        "modifierKinds": [],
+        "entityLabels": [
+          "GPE",
+          "ORG"
+        ],
+        "warnings": [
+          "MULTIPLE_PROPOSITION_FRAMES",
+          "UNRESOLVED_SUBJECT",
+          "PARTIAL_LINGUISTIC_ANALYSIS",
+          "QUALIFIER_ATTACHMENT_UNCLEAR"
+        ]
+      },
+      {
+        "atomId": "atom-2",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "they"
+        ],
+        "predicates": [
+          "get"
+        ],
+        "cueKinds": [
+          "numeric"
+        ],
+        "modifierKinds": [],
+        "entityLabels": [],
+        "warnings": []
+      }
+    ],
+    "claimWarnings": [],
+    "provider": "spacy",
+    "model": "en_core_web_sm@3.8.0"
+  },
+  "verdict": {
+    "aggregationSchemaVersion": 1,
+    "claimId": "averitec-dev-0060",
+    "composition": "AND",
+    "verdict": "REFUTED",
+    "positions": {
+      "supportPosition": false,
+      "attackPosition": true,
+      "supportObligationIds": [
+        "atom-2"
+      ],
+      "attackObligationIds": [
+        "atom-2"
+      ],
+      "unresolvedObligationIds": [
+        "atom-1"
+      ]
+    },
+    "obligations": [
+      {
+        "obligationId": "atom-1",
+        "state": "UNRESOLVED",
+        "supportEdgeIds": [],
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 6
+      },
+      {
+        "obligationId": "atom-2",
+        "state": "CONFLICTING",
+        "supportEdgeIds": [
+          "edge:SUPPORTS:evidence:doc-71e4a935f783:doc-71e4a935f783::sentence-13:obligation:averitec-dev-0060:atom-2"
+        ],
+        "attackEdgeIds": [
+          "edge:ATTACKS:evidence:doc-d819ca86a555:doc-d819ca86a555::sentence-6:obligation:averitec-dev-0060:atom-2",
+          "edge:ATTACKS:evidence:doc-f5ffa35607dc:doc-f5ffa35607dc::sentence-5:obligation:averitec-dev-0060:atom-2",
+          "edge:ATTACKS:evidence:doc-f5ffa35607dc:doc-f5ffa35607dc::sentence-17:obligation:averitec-dev-0060:atom-2",
+          "edge:ATTACKS:evidence:doc-71e4a935f783:doc-71e4a935f783::sentence-4:obligation:averitec-dev-0060:atom-2",
+          "edge:ATTACKS:evidence:doc-d819ca86a555:doc-d819ca86a555::sentence-5:obligation:averitec-dev-0060:atom-2"
+        ],
+        "neutralCandidateCount": 0
+      }
+    ],
+    "warnings": [
+      {
+        "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
+        "message": "Obligation atom-1 has no supporting or attacking evidence."
+      },
+      {
+        "code": "ONLY_NEUTRAL_CANDIDATES",
+        "message": "Obligation atom-1 has only neutral retrieved candidates."
+      },
+      {
+        "code": "PARTIAL_LINGUISTIC_ANALYSIS",
+        "message": "Linguistic analysis for obligation atom-1 requires inspection; it does not change the verdict."
+      }
+    ],
+    "ruleTrace": [
+      "AND support requires support for every obligation; AND attack requires an attack on any obligation.",
+      "Support position: no; attack position: yes.",
+      "Final verdict: REFUTED."
+    ]
+  },
   "recordedWith": {
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
