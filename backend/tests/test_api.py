@@ -73,14 +73,16 @@ def stub_catalog(monkeypatch):
 
 
 def test_health_summary_and_detail_contracts(monkeypatch) -> None:
+    monkeypatch.setattr(api, "ollama_model_ready", lambda: True)
     monkeypatch.setattr(api, "embeddings_available", lambda: True)
     monkeypatch.setattr(api, "nli_available", lambda: True)
     monkeypatch.setattr(api, "linguistics_available", lambda: True)
     health = client.get("/api/v1/health")
     assert health.status_code == 200
     assert health.json() == {
-        "status": "configured",
+        "status": "ready",
         "decompositionConfigured": True,
+        "decompositionReady": True,
         "retrievalConfigured": True,
         "nliConfigured": True,
         "linguisticsConfigured": True,
@@ -100,23 +102,37 @@ def test_health_summary_and_detail_contracts(monkeypatch) -> None:
 
 
 def test_optional_linguistics_does_not_change_core_health(monkeypatch) -> None:
+    monkeypatch.setattr(api, "ollama_model_ready", lambda: True)
     monkeypatch.setattr(api, "embeddings_available", lambda: True)
     monkeypatch.setattr(api, "nli_available", lambda: True)
     monkeypatch.setattr(api, "linguistics_available", lambda: False)
     response = client.get("/api/v1/health")
     assert response.status_code == 200
-    assert response.json()["status"] == "configured"
+    assert response.json()["status"] == "ready"
     assert response.json()["linguisticsConfigured"] is False
 
 
 def test_nli_readiness_is_part_of_core_health(monkeypatch) -> None:
+    monkeypatch.setattr(api, "ollama_model_ready", lambda: True)
     monkeypatch.setattr(api, "embeddings_available", lambda: True)
     monkeypatch.setattr(api, "nli_available", lambda: False)
     monkeypatch.setattr(api, "linguistics_available", lambda: True)
     response = client.get("/api/v1/health")
     assert response.status_code == 200
-    assert response.json()["status"] == "unconfigured"
+    assert response.json()["status"] == "degraded"
     assert response.json()["nliConfigured"] is False
+
+
+def test_health_is_degraded_when_ollama_configuration_is_not_reachable(monkeypatch) -> None:
+    monkeypatch.setattr(api, "ollama_model_ready", lambda: False)
+    monkeypatch.setattr(api, "embeddings_available", lambda: True)
+    monkeypatch.setattr(api, "nli_available", lambda: True)
+    monkeypatch.setattr(api, "linguistics_available", lambda: True)
+    response = client.get("/api/v1/health")
+    assert response.status_code == 200
+    assert response.json()["status"] == "degraded"
+    assert response.json()["decompositionConfigured"] is True
+    assert response.json()["decompositionReady"] is False
 
 
 def test_decomposition_input_validation_returns_422() -> None:
@@ -175,7 +191,7 @@ def test_decomposition_success_and_provider_failure(monkeypatch) -> None:
 def test_custom_and_prepared_retrieval_contracts(monkeypatch) -> None:
     calls = []
 
-    async def success(documents, atoms, prepared_cache_key=None):
+    async def success(documents, atoms, prepared_cache_key=None, evidence_per_atom=6):
         calls.append(prepared_cache_key)
         document = documents[0]
         return EvidenceRetrievalResponse(
@@ -223,7 +239,7 @@ def test_custom_and_prepared_retrieval_contracts(monkeypatch) -> None:
     ],
 )
 def test_retrieval_error_contracts(monkeypatch, error, status) -> None:
-    async def failure(documents, atoms, prepared_cache_key=None):
+    async def failure(documents, atoms, prepared_cache_key=None, evidence_per_atom=6):
         raise error
 
     monkeypatch.setattr(api, "retrieve_evidence", failure)
@@ -321,6 +337,7 @@ def test_nli_success_preserves_atom_and_span_order(monkeypatch) -> None:
         "spanId": "s1",
         "documentId": "doc-a",
         "relation": "ENTAILMENT",
+        "relevanceFiltered": False,
     }
     assert "score" not in response.text.lower()
 

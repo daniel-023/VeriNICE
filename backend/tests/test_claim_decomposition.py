@@ -73,6 +73,124 @@ def test_repeated_source_text_warns_but_is_valid() -> None:
     assert [warning.code for warning in result.warnings] == ["REUSED_SOURCE_TEXT"]
 
 
+def test_source_text_locates_despite_punctuation_the_model_added() -> None:
+    """A full stop the claim does not have there must not discard a good split."""
+    claim = "Most deaths originated from bacterial pneumonia caused by face masks."
+    result = parse_decomposition(
+        claim,
+        envelope(
+            {
+                "composition": "AND",
+                "obligations": [
+                    # Closed with a full stop the claim continues past.
+                    obligation("Most deaths originated from bacterial pneumonia.",
+                               "Most deaths originated from bacterial pneumonia."),
+                    obligation("Bacterial pneumonia was caused by face masks.",
+                               "caused by face masks", "CAUSAL_RELATION"),
+                ],
+            }
+        ),
+        "test-model",
+    )
+    assert result.atoms[0].source_text == "Most deaths originated from bacterial pneumonia"
+    assert claim[result.atoms[0].start : result.atoms[0].end] == result.atoms[0].source_text
+
+
+def test_source_text_sheds_a_subject_the_claim_states_once() -> None:
+    """Coordination shares a subject; a model repeats it in every span."""
+    claim = "If given power they would ban animal agriculture and eliminate petrol cars."
+    result = parse_decomposition(
+        claim,
+        envelope(
+            {
+                "composition": "AND",
+                "obligations": [
+                    obligation("They would ban animal agriculture.",
+                               "they would ban animal agriculture", "CONDITIONAL"),
+                    # "they would" appears only before "ban", not before "eliminate".
+                    obligation("They would eliminate petrol cars.",
+                               "they would eliminate petrol cars", "CONDITIONAL"),
+                ],
+            }
+        ),
+        "test-model",
+    )
+    assert result.atoms[1].source_text == "eliminate petrol cars"
+    assert claim[result.atoms[1].start : result.atoms[1].end] == "eliminate petrol cars"
+
+
+def test_shortening_stops_when_it_would_be_ambiguous() -> None:
+    """A span occurring twice cannot be shortened into: it would highlight either."""
+    claim = "The report lists deaths and the summary lists deaths."
+    with pytest.raises(DecompositionOutputError):
+        parse_decomposition(
+            claim,
+            envelope(
+                {
+                    "composition": "SINGLE",
+                    # "lists deaths" occurs twice, so no shortening is admissible.
+                    "obligations": [obligation("Something lists deaths.", "nobody lists deaths")],
+                }
+            ),
+            "test-model",
+        )
+
+
+def test_multi_sentence_claim_collapsed_into_one_obligation_warns() -> None:
+    """The typed-obligation prompt regressed into quoting whole claims verbatim.
+
+    A single obligation spanning a whole multi-sentence claim has separated
+    nothing, whatever role it carries, so the pipeline says so rather than
+    treating an undivided claim as atomic.
+    """
+    claim = (
+        "The mayor called the report a hoax. She said the harbour would open in 2022. "
+        "It opened in 2024."
+    )
+    result = parse_decomposition(
+        claim,
+        envelope({"composition": "SINGLE", "obligations": [obligation(claim, claim)]}),
+        "test-model",
+    )
+    assert "UNDER_DECOMPOSED" in [warning.code for warning in result.warnings]
+
+
+def test_separated_multi_sentence_claim_does_not_warn() -> None:
+    claim = "The mayor called the report a hoax. It opened in 2024."
+    result = parse_decomposition(
+        claim,
+        envelope(
+            {
+                "composition": "AND",
+                "obligations": [
+                    obligation(
+                        "The mayor called the report a hoax.",
+                        "The mayor called the report a hoax",
+                        "ATTRIBUTION",
+                    ),
+                    obligation(
+                        "The harbour opened in 2024.",
+                        "It opened in 2024",
+                        "TEMPORAL_CONSTRAINT",
+                    ),
+                ],
+            }
+        ),
+        "test-model",
+    )
+    assert [warning.code for warning in result.warnings] == []
+
+
+def test_single_sentence_claim_may_stay_one_obligation() -> None:
+    claim = "The archive opened in 2021."
+    result = parse_decomposition(
+        claim,
+        envelope({"composition": "SINGLE", "obligations": [obligation(claim, claim)]}),
+        "test-model",
+    )
+    assert [warning.code for warning in result.warnings] == []
+
+
 def test_claim_offsets_use_browser_utf16_code_units() -> None:
     claim = "🚀 The archive opened."
     result = parse_decomposition(
@@ -212,3 +330,13 @@ async def test_provider_errors_do_not_fallback(monkeypatch) -> None:
     async with httpx.AsyncClient(transport=httpx.MockTransport(handler)) as client:
         with pytest.raises(DecompositionProviderError, match="timed out"):
             await decompose_claim("A claim.", client=client)
+
+
+def test_prompt_keeps_comparisons_in_one_self_contained_obligation() -> None:
+    instructions = claim_decomposition.DECOMPOSITION_INSTRUCTIONS
+    assert "preserve both compared values or periods" in instructions
+    assert (
+        "ExampleCo's annual revenue for 2024 was lower than its annual revenue for 2023"
+        in instructions
+    )
+    assert "Nigeria" not in instructions

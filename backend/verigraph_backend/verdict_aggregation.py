@@ -1,7 +1,5 @@
 """Deterministic, versioned four-way verdict aggregation."""
 
-from collections import defaultdict
-
 from .schemas import (
     AggregationWarning,
     ClaimComposition,

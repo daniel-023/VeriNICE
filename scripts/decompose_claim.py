@@ -29,7 +29,7 @@ async def _run(claim: str) -> int:
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Decompose one claim into WiCE-style atomic facts"
+        description="Decompose one claim into schema-constrained verification obligations"
     )
     parser.add_argument("claim", help="claim text to decompose")
     args = parser.parse_args()

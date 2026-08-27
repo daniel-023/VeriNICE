@@ -32,7 +32,7 @@ class Settings:
     ollama_url: str = os.getenv(
         "VERIGRAPH_OLLAMA_URL", os.getenv("OLLAMA_HOST", "http://127.0.0.1:11434")
     )
-    ollama_model: str = os.getenv("VERIGRAPH_OLLAMA_MODEL", "qwen2.5:3b")
+    ollama_model: str = os.getenv("VERIGRAPH_OLLAMA_MODEL", "qwen2.5:7b")
     ollama_keep_alive: str = os.getenv("VERIGRAPH_OLLAMA_KEEP_ALIVE", "10m")
     # The structured schema and compact few-shot examples need room alongside
     # the input claim and JSON response. This remains configurable for smaller

@@ -10,7 +10,7 @@ def request(composition, relations):
         for index in range(1, len(relations) + 1)
     ]
     return VerdictAggregationRequest.model_validate({
-        "claimId": "case", "claim": "claim",
+        "claimId": "case",
         "composition": composition, "atoms": atoms,
         "evidence": [{"atomId": atom["id"], "spans": [{"id": "s", "documentId": "d", "text": "evidence", "start": 0, "end": 8}]} for atom in atoms],
         "classifications": [{"atomId": atom["id"], "relations": [{"spanId": "s", "documentId": "d", "relation": relation} for relation in relation_set]} for atom, relation_set in zip(atoms, relations)],

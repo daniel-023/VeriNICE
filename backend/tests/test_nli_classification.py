@@ -58,7 +58,7 @@ def test_batches_pairs_in_premise_hypothesis_order_and_preserves_order(monkeypat
         ),
     ]
     tokenizer = FakeTokenizer()
-    model = FakeModel([0, 1, 2])
+    model = FakeModel([0, 2])
     labels = {
         0: NLIRelation.entailment,
         1: NLIRelation.neutral,
@@ -70,11 +70,9 @@ def test_batches_pairs_in_premise_hypothesis_order_and_preserves_order(monkeypat
 
     assert tokenizer.calls[0][0] == [
         "The bridge is open.",
-        "Traffic uses another route.",
         "The archive opened in 2021.",
     ]
     assert tokenizer.calls[0][1] == [
-        "The bridge is open.",
         "The bridge is open.",
         "The archive opened in 2019.",
     ]
@@ -84,8 +82,75 @@ def test_batches_pairs_in_premise_hypothesis_order_and_preserves_order(monkeypat
         NLIRelation.entailment,
         NLIRelation.neutral,
     ]
+    assert response.classifications[0].relations[1].relevance_filtered is True
     assert response.classifications[1].relations[0].relation == NLIRelation.contradiction
     assert "score" not in response.model_dump_json().lower()
+
+
+@pytest.mark.parametrize(
+    ("sentence", "obligation"),
+    [
+        (
+            "Ivermectin is highly effective against strongyloides, scabies, ticks, and malaria transmission.",
+            "Ivermectin is a treatment for coronavirus.",
+        ),
+        (
+            "The technique is already in wide use for treating a range of illnesses.",
+            "The treatment was developed from the use of fetal tissue.",
+        ),
+        (
+            "Igbo are predominantly Christian.",
+            "Igbo people are the richest people per capita in Africa.",
+        ),
+    ],
+)
+def test_diagnosed_unrelated_false_contradictions_are_filtered(sentence, obligation) -> None:
+    assert nli._is_topically_relevant(sentence, obligation) is False
+
+
+def test_context_rescues_a_pronoun_dependent_candidate() -> None:
+    assert nli._is_topically_relevant(
+        "She denied it.",
+        "The minister denied the corruption report.",
+        "The minister discussed the corruption report. She denied it.",
+    ) is True
+
+
+def test_neighbor_context_does_not_rescue_an_unrelated_self_contained_sentence() -> None:
+    assert nli._is_topically_relevant(
+        "Ivermectin is also effective against scabies, and it can reduce malaria transmission.",
+        "Ivermectin is a treatment for coronavirus.",
+        "COVID-19 treatment is under study. Ivermectin is also effective against scabies, and it can reduce malaria transmission.",
+    ) is False
+
+
+def test_contradiction_requires_an_inspectable_conflict_anchor() -> None:
+    assert nli._has_explicit_contradiction_anchor(
+        "The archive opened in 2021.",
+        "The archive opened in 2019.",
+    ) is True
+    assert nli._has_explicit_contradiction_anchor(
+        "Officials discussed airport remarks during the event.",
+        "The president said airports were the biggest Revolutionary War problem.",
+    ) is False
+
+
+def test_low_confidence_non_neutral_prediction_becomes_neutral(monkeypatch) -> None:
+    atoms = [PipelineAtom(id="atom-1", text="The bridge is open.")]
+    evidence = [
+        NLIAtomEvidence(
+            atom_id="atom-1",
+            spans=[span("sentence-1", "doc-a", "The bridge is open.")],
+        )
+    ]
+    monkeypatch.setattr(nli, "_load_components", lambda: (object(), object(), {}))
+    monkeypatch.setattr(
+        nli,
+        "_predict_with_confidence",
+        lambda _pairs: [(NLIRelation.entailment, 0.51)],
+    )
+    result = nli.classify_support(atoms, evidence)
+    assert result.classifications[0].relations[0].relation == NLIRelation.neutral
 
 
 def test_empty_evidence_returns_ordered_empty_relations(monkeypatch) -> None:

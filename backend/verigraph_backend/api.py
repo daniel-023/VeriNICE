@@ -1,12 +1,15 @@
 from __future__ import annotations
 
 import asyncio
+import json
 import logging
 import time
 from collections import defaultdict, deque
 from concurrent.futures import ThreadPoolExecutor
 from contextlib import asynccontextmanager
 from typing import AsyncIterator, Deque, Dict
+from urllib.error import URLError
+from urllib.request import urlopen
 
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
@@ -143,6 +146,21 @@ _nli_worker = ThreadPoolExecutor(
 _rate_windows: Dict[str, Deque[float]] = defaultdict(deque)
 
 
+def ollama_model_ready() -> bool:
+    """Confirm that the configured Ollama service and model are actually usable."""
+    if not settings.ollama_url.strip() or not settings.ollama_model.strip():
+        return False
+    try:
+        with urlopen(f"{settings.ollama_url.rstrip('/')}/api/tags", timeout=0.5) as response:
+            payload = json.load(response)
+    except (OSError, URLError, ValueError, json.JSONDecodeError):
+        return False
+    return any(
+        isinstance(item, dict) and item.get("name") == settings.ollama_model
+        for item in payload.get("models", [])
+    )
+
+
 @app.middleware("http")
 async def protect_public_endpoints(request: Request, call_next):
     content_length = request.headers.get("content-length")
@@ -182,12 +200,16 @@ async def protect_public_endpoints(request: Request, call_next):
 @app.get("/api/v1/health", response_model=HealthResponse)
 def health() -> HealthResponse:
     decomposition = bool(settings.ollama_url.strip() and settings.ollama_model.strip())
+    decomposition_ready = ollama_model_ready()
     retrieval = embeddings_available()
     nli = nli_available()
     linguistics = linguistics_available()
     return HealthResponse(
-        status="configured" if decomposition and retrieval and nli else "unconfigured",
+        status=("ready" if decomposition_ready and retrieval and nli
+                else "degraded" if decomposition or retrieval or nli
+                else "unconfigured"),
         decomposition_configured=decomposition,
+        decomposition_ready=decomposition_ready,
         retrieval_configured=retrieval,
         nli_configured=nli,
         linguistics_configured=linguistics,
@@ -242,6 +264,7 @@ async def retrieve(request: RetrievalRequest) -> EvidenceRetrievalResponse:
                 documents,
                 request.atoms,
                 prepared_cache_key=prepared_cache_key,
+                evidence_per_atom=request.evidence_per_atom,
             )
     except EvidenceRetrievalConfigurationError as error:
         raise HTTPException(status_code=503, detail=str(error)) from error

@@ -15,11 +15,42 @@ class APIModel(BaseModel):
     model_config = ConfigDict(alias_generator=to_camel, populate_by_name=True)
 
 
+#: Retrieval budget per obligation. The operator chooses a value in this range;
+#: retrieval, NLI input, and NLI output all size their span lists from it, so
+#: the three limits cannot drift apart.
+MIN_EVIDENCE_PER_ATOM = 2
+MAX_EVIDENCE_PER_ATOM = 12
+DEFAULT_EVIDENCE_PER_ATOM = 6
+
+
 class ReferenceLabel(str, Enum):
     supported = "SUPPORTED"
     refuted = "REFUTED"
     not_enough_evidence = "NOT_ENOUGH_EVIDENCE"
     conflicting_evidence = "CONFLICTING_EVIDENCE"
+
+
+class DemoTopic(str, Enum):
+    politics_elections = "POLITICS_ELECTIONS"
+    public_health = "PUBLIC_HEALTH"
+    climate_environment = "CLIMATE_ENVIRONMENT"
+    economy_business = "ECONOMY_BUSINESS"
+    science_technology = "SCIENCE_TECHNOLOGY"
+    law_public_policy = "LAW_PUBLIC_POLICY"
+    conflict_security = "CONFLICT_SECURITY"
+    society_culture = "SOCIETY_CULTURE"
+
+
+class DemoChallenge(str, Enum):
+    multi_part = "MULTI_PART"
+    negation = "NEGATION"
+    numbers = "NUMBERS"
+    time = "TIME"
+    attribution = "ATTRIBUTION"
+    causality = "CAUSALITY"
+    list_set_reasoning = "LIST_SET_REASONING"
+    conflicting_sources = "CONFLICTING_SOURCES"
+    sparse_evidence = "SPARSE_EVIDENCE"
 
 
 class ClaimComposition(str, Enum):
@@ -70,6 +101,10 @@ class DemoCaseSummary(APIModel):
     claim: str = Field(min_length=1, max_length=5000)
     documents: List[DemoDocumentSummary] = Field(min_length=1, max_length=8)
     label: ReferenceLabel
+    display_title: str = Field(default="", max_length=120)
+    topics: List[DemoTopic] = Field(default_factory=list, max_length=3)
+    challenges: List[DemoChallenge] = Field(default_factory=list, max_length=6)
+    featured: bool = False
 
     @field_validator("id", "claim")
     @classmethod
@@ -91,6 +126,10 @@ class DemoCase(APIModel):
     claim: str = Field(min_length=1, max_length=5000)
     documents: List[DemoDocument] = Field(min_length=1, max_length=8)
     label: ReferenceLabel
+    display_title: str = Field(default="", max_length=120)
+    topics: List[DemoTopic] = Field(default_factory=list, max_length=3)
+    challenges: List[DemoChallenge] = Field(default_factory=list, max_length=6)
+    featured: bool = False
 
     @field_validator("id", "claim")
     @classmethod
@@ -111,6 +150,10 @@ class DemoCase(APIModel):
             id=self.id,
             claim=self.claim,
             label=self.label,
+            display_title=self.display_title,
+            topics=self.topics,
+            challenges=self.challenges,
+            featured=self.featured,
             documents=[
                 DemoDocumentSummary(id=document.id, title=document.title, url=document.url)
                 for document in self.documents
@@ -215,6 +258,11 @@ class RetrievalRequest(APIModel):
         default=None, min_length=1, max_length=8
     )
     atoms: List[PipelineAtom] = Field(min_length=1, max_length=12)
+    evidence_per_atom: int = Field(
+        default=DEFAULT_EVIDENCE_PER_ATOM,
+        ge=MIN_EVIDENCE_PER_ATOM,
+        le=MAX_EVIDENCE_PER_ATOM,
+    )
 
     @model_validator(mode="after")
     def validate_input_mode_and_ids(self) -> "RetrievalRequest":
@@ -238,11 +286,14 @@ class EvidenceSpan(APIModel):
     text: str = Field(min_length=1)
     start: int = Field(ge=0)
     end: int = Field(gt=0)
+    #: The sentence with its immediate neighbours, used as the NLI premise. The
+    #: highlighted span stays `text`, so provenance is unaffected.
+    context: Optional[str] = Field(default=None, max_length=4000)
 
 
 class AtomEvidence(APIModel):
     atom_id: str = Field(min_length=1)
-    spans: List[EvidenceSpan] = Field(max_length=6)
+    spans: List[EvidenceSpan] = Field(max_length=MAX_EVIDENCE_PER_ATOM)
 
 
 class EvidenceRetrievalResponse(APIModel):
@@ -255,6 +306,7 @@ class NLIInputSpan(APIModel):
     id: str = Field(min_length=1, max_length=200)
     document_id: str = Field(min_length=1, max_length=100)
     text: str = Field(min_length=1, max_length=1000)
+    context: Optional[str] = Field(default=None, max_length=4000)
 
     @field_validator("id", "document_id", "text")
     @classmethod
@@ -266,7 +318,7 @@ class NLIInputSpan(APIModel):
 
 class NLIAtomEvidence(APIModel):
     atom_id: str = Field(min_length=1, max_length=100)
-    spans: List[NLIInputSpan] = Field(default_factory=list, max_length=6)
+    spans: List[NLIInputSpan] = Field(default_factory=list, max_length=MAX_EVIDENCE_PER_ATOM)
 
     @model_validator(mode="after")
     def reject_duplicate_spans(self) -> "NLIAtomEvidence":
@@ -311,11 +363,12 @@ class EvidenceRelation(APIModel):
     span_id: str = Field(min_length=1)
     document_id: str = Field(min_length=1)
     relation: NLIRelation
+    relevance_filtered: bool = False
 
 
 class AtomSupportClassification(APIModel):
     atom_id: str = Field(min_length=1)
-    relations: List[EvidenceRelation] = Field(max_length=6)
+    relations: List[EvidenceRelation] = Field(max_length=MAX_EVIDENCE_PER_ATOM)
 
 
 class SupportClassificationResponse(APIModel):
@@ -469,8 +522,9 @@ class LinguisticAnalysisResponse(APIModel):
 
 
 class HealthResponse(APIModel):
-    status: Literal["configured", "unconfigured"]
+    status: Literal["ready", "degraded", "unconfigured"]
     decomposition_configured: bool
+    decomposition_ready: bool
     retrieval_configured: bool
     nli_configured: bool
     linguistics_configured: bool
@@ -515,7 +569,6 @@ class VerdictAggregationRequest(APIModel):
     model_config = ConfigDict(alias_generator=to_camel, populate_by_name=True, extra="forbid")
 
     claim_id: str = Field(min_length=1, max_length=100)
-    claim: str = Field(min_length=1, max_length=5000)
     composition: ClaimComposition
     atoms: List[DecomposedAtom] = Field(min_length=1, max_length=12)
     evidence: List[AtomEvidence] = Field(min_length=1, max_length=12)
@@ -533,6 +586,11 @@ class VerdictAggregationRequest(APIModel):
             raise ValueError("evidence must cover every decomposition atom exactly once")
         if set(classification_ids) != set(atom_ids) or len(classification_ids) != len(atom_ids):
             raise ValueError("classifications must cover every decomposition atom exactly once")
+        summary_ids = [item.atom_id for item in self.linguistic_summaries]
+        if len(summary_ids) != len(set(summary_ids)):
+            raise ValueError("linguistic summaries must not repeat an atom")
+        if not set(summary_ids).issubset(atom_ids):
+            raise ValueError("linguistic summaries must only reference decomposition atoms")
         return self
 
 

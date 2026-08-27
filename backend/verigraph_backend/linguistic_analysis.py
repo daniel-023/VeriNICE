@@ -561,8 +561,8 @@ def audit_role(atom: DecomposedAtom, analysis: AtomLinguisticAnalysis) -> RoleAu
         return RoleAuditStatus.match
     if _has_incompatible_qualifier(analysis, atom.role.value):
         return RoleAuditStatus.mismatch
-    if analysis.status == "partial" or not analysis.tokens:
-        return RoleAuditStatus.inconclusive
+    # No cue for the declared role and no competing cue either: the parse cannot
+    # confirm or refute the role, so the audit stays deliberately non-committal.
     return RoleAuditStatus.inconclusive
 
 

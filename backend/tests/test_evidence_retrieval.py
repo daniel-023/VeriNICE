@@ -14,7 +14,9 @@ from verigraph_backend.errors import (
 from verigraph_backend.evidence_retrieval import (
     MAX_CANDIDATE_CHARACTERS,
     _eligible_sentences,
+    _rank_hybrid_sentences,
     _rank_sentences,
+    _span,
     retrieve_evidence,
 )
 from verigraph_backend.schemas import RetrievalAtom, RetrievalDocument
@@ -57,7 +59,7 @@ def test_repeated_sentences_across_documents_keep_document_scoped_ids() -> None:
     assert [sentence.document_id for sentence in sentences] == ["doc-a", "doc-a", "doc-b"]
 
 
-def test_ranking_returns_six_globally_and_caps_each_document_at_three() -> None:
+def test_ranking_shares_the_budget_across_documents() -> None:
     sentences = [
         SentenceSpan(
             id=f"doc-a::sentence-{index + 1}",
@@ -80,8 +82,9 @@ def test_ranking_returns_six_globally_and_caps_each_document_at_three() -> None:
         for index in range(5)
     ]
     scores = [1.0 - index * 0.01 for index in range(10)]
-    selected = _rank_sentences(sentences, scores)
+    selected = _rank_sentences(sentences, scores, 6)
     assert len(selected) == 6
+    # Two documents at a budget of six keeps the previous three-and-three split.
     assert [sentence.document_id for sentence in selected].count("doc-a") == 3
     assert [sentence.document_id for sentence in selected].count("doc-b") == 3
 
@@ -98,7 +101,7 @@ def test_single_document_can_supply_six_and_ties_use_source_order() -> None:
         )
         for index in range(8)
     ]
-    selected = _rank_sentences(sentences, [0.5] * len(sentences))
+    selected = _rank_sentences(sentences, [0.5] * len(sentences), 6)
     assert [sentence.id for sentence in selected] == [
         f"doc-a::sentence-{index}" for index in range(1, 7)
     ]
@@ -109,7 +112,131 @@ def test_fewer_than_six_candidates_returns_every_candidate() -> None:
         SentenceSpan("one", "One.", 0, 4, "doc-a", 0),
         SentenceSpan("two", "Two.", 4, 8, "doc-a", 1),
     ]
-    assert _rank_sentences(sentences, [-1.0, -2.0]) == sentences
+    assert _rank_sentences(sentences, [-1.0, -2.0], 6) == sentences
+
+
+def test_budget_is_shared_so_later_sources_stop_being_unreachable() -> None:
+    """A flat cap of three let only the two strongest sources contribute, ever.
+
+    Scores here are blocked by document — every sentence in doc-a outranks every
+    sentence in doc-b, and so on — which is the worst case for coverage.
+    """
+    sentences = [
+        SentenceSpan(
+            id=f"doc-{letter}::sentence-{index + 1}",
+            text=f"{letter.upper()}{index}.",
+            start=index * 4,
+            end=index * 4 + 3,
+            document_id=f"doc-{letter}",
+            ordinal=index,
+        )
+        for letter in ("a", "b", "c", "d")
+        for index in range(5)
+    ]
+    scores = [1.0 - index * 0.01 for index in range(len(sentences))]
+
+    def split(selected):
+        picked = [sentence.document_id for sentence in selected]
+        return [picked.count(f"doc-{letter}") for letter in ("a", "b", "c", "d")]
+
+    # A budget of six over four sources caps each at two, so three sources are
+    # consulted instead of the two the flat cap allowed.
+    assert split(_rank_sentences(sentences, scores, 6)) == [2, 2, 2, 0]
+    # Raising the budget is what buys the fourth source. This is the whole point
+    # of the budget being an operator control rather than a constant.
+    assert split(_rank_sentences(sentences, scores, 8)) == [2, 2, 2, 2]
+
+
+def test_two_sources_keep_the_previous_three_and_three_split() -> None:
+    sentences = [
+        SentenceSpan(
+            id=f"doc-{letter}::sentence-{index + 1}",
+            text=f"{letter.upper()}{index}.",
+            start=index * 4,
+            end=index * 4 + 3,
+            document_id=f"doc-{letter}",
+            ordinal=index,
+        )
+        for letter in ("a", "b")
+        for index in range(5)
+    ]
+    scores = [1.0 - index * 0.01 for index in range(len(sentences))]
+    selected = _rank_sentences(sentences, scores, 6)
+    picked = [sentence.document_id for sentence in selected]
+    assert [picked.count("doc-a"), picked.count("doc-b")] == [3, 3]
+
+
+def test_budget_is_honoured_and_bounds_the_selection() -> None:
+    sentences = [
+        SentenceSpan(
+            id=f"doc-a::sentence-{index + 1}",
+            text=f"Sentence {index}.",
+            start=index * 12,
+            end=index * 12 + 11,
+            document_id="doc-a",
+            ordinal=index,
+        )
+        for index in range(12)
+    ]
+    scores = [1.0 - index * 0.01 for index in range(12)]
+    assert len(_rank_sentences(sentences, scores, 2)) == 2
+    assert len(_rank_sentences(sentences, scores, 12)) == 12
+
+
+def test_hybrid_ranking_recovers_exact_number_from_weaker_dense_result() -> None:
+    sentences = [
+        SentenceSpan("semantic", "The trial enrolled many people.", 0, 31, "doc-a", 0),
+        SentenceSpan("exact", "The trial enrolled 240 participants.", 0, 36, "doc-b", 0),
+        SentenceSpan("other", "The report describes the trial design.", 36, 74, "doc-b", 1),
+    ]
+    selected = _rank_hybrid_sentences(
+        sentences,
+        [0.95, 0.75, 0.5],
+        "The trial enrolled 240 participants.",
+        1,
+    )
+    assert selected == [sentences[1]]
+
+
+def test_hybrid_diversity_is_soft_not_mandatory() -> None:
+    sentences = [
+        SentenceSpan("a1", "Aurora acquired Northstar.", 0, 27, "doc-a", 0),
+        SentenceSpan("a2", "Northstar is now owned by Aurora.", 27, 60, "doc-a", 1),
+        SentenceSpan("b1", "A weather report was issued.", 0, 28, "doc-b", 0),
+    ]
+    selected = _rank_hybrid_sentences(
+        sentences,
+        [0.99, 0.98, -0.5],
+        "Aurora acquired Northstar.",
+        2,
+    )
+    assert selected == sentences[:2]
+
+
+def test_span_carries_its_neighbours_as_premise_context() -> None:
+    """An isolated sentence strands pronouns; NLI reads that as disagreement."""
+    document = "Orion hired Mara. She became its chief technology officer. The team grew."
+    sentences = segment_document(document, "doc-a")
+    middle = sentences[1]
+    span = _span(middle, {"doc-a": document}, sentences)
+
+    # The highlighted span is untouched, so provenance is unaffected.
+    assert span.text == middle.text
+    assert document[span.start : span.end] == span.text
+    # The premise gains the sentence that "She" refers back to.
+    assert span.context is not None
+    assert "Orion hired Mara." in span.context
+    assert "The team grew." in span.context
+
+
+def test_context_does_not_cross_into_another_document() -> None:
+    first = "Alpha one. Alpha two."
+    second = "Beta one. Beta two."
+    ordered = segment_document(first, "doc-a") + segment_document(second, "doc-b")
+    last_of_first = [s for s in ordered if s.document_id == "doc-a"][-1]
+    span = _span(last_of_first, {"doc-a": first, "doc-b": second}, ordered)
+    assert span.context is not None
+    assert "Beta" not in span.context
 
 
 def test_blank_and_overlong_extraction_artifacts_are_not_candidates() -> None:

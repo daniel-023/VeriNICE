@@ -13,12 +13,15 @@ from .schemas import (
     DecompositionResponse,
     DecompositionWarning,
 )
+from .segmentation import segment_document
 from .settings import settings
 from .text_offsets import utf16_offset
 
 
-DECOMPOSITION_INSTRUCTIONS = """Decompose one claim into the smallest set of
-standalone verification obligations needed to verify the complete claim.
+DECOMPOSITION_INSTRUCTIONS = """Decompose one claim into standalone verification
+obligations. Cover every independently verifiable proposition the claim asserts,
+and add nothing beyond them. Completeness comes first; among equally complete
+decompositions prefer the shorter one.
 
 Each obligation must be one independently verifiable proposition. Preserve the
 claim's polarity, attribution, modality, quantities, dates, locations, and
@@ -26,8 +29,26 @@ causal relations. Do not add facts. sourceText must be copied exactly from one
 contiguous span of the claim. Use the most specific role. Never create support
 or attack relations, entities, isolated dates, numbers, or tokens.
 
-Use SINGLE for one obligation, AND when every obligation must hold, and OR when
-any obligation is sufficient. This schema supports only flat composition.
+When several propositions share a subject, verb, or modal, quote only the part
+that distinguishes each one. sourceText is a locator, not the proposition: the
+text field carries the full reconstructed proposition, so a fragment is correct
+whenever the shared words sit elsewhere in the claim.
+
+Constraint obligations must remain self-contained and semantically complete.
+For comparisons, preserve both compared values or periods and the direction of
+comparison in the same obligation. Never emit a fragment such as "2020 is from
+2019" or split a comparison so that no obligation states what is greater,
+lower, earlier, or later.
+
+A claim of several sentences asserts several things. Every sentence that asserts
+a verifiable proposition contributes at least one obligation, and an obligation's
+sourceText must not span more than one sentence unless one proposition genuinely
+runs across them. Never return a single obligation whose sourceText is the whole
+of a multi-sentence claim.
+
+Use AND when every obligation must hold, OR when any one is sufficient, and
+SINGLE only when the claim asserts exactly one thing. This schema supports only
+flat composition.
 
 Examples:
 Claim: The archive opened in 2021.
@@ -36,6 +57,12 @@ Claim: The minister said unemployment had fallen.
 JSON: {"composition":"SINGLE","obligations":[{"text":"The minister said that unemployment had fallen.","sourceText":"The minister said unemployment had fallen","role":"ATTRIBUTION"}]}
 Claim: The city cut emissions by 20% in 2023.
 JSON: {"composition":"AND","obligations":[{"text":"The city cut emissions.","sourceText":"The city cut emissions","role":"CORE"},{"text":"The city cut emissions by 20%.","sourceText":"by 20%","role":"NUMERIC_CONSTRAINT"},{"text":"The city cut emissions in 2023.","sourceText":"in 2023","role":"TEMPORAL_CONSTRAINT"}]}
+Claim: ExampleCo's annual revenue for 2024 decreased from its revenue for 2023.
+JSON: {"composition":"SINGLE","obligations":[{"text":"ExampleCo's annual revenue for 2024 was lower than its annual revenue for 2023.","sourceText":"annual revenue for 2024 decreased from its revenue for 2023","role":"TEMPORAL_CONSTRAINT"}]}
+Claim: The mayor called the report a hoax. She later said the harbour project would finish in 2022. It opened in 2024.
+JSON: {"composition":"AND","obligations":[{"text":"The mayor called the report a hoax.","sourceText":"The mayor called the report a hoax","role":"ATTRIBUTION"},{"text":"The mayor said the harbour project would finish in 2022.","sourceText":"She later said the harbour project would finish in 2022","role":"ATTRIBUTION"},{"text":"The harbour project opened in 2024.","sourceText":"It opened in 2024","role":"TEMPORAL_CONSTRAINT"}]}
+Claim: If given power they would ban animal agriculture and eliminate petrol cars.
+JSON: {"composition":"AND","obligations":[{"text":"If given power they would ban animal agriculture.","sourceText":"ban animal agriculture","role":"CONDITIONAL"},{"text":"If given power they would eliminate petrol cars.","sourceText":"eliminate petrol cars","role":"CONDITIONAL"}]}
 Claim: The bridge is in Paris or Lyon.
 JSON: {"composition":"OR","obligations":[{"text":"The bridge is in Paris.","sourceText":"in Paris","role":"LOCATION_CONSTRAINT"},{"text":"The bridge is in Lyon.","sourceText":"Lyon","role":"LOCATION_CONSTRAINT"}]}
 
@@ -96,6 +123,71 @@ def _response_text(payload: Any) -> str:
     return "".join(text_parts)
 
 
+#: A single obligation covering at least this share of a multi-sentence claim
+#: has not separated anything, whatever its role says.
+_WHOLE_CLAIM_COVERAGE = 0.9
+
+
+def _is_under_decomposed(claim: str, source_texts: list[str]) -> bool:
+    """Report a multi-sentence claim that collapsed into one whole-claim obligation.
+
+    The model is free to decide a claim asserts one thing, but when a claim spans
+    several sentences and the single obligation quotes nearly all of them, no
+    decomposition happened. Surfacing that is better than letting the rest of the
+    pipeline treat an undivided claim as an atomic obligation.
+    """
+    if len(source_texts) != 1:
+        return False
+    if len(segment_document(claim)) < 2:
+        return False
+    return len(source_texts[0].strip()) >= _WHOLE_CLAIM_COVERAGE * len(claim.strip())
+
+
+#: Punctuation a model tends to add when it closes a quoted span at a clause
+#: boundary the claim continues past.
+_ADDED_EDGE_PUNCTUATION = " \t\n\r.,;:!?\"'’”"
+
+#: Bounds on shedding a repeated leading subject or modal. Wide enough for
+#: "they would" and for a coordinated list item, and the remainder must still
+#: occur exactly once, so a shortened span cannot highlight the wrong place.
+_MAX_DROPPED_LEADING_WORDS = 5
+_MIN_LOCATOR_CHARACTERS = 4
+
+
+def _locate_source_text(claim: str, source_text: str) -> tuple[int, str]:
+    """Find a model-supplied span in the claim, tolerating punctuation it added.
+
+    The span that gets stored is always an exact substring of the unmodified
+    claim; this only widens what the model is allowed to hand us. Models
+    routinely close a mid-sentence span with a full stop the claim does not have
+    there, and discarding an otherwise correct decomposition over one character
+    is not worth it.
+    """
+    start = claim.find(source_text)
+    if start >= 0:
+        return start, source_text
+    trimmed = source_text.strip().strip(_ADDED_EDGE_PUNCTUATION)
+    if not trimmed:
+        return -1, source_text
+    start = claim.find(trimmed)
+    if start >= 0:
+        return start, trimmed
+    # Coordinated propositions share a subject or modal the claim states once
+    # ("they would ban X and eliminate Y"), and a model will often repeat it in
+    # both spans. Shed leading words until what remains is verbatim, so long as
+    # enough of the span survives to still locate the proposition.
+    words = trimmed.split()
+    for dropped in range(1, min(_MAX_DROPPED_LEADING_WORDS, len(words)) + 1):
+        candidate = " ".join(words[dropped:]).strip(_ADDED_EDGE_PUNCTUATION)
+        if len(candidate) < _MIN_LOCATOR_CHARACTERS:
+            break
+        # Requiring a single occurrence is what makes shortening safe: a span
+        # that appears twice would highlight an arbitrary one of them.
+        if claim.count(candidate) == 1:
+            return claim.find(candidate), candidate
+    return -1, source_text
+
+
 def _validate_and_normalize(
     claim: str, draft: ClaimDecompositionDraft, model: str
 ) -> DecompositionResponse:
@@ -116,10 +208,12 @@ def _validate_and_normalize(
         source_text = obligation.source_text
         if not text or not source_text.strip():
             raise DecompositionOutputError("Decomposition obligations and sourceText values cannot be blank.")
-        start = claim.find(source_text)
+        start, source_text = _locate_source_text(claim, source_text)
         if start < 0:
             raise DecompositionOutputError(
-                "Every sourceText value must be an exact contiguous substring of the claim."
+                "Every sourceText value must be an exact contiguous substring of the claim. "
+                f"This one is not: {source_text!r}. Quote a span that appears verbatim in the "
+                "claim, even if it is only a fragment."
             )
         source_texts.append(source_text)
         atoms.append(
@@ -146,6 +240,16 @@ def _validate_and_normalize(
             DecompositionWarning(
                 code="AMBIGUOUS_SOURCE_TEXT",
                 message="A very short sourceText span may be ambiguous in the original claim.",
+            )
+        )
+    if _is_under_decomposed(claim, source_texts):
+        warnings.append(
+            DecompositionWarning(
+                code="UNDER_DECOMPOSED",
+                message=(
+                    "A claim of several sentences produced one obligation covering "
+                    "almost all of it, so its separate assertions were not separated."
+                ),
             )
         )
     return DecompositionResponse(
