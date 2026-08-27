@@ -20,8 +20,9 @@ async function loadJson<T>(path: string): Promise<T> {
 }
 
 const walkthroughHealth: Health = {
-  status: "configured",
+  status: "ready",
   decompositionConfigured: true,
+  decompositionReady: true,
   retrievalConfigured: true,
   nliConfigured: true,
   linguisticsConfigured: true,
@@ -33,7 +34,13 @@ const walkthroughHealth: Health = {
 
 export const walkthroughApi = {
   health: async (): Promise<Health> => walkthroughHealth,
-  cases: () => loadJson<DemoCaseSummary[]>(`${ROOT}/catalog.json`),
+  cases: async () => {
+    const [catalog, metadata] = await Promise.all([
+      loadJson<DemoCaseSummary[]>(`${ROOT}/catalog.json`),
+      loadJson<Record<string, Partial<DemoCaseSummary>>>(`${ROOT}/metadata.json`),
+    ]);
+    return catalog.map((item) => ({ ...item, ...(metadata[item.id] ?? {}) }));
+  },
   case: (id: string) => loadJson<DemoCase>(`${ROOT}/cases/${encodeURIComponent(id)}.json`),
   run: (id: string) => loadJson<WalkthroughRun>(`${ROOT}/runs/${encodeURIComponent(id)}.json`),
 };

@@ -4,6 +4,27 @@ export type ReferenceLabel =
   | "NOT_ENOUGH_EVIDENCE"
   | "CONFLICTING_EVIDENCE";
 
+export type DemoTopic =
+  | "POLITICS_ELECTIONS"
+  | "PUBLIC_HEALTH"
+  | "CLIMATE_ENVIRONMENT"
+  | "ECONOMY_BUSINESS"
+  | "SCIENCE_TECHNOLOGY"
+  | "LAW_PUBLIC_POLICY"
+  | "CONFLICT_SECURITY"
+  | "SOCIETY_CULTURE";
+
+export type DemoChallenge =
+  | "MULTI_PART"
+  | "NEGATION"
+  | "NUMBERS"
+  | "TIME"
+  | "ATTRIBUTION"
+  | "CAUSALITY"
+  | "LIST_SET_REASONING"
+  | "CONFLICTING_SOURCES"
+  | "SPARSE_EVIDENCE";
+
 export interface DemoDocumentSummary {
   id: string;
   title: string;
@@ -19,13 +40,14 @@ export interface DemoCaseSummary {
   claim: string;
   documents: DemoDocumentSummary[];
   label: ReferenceLabel;
+  displayTitle?: string;
+  topics?: DemoTopic[];
+  challenges?: DemoChallenge[];
+  featured?: boolean;
 }
 
-export interface DemoCase {
-  id: string;
-  claim: string;
+export interface DemoCase extends Omit<DemoCaseSummary, "documents"> {
   documents: DemoDocument[];
-  label: ReferenceLabel;
 }
 
 export interface DecomposedAtom {
@@ -69,6 +91,8 @@ export interface EvidenceSpan {
   text: string;
   start: number;
   end: number;
+  /** The sentence with its neighbours, used as the NLI premise. Not highlighted. */
+  context?: string;
 }
 
 export interface AtomEvidence {
@@ -88,6 +112,8 @@ export interface EvidenceRelation {
   spanId: string;
   documentId: string;
   relation: NLIRelation;
+  /** True when the deterministic topical-overlap gate kept the pair out of NLI. */
+  relevanceFiltered?: boolean;
 }
 
 export interface AtomSupportClassification {
@@ -156,7 +182,8 @@ export type GraphWarningCode =
   | "DUPLICATE_EDGE_ID"
   | "UNSUPPORTED_NLI_LABEL"
   | "INVALID_SOURCE_OFFSETS"
-  | "EMPTY_OBLIGATION_TEXT";
+  | "EMPTY_OBLIGATION_TEXT"
+  | "AGGREGATION_EDGE_MISMATCH";
 
 export interface GraphWarning {
   code: GraphWarningCode;
@@ -340,6 +367,8 @@ export interface WalkthroughRun {
   classifications: AtomSupportClassification[];
   /** Legacy recorded walkthroughs contain only atom analyses; new runs use v2. */
   linguistics: LinguisticAnalysisResponse | AtomLinguisticAnalysis[];
+  /** Recorded aggregation result. Absent in walkthroughs recorded before stage 05. */
+  verdict?: VerdictAggregationResult;
   recordedWith: {
     decompositionModel: string;
     retrievalModel: string;
@@ -349,8 +378,9 @@ export interface WalkthroughRun {
 }
 
 export interface Health {
-  status: "configured" | "unconfigured";
+  status: "ready" | "degraded" | "unconfigured";
   decompositionConfigured: boolean;
+  decompositionReady: boolean;
   retrievalConfigured: boolean;
   nliConfigured: boolean;
   linguisticsConfigured: boolean;

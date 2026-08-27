@@ -29,6 +29,7 @@ export function buildArgumentationGraph(
   classifications: AtomSupportClassification[],
   documents: DemoDocument[],
   summaries: ObligationLinguisticSummary[] = [],
+  authoritativeArgumentEdgeIds?: ReadonlySet<string>,
 ): ArgumentationGraph {
   const warnings: GraphWarning[] = [];
   const nodes: ArgumentationGraph["nodes"] = [];
@@ -96,6 +97,7 @@ export function buildArgumentationGraph(
   }));
 
   const evidenceNodes = new Map<string, EvidenceNode>();
+  const observedArgumentEdgeIds = new Set<string>();
   let omittedNeutralCount = 0;
   classifications.forEach((classification) => {
     const obligation = obligationByAtomId.get(classification.atomId);
@@ -136,8 +138,14 @@ export function buildArgumentationGraph(
         evidenceNodes.set(key, evidenceNode);
       }
       const edgeType = relation.relation === "ENTAILMENT" ? "SUPPORTS" : "ATTACKS";
+      const edgeId = `edge:${edgeType}:${evidenceNode.id}:${obligation.id}`;
+      observedArgumentEdgeIds.add(edgeId);
+      if (authoritativeArgumentEdgeIds && !authoritativeArgumentEdgeIds.has(edgeId)) {
+        warnings.push(warning("AGGREGATION_EDGE_MISMATCH", `The backend did not accept graph relation ${edgeId}.`));
+        return;
+      }
       addEdge({
-        id: `edge:${edgeType}:${evidenceNode.id}:${obligation.id}`,
+        id: edgeId,
         source: evidenceNode.id,
         target: obligation.id,
         type: edgeType,
@@ -145,6 +153,13 @@ export function buildArgumentationGraph(
       });
     });
   });
+  if (authoritativeArgumentEdgeIds) {
+    authoritativeArgumentEdgeIds.forEach((edgeId) => {
+      if (!observedArgumentEdgeIds.has(edgeId)) {
+        warnings.push(warning("AGGREGATION_EDGE_MISMATCH", `The backend accepted relation ${edgeId}, but it is absent from the graph inputs.`));
+      }
+    });
+  }
 
   const sortedEvidence = [...evidenceNodes.values()].sort((left, right) => {
     const leftDocument = documentsById.get(left.documentId)?.index ?? Number.MAX_SAFE_INTEGER;

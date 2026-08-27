@@ -46,4 +46,12 @@ describe("buildArgumentationGraph", () => {
     expect(graph.warnings.map((item) => item.code)).toContain("MISSING_LINGUISTIC_SUMMARY");
     expect(graph.warnings.map((item) => item.code)).toContain("MISSING_OBLIGATION");
   });
+
+  it("renders only the argument relations accepted by backend aggregation", () => {
+    const accepted = new Set(["edge:SUPPORTS:evidence:doc-1:span-1:obligation:case-1:atom-1"]);
+    const graph = buildArgumentationGraph("case-1", claim, "AND", atoms, evidence, classifications, documents, summaries, accepted);
+    expect(graph.edges.filter((edge) => edge.type === "SUPPORTS")).toHaveLength(1);
+    expect(graph.edges.filter((edge) => edge.type === "ATTACKS")).toHaveLength(0);
+    expect(graph.warnings.map((item) => item.code)).toContain("AGGREGATION_EDGE_MISMATCH");
+  });
 });

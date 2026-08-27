@@ -163,6 +163,8 @@ export function LinguisticPanel({
   state,
   error,
   onRetry,
+  open = true,
+  onToggle,
 }: {
   atom: DecomposedAtom;
   analysis: AtomLinguisticAnalysis | null;
@@ -170,6 +172,8 @@ export function LinguisticPanel({
   state: StageState;
   error: string | null;
   onRetry: () => void;
+  open?: boolean;
+  onToggle?: () => void;
 }) {
   const [activeFeature, setActiveFeature] = useState<LinguisticSpan | null>(null);
   const [syntaxView, setSyntaxView] = useState<"readable" | "raw">("readable");
@@ -226,12 +230,31 @@ export function LinguisticPanel({
       ...otherModifiers.map((feature) => ({ feature, label: "Other modifier" })),
     ]);
 
+  const bodyId = `linguistic-body-${atom.id}`;
+
   return (
     <aside className="linguistic-panel" aria-labelledby={`linguistic-heading-${atom.id}`}>
       <div className="linguistic-heading">
         <h3 id={`linguistic-heading-${atom.id}`}>Linguistic Structure</h3>
+        <span className="linguistic-role-chip">{roleLabels[atom.role] ?? plainLabel(atom.role)}</span>
+        <span className="linguistic-heading-spacer" />
         <span aria-live="polite">{stateLabel(state, analysis?.status === "partial")}</span>
+        {onToggle ? (
+          <button
+            type="button"
+            className="linguistic-toggle"
+            aria-expanded={open}
+            aria-controls={bodyId}
+            onClick={onToggle}
+          >
+            {open ? "Hide" : "Show"}
+            <span className="sr-only"> linguistic structure</span>
+          </button>
+        ) : null}
       </div>
+
+      {!open ? null : (
+      <div className="linguistic-body" id={bodyId}>
       <p className="linguistic-note">
         Language cues describe the atom; they do not determine whether it is true or supported.
       </p>
@@ -239,20 +262,14 @@ export function LinguisticPanel({
         <Preview text={atom.text} feature={activeFeature} />
       </p>
 
-      {summary ? (
-        <section className="linguistic-group" aria-label="Obligation audit">
-          <h4>Obligation audit</h4>
-          <dl className="linguistic-audit">
-            <div><dt>Proposed role</dt><dd>{plainLabel(atom.role)}</dd></div>
-            <div><dt>spaCy audit</dt><dd>{plainLabel(summary.roleAudit)}</dd></div>
-          </dl>
-          {summary.warnings.length ? (
-            <ul className="linguistic-warnings">
-              {summary.warnings.map((warning) => (
-                <li key={warning}>{warningLabels[warning] ?? plainLabel(warning)}</li>
-              ))}
-            </ul>
-          ) : <p className="linguistic-missing">No audit warnings</p>}
+      {summary?.warnings.length ? (
+        <section className="linguistic-group linguistic-inspect" aria-label="Points to inspect">
+          <h4>Points to inspect</h4>
+          <ul className="linguistic-warnings">
+            {summary.warnings.map((warning) => (
+              <li key={warning}>{warningLabels[warning] ?? plainLabel(warning)}</li>
+            ))}
+          </ul>
         </section>
       ) : null}
 
@@ -331,7 +348,7 @@ export function LinguisticPanel({
           <details className="syntax-details">
             <summary>Syntax Details</summary>
             <p className="syntax-caption">
-              Technical view of how the parser identifies words, roles, and relationships.
+              Technical view of how the dependency parse assigns words, roles, and relationships.
             </p>
             <div className="syntax-legend" role="note">
               <strong>Linguistic terms:</strong> lemma = base word · POS/tag = word type · dependency = grammatical relationship · head = related word
@@ -418,6 +435,8 @@ export function LinguisticPanel({
         </>
       ) : (
         <p className="linguistic-state">Analysis will appear when decomposition completes.</p>
+      )}
+      </div>
       )}
     </aside>
   );

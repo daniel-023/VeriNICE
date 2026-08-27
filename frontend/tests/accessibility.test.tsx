@@ -7,8 +7,13 @@ import { DocumentPanel } from "@/components/DocumentPanel";
 import { LinguisticPanel } from "@/components/LinguisticPanel";
 import { PipelinePanel } from "@/components/PipelinePanel";
 import { SupportSummary } from "@/components/SupportSummary";
+import { VerdictPanel } from "@/components/VerdictPanel";
 import { buildArgumentationGraph } from "@/lib/argumentationGraph";
-import type { AtomLinguisticAnalysis, DecomposedAtom } from "@/lib/types";
+import type {
+  AtomLinguisticAnalysis,
+  DecomposedAtom,
+  VerdictAggregationResult,
+} from "@/lib/types";
 
 afterEach(() => cleanup());
 
@@ -129,8 +134,8 @@ describe("multidocument workbench accessibility", () => {
     expect(result.violations).toEqual([]);
   });
 
-  it("marks all unfinished verification stages as pending", () => {
-    const { getByText, getAllByText } = render(
+  it("lists five implemented stages and marks them ready before a run", () => {
+    const { getByText, getAllByText, queryByText } = render(
       <PipelinePanel
         decompositionState="idle"
         retrievalState="idle"
@@ -144,11 +149,55 @@ describe("multidocument workbench accessibility", () => {
         onRetryNli={() => {}}
       />,
     );
-    expect(getByText("Semantic Candidate Matching")).toBeInTheDocument();
-    expect(getByText("NLI Support Classification")).toBeInTheDocument();
-    expect(getByText("Argumentation Graph")).toBeInTheDocument();
-    expect(getByText("Four-way Verdict")).toBeInTheDocument();
-    expect(getAllByText("Pending")).toHaveLength(1);
+    expect(getByText("Find candidate evidence")).toBeInTheDocument();
+    expect(getByText("Compare claim and evidence")).toBeInTheDocument();
+    expect(getByText("Map support and conflict")).toBeInTheDocument();
+    expect(getByText("Apply verdict rules")).toBeInTheDocument();
+    expect(getByText("5 live stages")).toBeInTheDocument();
+    expect(getAllByText("Ready")).toHaveLength(5);
+    expect(queryByText("Pending")).not.toBeInTheDocument();
+  });
+
+  it("omits the candidate budget when it cannot be changed", () => {
+    const { queryByRole } = render(
+      <PipelinePanel
+        decompositionState="complete"
+        retrievalState="complete"
+        nliState="complete"
+        graphState="complete"
+        graphLinkCount={2}
+        atomCount={1}
+        evidenceCount={6}
+        relationCount={6}
+        onRetryEvidence={() => {}}
+        onRetryNli={() => {}}
+        evidencePerAtom={6}
+        recorded
+      />,
+    );
+    // Recorded walkthroughs compute nothing in the browser, so the budget is fixed.
+    expect(queryByRole("combobox", { name: /Candidates per obligation/i })).not.toBeInTheDocument();
+  });
+
+  it("reports the aggregated verdict on stage five once it completes", () => {
+    const { getByText } = render(
+      <PipelinePanel
+        decompositionState="complete"
+        retrievalState="complete"
+        nliState="complete"
+        graphState="complete"
+        verdictState="complete"
+        verdict="CONFLICTING_EVIDENCE"
+        graphLinkCount={3}
+        atomCount={2}
+        evidenceCount={6}
+        relationCount={6}
+        onRetryEvidence={() => {}}
+        onRetryNli={() => {}}
+      />,
+    );
+    expect(getByText("Aggregated to conflicting evidence.")).toBeInTheDocument();
+    expect(getByText("View Verdict")).toHaveAttribute("href", "#case-verdict");
   });
 
   it("keeps linguistic features and syntax details semantic and keyboard reachable", async () => {
@@ -256,6 +305,83 @@ describe("multidocument workbench accessibility", () => {
     fireEvent.click(getByRole("button", { name: /Evidence from Source A/ }));
     expect(onSelectEvidence.mock.calls[0][0]).toMatchObject({ evidenceId: "shared" });
     expect(onSelectEvidence.mock.calls[0][1]).toBe("atom-2");
+  });
+
+  it("collapses the linguistic panel without losing its heading", () => {
+    const onToggle = vi.fn();
+    const { getByRole, queryByLabelText, rerender } = render(
+      <LinguisticPanel
+        atom={atoms[0]}
+        analysis={analysis}
+        summary={null}
+        state="complete"
+        error={null}
+        onRetry={() => {}}
+        open
+        onToggle={onToggle}
+      />,
+    );
+    const toggle = getByRole("button", { name: /Hide linguistic structure/i });
+    expect(toggle).toHaveAttribute("aria-expanded", "true");
+    expect(queryByLabelText("Atomic claim preview")).toBeInTheDocument();
+    fireEvent.click(toggle);
+    expect(onToggle).toHaveBeenCalledTimes(1);
+
+    rerender(
+      <LinguisticPanel
+        atom={atoms[0]}
+        analysis={analysis}
+        summary={null}
+        state="complete"
+        error={null}
+        onRetry={() => {}}
+        open={false}
+        onToggle={onToggle}
+      />,
+    );
+    expect(getByRole("heading", { name: "Linguistic Structure" })).toBeInTheDocument();
+    expect(getByRole("button", { name: /Show linguistic structure/i })).toHaveAttribute(
+      "aria-expanded",
+      "false",
+    );
+    expect(queryByLabelText("Atomic claim preview")).not.toBeInTheDocument();
+  });
+
+  it("presents the aggregated verdict with obligation text and a decision trace", async () => {
+    const result: VerdictAggregationResult = {
+      aggregationSchemaVersion: 1,
+      claimId: "case-1",
+      composition: "AND",
+      verdict: "REFUTED",
+      positions: {
+        supportPosition: false,
+        attackPosition: true,
+        supportObligationIds: [],
+        attackObligationIds: ["atom-1"],
+        unresolvedObligationIds: [],
+      },
+      obligations: [
+        {
+          obligationId: "atom-1",
+          state: "REFUTED",
+          supportEdgeIds: [],
+          attackEdgeIds: ["edge-1"],
+          neutralCandidateCount: 2,
+        },
+      ],
+      warnings: [],
+      ruleTrace: ["AND attack requires an attack on any obligation.", "Final verdict: REFUTED."],
+    };
+    const { container, getByRole, getByText } = render(
+      <VerdictPanel result={result} atoms={atoms} referenceLabel="SUPPORTED" />,
+    );
+    expect(getByRole("heading", { name: /Predicted verdict REFUTED/ })).toBeInTheDocument();
+    expect(getByText("Mara joined Orion in 2022.")).toBeInTheDocument();
+    expect(getByText("Attack position held")).toBeInTheDocument();
+    expect(getByText("differs")).toBeInTheDocument();
+    expect(getByText("Decision trace")).toBeInTheDocument();
+    const audit = await axe.run(container, { rules: { "color-contrast": { enabled: false } } });
+    expect(audit.violations).toEqual([]);
   });
 
   it("announces NLI state and exposes relation counts without a verdict", async () => {

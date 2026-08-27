@@ -40,6 +40,7 @@ export function DocumentPanel({
   relations,
   selectedAtomText,
   retrievalState,
+  evidencePerAtom,
   readOnly = false,
 }: {
   documents: DemoDocument[];
@@ -53,6 +54,7 @@ export function DocumentPanel({
   relations: EvidenceRelation[];
   selectedAtomText: string | null;
   retrievalState: StageState;
+  evidencePerAtom?: number;
   readOnly?: boolean;
 }) {
   const activeDocument =
@@ -82,7 +84,7 @@ export function DocumentPanel({
       new Map(
         relations.map((item) => [
           `${item.documentId}:${item.spanId}`,
-          item.relation,
+          item,
         ]),
       ),
     [relations],
@@ -164,6 +166,15 @@ export function DocumentPanel({
     tabRefs.current.get(next.id)?.focus();
   };
 
+  const silentSources = documents.filter(
+    (document) => (evidenceCountByDocument.get(document.id) ?? 0) === 0,
+  );
+  const silentNote =
+    selectedAtomText && retrievalState === "complete" && spans.length && silentSources.length
+      ? ` ${silentSources.length} source${silentSources.length === 1 ? "" : "s"} returned no candidate${
+          evidencePerAtom ? ` at ${evidencePerAtom} per obligation` : ""
+        }.`
+      : "";
   const elsewhere = spans.length - activeSpans.length;
   const highlightCount = `${highlights.length} candidate evidence span${
     highlights.length === 1 ? "" : "s"
@@ -174,8 +185,8 @@ export function DocumentPanel({
       ? "Finding candidate evidence across the source documents."
       : retrievalState === "complete" && spans.length
         ? elsewhere
-          ? `${highlightCount}, ${elsewhere} in other sources.`
-          : `${highlightCount}.`
+          ? `${highlightCount}, ${elsewhere} in other sources.${silentNote}`
+          : `${highlightCount}.${silentNote}`
         : retrievalState === "complete"
           ? "No candidate evidence was selected for this atom."
           : retrievalState === "error"
@@ -214,7 +225,11 @@ export function DocumentPanel({
                 onKeyDown={(event) => handleTabKeyDown(event, index)}
               >
                 <span>{document.title}</span>
-                {evidenceCount ? <small aria-label={`${evidenceCount} evidence spans`}>{evidenceCount}</small> : null}
+                {evidenceCount ? (
+                  <small aria-label={`${evidenceCount} evidence spans`}>{evidenceCount}</small>
+                ) : selectedAtomText && retrievalState === "complete" ? (
+                  <small className="source-empty" aria-label="No candidate evidence">—</small>
+                ) : null}
               </button>
             );
           })}
@@ -287,9 +302,9 @@ export function DocumentPanel({
                         <q className="evidence-entry-quote">{span.text}</q>
                         {relation ? (
                           <span
-                            className={`evidence-relation relation-${relation.toLowerCase()}`}
+                            className={`evidence-relation relation-${relation.relation.toLowerCase()}`}
                           >
-                            {RELATION_COPY[relation]}
+                            {relation.relevanceFiltered ? "Filtered as unrelated" : RELATION_COPY[relation.relation]}
                           </span>
                         ) : null}
                       </button>

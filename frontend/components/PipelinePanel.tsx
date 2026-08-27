@@ -8,6 +8,7 @@ import {
   Scale,
 } from "lucide-react";
 import type { ReferenceLabel, StageState } from "@/lib/types";
+import { MAX_EVIDENCE_PER_ATOM, MIN_EVIDENCE_PER_ATOM } from "@/lib/retrieval";
 
 function verdictWord(verdict: ReferenceLabel): string {
   return verdict.replaceAll("_", " ").toLowerCase();
@@ -26,6 +27,8 @@ export function PipelinePanel({
   relationCount,
   onRetryEvidence,
   onRetryNli,
+  evidencePerAtom,
+  onEvidencePerAtomChange,
   recorded = false,
 }: {
   decompositionState: StageState;
@@ -40,6 +43,9 @@ export function PipelinePanel({
   relationCount: number;
   onRetryEvidence: () => void;
   onRetryNli: () => void;
+  evidencePerAtom?: number;
+  /** Omitted when the budget cannot be changed, as in recorded walkthroughs. */
+  onEvidencePerAtomChange?: (value: number) => void;
   recorded?: boolean;
 }) {
   const decompositionCopy =
@@ -113,7 +119,7 @@ export function PipelinePanel({
           </span>
           <span className="stage-copy">
             <small>01 · {recorded ? "RECORDED" : "LIVE"}</small>
-            <strong>LLM Claim Decomposition</strong>
+            <strong>Structure the claim</strong>
             <p>{decompositionCopy}</p>
           </span>
           <span className="stage-state">
@@ -133,8 +139,26 @@ export function PipelinePanel({
           </span>
           <span className="stage-copy">
             <small>02 · {recorded ? "RECORDED" : "LIVE"}</small>
-            <strong>Semantic Candidate Matching</strong>
+            <strong>Find candidate evidence</strong>
             <p>{retrievalCopy}</p>
+            {onEvidencePerAtomChange && evidencePerAtom !== undefined ? (
+              <label className="stage-budget">
+                <span>Candidates per obligation</span>
+                <select
+                  name="evidence-per-atom"
+                  value={evidencePerAtom}
+                  disabled={retrievalState === "running"}
+                  onChange={(event) => onEvidencePerAtomChange(Number(event.target.value))}
+                >
+                  {Array.from(
+                    { length: MAX_EVIDENCE_PER_ATOM - MIN_EVIDENCE_PER_ATOM + 1 },
+                    (_, index) => MIN_EVIDENCE_PER_ATOM + index,
+                  ).map((value) => (
+                    <option key={value} value={value}>{value}</option>
+                  ))}
+                </select>
+              </label>
+            ) : null}
           </span>
           <span className="stage-actions">
             <span className="stage-state">{stateLabel(retrievalState)}</span>
@@ -158,7 +182,7 @@ export function PipelinePanel({
           </span>
           <span className="stage-copy">
             <small>03 · {recorded ? "RECORDED" : "LIVE"}</small>
-            <strong>NLI Support Classification</strong>
+            <strong>Compare claim and evidence</strong>
             <p>{nliCopy}</p>
           </span>
           <span className="stage-actions">
@@ -177,7 +201,7 @@ export function PipelinePanel({
           </span>
           <span className="stage-copy">
             <small>04 · DERIVED</small>
-            <strong>Argumentation Graph</strong>
+            <strong>Map support and conflict</strong>
             <p>
               {graphState === "complete"
                 ? `${graphLinkCount} support or contradiction link${graphLinkCount === 1 ? "" : "s"} ready to inspect.`
@@ -198,7 +222,7 @@ export function PipelinePanel({
           </span>
           <span className="stage-copy">
             <small>05 · DETERMINISTIC</small>
-            <strong>Four-way Verdict</strong>
+            <strong>Apply verdict rules</strong>
             <p>{verdictCopy}</p>
             {verdictState === "complete" ? (
               <a className="stage-link" href="#case-verdict">View Verdict</a>

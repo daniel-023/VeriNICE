@@ -8,12 +8,15 @@ export function AtomRail({
   selectedAtomId,
   onSelect,
   selectedDetail,
+  describeAtom,
 }: {
   atoms: DecomposedAtom[];
   state: StageState;
   selectedAtomId: string | null;
   onSelect: (atom: DecomposedAtom) => void;
   selectedDetail?: ReactNode;
+  /** Per-atom caption. Repeating one instruction on every card is pure noise. */
+  describeAtom?: (atom: DecomposedAtom) => string | null;
 }) {
   return (
     <section className="atom-rail" aria-labelledby="atoms-heading">
@@ -28,8 +31,17 @@ export function AtomRail({
       </div>
 
       {atoms.length ? (
+        <>
+        {selectedAtomId === null ? (
+          <p className="atom-rail-hint">
+            Select an atomic claim to inspect its language, candidate evidence, and sentence
+            relations.
+          </p>
+        ) : null}
         <ol className="atom-list">
-          {atoms.map((atom, index) => (
+          {atoms.map((atom, index) => {
+            const caption = describeAtom?.(atom) ?? null;
+            return (
             <li key={atom.id} className="atom-list-item">
               <button
                 type="button"
@@ -42,15 +54,15 @@ export function AtomRail({
                 </span>
                 <span className="atom-copy">
                   <span className="atom-text">{atom.text}</span>
-                  <span className="atom-source">
-                    Select to inspect language, candidate evidence, and sentence relations.
-                  </span>
+                  {caption ? <span className="atom-source">{caption}</span> : null}
                 </span>
               </button>
               {selectedAtomId === atom.id ? selectedDetail : null}
             </li>
-          ))}
+            );
+          })}
         </ol>
+        </>
       ) : (
         <div className="panel-empty">
           <Braces size={22} aria-hidden="true" />

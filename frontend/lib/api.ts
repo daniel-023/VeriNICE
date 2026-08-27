@@ -47,17 +47,22 @@ export const api = {
       method: "POST",
       body: JSON.stringify({ claim }),
     }),
-  retrieveCase: (caseId: string, atoms: AtomInput) =>
+  retrieveCase: (caseId: string, atoms: AtomInput, evidencePerAtom?: number) =>
     request<EvidenceRetrievalResponse>("/api/v1/retrieve", {
       method: "POST",
-      body: JSON.stringify({ caseId, atoms }),
+      body: JSON.stringify({ caseId, atoms, evidencePerAtom }),
     }),
-  retrieveDocuments: (documents: DemoDocument[], atoms: AtomInput) =>
+  retrieveDocuments: (
+    documents: DemoDocument[],
+    atoms: AtomInput,
+    evidencePerAtom?: number,
+  ) =>
     request<EvidenceRetrievalResponse>("/api/v1/retrieve", {
       method: "POST",
       body: JSON.stringify({
         documents: documents.map(({ id, text }) => ({ id, text })),
         atoms,
+        evidencePerAtom,
       }),
     }),
   classifySupport: (atoms: AtomInput, evidence: AtomEvidence[]) =>
@@ -67,10 +72,11 @@ export const api = {
         atoms,
         evidence: evidence.map((item) => ({
           atomId: item.atomId,
-          spans: item.spans.map(({ id, documentId, text }) => ({
+          spans: item.spans.map(({ id, documentId, text, context }) => ({
             id,
             documentId,
             text,
+            context,
           })),
         })),
       }),
@@ -82,7 +88,6 @@ export const api = {
     }),
   aggregateVerdict: (input: {
     claimId: string;
-    claim: string;
     composition: ClaimComposition;
     atoms: DecomposedAtom[];
     evidence: AtomEvidence[];

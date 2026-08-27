@@ -28,6 +28,7 @@ export function SupportSummary({
   classification?.relations.forEach(({ relation }) => {
     counts[relation] += 1;
   });
+  const relevanceFiltered = classification?.relations.filter((item) => item.relevanceFiltered).length ?? 0;
 
   return (
     <section className="support-summary" aria-labelledby={`support-summary-${classification?.atomId ?? "pending"}`}>
@@ -41,13 +42,20 @@ export function SupportSummary({
         These are model judgments about candidate sentences, not the case verdict.
       </p>
       {state === "complete" ? (
-        <ul className="support-counts" aria-label="Selected atom relation counts">
-          {(Object.keys(RELATION_LABELS) as NLIRelation[]).map((relation) => (
-            <li className={`relation-${relation.toLowerCase()}`} key={relation}>
-              <strong>{counts[relation]}</strong> {RELATION_LABELS[relation]}
-            </li>
-          ))}
-        </ul>
+        <>
+          <ul className="support-counts" aria-label="Selected atom relation counts">
+            {(Object.keys(RELATION_LABELS) as NLIRelation[]).map((relation) => (
+              <li className={`relation-${relation.toLowerCase()}`} key={relation}>
+                <strong>{counts[relation]}</strong> {RELATION_LABELS[relation]}
+              </li>
+            ))}
+          </ul>
+          {relevanceFiltered ? (
+            <p className="support-summary-state">
+              {relevanceFiltered} unrelated candidate{relevanceFiltered === 1 ? " was" : "s were"} kept neutral by the relevance gate.
+            </p>
+          ) : null}
+        </>
       ) : (
         <p className="support-summary-state">
           {state === "running"

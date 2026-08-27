@@ -6,6 +6,7 @@ import { FormEvent, useCallback, useEffect, useMemo, useRef, useState } from "re
 import { api } from "@/lib/api";
 import { buildArgumentationGraph } from "@/lib/argumentationGraph";
 import { deploymentMode, type DeploymentMode } from "@/lib/deployment";
+import { DEFAULT_EVIDENCE_PER_ATOM } from "@/lib/retrieval";
 import { useLinguisticAnalysis } from "@/lib/useLinguisticAnalysis";
 import { walkthroughApi } from "@/lib/walkthrough";
 import type {
@@ -16,7 +17,9 @@ import type {
   DecomposedAtom,
   DemoCase,
   DemoCaseSummary,
+  DemoChallenge,
   DemoDocument,
+  DemoTopic,
   Health,
   MobilePanel,
   ReferenceLabel,
@@ -34,6 +37,17 @@ import { VeriGraphLogo } from "./VeriGraphLogo";
 
 const CUSTOM_CASE = "custom";
 
+const ATOM_ROLE_LABELS: Partial<Record<DecomposedAtom["role"], string>> = {
+  CORE: "Core fact",
+  NUMERIC_CONSTRAINT: "Numeric constraint",
+  TEMPORAL_CONSTRAINT: "Temporal constraint",
+  ATTRIBUTION: "Attribution",
+  LOCATION_CONSTRAINT: "Location constraint",
+  CAUSAL_RELATION: "Causal relation",
+  CONDITIONAL: "Conditional",
+  MODALITY_CONSTRAINT: "Modality constraint",
+};
+
 function customDocument(index: number): DemoDocument {
   return {
     id: `custom-source-${index}`,
@@ -43,10 +57,33 @@ function customDocument(index: number): DemoDocument {
   };
 }
 
-function optionLabel(claim: string, index: number): string {
-  const compact = claim.replace(/\s+/g, " ").trim();
+const TOPIC_LABELS: Record<DemoTopic, string> = {
+  POLITICS_ELECTIONS: "Politics & elections",
+  PUBLIC_HEALTH: "Public health",
+  CLIMATE_ENVIRONMENT: "Climate & environment",
+  ECONOMY_BUSINESS: "Economy & business",
+  SCIENCE_TECHNOLOGY: "Science & technology",
+  LAW_PUBLIC_POLICY: "Law & public policy",
+  CONFLICT_SECURITY: "Conflict & security",
+  SOCIETY_CULTURE: "Society & culture",
+};
+
+const CHALLENGE_LABELS: Record<DemoChallenge, string> = {
+  MULTI_PART: "Multi-part",
+  NEGATION: "Negation",
+  NUMBERS: "Numbers",
+  TIME: "Time",
+  ATTRIBUTION: "Attribution",
+  CAUSALITY: "Causality",
+  LIST_SET_REASONING: "List/set reasoning",
+  CONFLICTING_SOURCES: "Conflicting sources",
+  SPARSE_EVIDENCE: "Sparse evidence",
+};
+
+function optionLabel(item: DemoCaseSummary, index: number): string {
+  const compact = (item.displayTitle || item.claim).replace(/\s+/g, " ").trim();
   const excerpt = compact.length > 72 ? `${compact.slice(0, 69)}…` : compact;
-  return `${String(index + 1).padStart(2, "0")} — ${excerpt}`;
+  return `${item.featured ? "★ " : ""}${String(index + 1).padStart(2, "0")} — ${excerpt}`;
 }
 
 function documentsMatch(left: DemoDocument[], right: DemoDocument[]): boolean {
@@ -74,6 +111,10 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [catalog, setCatalog] = useState<DemoCaseSummary[]>([]);
+  const [sampleQuery, setSampleQuery] = useState(() => searchParams.get("q") ?? "");
+  const [topicFilter, setTopicFilter] = useState(() => searchParams.get("topic") ?? "");
+  const [challengeFilter, setChallengeFilter] = useState(() => searchParams.get("challenge") ?? "");
+  const [labelFilter, setLabelFilter] = useState(() => searchParams.get("label") ?? "");
   const [health, setHealth] = useState<Health | null>(null);
   const [selectedCaseId, setSelectedCaseId] = useState(CUSTOM_CASE);
   const [referenceCase, setReferenceCase] = useState<DemoCase | null>(null);
@@ -92,6 +133,10 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
   const [retrievalError, setRetrievalError] = useState<string | null>(null);
   const [nliError, setNliError] = useState<string | null>(null);
   const [verdict, setVerdict] = useState<VerdictAggregationResult | null>(null);
+  const [verdictState, setVerdictState] = useState<StageState>("idle");
+  const [recordedVerdict, setRecordedVerdict] = useState<VerdictAggregationResult | null>(null);
+  const [linguisticsOpen, setLinguisticsOpen] = useState(true);
+  const [evidencePerAtom, setEvidencePerAtom] = useState(DEFAULT_EVIDENCE_PER_ATOM);
   const [loading, setLoading] = useState(true);
   const [caseLoading, setCaseLoading] = useState(false);
   const linguistics = useLinguisticAnalysis();
@@ -106,6 +151,28 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
     () => new Map(catalog.map((item) => [item.id, item])),
     [catalog],
   );
+  const topics = useMemo(
+    () => [...new Set(catalog.flatMap((item) => item.topics ?? []))].sort(),
+    [catalog],
+  );
+  const challenges = useMemo(
+    () => [...new Set(catalog.flatMap((item) => item.challenges ?? []))].sort(),
+    [catalog],
+  );
+  const filteredCatalog = useMemo(() => {
+    const query = sampleQuery.trim().toLocaleLowerCase();
+    return catalog
+      .filter((item) => {
+        const searchable = `${item.displayTitle ?? ""} ${item.claim}`.toLocaleLowerCase();
+        return (
+          (!query || searchable.includes(query)) &&
+          (!topicFilter || item.topics?.includes(topicFilter as DemoTopic)) &&
+          (!challengeFilter || item.challenges?.includes(challengeFilter as DemoChallenge)) &&
+          (!labelFilter || item.label === labelFilter)
+        );
+      })
+      .sort((left, right) => Number(Boolean(right.featured)) - Number(Boolean(left.featured)));
+  }, [catalog, challengeFilter, labelFilter, sampleQuery, topicFilter]);
   const rawPanel = searchParams.get("panel");
   const mobilePanel: MobilePanel =
     rawPanel === "atoms" || rawPanel === "document" || rawPanel === "pipeline"
@@ -182,6 +249,7 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
     setDecompositionState("idle");
     setRetrievalState("idle");
     setNliState("idle");
+    setVerdictState("idle");
     setDecompositionError(null);
     setRetrievalError(null);
     setNliError(null);
@@ -194,6 +262,7 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
     setClassifications([]);
     setRetrievalState("idle");
     setNliState("idle");
+    setVerdictState("idle");
     setRetrievalError(null);
     setNliError(null);
   };
@@ -296,11 +365,14 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
     resetRetrieval();
   };
 
-  const retrieveAtoms = async (atomInputs: Array<{ id: string; text: string }>) => {
+  const retrieveAtoms = async (
+    atomInputs: Array<{ id: string; text: string }>,
+    budget: number,
+  ) => {
     if (referenceMatches && referenceCase) {
-      return api.retrieveCase(referenceCase.id, atomInputs);
+      return api.retrieveCase(referenceCase.id, atomInputs, budget);
     }
-    return api.retrieveDocuments(documents, atomInputs);
+    return api.retrieveDocuments(documents, atomInputs, budget);
   };
 
   const classifyEvidence = async (
@@ -360,6 +432,7 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
         setEvidence(recorded.evidence);
         setClassifications(recorded.classifications);
         linguistics.loadRecorded(recorded.linguistics);
+        setRecordedVerdict(recorded.verdict ?? null);
         setDecompositionState("complete");
         setRetrievalState("complete");
         setNliState("complete");
@@ -391,7 +464,7 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
         atoms: result.atoms,
       });
       try {
-        const retrieval = await retrieveAtoms(atomInputs);
+        const retrieval = await retrieveAtoms(atomInputs, evidencePerAtom);
         if (requestVersionRef.current !== requestVersion) return;
         setEvidence(retrieval.evidence);
         setRetrievalState("complete");
@@ -417,7 +490,7 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
     }
   };
 
-  const retryEvidence = async () => {
+  const runRetrieval = async (budget: number) => {
     if (!atoms.length || documents.some((document) => !document.text.trim())) return;
     const requestVersion = requestVersionRef.current + 1;
     requestVersionRef.current = requestVersion;
@@ -428,7 +501,7 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
     setEvidence([]);
     setClassifications([]);
     try {
-      const result = await retrieveAtoms(atoms.map(({ id, text }) => ({ id, text })));
+      const result = await retrieveAtoms(atoms.map(({ id, text }) => ({ id, text })), budget);
       if (requestVersionRef.current !== requestVersion) return;
       setEvidence(result.evidence);
       setRetrievalState("complete");
@@ -447,6 +520,14 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
           : "Candidate evidence retrieval failed. Check the API and retry.",
       );
     }
+  };
+
+  const retryEvidence = () => void runRetrieval(evidencePerAtom);
+
+  const changeEvidencePerAtom = (budget: number) => {
+    if (walkthrough || budget === evidencePerAtom) return;
+    setEvidencePerAtom(budget);
+    if (atoms.length) void runRetrieval(budget);
   };
 
   const retryNli = async () => {
@@ -508,37 +589,68 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
       classifications,
       documents,
       linguistics.summaries,
+      verdict ? new Set(verdict.obligations.flatMap((item) => [
+        ...item.supportEdgeIds,
+        ...item.attackEdgeIds,
+      ])) : undefined,
     ),
-    [selectedCaseId, claim, composition, atoms, evidence, classifications, documents, linguistics.summaries],
+    [selectedCaseId, claim, composition, atoms, evidence, classifications, documents, linguistics.summaries, verdict],
   );
   useEffect(() => {
     if (nliState !== "complete" || !atoms.length || classifications.length !== atoms.length) {
       setVerdict(null);
+      setVerdictState("idle");
+      return;
+    }
+    // Vercel hosts no backend: a recorded run carries its own aggregation result.
+    if (walkthrough) {
+      setVerdict(recordedVerdict);
+      setVerdictState(recordedVerdict ? "complete" : "idle");
       return;
     }
     // Older recorded/test adapters predate aggregation; they remain graph-only.
     const aggregateVerdict = (api as Partial<typeof api>).aggregateVerdict;
     if (!aggregateVerdict) {
       setVerdict(null);
+      setVerdictState("idle");
       return;
     }
     let cancelled = false;
+    setVerdictState("running");
     void aggregateVerdict({
       claimId: selectedCaseId,
-      claim,
       composition,
       atoms,
       evidence,
       classifications,
       linguisticSummaries: linguistics.summaries,
     }).then((result) => {
-      if (!cancelled) setVerdict(result);
+      if (cancelled) return;
+      setVerdict(result);
+      setVerdictState("complete");
     }).catch(() => {
-      if (!cancelled) setVerdict(null);
+      if (cancelled) return;
+      setVerdict(null);
+      setVerdictState("error");
     });
     return () => { cancelled = true; };
-  }, [selectedCaseId, claim, composition, atoms, evidence, classifications, linguistics.summaries, nliState]);
+  }, [selectedCaseId, claim, composition, atoms, evidence, classifications, linguistics.summaries, nliState, walkthrough, recordedVerdict]);
   const graphLinkCount = argumentationGraph.stats.supportEdgeCount + argumentationGraph.stats.attackEdgeCount;
+  const relationsByAtomId = useMemo(
+    () => new Map(classifications.map((item) => [item.atomId, item.relations])),
+    [classifications],
+  );
+  const describeAtom = useCallback(
+    (atom: DecomposedAtom): string | null => {
+      const role = ATOM_ROLE_LABELS[atom.role] ?? atom.role.replaceAll("_", " ").toLowerCase();
+      const relations = relationsByAtomId.get(atom.id);
+      if (!relations) return role;
+      const support = relations.filter((item) => item.relation === "ENTAILMENT").length;
+      const attack = relations.filter((item) => item.relation === "CONTRADICTION").length;
+      return `${role} · ${support} support · ${attack} attack`;
+    },
+    [relationsByAtomId],
+  );
   const obligationStates = useMemo(
     () => Object.fromEntries((verdict?.obligations ?? []).map((item) => [item.obligationId, item.state])),
     [verdict],
@@ -563,7 +675,7 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
     nliState === "running";
   const documentsReady = documents.length > 0 && documents.every((document) => document.text.trim());
   const pipelineConfigured = Boolean(
-    health?.decompositionConfigured && health.retrievalConfigured && health.nliConfigured,
+    health?.decompositionReady && health.retrievalConfigured && health.nliConfigured,
   );
 
   return (
@@ -586,7 +698,7 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
             className={`health-chip ${pipelineConfigured ? "health-ready" : "health-unconfigured"}`}
             title={
               health
-                ? `Decomposition: ${health.decompositionModel}; retrieval: ${health.retrievalModel}; NLI: ${health.nliModel}; linguistics: ${health.linguisticsModel} (${health.linguisticsConfigured ? "ready" : "not configured"})`
+                ? `Decomposition: ${health.decompositionModel} (${health.decompositionReady ? "ready" : "unavailable"}); retrieval: ${health.retrievalModel}; NLI: ${health.nliModel}; linguistics: ${health.linguisticsModel} (${health.linguisticsConfigured ? "ready" : "not configured"})`
                 : undefined
             }
             aria-live="polite"
@@ -602,28 +714,91 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
       </header>
 
       <section className="case-toolbar" aria-label="Demo sample selection">
-        <label className="sample-control">
-          <span>{walkthrough ? "Recorded Sample" : "Demo Sample"}</span>
+        <div className="sample-browser">
+          <label className="sample-search">
+            <span>Find a sample</span>
+            <input
+              type="search"
+              value={sampleQuery}
+              placeholder="Search claims or titles"
+              onChange={(event) => {
+                setSampleQuery(event.target.value);
+                setParams({ q: event.target.value || null });
+              }}
+            />
+          </label>
+          <label className="sample-filter">
+            <span>Topic</span>
+            <select value={topicFilter} onChange={(event) => {
+              setTopicFilter(event.target.value);
+              setParams({ topic: event.target.value || null });
+            }}>
+              <option value="">All topics</option>
+              {topics.map((topic) => <option value={topic} key={topic}>{TOPIC_LABELS[topic]}</option>)}
+            </select>
+          </label>
+          <label className="sample-filter">
+            <span>Challenge</span>
+            <select value={challengeFilter} onChange={(event) => {
+              setChallengeFilter(event.target.value);
+              setParams({ challenge: event.target.value || null });
+            }}>
+              <option value="">All challenges</option>
+              {challenges.map((challenge) => (
+                <option value={challenge} key={challenge}>{CHALLENGE_LABELS[challenge]}</option>
+              ))}
+            </select>
+          </label>
+          <label className="sample-filter">
+            <span>Verdict filter</span>
+            <select value={labelFilter} onChange={(event) => {
+              setLabelFilter(event.target.value);
+              setParams({ label: event.target.value || null });
+            }}>
+              <option value="">All labels</option>
+              <option value="SUPPORTED">Supported</option>
+              <option value="REFUTED">Refuted</option>
+              <option value="NOT_ENOUGH_EVIDENCE">Not enough evidence</option>
+              <option value="CONFLICTING_EVIDENCE">Conflicting evidence</option>
+            </select>
+          </label>
+          <label className="sample-control">
+            <span>{walkthrough ? "Recorded Sample" : "Demo Sample"}</span>
           <select
             name="demo-sample"
-            value={selectedCaseId}
+            value={
+              selectedCaseId === CUSTOM_CASE || filteredCatalog.some((item) => item.id === selectedCaseId)
+                ? selectedCaseId
+                : ""
+            }
             onChange={(event) => void chooseCase(event.target.value)}
             disabled={loading || caseLoading}
           >
+            <option value="" disabled>Select a sample</option>
             {!walkthrough ? <option value={CUSTOM_CASE}>Custom Input</option> : null}
-            {catalog.map((item, index) => (
+            {filteredCatalog.map((item, index) => (
               <option value={item.id} key={item.id}>
-                {optionLabel(item.claim, index)}
+                {optionLabel(item, index)}
               </option>
             ))}
           </select>
-        </label>
+          </label>
+          {sampleQuery || topicFilter || challengeFilter || labelFilter ? (
+            <button type="button" className="clear-filters" onClick={() => {
+              setSampleQuery("");
+              setTopicFilter("");
+              setChallengeFilter("");
+              setLabelFilter("");
+              setParams({ q: null, topic: null, challenge: null, label: null });
+            }}>Clear filters</button>
+          ) : null}
+        </div>
         <span className="sample-status">
           {loading
             ? "Loading samples…"
             : caseLoading
               ? "Loading sources…"
-              : `${catalog.length} ${walkthrough ? "recorded" : "live"} samples available`}
+              : `${filteredCatalog.length} of ${catalog.length} ${walkthrough ? "recorded" : "live"} samples`}
         </span>
         <div className="toolbar-spacer" />
         {referenceMatches && referenceCase ? (
@@ -743,6 +918,7 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
             state={decompositionState}
             selectedAtomId={selectedAtomId}
             onSelect={selectAtom}
+            describeAtom={describeAtom}
             selectedDetail={selectedAtom ? (
               <div className="selected-atom-detail" key={selectedAtom.id}>
                 <LinguisticPanel
@@ -752,6 +928,8 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
                   state={linguistics.state}
                   error={linguistics.error}
                   onRetry={() => void linguistics.retry()}
+                  open={linguisticsOpen}
+                  onToggle={() => setLinguisticsOpen((current) => !current)}
                 />
                 <SupportSummary
                   classification={selectedClassification}
@@ -767,11 +945,15 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
             retrievalState={retrievalState}
             nliState={nliState}
             graphState={graphState}
+            verdictState={verdictState}
+            verdict={verdict?.verdict ?? null}
             graphLinkCount={graphLinkCount}
             atomCount={atoms.length}
             evidenceCount={evidenceCount}
             relationCount={relationCount}
             onRetryEvidence={retryEvidence}
+            evidencePerAtom={evidencePerAtom}
+            onEvidencePerAtomChange={walkthrough ? undefined : changeEvidencePerAtom}
             onRetryNli={retryNli}
             recorded={walkthrough}
           />
@@ -789,6 +971,7 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
             relations={selectedRelations}
             selectedAtomText={selectedAtom?.text ?? null}
             retrievalState={retrievalState}
+            evidencePerAtom={evidencePerAtom}
             readOnly={walkthrough}
           />
         </div>
@@ -803,18 +986,24 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
             onSelectEvidence={selectGraphEvidence}
             obligationStates={obligationStates}
           />
-          {verdict ? <VerdictPanel result={verdict} referenceLabel={referenceCase?.label} /> : null}
+          {verdict ? (
+            <VerdictPanel
+              result={verdict}
+              atoms={atoms}
+              referenceLabel={referenceMatches ? referenceCase?.label : undefined}
+            />
+          ) : null}
         </>
       ) : null}
 
       <footer className="provenance-strip">
         <span>
-          <Sparkles size={13} aria-hidden="true" /> WiCE-style decomposition · spaCy linguistic cues
+          <Sparkles size={13} aria-hidden="true" /> Linguistically grounded verification obligations
         </span>
         <span>
           {walkthrough
-            ? "Recorded local pipeline · derived graph · deterministic four-way verdict"
-            : "Embedding retrieval · DeBERTa NLI live · derived graph · deterministic four-way verdict"}
+            ? "Recorded local pipeline · derived argumentation graph · deterministic four-way verdict"
+            : "Live local models · derived argumentation graph · deterministic four-way verdict"}
         </span>
       </footer>
     </main>

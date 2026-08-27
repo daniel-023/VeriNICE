@@ -63,8 +63,12 @@ const details = [
   },
 ];
 
-const summaries = details.map(({ documents, ...sample }) => ({
+const summaries = details.map(({ documents, ...sample }, index) => ({
   ...sample,
+  displayTitle: index === 0 ? "Orion leadership" : "Archive opening date",
+  topics: [index === 0 ? "ECONOMY_BUSINESS" : "SOCIETY_CULTURE"] as const,
+  challenges: [index === 0 ? "MULTI_PART" : "TIME"] as const,
+  featured: index === 0,
   documents: documents.map(({ text: _text, ...document }) => document),
 }));
 
@@ -75,8 +79,9 @@ beforeEach(() => {
     Promise.resolve(details.find((item) => item.id === id)),
   );
   apiMock.health.mockReset().mockResolvedValue({
-    status: "configured",
+    status: "ready",
     decompositionConfigured: true,
+    decompositionReady: true,
     retrievalConfigured: true,
     nliConfigured: true,
     linguisticsConfigured: true,
@@ -232,6 +237,21 @@ function atomRail() {
 }
 
 describe("multidocument claim decomposition workflow", () => {
+  it("filters samples by search, topic, challenge, and reference verdict", async () => {
+    const user = userEvent.setup();
+    render(<VeriGraphApp />);
+    await screen.findByDisplayValue(details[0].claim);
+
+    await user.selectOptions(screen.getByRole("combobox", { name: "Topic" }), "SOCIETY_CULTURE");
+    expect(screen.getByRole("option", { name: /Archive opening date/ })).toBeInTheDocument();
+    expect(screen.queryByRole("option", { name: /Orion leadership/ })).not.toBeInTheDocument();
+
+    await user.click(screen.getByRole("button", { name: "Clear filters" }));
+    await user.type(screen.getByRole("searchbox", { name: "Find a sample" }), "Orion");
+    expect(screen.getByRole("option", { name: /Orion leadership/ })).toBeInTheDocument();
+    expect(screen.queryByRole("option", { name: /Archive opening date/ })).not.toBeInTheDocument();
+  });
+
   it("loads summaries first and the selected sample documents on demand", async () => {
     render(<VeriGraphApp />);
     expect(await screen.findByRole("textbox", { name: "Claim to decompose" })).toHaveValue(
@@ -255,10 +275,14 @@ describe("multidocument claim decomposition workflow", () => {
     const claimInput = await screen.findByRole("textbox", { name: "Claim to decompose" });
     await user.click(screen.getByRole("button", { name: "Decompose Claim" }));
     await atomRail().findByText("Mara became CTO.");
-    expect(apiMock.retrieveCase).toHaveBeenCalledWith("sample-1", [
-      { id: "atom-1", text: "Mara joined Orion in 2022." },
-      { id: "atom-2", text: "Mara became CTO." },
-    ]);
+    expect(apiMock.retrieveCase).toHaveBeenCalledWith(
+      "sample-1",
+      [
+        { id: "atom-1", text: "Mara joined Orion in 2022." },
+        { id: "atom-2", text: "Mara became CTO." },
+      ],
+      6,
+    );
     expect(apiMock.analyzeLinguistics).toHaveBeenCalledWith(expect.objectContaining({
       schemaVersion: 2,
       claimText: details[0].claim,
@@ -317,6 +341,27 @@ describe("multidocument claim decomposition workflow", () => {
     expect(screen.getByLabelText("Atomic claim preview").querySelector("mark")).toHaveTextContent("became");
   });
 
+  it("re-runs retrieval and NLI when the candidate budget changes", async () => {
+    const user = userEvent.setup();
+    render(<VeriGraphApp />);
+    await screen.findByDisplayValue(details[0].claim);
+    await user.click(screen.getByRole("button", { name: "Decompose Claim" }));
+    await atomRail().findByText("Mara became CTO.");
+    expect(apiMock.retrieveCase).toHaveBeenCalledTimes(1);
+
+    const budget = screen.getByRole("combobox", { name: /Candidates per obligation/i });
+    expect(budget).toHaveValue("6");
+    await user.selectOptions(budget, "10");
+
+    await waitFor(() => expect(apiMock.retrieveCase).toHaveBeenCalledTimes(2));
+    expect(apiMock.retrieveCase).toHaveBeenLastCalledWith(
+      "sample-1",
+      expect.any(Array),
+      10,
+    );
+    await waitFor(() => expect(apiMock.classifySupport).toHaveBeenCalledTimes(2));
+  });
+
   it("lists every span of the selected atom and jumps across sources", async () => {
     const user = userEvent.setup();
     render(<VeriGraphApp />);
@@ -371,6 +416,7 @@ describe("multidocument claim decomposition workflow", () => {
     expect(apiMock.retrieveDocuments).toHaveBeenCalledWith(
       expect.any(Array),
       expect.any(Array),
+      6,
     );
   });
 
