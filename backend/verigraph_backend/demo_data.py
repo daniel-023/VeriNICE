@@ -66,6 +66,9 @@ def bundle_digest(bundle_path: Path) -> str:
     files = [bundle_path / "catalog.json"] + sorted(
         (bundle_path / "cases").glob("*.json")
     )
+    metadata_path = bundle_path / "metadata.json"
+    if metadata_path.is_file():
+        files.append(metadata_path)
     if not all(path.is_file() for path in files):
         raise DemoDataError(f"Demo bundle at {bundle_path} is incomplete")
     digest = hashlib.sha256()
@@ -78,19 +81,43 @@ def bundle_digest(bundle_path: Path) -> str:
     return digest.hexdigest()
 
 
+def _apply_bundle_metadata(cases: List[DemoCase], bundle_path: Path) -> List[DemoCase]:
+    metadata_path = bundle_path / "metadata.json"
+    if not metadata_path.is_file():
+        return cases
+    raw = _read_json(metadata_path)
+    if not isinstance(raw, dict):
+        raise DemoDataError(f"Demo metadata at {metadata_path} must be an object")
+    unknown = sorted(set(raw) - {case.id for case in cases})
+    if unknown:
+        raise DemoDataError("Demo metadata references unknown cases: " + ", ".join(unknown))
+    enriched: List[DemoCase] = []
+    for case in cases:
+        values = case.model_dump(mode="json", by_alias=True)
+        item = raw.get(case.id, {})
+        if not isinstance(item, dict):
+            raise DemoDataError(f"Demo metadata for {case.id} must be an object")
+        values.update(item)
+        try:
+            enriched.append(CASE_ADAPTER.validate_python(values))
+        except ValidationError as error:
+            raise DemoDataError(f"Invalid demo metadata for {case.id}: {error}") from error
+    return enriched
+
+
 def _validate_private_catalog(cases: List[DemoCase]) -> None:
-    if not 20 <= len(cases) <= 24:
-        raise DemoDataError("Prepared AVeriTeC catalog must contain 20 to 24 cases")
+    if not 20 <= len(cases) <= 32:
+        raise DemoDataError("Prepared AVeriTeC catalog must contain 20 to 32 cases")
     counts = Counter(case.label for case in cases)
     missing = [
         label.value
         for label in ReferenceLabel
-        if counts.get(label, 0) < 5
+        if not 5 <= counts.get(label, 0) <= 8
     ]
     if missing:
         raise DemoDataError(
-            "Private AVeriTeC catalog needs at least five cases for every label; "
-            f"missing: {', '.join(missing)}"
+            "Private AVeriTeC catalog needs five to eight cases for every label; "
+            f"invalid: {', '.join(missing)}"
         )
     for case in cases:
         if len(case.documents) < 2:
@@ -115,6 +142,8 @@ def load_private_bundle(bundle_path: Path) -> DemoStore:
         if case.summary() != summary:
             raise DemoDataError(f"Catalog metadata does not match {case_path}")
         cases.append(case)
+    cases = _apply_bundle_metadata(cases, bundle_path)
+    summaries = [case.summary() for case in cases]
     _validate_unique_ids(cases)
     _validate_private_catalog(cases)
 

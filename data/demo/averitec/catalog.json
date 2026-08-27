@@ -78,6 +78,23 @@
     "label": "SUPPORTED"
   },
   {
+    "id": "averitec-dev-0319",
+    "claim": "Nigeria is the leading producer of cassava in Africa and the world.",
+    "documents": [
+      {
+        "id": "doc-d361a14b1bd5",
+        "title": "Cassava - an overview | ScienceDirect Topics",
+        "url": "https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/cassava"
+      },
+      {
+        "id": "doc-adf0330a9cdd",
+        "title": "Nigeria - Country Profile - Nations Online Project",
+        "url": "https://www.nationsonline.org/oneworld/nigeria.htm"
+      }
+    ],
+    "label": "SUPPORTED"
+  },
+  {
     "id": "averitec-dev-0392",
     "claim": "The sky has turned orange to blood red in several parts of the United States.",
     "documents": [
@@ -117,6 +134,23 @@
         "id": "doc-7c93b0e065ec",
         "title": "TIMELINE: Kayla Mueller in ISIS Captivity - ABC News",
         "url": "https://abcnews.go.com/International/timeline-kayla-mueller-isis-captivity/story?id=41398733"
+      }
+    ],
+    "label": "SUPPORTED"
+  },
+  {
+    "id": "averitec-dev-0323",
+    "claim": "Donald Trump is in federal court trying to do away with the Affordable Care Act, 100 million people with preexisting conditions like your mom would not have to pay more for their insurance under now.”",
+    "documents": [
+      {
+        "id": "doc-fd4a4b030b26",
+        "title": "Finding Health Insurance | USAGov",
+        "url": "https://www.usa.gov/finding-health-insurance"
+      },
+      {
+        "id": "doc-8cd799058cc7",
+        "title": "Trump Administration, Republican Attorneys General Ask Supreme Court to Repeal ACA",
+        "url": "https://www.ajmc.com/view/republican-attorneys-general-file-briefs-to-repeal-aca"
       }
     ],
     "label": "SUPPORTED"
@@ -212,6 +246,62 @@
     "label": "REFUTED"
   },
   {
+    "id": "averitec-dev-0003",
+    "claim": "UNESCO declared Nadar community as the most ancient race in the world.",
+    "documents": [
+      {
+        "id": "doc-541aea4f89de",
+        "title": "www.familytreedna.com",
+        "url": "https://www.familytreedna.com/groups/nadar/about/background"
+      },
+      {
+        "id": "doc-f3d01ab5ce31",
+        "title": "World's most ancient race traced in DNA study | The Independent | The Independent",
+        "url": "https://www.independent.co.uk/news/science/world-s-most-ancient-race-traced-in-dna-study-1677113.html"
+      }
+    ],
+    "label": "REFUTED"
+  },
+  {
+    "id": "averitec-dev-0004",
+    "claim": "Republican Matt Gaetz was part of a company that had to pay 75 million in hospice fraud. They stole from dying people.",
+    "documents": [
+      {
+        "id": "doc-5f8f89c22c41",
+        "title": "Don Gaetz | Embry - Riddle Aeronautical University",
+        "url": "https://erau.edu/gaetz-aerospace-institute/about/don-gaetz"
+      },
+      {
+        "id": "doc-a1bb01cd9461",
+        "title": "www.celebritynetworth.com",
+        "url": "https://www.celebritynetworth.com/richest-politicians/republicans/don-gaetz-net-worth/"
+      },
+      {
+        "id": "doc-c380bf708a16",
+        "title": "web.archive.org",
+        "url": "http://ir.chemed.com/news-releases/news-release-details/roto-rooter-inc-completes-merger-vitas-healthcare-corporation"
+      }
+    ],
+    "label": "REFUTED"
+  },
+  {
+    "id": "averitec-dev-0008",
+    "claim": "You’re watching the cheaters and all those people that send in the phony ballots. … They want to have the count weeks after November 3.",
+    "documents": [
+      {
+        "id": "doc-a03984ac4ede",
+        "title": "Vote By Mail :: California Secretary of State",
+        "url": "https://www.sos.ca.gov/elections/voter-registration/vote-mail"
+      },
+      {
+        "id": "doc-a1bd8d9da617",
+        "title": "Results delayed: Why is California so slow to count votes? - CalMatters",
+        "url": "https://calmatters.org/politics/california-election-2020/2020/03/california-primary-election-results-delayed/"
+      }
+    ],
+    "label": "REFUTED"
+  },
+  {
     "id": "averitec-dev-0015",
     "claim": "Illegal drug, border crossings, and human smuggling activities have decreased in areas where barriers are deployed in the United States.",
     "documents": [
@@ -292,6 +382,62 @@
         "id": "doc-308dd4e1ff1f",
         "title": "Fact check: No evidence 80 million Yoruba live in Brazil – Daily Trust",
         "url": "https://dailytrust.com/fact-check-no-evidence-80-million-yoruba-live-in-brazil"
+      }
+    ],
+    "label": "NOT_ENOUGH_EVIDENCE"
+  },
+  {
+    "id": "averitec-dev-0082",
+    "claim": "In the US lockdowns are partly responsible for excess deaths not directly attributed to COVID-19 which were observed in 2020.",
+    "documents": [
+      {
+        "id": "doc-1cd1d3b7cf15",
+        "title": "Excess Deaths Associated with COVID-19, by Age and Race and Ethnicity — United States, January 26–October 3, 2020 | MMWR",
+        "url": "https://www.cdc.gov/mmwr/volumes/69/wr/mm6942e2.htm"
+      },
+      {
+        "id": "doc-6c57002a5a1b",
+        "title": "Excess Deaths From COVID-19 and Other Causes, March-July 2020 | Cardiology | JAMA | JAMA Network",
+        "url": "https://jamanetwork.com/journals/jama/fullarticle/2771761"
+      }
+    ],
+    "label": "NOT_ENOUGH_EVIDENCE"
+  },
+  {
+    "id": "averitec-dev-0142",
+    "claim": "The CDC has said over 98,000 people had non-COVID related deaths because of hospitals that were closed down for non-essential services",
+    "documents": [
+      {
+        "id": "doc-3947a328a770",
+        "title": "Excess Deaths From COVID-19 and Other Causes, March-April 2020 | Infectious Diseases | JAMA | JAMA Network",
+        "url": "https://jamanetwork.com/journals/jama/fullarticle/2768086"
+      },
+      {
+        "id": "doc-c6bdf9df67b6",
+        "title": "MMWR COVID-19 Reports | MMWR",
+        "url": "https://www.cdc.gov/mmwr/Novel_Coronavirus_Reports.html"
+      }
+    ],
+    "label": "NOT_ENOUGH_EVIDENCE"
+  },
+  {
+    "id": "averitec-dev-0394",
+    "claim": "Under Trump's watch, auto assembly plants have been added at an unprecedented rate in Michigan, Ohio, North Carolina, South Carolina and possibly other states.",
+    "documents": [
+      {
+        "id": "doc-0723a4b72ffb",
+        "title": "Navya set to open its first US production plant in Michigan",
+        "url": "https://www.intelligenttransport.com/transport-news/24458/navya-production-plant-michigan/"
+      },
+      {
+        "id": "doc-4ea4c5093f93",
+        "title": "Toyota to invest $106M in Alabama engine plant, add 50 jobs - Alabama News Center",
+        "url": "https://alabamanewscenter.com/2017/09/27/toyota-to-invest-106m-in-alabama-engine-plant-add-50-jobs/"
+      },
+      {
+        "id": "doc-a6ed1942c120",
+        "title": "Waymo planning Michigan factory to retrofit Chrysler Pacifica, Jaguar I-Pace w/ self-driving tech",
+        "url": "https://9to5google.com/2019/01/22/waymo-michigan-self-driving-factory/"
       }
     ],
     "label": "NOT_ENOUGH_EVIDENCE"
@@ -399,6 +545,50 @@
         "id": "doc-ff8f3576e3da",
         "title": "FEMA Threw Out Faulty Ventilators From Russia",
         "url": "https://www.buzzfeednews.com/article/christopherm51/fema-russia-ventilators-coronavirus?fbclid=IwAR0NDhdqILPthpTHGNnmK_-8yH7CjmyDtbo81pzlHEVVKI9loXMnfI9uVas"
+      }
+    ],
+    "label": "CONFLICTING_EVIDENCE"
+  },
+  {
+    "id": "averitec-dev-0303",
+    "claim": "There is a double standard in how Senate Republicans handled the confirmations for Obama's and Trump's high court picks.",
+    "documents": [
+      {
+        "id": "doc-0102810877e7",
+        "title": "Amy Coney Barrett: McConnell says 'we have the votes' to confirm judge",
+        "url": "https://www.usatoday.com/story/news/politics/2020/10/15/amy-coney-barrett-senators-hear-experts-character-witnesses/3654473001/"
+      },
+      {
+        "id": "doc-d700340b9909",
+        "title": "GOP senators vow not to consider Garland to fill Supreme Court vacancy",
+        "url": "https://www.usatoday.com/story/news/2016/03/16/gop-senators-vow-not-consider-garland-fill-supreme-court-vacancy/81856428/"
+      }
+    ],
+    "label": "CONFLICTING_EVIDENCE"
+  },
+  {
+    "id": "averitec-dev-0480",
+    "claim": "Donald Trump said: \"Biden also vowed to oppose school choice and close down charter schools, ripping away the ladder of opportunity for Black and Hispanic children.\"",
+    "documents": [
+      {
+        "id": "doc-20f5505f64ee",
+        "title": "What is School Choice? - EdChoice",
+        "url": "https://www.edchoice.org/school-choice/what-is-school-choice/"
+      },
+      {
+        "id": "doc-db9220f21b2a",
+        "title": "Charter schools in the United States - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Charter_schools_in_the_United_States"
+      },
+      {
+        "id": "doc-0b9901417ec0",
+        "title": "Types of School Choice - EdChoice",
+        "url": "https://www.edchoice.org/school-choice/types-of-school-choice/"
+      },
+      {
+        "id": "doc-6e5d92ce3357",
+        "title": "Federal Funding and Charter School Closures: What the Latest Government Data Show",
+        "url": "https://www.edweek.org/policy-politics/federal-funding-and-charter-school-closures-what-the-latest-government-data-show/2022/10"
       }
     ],
     "label": "CONFLICTING_EVIDENCE"

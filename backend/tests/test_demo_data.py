@@ -33,6 +33,16 @@ def test_public_fallback_uses_multidocument_four_way_schema() -> None:
     assert len(load_demo_cases(path)) == 12
 
 
+def test_checked_in_private_bundle_is_balanced_and_fully_described() -> None:
+    store = load_private_bundle(ROOT / "data" / "demo" / "averitec")
+    assert len(store.summaries) == 32
+    assert Counter(case.label for case in store.summaries) == {
+        label: 8 for label in ReferenceLabel
+    }
+    assert all(case.display_title for case in store.summaries)
+    assert all(case.topics for case in store.summaries)
+
+
 def _synthetic_rows(prepare):
     rows = [{"claim": "unused", "label": "Refuted", "questions": []} for _ in range(500)]
     for label, indices in prepare.CANDIDATES.items():
@@ -77,11 +87,11 @@ def test_preparation_is_deterministic_balanced_and_uses_archives_first() -> None
         return prepare.FetchResult(status="ok", text=text, title="Official report")
 
     cases, audits = prepare.prepare_catalog(rows, fetch, lambda _: None)
-    assert len(cases) == 24
-    assert Counter(case.label for case in cases) == {label: 6 for label in ReferenceLabel}
+    assert len(cases) == 32
+    assert Counter(case.label for case in cases) == {label: 8 for label in ReferenceLabel}
     assert all(len(case.documents) == 2 for case in cases)
     assert all("archive.example" in url for url in calls)
-    assert len(audits) == 24
+    assert len(audits) == 32
 
 
 def test_bundle_writer_and_loader_validate_digest_balance_and_documents(tmp_path: Path) -> None:
@@ -95,7 +105,7 @@ def test_bundle_writer_and_loader_validate_digest_balance_and_documents(tmp_path
     )
     digest = prepare.write_bundle(cases, audits, tmp_path)
     store = load_private_bundle(tmp_path)
-    assert len(store.summaries) == 24
+    assert len(store.summaries) == 32
     assert store.private is True
     assert (tmp_path / "bundle.sha256").read_text().strip() == digest
 
@@ -116,6 +126,8 @@ def test_preparation_rejects_allowlist_label_drift() -> None:
 def test_revision_and_candidate_configuration_are_pinned() -> None:
     prepare = _prepare_module()
     assert prepare.AVERITEC_REVISION == "7c62d1ec8df3fb560d6efe2b85fa191135636f81"
-    assert all(len(indices) == 12 for indices in prepare.CANDIDATES.values())
+    assert all(len(indices) >= 12 for indices in prepare.CANDIDATES.values())
+    assert prepare.CANDIDATES[ReferenceLabel.refuted][-3:] == (3, 4, 8)
+    assert prepare.CANDIDATES[ReferenceLabel.not_enough_evidence][:5] == (15, 413, 26, 208, 435)
     assert prepare.DEFAULT_SOURCE == ROOT / "data" / "source" / "averitec-dev.json"
     assert prepare.DEFAULT_OUTPUT == ROOT / "data" / "demo" / "averitec"

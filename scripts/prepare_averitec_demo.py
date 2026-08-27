@@ -39,15 +39,17 @@ DEFAULT_SEED_CACHE = ROOT / "data" / "cache" / "averitec_seed.jsonl"
 MIN_DOCUMENT_WORDS = 175
 MAX_DOCUMENTS_PER_CASE = 8
 MAX_HTML_BYTES = 5_000_000
-MIN_CASES_PER_LABEL = 5
-MAX_CASES_PER_LABEL = 6
+MIN_CASES_PER_LABEL = 8
+MAX_CASES_PER_LABEL = 8
 USER_AGENT = "VeriGraph-demo/0.4 (offline research dataset preparation)"
 
 
 CANDIDATES: Dict[ReferenceLabel, Sequence[int]] = {
     ReferenceLabel.supported: (34, 77, 144, 146, 158, 453, 125, 319, 392, 145, 323, 161),
-    ReferenceLabel.refuted: (44, 91, 168, 171, 239, 439, 180, 280, 419, 420, 495, 89),
-    ReferenceLabel.not_enough_evidence: (15, 82, 142, 394, 413, 498, 26, 208, 428, 435, 229, 233),
+    ReferenceLabel.refuted: (44, 91, 168, 171, 239, 439, 180, 280, 419, 420, 495, 89, 3, 4, 8),
+    # Preserve the five published walkthrough cases before extending the label
+    # with three newly recovered examples.
+    ReferenceLabel.not_enough_evidence: (15, 413, 26, 208, 435, 82, 142, 394, 498, 428, 229, 233),
     ReferenceLabel.conflicting_evidence: (60, 100, 259, 360, 404, 423, 10, 18, 58, 303, 480, 496),
 }
 
@@ -525,7 +527,7 @@ def prepare_catalog(
             )
         if counts[label] < MIN_CASES_PER_LABEL:
             raise RuntimeError(
-                f"Only {counts[label]} valid {label.value} cases were recovered; five are required"
+                f"Only {counts[label]} valid {label.value} cases were recovered; eight are required"
             )
     return cases, audits
 

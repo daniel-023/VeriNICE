@@ -333,18 +333,26 @@
           {
             "url": "https://web.archive.org/web/20210711160610id_/https://www.whitehouse.gov/briefings-statements/remarks-president-trump-press-briefing/",
             "method": "dataset_archive",
-            "status": "missing_cache",
-            "error": "Not present in offline cache"
+            "status": "not_found",
+            "error": "HTTP 404"
           },
           {
             "url": "https://www.whitehouse.gov/briefings-statements/remarks-president-trump-press-briefing/",
             "method": "original",
             "status": "not_found",
             "error": "HTTP 404"
+          },
+          {
+            "url": "https://web.archive.org/web/20201223213205/https://www.whitehouse.gov/briefings-statements/remarks-president-trump-press-briefing/",
+            "method": "wayback_lookup",
+            "status": "ok",
+            "error": ""
           }
         ],
-        "accepted": false,
-        "reason": "fetch_failed"
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20201223213205/https://www.whitehouse.gov/briefings-statements/remarks-president-trump-press-briefing/",
+        "wordCount": 11346,
+        "sha256": "4547652b8b0d351478c72692a08183c04c28998c1d82862e40fd63006f18973d"
       }
     ],
     "accepted": false,
@@ -404,10 +412,18 @@
             "method": "original",
             "status": "http_error",
             "error": "Client error '403 Forbidden' for url 'https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/cassava'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
+          },
+          {
+            "url": "https://web.archive.org/web/20221024064116/https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/cassava",
+            "method": "wayback_lookup",
+            "status": "ok",
+            "error": ""
           }
         ],
-        "accepted": false,
-        "reason": "fetch_failed"
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20221024064116/https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/cassava",
+        "wordCount": 414,
+        "sha256": "cd6ce44753f3af10190e6f5f06c7a9296013138afde55eaeaa9a2614fc4ce002"
       },
       {
         "sourceUrl": "https://www.pwc.com/ng/en/publications/economic-potential-of-cassava-production-in-nigeria.html",
@@ -439,8 +455,8 @@
         "sha256": "c31657a179093102327793fe935936d00c28d0b6e56a153ac2ecea7054438795"
       }
     ],
-    "accepted": false,
-    "reason": "fewer_than_two_accepted_documents"
+    "accepted": true,
+    "documentCount": 2
   },
   {
     "sourceIndex": 392,
@@ -565,6 +581,46 @@
     ],
     "accepted": true,
     "documentCount": 3
+  },
+  {
+    "sourceIndex": 323,
+    "caseId": "averitec-dev-0323",
+    "label": "SUPPORTED",
+    "claim": "Donald Trump is in federal court trying to do away with the Affordable Care Act, 100 million people with preexisting conditions like your mom would not have to pay more for their insurance under now.”",
+    "sources": [
+      {
+        "sourceUrl": "https://www.usa.gov/finding-health-insurance",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230325051355/https://www.usa.gov/finding-health-insurance",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230325051355/https://www.usa.gov/finding-health-insurance",
+        "wordCount": 557,
+        "sha256": "3fb809de1aac527f60ace1e13bddf2ac2c21890c11bb5b29aef13b8073bd0436"
+      },
+      {
+        "sourceUrl": "https://www.ajmc.com/view/republican-attorneys-general-file-briefs-to-repeal-aca",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230403160700/https://www.ajmc.com/view/republican-attorneys-general-file-briefs-to-repeal-aca",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230403160700/https://www.ajmc.com/view/republican-attorneys-general-file-briefs-to-repeal-aca",
+        "wordCount": 1206,
+        "sha256": "2cfaf6e152d961e3eaca9a4f87268eed23cdd2f8b06125886d171de74e9b1738"
+      }
+    ],
+    "accepted": true,
+    "documentCount": 2
   },
   {
     "sourceIndex": 44,
@@ -779,8 +835,8 @@
           {
             "url": "https://web.archive.org/web/20230131085810id_/https://www.mbie.govt.nz/dmsdocument/11679-energy-in-new-zealand-2020",
             "method": "dataset_archive",
-            "status": "missing_cache",
-            "error": "Not present in offline cache"
+            "status": "invalid_content_type",
+            "error": "Expected HTML, got application/pdf"
           },
           {
             "url": "https://web.archive.org/web/20210222082524/https://www.mbie.govt.nz/dmsdocument/11679-energy-in-new-zealand-2020",
@@ -791,8 +847,8 @@
           {
             "url": "https://web.archive.org/web/20210222082524id_/https://www.mbie.govt.nz/dmsdocument/11679-energy-in-new-zealand-2020",
             "method": "dataset_archive",
-            "status": "missing_cache",
-            "error": "Not present in offline cache"
+            "status": "invalid_content_type",
+            "error": "Expected HTML, got application/pdf"
           },
           {
             "url": "https://www.mbie.govt.nz/dmsdocument/11679-energy-in-new-zealand-2020",
@@ -1087,6 +1143,165 @@
     "documentCount": 2
   },
   {
+    "sourceIndex": 3,
+    "caseId": "averitec-dev-0003",
+    "label": "REFUTED",
+    "claim": "UNESCO declared Nadar community as the most ancient race in the world.",
+    "sources": [
+      {
+        "sourceUrl": "https://www.familytreedna.com/groups/nadar/about/background",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230324135958/https://www.familytreedna.com/groups/nadar/about/background",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "[Errno 54] Connection reset by peer"
+          },
+          {
+            "url": "https://web.archive.org/web/20230324135958id_/https://www.familytreedna.com/groups/nadar/about/background",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "Timed out after 20s"
+          },
+          {
+            "url": "https://www.familytreedna.com/groups/nadar/about/background",
+            "method": "original",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://www.familytreedna.com/groups/nadar/about/background",
+        "wordCount": 567,
+        "sha256": "1b4be41e26e060ac76662201758e338f085ef720d724ffa36da896dcc24f2d06"
+      },
+      {
+        "sourceUrl": "https://www.independent.co.uk/news/science/world-s-most-ancient-race-traced-in-dna-study-1677113.html",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230327112418/https://www.independent.co.uk/news/science/world-s-most-ancient-race-traced-in-dna-study-1677113.html",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230327112418/https://www.independent.co.uk/news/science/world-s-most-ancient-race-traced-in-dna-study-1677113.html",
+        "wordCount": 400,
+        "sha256": "ba381ff1f2b41cdbe73859299c268363b65eafbee09eb45344f338ff0c4a9775"
+      }
+    ],
+    "accepted": true,
+    "documentCount": 2
+  },
+  {
+    "sourceIndex": 4,
+    "caseId": "averitec-dev-0004",
+    "label": "REFUTED",
+    "claim": "Republican Matt Gaetz was part of a company that had to pay 75 million in hospice fraud. They stole from dying people.",
+    "sources": [
+      {
+        "sourceUrl": "https://erau.edu/gaetz-aerospace-institute/about/don-gaetz",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230324140142/https://erau.edu/gaetz-aerospace-institute/about/don-gaetz",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230324140142/https://erau.edu/gaetz-aerospace-institute/about/don-gaetz",
+        "wordCount": 316,
+        "sha256": "bdeaa9b69495f4fc92b9ab30616a5362037034a62bc0efe529cc84a2176441f3"
+      },
+      {
+        "sourceUrl": "https://www.celebritynetworth.com/richest-politicians/republicans/don-gaetz-net-worth/",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230324140208/https://www.celebritynetworth.com/richest-politicians/republicans/don-gaetz-net-worth/",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "Client error '403 FORBIDDEN' for url 'https://web.archive.org/web/20230324140208/https://www.celebritynetworth.com/richest-politicians/republicans/don-gaetz-net-worth/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
+          },
+          {
+            "url": "https://web.archive.org/web/20230324140208id_/https://www.celebritynetworth.com/richest-politicians/republicans/don-gaetz-net-worth/",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "Client error '403 FORBIDDEN' for url 'https://web.archive.org/web/20230324140208id_/https://www.celebritynetworth.com/richest-politicians/republicans/don-gaetz-net-worth/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
+          },
+          {
+            "url": "https://www.celebritynetworth.com/richest-politicians/republicans/don-gaetz-net-worth/",
+            "method": "original",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://www.celebritynetworth.com/richest-politicians/republicans/don-gaetz-net-worth/",
+        "wordCount": 617,
+        "sha256": "bf0fda57d30dffdb1335e6971925453eeb9c03dd4aa440dd6288cdf85494667b"
+      },
+      {
+        "sourceUrl": "http://ir.chemed.com/news-releases/news-release-details/roto-rooter-inc-completes-merger-vitas-healthcare-corporation",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20210713185816/http://ir.chemed.com/news-releases/news-release-details/roto-rooter-inc-completes-merger-vitas-healthcare-corporation",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20210713185816/http://ir.chemed.com/news-releases/news-release-details/roto-rooter-inc-completes-merger-vitas-healthcare-corporation",
+        "wordCount": 654,
+        "sha256": "f12ab35047ddb9b420c84379c1f532eea077ddaf3019986ee35b708afce012df"
+      }
+    ],
+    "accepted": true,
+    "documentCount": 3
+  },
+  {
+    "sourceIndex": 8,
+    "caseId": "averitec-dev-0008",
+    "label": "REFUTED",
+    "claim": "You’re watching the cheaters and all those people that send in the phony ballots. … They want to have the count weeks after November 3.",
+    "sources": [
+      {
+        "sourceUrl": "https://www.sos.ca.gov/elections/voter-registration/vote-mail",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230324140705/https://www.sos.ca.gov/elections/voter-registration/vote-mail",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230324140705/https://www.sos.ca.gov/elections/voter-registration/vote-mail",
+        "wordCount": 1517,
+        "sha256": "776b3c44fbd930329c29eb6ba198ca0f6727a409348cf06be80c96c14db1ec25"
+      },
+      {
+        "sourceUrl": "https://calmatters.org/politics/california-election-2020/2020/03/california-primary-election-results-delayed/",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230324140839/https://calmatters.org/politics/california-election-2020/2020/03/california-primary-election-results-delayed/",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230324140839/https://calmatters.org/politics/california-election-2020/2020/03/california-primary-election-results-delayed/",
+        "wordCount": 820,
+        "sha256": "d8063b7e1adaa8dc21e842e1113daa776b27d6bd016a1b6174af65273edaafcc"
+      }
+    ],
+    "accepted": true,
+    "documentCount": 2
+  },
+  {
     "sourceIndex": 15,
     "caseId": "averitec-dev-0015",
     "label": "NOT_ENOUGH_EVIDENCE",
@@ -1139,203 +1354,6 @@
     ],
     "accepted": true,
     "documentCount": 2
-  },
-  {
-    "sourceIndex": 82,
-    "caseId": "averitec-dev-0082",
-    "label": "NOT_ENOUGH_EVIDENCE",
-    "claim": "In the US lockdowns are partly responsible for excess deaths not directly attributed to COVID-19 which were observed in 2020.",
-    "sources": [
-      {
-        "sourceUrl": "https://www.cdc.gov/mmwr/volumes/69/wr/mm6942e2.htm",
-        "attempts": [
-          {
-            "url": "https://web.archive.org/web/20230324181251/https://www.cdc.gov/mmwr/volumes/69/wr/mm6942e2.htm",
-            "method": "dataset_archive",
-            "status": "ok",
-            "error": ""
-          }
-        ],
-        "accepted": true,
-        "resolvedUrl": "https://web.archive.org/web/20230324181251/https://www.cdc.gov/mmwr/volumes/69/wr/mm6942e2.htm",
-        "wordCount": 2917,
-        "sha256": "912c4b1cc84711ec4fd751b0224d5687aed6110402d278fe4c2c7e0d91378c0d"
-      },
-      {
-        "sourceUrl": "https://jamanetwork.com/journals/jama/fullarticle/2771761",
-        "attempts": [
-          {
-            "url": "https://web.archive.org/web/20210310112506/https://jamanetwork.com/journals/jama/fullarticle/2771761",
-            "method": "dataset_archive",
-            "status": "http_error",
-            "error": "[Errno 61] Connection refused"
-          },
-          {
-            "url": "https://web.archive.org/web/20210310112506id_/https://jamanetwork.com/journals/jama/fullarticle/2771761",
-            "method": "dataset_archive",
-            "status": "missing_cache",
-            "error": "Not present in offline cache"
-          },
-          {
-            "url": "https://jamanetwork.com/journals/jama/fullarticle/2771761",
-            "method": "original",
-            "status": "http_error",
-            "error": "Client error '403 Forbidden' for url 'https://jamanetwork.com/journals/jama/fullarticle/2771761'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
-          }
-        ],
-        "accepted": false,
-        "reason": "fetch_failed"
-      }
-    ],
-    "accepted": false,
-    "reason": "fewer_than_two_accepted_documents"
-  },
-  {
-    "sourceIndex": 142,
-    "caseId": "averitec-dev-0142",
-    "label": "NOT_ENOUGH_EVIDENCE",
-    "claim": "The CDC has said over 98,000 people had non-COVID related deaths because of hospitals that were closed down for non-essential services",
-    "sources": [
-      {
-        "sourceUrl": "https://jamanetwork.com/journals/jama/fullarticle/2768086",
-        "attempts": [
-          {
-            "url": "https://web.archive.org/web/20210302101747/https://jamanetwork.com/journals/jama/fullarticle/2768086",
-            "method": "dataset_archive",
-            "status": "http_error",
-            "error": "[Errno 61] Connection refused"
-          },
-          {
-            "url": "https://web.archive.org/web/20210302101747id_/https://jamanetwork.com/journals/jama/fullarticle/2768086",
-            "method": "dataset_archive",
-            "status": "missing_cache",
-            "error": "Not present in offline cache"
-          },
-          {
-            "url": "https://jamanetwork.com/journals/jama/fullarticle/2768086",
-            "method": "original",
-            "status": "http_error",
-            "error": "Client error '403 Forbidden' for url 'https://jamanetwork.com/journals/jama/fullarticle/2768086'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
-          }
-        ],
-        "accepted": false,
-        "reason": "fetch_failed"
-      },
-      {
-        "sourceUrl": "https://www.cdc.gov/mmwr/Novel_Coronavirus_Reports.html",
-        "attempts": [
-          {
-            "url": "https://web.archive.org/web/20230313222854/https://www.cdc.gov/mmwr/Novel_Coronavirus_Reports.html",
-            "method": "dataset_archive",
-            "status": "http_error",
-            "error": "[Errno 61] Connection refused"
-          },
-          {
-            "url": "https://web.archive.org/web/20230313222854id_/https://www.cdc.gov/mmwr/Novel_Coronavirus_Reports.html",
-            "method": "dataset_archive",
-            "status": "missing_cache",
-            "error": "Not present in offline cache"
-          },
-          {
-            "url": "https://www.cdc.gov/mmwr/Novel_Coronavirus_Reports.html",
-            "method": "original",
-            "status": "missing_cache",
-            "error": "Not present in offline cache"
-          }
-        ],
-        "accepted": false,
-        "reason": "fetch_failed"
-      }
-    ],
-    "accepted": false,
-    "reason": "fewer_than_two_accepted_documents"
-  },
-  {
-    "sourceIndex": 394,
-    "caseId": "averitec-dev-0394",
-    "label": "NOT_ENOUGH_EVIDENCE",
-    "claim": "Under Trump's watch, auto assembly plants have been added at an unprecedented rate in Michigan, Ohio, North Carolina, South Carolina and possibly other states.",
-    "sources": [
-      {
-        "sourceUrl": "https://www.intelligenttransport.com/transport-news/24458/navya-production-plant-michigan/",
-        "attempts": [
-          {
-            "url": "https://web.archive.org/web/20230406141149/https://www.intelligenttransport.com/transport-news/24458/navya-production-plant-michigan/",
-            "method": "dataset_archive",
-            "status": "http_error",
-            "error": "[Errno 61] Connection refused"
-          },
-          {
-            "url": "https://web.archive.org/web/20230406141149id_/https://www.intelligenttransport.com/transport-news/24458/navya-production-plant-michigan/",
-            "method": "dataset_archive",
-            "status": "missing_cache",
-            "error": "Not present in offline cache"
-          },
-          {
-            "url": "https://www.intelligenttransport.com/transport-news/24458/navya-production-plant-michigan/",
-            "method": "original",
-            "status": "missing_cache",
-            "error": "Not present in offline cache"
-          }
-        ],
-        "accepted": false,
-        "reason": "fetch_failed"
-      },
-      {
-        "sourceUrl": "https://alabamanewscenter.com/2017/09/27/toyota-to-invest-106m-in-alabama-engine-plant-add-50-jobs/",
-        "attempts": [
-          {
-            "url": "https://web.archive.org/web/20230406141327/https://alabamanewscenter.com/2017/09/27/toyota-to-invest-106m-in-alabama-engine-plant-add-50-jobs/",
-            "method": "dataset_archive",
-            "status": "http_error",
-            "error": "[Errno 61] Connection refused"
-          },
-          {
-            "url": "https://web.archive.org/web/20230406141327id_/https://alabamanewscenter.com/2017/09/27/toyota-to-invest-106m-in-alabama-engine-plant-add-50-jobs/",
-            "method": "dataset_archive",
-            "status": "missing_cache",
-            "error": "Not present in offline cache"
-          },
-          {
-            "url": "https://alabamanewscenter.com/2017/09/27/toyota-to-invest-106m-in-alabama-engine-plant-add-50-jobs/",
-            "method": "original",
-            "status": "http_error",
-            "error": "Client error '403 Forbidden' for url 'https://alabamanewscenter.com/2017/09/27/toyota-to-invest-106m-in-alabama-engine-plant-add-50-jobs/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
-          }
-        ],
-        "accepted": false,
-        "reason": "fetch_failed"
-      },
-      {
-        "sourceUrl": "https://9to5google.com/2019/01/22/waymo-michigan-self-driving-factory/",
-        "attempts": [
-          {
-            "url": "https://web.archive.org/web/20230322153629/https://9to5google.com/2019/01/22/waymo-michigan-self-driving-factory/",
-            "method": "dataset_archive",
-            "status": "http_error",
-            "error": "[Errno 61] Connection refused"
-          },
-          {
-            "url": "https://web.archive.org/web/20230322153629id_/https://9to5google.com/2019/01/22/waymo-michigan-self-driving-factory/",
-            "method": "dataset_archive",
-            "status": "missing_cache",
-            "error": "Not present in offline cache"
-          },
-          {
-            "url": "https://9to5google.com/2019/01/22/waymo-michigan-self-driving-factory/",
-            "method": "original",
-            "status": "ok",
-            "error": ""
-          }
-        ],
-        "accepted": true,
-        "resolvedUrl": "https://9to5google.com/2019/01/22/waymo-michigan-self-driving-factory/",
-        "wordCount": 288,
-        "sha256": "ee7f9a6364df574d89c77c94640407319f9f8851ac46a6662c52e09d39564c53"
-      }
-    ],
-    "accepted": false,
-    "reason": "fewer_than_two_accepted_documents"
   },
   {
     "sourceIndex": 413,
@@ -1400,66 +1418,6 @@
     ],
     "accepted": true,
     "documentCount": 2
-  },
-  {
-    "sourceIndex": 498,
-    "caseId": "averitec-dev-0498",
-    "label": "NOT_ENOUGH_EVIDENCE",
-    "claim": "As we speak the US are developing a growing number of treatments, including convalescent plasma, that are saving lives all across the country.",
-    "sources": [
-      {
-        "sourceUrl": "https://www.fda.gov/news-events/press-announcements/fda-issues-emergency-use-authorization-convalescent-plasma-potential-promising-covid-19-treatment",
-        "attempts": [
-          {
-            "url": "https://web.archive.org/web/20210504041618/https://www.fda.gov/news-events/press-announcements/fda-issues-emergency-use-authorization-convalescent-plasma-potential-promising-covid-19-treatment",
-            "method": "dataset_archive",
-            "status": "http_error",
-            "error": "[Errno 61] Connection refused"
-          },
-          {
-            "url": "https://web.archive.org/web/20210504041618id_/https://www.fda.gov/news-events/press-announcements/fda-issues-emergency-use-authorization-convalescent-plasma-potential-promising-covid-19-treatment",
-            "method": "dataset_archive",
-            "status": "missing_cache",
-            "error": "Not present in offline cache"
-          },
-          {
-            "url": "https://www.fda.gov/news-events/press-announcements/fda-issues-emergency-use-authorization-convalescent-plasma-potential-promising-covid-19-treatment",
-            "method": "original",
-            "status": "not_found",
-            "error": "HTTP 404"
-          }
-        ],
-        "accepted": false,
-        "reason": "fetch_failed"
-      },
-      {
-        "sourceUrl": "https://www.nytimes.com/2020/08/19/us/politics/blood-plasma-covid-19.html",
-        "attempts": [
-          {
-            "url": "https://web.archive.org/web/20230322180226/https://www.nytimes.com/2020/08/19/us/politics/blood-plasma-covid-19.html",
-            "method": "dataset_archive",
-            "status": "http_error",
-            "error": "[Errno 61] Connection refused"
-          },
-          {
-            "url": "https://web.archive.org/web/20230322180226id_/https://www.nytimes.com/2020/08/19/us/politics/blood-plasma-covid-19.html",
-            "method": "dataset_archive",
-            "status": "missing_cache",
-            "error": "Not present in offline cache"
-          },
-          {
-            "url": "https://www.nytimes.com/2020/08/19/us/politics/blood-plasma-covid-19.html",
-            "method": "original",
-            "status": "http_error",
-            "error": "Client error '403 Forbidden' for url 'https://www.nytimes.com/2020/08/19/us/politics/blood-plasma-covid-19.html'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
-          }
-        ],
-        "accepted": false,
-        "reason": "fetch_failed"
-      }
-    ],
-    "accepted": false,
-    "reason": "fewer_than_two_accepted_documents"
   },
   {
     "sourceIndex": 26,
@@ -1615,54 +1573,6 @@
     "documentCount": 2
   },
   {
-    "sourceIndex": 428,
-    "caseId": "averitec-dev-0428",
-    "label": "NOT_ENOUGH_EVIDENCE",
-    "claim": "More cops have died from COVID this year than have been killed on patrol.",
-    "sources": [
-      {
-        "sourceUrl": "https://web.archivehttps://fopcovid19.org/news/covid-19-line-of-duty-deaths/",
-        "attempts": [
-          {
-            "url": "https://web.archivehttps://fopcovid19.org/news/covid-19-line-of-duty-deaths/",
-            "method": "original",
-            "status": "http_error",
-            "error": "[Errno 8] nodename nor servname provided, or not known"
-          }
-        ],
-        "accepted": false,
-        "reason": "fetch_failed"
-      },
-      {
-        "sourceUrl": "https://www.politico.com/news/2020/08/31/joe-biden-speech-riots-looters-405981",
-        "attempts": [
-          {
-            "url": "https://web.archive.org/web/20230326152830/https://www.politico.com/news/2020/08/31/joe-biden-speech-riots-looters-405981",
-            "method": "dataset_archive",
-            "status": "http_error",
-            "error": "[Errno 61] Connection refused"
-          },
-          {
-            "url": "https://web.archive.org/web/20230326152830id_/https://www.politico.com/news/2020/08/31/joe-biden-speech-riots-looters-405981",
-            "method": "dataset_archive",
-            "status": "missing_cache",
-            "error": "Not present in offline cache"
-          },
-          {
-            "url": "https://www.politico.com/news/2020/08/31/joe-biden-speech-riots-looters-405981",
-            "method": "original",
-            "status": "http_error",
-            "error": "Client error '403 Forbidden' for url 'https://www.politico.com/news/2020/08/31/joe-biden-speech-riots-looters-405981'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
-          }
-        ],
-        "accepted": false,
-        "reason": "fetch_failed"
-      }
-    ],
-    "accepted": false,
-    "reason": "fewer_than_two_accepted_documents"
-  },
-  {
     "sourceIndex": 435,
     "caseId": "averitec-dev-0435",
     "label": "NOT_ENOUGH_EVIDENCE",
@@ -1746,163 +1656,175 @@
     "documentCount": 2
   },
   {
-    "sourceIndex": 229,
-    "caseId": "averitec-dev-0229",
+    "sourceIndex": 82,
+    "caseId": "averitec-dev-0082",
     "label": "NOT_ENOUGH_EVIDENCE",
-    "claim": "There was a 40% drop in the price of oil, Nigeria's main export.",
+    "claim": "In the US lockdowns are partly responsible for excess deaths not directly attributed to COVID-19 which were observed in 2020.",
     "sources": [
       {
-        "sourceUrl": "https://nnpcgroup.com/NNPCDocuments/Performance%20Data/FullReports/NNPC%20Monthly%20Financial%20and%20Operations%20Report%20for%20the%20Month%20of%20July%202020.pdf",
+        "sourceUrl": "https://www.cdc.gov/mmwr/volumes/69/wr/mm6942e2.htm",
         "attempts": [
           {
-            "url": "https://web.archive.org/web/20210405033525/https://nnpcgroup.com/NNPCDocuments/Performance%20Data/FullReports/NNPC%20Monthly%20Financial%20and%20Operations%20Report%20for%20the%20Month%20of%20July%202020.pdf",
+            "url": "https://web.archive.org/web/20230324181251/https://www.cdc.gov/mmwr/volumes/69/wr/mm6942e2.htm",
             "method": "dataset_archive",
-            "status": "http_error",
-            "error": "[Errno 61] Connection refused"
-          },
-          {
-            "url": "https://web.archive.org/web/20210405033525id_/https://nnpcgroup.com/NNPCDocuments/Performance%20Data/FullReports/NNPC%20Monthly%20Financial%20and%20Operations%20Report%20for%20the%20Month%20of%20July%202020.pdf",
-            "method": "dataset_archive",
-            "status": "missing_cache",
-            "error": "Not present in offline cache"
-          },
-          {
-            "url": "https://nnpcgroup.com/NNPCDocuments/Performance%20Data/FullReports/NNPC%20Monthly%20Financial%20and%20Operations%20Report%20for%20the%20Month%20of%20July%202020.pdf",
-            "method": "original",
-            "status": "not_found",
-            "error": "HTTP 404"
-          }
-        ],
-        "accepted": false,
-        "reason": "fetch_failed"
-      },
-      {
-        "sourceUrl": "https://scialert.net/fulltext/?doi=aujss.2017.1.16",
-        "attempts": [
-          {
-            "url": "https://web.archive.org/web/20230403132451/https://scialert.net/fulltext/?doi=aujss.2017.1.16",
-            "method": "dataset_archive",
-            "status": "http_error",
-            "error": "[Errno 61] Connection refused"
-          },
-          {
-            "url": "https://web.archive.org/web/20230403132451id_/https://scialert.net/fulltext/?doi=aujss.2017.1.16",
-            "method": "dataset_archive",
-            "status": "missing_cache",
-            "error": "Not present in offline cache"
-          },
-          {
-            "url": "https://scialert.net/fulltext/?doi=aujss.2017.1.16",
-            "method": "original",
             "status": "ok",
             "error": ""
           }
         ],
-        "accepted": false,
-        "reason": "document_too_short",
-        "wordCount": 52
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230324181251/https://www.cdc.gov/mmwr/volumes/69/wr/mm6942e2.htm",
+        "wordCount": 2917,
+        "sha256": "912c4b1cc84711ec4fd751b0224d5687aed6110402d278fe4c2c7e0d91378c0d"
+      },
+      {
+        "sourceUrl": "https://jamanetwork.com/journals/jama/fullarticle/2771761",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20210310112506/https://jamanetwork.com/journals/jama/fullarticle/2771761",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "[Errno 61] Connection refused"
+          },
+          {
+            "url": "https://web.archive.org/web/20210310112506id_/https://jamanetwork.com/journals/jama/fullarticle/2771761",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20210310112506id_/https://jamanetwork.com/journals/jama/fullarticle/2771761",
+        "wordCount": 4235,
+        "sha256": "3a5ac7d8beaba041f20e4fa5ec8fbbe9dd32be840300ef7e36485ee0c0ec3ca0"
       }
     ],
-    "accepted": false,
-    "reason": "fewer_than_two_accepted_documents"
+    "accepted": true,
+    "documentCount": 2
   },
   {
-    "sourceIndex": 233,
-    "caseId": "averitec-dev-0233",
+    "sourceIndex": 142,
+    "caseId": "averitec-dev-0142",
     "label": "NOT_ENOUGH_EVIDENCE",
-    "claim": "There has been a 60% drop in government revenue.",
+    "claim": "The CDC has said over 98,000 people had non-COVID related deaths because of hospitals that were closed down for non-essential services",
     "sources": [
       {
-        "sourceUrl": "https://www.budgetoffice.gov.ng/index.php/component/edocman/search-result?filter_search=2020%20&Itemid=0",
+        "sourceUrl": "https://jamanetwork.com/journals/jama/fullarticle/2768086",
         "attempts": [
           {
-            "url": "https://web.archive.org/web/20230406115733/https://www.budgetoffice.gov.ng/index.php/component/edocman/search-result?filter_search=2020%20&amp;Itemid=0",
+            "url": "https://web.archive.org/web/20210302101747/https://jamanetwork.com/journals/jama/fullarticle/2768086",
             "method": "dataset_archive",
             "status": "http_error",
             "error": "[Errno 61] Connection refused"
           },
           {
-            "url": "https://web.archive.org/web/20230406115733id_/https://www.budgetoffice.gov.ng/index.php/component/edocman/search-result?filter_search=2020%20&amp;Itemid=0",
+            "url": "https://web.archive.org/web/20210302101747id_/https://jamanetwork.com/journals/jama/fullarticle/2768086",
             "method": "dataset_archive",
-            "status": "missing_cache",
-            "error": "Not present in offline cache"
-          },
-          {
-            "url": "https://web.archive.org/web/20230406115733/https://www.budgetoffice.gov.ng/index.php/component/edocman/search-result?filter_search=2020%20&Itemid=0",
-            "method": "dataset_archive",
-            "status": "http_error",
-            "error": "[Errno 61] Connection refused"
-          },
-          {
-            "url": "https://web.archive.org/web/20230406115733id_/https://www.budgetoffice.gov.ng/index.php/component/edocman/search-result?filter_search=2020%20&Itemid=0",
-            "method": "dataset_archive",
-            "status": "missing_cache",
-            "error": "Not present in offline cache"
-          },
-          {
-            "url": "https://www.budgetoffice.gov.ng/index.php/component/edocman/search-result?filter_search=2020%20&Itemid=0",
-            "method": "original",
-            "status": "http_error",
-            "error": "Timed out after 8s"
-          }
-        ],
-        "accepted": false,
-        "reason": "fetch_failed"
-      },
-      {
-        "sourceUrl": "https://www.budgetoffice.gov.ng/index.php?option=com_users&view=login&return=aHR0cHM6Ly93d3cuYnVkZ2V0b2ZmaWNlLmdvdi5uZy9pbmRleC5waHAvMjAyMS0yMDIzLW10ZWYtZnNwP3Rhc2s9ZG9jdW1lbnQudmlld2RvYyZpZD04MTQ=",
-        "attempts": [
-          {
-            "url": "https://web.archive.org/web/20210521175348/https://www.budgetoffice.gov.ng/index.php?option=com_users&view=login&return=aHR0cHM6Ly93d3cuYnVkZ2V0b2ZmaWNlLmdvdi5uZy9pbmRleC5waHAvMjAyMS0yMDIzLW10ZWYtZnNwP3Rhc2s9ZG9jdW1lbnQudmlld2RvYyZpZD04MTQ=",
-            "method": "dataset_archive",
-            "status": "http_error",
-            "error": "[Errno 61] Connection refused"
-          },
-          {
-            "url": "https://web.archive.org/web/20210521175348id_/https://www.budgetoffice.gov.ng/index.php?option=com_users&view=login&return=aHR0cHM6Ly93d3cuYnVkZ2V0b2ZmaWNlLmdvdi5uZy9pbmRleC5waHAvMjAyMS0yMDIzLW10ZWYtZnNwP3Rhc2s9ZG9jdW1lbnQudmlld2RvYyZpZD04MTQ=",
-            "method": "dataset_archive",
-            "status": "missing_cache",
-            "error": "Not present in offline cache"
-          },
-          {
-            "url": "https://www.budgetoffice.gov.ng/index.php?option=com_users&view=login&return=aHR0cHM6Ly93d3cuYnVkZ2V0b2ZmaWNlLmdvdi5uZy9pbmRleC5waHAvMjAyMS0yMDIzLW10ZWYtZnNwP3Rhc2s9ZG9jdW1lbnQudmlld2RvYyZpZD04MTQ=",
-            "method": "original",
-            "status": "http_error",
-            "error": "Timed out after 6s"
-          }
-        ],
-        "accepted": false,
-        "reason": "fetch_failed"
-      },
-      {
-        "sourceUrl": "https://www.google.com/url?q=https://www.budgetoffice.gov.ng/index.php/hmfbnp-public-presentation-of-2021-fgn-budget?task%3Ddocument.viewdoc%26id%3D897&sa=D&ust=1602757041951000&usg=AFQjCNH3Qpvb9d2uhgiOOhVBpZxtHZw2Rg",
-        "attempts": [
-          {
-            "url": "https://web.archive.org/web/20210526202243/https://www.google.com/url?q=https://www.budgetoffice.gov.ng/index.php/hmfbnp-public-presentation-of-2021-fgn-budget?task%3Ddocument.viewdoc%26id%3D897&sa=D&ust=1602757041951000&usg=AFQjCNH3Qpvb9d2uhgiOOhVBpZxtHZw2Rg",
-            "method": "dataset_archive",
-            "status": "http_error",
-            "error": "[Errno 61] Connection refused"
-          },
-          {
-            "url": "https://web.archive.org/web/20210526202243id_/https://www.google.com/url?q=https://www.budgetoffice.gov.ng/index.php/hmfbnp-public-presentation-of-2021-fgn-budget?task%3Ddocument.viewdoc%26id%3D897&sa=D&ust=1602757041951000&usg=AFQjCNH3Qpvb9d2uhgiOOhVBpZxtHZw2Rg",
-            "method": "dataset_archive",
-            "status": "missing_cache",
-            "error": "Not present in offline cache"
-          },
-          {
-            "url": "https://www.google.com/url?q=https://www.budgetoffice.gov.ng/index.php/hmfbnp-public-presentation-of-2021-fgn-budget?task%3Ddocument.viewdoc%26id%3D897&sa=D&ust=1602757041951000&usg=AFQjCNH3Qpvb9d2uhgiOOhVBpZxtHZw2Rg",
-            "method": "original",
             "status": "ok",
             "error": ""
           }
         ],
-        "accepted": false,
-        "reason": "document_too_short",
-        "wordCount": 46
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20210302101747id_/https://jamanetwork.com/journals/jama/fullarticle/2768086",
+        "wordCount": 3938,
+        "sha256": "807a8d88c56c0ea9a1d81dcca09629b8ac9b5fb4587428b8c19c67e3378d9c0b"
+      },
+      {
+        "sourceUrl": "https://www.cdc.gov/mmwr/Novel_Coronavirus_Reports.html",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230313222854/https://www.cdc.gov/mmwr/Novel_Coronavirus_Reports.html",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "[Errno 61] Connection refused"
+          },
+          {
+            "url": "https://web.archive.org/web/20230313222854id_/https://www.cdc.gov/mmwr/Novel_Coronavirus_Reports.html",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230313222854id_/https://www.cdc.gov/mmwr/Novel_Coronavirus_Reports.html",
+        "wordCount": 9645,
+        "sha256": "80deaf27ea848f727b1ca2634b6408652048c3c42528b887e44c6e10e66994a0"
       }
     ],
-    "accepted": false,
-    "reason": "fewer_than_two_accepted_documents"
+    "accepted": true,
+    "documentCount": 2
+  },
+  {
+    "sourceIndex": 394,
+    "caseId": "averitec-dev-0394",
+    "label": "NOT_ENOUGH_EVIDENCE",
+    "claim": "Under Trump's watch, auto assembly plants have been added at an unprecedented rate in Michigan, Ohio, North Carolina, South Carolina and possibly other states.",
+    "sources": [
+      {
+        "sourceUrl": "https://www.intelligenttransport.com/transport-news/24458/navya-production-plant-michigan/",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230406141149/https://www.intelligenttransport.com/transport-news/24458/navya-production-plant-michigan/",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "[Errno 61] Connection refused"
+          },
+          {
+            "url": "https://web.archive.org/web/20230406141149id_/https://www.intelligenttransport.com/transport-news/24458/navya-production-plant-michigan/",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230406141149id_/https://www.intelligenttransport.com/transport-news/24458/navya-production-plant-michigan/",
+        "wordCount": 537,
+        "sha256": "a8342655ecf0d6f12dce201ecdf633502f7535813b97b6666cc0f25728568991"
+      },
+      {
+        "sourceUrl": "https://alabamanewscenter.com/2017/09/27/toyota-to-invest-106m-in-alabama-engine-plant-add-50-jobs/",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230406141327/https://alabamanewscenter.com/2017/09/27/toyota-to-invest-106m-in-alabama-engine-plant-add-50-jobs/",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "[Errno 61] Connection refused"
+          },
+          {
+            "url": "https://web.archive.org/web/20230406141327id_/https://alabamanewscenter.com/2017/09/27/toyota-to-invest-106m-in-alabama-engine-plant-add-50-jobs/",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230406141327id_/https://alabamanewscenter.com/2017/09/27/toyota-to-invest-106m-in-alabama-engine-plant-add-50-jobs/",
+        "wordCount": 462,
+        "sha256": "d9d2b72f0479779c5b90fc18c150e6d2bb7db313729b3850c8b11bc4e9d570d2"
+      },
+      {
+        "sourceUrl": "https://9to5google.com/2019/01/22/waymo-michigan-self-driving-factory/",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230322153629/https://9to5google.com/2019/01/22/waymo-michigan-self-driving-factory/",
+            "method": "dataset_archive",
+            "status": "http_error",
+            "error": "[Errno 61] Connection refused"
+          },
+          {
+            "url": "https://web.archive.org/web/20230322153629id_/https://9to5google.com/2019/01/22/waymo-michigan-self-driving-factory/",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230322153629id_/https://9to5google.com/2019/01/22/waymo-michigan-self-driving-factory/",
+        "wordCount": 288,
+        "sha256": "ee7f9a6364df574d89c77c94640407319f9f8851ac46a6662c52e09d39564c53"
+      }
+    ],
+    "accepted": true,
+    "documentCount": 3
   },
   {
     "sourceIndex": 60,
@@ -2097,6 +2019,12 @@
             "method": "original",
             "status": "not_found",
             "error": "HTTP 404"
+          },
+          {
+            "url": "https://web.archive.org/web/20201104112040/https://pbs.twimg.com/profile_banners/1207634475254865921/1598874762/1500x500",
+            "method": "wayback_lookup",
+            "status": "invalid_content_type",
+            "error": "Expected HTML, got image/jpeg"
           }
         ],
         "accepted": false,
@@ -2332,5 +2260,115 @@
     ],
     "accepted": true,
     "documentCount": 2
+  },
+  {
+    "sourceIndex": 303,
+    "caseId": "averitec-dev-0303",
+    "label": "CONFLICTING_EVIDENCE",
+    "claim": "There is a double standard in how Senate Republicans handled the confirmations for Obama's and Trump's high court picks.",
+    "sources": [
+      {
+        "sourceUrl": "https://www.usatoday.com/story/news/politics/2020/10/15/amy-coney-barrett-senators-hear-experts-character-witnesses/3654473001/",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20211021070000/https://www.usatoday.com/story/news/politics/2020/10/15/amy-coney-barrett-senators-hear-experts-character-witnesses/3654473001/",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20211021070000/https://www.usatoday.com/story/news/politics/2020/10/15/amy-coney-barrett-senators-hear-experts-character-witnesses/3654473001/",
+        "wordCount": 2666,
+        "sha256": "c6ceefd15724b51eadef32ae0f5d4e31f573c10e7e46862d3d0b81f56cea2ee5"
+      },
+      {
+        "sourceUrl": "https://www.usatoday.com/story/news/2016/03/16/gop-senators-vow-not-consider-garland-fill-supreme-court-vacancy/81856428/",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20210615044526/https://www.usatoday.com/story/news/2016/03/16/gop-senators-vow-not-consider-garland-fill-supreme-court-vacancy/81856428/",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20210615044526/https://www.usatoday.com/story/news/2016/03/16/gop-senators-vow-not-consider-garland-fill-supreme-court-vacancy/81856428/",
+        "wordCount": 1012,
+        "sha256": "7ae87a4a28a7db8298bef220cefb32bed2a56af8b533a5040f676c2409678343"
+      }
+    ],
+    "accepted": true,
+    "documentCount": 2
+  },
+  {
+    "sourceIndex": 480,
+    "caseId": "averitec-dev-0480",
+    "label": "CONFLICTING_EVIDENCE",
+    "claim": "Donald Trump said: \"Biden also vowed to oppose school choice and close down charter schools, ripping away the ladder of opportunity for Black and Hispanic children.\"",
+    "sources": [
+      {
+        "sourceUrl": "https://www.edchoice.org/school-choice/what-is-school-choice/",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230406164815/https://www.edchoice.org/school-choice/what-is-school-choice/",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230406164815/https://www.edchoice.org/school-choice/what-is-school-choice/",
+        "wordCount": 247,
+        "sha256": "96f19a81719c4eb7a983569f4f8cc15561c8d6dc21258950bc4abaa5662c80b4"
+      },
+      {
+        "sourceUrl": "https://en.wikipedia.org/wiki/Charter_schools_in_the_United_States",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230402094402/https://en.wikipedia.org/wiki/Charter_schools_in_the_United_States",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230402094402/https://en.wikipedia.org/wiki/Charter_schools_in_the_United_States",
+        "wordCount": 12358,
+        "sha256": "92dd91c37ba9ef0d522e89812707295651185b8616dab69357b3391435d43e96"
+      },
+      {
+        "sourceUrl": "https://www.edchoice.org/school-choice/types-of-school-choice/",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20210118102704/https://www.edchoice.org/school-choice/types-of-school-choice/",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20210118102704/https://www.edchoice.org/school-choice/types-of-school-choice/",
+        "wordCount": 899,
+        "sha256": "4986946d84da7f81ecb0f0b79b6a908b0f329877aa1de4840c9d9e5265b5f9df"
+      },
+      {
+        "sourceUrl": "https://www.edweek.org/policy-politics/federal-funding-and-charter-school-closures-what-the-latest-government-data-show/2022/10",
+        "attempts": [
+          {
+            "url": "https://web.archive.org/web/20230129034019/https://www.edweek.org/policy-politics/federal-funding-and-charter-school-closures-what-the-latest-government-data-show/2022/10",
+            "method": "dataset_archive",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://web.archive.org/web/20230129034019/https://www.edweek.org/policy-politics/federal-funding-and-charter-school-closures-what-the-latest-government-data-show/2022/10",
+        "wordCount": 433,
+        "sha256": "637b7d67eee2ddac72786151f9dc3a37329d2497ebdfb93e5f4e51c24967d6de"
+      }
+    ],
+    "accepted": true,
+    "documentCount": 4
   }
 ]
