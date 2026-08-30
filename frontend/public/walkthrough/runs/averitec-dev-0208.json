@@ -18,52 +18,52 @@
       "atomId": "atom-1",
       "spans": [
         {
-          "id": "doc-07b5051e0f4b::sentence-72",
+          "id": "doc-cd2ffd52140b::sentence-6",
+          "documentId": "doc-cd2ffd52140b",
+          "text": "Non-traded\tgoods\tare\ttypically\tcheaper\tin\tpoorer\teconomies,\tso\tthat\tPPPs\tare\ttypically\tlower\tthan\texchange\trates\tfor\tpoor\tcountries,\tand\tare\tmore\tso\tthe\tpoorer\tthe\tcountry\n\n",
+          "start": 592,
+          "end": 765,
+          "context": "Purchasing\tpower\tparity\texchange\trates,\tPPPs,\tare\tinternational\tmultilateral\tprice\tindexes\tthat\tmeasure,\tfor\tthe\tvarious\tcomponents\tof\tGDP,\tthe\tamount\tof\tlocal\tcurrency\trequired\tto\tpurchase\tthe\tsame\treal\tamount\tin\tthat\tcountry\trelative\tto\ta\tnumeraire,\twhich\tis\ttypically\tthe\tUnited\tStates.\t Non-traded\tgoods\tare\ttypically\tcheaper\tin\tpoorer\teconomies,\tso\tthat\tPPPs\tare\ttypically\tlower\tthan\texchange\trates\tfor\tpoor\tcountries,\tand\tare\tmore\tso\tthe\tpoorer\tthe\tcountry\n\n RECOVERED SOURCE TEXT\n"
+        },
+        {
+          "id": "doc-07b5051e0f4b::sentence-156",
           "documentId": "doc-07b5051e0f4b",
-          "text": "No export or import prices are necessary. ",
-          "start": 8549,
-          "end": 8591,
-          "context": "Real GDI is calculated using a deflator for C, I, G and Inventories.  No export or import prices are necessary.  The level comparison is based only on the relative prices of goods and services sold on domestic markets.\n"
+          "text": "This approach does not need to directly measure pass-through for exports and imports since it makes use of average prices received for domestic production and domestic inputs used in the production process.\n",
+          "start": 22294,
+          "end": 22501,
+          "context": "The first approach to calculating producing power parities uses commodity output and input prices for individual industries to create deflators for industry output (value added).  This approach does not need to directly measure pass-through for exports and imports since it makes use of average prices received for domestic production and domestic inputs used in the production process.\n One set of these studies estimates producing power parities using commodity data coming directly from firm-based surveys. "
         },
         {
-          "id": "doc-4480543c9460::sentence-24",
+          "id": "doc-4480543c9460::sentence-12",
           "documentId": "doc-4480543c9460",
-          "text": "GDP per capita in Nigeria and other countries is calculated as the Gross Domestic Product (GDP) divided by the population.\n",
-          "start": 890,
-          "end": 1013,
-          "context": "Historical series\n GDP per capita in Nigeria and other countries is calculated as the Gross Domestic Product (GDP) divided by the population.\n We show the GDP per capita in Purchasing Power Parity (PPP) terms, i.e. we calculate the GDP per capita in different countries using U.S. prices. "
+          "text": "The average value for Nigeria during that period was 4098.47 U.S. dollars with a minimum of 2901.77 U.S. dollars in 1995 and a maximum of 5516.39 U.S. dollars in 2014. ",
+          "start": 498,
+          "end": 666,
+          "context": "For that indicator, we provide data for Nigeria from 1990 to 2021.  The average value for Nigeria during that period was 4098.47 U.S. dollars with a minimum of 2901.77 U.S. dollars in 1995 and a maximum of 5516.39 U.S. dollars in 2014.  The latest value from 2021 is 4969.22 U.S. dollars. "
         },
         {
-          "id": "doc-07b5051e0f4b::sentence-32",
+          "id": "doc-4480543c9460::sentence-26",
+          "documentId": "doc-4480543c9460",
+          "text": "The average value for Nigeria during that period was 4056.42 U.S. dollars with a minimum of 2895.35 U.S. dollars in 1995 and a maximum of 5429.1 U.S. dollars in 2015.\n",
+          "start": 1129,
+          "end": 1296,
+          "context": "For that indicator, we provide data for Nigeria from 1990 to 2021.  The average value for Nigeria during that period was 4056.42 U.S. dollars with a minimum of 2895.35 U.S. dollars in 1995 and a maximum of 5429.1 U.S. dollars in 2015.\n The latest value from 2021 is 4922.63 U.S. dollars. "
+        },
+        {
+          "id": "doc-07b5051e0f4b::sentence-308",
           "documentId": "doc-07b5051e0f4b",
-          "text": "But in a world where trade occurs, prices that are made up of commodities produced need not correspond to the prices of commodities consumed.\n",
-          "start": 2744,
-          "end": 2886,
-          "context": "In a world without trade between countries, the purchasing power and producing power parities will be identical, since then the commodities that a nation produced would be those that the country consumed.  But in a world where trade occurs, prices that are made up of commodities produced need not correspond to the prices of commodities consumed.\n In this note, we examine the differences in the purchasing power and producing power parity measures for Canada relative to the United States, elaborate on differences between the two, and discuss problems of estimation. "
+          "text": "Measuring a producing power parity is more difficult than measuring a purchasing power parity because statistical systems are not pre-disposed to gathering detailed, internationally comparable, estimates of import and export commodities in a manner analogous to the data collected for purchasing power estimates that need only make use of readily available expenditure-based prices.\n",
+          "start": 47790,
+          "end": 48173,
+          "context": "7.2 Level of producing power parities from projectors\n Measuring a producing power parity is more difficult than measuring a purchasing power parity because statistical systems are not pre-disposed to gathering detailed, internationally comparable, estimates of import and export commodities in a manner analogous to the data collected for purchasing power estimates that need only make use of readily available expenditure-based prices.\n Nevertheless, using the gross output and intermediate inputs for calculating a producing power parity, Baldwin, Gu and Yan (2008) generate a U.S.-Canada producing power estimate of 0.83 for the business sector and 0.85 for total GDP in 1999. "
         },
         {
-          "id": "doc-4480543c9460::sentence-15",
-          "documentId": "doc-4480543c9460",
-          "text": "Historically, the average for Nigeria from 1990 to 2024 is 6754 U.S. dollars. ",
-          "start": 486,
-          "end": 564,
-          "context": "In comparison, the world average is 27942 U.S. dollars, based on data from 180 countries.  Historically, the average for Nigeria from 1990 to 2024 is 6754 U.S. dollars.  The minimum value, 4782 U.S. dollars, was reached in 1999 while the maximum of 8892 U.S. dollars was recorded in 2015.\n"
-        },
-        {
-          "id": "doc-4480543c9460::sentence-1",
-          "documentId": "doc-4480543c9460",
-          "text": "Nigeria: GDP per capita, PPP\n",
-          "start": 0,
-          "end": 29,
-          "context": "Nigeria: GDP per capita, PPP\n * indicates monthly or quarterly data series\n"
-        },
-        {
-          "id": "doc-07b5051e0f4b::sentence-113",
+          "id": "doc-07b5051e0f4b::sentence-33",
           "documentId": "doc-07b5051e0f4b",
-          "text": "The OECD then requires producing power deflators, not purchasing power deflators. ",
-          "start": 15158,
-          "end": 15240,
-          "context": "The Methodological Manual on Purchasing Power Parities, produced jointly by Eurostat and the Organization of Economic Co-operation and Development (OECD 2006, p. 26) stresses that the purpose of creating deflators (what it refers to as purchasing power deflators) for intercountry studies is to produce statistics that can compare \"…differences in the volumes of goods and services produced [italics added] in countries. As such, they are real measures and measures of volume.\"  The OECD then requires producing power deflators, not purchasing power deflators.  Reinforcing this, the Manual (p. 33) stresses that the measures are meant \"to make spatial volume comparisons of GDP (size of economies), GDP per head (economic welfare), and GDP per hour worked (labour productivity).\" "
+          "text": "Purchasing power parity comparisons deflate the relative levels of nominal income (often referred to as gross domestic product [GDP]) using price indexes derived from prices for final domestic expenditures (primarily consumption, investment and government expenditures). ",
+          "start": 2278,
+          "end": 2549,
+          "context": "Indices of purchasing power parity are used to compare real income levels across countries based on a nation's ability to buy goods and services.  Purchasing power parity comparisons deflate the relative levels of nominal income (often referred to as gross domestic product [GDP]) using price indexes derived from prices for final domestic expenditures (primarily consumption, investment and government expenditures).  When domestic prices, rather than domestic and traded prices, are used to calculate real income, the resulting measure is referred to as real gross domestic income (GDI).\n"
         }
       ]
     }
@@ -73,38 +73,75 @@
       "atomId": "atom-1",
       "relations": [
         {
-          "spanId": "doc-07b5051e0f4b::sentence-72",
+          "spanId": "doc-cd2ffd52140b::sentence-6",
+          "documentId": "doc-cd2ffd52140b",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-07b5051e0f4b::sentence-156",
           "documentId": "doc-07b5051e0f4b",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-4480543c9460::sentence-24",
+          "spanId": "doc-4480543c9460::sentence-12",
           "documentId": "doc-4480543c9460",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-07b5051e0f4b::sentence-32",
+          "spanId": "doc-4480543c9460::sentence-26",
+          "documentId": "doc-4480543c9460",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-07b5051e0f4b::sentence-308",
           "documentId": "doc-07b5051e0f4b",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-4480543c9460::sentence-15",
-          "documentId": "doc-4480543c9460",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-4480543c9460::sentence-1",
-          "documentId": "doc-4480543c9460",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-07b5051e0f4b::sentence-113",
+          "spanId": "doc-07b5051e0f4b::sentence-33",
           "documentId": "doc-07b5051e0f4b",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         }
       ]
     }
   ],
+  "evidenceAudit": {
+    "claimPosition": {
+      "position": "INSUFFICIENT",
+      "supportSpanIds": [],
+      "attackSpanIds": [],
+      "contextSpanIds": [
+        "doc-cd2ffd52140b::sentence-6",
+        "doc-07b5051e0f4b::sentence-156",
+        "doc-07b5051e0f4b::sentence-308",
+        "doc-07b5051e0f4b::sentence-33"
+      ],
+      "reason": "The evidence discusses PPPs and their calculation but does not provide direct price comparisons between Nigeria and Saudi Arabia for oil, making it insufficient to establish the claim."
+    },
+    "obligations": [
+      {
+        "atomId": "atom-1",
+        "state": "UNRESOLVED",
+        "supportSpanIds": [],
+        "attackSpanIds": [],
+        "reason": "The evidence discusses PPPs and their calculation but does not provide direct price comparisons between Nigeria and Saudi Arabia for oil, making it insufficient to establish the claim."
+      }
+    ],
+    "materialOmission": {
+      "detected": false,
+      "supportSpanIds": [],
+      "contextSpanIds": [],
+      "reason": "No material omission was established."
+    },
+    "provider": "ollama",
+    "model": "qwen2.5:7b"
+  },
   "linguistics": {
     "schemaVersion": 2,
     "claimAnalysis": {
@@ -707,11 +744,13 @@
     "positions": {
       "supportPosition": false,
       "attackPosition": false,
+      "materialOmissionPosition": false,
       "supportObligationIds": [],
       "attackObligationIds": [],
       "unresolvedObligationIds": [
         "atom-1"
-      ]
+      ],
+      "groundedClaimPosition": "INSUFFICIENT"
     },
     "obligations": [
       {
@@ -737,7 +776,8 @@
       }
     ],
     "ruleTrace": [
-      "SINGLE uses its only obligation's support and attack positions.",
+      "The provenance-constrained claim audit sets the overall evidence position; deterministic aggregation maps that position to status.",
+      "Grounded claim position: INSUFFICIENT; The evidence discusses PPPs and their calculation but does not provide direct price comparisons between Nigeria and Saudi Arabia for oil, making it insufficient to establish the claim.",
       "Support position: no; attack position: no.",
       "Final verdict: NOT_ENOUGH_EVIDENCE."
     ]
@@ -745,7 +785,14 @@
   "recordedWith": {
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
-    "nliModel": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    "nliModel": "qwen2.5:7b",
     "linguisticsModel": "en_core_web_sm@3.8.0"
+  },
+  "timingsSeconds": {
+    "decomposition": 13.77,
+    "retrievalAndLinguistics": 3.037,
+    "evidenceAudit": 14.003,
+    "aggregation": 0.005,
+    "total": 30.83
   }
 }

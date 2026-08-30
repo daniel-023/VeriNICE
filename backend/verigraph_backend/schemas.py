@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import List, Literal, Optional
+from typing import Dict, List, Literal, Optional
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
@@ -337,6 +337,22 @@ class SupportClassificationRequest(APIModel):
 
     atoms: List[PipelineAtom] = Field(min_length=1, max_length=12)
     evidence: List[NLIAtomEvidence] = Field(min_length=1, max_length=12)
+    claim: Optional[str] = Field(default=None, min_length=1, max_length=5000)
+    document_titles: Dict[str, str] = Field(default_factory=dict)
+
+    @field_validator("claim")
+    @classmethod
+    def reject_blank_optional_claim(cls, value: Optional[str]) -> Optional[str]:
+        if value is not None and not value.strip():
+            raise ValueError("claim cannot be blank")
+        return value
+
+    @field_validator("document_titles")
+    @classmethod
+    def validate_document_titles(cls, value: Dict[str, str]) -> Dict[str, str]:
+        if len(value) > 8 or any(not key.strip() or not title.strip() for key, title in value.items()):
+            raise ValueError("documentTitles must contain at most eight non-blank entries")
+        return value
 
     @model_validator(mode="after")
     def validate_atom_coverage(self) -> "SupportClassificationRequest":
@@ -371,9 +387,73 @@ class AtomSupportClassification(APIModel):
     relations: List[EvidenceRelation] = Field(max_length=MAX_EVIDENCE_PER_ATOM)
 
 
+class GroundedObligationAudit(APIModel):
+    atom_id: str = Field(min_length=1, max_length=100)
+    state: Literal["SUPPORTED", "REFUTED", "BOTH", "UNRESOLVED"]
+    support_span_ids: List[str] = Field(default_factory=list, max_length=3)
+    attack_span_ids: List[str] = Field(default_factory=list, max_length=3)
+    reason: str = Field(min_length=1, max_length=500)
+
+
+class GroundedClaimPosition(str, Enum):
+    support_only = "SUPPORT_ONLY"
+    attack_only = "ATTACK_ONLY"
+    mixed_or_misleading = "MIXED_OR_MISLEADING"
+    insufficient = "INSUFFICIENT"
+
+
+class GroundedClaimAudit(APIModel):
+    position: GroundedClaimPosition
+    support_span_ids: List[str] = Field(default_factory=list, max_length=6)
+    attack_span_ids: List[str] = Field(default_factory=list, max_length=6)
+    context_span_ids: List[str] = Field(default_factory=list, max_length=6)
+    reason: str = Field(min_length=1, max_length=500)
+
+    @model_validator(mode="after")
+    def require_grounding_for_decisive_positions(self) -> "GroundedClaimAudit":
+        if self.position == GroundedClaimPosition.support_only and not self.support_span_ids:
+            raise ValueError("SUPPORT_ONLY requires a support span")
+        if self.position == GroundedClaimPosition.attack_only and not self.attack_span_ids:
+            raise ValueError("ATTACK_ONLY requires an attack span")
+        if self.position == GroundedClaimPosition.mixed_or_misleading and (
+            not self.support_span_ids
+            or not (self.attack_span_ids or self.context_span_ids)
+        ):
+            raise ValueError("MIXED_OR_MISLEADING requires two-sided evidence")
+        if self.position == GroundedClaimPosition.insufficient and (
+            self.support_span_ids or self.attack_span_ids
+        ):
+            raise ValueError("INSUFFICIENT cannot retain decisive support or attack spans")
+        return self
+
+
+class MaterialOmissionCertificate(APIModel):
+    detected: bool = False
+    support_span_ids: List[str] = Field(default_factory=list, max_length=3)
+    context_span_ids: List[str] = Field(default_factory=list, max_length=3)
+    reason: str = Field(default="No material omission was established.", min_length=1, max_length=500)
+
+    @model_validator(mode="after")
+    def require_two_sided_grounding_when_detected(self) -> "MaterialOmissionCertificate":
+        if self.detected and (not self.support_span_ids or not self.context_span_ids):
+            raise ValueError("detected material omission requires support and context spans")
+        if not self.detected and (self.support_span_ids or self.context_span_ids):
+            raise ValueError("undetected material omission cannot retain evidence spans")
+        return self
+
+
+class GroundedEvidenceAuditResult(APIModel):
+    claim_position: GroundedClaimAudit
+    obligations: List[GroundedObligationAudit] = Field(min_length=1, max_length=12)
+    material_omission: MaterialOmissionCertificate
+    provider: Literal["ollama"] = "ollama"
+    model: str
+
+
 class SupportClassificationResponse(APIModel):
     classifications: List[AtomSupportClassification]
-    provider: Literal["transformers"] = "transformers"
+    evidence_audit: Optional[GroundedEvidenceAuditResult] = None
+    provider: Literal["transformers", "ollama"] = "transformers"
     model: str
 
 
@@ -550,9 +630,11 @@ class AggregationWarning(APIModel):
 class ClaimEvidencePositions(APIModel):
     support_position: bool
     attack_position: bool
+    material_omission_position: bool = False
     support_obligation_ids: List[str] = Field(default_factory=list)
     attack_obligation_ids: List[str] = Field(default_factory=list)
     unresolved_obligation_ids: List[str] = Field(default_factory=list)
+    grounded_claim_position: Optional[GroundedClaimPosition] = None
 
 
 class ObligationEvidenceSummary(APIModel):
@@ -573,6 +655,8 @@ class VerdictAggregationRequest(APIModel):
     atoms: List[DecomposedAtom] = Field(min_length=1, max_length=12)
     evidence: List[AtomEvidence] = Field(min_length=1, max_length=12)
     classifications: List[AtomSupportClassification] = Field(min_length=1, max_length=12)
+    material_omission: Optional[MaterialOmissionCertificate] = None
+    claim_audit: Optional[GroundedClaimAudit] = None
     linguistic_summaries: List[ObligationLinguisticSummary] = Field(default_factory=list, max_length=12)
 
     @model_validator(mode="after")

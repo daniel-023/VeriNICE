@@ -68,13 +68,13 @@ export function PipelinePanel({
             : "Runs automatically after decomposition.";
   const nliCopy =
     nliState === "running"
-      ? "Comparing every candidate sentence with its atomic claim."
+      ? "Auditing the evidence bundle for grounded support and explicit attacks."
       : nliState === "complete"
-        ? `${relationCount} sentence relation${relationCount === 1 ? "" : "s"} classified.`
+        ? `${relationCount} grounded relation${relationCount === 1 ? "" : "s"} classified.`
         : nliState === "error"
-          ? "Atoms and candidate evidence are preserved. Retry NLI only."
+          ? "Atoms and candidate evidence are preserved. Retry the evidence audit only."
           : retrievalState === "complete"
-            ? "Waiting to classify the retrieved candidates."
+            ? "Waiting to audit the retrieved candidates."
             : "Runs automatically after candidate retrieval.";
   const verdictCopy =
     verdictState === "complete" && verdict
@@ -182,14 +182,14 @@ export function PipelinePanel({
           </span>
           <span className="stage-copy">
             <small>03 · {recorded ? "RECORDED" : "LIVE"}</small>
-            <strong>Compare claim and evidence</strong>
+            <strong>Audit grounded evidence</strong>
             <p>{nliCopy}</p>
           </span>
           <span className="stage-actions">
             <span className="stage-state">{stateLabel(nliState)}</span>
             {nliState === "error" ? (
               <button type="button" className="retry-button" onClick={onRetryNli}>
-                Retry NLI
+                Retry audit
               </button>
             ) : null}
           </span>
@@ -206,8 +206,8 @@ export function PipelinePanel({
               {graphState === "complete"
                 ? `${graphLinkCount} support or contradiction link${graphLinkCount === 1 ? "" : "s"} ready to inspect.`
                 : graphState === "running"
-                  ? "Waiting for sentence-level NLI relations."
-                  : "Appears after NLI classification completes."}
+                  ? "Waiting for grounded evidence relations."
+                  : "Appears after the evidence audit completes."}
             </p>
             {graphState === "complete" ? (
               <a className="stage-link" href="#argumentation-graph">View Argumentation Graph</a>

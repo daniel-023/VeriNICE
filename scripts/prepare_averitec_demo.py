@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import html
+import io
 import json
 import re
 import sys
@@ -39,18 +40,30 @@ DEFAULT_SEED_CACHE = ROOT / "data" / "cache" / "averitec_seed.jsonl"
 MIN_DOCUMENT_WORDS = 175
 MAX_DOCUMENTS_PER_CASE = 8
 MAX_HTML_BYTES = 5_000_000
+MAX_PDF_BYTES = 20_000_000
+MAX_PDF_PAGES = 300
+MAX_DOCUMENT_CHARACTERS = 250_000
 MIN_CASES_PER_LABEL = 8
 MAX_CASES_PER_LABEL = 8
 USER_AGENT = "VeriGraph-demo/0.4 (offline research dataset preparation)"
+EVIDENCE_CARD_HEADING = "AVERITEC HUMAN-ANNOTATED EVIDENCE CARD"
 
 
+PUBLISHED_CASES: Dict[ReferenceLabel, Sequence[int]] = {
+    ReferenceLabel.supported: (34, 146, 158, 125, 319, 392, 145, 323),
+    ReferenceLabel.refuted: (44, 280, 419, 495, 89, 3, 4, 8),
+    ReferenceLabel.not_enough_evidence: (15, 413, 26, 208, 435, 82, 142, 394),
+    ReferenceLabel.conflicting_evidence: (60, 100, 423, 10, 18, 58, 303, 480),
+}
+
+# Published cases are always attempted first. Fallback recovery may improve as
+# web archives change, but it must never silently replace a recorded/evaluated
+# case in the stable cohort.
 CANDIDATES: Dict[ReferenceLabel, Sequence[int]] = {
-    ReferenceLabel.supported: (34, 77, 144, 146, 158, 453, 125, 319, 392, 145, 323, 161),
-    ReferenceLabel.refuted: (44, 91, 168, 171, 239, 439, 180, 280, 419, 420, 495, 89, 3, 4, 8),
-    # Preserve the five published walkthrough cases before extending the label
-    # with three newly recovered examples.
-    ReferenceLabel.not_enough_evidence: (15, 413, 26, 208, 435, 82, 142, 394, 498, 428, 229, 233),
-    ReferenceLabel.conflicting_evidence: (60, 100, 259, 360, 404, 423, 10, 18, 58, 303, 480, 496),
+    ReferenceLabel.supported: (*PUBLISHED_CASES[ReferenceLabel.supported], 77, 144, 453, 161),
+    ReferenceLabel.refuted: (*PUBLISHED_CASES[ReferenceLabel.refuted], 91, 168, 171, 239, 439, 180, 420),
+    ReferenceLabel.not_enough_evidence: (*PUBLISHED_CASES[ReferenceLabel.not_enough_evidence], 498, 428, 229, 233),
+    ReferenceLabel.conflicting_evidence: (*PUBLISHED_CASES[ReferenceLabel.conflicting_evidence], 259, 360, 404, 496),
 }
 
 SOURCE_LABELS = {
@@ -159,6 +172,101 @@ def extract_html(page_html: str, url: str) -> FetchResult:
     )
 
 
+def _compact_structured_list_pdf(text: str, title: str) -> Optional[str]:
+    """Preserve every named list member when an official list is API-sized.
+
+    Some consolidated government lists repeat addresses and administrative
+    metadata for thousands of entries and exceed the document schema. Their
+    ``Name 6`` fields provide a stable, explicit membership index. This
+    compactor keeps every such field; it never truncates a prefix of the list.
+    """
+    lines = [line.strip() for line in text.splitlines()]
+    names: List[str] = []
+    for index, line in enumerate(lines):
+        if line != "Name 6:":
+            continue
+        components: List[str] = []
+        if index + 1 < len(lines) and lines[index + 1]:
+            components.append(lines[index + 1].strip(" ."))
+        cursor = index + 2
+        while cursor + 1 < len(lines) and cursor < index + 18:
+            if re.fullmatch(r"[1-5]:", lines[cursor]):
+                value = lines[cursor + 1].strip(" .")
+                if value and value.casefold() != "n/a":
+                    components.append(value)
+                cursor += 2
+            else:
+                cursor += 1
+        name = " ".join(component for component in components if component)
+        if name:
+            names.append(name)
+    unique_names = list(dict.fromkeys(names))
+    if len(unique_names) < 20:
+        return None
+    compact = "\n".join(
+        [
+            title,
+            (
+                "Complete compact membership index extracted from every structured "
+                f"Name 6 field in the source PDF ({len(unique_names)} unique targets). "
+                "Addresses, dates, and administrative notes are omitted; no target "
+                "entry is truncated."
+            ),
+            "TARGETS",
+            *unique_names,
+        ]
+    )
+    return compact if len(compact) <= MAX_DOCUMENT_CHARACTERS else None
+
+
+def extract_pdf(content: bytes, url: str) -> FetchResult:
+    """Extract selectable PDF text without OCR or layout-derived inference."""
+    try:
+        from pypdf import PdfReader
+    except ImportError as error:
+        raise RuntimeError(
+            "PDF dataset preparation requires pypdf. Install the backend data extra."
+        ) from error
+    try:
+        reader = PdfReader(io.BytesIO(content), strict=False)
+        if len(reader.pages) > MAX_PDF_PAGES:
+            return FetchResult(
+                status="invalid_content_type",
+                error=f"PDF exceeded {MAX_PDF_PAGES} pages",
+            )
+        page_text = [page.extract_text() or "" for page in reader.pages]
+    except Exception as error:
+        return FetchResult(status="extraction_failed", error=f"PDF extraction failed: {error}")
+    text = _clean_extracted_text("\n\n".join(page_text))
+    if not text:
+        return FetchResult(
+            status="extraction_failed",
+            error="No selectable PDF text found; OCR is not performed",
+        )
+    title = ""
+    try:
+        title = str((reader.metadata or {}).get("/Title") or "").strip()
+    except Exception:
+        title = ""
+    title = title or Path(urlparse(url).path).name or urlparse(url).netloc or "PDF evidence"
+    if len(text) > MAX_DOCUMENT_CHARACTERS:
+        compact = _compact_structured_list_pdf(text, title)
+        if compact is None:
+            return FetchResult(
+                status="invalid_content_type",
+                error=(
+                    f"Extracted PDF text exceeded {MAX_DOCUMENT_CHARACTERS} characters "
+                    "and was not a supported complete structured list"
+                ),
+            )
+        text = compact
+    return FetchResult(
+        status="ok",
+        text=text,
+        title=title[:300],
+    )
+
+
 class HttpFetcher:
     def __init__(
         self,
@@ -177,6 +285,7 @@ class HttpFetcher:
         self._last_request = 0.0
         self._throttle_lock = threading.Lock()
         self._client_lock = threading.Lock()
+        self._resolution_lock = threading.Lock()
         self._clients: List[httpx.Client] = []
         self._thread_local = threading.local()
         self._client_options = dict(
@@ -184,6 +293,19 @@ class HttpFetcher:
             timeout=timeout,
             headers={"User-Agent": USER_AGENT},
         )
+        self._wayback_resolution_path = self.cache_dir / "wayback-resolutions.json"
+        try:
+            loaded_resolutions = json.loads(
+                self._wayback_resolution_path.read_text(encoding="utf-8")
+            )
+            self._wayback_resolutions = {
+                str(key): str(value)
+                for key, value in loaded_resolutions.items()
+                if str(key).startswith(("http://", "https://"))
+                and str(value).startswith(("http://", "https://"))
+            }
+        except (OSError, TypeError, ValueError):
+            self._wayback_resolutions: Dict[str, str] = {}
 
     def _client(self) -> httpx.Client:
         client = getattr(self._thread_local, "client", None)
@@ -207,7 +329,31 @@ class HttpFetcher:
         if not path.exists():
             return None
         try:
-            return FetchResult(**json.loads(path.read_text(encoding="utf-8")))
+            result = FetchResult(**json.loads(path.read_text(encoding="utf-8")))
+            # Older preparation runs rejected PDFs before PDF extraction was
+            # supported. Retry only that now-stale negative cache entry; other
+            # deterministic failures remain cached.
+            if (
+                result.status == "invalid_content_type"
+                and "application/pdf" in result.error.casefold()
+            ):
+                return None
+            if (
+                result.status == "ok"
+                and result.method == "http_pdf"
+                and len(result.text) > MAX_DOCUMENT_CHARACTERS
+            ):
+                compact = _compact_structured_list_pdf(result.text, result.title)
+                if compact is None:
+                    return None
+                result = FetchResult(
+                    status="ok",
+                    text=compact,
+                    title=result.title,
+                    method="cached_pdf_compaction",
+                )
+                self._save_cache(url, result)
+            return result
         except (OSError, TypeError, ValueError):
             return None
 
@@ -283,6 +429,23 @@ class HttpFetcher:
                     continue
                 response.raise_for_status()
                 content_type = response.headers.get("content-type", "").lower()
+                is_pdf = (
+                    "application/pdf" in content_type
+                    or response.content.startswith(b"%PDF-")
+                    or urlparse(str(response.url)).path.casefold().endswith(".pdf")
+                )
+                if is_pdf:
+                    if len(response.content) > MAX_PDF_BYTES:
+                        result = FetchResult(
+                            status="invalid_content_type",
+                            error=f"PDF response exceeded {MAX_PDF_BYTES} bytes",
+                        )
+                        self._save_cache(url, result)
+                        return result
+                    result = extract_pdf(response.content, str(response.url))
+                    result = FetchResult(**{**result.__dict__, "method": "http_pdf"})
+                    self._save_cache(url, result)
+                    return result
                 if "html" not in content_type:
                     result = FetchResult(
                         status="invalid_content_type",
@@ -316,6 +479,11 @@ class HttpFetcher:
         return result
 
     def wayback_url(self, url: str) -> Optional[str]:
+        canonical = _canonical_url(url)
+        with self._resolution_lock:
+            cached = self._wayback_resolutions.get(canonical)
+        if cached:
+            return cached
         if self.offline:
             return None
         self._throttle()
@@ -330,7 +498,17 @@ class HttpFetcher:
             snapshot = closest.get("url") if closest.get("available") else None
             if isinstance(snapshot, str) and snapshot.startswith("http://"):
                 snapshot = "https://" + snapshot[len("http://") :]
-            return snapshot if isinstance(snapshot, str) else None
+            if isinstance(snapshot, str):
+                with self._resolution_lock:
+                    self._wayback_resolutions[canonical] = snapshot
+                    self.cache_dir.mkdir(parents=True, exist_ok=True)
+                    self._wayback_resolution_path.write_text(
+                        json.dumps(self._wayback_resolutions, ensure_ascii=False, indent=2)
+                        + "\n",
+                        encoding="utf-8",
+                    )
+                return snapshot
+            return None
         except (httpx.HTTPError, ValueError):
             return None
 
@@ -340,7 +518,7 @@ def _source_groups(row: Dict[str, Any]) -> List[Dict[str, Any]]:
     for question in row.get("questions", []) or []:
         question_text = (question.get("question") or "").strip()
         for answer in question.get("answers", []) or []:
-            if answer.get("source_medium") != "Web text":
+            if answer.get("source_medium") not in {"Web text", "PDF"}:
                 continue
             source_url = (answer.get("source_url") or "").strip()
             if not source_url.startswith(("http://", "https://")):
@@ -371,6 +549,23 @@ def _source_groups(row: Dict[str, Any]) -> List[Dict[str, Any]]:
             answer_text = (answer.get("answer") or "").strip()
             group["evidence_text"].append(f"{question_text} {answer_text}".strip())
     return list(groups.values())
+
+
+def _annotated_evidence_card(evidence_text: Sequence[str], source_url: str) -> str:
+    """Preserve the evidence-conditioned AVeriTeC task input transparently.
+
+    Archived pages can drift or disappear after annotation.  The benchmark's
+    human question-answer evidence is therefore stored beside the recovered
+    page text, without copying either the reference label or its justification.
+    """
+    rows = [
+        EVIDENCE_CARD_HEADING,
+        "These question-answer statements were written by AVeriTeC annotators and attributed to the source below.",
+        f"Source URL: {source_url}",
+    ]
+    for index, item in enumerate(evidence_text, start=1):
+        rows.append(f"Evidence {index}: {item.strip()}")
+    return "\n".join(rows)
 
 
 def _is_relevant(claim: str, evidence_text: Sequence[str], document: str) -> bool:
@@ -455,11 +650,15 @@ def prepare_case(
             document_id = "doc-" + hashlib.sha256(
                 group["source_url"].encode("utf-8")
             ).hexdigest()[:12]
+            evidence_card = _annotated_evidence_card(
+                group["evidence_text"], group["source_url"]
+            )
+            document_text = f"{evidence_card}\n\nRECOVERED SOURCE TEXT\n{result.text}"
             document = DemoDocument(
                 id=document_id,
                 title=result.title or urlparse(group["source_url"]).netloc or "Evidence source",
                 url=group["source_url"],
-                text=result.text,
+                text=document_text,
             )
             source_audit.update(
                 {
@@ -467,6 +666,9 @@ def prepare_case(
                     "resolvedUrl": resolved_url,
                     "wordCount": _word_count(result.text),
                     "sha256": hashlib.sha256(result.text.encode("utf-8")).hexdigest(),
+                    "annotatedEvidenceSha256": hashlib.sha256(
+                        evidence_card.encode("utf-8")
+                    ).hexdigest(),
                 }
             )
             return document, source_audit

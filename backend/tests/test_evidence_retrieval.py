@@ -13,6 +13,7 @@ from verigraph_backend.errors import (
 )
 from verigraph_backend.evidence_retrieval import (
     MAX_CANDIDATE_CHARACTERS,
+    MAX_CONTEXT_CHARACTERS,
     _eligible_sentences,
     _rank_hybrid_sentences,
     _rank_sentences,
@@ -46,6 +47,23 @@ def test_segmentation_preserves_offsets_paragraphs_repetition_and_unicode() -> N
     assert all(document[sentence.start : sentence.end] == sentence.text for sentence in sentences)
     assert len({sentence.id for sentence in sentences}) == len(sentences)
     assert sentences[0].text.endswith("\n\n")
+
+
+def test_segmentation_keeps_annotated_question_with_its_short_answer() -> None:
+    document = (
+        "AVERITEC HUMAN-ANNOTATED EVIDENCE CARD\n"
+        "These statements were written by annotators.\n"
+        "Evidence 1: Did the official plan ban farming? No, it contains no such provision.\n\n"
+        "RECOVERED SOURCE TEXT\nThe plan sets emissions targets."
+    )
+    sentences = segment_document(document, "doc-card")
+    evidence_span = next(
+        sentence for sentence in sentences if "Evidence 1:" in sentence.text
+    )
+
+    assert "Did the official plan ban farming? No, it contains no such provision." in evidence_span.text
+    assert document[evidence_span.start : evidence_span.end] == evidence_span.text
+    assert "".join(sentence.text for sentence in sentences) == document
 
 
 def test_repeated_sentences_across_documents_keep_document_scoped_ids() -> None:
@@ -237,6 +255,38 @@ def test_context_does_not_cross_into_another_document() -> None:
     span = _span(last_of_first, {"doc-a": first, "doc-b": second}, ordered)
     assert span.context is not None
     assert "Beta" not in span.context
+
+
+def test_context_is_bounded_without_dropping_the_selected_sentence() -> None:
+    before = "a" * 3500 + "."
+    target = "The decisive fact."
+    after = "b" * 3500 + "."
+    document = f"{before} {target} {after}"
+    sentences = [
+        SentenceSpan("before", before, 0, len(before), "doc-a", 0),
+        SentenceSpan(
+            "target",
+            target,
+            len(before) + 1,
+            len(before) + 1 + len(target),
+            "doc-a",
+            1,
+        ),
+        SentenceSpan(
+            "after",
+            after,
+            len(before) + len(target) + 2,
+            len(document),
+            "doc-a",
+            2,
+        ),
+    ]
+
+    span = _span(sentences[1], {"doc-a": document}, sentences)
+
+    assert span.context is not None
+    assert len(span.context) <= MAX_CONTEXT_CHARACTERS
+    assert target in span.context
 
 
 def test_blank_and_overlong_extraction_artifacts_are_not_candidates() -> None:

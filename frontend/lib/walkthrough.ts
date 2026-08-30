@@ -28,7 +28,7 @@ const walkthroughHealth: Health = {
   linguisticsConfigured: true,
   decompositionModel: "Qwen2.5 via Ollama (recorded)",
   retrievalModel: "BAAI/bge-small-en-v1.5 (recorded)",
-  nliModel: "DeBERTa-v3-base-mnli-fever-anli (recorded)",
+  nliModel: "DeBERTa-v3 compatibility path (not used in recorded claim audits)",
   linguisticsModel: "en_core_web_sm@3.8.0 (recorded)",
 };
 

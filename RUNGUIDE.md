@@ -14,7 +14,9 @@ Run every command from the `verigraph/` directory.
 
 - `qwen2.5:7b` in the host Ollama installation (about 4.7 GB)
 - `BAAI/bge-small-en-v1.5` in `data/models/bge-small-en-v1.5`
-- `MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli` in `data/models/deberta-v3-base-mnli-fever-anli`
+- optional compatibility model `MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli`
+  in `data/models/deberta-v3-base-mnli-fever-anli` (not used by the standard
+  claim-audit workflow)
 - the pinned spaCy parser in `backend/.venv`
 
 Those generated assets are ignored by Git. Once preparation finishes, the
@@ -49,13 +51,13 @@ Start from a healthy prepared stack, then run:
 
 The recorder calls the local FastAPI backend directly for every approved case
 in the private bundle (32, with eight per reference verdict). It saves the resulting typed
-obligations, candidate evidence, NLI relations, linguistic analyses, and the
-deterministic verdict under `frontend/public/walkthrough/`. The launcher
+obligations, candidate evidence, audited relations, linguistic analyses, and the
+deterministic draft status under `frontend/public/walkthrough/`. The launcher
 enforces a complete 22-case snapshot before succeeding.
 
-Walkthrough mode computes nothing in the browser, so the verdict has to travel
+Walkthrough mode computes nothing in the browser, so the status has to travel
 with the run. A recording made before stage 05 existed will build, but it
-renders no verdict panel and no typed obligations — check that
+renders no status panel and no typed obligations — check that
 `frontend/public/walkthrough/runs/*.json` carry `"schemaVersion": 2`, a
 `composition`, a `role` on every atom, and a `verdict`.
 

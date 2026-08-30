@@ -41,6 +41,7 @@ pydantic==2.10.6
 pydantic_core==2.27.2
 Pygments==2.20.0
 pysbd==0.3.4
+pypdf==5.9.0
 python-dotenv==1.0.1
 PyYAML==6.0.3
 regex==2026.1.15

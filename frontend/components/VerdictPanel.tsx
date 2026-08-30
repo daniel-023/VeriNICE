@@ -45,13 +45,15 @@ export function VerdictPanel({
         <div>
           <p className="eyebrow">Stage 05 · Deterministic aggregation</p>
           <h2 id="verdict-heading">
-            Predicted verdict
+            Rule-derived evidence status
             <span className={`verdict-chip ${verdictClass(result.verdict)}`}>
               {display(result.verdict)}
             </span>
           </h2>
           <p className="verdict-rule">
-            {COMPOSITION_RULE[result.composition] ?? COMPOSITION_RULE.SINGLE}
+            {result.positions.groundedClaimPosition
+              ? "A provenance-constrained claim audit supplies the overall position; rules map it to this draft status."
+              : COMPOSITION_RULE[result.composition] ?? COMPOSITION_RULE.SINGLE}
           </p>
         </div>
         {match !== null ? (
@@ -64,12 +66,20 @@ export function VerdictPanel({
       </div>
 
       <div className="verdict-positions" aria-label="Claim-level evidence positions">
+        {result.positions.groundedClaimPosition ? (
+          <span className="position-held">
+            Audit: {display(result.positions.groundedClaimPosition)}
+          </span>
+        ) : null}
         <span className={result.positions.supportPosition ? "position-held" : "position-absent"}>
           {result.positions.supportPosition ? "Support position held" : "No support position"}
         </span>
         <span className={result.positions.attackPosition ? "position-held" : "position-absent"}>
           {result.positions.attackPosition ? "Attack position held" : "No attack position"}
         </span>
+        {result.positions.materialOmissionPosition ? (
+          <span className="position-held">Material-omission position held</span>
+        ) : null}
       </div>
 
       <ul className="verdict-obligations" aria-label="Obligation evidence states">

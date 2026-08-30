@@ -2,7 +2,12 @@
   "caseId": "averitec-dev-0044",
   "schemaVersion": 2,
   "composition": "SINGLE",
-  "warnings": [],
+  "warnings": [
+    {
+      "code": "DECOMPOSITION_FALLBACK",
+      "message": "Structured decomposition failed; the original claim was retained as one obligation."
+    }
+  ],
   "atoms": [
     {
       "id": "atom-1",
@@ -18,52 +23,52 @@
       "atomId": "atom-1",
       "spans": [
         {
-          "id": "doc-f72194b71ba6::sentence-7",
+          "id": "doc-f72194b71ba6::sentence-117",
+          "documentId": "doc-f72194b71ba6",
+          "text": "- 7 tips for going outside safely with your children during the COVID-19 pandemic\n",
+          "start": 11188,
+          "end": 11270,
+          "context": "- New warning on coronavirus symptoms in children — what parents need to know\n - 7 tips for going outside safely with your children during the COVID-19 pandemic\n - Strategies to support teens and young adults with autism spectrum disorder during COVID-19\n"
+        },
+        {
+          "id": "doc-f72194b71ba6::sentence-113",
+          "documentId": "doc-f72194b71ba6",
+          "text": "- Youth sports during COVID-19: What parents need to know and do\n",
+          "start": 10918,
+          "end": 10983,
+          "context": "- School, camp, daycare, and sports physicals: What to do in the time of COVID-19\n - Youth sports during COVID-19: What parents need to know and do\n - How to help your young child cope with the pandemic\n"
+        },
+        {
+          "id": "doc-f72194b71ba6::sentence-123",
+          "documentId": "doc-f72194b71ba6",
+          "text": "- What one study from China tells us about COVID-19 and children\n",
+          "start": 11565,
+          "end": 11630,
+          "context": "How to manage during school closures\n - What one study from China tells us about COVID-19 and children\n - Grandparenting in the time of COVID-19\n"
+        },
+        {
+          "id": "doc-f72194b71ba6::sentence-14",
           "documentId": "doc-f72194b71ba6",
           "text": "Children, including very young children, can develop COVID-19. ",
-          "start": 561,
-          "end": 624,
+          "start": 1245,
+          "end": 1308,
           "context": "How does COVID-19 affect children?\n Children, including very young children, can develop COVID-19.  Many of them have no symptoms. "
         },
         {
-          "id": "doc-b359fc5770e9::sentence-2",
-          "documentId": "doc-b359fc5770e9",
-          "text": "In the past, some parents participated in “chickenpox parties” to intentionally expose their unvaccinated children to a child with chickenpox in hopes that they would get the disease. ",
-          "start": 13,
-          "end": 197,
-          "context": "Transmission\n In the past, some parents participated in “chickenpox parties” to intentionally expose their unvaccinated children to a child with chickenpox in hopes that they would get the disease.  CDC strongly recommends against hosting or participating in these events. "
-        },
-        {
-          "id": "doc-f72194b71ba6::sentence-92",
+          "id": "doc-f72194b71ba6::sentence-4",
           "documentId": "doc-f72194b71ba6",
-          "text": "In a situation where there is no choice — such as if the grandparent lives with the grandchildren — then the family should do everything they can to try to limit the risk of COVID-19. ",
-          "start": 9104,
-          "end": 9288,
-          "context": "What can I do to reduce the risk of getting sick when caring for my grandchildren?\n In a situation where there is no choice — such as if the grandparent lives with the grandchildren — then the family should do everything they can to try to limit the risk of COVID-19.  The grandchildren should be isolated as much as possible, as should the parents, so that the overall family risk is as low as possible. "
+          "text": "Evidence 1: What are the adverse effects of infecting children with COVID-19 A complication that has more recently been observed in children can be severe and dangerous. ",
+          "start": 241,
+          "end": 411,
+          "context": "Source URL: https://www.health.harvard.edu/diseases-and-conditions/coronavirus-outbreak-and-kids\n Evidence 1: What are the adverse effects of infecting children with COVID-19 A complication that has more recently been observed in children can be severe and dangerous.  Called multisystem inflammatory syndrome in children (MIS-C), it can lead to life-threatening problems with the heart and other organs in the body. "
         },
         {
-          "id": "doc-f72194b71ba6::sentence-34",
-          "documentId": "doc-f72194b71ba6",
-          "text": "Most children who become infected with the COVID-19 virus have no symptoms, or they have milder symptoms such as low-grade fever, fatigue, and cough. ",
-          "start": 2467,
-          "end": 2617,
-          "context": "Are kids any more or less likely than adults to spread coronavirus?\n Most children who become infected with the COVID-19 virus have no symptoms, or they have milder symptoms such as low-grade fever, fatigue, and cough.  Early studies suggested that children do not contribute much to the spread of coronavirus. "
-        },
-        {
-          "id": "doc-b359fc5770e9::sentence-15",
+          "id": "doc-b359fc5770e9::sentence-4",
           "documentId": "doc-b359fc5770e9",
-          "text": "Vaccinated people who get chickenpox may develop lesions that do not crust. ",
-          "start": 1295,
-          "end": 1371,
-          "context": "A person with chickenpox is contagious beginning 1 to 2 days before rash onset until all the chickenpox lesions have crusted (scabbed).  Vaccinated people who get chickenpox may develop lesions that do not crust.  These people are considered contagious until no new lesions have appeared for 24 hours.\n"
-        },
-        {
-          "id": "doc-b359fc5770e9::sentence-7",
-          "documentId": "doc-b359fc5770e9",
-          "text": "The best way to protect infants and children against chickenpox is to get them vaccinated.\n",
-          "start": 537,
-          "end": 628,
-          "context": "So it is not worth taking the chance of exposing your child to someone with the disease.  The best way to protect infants and children against chickenpox is to get them vaccinated.\n Chickenpox is a highly contagious disease caused by the varicella-zoster virus (VZV). "
+          "text": "Evidence 1: Are pox parties recommended by the CDC CDC strongly recommends against hosting or participating in these events\n\n",
+          "start": 211,
+          "end": 336,
+          "context": "Source URL: https://www.cdc.gov/chickenpox/about/transmission.html\n Evidence 1: Are pox parties recommended by the CDC CDC strongly recommends against hosting or participating in these events\n\n RECOVERED SOURCE TEXT\n"
         }
       ]
     }
@@ -73,38 +78,76 @@
       "atomId": "atom-1",
       "relations": [
         {
-          "spanId": "doc-f72194b71ba6::sentence-7",
+          "spanId": "doc-f72194b71ba6::sentence-117",
           "documentId": "doc-f72194b71ba6",
-          "relation": "CONTRADICTION"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-b359fc5770e9::sentence-2",
-          "documentId": "doc-b359fc5770e9",
-          "relation": "CONTRADICTION"
-        },
-        {
-          "spanId": "doc-f72194b71ba6::sentence-92",
+          "spanId": "doc-f72194b71ba6::sentence-113",
           "documentId": "doc-f72194b71ba6",
-          "relation": "CONTRADICTION"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-f72194b71ba6::sentence-34",
+          "spanId": "doc-f72194b71ba6::sentence-123",
           "documentId": "doc-f72194b71ba6",
-          "relation": "CONTRADICTION"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-b359fc5770e9::sentence-15",
-          "documentId": "doc-b359fc5770e9",
-          "relation": "CONTRADICTION"
+          "spanId": "doc-f72194b71ba6::sentence-14",
+          "documentId": "doc-f72194b71ba6",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-b359fc5770e9::sentence-7",
+          "spanId": "doc-f72194b71ba6::sentence-4",
+          "documentId": "doc-f72194b71ba6",
+          "relation": "CONTRADICTION",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-b359fc5770e9::sentence-4",
           "documentId": "doc-b359fc5770e9",
-          "relation": "CONTRADICTION"
+          "relation": "CONTRADICTION",
+          "relevanceFiltered": false
         }
       ]
     }
   ],
+  "evidenceAudit": {
+    "claimPosition": {
+      "position": "ATTACK_ONLY",
+      "supportSpanIds": [],
+      "attackSpanIds": [
+        "doc-f72194b71ba6::sentence-4",
+        "doc-b359fc5770e9::sentence-4"
+      ],
+      "contextSpanIds": [],
+      "reason": "Evidence O1-E5 describes a severe complication of COVID-19 in children (MIS-C), and O1-E6 directly states that the CDC strongly recommends against pox parties, directly attacking the claim."
+    },
+    "obligations": [
+      {
+        "atomId": "atom-1",
+        "state": "REFUTED",
+        "supportSpanIds": [],
+        "attackSpanIds": [
+          "doc-f72194b71ba6::sentence-4",
+          "doc-b359fc5770e9::sentence-4"
+        ],
+        "reason": "Evidence O1-E5 describes a severe complication of COVID-19 in children (MIS-C), and O1-E6 directly states that the CDC strongly recommends against pox parties, directly attacking the claim."
+      }
+    ],
+    "materialOmission": {
+      "detected": false,
+      "supportSpanIds": [],
+      "contextSpanIds": [],
+      "reason": "No material omission was established."
+    },
+    "provider": "ollama",
+    "model": "qwen2.5:7b"
+  },
   "linguistics": {
     "schemaVersion": 2,
     "claimAnalysis": {
@@ -960,11 +1003,13 @@
     "positions": {
       "supportPosition": false,
       "attackPosition": true,
+      "materialOmissionPosition": false,
       "supportObligationIds": [],
       "attackObligationIds": [
         "atom-1"
       ],
-      "unresolvedObligationIds": []
+      "unresolvedObligationIds": [],
+      "groundedClaimPosition": "ATTACK_ONLY"
     },
     "obligations": [
       {
@@ -972,14 +1017,10 @@
         "state": "REFUTED",
         "supportEdgeIds": [],
         "attackEdgeIds": [
-          "edge:ATTACKS:evidence:doc-f72194b71ba6:doc-f72194b71ba6::sentence-7:obligation:averitec-dev-0044:atom-1",
-          "edge:ATTACKS:evidence:doc-b359fc5770e9:doc-b359fc5770e9::sentence-2:obligation:averitec-dev-0044:atom-1",
-          "edge:ATTACKS:evidence:doc-f72194b71ba6:doc-f72194b71ba6::sentence-92:obligation:averitec-dev-0044:atom-1",
-          "edge:ATTACKS:evidence:doc-f72194b71ba6:doc-f72194b71ba6::sentence-34:obligation:averitec-dev-0044:atom-1",
-          "edge:ATTACKS:evidence:doc-b359fc5770e9:doc-b359fc5770e9::sentence-15:obligation:averitec-dev-0044:atom-1",
-          "edge:ATTACKS:evidence:doc-b359fc5770e9:doc-b359fc5770e9::sentence-7:obligation:averitec-dev-0044:atom-1"
+          "edge:ATTACKS:evidence:doc-f72194b71ba6:doc-f72194b71ba6::sentence-4:obligation:averitec-dev-0044:atom-1",
+          "edge:ATTACKS:evidence:doc-b359fc5770e9:doc-b359fc5770e9::sentence-4:obligation:averitec-dev-0044:atom-1"
         ],
-        "neutralCandidateCount": 0
+        "neutralCandidateCount": 4
       }
     ],
     "warnings": [
@@ -989,7 +1030,8 @@
       }
     ],
     "ruleTrace": [
-      "SINGLE uses its only obligation's support and attack positions.",
+      "The provenance-constrained claim audit sets the overall evidence position; deterministic aggregation maps that position to status.",
+      "Grounded claim position: ATTACK_ONLY; Evidence O1-E5 describes a severe complication of COVID-19 in children (MIS-C), and O1-E6 directly states that the CDC strongly recommends against pox parties, directly attacking the claim.",
       "Support position: no; attack position: yes.",
       "Final verdict: REFUTED."
     ]
@@ -997,7 +1039,14 @@
   "recordedWith": {
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
-    "nliModel": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    "nliModel": "qwen2.5:7b",
     "linguisticsModel": "en_core_web_sm@3.8.0"
+  },
+  "timingsSeconds": {
+    "decomposition": 23.239,
+    "retrievalAndLinguistics": 0.745,
+    "evidenceAudit": 12.167,
+    "aggregation": 0.007,
+    "total": 36.163
   }
 }

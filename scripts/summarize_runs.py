@@ -14,6 +14,7 @@ import argparse
 import json
 from collections import Counter
 from pathlib import Path
+import statistics
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -31,7 +32,7 @@ def read_json(path: Path) -> Any:
 
 
 def recorded_verdict(run: dict[str, Any]) -> str:
-    """Return the authoritative aggregation result from a schema-v2 recording."""
+    """Return the rule-derived draft status from a schema-v2 recording."""
     recorded = run.get("verdict")
     if isinstance(recorded, dict) and recorded.get("verdict") in LABELS:
         return recorded["verdict"]
@@ -58,6 +59,7 @@ def render(runs_dir: Path, catalog_path: Path) -> str:
     schema_versions = Counter()
     typed_roles = Counter()
     decomposition_quality = Counter()
+    timings: dict[str, list[float]] = {}
 
     for path in run_paths:
         run = read_json(path)
@@ -102,6 +104,9 @@ def render(runs_dir: Path, catalog_path: Path) -> str:
             and len(atom.get("text", "").split()) >= 3
         )
         decomposition_quality["audit_warning_count"] += len(claim_warnings | atom_warnings)
+        for stage, seconds in run.get("timingsSeconds", {}).items():
+            if isinstance(seconds, (int, float)) and seconds >= 0:
+                timings.setdefault(stage, []).append(float(seconds))
         for item in run["classifications"]:
             for relation in item["relations"]:
                 relations[relation["relation"]] += 1
@@ -163,7 +168,7 @@ def render(runs_dir: Path, catalog_path: Path) -> str:
     add(f"| Linguistic audit warnings | {decomposition_quality['audit_warning_count']} | warnings |")
     add("")
 
-    add("## Sentence-level NLI relations")
+    add("## Audited span relations")
     add("")
     total_relations = sum(relations.values()) or 1
     add("| Relation | Count | Share |")
@@ -173,11 +178,28 @@ def render(runs_dir: Path, catalog_path: Path) -> str:
         add(f"| `{relation}` | {count} | {count / total_relations:.1%} |")
     add("")
 
-    add("## Verdict against the reference label")
+    if timings:
+        add("## Recorded latency")
+        add("")
+        add("Wall-clock seconds from the local recording laptop; these are descriptive,")
+        add("not hardware-normalized benchmark measurements.")
+        add("")
+        add("| Stage | Median | Mean | Maximum | Cases |")
+        add("| --- | ---: | ---: | ---: | ---: |")
+        for stage in ("decomposition", "retrievalAndLinguistics", "evidenceAudit", "aggregation", "total"):
+            values = timings.get(stage, [])
+            if values:
+                add(
+                    f"| `{stage}` | {statistics.median(values):.2f} | "
+                    f"{statistics.fmean(values):.2f} | {max(values):.2f} | {len(values)} |"
+                )
+        add("")
+
+    add("## Draft status against the reference label")
     add("")
     add(f"Agreement: **{agreement}/{total}** ({agreement / total:.1%}).")
     add("")
-    add("| Reference \\ verdict | " + " | ".join(f"`{label}`" for label in LABELS) + " |")
+    add("| Reference \\ status | " + " | ".join(f"`{label}`" for label in LABELS) + " |")
     add("| --- | " + " | ".join("---:" for _ in LABELS) + " |")
     for label in LABELS:
         cells = " | ".join(str(confusion[(label, verdict)]) for verdict in LABELS)
@@ -186,7 +208,7 @@ def render(runs_dir: Path, catalog_path: Path) -> str:
 
     add("## Per case")
     add("")
-    add("| Case | Obligations | Composition | Reference | Verdict | |")
+    add("| Case | Obligations | Composition | Reference | Draft status | |")
     add("| --- | ---: | --- | --- | --- | --- |")
     for case_id, atoms, composition, label, verdict in rows:
         mark = "match" if label == verdict else ""

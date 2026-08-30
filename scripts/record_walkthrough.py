@@ -6,6 +6,7 @@ import argparse
 import asyncio
 import json
 from pathlib import Path
+import time
 from typing import TYPE_CHECKING, Any
 
 if TYPE_CHECKING:
@@ -17,6 +18,7 @@ from walkthrough_cases import CURATED_CASE_IDS
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT = ROOT / "data" / "walkthrough" / "runs"
 _AGGREGATION_SCHEMA = "VerdictAggregationRequest"
+_SUPPORT_RESPONSE_SCHEMA = "SupportClassificationResponse"
 
 
 def validate_api_contract(openapi: dict[str, Any]) -> None:
@@ -25,7 +27,7 @@ def validate_api_contract(openapi: dict[str, Any]) -> None:
     Local Uvicorn processes do not reload source changes by default.  In that
     situation the recorder and the checked-in schemas can disagree even though
     both are individually valid, and the mismatch otherwise appears only after
-    the expensive decomposition/retrieval/NLI stages have run.
+    the expensive decomposition, retrieval, and evidence-audit stages have run.
     """
     schemas = openapi.get("components", {}).get("schemas", {})
     aggregation = schemas.get(_AGGREGATION_SCHEMA)
@@ -38,12 +40,30 @@ def validate_api_contract(openapi: dict[str, Any]) -> None:
 
     properties = aggregation.get("properties", {})
     required = set(aggregation.get("required", []))
-    if "claim" in properties or "claim" in required or "claimId" not in properties:
+    if (
+        "claim" in properties
+        or "claim" in required
+        or "claimId" not in properties
+        or "materialOmission" not in properties
+        or "claimAudit" not in properties
+    ):
         raise RuntimeError(
             "The running backend is stale: its verdict aggregation request schema "
             "does not match the current pipeline. Stop it with Ctrl-C, run "
             "./run-verigraph --start again, then rerun ./run-verigraph "
             "--record-walkthrough."
+        )
+    support_response = schemas.get(_SUPPORT_RESPONSE_SCHEMA)
+    support_properties = (
+        support_response.get("properties", {})
+        if isinstance(support_response, dict)
+        else {}
+    )
+    if "evidenceAudit" not in support_properties:
+        raise RuntimeError(
+            "The running backend is stale: grounded evidence auditing is not exposed. "
+            "Stop it with Ctrl-C, run ./run-verigraph --start again, then rerun "
+            "./run-verigraph --record-walkthrough."
         )
 
 
@@ -64,7 +84,9 @@ async def request(client: httpx.AsyncClient, method: str, path: str, **kwargs: A
 
 
 async def record_case(client: httpx.AsyncClient, case_id: str) -> dict[str, Any]:
+    case_started = time.perf_counter()
     case = await request(client, "GET", f"/api/v1/demo-cases/{case_id}")
+    decomposition_started = time.perf_counter()
     decomposition = None
     for attempt in range(1, 4):
         try:
@@ -81,6 +103,7 @@ async def record_case(client: httpx.AsyncClient, case_id: str) -> dict[str, Any]
             )
             await asyncio.sleep(float(attempt))
     assert decomposition is not None
+    decomposition_seconds = time.perf_counter() - decomposition_started
     atoms = [{"id": atom["id"], "text": atom["text"]} for atom in decomposition["atoms"]]
     linguistic_request = {
         "schemaVersion": decomposition["schemaVersion"],
@@ -94,13 +117,25 @@ async def record_case(client: httpx.AsyncClient, case_id: str) -> dict[str, Any]
     linguistics_task = request(
         client, "POST", "/api/v1/analyze-linguistics", json=linguistic_request
     )
+    retrieval_started = time.perf_counter()
     retrieval, linguistics = await asyncio.gather(retrieval_task, linguistics_task)
+    retrieval_and_linguistics_seconds = time.perf_counter() - retrieval_started
+    audit_started = time.perf_counter()
     nli = await request(
         client,
         "POST",
         "/api/v1/classify-support",
-        json={"atoms": atoms, "evidence": retrieval["evidence"]},
+        json={
+            "claim": case["claim"],
+            "atoms": atoms,
+            "evidence": retrieval["evidence"],
+            "documentTitles": {
+                document["id"]: document["title"] for document in case["documents"]
+            },
+        },
     )
+    audit_seconds = time.perf_counter() - audit_started
+    aggregation_started = time.perf_counter()
     verdict = await request(
         client,
         "POST",
@@ -111,9 +146,12 @@ async def record_case(client: httpx.AsyncClient, case_id: str) -> dict[str, Any]
             "atoms": decomposition["atoms"],
             "evidence": retrieval["evidence"],
             "classifications": nli["classifications"],
+            "materialOmission": nli["evidenceAudit"]["materialOmission"],
+            "claimAudit": nli["evidenceAudit"]["claimPosition"],
             "linguisticSummaries": linguistics["summaries"],
         },
     )
+    aggregation_seconds = time.perf_counter() - aggregation_started
     return {
         "caseId": case_id,
         "schemaVersion": decomposition["schemaVersion"],
@@ -122,6 +160,7 @@ async def record_case(client: httpx.AsyncClient, case_id: str) -> dict[str, Any]
         "atoms": decomposition["atoms"],
         "evidence": retrieval["evidence"],
         "classifications": nli["classifications"],
+        "evidenceAudit": nli["evidenceAudit"],
         "linguistics": linguistics,
         "verdict": verdict,
         "recordedWith": {
@@ -129,6 +168,13 @@ async def record_case(client: httpx.AsyncClient, case_id: str) -> dict[str, Any]
             "retrievalModel": retrieval["model"],
             "nliModel": nli["model"],
             "linguisticsModel": linguistics["model"],
+        },
+        "timingsSeconds": {
+            "decomposition": round(decomposition_seconds, 3),
+            "retrievalAndLinguistics": round(retrieval_and_linguistics_seconds, 3),
+            "evidenceAudit": round(audit_seconds, 3),
+            "aggregation": round(aggregation_seconds, 3),
+            "total": round(time.perf_counter() - case_started, 3),
         },
     }
 

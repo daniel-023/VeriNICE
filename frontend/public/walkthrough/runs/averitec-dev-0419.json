@@ -2,39 +2,36 @@
   "caseId": "averitec-dev-0419",
   "schemaVersion": 2,
   "composition": "AND",
-  "warnings": [],
+  "warnings": [
+    {
+      "code": "REUSED_SOURCE_TEXT",
+      "message": "One sourceText span grounds more than one obligation."
+    }
+  ],
   "atoms": [
     {
       "id": "atom-1",
-      "text": "The U.S. Centers for Disease Control and Prevention fraudulently add deaths from poisoning.",
-      "sourceText": "fraudulently add deaths from poisoning",
+      "text": "The U.S. Centers for Disease Control and Prevention fraudulently add deaths from poisoning to their tally of COVID-19 deaths.",
+      "sourceText": "fraudulently add deaths from poisoning, trauma, and unintentional injury to their tally of COVID-19 deaths",
       "start": 52,
-      "end": 90,
-      "role": "CORE"
+      "end": 158,
+      "role": "MODALITY_CONSTRAINT"
     },
     {
       "id": "atom-2",
-      "text": "The U.S. Centers for Disease Control and Prevention fraudulently add deaths from trauma.",
-      "sourceText": "trauma",
-      "start": 92,
-      "end": 98,
-      "role": "CORE"
+      "text": "The U.S. Centers for Disease Control and Prevention fraudulently add deaths from trauma to their tally of COVID-19 deaths.",
+      "sourceText": "fraudulently add deaths from poisoning, trauma, and unintentional injury to their tally of COVID-19 deaths",
+      "start": 52,
+      "end": 158,
+      "role": "MODALITY_CONSTRAINT"
     },
     {
       "id": "atom-3",
-      "text": "The U.S. Centers for Disease Control and Prevention fraudulently add deaths from unintentional injury.",
-      "sourceText": "unintentional injury",
-      "start": 104,
-      "end": 124,
-      "role": "CORE"
-    },
-    {
-      "id": "atom-4",
-      "text": "The U.S. Centers for Disease Control and Prevention add these deaths to their tally of COVID-19 deaths.",
-      "sourceText": "to their tally of COVID-19 deaths",
-      "start": 125,
+      "text": "The U.S. Centers for Disease Control and Prevention fraudulently add deaths from unintentional injury to their tally of COVID-19 deaths.",
+      "sourceText": "fraudulently add deaths from poisoning, trauma, and unintentional injury to their tally of COVID-19 deaths",
+      "start": 52,
       "end": 158,
-      "role": "CORE"
+      "role": "MODALITY_CONSTRAINT"
     }
   ],
   "evidence": [
@@ -42,52 +39,52 @@
       "atomId": "atom-1",
       "spans": [
         {
-          "id": "doc-efeac11ee951::sentence-31",
-          "documentId": "doc-efeac11ee951",
-          "text": "See the CDC Guidance on Certifying COVID-19 Deaths (PDF).\n",
-          "start": 3829,
-          "end": 3887,
-          "context": "Where can healthcare facilities receive guidance regarding COVID-19 best practices regarding death?\n See the CDC Guidance on Certifying COVID-19 Deaths (PDF).\n Who can healthcare facilities contact for COVID-19 death related medical equipment and supplies, such as body bags and test kits?\n"
-        },
-        {
-          "id": "doc-5dfdb3a51082::sentence-5",
+          "id": "doc-5dfdb3a51082::sentence-13",
           "documentId": "doc-5dfdb3a51082",
           "text": "On April 3, 2020, the CDC's National Center for Health Statistics issued guidance to physicians, coroners, and medical examiners who fill out death certificates to list COVID-19 as an underlying cause of death in the absence of a test \"if the circumstances are compelling within a reasonable degree of certainty.\"\n",
-          "start": 843,
-          "end": 1157,
+          "start": 1689,
+          "end": 2003,
           "context": "\"The idea that we’re going to allow people to massage and game the numbers is a real issue because we're going to undermine the [public's] trust.\"\n On April 3, 2020, the CDC's National Center for Health Statistics issued guidance to physicians, coroners, and medical examiners who fill out death certificates to list COVID-19 as an underlying cause of death in the absence of a test \"if the circumstances are compelling within a reasonable degree of certainty.\"\n The guidelines specify:\n"
         },
         {
-          "id": "doc-efeac11ee951::sentence-18",
-          "documentId": "doc-efeac11ee951",
-          "text": "Should a physician, Medical Examiner or Coroner include pre-existing conditions that may increase susceptibility to infection or exacerbate COVID-19, such as COPD or asthma on the death certificate?\n",
-          "start": 2217,
-          "end": 2416,
-          "context": "Yes, if COVID-19 is probable or suspected, list “Probable COVID-19” or “Suspected COVID-19” in Part I.\n Should a physician, Medical Examiner or Coroner include pre-existing conditions that may increase susceptibility to infection or exacerbate COVID-19, such as COPD or asthma on the death certificate?\n Yes, pre-existing conditions that may have increased susceptibility to or exacerbated COVID-19 should be listed in Part II of the death certificate.\n"
-        },
-        {
-          "id": "doc-5dfdb3a51082::sentence-17",
+          "id": "doc-5dfdb3a51082::sentence-21",
           "documentId": "doc-5dfdb3a51082",
-          "text": "As of this writing, the U.S. had more than 700,000 COVID-19 cases, with the death count nearing 40,000. ",
-          "start": 3257,
-          "end": 3361,
-          "context": "\"When the evidence tells you that COVID-19 was the likely cause of death then you should report it as the likely cause of death, whether you have a lab test or not. And medical examiners, physicians, and coroners are trained to make these determinations.\"\n As of this writing, the U.S. had more than 700,000 COVID-19 cases, with the death count nearing 40,000.  Our attempts to reach Scott Jensen for comment were unsuccessful."
+          "text": "\"I don’t think in any case are we over-estimating the deaths due to COVID-19. I think most likely we’re underestimating and in some cases we may be underestimating by a lot,\" Bob Anderson, who heads the mortality statistics branch at the CDC's National Center for Health Statistics, told us by phone. ",
+          "start": 3074,
+          "end": 3375,
+          "context": "Experts, however, agree that COVID-19 cases in the U.S. are being undercounted, not overcounted, due to the lack of available diagnostic tests.\n \"I don’t think in any case are we over-estimating the deaths due to COVID-19. I think most likely we’re underestimating and in some cases we may be underestimating by a lot,\" Bob Anderson, who heads the mortality statistics branch at the CDC's National Center for Health Statistics, told us by phone.  Anderson noted that medical examiners' offices in the hard-hit state of New York are overwhelmed, and that the state has had an increase in unattended deaths in which COVID-19 was a likely factor, but no tests were available to confirm.\n"
         },
         {
-          "id": "doc-efeac11ee951::sentence-16",
-          "documentId": "doc-efeac11ee951",
-          "text": "If a Coroner suspects COVID-19 is the cause of death, should COVID-19 be listed as the cause of death without laboratory test confirmation?\n",
-          "start": 1974,
-          "end": 2114,
-          "context": "Yes, a Medical Examiner may conclude the cause of death is COVID-19 and list it in Part I of the death certificate.\n If a Coroner suspects COVID-19 is the cause of death, should COVID-19 be listed as the cause of death without laboratory test confirmation?\n Yes, if COVID-19 is probable or suspected, list “Probable COVID-19” or “Suspected COVID-19” in Part I.\n"
-        },
-        {
-          "id": "doc-5dfdb3a51082::sentence-1",
+          "id": "doc-5dfdb3a51082::sentence-9",
           "documentId": "doc-5dfdb3a51082",
           "text": "In April 2020, Dr. Scott Jensen, a Minnesota physician who serves in the Minnesota state Senate, gave television interviews in which he suggested that guidance issued by the Centers for Disease Control and Prevention (CDC) to health care providers on how to properly fill out death certificates for COVID-19 cases could artificially inflate the number of such cases in the U.S.\n",
-          "start": 0,
-          "end": 378,
-          "context": "In April 2020, Dr. Scott Jensen, a Minnesota physician who serves in the Minnesota state Senate, gave television interviews in which he suggested that guidance issued by the Centers for Disease Control and Prevention (CDC) to health care providers on how to properly fill out death certificates for COVID-19 cases could artificially inflate the number of such cases in the U.S.\n During an appearance on the Fox News prime time program \"Ingraham Angle,\" Jensen stated that he believed the guidelines issued by the CDC were \"ridiculous.\"\n"
+          "start": 846,
+          "end": 1224,
+          "context": "RECOVERED SOURCE TEXT\n In April 2020, Dr. Scott Jensen, a Minnesota physician who serves in the Minnesota state Senate, gave television interviews in which he suggested that guidance issued by the Centers for Disease Control and Prevention (CDC) to health care providers on how to properly fill out death certificates for COVID-19 cases could artificially inflate the number of such cases in the U.S.\n During an appearance on the Fox News prime time program \"Ingraham Angle,\" Jensen stated that he believed the guidelines issued by the CDC were \"ridiculous.\"\n"
+        },
+        {
+          "id": "doc-5dfdb3a51082::sentence-18",
+          "documentId": "doc-5dfdb3a51082",
+          "text": "Jensen's commentary contributed to a narrative promoted by right-leaning media outlets that the ongoing COVID-19 coronavirus disease pandemic is not as deadly or serious as reported, and that social-distancing measures implemented to control its spread are unwarranted. ",
+          "start": 2500,
+          "end": 2770,
+          "context": "However, please note that testing for COVID–19 should be conducted whenever possible.\n Jensen's commentary contributed to a narrative promoted by right-leaning media outlets that the ongoing COVID-19 coronavirus disease pandemic is not as deadly or serious as reported, and that social-distancing measures implemented to control its spread are unwarranted.  \"HUGE! MN Senator and Dr. Reveals HHS Document Coaching Him on How to Overcount COVID-19 Cases,\" read one headline from the conspiracy site The Gateway Pundit.\n"
+        },
+        {
+          "id": "doc-efeac11ee951::sentence-37",
+          "documentId": "doc-efeac11ee951",
+          "text": "See the CDC Guidance on Certifying COVID-19 Deaths (PDF).\n",
+          "start": 4170,
+          "end": 4228,
+          "context": "Where can healthcare facilities receive guidance regarding COVID-19 best practices regarding death?\n See the CDC Guidance on Certifying COVID-19 Deaths (PDF).\n Who can healthcare facilities contact for COVID-19 death related medical equipment and supplies, such as body bags and test kits?\n"
+        },
+        {
+          "id": "doc-efeac11ee951::sentence-21",
+          "documentId": "doc-efeac11ee951",
+          "text": "Yes, a Medical Examiner may conclude the cause of death is COVID-19 and list it in Part I of the death certificate.\n",
+          "start": 2199,
+          "end": 2315,
+          "context": "If a Medical Examiner, in their best medical opinion, suspects COVID-19 is the cause of death, should COVID-19 be listed as the cause of death without laboratory test confirmation?\n Yes, a Medical Examiner may conclude the cause of death is COVID-19 and list it in Part I of the death certificate.\n If a Coroner suspects COVID-19 is the cause of death, should COVID-19 be listed as the cause of death without laboratory test confirmation?\n"
         }
       ]
     },
@@ -95,52 +92,52 @@
       "atomId": "atom-2",
       "spans": [
         {
-          "id": "doc-5dfdb3a51082::sentence-5",
+          "id": "doc-5dfdb3a51082::sentence-13",
           "documentId": "doc-5dfdb3a51082",
           "text": "On April 3, 2020, the CDC's National Center for Health Statistics issued guidance to physicians, coroners, and medical examiners who fill out death certificates to list COVID-19 as an underlying cause of death in the absence of a test \"if the circumstances are compelling within a reasonable degree of certainty.\"\n",
-          "start": 843,
-          "end": 1157,
+          "start": 1689,
+          "end": 2003,
           "context": "\"The idea that we’re going to allow people to massage and game the numbers is a real issue because we're going to undermine the [public's] trust.\"\n On April 3, 2020, the CDC's National Center for Health Statistics issued guidance to physicians, coroners, and medical examiners who fill out death certificates to list COVID-19 as an underlying cause of death in the absence of a test \"if the circumstances are compelling within a reasonable degree of certainty.\"\n The guidelines specify:\n"
         },
         {
-          "id": "doc-efeac11ee951::sentence-31",
-          "documentId": "doc-efeac11ee951",
-          "text": "See the CDC Guidance on Certifying COVID-19 Deaths (PDF).\n",
-          "start": 3829,
-          "end": 3887,
-          "context": "Where can healthcare facilities receive guidance regarding COVID-19 best practices regarding death?\n See the CDC Guidance on Certifying COVID-19 Deaths (PDF).\n Who can healthcare facilities contact for COVID-19 death related medical equipment and supplies, such as body bags and test kits?\n"
-        },
-        {
-          "id": "doc-5dfdb3a51082::sentence-1",
+          "id": "doc-5dfdb3a51082::sentence-9",
           "documentId": "doc-5dfdb3a51082",
           "text": "In April 2020, Dr. Scott Jensen, a Minnesota physician who serves in the Minnesota state Senate, gave television interviews in which he suggested that guidance issued by the Centers for Disease Control and Prevention (CDC) to health care providers on how to properly fill out death certificates for COVID-19 cases could artificially inflate the number of such cases in the U.S.\n",
-          "start": 0,
-          "end": 378,
-          "context": "In April 2020, Dr. Scott Jensen, a Minnesota physician who serves in the Minnesota state Senate, gave television interviews in which he suggested that guidance issued by the Centers for Disease Control and Prevention (CDC) to health care providers on how to properly fill out death certificates for COVID-19 cases could artificially inflate the number of such cases in the U.S.\n During an appearance on the Fox News prime time program \"Ingraham Angle,\" Jensen stated that he believed the guidelines issued by the CDC were \"ridiculous.\"\n"
+          "start": 846,
+          "end": 1224,
+          "context": "RECOVERED SOURCE TEXT\n In April 2020, Dr. Scott Jensen, a Minnesota physician who serves in the Minnesota state Senate, gave television interviews in which he suggested that guidance issued by the Centers for Disease Control and Prevention (CDC) to health care providers on how to properly fill out death certificates for COVID-19 cases could artificially inflate the number of such cases in the U.S.\n During an appearance on the Fox News prime time program \"Ingraham Angle,\" Jensen stated that he believed the guidelines issued by the CDC were \"ridiculous.\"\n"
         },
         {
-          "id": "doc-efeac11ee951::sentence-18",
-          "documentId": "doc-efeac11ee951",
-          "text": "Should a physician, Medical Examiner or Coroner include pre-existing conditions that may increase susceptibility to infection or exacerbate COVID-19, such as COPD or asthma on the death certificate?\n",
-          "start": 2217,
-          "end": 2416,
-          "context": "Yes, if COVID-19 is probable or suspected, list “Probable COVID-19” or “Suspected COVID-19” in Part I.\n Should a physician, Medical Examiner or Coroner include pre-existing conditions that may increase susceptibility to infection or exacerbate COVID-19, such as COPD or asthma on the death certificate?\n Yes, pre-existing conditions that may have increased susceptibility to or exacerbated COVID-19 should be listed in Part II of the death certificate.\n"
-        },
-        {
-          "id": "doc-efeac11ee951::sentence-23",
-          "documentId": "doc-efeac11ee951",
-          "text": "The Death Certificate Cause of Death will not be reported to the National Center for Health Statistics. ",
-          "start": 2915,
-          "end": 3019,
-          "context": "What happens if the physician, Medical Examiner or Coroner does not complete the Death Certificate Cause of Death correctly for COVID-19?\n The Death Certificate Cause of Death will not be reported to the National Center for Health Statistics.  The Death Certificate must be corrected by the certifier (physician, Medical Examiner or Coroner). "
-        },
-        {
-          "id": "doc-5dfdb3a51082::sentence-14",
+          "id": "doc-5dfdb3a51082::sentence-21",
           "documentId": "doc-5dfdb3a51082",
-          "text": "Anderson noted that medical examiners' offices in the hard-hit state of New York are overwhelmed, and that the state has had an increase in unattended deaths in which COVID-19 was a likely factor, but no tests were available to confirm.\n",
-          "start": 2529,
-          "end": 2766,
-          "context": "\"I don’t think in any case are we over-estimating the deaths due to COVID-19. I think most likely we’re underestimating and in some cases we may be underestimating by a lot,\" Bob Anderson, who heads the mortality statistics branch at the CDC's National Center for Health Statistics, told us by phone.  Anderson noted that medical examiners' offices in the hard-hit state of New York are overwhelmed, and that the state has had an increase in unattended deaths in which COVID-19 was a likely factor, but no tests were available to confirm.\n \"We’re not asking [health care providers] to write [COVID-19] down for everyone who was possibly exposed. We're asking only if the patient showed symptoms, and they're reasonably certain\" the patient had the disease, Anderson told us. "
+          "text": "\"I don’t think in any case are we over-estimating the deaths due to COVID-19. I think most likely we’re underestimating and in some cases we may be underestimating by a lot,\" Bob Anderson, who heads the mortality statistics branch at the CDC's National Center for Health Statistics, told us by phone. ",
+          "start": 3074,
+          "end": 3375,
+          "context": "Experts, however, agree that COVID-19 cases in the U.S. are being undercounted, not overcounted, due to the lack of available diagnostic tests.\n \"I don’t think in any case are we over-estimating the deaths due to COVID-19. I think most likely we’re underestimating and in some cases we may be underestimating by a lot,\" Bob Anderson, who heads the mortality statistics branch at the CDC's National Center for Health Statistics, told us by phone.  Anderson noted that medical examiners' offices in the hard-hit state of New York are overwhelmed, and that the state has had an increase in unattended deaths in which COVID-19 was a likely factor, but no tests were available to confirm.\n"
+        },
+        {
+          "id": "doc-efeac11ee951::sentence-26",
+          "documentId": "doc-efeac11ee951",
+          "text": "How should sepsis be addressed on the death certificate for COVID-19 related deaths?\n",
+          "start": 2906,
+          "end": 2991,
+          "context": "Yes, pre-existing conditions that may have increased susceptibility to or exacerbated COVID-19 should be listed in Part II of the death certificate.\n How should sepsis be addressed on the death certificate for COVID-19 related deaths?\n Sepsis should be listed as the immediate cause of death on line a in Part I and COVID-19 should be listed on line b in Part I.\n"
+        },
+        {
+          "id": "doc-efeac11ee951::sentence-21",
+          "documentId": "doc-efeac11ee951",
+          "text": "Yes, a Medical Examiner may conclude the cause of death is COVID-19 and list it in Part I of the death certificate.\n",
+          "start": 2199,
+          "end": 2315,
+          "context": "If a Medical Examiner, in their best medical opinion, suspects COVID-19 is the cause of death, should COVID-19 be listed as the cause of death without laboratory test confirmation?\n Yes, a Medical Examiner may conclude the cause of death is COVID-19 and list it in Part I of the death certificate.\n If a Coroner suspects COVID-19 is the cause of death, should COVID-19 be listed as the cause of death without laboratory test confirmation?\n"
+        },
+        {
+          "id": "doc-efeac11ee951::sentence-37",
+          "documentId": "doc-efeac11ee951",
+          "text": "See the CDC Guidance on Certifying COVID-19 Deaths (PDF).\n",
+          "start": 4170,
+          "end": 4228,
+          "context": "Where can healthcare facilities receive guidance regarding COVID-19 best practices regarding death?\n See the CDC Guidance on Certifying COVID-19 Deaths (PDF).\n Who can healthcare facilities contact for COVID-19 death related medical equipment and supplies, such as body bags and test kits?\n"
         }
       ]
     },
@@ -148,105 +145,52 @@
       "atomId": "atom-3",
       "spans": [
         {
-          "id": "doc-5dfdb3a51082::sentence-5",
-          "documentId": "doc-5dfdb3a51082",
-          "text": "On April 3, 2020, the CDC's National Center for Health Statistics issued guidance to physicians, coroners, and medical examiners who fill out death certificates to list COVID-19 as an underlying cause of death in the absence of a test \"if the circumstances are compelling within a reasonable degree of certainty.\"\n",
-          "start": 843,
-          "end": 1157,
-          "context": "\"The idea that we’re going to allow people to massage and game the numbers is a real issue because we're going to undermine the [public's] trust.\"\n On April 3, 2020, the CDC's National Center for Health Statistics issued guidance to physicians, coroners, and medical examiners who fill out death certificates to list COVID-19 as an underlying cause of death in the absence of a test \"if the circumstances are compelling within a reasonable degree of certainty.\"\n The guidelines specify:\n"
-        },
-        {
-          "id": "doc-efeac11ee951::sentence-23",
-          "documentId": "doc-efeac11ee951",
-          "text": "The Death Certificate Cause of Death will not be reported to the National Center for Health Statistics. ",
-          "start": 2915,
-          "end": 3019,
-          "context": "What happens if the physician, Medical Examiner or Coroner does not complete the Death Certificate Cause of Death correctly for COVID-19?\n The Death Certificate Cause of Death will not be reported to the National Center for Health Statistics.  The Death Certificate must be corrected by the certifier (physician, Medical Examiner or Coroner). "
-        },
-        {
-          "id": "doc-efeac11ee951::sentence-31",
-          "documentId": "doc-efeac11ee951",
-          "text": "See the CDC Guidance on Certifying COVID-19 Deaths (PDF).\n",
-          "start": 3829,
-          "end": 3887,
-          "context": "Where can healthcare facilities receive guidance regarding COVID-19 best practices regarding death?\n See the CDC Guidance on Certifying COVID-19 Deaths (PDF).\n Who can healthcare facilities contact for COVID-19 death related medical equipment and supplies, such as body bags and test kits?\n"
-        },
-        {
-          "id": "doc-5dfdb3a51082::sentence-1",
-          "documentId": "doc-5dfdb3a51082",
-          "text": "In April 2020, Dr. Scott Jensen, a Minnesota physician who serves in the Minnesota state Senate, gave television interviews in which he suggested that guidance issued by the Centers for Disease Control and Prevention (CDC) to health care providers on how to properly fill out death certificates for COVID-19 cases could artificially inflate the number of such cases in the U.S.\n",
-          "start": 0,
-          "end": 378,
-          "context": "In April 2020, Dr. Scott Jensen, a Minnesota physician who serves in the Minnesota state Senate, gave television interviews in which he suggested that guidance issued by the Centers for Disease Control and Prevention (CDC) to health care providers on how to properly fill out death certificates for COVID-19 cases could artificially inflate the number of such cases in the U.S.\n During an appearance on the Fox News prime time program \"Ingraham Angle,\" Jensen stated that he believed the guidelines issued by the CDC were \"ridiculous.\"\n"
-        },
-        {
-          "id": "doc-efeac11ee951::sentence-18",
-          "documentId": "doc-efeac11ee951",
-          "text": "Should a physician, Medical Examiner or Coroner include pre-existing conditions that may increase susceptibility to infection or exacerbate COVID-19, such as COPD or asthma on the death certificate?\n",
-          "start": 2217,
-          "end": 2416,
-          "context": "Yes, if COVID-19 is probable or suspected, list “Probable COVID-19” or “Suspected COVID-19” in Part I.\n Should a physician, Medical Examiner or Coroner include pre-existing conditions that may increase susceptibility to infection or exacerbate COVID-19, such as COPD or asthma on the death certificate?\n Yes, pre-existing conditions that may have increased susceptibility to or exacerbated COVID-19 should be listed in Part II of the death certificate.\n"
-        },
-        {
-          "id": "doc-5dfdb3a51082::sentence-14",
-          "documentId": "doc-5dfdb3a51082",
-          "text": "Anderson noted that medical examiners' offices in the hard-hit state of New York are overwhelmed, and that the state has had an increase in unattended deaths in which COVID-19 was a likely factor, but no tests were available to confirm.\n",
-          "start": 2529,
-          "end": 2766,
-          "context": "\"I don’t think in any case are we over-estimating the deaths due to COVID-19. I think most likely we’re underestimating and in some cases we may be underestimating by a lot,\" Bob Anderson, who heads the mortality statistics branch at the CDC's National Center for Health Statistics, told us by phone.  Anderson noted that medical examiners' offices in the hard-hit state of New York are overwhelmed, and that the state has had an increase in unattended deaths in which COVID-19 was a likely factor, but no tests were available to confirm.\n \"We’re not asking [health care providers] to write [COVID-19] down for everyone who was possibly exposed. We're asking only if the patient showed symptoms, and they're reasonably certain\" the patient had the disease, Anderson told us. "
-        }
-      ]
-    },
-    {
-      "atomId": "atom-4",
-      "spans": [
-        {
-          "id": "doc-5dfdb3a51082::sentence-5",
-          "documentId": "doc-5dfdb3a51082",
-          "text": "On April 3, 2020, the CDC's National Center for Health Statistics issued guidance to physicians, coroners, and medical examiners who fill out death certificates to list COVID-19 as an underlying cause of death in the absence of a test \"if the circumstances are compelling within a reasonable degree of certainty.\"\n",
-          "start": 843,
-          "end": 1157,
-          "context": "\"The idea that we’re going to allow people to massage and game the numbers is a real issue because we're going to undermine the [public's] trust.\"\n On April 3, 2020, the CDC's National Center for Health Statistics issued guidance to physicians, coroners, and medical examiners who fill out death certificates to list COVID-19 as an underlying cause of death in the absence of a test \"if the circumstances are compelling within a reasonable degree of certainty.\"\n The guidelines specify:\n"
-        },
-        {
-          "id": "doc-5dfdb3a51082::sentence-17",
-          "documentId": "doc-5dfdb3a51082",
-          "text": "As of this writing, the U.S. had more than 700,000 COVID-19 cases, with the death count nearing 40,000. ",
-          "start": 3257,
-          "end": 3361,
-          "context": "\"When the evidence tells you that COVID-19 was the likely cause of death then you should report it as the likely cause of death, whether you have a lab test or not. And medical examiners, physicians, and coroners are trained to make these determinations.\"\n As of this writing, the U.S. had more than 700,000 COVID-19 cases, with the death count nearing 40,000.  Our attempts to reach Scott Jensen for comment were unsuccessful."
-        },
-        {
-          "id": "doc-efeac11ee951::sentence-2",
-          "documentId": "doc-efeac11ee951",
-          "text": "Confirmed COVID-19 deaths are to be coded as COVID-19 or Coronavirus-19. ",
-          "start": 70,
-          "end": 143,
-          "context": "How should physicians list a COVID-19 death on the death certificate?\n Confirmed COVID-19 deaths are to be coded as COVID-19 or Coronavirus-19.  Do not use Novel Coronavirus, COVID without 19, COVID-19+ or positive, Coronavirus without 19, SARS, or SARS-CoV or SARS-2.\n"
-        },
-        {
-          "id": "doc-efeac11ee951::sentence-31",
-          "documentId": "doc-efeac11ee951",
-          "text": "See the CDC Guidance on Certifying COVID-19 Deaths (PDF).\n",
-          "start": 3829,
-          "end": 3887,
-          "context": "Where can healthcare facilities receive guidance regarding COVID-19 best practices regarding death?\n See the CDC Guidance on Certifying COVID-19 Deaths (PDF).\n Who can healthcare facilities contact for COVID-19 death related medical equipment and supplies, such as body bags and test kits?\n"
-        },
-        {
           "id": "doc-5dfdb3a51082::sentence-13",
           "documentId": "doc-5dfdb3a51082",
+          "text": "On April 3, 2020, the CDC's National Center for Health Statistics issued guidance to physicians, coroners, and medical examiners who fill out death certificates to list COVID-19 as an underlying cause of death in the absence of a test \"if the circumstances are compelling within a reasonable degree of certainty.\"\n",
+          "start": 1689,
+          "end": 2003,
+          "context": "\"The idea that we’re going to allow people to massage and game the numbers is a real issue because we're going to undermine the [public's] trust.\"\n On April 3, 2020, the CDC's National Center for Health Statistics issued guidance to physicians, coroners, and medical examiners who fill out death certificates to list COVID-19 as an underlying cause of death in the absence of a test \"if the circumstances are compelling within a reasonable degree of certainty.\"\n The guidelines specify:\n"
+        },
+        {
+          "id": "doc-5dfdb3a51082::sentence-9",
+          "documentId": "doc-5dfdb3a51082",
+          "text": "In April 2020, Dr. Scott Jensen, a Minnesota physician who serves in the Minnesota state Senate, gave television interviews in which he suggested that guidance issued by the Centers for Disease Control and Prevention (CDC) to health care providers on how to properly fill out death certificates for COVID-19 cases could artificially inflate the number of such cases in the U.S.\n",
+          "start": 846,
+          "end": 1224,
+          "context": "RECOVERED SOURCE TEXT\n In April 2020, Dr. Scott Jensen, a Minnesota physician who serves in the Minnesota state Senate, gave television interviews in which he suggested that guidance issued by the Centers for Disease Control and Prevention (CDC) to health care providers on how to properly fill out death certificates for COVID-19 cases could artificially inflate the number of such cases in the U.S.\n During an appearance on the Fox News prime time program \"Ingraham Angle,\" Jensen stated that he believed the guidelines issued by the CDC were \"ridiculous.\"\n"
+        },
+        {
+          "id": "doc-5dfdb3a51082::sentence-21",
+          "documentId": "doc-5dfdb3a51082",
           "text": "\"I don’t think in any case are we over-estimating the deaths due to COVID-19. I think most likely we’re underestimating and in some cases we may be underestimating by a lot,\" Bob Anderson, who heads the mortality statistics branch at the CDC's National Center for Health Statistics, told us by phone. ",
-          "start": 2228,
-          "end": 2529,
+          "start": 3074,
+          "end": 3375,
           "context": "Experts, however, agree that COVID-19 cases in the U.S. are being undercounted, not overcounted, due to the lack of available diagnostic tests.\n \"I don’t think in any case are we over-estimating the deaths due to COVID-19. I think most likely we’re underestimating and in some cases we may be underestimating by a lot,\" Bob Anderson, who heads the mortality statistics branch at the CDC's National Center for Health Statistics, told us by phone.  Anderson noted that medical examiners' offices in the hard-hit state of New York are overwhelmed, and that the state has had an increase in unattended deaths in which COVID-19 was a likely factor, but no tests were available to confirm.\n"
         },
         {
-          "id": "doc-efeac11ee951::sentence-7",
+          "id": "doc-efeac11ee951::sentence-21",
           "documentId": "doc-efeac11ee951",
-          "text": "The Cause of Death in Part I should be stroke and COVID-19 should be listed in Part II.\n",
-          "start": 759,
-          "end": 847,
-          "context": "If the patient was a confirmed COVID-19 case, but COVID-19 contributed to but did not cause the death, such as stroke, how should the death certificate be completed?\n The Cause of Death in Part I should be stroke and COVID-19 should be listed in Part II.\n If the patient died of Acute Respiratory Failure and had COVID-19, what should the physician include as the Cause of Death?\n"
+          "text": "Yes, a Medical Examiner may conclude the cause of death is COVID-19 and list it in Part I of the death certificate.\n",
+          "start": 2199,
+          "end": 2315,
+          "context": "If a Medical Examiner, in their best medical opinion, suspects COVID-19 is the cause of death, should COVID-19 be listed as the cause of death without laboratory test confirmation?\n Yes, a Medical Examiner may conclude the cause of death is COVID-19 and list it in Part I of the death certificate.\n If a Coroner suspects COVID-19 is the cause of death, should COVID-19 be listed as the cause of death without laboratory test confirmation?\n"
+        },
+        {
+          "id": "doc-efeac11ee951::sentence-17",
+          "documentId": "doc-efeac11ee951",
+          "text": "If COVID-19 was unrelated to the cause of death and not a contributing factor, it should not be included in Part I or II of the death certificate.\n",
+          "start": 1625,
+          "end": 1772,
+          "context": "If the patient was a confirmed COVID-19 case, but the cause of death was not related to COVID-19 nor did COVID-19 contribute to the death, how should the physician complete the death certificate?\n If COVID-19 was unrelated to the cause of death and not a contributing factor, it should not be included in Part I or II of the death certificate.\n If a patient was a confirmed COVID-19 case and the physician determines pneumonia and COVID-19 to be causes of death, how do they complete the death certificate?\n"
+        },
+        {
+          "id": "doc-efeac11ee951::sentence-37",
+          "documentId": "doc-efeac11ee951",
+          "text": "See the CDC Guidance on Certifying COVID-19 Deaths (PDF).\n",
+          "start": 4170,
+          "end": 4228,
+          "context": "Where can healthcare facilities receive guidance regarding COVID-19 best practices regarding death?\n See the CDC Guidance on Certifying COVID-19 Deaths (PDF).\n Who can healthcare facilities contact for COVID-19 death related medical equipment and supplies, such as body bags and test kits?\n"
         }
       ]
     }
@@ -256,34 +200,40 @@
       "atomId": "atom-1",
       "relations": [
         {
-          "spanId": "doc-efeac11ee951::sentence-31",
-          "documentId": "doc-efeac11ee951",
-          "relation": "CONTRADICTION"
-        },
-        {
-          "spanId": "doc-5dfdb3a51082::sentence-5",
+          "spanId": "doc-5dfdb3a51082::sentence-13",
           "documentId": "doc-5dfdb3a51082",
-          "relation": "CONTRADICTION"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-efeac11ee951::sentence-18",
-          "documentId": "doc-efeac11ee951",
-          "relation": "CONTRADICTION"
-        },
-        {
-          "spanId": "doc-5dfdb3a51082::sentence-17",
+          "spanId": "doc-5dfdb3a51082::sentence-21",
           "documentId": "doc-5dfdb3a51082",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-efeac11ee951::sentence-16",
-          "documentId": "doc-efeac11ee951",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-5dfdb3a51082::sentence-1",
+          "spanId": "doc-5dfdb3a51082::sentence-9",
           "documentId": "doc-5dfdb3a51082",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-5dfdb3a51082::sentence-18",
+          "documentId": "doc-5dfdb3a51082",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-efeac11ee951::sentence-37",
+          "documentId": "doc-efeac11ee951",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-efeac11ee951::sentence-21",
+          "documentId": "doc-efeac11ee951",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         }
       ]
     },
@@ -291,34 +241,40 @@
       "atomId": "atom-2",
       "relations": [
         {
-          "spanId": "doc-5dfdb3a51082::sentence-5",
+          "spanId": "doc-5dfdb3a51082::sentence-13",
           "documentId": "doc-5dfdb3a51082",
-          "relation": "CONTRADICTION"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-efeac11ee951::sentence-31",
-          "documentId": "doc-efeac11ee951",
-          "relation": "CONTRADICTION"
-        },
-        {
-          "spanId": "doc-5dfdb3a51082::sentence-1",
+          "spanId": "doc-5dfdb3a51082::sentence-9",
           "documentId": "doc-5dfdb3a51082",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-efeac11ee951::sentence-18",
-          "documentId": "doc-efeac11ee951",
-          "relation": "CONTRADICTION"
-        },
-        {
-          "spanId": "doc-efeac11ee951::sentence-23",
-          "documentId": "doc-efeac11ee951",
-          "relation": "CONTRADICTION"
-        },
-        {
-          "spanId": "doc-5dfdb3a51082::sentence-14",
+          "spanId": "doc-5dfdb3a51082::sentence-21",
           "documentId": "doc-5dfdb3a51082",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-efeac11ee951::sentence-26",
+          "documentId": "doc-efeac11ee951",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-efeac11ee951::sentence-21",
+          "documentId": "doc-efeac11ee951",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-efeac11ee951::sentence-37",
+          "documentId": "doc-efeac11ee951",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         }
       ]
     },
@@ -326,73 +282,91 @@
       "atomId": "atom-3",
       "relations": [
         {
-          "spanId": "doc-5dfdb3a51082::sentence-5",
-          "documentId": "doc-5dfdb3a51082",
-          "relation": "CONTRADICTION"
-        },
-        {
-          "spanId": "doc-efeac11ee951::sentence-23",
-          "documentId": "doc-efeac11ee951",
-          "relation": "CONTRADICTION"
-        },
-        {
-          "spanId": "doc-efeac11ee951::sentence-31",
-          "documentId": "doc-efeac11ee951",
-          "relation": "CONTRADICTION"
-        },
-        {
-          "spanId": "doc-5dfdb3a51082::sentence-1",
-          "documentId": "doc-5dfdb3a51082",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-efeac11ee951::sentence-18",
-          "documentId": "doc-efeac11ee951",
-          "relation": "CONTRADICTION"
-        },
-        {
-          "spanId": "doc-5dfdb3a51082::sentence-14",
-          "documentId": "doc-5dfdb3a51082",
-          "relation": "CONTRADICTION"
-        }
-      ]
-    },
-    {
-      "atomId": "atom-4",
-      "relations": [
-        {
-          "spanId": "doc-5dfdb3a51082::sentence-5",
-          "documentId": "doc-5dfdb3a51082",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-5dfdb3a51082::sentence-17",
-          "documentId": "doc-5dfdb3a51082",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-efeac11ee951::sentence-2",
-          "documentId": "doc-efeac11ee951",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-efeac11ee951::sentence-31",
-          "documentId": "doc-efeac11ee951",
-          "relation": "NEUTRAL"
-        },
-        {
           "spanId": "doc-5dfdb3a51082::sentence-13",
           "documentId": "doc-5dfdb3a51082",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-efeac11ee951::sentence-7",
+          "spanId": "doc-5dfdb3a51082::sentence-9",
+          "documentId": "doc-5dfdb3a51082",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-5dfdb3a51082::sentence-21",
+          "documentId": "doc-5dfdb3a51082",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-efeac11ee951::sentence-21",
           "documentId": "doc-efeac11ee951",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-efeac11ee951::sentence-17",
+          "documentId": "doc-efeac11ee951",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-efeac11ee951::sentence-37",
+          "documentId": "doc-efeac11ee951",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         }
       ]
     }
   ],
+  "evidenceAudit": {
+    "claimPosition": {
+      "position": "INSUFFICIENT",
+      "supportSpanIds": [],
+      "attackSpanIds": [],
+      "contextSpanIds": [
+        "doc-5dfdb3a51082::sentence-13",
+        "doc-5dfdb3a51082::sentence-13",
+        "doc-5dfdb3a51082::sentence-13",
+        "doc-5dfdb3a51082::sentence-18",
+        "doc-efeac11ee951::sentence-26",
+        "doc-efeac11ee951::sentence-21"
+      ],
+      "reason": "The evidence does not establish that the CDC fraudulently adds deaths from poisoning, trauma, or unintentional injury to their tally of COVID-19 deaths. Instead, it shows that the CDC provides guidance to list COVID-19 as an underlying cause of death when testing is unavailable, which is not fraudulent but rather a response to undercounting."
+    },
+    "obligations": [
+      {
+        "atomId": "atom-1",
+        "state": "UNRESOLVED",
+        "supportSpanIds": [],
+        "attackSpanIds": [],
+        "reason": "The evidence does not establish that the CDC fraudulently adds deaths from poisoning, trauma, or unintentional injury to their tally of COVID-19 deaths. Instead, it shows that the CDC provides guidance to list COVID-19 as an underlying cause of death when testing is unavailable, which is not fraudulent but rather a response to undercounting."
+      },
+      {
+        "atomId": "atom-2",
+        "state": "UNRESOLVED",
+        "supportSpanIds": [],
+        "attackSpanIds": [],
+        "reason": "The evidence does not establish that the CDC fraudulently adds deaths from poisoning, trauma, or unintentional injury to their tally of COVID-19 deaths. Instead, it shows that the CDC provides guidance to list COVID-19 as an underlying cause of death when testing is unavailable, which is not fraudulent but rather a response to undercounting."
+      },
+      {
+        "atomId": "atom-3",
+        "state": "UNRESOLVED",
+        "supportSpanIds": [],
+        "attackSpanIds": [],
+        "reason": "The evidence does not establish that the CDC fraudulently adds deaths from poisoning, trauma, or unintentional injury to their tally of COVID-19 deaths. Instead, it shows that the CDC provides guidance to list COVID-19 as an underlying cause of death when testing is unavailable, which is not fraudulent but rather a response to undercounting."
+      }
+    ],
+    "materialOmission": {
+      "detected": false,
+      "supportSpanIds": [],
+      "contextSpanIds": [],
+      "reason": "No material omission was established."
+    },
+    "provider": "ollama",
+    "model": "qwen2.5:7b"
+  },
   "linguistics": {
     "schemaVersion": 2,
     "claimAnalysis": {
@@ -793,6 +767,12 @@
                 "text": "from poisoning",
                 "start": 76,
                 "end": 90
+              },
+              {
+                "id": "atom-1-frame-1-other-modifier-2",
+                "text": "to their tally of COVID-19 deaths",
+                "start": 91,
+                "end": 124
               }
             ]
           }
@@ -953,9 +933,75 @@
           },
           {
             "id": "atom-1-token-13",
+            "text": "to",
+            "start": 91,
+            "end": 93,
+            "lemma": "to",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "add"
+          },
+          {
+            "id": "atom-1-token-14",
+            "text": "their",
+            "start": 94,
+            "end": 99,
+            "lemma": "their",
+            "pos": "PRON",
+            "tag": "PRP$",
+            "dependency": "poss",
+            "head": "tally"
+          },
+          {
+            "id": "atom-1-token-15",
+            "text": "tally",
+            "start": 100,
+            "end": 105,
+            "lemma": "tally",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "pobj",
+            "head": "to"
+          },
+          {
+            "id": "atom-1-token-16",
+            "text": "of",
+            "start": 106,
+            "end": 108,
+            "lemma": "of",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "tally"
+          },
+          {
+            "id": "atom-1-token-17",
+            "text": "COVID-19",
+            "start": 109,
+            "end": 117,
+            "lemma": "covid-19",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "compound",
+            "head": "deaths"
+          },
+          {
+            "id": "atom-1-token-18",
+            "text": "deaths",
+            "start": 118,
+            "end": 124,
+            "lemma": "death",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "pobj",
+            "head": "of"
+          },
+          {
+            "id": "atom-1-token-19",
             "text": ".",
-            "start": 90,
-            "end": 91,
+            "start": 124,
+            "end": 125,
             "lemma": ".",
             "pos": "PUNCT",
             "tag": ".",
@@ -988,9 +1034,9 @@
             "coreArguments": [
               {
                 "id": "atom-2-frame-1-argument-1",
-                "text": "deaths from trauma",
+                "text": "deaths",
                 "start": 69,
-                "end": 87,
+                "end": 75,
                 "role": "direct_object"
               }
             ],
@@ -1003,7 +1049,20 @@
                 "kind": "manner"
               }
             ],
-            "otherModifiers": []
+            "otherModifiers": [
+              {
+                "id": "atom-2-frame-1-other-modifier-1",
+                "text": "from trauma",
+                "start": 76,
+                "end": 87
+              },
+              {
+                "id": "atom-2-frame-1-other-modifier-2",
+                "text": "to their tally of COVID-19 deaths",
+                "start": 88,
+                "end": 121
+              }
+            ]
           }
         ],
         "cues": [],
@@ -1147,7 +1206,7 @@
             "pos": "ADP",
             "tag": "IN",
             "dependency": "prep",
-            "head": "deaths"
+            "head": "add"
           },
           {
             "id": "atom-2-token-12",
@@ -1162,9 +1221,75 @@
           },
           {
             "id": "atom-2-token-13",
+            "text": "to",
+            "start": 88,
+            "end": 90,
+            "lemma": "to",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "add"
+          },
+          {
+            "id": "atom-2-token-14",
+            "text": "their",
+            "start": 91,
+            "end": 96,
+            "lemma": "their",
+            "pos": "PRON",
+            "tag": "PRP$",
+            "dependency": "poss",
+            "head": "tally"
+          },
+          {
+            "id": "atom-2-token-15",
+            "text": "tally",
+            "start": 97,
+            "end": 102,
+            "lemma": "tally",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "pobj",
+            "head": "to"
+          },
+          {
+            "id": "atom-2-token-16",
+            "text": "of",
+            "start": 103,
+            "end": 105,
+            "lemma": "of",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "tally"
+          },
+          {
+            "id": "atom-2-token-17",
+            "text": "COVID-19",
+            "start": 106,
+            "end": 114,
+            "lemma": "covid-19",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "compound",
+            "head": "deaths"
+          },
+          {
+            "id": "atom-2-token-18",
+            "text": "deaths",
+            "start": 115,
+            "end": 121,
+            "lemma": "death",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "pobj",
+            "head": "of"
+          },
+          {
+            "id": "atom-2-token-19",
             "text": ".",
-            "start": 87,
-            "end": 88,
+            "start": 121,
+            "end": 122,
             "lemma": ".",
             "pos": "PUNCT",
             "tag": ".",
@@ -1212,7 +1337,14 @@
                 "kind": "manner"
               }
             ],
-            "otherModifiers": []
+            "otherModifiers": [
+              {
+                "id": "atom-3-frame-1-other-modifier-1",
+                "text": "to their tally of COVID-19 deaths",
+                "start": 102,
+                "end": 135
+              }
+            ]
           }
         ],
         "cues": [],
@@ -1382,195 +1514,9 @@
           },
           {
             "id": "atom-3-token-14",
-            "text": ".",
-            "start": 101,
-            "end": 102,
-            "lemma": ".",
-            "pos": "PUNCT",
-            "tag": ".",
-            "dependency": "punct",
-            "head": "add"
-          }
-        ],
-        "status": "complete",
-        "unresolved": []
-      },
-      {
-        "atomId": "atom-4",
-        "frames": [
-          {
-            "id": "atom-4-frame-1",
-            "predicate": {
-              "id": "atom-4-frame-1-predicate",
-              "text": "add",
-              "start": 52,
-              "end": 55
-            },
-            "subjects": [
-              {
-                "id": "atom-4-frame-1-subject-1",
-                "text": "The U.S. Centers for Disease Control and Prevention",
-                "start": 0,
-                "end": 51
-              }
-            ],
-            "coreArguments": [
-              {
-                "id": "atom-4-frame-1-argument-1",
-                "text": "these deaths",
-                "start": 56,
-                "end": 68,
-                "role": "direct_object"
-              }
-            ],
-            "adjuncts": [],
-            "otherModifiers": [
-              {
-                "id": "atom-4-frame-1-other-modifier-1",
-                "text": "to their tally of COVID-19 deaths",
-                "start": 69,
-                "end": 102
-              }
-            ]
-          }
-        ],
-        "cues": [],
-        "entities": [
-          {
-            "id": "atom-4-entity-org-0-51",
-            "text": "The U.S. Centers for Disease Control and Prevention",
-            "start": 0,
-            "end": 51,
-            "label": "ORG"
-          }
-        ],
-        "tokens": [
-          {
-            "id": "atom-4-token-0",
-            "text": "The",
-            "start": 0,
-            "end": 3,
-            "lemma": "the",
-            "pos": "DET",
-            "tag": "DT",
-            "dependency": "det",
-            "head": "Centers"
-          },
-          {
-            "id": "atom-4-token-1",
-            "text": "U.S.",
-            "start": 4,
-            "end": 8,
-            "lemma": "U.S.",
-            "pos": "PROPN",
-            "tag": "NNP",
-            "dependency": "compound",
-            "head": "Centers"
-          },
-          {
-            "id": "atom-4-token-2",
-            "text": "Centers",
-            "start": 9,
-            "end": 16,
-            "lemma": "Centers",
-            "pos": "PROPN",
-            "tag": "NNPS",
-            "dependency": "nsubj",
-            "head": "add"
-          },
-          {
-            "id": "atom-4-token-3",
-            "text": "for",
-            "start": 17,
-            "end": 20,
-            "lemma": "for",
-            "pos": "ADP",
-            "tag": "IN",
-            "dependency": "prep",
-            "head": "Centers"
-          },
-          {
-            "id": "atom-4-token-4",
-            "text": "Disease",
-            "start": 21,
-            "end": 28,
-            "lemma": "Disease",
-            "pos": "PROPN",
-            "tag": "NNP",
-            "dependency": "compound",
-            "head": "Control"
-          },
-          {
-            "id": "atom-4-token-5",
-            "text": "Control",
-            "start": 29,
-            "end": 36,
-            "lemma": "Control",
-            "pos": "PROPN",
-            "tag": "NNP",
-            "dependency": "pobj",
-            "head": "for"
-          },
-          {
-            "id": "atom-4-token-6",
-            "text": "and",
-            "start": 37,
-            "end": 40,
-            "lemma": "and",
-            "pos": "CCONJ",
-            "tag": "CC",
-            "dependency": "cc",
-            "head": "Control"
-          },
-          {
-            "id": "atom-4-token-7",
-            "text": "Prevention",
-            "start": 41,
-            "end": 51,
-            "lemma": "Prevention",
-            "pos": "PROPN",
-            "tag": "NNP",
-            "dependency": "conj",
-            "head": "Control"
-          },
-          {
-            "id": "atom-4-token-8",
-            "text": "add",
-            "start": 52,
-            "end": 55,
-            "lemma": "add",
-            "pos": "VERB",
-            "tag": "VBP",
-            "dependency": "ROOT",
-            "head": "ROOT"
-          },
-          {
-            "id": "atom-4-token-9",
-            "text": "these",
-            "start": 56,
-            "end": 61,
-            "lemma": "these",
-            "pos": "DET",
-            "tag": "DT",
-            "dependency": "det",
-            "head": "deaths"
-          },
-          {
-            "id": "atom-4-token-10",
-            "text": "deaths",
-            "start": 62,
-            "end": 68,
-            "lemma": "death",
-            "pos": "NOUN",
-            "tag": "NNS",
-            "dependency": "dobj",
-            "head": "add"
-          },
-          {
-            "id": "atom-4-token-11",
             "text": "to",
-            "start": 69,
-            "end": 71,
+            "start": 102,
+            "end": 104,
             "lemma": "to",
             "pos": "ADP",
             "tag": "IN",
@@ -1578,10 +1524,10 @@
             "head": "add"
           },
           {
-            "id": "atom-4-token-12",
+            "id": "atom-3-token-15",
             "text": "their",
-            "start": 72,
-            "end": 77,
+            "start": 105,
+            "end": 110,
             "lemma": "their",
             "pos": "PRON",
             "tag": "PRP$",
@@ -1589,10 +1535,10 @@
             "head": "tally"
           },
           {
-            "id": "atom-4-token-13",
+            "id": "atom-3-token-16",
             "text": "tally",
-            "start": 78,
-            "end": 83,
+            "start": 111,
+            "end": 116,
             "lemma": "tally",
             "pos": "NOUN",
             "tag": "NN",
@@ -1600,10 +1546,10 @@
             "head": "to"
           },
           {
-            "id": "atom-4-token-14",
+            "id": "atom-3-token-17",
             "text": "of",
-            "start": 84,
-            "end": 86,
+            "start": 117,
+            "end": 119,
             "lemma": "of",
             "pos": "ADP",
             "tag": "IN",
@@ -1611,10 +1557,10 @@
             "head": "tally"
           },
           {
-            "id": "atom-4-token-15",
+            "id": "atom-3-token-18",
             "text": "COVID-19",
-            "start": 87,
-            "end": 95,
+            "start": 120,
+            "end": 128,
             "lemma": "covid-19",
             "pos": "NOUN",
             "tag": "NN",
@@ -1622,10 +1568,10 @@
             "head": "deaths"
           },
           {
-            "id": "atom-4-token-16",
+            "id": "atom-3-token-19",
             "text": "deaths",
-            "start": 96,
-            "end": 102,
+            "start": 129,
+            "end": 135,
             "lemma": "death",
             "pos": "NOUN",
             "tag": "NNS",
@@ -1633,10 +1579,10 @@
             "head": "of"
           },
           {
-            "id": "atom-4-token-17",
+            "id": "atom-3-token-20",
             "text": ".",
-            "start": 102,
-            "end": 103,
+            "start": 135,
+            "end": 136,
             "lemma": ".",
             "pos": "PUNCT",
             "tag": ".",
@@ -1652,7 +1598,7 @@
       {
         "atomId": "atom-1",
         "analysisStatus": "complete",
-        "roleAudit": "MATCH",
+        "roleAudit": "INCONCLUSIVE",
         "subjects": [
           "The U.S. Centers for Disease Control and Prevention"
         ],
@@ -1671,7 +1617,7 @@
       {
         "atomId": "atom-2",
         "analysisStatus": "complete",
-        "roleAudit": "MATCH",
+        "roleAudit": "INCONCLUSIVE",
         "subjects": [
           "The U.S. Centers for Disease Control and Prevention"
         ],
@@ -1690,7 +1636,7 @@
       {
         "atomId": "atom-3",
         "analysisStatus": "complete",
-        "roleAudit": "MATCH",
+        "roleAudit": "INCONCLUSIVE",
         "subjects": [
           "The U.S. Centers for Disease Control and Prevention"
         ],
@@ -1705,23 +1651,6 @@
           "ORG"
         ],
         "warnings": []
-      },
-      {
-        "atomId": "atom-4",
-        "analysisStatus": "complete",
-        "roleAudit": "MATCH",
-        "subjects": [
-          "The U.S. Centers for Disease Control and Prevention"
-        ],
-        "predicates": [
-          "add"
-        ],
-        "cueKinds": [],
-        "modifierKinds": [],
-        "entityLabels": [
-          "ORG"
-        ],
-        "warnings": []
       }
     ],
     "claimWarnings": [],
@@ -1732,59 +1661,37 @@
     "aggregationSchemaVersion": 1,
     "claimId": "averitec-dev-0419",
     "composition": "AND",
-    "verdict": "REFUTED",
+    "verdict": "NOT_ENOUGH_EVIDENCE",
     "positions": {
       "supportPosition": false,
-      "attackPosition": true,
+      "attackPosition": false,
+      "materialOmissionPosition": false,
       "supportObligationIds": [],
-      "attackObligationIds": [
+      "attackObligationIds": [],
+      "unresolvedObligationIds": [
         "atom-1",
         "atom-2",
         "atom-3"
       ],
-      "unresolvedObligationIds": [
-        "atom-4"
-      ]
+      "groundedClaimPosition": "INSUFFICIENT"
     },
     "obligations": [
       {
         "obligationId": "atom-1",
-        "state": "REFUTED",
+        "state": "UNRESOLVED",
         "supportEdgeIds": [],
-        "attackEdgeIds": [
-          "edge:ATTACKS:evidence:doc-efeac11ee951:doc-efeac11ee951::sentence-31:obligation:averitec-dev-0419:atom-1",
-          "edge:ATTACKS:evidence:doc-5dfdb3a51082:doc-5dfdb3a51082::sentence-5:obligation:averitec-dev-0419:atom-1",
-          "edge:ATTACKS:evidence:doc-efeac11ee951:doc-efeac11ee951::sentence-18:obligation:averitec-dev-0419:atom-1"
-        ],
-        "neutralCandidateCount": 3
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 6
       },
       {
         "obligationId": "atom-2",
-        "state": "REFUTED",
+        "state": "UNRESOLVED",
         "supportEdgeIds": [],
-        "attackEdgeIds": [
-          "edge:ATTACKS:evidence:doc-5dfdb3a51082:doc-5dfdb3a51082::sentence-5:obligation:averitec-dev-0419:atom-2",
-          "edge:ATTACKS:evidence:doc-efeac11ee951:doc-efeac11ee951::sentence-31:obligation:averitec-dev-0419:atom-2",
-          "edge:ATTACKS:evidence:doc-efeac11ee951:doc-efeac11ee951::sentence-18:obligation:averitec-dev-0419:atom-2",
-          "edge:ATTACKS:evidence:doc-efeac11ee951:doc-efeac11ee951::sentence-23:obligation:averitec-dev-0419:atom-2"
-        ],
-        "neutralCandidateCount": 2
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 6
       },
       {
         "obligationId": "atom-3",
-        "state": "REFUTED",
-        "supportEdgeIds": [],
-        "attackEdgeIds": [
-          "edge:ATTACKS:evidence:doc-5dfdb3a51082:doc-5dfdb3a51082::sentence-5:obligation:averitec-dev-0419:atom-3",
-          "edge:ATTACKS:evidence:doc-efeac11ee951:doc-efeac11ee951::sentence-23:obligation:averitec-dev-0419:atom-3",
-          "edge:ATTACKS:evidence:doc-efeac11ee951:doc-efeac11ee951::sentence-31:obligation:averitec-dev-0419:atom-3",
-          "edge:ATTACKS:evidence:doc-efeac11ee951:doc-efeac11ee951::sentence-18:obligation:averitec-dev-0419:atom-3",
-          "edge:ATTACKS:evidence:doc-5dfdb3a51082:doc-5dfdb3a51082::sentence-14:obligation:averitec-dev-0419:atom-3"
-        ],
-        "neutralCandidateCount": 1
-      },
-      {
-        "obligationId": "atom-4",
         "state": "UNRESOLVED",
         "supportEdgeIds": [],
         "attackEdgeIds": [],
@@ -1794,23 +1701,47 @@
     "warnings": [
       {
         "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
-        "message": "Obligation atom-4 has no supporting or attacking evidence."
+        "message": "Obligation atom-1 has no supporting or attacking evidence."
       },
       {
         "code": "ONLY_NEUTRAL_CANDIDATES",
-        "message": "Obligation atom-4 has only neutral retrieved candidates."
+        "message": "Obligation atom-1 has only neutral retrieved candidates."
+      },
+      {
+        "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
+        "message": "Obligation atom-2 has no supporting or attacking evidence."
+      },
+      {
+        "code": "ONLY_NEUTRAL_CANDIDATES",
+        "message": "Obligation atom-2 has only neutral retrieved candidates."
+      },
+      {
+        "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
+        "message": "Obligation atom-3 has no supporting or attacking evidence."
+      },
+      {
+        "code": "ONLY_NEUTRAL_CANDIDATES",
+        "message": "Obligation atom-3 has only neutral retrieved candidates."
       }
     ],
     "ruleTrace": [
-      "AND support requires support for every obligation; AND attack requires an attack on any obligation.",
-      "Support position: no; attack position: yes.",
-      "Final verdict: REFUTED."
+      "The provenance-constrained claim audit sets the overall evidence position; deterministic aggregation maps that position to status.",
+      "Grounded claim position: INSUFFICIENT; The evidence does not establish that the CDC fraudulently adds deaths from poisoning, trauma, or unintentional injury to their tally of COVID-19 deaths. Instead, it shows that the CDC provides guidance to list COVID-19 as an underlying cause of death when testing is unavailable, which is not fraudulent but rather a response to undercounting.",
+      "Support position: no; attack position: no.",
+      "Final verdict: NOT_ENOUGH_EVIDENCE."
     ]
   },
   "recordedWith": {
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
-    "nliModel": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    "nliModel": "qwen2.5:7b",
     "linguisticsModel": "en_core_web_sm@3.8.0"
+  },
+  "timingsSeconds": {
+    "decomposition": 22.876,
+    "retrievalAndLinguistics": 0.549,
+    "evidenceAudit": 27.296,
+    "aggregation": 0.007,
+    "total": 50.733
   }
 }

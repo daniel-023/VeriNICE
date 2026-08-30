@@ -51,9 +51,8 @@ walkthrough and preserve the conversation.
 
 - Three consecutive cold-start demos without a manual fix.
 - Three consecutive offline walkthrough demos.
-- A new participant can explain the verdict trace after one viewing.
+- A new participant can correct one relation and explain the status trace after one viewing.
 - Every factual claim in the paper appears in a test, recorded artifact, or
   cited source.
 - The 32-case claim appears only after the manifest and evaluation report both
   contain 32 complete runs.
-

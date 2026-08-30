@@ -15,7 +15,7 @@
       "sourceText": "Illegal drug, border crossings, and human smuggling activities have decreased in areas where barriers are deployed in the United States.",
       "start": 0,
       "end": 136,
-      "role": "CORE"
+      "role": "CAUSAL_RELATION"
     },
     {
       "id": "atom-2",
@@ -23,7 +23,7 @@
       "sourceText": "Illegal drug, border crossings, and human smuggling activities have decreased in areas where barriers are deployed in the United States.",
       "start": 0,
       "end": 136,
-      "role": "CORE"
+      "role": "CAUSAL_RELATION"
     },
     {
       "id": "atom-3",
@@ -31,7 +31,7 @@
       "sourceText": "Illegal drug, border crossings, and human smuggling activities have decreased in areas where barriers are deployed in the United States.",
       "start": 0,
       "end": 136,
-      "role": "CORE"
+      "role": "CAUSAL_RELATION"
     }
   ],
   "evidence": [
@@ -39,52 +39,52 @@
       "atomId": "atom-1",
       "spans": [
         {
-          "id": "doc-ce677b332c51::sentence-75",
-          "documentId": "doc-ce677b332c51",
-          "text": "6. The barrier is unlikely to stop most kinds of drugs coming into the US\n",
-          "start": 10299,
-          "end": 10373,
-          "context": "\"These people have nowhere to go. They can't go home - they will be killed if they go home - and they can't get into the US, so they are stuck in this purgatory right now and we don't see that ending any time soon,\" she says.\n 6. The barrier is unlikely to stop most kinds of drugs coming into the US\n Mr Trump has claimed in the past that 90% of heroin in the US comes across the southern border and that a wall would help the fight against drugs.\n"
-        },
-        {
-          "id": "doc-ce677b332c51::sentence-77",
-          "documentId": "doc-ce677b332c51",
-          "text": "However strengthening and extending the border barrier is unlikely to do much to reduce illegal drugs - such as heroin, cocaine and methamphetamine - because most come through established border checkpoints, known as ports of entry.\n",
-          "start": 10520,
-          "end": 10753,
-          "context": "Mr Trump has claimed in the past that 90% of heroin in the US comes across the southern border and that a wall would help the fight against drugs.\n However strengthening and extending the border barrier is unlikely to do much to reduce illegal drugs - such as heroin, cocaine and methamphetamine - because most come through established border checkpoints, known as ports of entry.\n While the majority of the heroin in the US does come from Mexico, the Drug Enforcement Administration says most of it is hidden in privately owned vehicles or transporter lorries, mixed with other goods, and smuggled through legal entry points.\n"
-        },
-        {
-          "id": "doc-ce677b332c51::sentence-50",
+          "id": "doc-ce677b332c51::sentence-62",
           "documentId": "doc-ce677b332c51",
           "text": "4. Illegal crossings appear to have fallen this year\n",
-          "start": 6177,
-          "end": 6230,
+          "start": 7421,
+          "end": 7474,
           "context": "Meanwhile, Democrats in the House of Representatives have also launched separate legal action.\n 4. Illegal crossings appear to have fallen this year\n Mr Trump made reducing illegal immigration a top priority of his administration and it has been a key part of his re-election campaign.\n"
         },
         {
-          "id": "doc-e9ea0a467bd3::sentence-57",
-          "documentId": "doc-e9ea0a467bd3",
-          "text": "Clinical trials are underway in the US and other countries to evaluate new antiviral drugs for treating patients with COVID-19.\n",
-          "start": 4059,
-          "end": 4187,
-          "context": "People have been seriously harmed and have even died after taking products not approved for COVID-19, even products approved or prescribed for other uses.  Clinical trials are underway in the US and other countries to evaluate new antiviral drugs for treating patients with COVID-19.\n For all patients who have COVID-19 or other coronaviruses, supportive care is recommended:\n"
+          "id": "doc-ce677b332c51::sentence-91",
+          "documentId": "doc-ce677b332c51",
+          "text": "CBP figures for drugs - excluding marijuana - seized on the southern border also show most come through ports of entry, although a report by the Congressional Research Service does state that border barriers can serve to push people to cross in places where they are more likely to be \"detected, intercepted, and detained\".\n",
+          "start": 12242,
+          "end": 12566,
+          "context": "While the majority of the heroin in the US does come from Mexico, the Drug Enforcement Administration says most of it is hidden in privately owned vehicles or transporter lorries, mixed with other goods, and smuggled through legal entry points.\n CBP figures for drugs - excluding marijuana - seized on the southern border also show most come through ports of entry, although a report by the Congressional Research Service does state that border barriers can serve to push people to cross in places where they are more likely to be \"detected, intercepted, and detained\".\n Rodney Scott, chief of the US Border Patrol, agrees - and gives the example of San Diego, where he says cartel lorries used to drive across the border \"three or four at a time on an almost daily basis, with high-speed pursuits throughout town\".\n"
         },
         {
-          "id": "doc-e9ea0a467bd3::sentence-17",
-          "documentId": "doc-e9ea0a467bd3",
-          "text": "MERS cases continue to occur, primarily in the Arabian Peninsula; however, as of 2019, there have been only two confirmed cases of MERS in the US, both in 2014.\n",
-          "start": 1320,
-          "end": 1481,
-          "context": "About 3 or 4 out of every 10 patients reported with MERS have died.  MERS cases continue to occur, primarily in the Arabian Peninsula; however, as of 2019, there have been only two confirmed cases of MERS in the US, both in 2014.\n Severe Acute Respiratory Syndrome (SARS)\n"
+          "id": "doc-ce677b332c51::sentence-4",
+          "documentId": "doc-ce677b332c51",
+          "text": "Evidence 1: Did the US-Mexico border have barriers before President Tump took office? ",
+          "start": 206,
+          "end": 292,
+          "context": "Source URL: https://www.bbc.com/news/world-us-canada-46824649\n Evidence 1: Did the US-Mexico border have barriers before President Tump took office?  Yes\n"
         },
         {
-          "id": "doc-e9ea0a467bd3::sentence-56",
-          "documentId": "doc-e9ea0a467bd3",
-          "text": "People have been seriously harmed and have even died after taking products not approved for COVID-19, even products approved or prescribed for other uses. ",
-          "start": 3904,
-          "end": 4059,
-          "context": "If you are infected, contact a healthcare professional to see if you are eligible as treatments used for COVID-19 should only be prescribed by a healthcare professional.  People have been seriously harmed and have even died after taking products not approved for COVID-19, even products approved or prescribed for other uses.  Clinical trials are underway in the US and other countries to evaluate new antiviral drugs for treating patients with COVID-19.\n"
+          "id": "doc-ce677b332c51::sentence-87",
+          "documentId": "doc-ce677b332c51",
+          "text": "6. The barrier is unlikely to stop most kinds of drugs coming into the US\n",
+          "start": 11543,
+          "end": 11617,
+          "context": "\"These people have nowhere to go. They can't go home - they will be killed if they go home - and they can't get into the US, so they are stuck in this purgatory right now and we don't see that ending any time soon,\" she says.\n 6. The barrier is unlikely to stop most kinds of drugs coming into the US\n Mr Trump has claimed in the past that 90% of heroin in the US comes across the southern border and that a wall would help the fight against drugs.\n"
+        },
+        {
+          "id": "doc-ce677b332c51::sentence-97",
+          "documentId": "doc-ce677b332c51",
+          "text": "It is also the drug most likely to be smuggled in areas away from the border checkpoints.\n",
+          "start": 13427,
+          "end": 13517,
+          "context": "Marijuana is the most trafficked drug, with more than 227 tonnes seized on the southern border this year.  It is also the drug most likely to be smuggled in areas away from the border checkpoints.\n Traffickers regularly use underground tunnels to smuggle tonnes of marijuana, mainly in the California and Arizona stretches of the border.\n"
+        },
+        {
+          "id": "doc-ce677b332c51::sentence-58",
+          "documentId": "doc-ce677b332c51",
+          "text": "Two lower US courts have ruled in favour of these groups, concluding that the diversion of an amount of $2.5bn from DoD to construct barriers in California, New Mexico and Arizona was unlawful.\n",
+          "start": 6868,
+          "end": 7062,
+          "context": "But Mr Trump's decision to bypass Congress in this way has triggered a number of legal challenges - one from a number of environmental groups, represented by the American Civil Liberties Union, along with the states of California and New Mexico.\n Two lower US courts have ruled in favour of these groups, concluding that the diversion of an amount of $2.5bn from DoD to construct barriers in California, New Mexico and Arizona was unlawful.\n However, the Supreme Court - the highest federal court in the US - has allowed barrier construction using the funds to continue pending the appeals process. "
         }
       ]
     },
@@ -92,52 +92,52 @@
       "atomId": "atom-2",
       "spans": [
         {
-          "id": "doc-ce677b332c51::sentence-50",
+          "id": "doc-ce677b332c51::sentence-4",
+          "documentId": "doc-ce677b332c51",
+          "text": "Evidence 1: Did the US-Mexico border have barriers before President Tump took office? ",
+          "start": 206,
+          "end": 292,
+          "context": "Source URL: https://www.bbc.com/news/world-us-canada-46824649\n Evidence 1: Did the US-Mexico border have barriers before President Tump took office?  Yes\n"
+        },
+        {
+          "id": "doc-ce677b332c51::sentence-62",
           "documentId": "doc-ce677b332c51",
           "text": "4. Illegal crossings appear to have fallen this year\n",
-          "start": 6177,
-          "end": 6230,
+          "start": 7421,
+          "end": 7474,
           "context": "Meanwhile, Democrats in the House of Representatives have also launched separate legal action.\n 4. Illegal crossings appear to have fallen this year\n Mr Trump made reducing illegal immigration a top priority of his administration and it has been a key part of his re-election campaign.\n"
         },
         {
-          "id": "doc-ce677b332c51::sentence-54",
+          "id": "doc-ce677b332c51::sentence-6",
           "documentId": "doc-ce677b332c51",
-          "text": "How much this fall in numbers is down to the new barriers is unclear, though, and immigration experts say the drop is likely to be the result of the deterrent effect of a whole raft of anti-immigration measures introduced by Mr Trump's administration rather than the barrier alone.\n",
-          "start": 6701,
-          "end": 6983,
-          "context": "In particular, the number of children and those travelling in family groups apprehended at the border has dropped significantly in the 12 months to October, compared with the previous year.\n How much this fall in numbers is down to the new barriers is unclear, though, and immigration experts say the drop is likely to be the result of the deterrent effect of a whole raft of anti-immigration measures introduced by Mr Trump's administration rather than the barrier alone.\n Those fleeing violence or persecution to the US have found asylum rules tightened, been forced to wait in camps for long periods as their cases are determined and come up against new limits on the number of refugees accepted into the country.\n"
+          "text": "Evidence 2: How much of the border has barriers as of October 2020? ",
+          "start": 296,
+          "end": 364,
+          "context": "Yes\n Evidence 2: How much of the border has barriers as of October 2020?  Now, according to US Customs and Border Protection (CBP) in its 6 October status report, the southern border has 669 miles of \"primary barrier\" - the first structure people heading from Mexico to the US will encounter - and 65 miles of \"secondary barrier\" - which usually runs behind the primary structure as a further obstacle.\n\n"
         },
         {
-          "id": "doc-ce677b332c51::sentence-71",
+          "id": "doc-ce677b332c51::sentence-91",
+          "documentId": "doc-ce677b332c51",
+          "text": "CBP figures for drugs - excluding marijuana - seized on the southern border also show most come through ports of entry, although a report by the Congressional Research Service does state that border barriers can serve to push people to cross in places where they are more likely to be \"detected, intercepted, and detained\".\n",
+          "start": 12242,
+          "end": 12566,
+          "context": "While the majority of the heroin in the US does come from Mexico, the Drug Enforcement Administration says most of it is hidden in privately owned vehicles or transporter lorries, mixed with other goods, and smuggled through legal entry points.\n CBP figures for drugs - excluding marijuana - seized on the southern border also show most come through ports of entry, although a report by the Congressional Research Service does state that border barriers can serve to push people to cross in places where they are more likely to be \"detected, intercepted, and detained\".\n Rodney Scott, chief of the US Border Patrol, agrees - and gives the example of San Diego, where he says cartel lorries used to drive across the border \"three or four at a time on an almost daily basis, with high-speed pursuits throughout town\".\n"
+        },
+        {
+          "id": "doc-ce677b332c51::sentence-64",
+          "documentId": "doc-ce677b332c51",
+          "text": "The latest figures suggest the number of migrants apprehended at the southern border this year have fallen after doubling between 2018 and 2019.\n",
+          "start": 7610,
+          "end": 7755,
+          "context": "Mr Trump made reducing illegal immigration a top priority of his administration and it has been a key part of his re-election campaign.\n The latest figures suggest the number of migrants apprehended at the southern border this year have fallen after doubling between 2018 and 2019.\n In particular, the number of children and those travelling in family groups apprehended at the border has dropped significantly in the 12 months to October, compared with the previous year.\n"
+        },
+        {
+          "id": "doc-ce677b332c51::sentence-83",
           "documentId": "doc-ce677b332c51",
           "text": "Coronavirus restrictions have meant the border has been closed for all but essential travel and immigration hearings have been postponed.\n",
-          "start": 9657,
-          "end": 9795,
+          "start": 10901,
+          "end": 11039,
           "context": "But Andrea Leiner, director of strategic planning for GRM, says coronavirus and July's Hurricane Hanna have had dire consequences.\n Coronavirus restrictions have meant the border has been closed for all but essential travel and immigration hearings have been postponed.\n Hurricane Hanna not only brought floods to the camp but also caused an infestation of rats, snakes and mosquitoes, forcing many residents to flee.\n"
-        },
-        {
-          "id": "doc-e9ea0a467bd3::sentence-82",
-          "documentId": "doc-e9ea0a467bd3",
-          "text": "Tools and resources to help leaders across sectors ensure that their communications foster positive social norms that encourage the public to follow evidence-based public health prevention measures for COVID-19\n",
-          "start": 5650,
-          "end": 5861,
-          "context": "COVID-19 Communications: Promoting Prevention Measures and Vaccine Confidence\n Tools and resources to help leaders across sectors ensure that their communications foster positive social norms that encourage the public to follow evidence-based public health prevention measures for COVID-19\n Masks: Dos & Don’ts\n"
-        },
-        {
-          "id": "doc-e9ea0a467bd3::sentence-84",
-          "documentId": "doc-e9ea0a467bd3",
-          "text": "It is easy to be confused by guidance that changes over time or differs by state, but it is still a good idea to wear a mask in public, especially if you have not been fully vaccinated.\n",
-          "start": 5881,
-          "end": 6067,
-          "context": "Masks: Dos & Don’ts\n It is easy to be confused by guidance that changes over time or differs by state, but it is still a good idea to wear a mask in public, especially if you have not been fully vaccinated.\n 5 Tips to Help #StopTheSpread of COVID-19\n"
-        },
-        {
-          "id": "doc-e9ea0a467bd3::sentence-17",
-          "documentId": "doc-e9ea0a467bd3",
-          "text": "MERS cases continue to occur, primarily in the Arabian Peninsula; however, as of 2019, there have been only two confirmed cases of MERS in the US, both in 2014.\n",
-          "start": 1320,
-          "end": 1481,
-          "context": "About 3 or 4 out of every 10 patients reported with MERS have died.  MERS cases continue to occur, primarily in the Arabian Peninsula; however, as of 2019, there have been only two confirmed cases of MERS in the US, both in 2014.\n Severe Acute Respiratory Syndrome (SARS)\n"
         }
       ]
     },
@@ -145,52 +145,52 @@
       "atomId": "atom-3",
       "spans": [
         {
-          "id": "doc-ce677b332c51::sentence-50",
+          "id": "doc-ce677b332c51::sentence-91",
+          "documentId": "doc-ce677b332c51",
+          "text": "CBP figures for drugs - excluding marijuana - seized on the southern border also show most come through ports of entry, although a report by the Congressional Research Service does state that border barriers can serve to push people to cross in places where they are more likely to be \"detected, intercepted, and detained\".\n",
+          "start": 12242,
+          "end": 12566,
+          "context": "While the majority of the heroin in the US does come from Mexico, the Drug Enforcement Administration says most of it is hidden in privately owned vehicles or transporter lorries, mixed with other goods, and smuggled through legal entry points.\n CBP figures for drugs - excluding marijuana - seized on the southern border also show most come through ports of entry, although a report by the Congressional Research Service does state that border barriers can serve to push people to cross in places where they are more likely to be \"detected, intercepted, and detained\".\n Rodney Scott, chief of the US Border Patrol, agrees - and gives the example of San Diego, where he says cartel lorries used to drive across the border \"three or four at a time on an almost daily basis, with high-speed pursuits throughout town\".\n"
+        },
+        {
+          "id": "doc-ce677b332c51::sentence-4",
+          "documentId": "doc-ce677b332c51",
+          "text": "Evidence 1: Did the US-Mexico border have barriers before President Tump took office? ",
+          "start": 206,
+          "end": 292,
+          "context": "Source URL: https://www.bbc.com/news/world-us-canada-46824649\n Evidence 1: Did the US-Mexico border have barriers before President Tump took office?  Yes\n"
+        },
+        {
+          "id": "doc-ce677b332c51::sentence-62",
           "documentId": "doc-ce677b332c51",
           "text": "4. Illegal crossings appear to have fallen this year\n",
-          "start": 6177,
-          "end": 6230,
+          "start": 7421,
+          "end": 7474,
           "context": "Meanwhile, Democrats in the House of Representatives have also launched separate legal action.\n 4. Illegal crossings appear to have fallen this year\n Mr Trump made reducing illegal immigration a top priority of his administration and it has been a key part of his re-election campaign.\n"
         },
         {
-          "id": "doc-ce677b332c51::sentence-75",
+          "id": "doc-ce677b332c51::sentence-87",
           "documentId": "doc-ce677b332c51",
           "text": "6. The barrier is unlikely to stop most kinds of drugs coming into the US\n",
-          "start": 10299,
-          "end": 10373,
+          "start": 11543,
+          "end": 11617,
           "context": "\"These people have nowhere to go. They can't go home - they will be killed if they go home - and they can't get into the US, so they are stuck in this purgatory right now and we don't see that ending any time soon,\" she says.\n 6. The barrier is unlikely to stop most kinds of drugs coming into the US\n Mr Trump has claimed in the past that 90% of heroin in the US comes across the southern border and that a wall would help the fight against drugs.\n"
         },
         {
-          "id": "doc-ce677b332c51::sentence-54",
+          "id": "doc-ce677b332c51::sentence-58",
           "documentId": "doc-ce677b332c51",
-          "text": "How much this fall in numbers is down to the new barriers is unclear, though, and immigration experts say the drop is likely to be the result of the deterrent effect of a whole raft of anti-immigration measures introduced by Mr Trump's administration rather than the barrier alone.\n",
-          "start": 6701,
-          "end": 6983,
-          "context": "In particular, the number of children and those travelling in family groups apprehended at the border has dropped significantly in the 12 months to October, compared with the previous year.\n How much this fall in numbers is down to the new barriers is unclear, though, and immigration experts say the drop is likely to be the result of the deterrent effect of a whole raft of anti-immigration measures introduced by Mr Trump's administration rather than the barrier alone.\n Those fleeing violence or persecution to the US have found asylum rules tightened, been forced to wait in camps for long periods as their cases are determined and come up against new limits on the number of refugees accepted into the country.\n"
+          "text": "Two lower US courts have ruled in favour of these groups, concluding that the diversion of an amount of $2.5bn from DoD to construct barriers in California, New Mexico and Arizona was unlawful.\n",
+          "start": 6868,
+          "end": 7062,
+          "context": "But Mr Trump's decision to bypass Congress in this way has triggered a number of legal challenges - one from a number of environmental groups, represented by the American Civil Liberties Union, along with the states of California and New Mexico.\n Two lower US courts have ruled in favour of these groups, concluding that the diversion of an amount of $2.5bn from DoD to construct barriers in California, New Mexico and Arizona was unlawful.\n However, the Supreme Court - the highest federal court in the US - has allowed barrier construction using the funds to continue pending the appeals process. "
         },
         {
-          "id": "doc-e9ea0a467bd3::sentence-41",
-          "documentId": "doc-e9ea0a467bd3",
-          "text": "Human coronaviruses can be spread primarily through:\n",
-          "start": 3064,
-          "end": 3117,
-          "context": "Prevention\n Human coronaviruses can be spread primarily through:\n - coughing and sneezing\n"
-        },
-        {
-          "id": "doc-e9ea0a467bd3::sentence-17",
-          "documentId": "doc-e9ea0a467bd3",
-          "text": "MERS cases continue to occur, primarily in the Arabian Peninsula; however, as of 2019, there have been only two confirmed cases of MERS in the US, both in 2014.\n",
-          "start": 1320,
-          "end": 1481,
-          "context": "About 3 or 4 out of every 10 patients reported with MERS have died.  MERS cases continue to occur, primarily in the Arabian Peninsula; however, as of 2019, there have been only two confirmed cases of MERS in the US, both in 2014.\n Severe Acute Respiratory Syndrome (SARS)\n"
-        },
-        {
-          "id": "doc-e9ea0a467bd3::sentence-84",
-          "documentId": "doc-e9ea0a467bd3",
-          "text": "It is easy to be confused by guidance that changes over time or differs by state, but it is still a good idea to wear a mask in public, especially if you have not been fully vaccinated.\n",
-          "start": 5881,
-          "end": 6067,
-          "context": "Masks: Dos & Don’ts\n It is easy to be confused by guidance that changes over time or differs by state, but it is still a good idea to wear a mask in public, especially if you have not been fully vaccinated.\n 5 Tips to Help #StopTheSpread of COVID-19\n"
+          "id": "doc-ce677b332c51::sentence-6",
+          "documentId": "doc-ce677b332c51",
+          "text": "Evidence 2: How much of the border has barriers as of October 2020? ",
+          "start": 296,
+          "end": 364,
+          "context": "Yes\n Evidence 2: How much of the border has barriers as of October 2020?  Now, according to US Customs and Border Protection (CBP) in its 6 October status report, the southern border has 669 miles of \"primary barrier\" - the first structure people heading from Mexico to the US will encounter - and 65 miles of \"secondary barrier\" - which usually runs behind the primary structure as a further obstacle.\n\n"
         }
       ]
     }
@@ -200,34 +200,40 @@
       "atomId": "atom-1",
       "relations": [
         {
-          "spanId": "doc-ce677b332c51::sentence-75",
+          "spanId": "doc-ce677b332c51::sentence-62",
           "documentId": "doc-ce677b332c51",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-ce677b332c51::sentence-77",
+          "spanId": "doc-ce677b332c51::sentence-91",
           "documentId": "doc-ce677b332c51",
-          "relation": "NEUTRAL"
+          "relation": "ENTAILMENT",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-ce677b332c51::sentence-50",
+          "spanId": "doc-ce677b332c51::sentence-4",
           "documentId": "doc-ce677b332c51",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-e9ea0a467bd3::sentence-57",
-          "documentId": "doc-e9ea0a467bd3",
-          "relation": "NEUTRAL"
+          "spanId": "doc-ce677b332c51::sentence-87",
+          "documentId": "doc-ce677b332c51",
+          "relation": "ENTAILMENT",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-e9ea0a467bd3::sentence-17",
-          "documentId": "doc-e9ea0a467bd3",
-          "relation": "NEUTRAL"
+          "spanId": "doc-ce677b332c51::sentence-97",
+          "documentId": "doc-ce677b332c51",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-e9ea0a467bd3::sentence-56",
-          "documentId": "doc-e9ea0a467bd3",
-          "relation": "NEUTRAL"
+          "spanId": "doc-ce677b332c51::sentence-58",
+          "documentId": "doc-ce677b332c51",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         }
       ]
     },
@@ -235,34 +241,40 @@
       "atomId": "atom-2",
       "relations": [
         {
-          "spanId": "doc-ce677b332c51::sentence-50",
+          "spanId": "doc-ce677b332c51::sentence-4",
           "documentId": "doc-ce677b332c51",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-ce677b332c51::sentence-54",
+          "spanId": "doc-ce677b332c51::sentence-62",
           "documentId": "doc-ce677b332c51",
-          "relation": "ENTAILMENT"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-ce677b332c51::sentence-71",
+          "spanId": "doc-ce677b332c51::sentence-6",
           "documentId": "doc-ce677b332c51",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-e9ea0a467bd3::sentence-82",
-          "documentId": "doc-e9ea0a467bd3",
-          "relation": "NEUTRAL"
+          "spanId": "doc-ce677b332c51::sentence-91",
+          "documentId": "doc-ce677b332c51",
+          "relation": "ENTAILMENT",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-e9ea0a467bd3::sentence-84",
-          "documentId": "doc-e9ea0a467bd3",
-          "relation": "NEUTRAL"
+          "spanId": "doc-ce677b332c51::sentence-64",
+          "documentId": "doc-ce677b332c51",
+          "relation": "ENTAILMENT",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-e9ea0a467bd3::sentence-17",
-          "documentId": "doc-e9ea0a467bd3",
-          "relation": "NEUTRAL"
+          "spanId": "doc-ce677b332c51::sentence-83",
+          "documentId": "doc-ce677b332c51",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         }
       ]
     },
@@ -270,38 +282,96 @@
       "atomId": "atom-3",
       "relations": [
         {
-          "spanId": "doc-ce677b332c51::sentence-50",
+          "spanId": "doc-ce677b332c51::sentence-91",
           "documentId": "doc-ce677b332c51",
-          "relation": "NEUTRAL"
+          "relation": "ENTAILMENT",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-ce677b332c51::sentence-75",
+          "spanId": "doc-ce677b332c51::sentence-4",
           "documentId": "doc-ce677b332c51",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-ce677b332c51::sentence-54",
+          "spanId": "doc-ce677b332c51::sentence-62",
           "documentId": "doc-ce677b332c51",
-          "relation": "ENTAILMENT"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-e9ea0a467bd3::sentence-41",
-          "documentId": "doc-e9ea0a467bd3",
-          "relation": "NEUTRAL"
+          "spanId": "doc-ce677b332c51::sentence-87",
+          "documentId": "doc-ce677b332c51",
+          "relation": "ENTAILMENT",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-e9ea0a467bd3::sentence-17",
-          "documentId": "doc-e9ea0a467bd3",
-          "relation": "NEUTRAL"
+          "spanId": "doc-ce677b332c51::sentence-58",
+          "documentId": "doc-ce677b332c51",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-e9ea0a467bd3::sentence-84",
-          "documentId": "doc-e9ea0a467bd3",
-          "relation": "NEUTRAL"
+          "spanId": "doc-ce677b332c51::sentence-6",
+          "documentId": "doc-ce677b332c51",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         }
       ]
     }
   ],
+  "evidenceAudit": {
+    "claimPosition": {
+      "position": "SUPPORT_ONLY",
+      "supportSpanIds": [
+        "doc-ce677b332c51::sentence-91",
+        "doc-ce677b332c51::sentence-87",
+        "doc-ce677b332c51::sentence-64",
+        "doc-ce677b332c51::sentence-87"
+      ],
+      "attackSpanIds": [],
+      "contextSpanIds": [],
+      "reason": "Evidence shows a decrease in illegal drug activities, border crossings, and human smuggling in areas with deployed barriers, supporting the claim."
+    },
+    "obligations": [
+      {
+        "atomId": "atom-1",
+        "state": "SUPPORTED",
+        "supportSpanIds": [
+          "doc-ce677b332c51::sentence-91",
+          "doc-ce677b332c51::sentence-87"
+        ],
+        "attackSpanIds": [],
+        "reason": "Evidence shows a decrease in illegal drug activities, border crossings, and human smuggling in areas with deployed barriers, supporting the claim."
+      },
+      {
+        "atomId": "atom-2",
+        "state": "SUPPORTED",
+        "supportSpanIds": [
+          "doc-ce677b332c51::sentence-64"
+        ],
+        "attackSpanIds": [],
+        "reason": "Evidence shows a decrease in illegal drug activities, border crossings, and human smuggling in areas with deployed barriers, supporting the claim."
+      },
+      {
+        "atomId": "atom-3",
+        "state": "SUPPORTED",
+        "supportSpanIds": [
+          "doc-ce677b332c51::sentence-87"
+        ],
+        "attackSpanIds": [],
+        "reason": "Evidence shows a decrease in illegal drug activities, border crossings, and human smuggling in areas with deployed barriers, supporting the claim."
+      }
+    ],
+    "materialOmission": {
+      "detected": false,
+      "supportSpanIds": [],
+      "contextSpanIds": [],
+      "reason": "No material omission was established."
+    },
+    "provider": "ollama",
+    "model": "qwen2.5:7b"
+  },
   "linguistics": {
     "schemaVersion": 2,
     "claimAnalysis": {
@@ -1275,7 +1345,7 @@
       {
         "atomId": "atom-1",
         "analysisStatus": "complete",
-        "roleAudit": "MATCH",
+        "roleAudit": "MISMATCH",
         "subjects": [
           "Illegal drug activities"
         ],
@@ -1287,12 +1357,14 @@
         "entityLabels": [
           "GPE"
         ],
-        "warnings": []
+        "warnings": [
+          "ROLE_CUE_MISMATCH"
+        ]
       },
       {
         "atomId": "atom-2",
         "analysisStatus": "complete",
-        "roleAudit": "MATCH",
+        "roleAudit": "MISMATCH",
         "subjects": [
           "Border crossings activities"
         ],
@@ -1304,12 +1376,14 @@
         "entityLabels": [
           "GPE"
         ],
-        "warnings": []
+        "warnings": [
+          "ROLE_CUE_MISMATCH"
+        ]
       },
       {
         "atomId": "atom-3",
         "analysisStatus": "complete",
-        "roleAudit": "MATCH",
+        "roleAudit": "MISMATCH",
         "subjects": [
           "Human smuggling activities"
         ],
@@ -1321,7 +1395,9 @@
         "entityLabels": [
           "GPE"
         ],
-        "warnings": []
+        "warnings": [
+          "ROLE_CUE_MISMATCH"
+        ]
       }
     ],
     "claimWarnings": [],
@@ -1332,66 +1408,84 @@
     "aggregationSchemaVersion": 1,
     "claimId": "averitec-dev-0015",
     "composition": "AND",
-    "verdict": "NOT_ENOUGH_EVIDENCE",
+    "verdict": "SUPPORTED",
     "positions": {
-      "supportPosition": false,
+      "supportPosition": true,
       "attackPosition": false,
+      "materialOmissionPosition": false,
       "supportObligationIds": [
+        "atom-1",
         "atom-2",
         "atom-3"
       ],
       "attackObligationIds": [],
-      "unresolvedObligationIds": [
-        "atom-1"
-      ]
+      "unresolvedObligationIds": [],
+      "groundedClaimPosition": "SUPPORT_ONLY"
     },
     "obligations": [
       {
         "obligationId": "atom-1",
-        "state": "UNRESOLVED",
-        "supportEdgeIds": [],
+        "state": "SUPPORTED",
+        "supportEdgeIds": [
+          "edge:SUPPORTS:evidence:doc-ce677b332c51:doc-ce677b332c51::sentence-91:obligation:averitec-dev-0015:atom-1",
+          "edge:SUPPORTS:evidence:doc-ce677b332c51:doc-ce677b332c51::sentence-87:obligation:averitec-dev-0015:atom-1"
+        ],
         "attackEdgeIds": [],
-        "neutralCandidateCount": 6
+        "neutralCandidateCount": 4
       },
       {
         "obligationId": "atom-2",
         "state": "SUPPORTED",
         "supportEdgeIds": [
-          "edge:SUPPORTS:evidence:doc-ce677b332c51:doc-ce677b332c51::sentence-54:obligation:averitec-dev-0015:atom-2"
+          "edge:SUPPORTS:evidence:doc-ce677b332c51:doc-ce677b332c51::sentence-91:obligation:averitec-dev-0015:atom-2",
+          "edge:SUPPORTS:evidence:doc-ce677b332c51:doc-ce677b332c51::sentence-64:obligation:averitec-dev-0015:atom-2"
         ],
         "attackEdgeIds": [],
-        "neutralCandidateCount": 5
+        "neutralCandidateCount": 4
       },
       {
         "obligationId": "atom-3",
         "state": "SUPPORTED",
         "supportEdgeIds": [
-          "edge:SUPPORTS:evidence:doc-ce677b332c51:doc-ce677b332c51::sentence-54:obligation:averitec-dev-0015:atom-3"
+          "edge:SUPPORTS:evidence:doc-ce677b332c51:doc-ce677b332c51::sentence-91:obligation:averitec-dev-0015:atom-3",
+          "edge:SUPPORTS:evidence:doc-ce677b332c51:doc-ce677b332c51::sentence-87:obligation:averitec-dev-0015:atom-3"
         ],
         "attackEdgeIds": [],
-        "neutralCandidateCount": 5
+        "neutralCandidateCount": 4
       }
     ],
     "warnings": [
       {
-        "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
-        "message": "Obligation atom-1 has no supporting or attacking evidence."
+        "code": "LINGUISTIC_AUDIT_WARNING",
+        "message": "Linguistic analysis for obligation atom-1 requires inspection; it does not change the verdict."
       },
       {
-        "code": "ONLY_NEUTRAL_CANDIDATES",
-        "message": "Obligation atom-1 has only neutral retrieved candidates."
+        "code": "LINGUISTIC_AUDIT_WARNING",
+        "message": "Linguistic analysis for obligation atom-2 requires inspection; it does not change the verdict."
+      },
+      {
+        "code": "LINGUISTIC_AUDIT_WARNING",
+        "message": "Linguistic analysis for obligation atom-3 requires inspection; it does not change the verdict."
       }
     ],
     "ruleTrace": [
-      "AND support requires support for every obligation; AND attack requires an attack on any obligation.",
-      "Support position: no; attack position: no.",
-      "Final verdict: NOT_ENOUGH_EVIDENCE."
+      "The provenance-constrained claim audit sets the overall evidence position; deterministic aggregation maps that position to status.",
+      "Grounded claim position: SUPPORT_ONLY; Evidence shows a decrease in illegal drug activities, border crossings, and human smuggling in areas with deployed barriers, supporting the claim.",
+      "Support position: yes; attack position: no.",
+      "Final verdict: SUPPORTED."
     ]
   },
   "recordedWith": {
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
-    "nliModel": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    "nliModel": "qwen2.5:7b",
     "linguisticsModel": "en_core_web_sm@3.8.0"
+  },
+  "timingsSeconds": {
+    "decomposition": 20.335,
+    "retrievalAndLinguistics": 0.773,
+    "evidenceAudit": 20.149,
+    "aggregation": 0.005,
+    "total": 41.267
   }
 }

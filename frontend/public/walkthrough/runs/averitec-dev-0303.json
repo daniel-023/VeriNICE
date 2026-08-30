@@ -1,0 +1,1240 @@
+{
+  "caseId": "averitec-dev-0303",
+  "schemaVersion": 2,
+  "composition": "AND",
+  "warnings": [
+    {
+      "code": "REUSED_SOURCE_TEXT",
+      "message": "One sourceText span grounds more than one obligation."
+    }
+  ],
+  "atoms": [
+    {
+      "id": "atom-1",
+      "text": "There is a double standard in how Senate Republicans handled the confirmations for Obama's high court picks.",
+      "sourceText": "There is a double standard in how Senate Republicans handled the confirmations for Obama's and Trump's high court picks.",
+      "start": 0,
+      "end": 120,
+      "role": "CORE"
+    },
+    {
+      "id": "atom-2",
+      "text": "There is a double standard in how Senate Republicans handled the confirmations for Trump's high court picks.",
+      "sourceText": "There is a double standard in how Senate Republicans handled the confirmations for Obama's and Trump's high court picks.",
+      "start": 0,
+      "end": 120,
+      "role": "CORE"
+    }
+  ],
+  "evidence": [
+    {
+      "atomId": "atom-1",
+      "spans": [
+        {
+          "id": "doc-0102810877e7::sentence-65",
+          "documentId": "doc-0102810877e7",
+          "text": "Democrats have complained that Barrett's nomination is being rushed through in order to confirm her to the high court before Election Day – when both the Senate majority and White House are up for grabs.\n",
+          "start": 7111,
+          "end": 7315,
+          "context": "\"The real people eventually will judge us. History will haunt this raw exercise of political power.\"\n Democrats have complained that Barrett's nomination is being rushed through in order to confirm her to the high court before Election Day – when both the Senate majority and White House are up for grabs.\n \"We do grave damage to the Supreme Court by politicizing it in this way,\" Blumenthal said.\n"
+        },
+        {
+          "id": "doc-0102810877e7::sentence-69",
+          "documentId": "doc-0102810877e7",
+          "text": "Democrats grasped for a silver lining Thursday as Republicans pushed the confirmation of Supreme Court nominee Amy Coney Barrett – and they found one in the upcoming election.\n",
+          "start": 7506,
+          "end": 7682,
+          "context": "Klobuchar: Amy Coney Barrett confirmation process 'motivating more people to vote'\n Democrats grasped for a silver lining Thursday as Republicans pushed the confirmation of Supreme Court nominee Amy Coney Barrett – and they found one in the upcoming election.\n “It’s motivating more people to vote,” Sen. Amy Klobuchar, D-Minn."
+        },
+        {
+          "id": "doc-0102810877e7::sentence-14",
+          "documentId": "doc-0102810877e7",
+          "text": "Barrett's confirmation requires approval by majorities of the committee and the full Senate, both of which are controlled by Republicans.\n",
+          "start": 1466,
+          "end": 1604,
+          "context": "Throughout Thursday, the Senate Judiciary Committee heard personal and emotional testimony from some of Barrett's former colleagues and advocates who could be affected by Barrett's confirmation to the high court.\n Barrett's confirmation requires approval by majorities of the committee and the full Senate, both of which are controlled by Republicans.\n The panel will meet once more – Thursday, Oct. 22 at 1 p.m. "
+        },
+        {
+          "id": "doc-d700340b9909::sentence-17",
+          "documentId": "doc-d700340b9909",
+          "text": "Republicans on the Senate Judiciary Committee, which traditionally questions nominees to the high court about their legal views and background, said they would not hold a hearing with Garland. ",
+          "start": 1531,
+          "end": 1724,
+          "context": "\"The next president may also nominate someone very different. Either way, our view is this: Give the people a voice.\"\n Republicans on the Senate Judiciary Committee, which traditionally questions nominees to the high court about their legal views and background, said they would not hold a hearing with Garland.  Republican leaders, hoping that their party will win the White House in November, want the next president to appoint the new justice.\n"
+        },
+        {
+          "id": "doc-0102810877e7::sentence-89",
+          "documentId": "doc-0102810877e7",
+          "text": "The fourth and final day of confirmation hearings for Amy Coney Barrett started with a testy exchange between Republicans and Democrats over the future of the Supreme Court nominee's possible ascension to the high court.\n",
+          "start": 9606,
+          "end": 9827,
+          "context": "Democrats call proceedings a 'sham' as Republicans vow to press forward\n The fourth and final day of confirmation hearings for Amy Coney Barrett started with a testy exchange between Republicans and Democrats over the future of the Supreme Court nominee's possible ascension to the high court.\n Democrats hammered Republicans for pressing forward on Barrett's confirmation just weeks before Election Day.\n"
+        },
+        {
+          "id": "doc-d700340b9909::sentence-47",
+          "documentId": "doc-d700340b9909",
+          "text": ", said that Garland has enjoyed support from senators of both parties in the past and should be confirmed for the high court in the same bipartisan way that he was confirmed for the circuit court.\n",
+          "start": 5868,
+          "end": 6065,
+          "context": "Sen. Mark Warner, D-Va. , said that Garland has enjoyed support from senators of both parties in the past and should be confirmed for the high court in the same bipartisan way that he was confirmed for the circuit court.\n \"Judge Garland is an exceptional judge worthy of the honor of serving on the Supreme Court,\" Warner said. "
+        }
+      ]
+    },
+    {
+      "atomId": "atom-2",
+      "spans": [
+        {
+          "id": "doc-0102810877e7::sentence-65",
+          "documentId": "doc-0102810877e7",
+          "text": "Democrats have complained that Barrett's nomination is being rushed through in order to confirm her to the high court before Election Day – when both the Senate majority and White House are up for grabs.\n",
+          "start": 7111,
+          "end": 7315,
+          "context": "\"The real people eventually will judge us. History will haunt this raw exercise of political power.\"\n Democrats have complained that Barrett's nomination is being rushed through in order to confirm her to the high court before Election Day – when both the Senate majority and White House are up for grabs.\n \"We do grave damage to the Supreme Court by politicizing it in this way,\" Blumenthal said.\n"
+        },
+        {
+          "id": "doc-0102810877e7::sentence-69",
+          "documentId": "doc-0102810877e7",
+          "text": "Democrats grasped for a silver lining Thursday as Republicans pushed the confirmation of Supreme Court nominee Amy Coney Barrett – and they found one in the upcoming election.\n",
+          "start": 7506,
+          "end": 7682,
+          "context": "Klobuchar: Amy Coney Barrett confirmation process 'motivating more people to vote'\n Democrats grasped for a silver lining Thursday as Republicans pushed the confirmation of Supreme Court nominee Amy Coney Barrett – and they found one in the upcoming election.\n “It’s motivating more people to vote,” Sen. Amy Klobuchar, D-Minn."
+        },
+        {
+          "id": "doc-d700340b9909::sentence-17",
+          "documentId": "doc-d700340b9909",
+          "text": "Republicans on the Senate Judiciary Committee, which traditionally questions nominees to the high court about their legal views and background, said they would not hold a hearing with Garland. ",
+          "start": 1531,
+          "end": 1724,
+          "context": "\"The next president may also nominate someone very different. Either way, our view is this: Give the people a voice.\"\n Republicans on the Senate Judiciary Committee, which traditionally questions nominees to the high court about their legal views and background, said they would not hold a hearing with Garland.  Republican leaders, hoping that their party will win the White House in November, want the next president to appoint the new justice.\n"
+        },
+        {
+          "id": "doc-0102810877e7::sentence-14",
+          "documentId": "doc-0102810877e7",
+          "text": "Barrett's confirmation requires approval by majorities of the committee and the full Senate, both of which are controlled by Republicans.\n",
+          "start": 1466,
+          "end": 1604,
+          "context": "Throughout Thursday, the Senate Judiciary Committee heard personal and emotional testimony from some of Barrett's former colleagues and advocates who could be affected by Barrett's confirmation to the high court.\n Barrett's confirmation requires approval by majorities of the committee and the full Senate, both of which are controlled by Republicans.\n The panel will meet once more – Thursday, Oct. 22 at 1 p.m. "
+        },
+        {
+          "id": "doc-0102810877e7::sentence-89",
+          "documentId": "doc-0102810877e7",
+          "text": "The fourth and final day of confirmation hearings for Amy Coney Barrett started with a testy exchange between Republicans and Democrats over the future of the Supreme Court nominee's possible ascension to the high court.\n",
+          "start": 9606,
+          "end": 9827,
+          "context": "Democrats call proceedings a 'sham' as Republicans vow to press forward\n The fourth and final day of confirmation hearings for Amy Coney Barrett started with a testy exchange between Republicans and Democrats over the future of the Supreme Court nominee's possible ascension to the high court.\n Democrats hammered Republicans for pressing forward on Barrett's confirmation just weeks before Election Day.\n"
+        },
+        {
+          "id": "doc-0102810877e7::sentence-80",
+          "documentId": "doc-0102810877e7",
+          "text": "Senate Majority Leader Mitch McConnell said Thursday “we have the votes” to confirm Supreme Court nominee Amy Coney Barrett.\n",
+          "start": 8567,
+          "end": 8692,
+          "context": "McConnell says 'we have the votes' to confirm Barrett, tees up final confirmation for week before election\n Senate Majority Leader Mitch McConnell said Thursday “we have the votes” to confirm Supreme Court nominee Amy Coney Barrett.\n The full Senate would start to consider her nomination on Oct. 23, he said, a day after the Senate Judiciary Committee is scheduled to vote on her nomination, which would move the final confirmation vote to the full Senate.\n"
+        }
+      ]
+    }
+  ],
+  "classifications": [
+    {
+      "atomId": "atom-1",
+      "relations": [
+        {
+          "spanId": "doc-0102810877e7::sentence-65",
+          "documentId": "doc-0102810877e7",
+          "relation": "ENTAILMENT",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-0102810877e7::sentence-69",
+          "documentId": "doc-0102810877e7",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-0102810877e7::sentence-14",
+          "documentId": "doc-0102810877e7",
+          "relation": "CONTRADICTION",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-d700340b9909::sentence-17",
+          "documentId": "doc-d700340b9909",
+          "relation": "CONTRADICTION",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-0102810877e7::sentence-89",
+          "documentId": "doc-0102810877e7",
+          "relation": "ENTAILMENT",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-d700340b9909::sentence-47",
+          "documentId": "doc-d700340b9909",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        }
+      ]
+    },
+    {
+      "atomId": "atom-2",
+      "relations": [
+        {
+          "spanId": "doc-0102810877e7::sentence-65",
+          "documentId": "doc-0102810877e7",
+          "relation": "ENTAILMENT",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-0102810877e7::sentence-69",
+          "documentId": "doc-0102810877e7",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-d700340b9909::sentence-17",
+          "documentId": "doc-d700340b9909",
+          "relation": "CONTRADICTION",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-0102810877e7::sentence-14",
+          "documentId": "doc-0102810877e7",
+          "relation": "CONTRADICTION",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-0102810877e7::sentence-89",
+          "documentId": "doc-0102810877e7",
+          "relation": "ENTAILMENT",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-0102810877e7::sentence-80",
+          "documentId": "doc-0102810877e7",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        }
+      ]
+    }
+  ],
+  "evidenceAudit": {
+    "claimPosition": {
+      "position": "MIXED_OR_MISLEADING",
+      "supportSpanIds": [
+        "doc-0102810877e7::sentence-65",
+        "doc-0102810877e7::sentence-89",
+        "doc-0102810877e7::sentence-65",
+        "doc-0102810877e7::sentence-89"
+      ],
+      "attackSpanIds": [
+        "doc-d700340b9909::sentence-17",
+        "doc-d700340b9909::sentence-17",
+        "doc-0102810877e7::sentence-14"
+      ],
+      "contextSpanIds": [],
+      "reason": "Supports a double standard in handling both confirmations but lacks evidence of different treatment. O1-E4 and O2-E3 show Republicans handled Garland's nomination differently, undermining the claim."
+    },
+    "obligations": [
+      {
+        "atomId": "atom-1",
+        "state": "BOTH",
+        "supportSpanIds": [
+          "doc-0102810877e7::sentence-65",
+          "doc-0102810877e7::sentence-89"
+        ],
+        "attackSpanIds": [
+          "doc-d700340b9909::sentence-17"
+        ],
+        "reason": "Supports a double standard in handling both confirmations but lacks evidence of different treatment. O1-E4 and O2-E3 show Republicans handled Garland's nomination differently, undermining the claim."
+      },
+      {
+        "atomId": "atom-2",
+        "state": "BOTH",
+        "supportSpanIds": [
+          "doc-0102810877e7::sentence-65",
+          "doc-0102810877e7::sentence-89"
+        ],
+        "attackSpanIds": [
+          "doc-d700340b9909::sentence-17",
+          "doc-0102810877e7::sentence-14"
+        ],
+        "reason": "Supports a double standard in handling both confirmations but lacks evidence of different treatment. O1-E4 and O2-E3 show Republicans handled Garland's nomination differently, undermining the claim."
+      }
+    ],
+    "materialOmission": {
+      "detected": false,
+      "supportSpanIds": [],
+      "contextSpanIds": [],
+      "reason": "No material omission was established."
+    },
+    "provider": "ollama",
+    "model": "qwen2.5:7b"
+  },
+  "linguistics": {
+    "schemaVersion": 2,
+    "claimAnalysis": {
+      "atomId": "claim",
+      "frames": [
+        {
+          "id": "claim-frame-1",
+          "predicate": {
+            "id": "claim-frame-1-predicate",
+            "text": "is",
+            "start": 6,
+            "end": 8
+          },
+          "subjects": [
+            {
+              "id": "claim-frame-1-subject-1",
+              "text": "There",
+              "start": 0,
+              "end": 5
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "claim-frame-1-argument-1",
+              "text": "a double standard in how Senate Republicans handled the confirmations for Obama's and Trump's high court picks",
+              "start": 9,
+              "end": 119,
+              "role": "subject_complement"
+            }
+          ],
+          "adjuncts": [],
+          "otherModifiers": []
+        }
+      ],
+      "cues": [],
+      "entities": [
+        {
+          "id": "claim-entity-org-34-40",
+          "text": "Senate",
+          "start": 34,
+          "end": 40,
+          "label": "ORG"
+        },
+        {
+          "id": "claim-entity-norp-41-52",
+          "text": "Republicans",
+          "start": 41,
+          "end": 52,
+          "label": "NORP"
+        },
+        {
+          "id": "claim-entity-person-83-88",
+          "text": "Obama",
+          "start": 83,
+          "end": 88,
+          "label": "PERSON"
+        },
+        {
+          "id": "claim-entity-org-95-100",
+          "text": "Trump",
+          "start": 95,
+          "end": 100,
+          "label": "ORG"
+        }
+      ],
+      "tokens": [
+        {
+          "id": "claim-token-0",
+          "text": "There",
+          "start": 0,
+          "end": 5,
+          "lemma": "there",
+          "pos": "PRON",
+          "tag": "EX",
+          "dependency": "expl",
+          "head": "is"
+        },
+        {
+          "id": "claim-token-1",
+          "text": "is",
+          "start": 6,
+          "end": 8,
+          "lemma": "be",
+          "pos": "VERB",
+          "tag": "VBZ",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "claim-token-2",
+          "text": "a",
+          "start": 9,
+          "end": 10,
+          "lemma": "a",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "standard"
+        },
+        {
+          "id": "claim-token-3",
+          "text": "double",
+          "start": 11,
+          "end": 17,
+          "lemma": "double",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "standard"
+        },
+        {
+          "id": "claim-token-4",
+          "text": "standard",
+          "start": 18,
+          "end": 26,
+          "lemma": "standard",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "attr",
+          "head": "is"
+        },
+        {
+          "id": "claim-token-5",
+          "text": "in",
+          "start": 27,
+          "end": 29,
+          "lemma": "in",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "standard"
+        },
+        {
+          "id": "claim-token-6",
+          "text": "how",
+          "start": 30,
+          "end": 33,
+          "lemma": "how",
+          "pos": "SCONJ",
+          "tag": "WRB",
+          "dependency": "advmod",
+          "head": "handled"
+        },
+        {
+          "id": "claim-token-7",
+          "text": "Senate",
+          "start": 34,
+          "end": 40,
+          "lemma": "Senate",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "Republicans"
+        },
+        {
+          "id": "claim-token-8",
+          "text": "Republicans",
+          "start": 41,
+          "end": 52,
+          "lemma": "Republicans",
+          "pos": "PROPN",
+          "tag": "NNPS",
+          "dependency": "nsubj",
+          "head": "handled"
+        },
+        {
+          "id": "claim-token-9",
+          "text": "handled",
+          "start": 53,
+          "end": 60,
+          "lemma": "handle",
+          "pos": "VERB",
+          "tag": "VBD",
+          "dependency": "pcomp",
+          "head": "in"
+        },
+        {
+          "id": "claim-token-10",
+          "text": "the",
+          "start": 61,
+          "end": 64,
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "confirmations"
+        },
+        {
+          "id": "claim-token-11",
+          "text": "confirmations",
+          "start": 65,
+          "end": 78,
+          "lemma": "confirmation",
+          "pos": "NOUN",
+          "tag": "NNS",
+          "dependency": "dobj",
+          "head": "handled"
+        },
+        {
+          "id": "claim-token-12",
+          "text": "for",
+          "start": 79,
+          "end": 82,
+          "lemma": "for",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "confirmations"
+        },
+        {
+          "id": "claim-token-13",
+          "text": "Obama",
+          "start": 83,
+          "end": 88,
+          "lemma": "Obama",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "poss",
+          "head": "picks"
+        },
+        {
+          "id": "claim-token-14",
+          "text": "'s",
+          "start": 88,
+          "end": 90,
+          "lemma": "'s",
+          "pos": "PART",
+          "tag": "POS",
+          "dependency": "case",
+          "head": "Obama"
+        },
+        {
+          "id": "claim-token-15",
+          "text": "and",
+          "start": 91,
+          "end": 94,
+          "lemma": "and",
+          "pos": "CCONJ",
+          "tag": "CC",
+          "dependency": "cc",
+          "head": "Obama"
+        },
+        {
+          "id": "claim-token-16",
+          "text": "Trump",
+          "start": 95,
+          "end": 100,
+          "lemma": "Trump",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "poss",
+          "head": "picks"
+        },
+        {
+          "id": "claim-token-17",
+          "text": "'s",
+          "start": 100,
+          "end": 102,
+          "lemma": "'s",
+          "pos": "PART",
+          "tag": "POS",
+          "dependency": "case",
+          "head": "Trump"
+        },
+        {
+          "id": "claim-token-18",
+          "text": "high",
+          "start": 103,
+          "end": 107,
+          "lemma": "high",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "court"
+        },
+        {
+          "id": "claim-token-19",
+          "text": "court",
+          "start": 108,
+          "end": 113,
+          "lemma": "court",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "compound",
+          "head": "picks"
+        },
+        {
+          "id": "claim-token-20",
+          "text": "picks",
+          "start": 114,
+          "end": 119,
+          "lemma": "pick",
+          "pos": "NOUN",
+          "tag": "NNS",
+          "dependency": "pobj",
+          "head": "for"
+        },
+        {
+          "id": "claim-token-21",
+          "text": ".",
+          "start": 119,
+          "end": 120,
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "is"
+        }
+      ],
+      "status": "complete",
+      "unresolved": []
+    },
+    "analyses": [
+      {
+        "atomId": "atom-1",
+        "frames": [
+          {
+            "id": "atom-1-frame-1",
+            "predicate": {
+              "id": "atom-1-frame-1-predicate",
+              "text": "is",
+              "start": 6,
+              "end": 8
+            },
+            "subjects": [
+              {
+                "id": "atom-1-frame-1-subject-1",
+                "text": "There",
+                "start": 0,
+                "end": 5
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-1-frame-1-argument-1",
+                "text": "a double standard in how Senate Republicans handled the confirmations for Obama's high court picks",
+                "start": 9,
+                "end": 107,
+                "role": "subject_complement"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [],
+        "entities": [
+          {
+            "id": "atom-1-entity-org-34-40",
+            "text": "Senate",
+            "start": 34,
+            "end": 40,
+            "label": "ORG"
+          },
+          {
+            "id": "atom-1-entity-norp-41-52",
+            "text": "Republicans",
+            "start": 41,
+            "end": 52,
+            "label": "NORP"
+          },
+          {
+            "id": "atom-1-entity-person-83-88",
+            "text": "Obama",
+            "start": 83,
+            "end": 88,
+            "label": "PERSON"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-1-token-0",
+            "text": "There",
+            "start": 0,
+            "end": 5,
+            "lemma": "there",
+            "pos": "PRON",
+            "tag": "EX",
+            "dependency": "expl",
+            "head": "is"
+          },
+          {
+            "id": "atom-1-token-1",
+            "text": "is",
+            "start": 6,
+            "end": 8,
+            "lemma": "be",
+            "pos": "VERB",
+            "tag": "VBZ",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-1-token-2",
+            "text": "a",
+            "start": 9,
+            "end": 10,
+            "lemma": "a",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "standard"
+          },
+          {
+            "id": "atom-1-token-3",
+            "text": "double",
+            "start": 11,
+            "end": 17,
+            "lemma": "double",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "standard"
+          },
+          {
+            "id": "atom-1-token-4",
+            "text": "standard",
+            "start": 18,
+            "end": 26,
+            "lemma": "standard",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "attr",
+            "head": "is"
+          },
+          {
+            "id": "atom-1-token-5",
+            "text": "in",
+            "start": 27,
+            "end": 29,
+            "lemma": "in",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "standard"
+          },
+          {
+            "id": "atom-1-token-6",
+            "text": "how",
+            "start": 30,
+            "end": 33,
+            "lemma": "how",
+            "pos": "SCONJ",
+            "tag": "WRB",
+            "dependency": "advmod",
+            "head": "handled"
+          },
+          {
+            "id": "atom-1-token-7",
+            "text": "Senate",
+            "start": 34,
+            "end": 40,
+            "lemma": "Senate",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Republicans"
+          },
+          {
+            "id": "atom-1-token-8",
+            "text": "Republicans",
+            "start": 41,
+            "end": 52,
+            "lemma": "Republicans",
+            "pos": "PROPN",
+            "tag": "NNPS",
+            "dependency": "nsubj",
+            "head": "handled"
+          },
+          {
+            "id": "atom-1-token-9",
+            "text": "handled",
+            "start": 53,
+            "end": 60,
+            "lemma": "handle",
+            "pos": "VERB",
+            "tag": "VBD",
+            "dependency": "pcomp",
+            "head": "in"
+          },
+          {
+            "id": "atom-1-token-10",
+            "text": "the",
+            "start": 61,
+            "end": 64,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "confirmations"
+          },
+          {
+            "id": "atom-1-token-11",
+            "text": "confirmations",
+            "start": 65,
+            "end": 78,
+            "lemma": "confirmation",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "dobj",
+            "head": "handled"
+          },
+          {
+            "id": "atom-1-token-12",
+            "text": "for",
+            "start": 79,
+            "end": 82,
+            "lemma": "for",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "confirmations"
+          },
+          {
+            "id": "atom-1-token-13",
+            "text": "Obama",
+            "start": 83,
+            "end": 88,
+            "lemma": "Obama",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "poss",
+            "head": "picks"
+          },
+          {
+            "id": "atom-1-token-14",
+            "text": "'s",
+            "start": 88,
+            "end": 90,
+            "lemma": "'s",
+            "pos": "PART",
+            "tag": "POS",
+            "dependency": "case",
+            "head": "Obama"
+          },
+          {
+            "id": "atom-1-token-15",
+            "text": "high",
+            "start": 91,
+            "end": 95,
+            "lemma": "high",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "court"
+          },
+          {
+            "id": "atom-1-token-16",
+            "text": "court",
+            "start": 96,
+            "end": 101,
+            "lemma": "court",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "compound",
+            "head": "picks"
+          },
+          {
+            "id": "atom-1-token-17",
+            "text": "picks",
+            "start": 102,
+            "end": 107,
+            "lemma": "pick",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "pobj",
+            "head": "for"
+          },
+          {
+            "id": "atom-1-token-18",
+            "text": ".",
+            "start": 107,
+            "end": 108,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "is"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      },
+      {
+        "atomId": "atom-2",
+        "frames": [
+          {
+            "id": "atom-2-frame-1",
+            "predicate": {
+              "id": "atom-2-frame-1-predicate",
+              "text": "is",
+              "start": 6,
+              "end": 8
+            },
+            "subjects": [
+              {
+                "id": "atom-2-frame-1-subject-1",
+                "text": "There",
+                "start": 0,
+                "end": 5
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-2-frame-1-argument-1",
+                "text": "a double standard in how Senate Republicans handled the confirmations for Trump's high court picks",
+                "start": 9,
+                "end": 107,
+                "role": "subject_complement"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [],
+        "entities": [
+          {
+            "id": "atom-2-entity-org-34-40",
+            "text": "Senate",
+            "start": 34,
+            "end": 40,
+            "label": "ORG"
+          },
+          {
+            "id": "atom-2-entity-norp-41-52",
+            "text": "Republicans",
+            "start": 41,
+            "end": 52,
+            "label": "NORP"
+          },
+          {
+            "id": "atom-2-entity-org-83-88",
+            "text": "Trump",
+            "start": 83,
+            "end": 88,
+            "label": "ORG"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-2-token-0",
+            "text": "There",
+            "start": 0,
+            "end": 5,
+            "lemma": "there",
+            "pos": "PRON",
+            "tag": "EX",
+            "dependency": "expl",
+            "head": "is"
+          },
+          {
+            "id": "atom-2-token-1",
+            "text": "is",
+            "start": 6,
+            "end": 8,
+            "lemma": "be",
+            "pos": "VERB",
+            "tag": "VBZ",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-2-token-2",
+            "text": "a",
+            "start": 9,
+            "end": 10,
+            "lemma": "a",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "standard"
+          },
+          {
+            "id": "atom-2-token-3",
+            "text": "double",
+            "start": 11,
+            "end": 17,
+            "lemma": "double",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "standard"
+          },
+          {
+            "id": "atom-2-token-4",
+            "text": "standard",
+            "start": 18,
+            "end": 26,
+            "lemma": "standard",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "attr",
+            "head": "is"
+          },
+          {
+            "id": "atom-2-token-5",
+            "text": "in",
+            "start": 27,
+            "end": 29,
+            "lemma": "in",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "standard"
+          },
+          {
+            "id": "atom-2-token-6",
+            "text": "how",
+            "start": 30,
+            "end": 33,
+            "lemma": "how",
+            "pos": "SCONJ",
+            "tag": "WRB",
+            "dependency": "advmod",
+            "head": "handled"
+          },
+          {
+            "id": "atom-2-token-7",
+            "text": "Senate",
+            "start": 34,
+            "end": 40,
+            "lemma": "Senate",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Republicans"
+          },
+          {
+            "id": "atom-2-token-8",
+            "text": "Republicans",
+            "start": 41,
+            "end": 52,
+            "lemma": "Republicans",
+            "pos": "PROPN",
+            "tag": "NNPS",
+            "dependency": "nsubj",
+            "head": "handled"
+          },
+          {
+            "id": "atom-2-token-9",
+            "text": "handled",
+            "start": 53,
+            "end": 60,
+            "lemma": "handle",
+            "pos": "VERB",
+            "tag": "VBD",
+            "dependency": "pcomp",
+            "head": "in"
+          },
+          {
+            "id": "atom-2-token-10",
+            "text": "the",
+            "start": 61,
+            "end": 64,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "confirmations"
+          },
+          {
+            "id": "atom-2-token-11",
+            "text": "confirmations",
+            "start": 65,
+            "end": 78,
+            "lemma": "confirmation",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "dobj",
+            "head": "handled"
+          },
+          {
+            "id": "atom-2-token-12",
+            "text": "for",
+            "start": 79,
+            "end": 82,
+            "lemma": "for",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "confirmations"
+          },
+          {
+            "id": "atom-2-token-13",
+            "text": "Trump",
+            "start": 83,
+            "end": 88,
+            "lemma": "Trump",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "poss",
+            "head": "picks"
+          },
+          {
+            "id": "atom-2-token-14",
+            "text": "'s",
+            "start": 88,
+            "end": 90,
+            "lemma": "'s",
+            "pos": "PART",
+            "tag": "POS",
+            "dependency": "case",
+            "head": "Trump"
+          },
+          {
+            "id": "atom-2-token-15",
+            "text": "high",
+            "start": 91,
+            "end": 95,
+            "lemma": "high",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "court"
+          },
+          {
+            "id": "atom-2-token-16",
+            "text": "court",
+            "start": 96,
+            "end": 101,
+            "lemma": "court",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "compound",
+            "head": "picks"
+          },
+          {
+            "id": "atom-2-token-17",
+            "text": "picks",
+            "start": 102,
+            "end": 107,
+            "lemma": "pick",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "pobj",
+            "head": "for"
+          },
+          {
+            "id": "atom-2-token-18",
+            "text": ".",
+            "start": 107,
+            "end": 108,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "is"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      }
+    ],
+    "summaries": [
+      {
+        "atomId": "atom-1",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "There"
+        ],
+        "predicates": [
+          "be"
+        ],
+        "cueKinds": [],
+        "modifierKinds": [],
+        "entityLabels": [
+          "ORG",
+          "NORP",
+          "PERSON"
+        ],
+        "warnings": []
+      },
+      {
+        "atomId": "atom-2",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "There"
+        ],
+        "predicates": [
+          "be"
+        ],
+        "cueKinds": [],
+        "modifierKinds": [],
+        "entityLabels": [
+          "ORG",
+          "NORP"
+        ],
+        "warnings": []
+      }
+    ],
+    "claimWarnings": [],
+    "provider": "spacy",
+    "model": "en_core_web_sm@3.8.0"
+  },
+  "verdict": {
+    "aggregationSchemaVersion": 1,
+    "claimId": "averitec-dev-0303",
+    "composition": "AND",
+    "verdict": "CONFLICTING_EVIDENCE",
+    "positions": {
+      "supportPosition": true,
+      "attackPosition": true,
+      "materialOmissionPosition": false,
+      "supportObligationIds": [
+        "atom-1",
+        "atom-2"
+      ],
+      "attackObligationIds": [
+        "atom-1",
+        "atom-2"
+      ],
+      "unresolvedObligationIds": [],
+      "groundedClaimPosition": "MIXED_OR_MISLEADING"
+    },
+    "obligations": [
+      {
+        "obligationId": "atom-1",
+        "state": "CONFLICTING",
+        "supportEdgeIds": [
+          "edge:SUPPORTS:evidence:doc-0102810877e7:doc-0102810877e7::sentence-65:obligation:averitec-dev-0303:atom-1",
+          "edge:SUPPORTS:evidence:doc-0102810877e7:doc-0102810877e7::sentence-89:obligation:averitec-dev-0303:atom-1"
+        ],
+        "attackEdgeIds": [
+          "edge:ATTACKS:evidence:doc-0102810877e7:doc-0102810877e7::sentence-14:obligation:averitec-dev-0303:atom-1",
+          "edge:ATTACKS:evidence:doc-d700340b9909:doc-d700340b9909::sentence-17:obligation:averitec-dev-0303:atom-1"
+        ],
+        "neutralCandidateCount": 2
+      },
+      {
+        "obligationId": "atom-2",
+        "state": "CONFLICTING",
+        "supportEdgeIds": [
+          "edge:SUPPORTS:evidence:doc-0102810877e7:doc-0102810877e7::sentence-65:obligation:averitec-dev-0303:atom-2",
+          "edge:SUPPORTS:evidence:doc-0102810877e7:doc-0102810877e7::sentence-89:obligation:averitec-dev-0303:atom-2"
+        ],
+        "attackEdgeIds": [
+          "edge:ATTACKS:evidence:doc-d700340b9909:doc-d700340b9909::sentence-17:obligation:averitec-dev-0303:atom-2",
+          "edge:ATTACKS:evidence:doc-0102810877e7:doc-0102810877e7::sentence-14:obligation:averitec-dev-0303:atom-2"
+        ],
+        "neutralCandidateCount": 2
+      }
+    ],
+    "warnings": [],
+    "ruleTrace": [
+      "The provenance-constrained claim audit sets the overall evidence position; deterministic aggregation maps that position to status.",
+      "Grounded claim position: MIXED_OR_MISLEADING; Supports a double standard in handling both confirmations but lacks evidence of different treatment. O1-E4 and O2-E3 show Republicans handled Garland's nomination differently, undermining the claim.",
+      "Support position: yes; attack position: yes.",
+      "Final verdict: CONFLICTING_EVIDENCE."
+    ]
+  },
+  "recordedWith": {
+    "decompositionModel": "qwen2.5:7b",
+    "retrievalModel": "BAAI/bge-small-en-v1.5",
+    "nliModel": "qwen2.5:7b",
+    "linguisticsModel": "en_core_web_sm@3.8.0"
+  },
+  "timingsSeconds": {
+    "decomposition": 16.896,
+    "retrievalAndLinguistics": 0.605,
+    "evidenceAudit": 17.459,
+    "aggregation": 0.007,
+    "total": 34.97
+  }
+}

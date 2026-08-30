@@ -21,6 +21,11 @@ from verigraph_backend.schemas import (
     LinguisticAnalysisResponse,
     AtomSupportClassification,
     EvidenceRelation,
+    GroundedClaimAudit,
+    GroundedClaimPosition,
+    GroundedEvidenceAuditResult,
+    GroundedObligationAudit,
+    MaterialOmissionCertificate,
     NLIRelation,
     ObligationLinguisticSummary,
     ReferenceLabel,
@@ -112,14 +117,14 @@ def test_optional_linguistics_does_not_change_core_health(monkeypatch) -> None:
     assert response.json()["linguisticsConfigured"] is False
 
 
-def test_nli_readiness_is_part_of_core_health(monkeypatch) -> None:
+def test_optional_compatibility_nli_does_not_change_core_health(monkeypatch) -> None:
     monkeypatch.setattr(api, "ollama_model_ready", lambda: True)
     monkeypatch.setattr(api, "embeddings_available", lambda: True)
     monkeypatch.setattr(api, "nli_available", lambda: False)
     monkeypatch.setattr(api, "linguistics_available", lambda: True)
     response = client.get("/api/v1/health")
     assert response.status_code == 200
-    assert response.json()["status"] == "degraded"
+    assert response.json()["status"] == "ready"
     assert response.json()["nliConfigured"] is False
 
 
@@ -340,6 +345,52 @@ def test_nli_success_preserves_atom_and_span_order(monkeypatch) -> None:
         "relevanceFiltered": False,
     }
     assert "score" not in response.text.lower()
+
+
+def test_claim_input_runs_grounded_claim_audit_and_returns_selected_relations(monkeypatch) -> None:
+    async def audit_success(claim, atoms, _evidence, titles):
+        assert claim == "The archive opened."
+        assert titles == {"doc-a": "Archive report"}
+        return GroundedEvidenceAuditResult(
+            claim_position=GroundedClaimAudit(
+                position=GroundedClaimPosition.support_only,
+                support_span_ids=["s1"],
+                reason="The source states the full claim.",
+            ),
+            obligations=[
+                GroundedObligationAudit(
+                    atom_id=atoms[0].id,
+                    state="SUPPORTED",
+                    support_span_ids=["s1"],
+                    reason="The source states the obligation.",
+                )
+            ],
+            material_omission=MaterialOmissionCertificate(),
+            model="test-auditor",
+        )
+
+    monkeypatch.setattr(api, "audit_grounded_evidence", audit_success)
+    response = client.post(
+        "/api/v1/classify-support",
+        json={
+            "claim": "The archive opened.",
+            "documentTitles": {"doc-a": "Archive report"},
+            "atoms": [{"id": "atom-1", "text": "The archive opened."}],
+            "evidence": [
+                {
+                    "atomId": "atom-1",
+                    "spans": [{"id": "s1", "documentId": "doc-a", "text": "It opened."}],
+                }
+            ],
+        },
+    )
+
+    assert response.status_code == 200
+    payload = response.json()
+    assert payload["provider"] == "ollama"
+    assert payload["classifications"][0]["relations"][0]["relation"] == "ENTAILMENT"
+    assert payload["evidenceAudit"]["claimPosition"]["position"] == "SUPPORT_ONLY"
+    assert payload["evidenceAudit"]["obligations"][0]["supportSpanIds"] == ["s1"]
 
 
 @pytest.mark.parametrize(

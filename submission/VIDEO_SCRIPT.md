@@ -8,7 +8,7 @@ Keep the cursor movements slow and the narration conversational. Record at
 “A fact-checking label tells us almost nothing about how the system reached its
 answer. VeriGraph lets us inspect that path. It breaks a claim into obligations,
 finds the passages most relevant to each one, distinguishes support from
-contradiction, and then shows the exact rule behind the final verdict. The
+attack, and then shows the exact rule behind the draft status. The
 language model proposes structure; it never gets the last word.”
 
 Show one featured case, the five-stage rail, and the completed graph. Do not
@@ -33,9 +33,11 @@ Show one support or contradiction link. Explain that weak non-neutral model
 predictions fall back to neutral, and contradictions require a visible anchor.
 Open the graph and follow one obligation to its evidence.
 
-## 3:05–3:45 — the rule behind the verdict
+## 3:05–3:45 — review a relation and inspect the rule
 
-Open the verdict trace. “This verdict is not another model response. It follows
+Change one cited span from support to attack, then open the status trace. “The
+automatic audit is a draft. A reviewer can correct an edge, and the graph and
+status recompute from inspectable rules. This status is not another model response. It follows
 a fixed composition rule over the visible obligation states.” Show a
 conflicting-evidence or insufficient-evidence branch if the selected case has
 one.
@@ -44,7 +46,7 @@ one.
 
 Open the linguistic panel briefly. “This view checks whether the decomposition
 lost an entity, qualifier, or negation. It is an audit tool only; it cannot
-create evidence or change the verdict.”
+create evidence or change the status.”
 
 ## 4:15–4:35 — close
 
@@ -55,4 +57,3 @@ or supply a claim and documents to run locally.”
 
 End on the argument graph and project URL/QR code. Do not show an accuracy
 number unless the final, expanded evaluation has been completed.
-

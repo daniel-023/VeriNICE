@@ -1,0 +1,1095 @@
+{
+  "caseId": "averitec-dev-0394",
+  "schemaVersion": 2,
+  "composition": "SINGLE",
+  "warnings": [
+    {
+      "code": "DECOMPOSITION_FALLBACK",
+      "message": "Structured decomposition failed; the original claim was retained as one obligation."
+    }
+  ],
+  "atoms": [
+    {
+      "id": "atom-1",
+      "text": "Under Trump's watch, auto assembly plants have been added at an unprecedented rate in Michigan, Ohio, North Carolina, South Carolina and possibly other states.",
+      "sourceText": "Under Trump's watch, auto assembly plants have been added at an unprecedented rate in Michigan, Ohio, North Carolina, South Carolina and possibly other states.",
+      "start": 0,
+      "end": 159,
+      "role": "CORE"
+    }
+  ],
+  "evidence": [
+    {
+      "atomId": "atom-1",
+      "spans": [
+        {
+          "id": "doc-0723a4b72ffb::sentence-4",
+          "documentId": "doc-0723a4b72ffb",
+          "text": "Evidence 1: Have any auto plants been opened or had new investment under Trump's administration? ",
+          "start": 247,
+          "end": 344,
+          "context": "Source URL: https://www.intelligenttransport.com/transport-news/24458/navya-production-plant-michigan/\n Evidence 1: Have any auto plants been opened or had new investment under Trump's administration?  Yes\n\n"
+        },
+        {
+          "id": "doc-4ea4c5093f93::sentence-4",
+          "documentId": "doc-4ea4c5093f93",
+          "text": "Evidence 1: Have any auto plants been opened or had new investment under Trump's administration? ",
+          "start": 256,
+          "end": 353,
+          "context": "Source URL: https://alabamanewscenter.com/2017/09/27/toyota-to-invest-106m-in-alabama-engine-plant-add-50-jobs/\n Evidence 1: Have any auto plants been opened or had new investment under Trump's administration?  Yes\n\n"
+        },
+        {
+          "id": "doc-a6ed1942c120::sentence-4",
+          "documentId": "doc-a6ed1942c120",
+          "text": "Evidence 1: Have any auto plants been opened or had new investment under Trump's administration? ",
+          "start": 227,
+          "end": 324,
+          "context": "Source URL: https://9to5google.com/2019/01/22/waymo-michigan-self-driving-factory/\n Evidence 1: Have any auto plants been opened or had new investment under Trump's administration?  Yes\n\n"
+        },
+        {
+          "id": "doc-a6ed1942c120::sentence-18",
+          "documentId": "doc-a6ed1942c120",
+          "text": "The upcoming factory was approved by the Michigan Economic Development Corporation (MEDC), with the state and of course Detroit synonymous with the U.S. auto industry.\n",
+          "start": 1963,
+          "end": 2131,
+          "context": "We’ll be looking for engineers, operations experts, and fleet coordinators to join our team and help assemble and deploy our self-driving cars.\n The upcoming factory was approved by the Michigan Economic Development Corporation (MEDC), with the state and of course Detroit synonymous with the U.S. auto industry.\n Check out 9to5Google on YouTube for more news:\n"
+        },
+        {
+          "id": "doc-0723a4b72ffb::sentence-47",
+          "documentId": "doc-0723a4b72ffb",
+          "text": "NAVYA has announced it will open its first North American production plant for its autonomous vehicles in the city of Saline, Michigan.\n",
+          "start": 873,
+          "end": 1009,
+          "context": "Posted: 26 July 2017 | Intelligent Transport | No comments yet\n NAVYA has announced it will open its first North American production plant for its autonomous vehicles in the city of Saline, Michigan.\n NAVYA with project collaborators Michigan Economic Development Corporation (MEDC) and Ann Arbor SPARK has announced it will open its first production plant will in the city of Saline, Michigan.\n"
+        },
+        {
+          "id": "doc-0723a4b72ffb::sentence-52",
+          "documentId": "doc-0723a4b72ffb",
+          "text": "“As the greater Ann Arbor area continues to establish itself as a hub for autonomous vehicle development, we feel it’s the perfect location for us. Strong government and community support for mobility initiatives combined with an excellent talent pool provide the ideal environment for our expansion in North America.”\n",
+          "start": 1517,
+          "end": 1836,
+          "context": "“We at NAVYA could not be more pleased to call Saline, Michigan home to our first assembly plant in North America,” said NAVYA CEO Christophe Sapet.  “As the greater Ann Arbor area continues to establish itself as a hub for autonomous vehicle development, we feel it’s the perfect location for us. Strong government and community support for mobility initiatives combined with an excellent talent pool provide the ideal environment for our expansion in North America.”\n The project is expected to generate a total capital investment of more than $1 million and create 50 jobs, resulting in a $435,000 Michigan Business Development performance-based grant. "
+        }
+      ]
+    }
+  ],
+  "classifications": [
+    {
+      "atomId": "atom-1",
+      "relations": [
+        {
+          "spanId": "doc-0723a4b72ffb::sentence-4",
+          "documentId": "doc-0723a4b72ffb",
+          "relation": "ENTAILMENT",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-4ea4c5093f93::sentence-4",
+          "documentId": "doc-4ea4c5093f93",
+          "relation": "CONTRADICTION",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-a6ed1942c120::sentence-4",
+          "documentId": "doc-a6ed1942c120",
+          "relation": "ENTAILMENT",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-a6ed1942c120::sentence-18",
+          "documentId": "doc-a6ed1942c120",
+          "relation": "CONTRADICTION",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-0723a4b72ffb::sentence-47",
+          "documentId": "doc-0723a4b72ffb",
+          "relation": "ENTAILMENT",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-0723a4b72ffb::sentence-52",
+          "documentId": "doc-0723a4b72ffb",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        }
+      ]
+    }
+  ],
+  "evidenceAudit": {
+    "claimPosition": {
+      "position": "MIXED_OR_MISLEADING",
+      "supportSpanIds": [
+        "doc-0723a4b72ffb::sentence-4",
+        "doc-a6ed1942c120::sentence-4",
+        "doc-0723a4b72ffb::sentence-47"
+      ],
+      "attackSpanIds": [
+        "doc-4ea4c5093f93::sentence-4",
+        "doc-a6ed1942c120::sentence-18"
+      ],
+      "contextSpanIds": [],
+      "reason": "Support IDs show auto plants opened in Michigan, but attack IDs indicate investments in Alabama and mention Waymo's focus on self-driving tech, not traditional assembly plants."
+    },
+    "obligations": [
+      {
+        "atomId": "atom-1",
+        "state": "BOTH",
+        "supportSpanIds": [
+          "doc-0723a4b72ffb::sentence-4",
+          "doc-a6ed1942c120::sentence-4",
+          "doc-0723a4b72ffb::sentence-47"
+        ],
+        "attackSpanIds": [
+          "doc-4ea4c5093f93::sentence-4",
+          "doc-a6ed1942c120::sentence-18"
+        ],
+        "reason": "Support IDs show auto plants opened in Michigan, but attack IDs indicate investments in Alabama and mention Waymo's focus on self-driving tech, not traditional assembly plants."
+      }
+    ],
+    "materialOmission": {
+      "detected": false,
+      "supportSpanIds": [],
+      "contextSpanIds": [],
+      "reason": "No material omission was established."
+    },
+    "provider": "ollama",
+    "model": "qwen2.5:7b"
+  },
+  "linguistics": {
+    "schemaVersion": 2,
+    "claimAnalysis": {
+      "atomId": "claim",
+      "frames": [
+        {
+          "id": "claim-frame-1",
+          "predicate": {
+            "id": "claim-frame-1-predicate",
+            "text": "added",
+            "start": 52,
+            "end": 57
+          },
+          "subjects": [
+            {
+              "id": "claim-frame-1-subject-1",
+              "text": "auto assembly plants",
+              "start": 21,
+              "end": 41
+            }
+          ],
+          "coreArguments": [],
+          "adjuncts": [],
+          "otherModifiers": [
+            {
+              "id": "claim-frame-1-other-modifier-1",
+              "text": "Under Trump's watch",
+              "start": 0,
+              "end": 19
+            },
+            {
+              "id": "claim-frame-1-other-modifier-2",
+              "text": "at an unprecedented rate in Michigan, Ohio, North Carolina, South Carolina and possibly other states",
+              "start": 58,
+              "end": 158
+            }
+          ]
+        }
+      ],
+      "cues": [
+        {
+          "id": "claim-cue-modality-137-145",
+          "text": "possibly",
+          "start": 137,
+          "end": 145,
+          "kind": "modality"
+        },
+        {
+          "id": "claim-cue-attribution-152-158",
+          "text": "states",
+          "start": 152,
+          "end": 158,
+          "kind": "attribution"
+        }
+      ],
+      "entities": [
+        {
+          "id": "claim-entity-org-6-11",
+          "text": "Trump",
+          "start": 6,
+          "end": 11,
+          "label": "ORG"
+        },
+        {
+          "id": "claim-entity-gpe-86-94",
+          "text": "Michigan",
+          "start": 86,
+          "end": 94,
+          "label": "GPE"
+        },
+        {
+          "id": "claim-entity-gpe-96-100",
+          "text": "Ohio",
+          "start": 96,
+          "end": 100,
+          "label": "GPE"
+        },
+        {
+          "id": "claim-entity-gpe-102-116",
+          "text": "North Carolina",
+          "start": 102,
+          "end": 116,
+          "label": "GPE"
+        },
+        {
+          "id": "claim-entity-gpe-118-132",
+          "text": "South Carolina",
+          "start": 118,
+          "end": 132,
+          "label": "GPE"
+        }
+      ],
+      "tokens": [
+        {
+          "id": "claim-token-0",
+          "text": "Under",
+          "start": 0,
+          "end": 5,
+          "lemma": "under",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "added"
+        },
+        {
+          "id": "claim-token-1",
+          "text": "Trump",
+          "start": 6,
+          "end": 11,
+          "lemma": "Trump",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "poss",
+          "head": "watch"
+        },
+        {
+          "id": "claim-token-2",
+          "text": "'s",
+          "start": 11,
+          "end": 13,
+          "lemma": "'s",
+          "pos": "PART",
+          "tag": "POS",
+          "dependency": "case",
+          "head": "Trump"
+        },
+        {
+          "id": "claim-token-3",
+          "text": "watch",
+          "start": 14,
+          "end": 19,
+          "lemma": "watch",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "pobj",
+          "head": "Under"
+        },
+        {
+          "id": "claim-token-4",
+          "text": ",",
+          "start": 19,
+          "end": 20,
+          "lemma": ",",
+          "pos": "PUNCT",
+          "tag": ",",
+          "dependency": "punct",
+          "head": "added"
+        },
+        {
+          "id": "claim-token-5",
+          "text": "auto",
+          "start": 21,
+          "end": 25,
+          "lemma": "auto",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "compound",
+          "head": "assembly"
+        },
+        {
+          "id": "claim-token-6",
+          "text": "assembly",
+          "start": 26,
+          "end": 34,
+          "lemma": "assembly",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "compound",
+          "head": "plants"
+        },
+        {
+          "id": "claim-token-7",
+          "text": "plants",
+          "start": 35,
+          "end": 41,
+          "lemma": "plant",
+          "pos": "NOUN",
+          "tag": "NNS",
+          "dependency": "nsubjpass",
+          "head": "added"
+        },
+        {
+          "id": "claim-token-8",
+          "text": "have",
+          "start": 42,
+          "end": 46,
+          "lemma": "have",
+          "pos": "AUX",
+          "tag": "VBP",
+          "dependency": "aux",
+          "head": "added"
+        },
+        {
+          "id": "claim-token-9",
+          "text": "been",
+          "start": 47,
+          "end": 51,
+          "lemma": "be",
+          "pos": "AUX",
+          "tag": "VBN",
+          "dependency": "auxpass",
+          "head": "added"
+        },
+        {
+          "id": "claim-token-10",
+          "text": "added",
+          "start": 52,
+          "end": 57,
+          "lemma": "add",
+          "pos": "VERB",
+          "tag": "VBN",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "claim-token-11",
+          "text": "at",
+          "start": 58,
+          "end": 60,
+          "lemma": "at",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "added"
+        },
+        {
+          "id": "claim-token-12",
+          "text": "an",
+          "start": 61,
+          "end": 63,
+          "lemma": "an",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "rate"
+        },
+        {
+          "id": "claim-token-13",
+          "text": "unprecedented",
+          "start": 64,
+          "end": 77,
+          "lemma": "unprecedented",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "rate"
+        },
+        {
+          "id": "claim-token-14",
+          "text": "rate",
+          "start": 78,
+          "end": 82,
+          "lemma": "rate",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "pobj",
+          "head": "at"
+        },
+        {
+          "id": "claim-token-15",
+          "text": "in",
+          "start": 83,
+          "end": 85,
+          "lemma": "in",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "rate"
+        },
+        {
+          "id": "claim-token-16",
+          "text": "Michigan",
+          "start": 86,
+          "end": 94,
+          "lemma": "Michigan",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "pobj",
+          "head": "in"
+        },
+        {
+          "id": "claim-token-17",
+          "text": ",",
+          "start": 94,
+          "end": 95,
+          "lemma": ",",
+          "pos": "PUNCT",
+          "tag": ",",
+          "dependency": "punct",
+          "head": "Michigan"
+        },
+        {
+          "id": "claim-token-18",
+          "text": "Ohio",
+          "start": 96,
+          "end": 100,
+          "lemma": "Ohio",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "appos",
+          "head": "Michigan"
+        },
+        {
+          "id": "claim-token-19",
+          "text": ",",
+          "start": 100,
+          "end": 101,
+          "lemma": ",",
+          "pos": "PUNCT",
+          "tag": ",",
+          "dependency": "punct",
+          "head": "Ohio"
+        },
+        {
+          "id": "claim-token-20",
+          "text": "North",
+          "start": 102,
+          "end": 107,
+          "lemma": "North",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "Carolina"
+        },
+        {
+          "id": "claim-token-21",
+          "text": "Carolina",
+          "start": 108,
+          "end": 116,
+          "lemma": "Carolina",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "conj",
+          "head": "Ohio"
+        },
+        {
+          "id": "claim-token-22",
+          "text": ",",
+          "start": 116,
+          "end": 117,
+          "lemma": ",",
+          "pos": "PUNCT",
+          "tag": ",",
+          "dependency": "punct",
+          "head": "Carolina"
+        },
+        {
+          "id": "claim-token-23",
+          "text": "South",
+          "start": 118,
+          "end": 123,
+          "lemma": "South",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "Carolina"
+        },
+        {
+          "id": "claim-token-24",
+          "text": "Carolina",
+          "start": 124,
+          "end": 132,
+          "lemma": "Carolina",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "conj",
+          "head": "Carolina"
+        },
+        {
+          "id": "claim-token-25",
+          "text": "and",
+          "start": 133,
+          "end": 136,
+          "lemma": "and",
+          "pos": "CCONJ",
+          "tag": "CC",
+          "dependency": "cc",
+          "head": "Carolina"
+        },
+        {
+          "id": "claim-token-26",
+          "text": "possibly",
+          "start": 137,
+          "end": 145,
+          "lemma": "possibly",
+          "pos": "ADV",
+          "tag": "RB",
+          "dependency": "advmod",
+          "head": "states"
+        },
+        {
+          "id": "claim-token-27",
+          "text": "other",
+          "start": 146,
+          "end": 151,
+          "lemma": "other",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "states"
+        },
+        {
+          "id": "claim-token-28",
+          "text": "states",
+          "start": 152,
+          "end": 158,
+          "lemma": "state",
+          "pos": "NOUN",
+          "tag": "NNS",
+          "dependency": "conj",
+          "head": "Carolina"
+        },
+        {
+          "id": "claim-token-29",
+          "text": ".",
+          "start": 158,
+          "end": 159,
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "added"
+        }
+      ],
+      "status": "complete",
+      "unresolved": []
+    },
+    "analyses": [
+      {
+        "atomId": "atom-1",
+        "frames": [
+          {
+            "id": "atom-1-frame-1",
+            "predicate": {
+              "id": "atom-1-frame-1-predicate",
+              "text": "added",
+              "start": 52,
+              "end": 57
+            },
+            "subjects": [
+              {
+                "id": "atom-1-frame-1-subject-1",
+                "text": "auto assembly plants",
+                "start": 21,
+                "end": 41
+              }
+            ],
+            "coreArguments": [],
+            "adjuncts": [],
+            "otherModifiers": [
+              {
+                "id": "atom-1-frame-1-other-modifier-1",
+                "text": "Under Trump's watch",
+                "start": 0,
+                "end": 19
+              },
+              {
+                "id": "atom-1-frame-1-other-modifier-2",
+                "text": "at an unprecedented rate in Michigan, Ohio, North Carolina, South Carolina and possibly other states",
+                "start": 58,
+                "end": 158
+              }
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "atom-1-cue-modality-137-145",
+            "text": "possibly",
+            "start": 137,
+            "end": 145,
+            "kind": "modality"
+          },
+          {
+            "id": "atom-1-cue-attribution-152-158",
+            "text": "states",
+            "start": 152,
+            "end": 158,
+            "kind": "attribution"
+          }
+        ],
+        "entities": [
+          {
+            "id": "atom-1-entity-org-6-11",
+            "text": "Trump",
+            "start": 6,
+            "end": 11,
+            "label": "ORG"
+          },
+          {
+            "id": "atom-1-entity-gpe-86-94",
+            "text": "Michigan",
+            "start": 86,
+            "end": 94,
+            "label": "GPE"
+          },
+          {
+            "id": "atom-1-entity-gpe-96-100",
+            "text": "Ohio",
+            "start": 96,
+            "end": 100,
+            "label": "GPE"
+          },
+          {
+            "id": "atom-1-entity-gpe-102-116",
+            "text": "North Carolina",
+            "start": 102,
+            "end": 116,
+            "label": "GPE"
+          },
+          {
+            "id": "atom-1-entity-gpe-118-132",
+            "text": "South Carolina",
+            "start": 118,
+            "end": 132,
+            "label": "GPE"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-1-token-0",
+            "text": "Under",
+            "start": 0,
+            "end": 5,
+            "lemma": "under",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "added"
+          },
+          {
+            "id": "atom-1-token-1",
+            "text": "Trump",
+            "start": 6,
+            "end": 11,
+            "lemma": "Trump",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "poss",
+            "head": "watch"
+          },
+          {
+            "id": "atom-1-token-2",
+            "text": "'s",
+            "start": 11,
+            "end": 13,
+            "lemma": "'s",
+            "pos": "PART",
+            "tag": "POS",
+            "dependency": "case",
+            "head": "Trump"
+          },
+          {
+            "id": "atom-1-token-3",
+            "text": "watch",
+            "start": 14,
+            "end": 19,
+            "lemma": "watch",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "pobj",
+            "head": "Under"
+          },
+          {
+            "id": "atom-1-token-4",
+            "text": ",",
+            "start": 19,
+            "end": 20,
+            "lemma": ",",
+            "pos": "PUNCT",
+            "tag": ",",
+            "dependency": "punct",
+            "head": "added"
+          },
+          {
+            "id": "atom-1-token-5",
+            "text": "auto",
+            "start": 21,
+            "end": 25,
+            "lemma": "auto",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "compound",
+            "head": "assembly"
+          },
+          {
+            "id": "atom-1-token-6",
+            "text": "assembly",
+            "start": 26,
+            "end": 34,
+            "lemma": "assembly",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "compound",
+            "head": "plants"
+          },
+          {
+            "id": "atom-1-token-7",
+            "text": "plants",
+            "start": 35,
+            "end": 41,
+            "lemma": "plant",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "nsubjpass",
+            "head": "added"
+          },
+          {
+            "id": "atom-1-token-8",
+            "text": "have",
+            "start": 42,
+            "end": 46,
+            "lemma": "have",
+            "pos": "AUX",
+            "tag": "VBP",
+            "dependency": "aux",
+            "head": "added"
+          },
+          {
+            "id": "atom-1-token-9",
+            "text": "been",
+            "start": 47,
+            "end": 51,
+            "lemma": "be",
+            "pos": "AUX",
+            "tag": "VBN",
+            "dependency": "auxpass",
+            "head": "added"
+          },
+          {
+            "id": "atom-1-token-10",
+            "text": "added",
+            "start": 52,
+            "end": 57,
+            "lemma": "add",
+            "pos": "VERB",
+            "tag": "VBN",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-1-token-11",
+            "text": "at",
+            "start": 58,
+            "end": 60,
+            "lemma": "at",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "added"
+          },
+          {
+            "id": "atom-1-token-12",
+            "text": "an",
+            "start": 61,
+            "end": 63,
+            "lemma": "an",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "rate"
+          },
+          {
+            "id": "atom-1-token-13",
+            "text": "unprecedented",
+            "start": 64,
+            "end": 77,
+            "lemma": "unprecedented",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "rate"
+          },
+          {
+            "id": "atom-1-token-14",
+            "text": "rate",
+            "start": 78,
+            "end": 82,
+            "lemma": "rate",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "pobj",
+            "head": "at"
+          },
+          {
+            "id": "atom-1-token-15",
+            "text": "in",
+            "start": 83,
+            "end": 85,
+            "lemma": "in",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "rate"
+          },
+          {
+            "id": "atom-1-token-16",
+            "text": "Michigan",
+            "start": 86,
+            "end": 94,
+            "lemma": "Michigan",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "pobj",
+            "head": "in"
+          },
+          {
+            "id": "atom-1-token-17",
+            "text": ",",
+            "start": 94,
+            "end": 95,
+            "lemma": ",",
+            "pos": "PUNCT",
+            "tag": ",",
+            "dependency": "punct",
+            "head": "Michigan"
+          },
+          {
+            "id": "atom-1-token-18",
+            "text": "Ohio",
+            "start": 96,
+            "end": 100,
+            "lemma": "Ohio",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "appos",
+            "head": "Michigan"
+          },
+          {
+            "id": "atom-1-token-19",
+            "text": ",",
+            "start": 100,
+            "end": 101,
+            "lemma": ",",
+            "pos": "PUNCT",
+            "tag": ",",
+            "dependency": "punct",
+            "head": "Ohio"
+          },
+          {
+            "id": "atom-1-token-20",
+            "text": "North",
+            "start": 102,
+            "end": 107,
+            "lemma": "North",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Carolina"
+          },
+          {
+            "id": "atom-1-token-21",
+            "text": "Carolina",
+            "start": 108,
+            "end": 116,
+            "lemma": "Carolina",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "conj",
+            "head": "Ohio"
+          },
+          {
+            "id": "atom-1-token-22",
+            "text": ",",
+            "start": 116,
+            "end": 117,
+            "lemma": ",",
+            "pos": "PUNCT",
+            "tag": ",",
+            "dependency": "punct",
+            "head": "Carolina"
+          },
+          {
+            "id": "atom-1-token-23",
+            "text": "South",
+            "start": 118,
+            "end": 123,
+            "lemma": "South",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Carolina"
+          },
+          {
+            "id": "atom-1-token-24",
+            "text": "Carolina",
+            "start": 124,
+            "end": 132,
+            "lemma": "Carolina",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "conj",
+            "head": "Carolina"
+          },
+          {
+            "id": "atom-1-token-25",
+            "text": "and",
+            "start": 133,
+            "end": 136,
+            "lemma": "and",
+            "pos": "CCONJ",
+            "tag": "CC",
+            "dependency": "cc",
+            "head": "Carolina"
+          },
+          {
+            "id": "atom-1-token-26",
+            "text": "possibly",
+            "start": 137,
+            "end": 145,
+            "lemma": "possibly",
+            "pos": "ADV",
+            "tag": "RB",
+            "dependency": "advmod",
+            "head": "states"
+          },
+          {
+            "id": "atom-1-token-27",
+            "text": "other",
+            "start": 146,
+            "end": 151,
+            "lemma": "other",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "states"
+          },
+          {
+            "id": "atom-1-token-28",
+            "text": "states",
+            "start": 152,
+            "end": 158,
+            "lemma": "state",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "conj",
+            "head": "Carolina"
+          },
+          {
+            "id": "atom-1-token-29",
+            "text": ".",
+            "start": 158,
+            "end": 159,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "added"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      }
+    ],
+    "summaries": [
+      {
+        "atomId": "atom-1",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "auto assembly plants"
+        ],
+        "predicates": [
+          "add"
+        ],
+        "cueKinds": [
+          "modality",
+          "attribution"
+        ],
+        "modifierKinds": [],
+        "entityLabels": [
+          "ORG",
+          "GPE"
+        ],
+        "warnings": []
+      }
+    ],
+    "claimWarnings": [],
+    "provider": "spacy",
+    "model": "en_core_web_sm@3.8.0"
+  },
+  "verdict": {
+    "aggregationSchemaVersion": 1,
+    "claimId": "averitec-dev-0394",
+    "composition": "SINGLE",
+    "verdict": "CONFLICTING_EVIDENCE",
+    "positions": {
+      "supportPosition": true,
+      "attackPosition": true,
+      "materialOmissionPosition": false,
+      "supportObligationIds": [
+        "atom-1"
+      ],
+      "attackObligationIds": [
+        "atom-1"
+      ],
+      "unresolvedObligationIds": [],
+      "groundedClaimPosition": "MIXED_OR_MISLEADING"
+    },
+    "obligations": [
+      {
+        "obligationId": "atom-1",
+        "state": "CONFLICTING",
+        "supportEdgeIds": [
+          "edge:SUPPORTS:evidence:doc-0723a4b72ffb:doc-0723a4b72ffb::sentence-4:obligation:averitec-dev-0394:atom-1",
+          "edge:SUPPORTS:evidence:doc-a6ed1942c120:doc-a6ed1942c120::sentence-4:obligation:averitec-dev-0394:atom-1",
+          "edge:SUPPORTS:evidence:doc-0723a4b72ffb:doc-0723a4b72ffb::sentence-47:obligation:averitec-dev-0394:atom-1"
+        ],
+        "attackEdgeIds": [
+          "edge:ATTACKS:evidence:doc-4ea4c5093f93:doc-4ea4c5093f93::sentence-4:obligation:averitec-dev-0394:atom-1",
+          "edge:ATTACKS:evidence:doc-a6ed1942c120:doc-a6ed1942c120::sentence-18:obligation:averitec-dev-0394:atom-1"
+        ],
+        "neutralCandidateCount": 1
+      }
+    ],
+    "warnings": [],
+    "ruleTrace": [
+      "The provenance-constrained claim audit sets the overall evidence position; deterministic aggregation maps that position to status.",
+      "Grounded claim position: MIXED_OR_MISLEADING; Support IDs show auto plants opened in Michigan, but attack IDs indicate investments in Alabama and mention Waymo's focus on self-driving tech, not traditional assembly plants.",
+      "Support position: yes; attack position: yes.",
+      "Final verdict: CONFLICTING_EVIDENCE."
+    ]
+  },
+  "recordedWith": {
+    "decompositionModel": "qwen2.5:7b",
+    "retrievalModel": "BAAI/bge-small-en-v1.5",
+    "nliModel": "qwen2.5:7b",
+    "linguisticsModel": "en_core_web_sm@3.8.0"
+  },
+  "timingsSeconds": {
+    "decomposition": 41.215,
+    "retrievalAndLinguistics": 0.538,
+    "evidenceAudit": 13.757,
+    "aggregation": 0.006,
+    "total": 55.522
+  }
+}

@@ -2,9 +2,9 @@
 
 VeriGraph lets an audience follow a fact check instead of asking them to trust
 one opaque score. It turns a complex claim into grounded verification
-obligations, finds candidate passages, labels sentence-level support and
-contradiction, and exposes the exact deterministic rule that produces the
-case verdict.
+obligations, finds candidate passages, audits the overall evidence position
+with exact span citations, and exposes the deterministic mapping that produces
+the draft case status.
 
 The main contribution is the inspectable bridge from language models to a
 rule-governed argument graph. Linguistic analysis is useful supporting
@@ -20,7 +20,7 @@ Schema-constrained claim decomposition (Qwen2.5 via Ollama)
         ↓
 Hybrid candidate retrieval (BGE embeddings + lexical anchors)
         ↓
-Conservative sentence-level NLI (DeBERTa + explicit contradiction gates)
+Provenance-constrained claim audit (Qwen2.5 selects only supplied span IDs)
         ↓
 Deterministic atom–evidence argumentation graph
         ↓
@@ -37,7 +37,7 @@ syntax and cues; it is not evidence or a verdict input.
 | Mode        | Where                           | What is live                                                               |
 | ------------- | --------------------------------- | ---------------------------------------------------------------------------- |
 | Walkthrough | Vercel                          | Nothing. It presents recorded local runs of approved AVeriTeC cases.       |
-| Live demo   | Native processes on your laptop | Qwen/Ollama decomposition, BGE retrieval, DeBERTa NLI, and spaCy analysis. |
+| Live demo   | Native processes on your laptop | Qwen/Ollama decomposition and evidence audit, BGE retrieval, and spaCy analysis. |
 
 The Vercel UI always states: **“Demo mode — results are precomputed. Live
 analysis is available locally.”** It never attempts to connect to a laptop or
@@ -66,7 +66,7 @@ cd verigraph
 ```
 
 Open [http://localhost:3000](http://localhost:3000). The browser talks to the local Next.js process,
-which proxies to FastAPI on port 8001. BGE and DeBERTa are stored in the
+which proxies to FastAPI on port 8001. BGE and the compatibility NLI model are stored in the
 gitignored `data/models/` directory; Ollama stores its model in its normal host
 installation. After preparation, inference is local and does not fetch source
 documents or model files.
@@ -110,15 +110,18 @@ set.
 ## Demo data and licences
 
 The approved 32-case AVeriTeC bundle is stored in `data/demo/averitec/` and
-contains claims, reference labels, full source documents, titles, URLs, audit
-metadata, and a digest. Reference labels remain dataset metadata and are never
-used as pipeline outputs.
+contains claims, reference labels, recovered source documents, human-written
+AVeriTeC evidence cards with their source URLs, audit metadata, and a digest.
+The cards preserve evidence when archived pages drift; they never contain the
+reference label or gold justification. Reference labels remain dataset
+metadata and are never used as pipeline inputs.
 
 The sample browser supports plain-language search plus topic, challenge, and
 reference-verdict filters. The private catalog is now balanced at eight cases
 per verdict and preserves every case from the earlier 22-case release. The
-static walkthrough remains a 22-run snapshot until the ten added cases have
-completed a fresh local model recording.
+static walkthrough contains complete recorded runs for all 32 cases. Generate
+the descriptive run audit with `python3 scripts/summarize_runs.py`; the report
+is explicit that this curated demonstration set is not a held-out benchmark.
 
 See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for AVeriTeC attribution,
 source-text clearance, and model notices. VeriGraph code is released under the

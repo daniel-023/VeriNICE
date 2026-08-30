@@ -18,52 +18,52 @@
       "atomId": "atom-1",
       "spans": [
         {
-          "id": "doc-41f1926ad4ef::sentence-14",
+          "id": "doc-41f1926ad4ef::sentence-22",
           "documentId": "doc-41f1926ad4ef",
           "text": "The authors concluded ivermectin as a better choice for the treatment of patients with mild to moderate COVID-19 disease [7].",
-          "start": 2491,
-          "end": 2616,
+          "start": 3147,
+          "end": 3272,
           "context": "In a Randomized Trial of 116 patients treated with Ivermectin-Doxycycline(n = 60) or Hydroxychloroquine-Azithromycin(n = 56) therapy the authors found Ivermectin-Doxycycline combination therapy had a better success of symptomatic relief; shortened recovery duration, reduced adverse effects, and superior patient compliance compared to the Hydroxychloroquine-Azithromycin combination.  The authors concluded ivermectin as a better choice for the treatment of patients with mild to moderate COVID-19 disease [7]. In a retrospective study of 280 patients with SARS-CoV-2 infection treated with ivermectin (n = 173) or standard of care(n = 107) the authors found lower mortality in the ivermectin group (25.2% versus 15.0%, OR 0.52, 95% CI 0.29–0.96). "
         },
         {
-          "id": "doc-41f1926ad4ef::sentence-29",
+          "id": "doc-41f1926ad4ef::sentence-34",
+          "documentId": "doc-41f1926ad4ef",
+          "text": "As a fact check the Indian Council of Medical Research (ICMR) is still reviewing the benefits of ivermectin and doxycycline as a potential therapy for COVID-19 and no such treatment guidelines is available on the website [14,15]. ",
+          "start": 5391,
+          "end": 5621,
+          "context": "One such news of ICMR including ivermectin in treatment guidelines for COVID-19 circulated over the social media leading to a heavy over the counter sale of the drug in a short span.  As a fact check the Indian Council of Medical Research (ICMR) is still reviewing the benefits of ivermectin and doxycycline as a potential therapy for COVID-19 and no such treatment guidelines is available on the website [14,15].  On April 10, 2020, FDA issued a statement concerning self-administration of ivermectin against COVID-19 referring to recently published in vitro study [4].\n"
+        },
+        {
+          "id": "doc-41f1926ad4ef::sentence-10",
+          "documentId": "doc-41f1926ad4ef",
+          "text": "Ivermectin is a drug of a wide range of bioactivity and has been in use for more than 30 years for treatment of parasitic infections in humans [1].",
+          "start": 668,
+          "end": 815,
+          "context": "Dear editor\n Ivermectin is a drug of a wide range of bioactivity and has been in use for more than 30 years for treatment of parasitic infections in humans [1]. It is being considered as the possible target drug for SARS CoV-2 and is under extensive research in clinical trials [2]."
+        },
+        {
+          "id": "doc-41f1926ad4ef::sentence-6",
+          "documentId": "doc-41f1926ad4ef",
+          "text": "We await results of well-designed large scale randomized controlled clinical trials exploring treatment efficacy of ivermectin to treat SARS-CoV-2.\n\n",
+          "start": 444,
+          "end": 593,
+          "context": "The clinical efficacy and utility of ivermectin in SARS CoV-2 infected patients are unpredictable at this stage, as we are dealing with a completely novel virus.  We await results of well-designed large scale randomized controlled clinical trials exploring treatment efficacy of ivermectin to treat SARS-CoV-2.\n\n RECOVERED SOURCE TEXT\n"
+        },
+        {
+          "id": "doc-41f1926ad4ef::sentence-37",
           "documentId": "doc-41f1926ad4ef",
           "text": "However, repurposing existing drugs as possible COVID-19 treatment is astute usage of existing resources, and we await results of well-designed large scale randomized controlled clinical trials exploring treatment efficacy of ivermectin to treat SARS-CoV-2.\n",
-          "start": 5283,
-          "end": 5541,
+          "start": 5939,
+          "end": 6197,
           "context": "The clinical efficacy and utility of ivermectin in SARS CoV-2 infected patients are unpredictable at this stage, as we are dealing with a completely novel virus.  However, repurposing existing drugs as possible COVID-19 treatment is astute usage of existing resources, and we await results of well-designed large scale randomized controlled clinical trials exploring treatment efficacy of ivermectin to treat SARS-CoV-2.\n Declaration of competing interest\n"
         },
         {
-          "id": "doc-41f1926ad4ef::sentence-28",
-          "documentId": "doc-41f1926ad4ef",
-          "text": "The clinical efficacy and utility of ivermectin in SARS CoV-2 infected patients are unpredictable at this stage, as we are dealing with a completely novel virus. ",
-          "start": 5121,
-          "end": 5283,
-          "context": "On April 10, 2020, FDA issued a statement concerning self-administration of ivermectin against COVID-19 referring to recently published in vitro study [4].\n The clinical efficacy and utility of ivermectin in SARS CoV-2 infected patients are unpredictable at this stage, as we are dealing with a completely novel virus.  However, repurposing existing drugs as possible COVID-19 treatment is astute usage of existing resources, and we await results of well-designed large scale randomized controlled clinical trials exploring treatment efficacy of ivermectin to treat SARS-CoV-2.\n"
-        },
-        {
-          "id": "doc-640b644a3867::sentence-5",
+          "id": "doc-640b644a3867::sentence-76",
           "documentId": "doc-640b644a3867",
-          "text": "Ivermectin is also highly effective against strongyloides, scabies, and ticks, and it has recently been shown to be an effective endectocide that kills feeding mosquitoes with the potential to reduce malaria transmission.\n",
-          "start": 477,
-          "end": 699,
-          "context": "Since 1987, about 3·7 billion treatments have been given worldwide primarily for mass drug administration (MDA) campaigns for onchocerciasis and lymphatic filariasis in sub-Saharan Africa.  Ivermectin is also highly effective against strongyloides, scabies, and ticks, and it has recently been shown to be an effective endectocide that kills feeding mosquitoes with the potential to reduce malaria transmission.\n 1- Kobylinski KC\n"
-        },
-        {
-          "id": "doc-640b644a3867::sentence-13",
-          "documentId": "doc-640b644a3867",
-          "text": "The use of ivermectin will expand. ",
-          "start": 868,
-          "end": 903,
-          "context": ".\n The use of ivermectin will expand.  For example, findings showed that ivermectin combined with diethylcarbamazine and albendazole is more effective than diethylcarbamazine plus albendazole as part of an MDA campaign for the treatment of lymphatic filariasis, resulting in greatly expanded use of ivermectin in MDA programmes worldwide.\n"
-        },
-        {
-          "id": "doc-640b644a3867::sentence-1",
-          "documentId": "doc-640b644a3867",
-          "text": "Ivermectin is one of the most important antibiotics discovered. ",
-          "start": 0,
-          "end": 64,
-          "context": "Ivermectin is one of the most important antibiotics discovered.  It is recognised as a landmark drug by the American Chemical Society and its discoverers received the Nobel Prize in 2015. "
+          "text": "- 6.Efficacy of ivermectin and albendazole alone and in combination for treatment of soil-transmitted helminths in pregnancy and adverse events: a randomized open label controlled intervention trial in Masindi district, western Uganda.Am J Trop Med. 2008; 79: 856-863\n",
+          "start": 7856,
+          "end": 8124,
+          "context": "2020; 8: e92-e100\n - 6.Efficacy of ivermectin and albendazole alone and in combination for treatment of soil-transmitted helminths in pregnancy and adverse events: a randomized open label controlled intervention trial in Masindi district, western Uganda.Am J Trop Med. 2008; 79: 856-863\n Article info\n"
         }
       ]
     }
@@ -73,38 +73,73 @@
       "atomId": "atom-1",
       "relations": [
         {
-          "spanId": "doc-41f1926ad4ef::sentence-14",
+          "spanId": "doc-41f1926ad4ef::sentence-22",
           "documentId": "doc-41f1926ad4ef",
-          "relation": "ENTAILMENT"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-41f1926ad4ef::sentence-29",
+          "spanId": "doc-41f1926ad4ef::sentence-34",
           "documentId": "doc-41f1926ad4ef",
-          "relation": "ENTAILMENT"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-41f1926ad4ef::sentence-28",
+          "spanId": "doc-41f1926ad4ef::sentence-10",
           "documentId": "doc-41f1926ad4ef",
-          "relation": "ENTAILMENT"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-640b644a3867::sentence-5",
-          "documentId": "doc-640b644a3867",
-          "relation": "CONTRADICTION"
+          "spanId": "doc-41f1926ad4ef::sentence-6",
+          "documentId": "doc-41f1926ad4ef",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-640b644a3867::sentence-13",
-          "documentId": "doc-640b644a3867",
-          "relation": "CONTRADICTION"
+          "spanId": "doc-41f1926ad4ef::sentence-37",
+          "documentId": "doc-41f1926ad4ef",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-640b644a3867::sentence-1",
+          "spanId": "doc-640b644a3867::sentence-76",
           "documentId": "doc-640b644a3867",
-          "relation": "CONTRADICTION"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         }
       ]
     }
   ],
+  "evidenceAudit": {
+    "claimPosition": {
+      "position": "INSUFFICIENT",
+      "supportSpanIds": [],
+      "attackSpanIds": [],
+      "contextSpanIds": [
+        "doc-41f1926ad4ef::sentence-6",
+        "doc-41f1926ad4ef::sentence-37"
+      ],
+      "reason": "The evidence suggests ongoing research and unpredictability regarding ivermectin's efficacy for SARS-CoV-2, indicating insufficient support for the claim."
+    },
+    "obligations": [
+      {
+        "atomId": "atom-1",
+        "state": "UNRESOLVED",
+        "supportSpanIds": [],
+        "attackSpanIds": [],
+        "reason": "The evidence suggests ongoing research and unpredictability regarding ivermectin's efficacy for SARS-CoV-2, indicating insufficient support for the claim."
+      }
+    ],
+    "materialOmission": {
+      "detected": false,
+      "supportSpanIds": [],
+      "contextSpanIds": [],
+      "reason": "No material omission was established."
+    },
+    "provider": "ollama",
+    "model": "qwen2.5:7b"
+  },
   "linguistics": {
     "schemaVersion": 2,
     "claimAnalysis": {
@@ -384,46 +419,55 @@
     "aggregationSchemaVersion": 1,
     "claimId": "averitec-dev-0026",
     "composition": "SINGLE",
-    "verdict": "CONFLICTING_EVIDENCE",
+    "verdict": "NOT_ENOUGH_EVIDENCE",
     "positions": {
-      "supportPosition": true,
-      "attackPosition": true,
-      "supportObligationIds": [
+      "supportPosition": false,
+      "attackPosition": false,
+      "materialOmissionPosition": false,
+      "supportObligationIds": [],
+      "attackObligationIds": [],
+      "unresolvedObligationIds": [
         "atom-1"
       ],
-      "attackObligationIds": [
-        "atom-1"
-      ],
-      "unresolvedObligationIds": []
+      "groundedClaimPosition": "INSUFFICIENT"
     },
     "obligations": [
       {
         "obligationId": "atom-1",
-        "state": "CONFLICTING",
-        "supportEdgeIds": [
-          "edge:SUPPORTS:evidence:doc-41f1926ad4ef:doc-41f1926ad4ef::sentence-14:obligation:averitec-dev-0026:atom-1",
-          "edge:SUPPORTS:evidence:doc-41f1926ad4ef:doc-41f1926ad4ef::sentence-29:obligation:averitec-dev-0026:atom-1",
-          "edge:SUPPORTS:evidence:doc-41f1926ad4ef:doc-41f1926ad4ef::sentence-28:obligation:averitec-dev-0026:atom-1"
-        ],
-        "attackEdgeIds": [
-          "edge:ATTACKS:evidence:doc-640b644a3867:doc-640b644a3867::sentence-5:obligation:averitec-dev-0026:atom-1",
-          "edge:ATTACKS:evidence:doc-640b644a3867:doc-640b644a3867::sentence-13:obligation:averitec-dev-0026:atom-1",
-          "edge:ATTACKS:evidence:doc-640b644a3867:doc-640b644a3867::sentence-1:obligation:averitec-dev-0026:atom-1"
-        ],
-        "neutralCandidateCount": 0
+        "state": "UNRESOLVED",
+        "supportEdgeIds": [],
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 6
       }
     ],
-    "warnings": [],
+    "warnings": [
+      {
+        "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
+        "message": "Obligation atom-1 has no supporting or attacking evidence."
+      },
+      {
+        "code": "ONLY_NEUTRAL_CANDIDATES",
+        "message": "Obligation atom-1 has only neutral retrieved candidates."
+      }
+    ],
     "ruleTrace": [
-      "SINGLE uses its only obligation's support and attack positions.",
-      "Support position: yes; attack position: yes.",
-      "Final verdict: CONFLICTING_EVIDENCE."
+      "The provenance-constrained claim audit sets the overall evidence position; deterministic aggregation maps that position to status.",
+      "Grounded claim position: INSUFFICIENT; The evidence suggests ongoing research and unpredictability regarding ivermectin's efficacy for SARS-CoV-2, indicating insufficient support for the claim.",
+      "Support position: no; attack position: no.",
+      "Final verdict: NOT_ENOUGH_EVIDENCE."
     ]
   },
   "recordedWith": {
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
-    "nliModel": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    "nliModel": "qwen2.5:7b",
     "linguisticsModel": "en_core_web_sm@3.8.0"
+  },
+  "timingsSeconds": {
+    "decomposition": 13.076,
+    "retrievalAndLinguistics": 0.996,
+    "evidenceAudit": 14.513,
+    "aggregation": 0.007,
+    "total": 28.597
   }
 }

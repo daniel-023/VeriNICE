@@ -3,6 +3,7 @@ from __future__ import annotations
 import importlib.util
 import json
 import sys
+from types import SimpleNamespace
 from collections import Counter
 from pathlib import Path
 
@@ -127,7 +128,213 @@ def test_revision_and_candidate_configuration_are_pinned() -> None:
     prepare = _prepare_module()
     assert prepare.AVERITEC_REVISION == "7c62d1ec8df3fb560d6efe2b85fa191135636f81"
     assert all(len(indices) >= 12 for indices in prepare.CANDIDATES.values())
-    assert prepare.CANDIDATES[ReferenceLabel.refuted][-3:] == (3, 4, 8)
-    assert prepare.CANDIDATES[ReferenceLabel.not_enough_evidence][:5] == (15, 413, 26, 208, 435)
+    assert all(
+        tuple(prepare.CANDIDATES[label][:8]) == tuple(published)
+        for label, published in prepare.PUBLISHED_CASES.items()
+    )
+    assert prepare.PUBLISHED_CASES[ReferenceLabel.refuted][-3:] == (3, 4, 8)
+    assert prepare.PUBLISHED_CASES[ReferenceLabel.not_enough_evidence][:5] == (15, 413, 26, 208, 435)
     assert prepare.DEFAULT_SOURCE == ROOT / "data" / "source" / "averitec-dev.json"
     assert prepare.DEFAULT_OUTPUT == ROOT / "data" / "demo" / "averitec"
+
+
+def test_source_groups_include_pdf_evidence_but_not_unextractable_media() -> None:
+    prepare = _prepare_module()
+    row = {
+        "questions": [
+            {
+                "question": "Which organizations are on the official list?",
+                "answers": [
+                    {
+                        "answer": "The target is not on the list.",
+                        "source_medium": "PDF",
+                        "source_url": "https://authority.example/list.pdf",
+                    },
+                    {
+                        "answer": "Spoken only in a video.",
+                        "source_medium": "Video",
+                        "source_url": "https://video.example/watch",
+                    },
+                ],
+            }
+        ]
+    }
+
+    groups = prepare._source_groups(row)
+
+    assert [group["source_url"] for group in groups] == [
+        "https://authority.example/list.pdf"
+    ]
+    assert groups[0]["evidence_text"] == [
+        "Which organizations are on the official list? The target is not on the list."
+    ]
+
+
+def test_prepared_documents_preserve_human_evidence_without_label_leakage() -> None:
+    prepare = _prepare_module()
+    row = {
+        "claim": "The program improved the measured outcome.",
+        "label": "Supported",
+        "justification": "This gold explanation must not enter the evidence.",
+        "questions": [
+            {
+                "question": "Did the program improve the measured outcome?",
+                "answers": [
+                    {
+                        "answer": "The measured outcome improved after the program.",
+                        "source_medium": "Web text",
+                        "source_url": "https://source.example/program",
+                    },
+                    {
+                        "answer": "A second source reported the same improvement.",
+                        "source_medium": "Web text",
+                        "source_url": "https://source.example/second",
+                    },
+                ],
+            }
+        ],
+    }
+    source_text = " ".join(
+        ["The program and its measured outcome are described in this report."] * 30
+    )
+
+    case, audit = prepare.prepare_case(
+        7,
+        row,
+        lambda _: prepare.FetchResult(status="ok", text=source_text, title="Report"),
+        lambda _: None,
+    )
+
+    assert case is not None
+    assert audit["accepted"] is True
+    assert all(prepare.EVIDENCE_CARD_HEADING in document.text for document in case.documents)
+    combined = "\n".join(document.text for document in case.documents)
+    assert "Did the program improve" in combined
+    assert "The measured outcome improved" in combined
+    assert "This gold explanation" not in combined
+    assert "SUPPORTED" not in combined
+
+
+def test_pdf_extraction_uses_selectable_text_and_preserves_metadata_title(monkeypatch) -> None:
+    prepare = _prepare_module()
+
+    class FakeReader:
+        metadata = {"/Title": "Official designated entities"}
+        pages = [
+            SimpleNamespace(extract_text=lambda: "Entity One\nEntity Two"),
+            SimpleNamespace(extract_text=lambda: "Entity Three"),
+        ]
+
+        def __init__(self, stream, strict=False):
+            assert stream.read().startswith(b"%PDF-")
+            assert strict is False
+
+    monkeypatch.setitem(sys.modules, "pypdf", SimpleNamespace(PdfReader=FakeReader))
+
+    result = prepare.extract_pdf(b"%PDF-synthetic", "https://authority.example/list.pdf")
+
+    assert result.status == "ok"
+    assert result.title == "Official designated entities"
+    assert "Entity One" in result.text
+    assert "Entity Three" in result.text
+
+
+def test_pdf_extraction_rejects_image_only_documents(monkeypatch) -> None:
+    prepare = _prepare_module()
+
+    class FakeReader:
+        metadata = None
+        pages = [SimpleNamespace(extract_text=lambda: "")]
+
+        def __init__(self, stream, strict=False):
+            pass
+
+    monkeypatch.setitem(sys.modules, "pypdf", SimpleNamespace(PdfReader=FakeReader))
+
+    result = prepare.extract_pdf(b"%PDF-image", "https://authority.example/image.pdf")
+
+    assert result.status == "extraction_failed"
+    assert "No selectable PDF text" in result.error
+
+
+def test_pdf_support_retries_legacy_html_only_cache_entry(tmp_path: Path) -> None:
+    prepare = _prepare_module()
+    fetcher = prepare.HttpFetcher(tmp_path, offline=True)
+    url = "https://authority.example/list.pdf"
+    fetcher._save_cache(
+        url,
+        prepare.FetchResult(
+            status="invalid_content_type",
+            error="Expected HTML, got application/pdf",
+        ),
+    )
+
+    assert fetcher._load_cache(url) is None
+
+
+def test_oversized_structured_pdf_compacts_every_named_target(monkeypatch) -> None:
+    prepare = _prepare_module()
+    targets = [f"TARGET {index:04d} WITH A DISTINCT OFFICIAL NAME" for index in range(40)]
+    repeated_notes = "Administrative details " * 12_000
+    extracted = repeated_notes + "\n" + "\n".join(
+        f"Name 6:\n{target}\n1:\nn/a\n2:\nn/a\n3:\nn/a\n4:\nn/a\n5:\nn/a."
+        for target in targets
+    )
+    assert len(extracted) > prepare.MAX_DOCUMENT_CHARACTERS
+
+    class FakeReader:
+        metadata = {"/Title": "Complete official list"}
+        pages = [SimpleNamespace(extract_text=lambda: extracted)]
+
+        def __init__(self, stream, strict=False):
+            pass
+
+    monkeypatch.setitem(sys.modules, "pypdf", SimpleNamespace(PdfReader=FakeReader))
+
+    result = prepare.extract_pdf(b"%PDF-list", "https://authority.example/list.pdf")
+
+    assert result.status == "ok"
+    assert len(result.text) <= prepare.MAX_DOCUMENT_CHARACTERS
+    assert "40 unique targets" in result.text
+    assert all(target in result.text for target in targets)
+    assert "Administrative details" not in result.text
+
+
+def test_legacy_oversized_pdf_cache_is_compacted_on_load(tmp_path: Path) -> None:
+    prepare = _prepare_module()
+    targets = [f"TARGET {index:04d}" for index in range(25)]
+    extracted = "Administrative details " * 12_000 + "\n" + "\n".join(
+        f"Name 6:\n{target}\n1:\nn/a\n2:\nn/a\n3:\nn/a\n4:\nn/a\n5:\nn/a."
+        for target in targets
+    )
+    fetcher = prepare.HttpFetcher(tmp_path, offline=True)
+    url = "https://authority.example/legacy-list.pdf"
+    fetcher._save_cache(
+        url,
+        prepare.FetchResult(
+            status="ok",
+            text=extracted,
+            title="Legacy official list",
+            method="http_pdf",
+        ),
+    )
+
+    result = fetcher._load_cache(url)
+
+    assert result is not None
+    assert result.method == "cached_pdf_compaction"
+    assert all(target in result.text for target in targets)
+    assert len(result.text) <= prepare.MAX_DOCUMENT_CHARACTERS
+
+
+def test_wayback_resolution_is_reused_offline(tmp_path: Path) -> None:
+    prepare = _prepare_module()
+    source = "https://publisher.example/article"
+    snapshot = "https://web.archive.org/web/20200101000000/https://publisher.example/article"
+    (tmp_path / "wayback-resolutions.json").write_text(
+        json.dumps({source: snapshot}), encoding="utf-8"
+    )
+
+    fetcher = prepare.HttpFetcher(tmp_path, offline=True)
+
+    assert fetcher.wayback_url(source) == snapshot

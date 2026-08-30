@@ -23,8 +23,8 @@
     {
       "id": "atom-3",
       "text": "The Green New Deal was introduced by Rep. Alexandria Ocasio-Cortez and Sen. Ed Markey last year.",
-      "sourceText": "introduced by Rep. Alexandria Ocasio-Cortez and Sen. Ed Markey last year",
-      "start": 132,
+      "sourceText": "The Green New Deal is a nonbinding resolution, introduced by Rep. Alexandria Ocasio-Cortez and Sen. Ed Markey last year",
+      "start": 85,
       "end": 204,
       "role": "CORE"
     },
@@ -42,52 +42,52 @@
       "atomId": "atom-1",
       "spans": [
         {
+          "id": "doc-3da0494639bb::sentence-4",
+          "documentId": "doc-3da0494639bb",
+          "text": "Evidence 1: Does U.S Presidential candidate  Joe Biden support the Green New Deal resolution introduced by Rep. Alexandria Ocasio-Cortez and Sen. Ed Markey in 2019 If you set aside the most left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the green new deal.\n",
+          "start": 268,
+          "end": 701,
+          "context": "Source URL: https://www.theguardian.com/commentisfree/2020/jul/20/joe-biden-has-endorsed-the-green-new-deal-in-all-but-name\n Evidence 1: Does U.S Presidential candidate  Joe Biden support the Green New Deal resolution introduced by Rep. Alexandria Ocasio-Cortez and Sen. Ed Markey in 2019 If you set aside the most left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the green new deal.\n Evidence 2: What are Joe Biden's environmental policies? "
+        },
+        {
           "id": "doc-3da0494639bb::sentence-7",
           "documentId": "doc-3da0494639bb",
           "text": "If you set aside the most attention-grabbing left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the left-wing of the Democratic party. ",
-          "start": 1113,
-          "end": 1420,
+          "start": 852,
+          "end": 1159,
           "context": "Part of Biden’s “Build Back Better” agenda, these plans are a Green New Deal in all but name.  If you set aside the most attention-grabbing left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the left-wing of the Democratic party.  Firstly, like the Green New Deal, Biden’s plans reframe climate action as a jobs, infrastructure and clean energy stimulus.\n"
         },
         {
-          "id": "doc-7f2ff8371330::sentence-2",
-          "documentId": "doc-7f2ff8371330",
-          "text": "On March 11, 2021, Biden won his first major economic victory when he signed the American Rescue Plan Act of 2021 into law. ",
-          "start": 216,
-          "end": 340,
-          "context": "President Joe Biden campaigned on an economic platform to shore up the middle class, extend healthcare, raise taxes on the wealthy, and invest trillions of dollars in green energy infrastructure, among other issues.\n On March 11, 2021, Biden won his first major economic victory when he signed the American Rescue Plan Act of 2021 into law.  It's one part of his Build Back Better Plan, which also includes the American Jobs Plan and the American Families Plan. "
-        },
-        {
-          "id": "doc-3da0494639bb::sentence-6",
-          "documentId": "doc-3da0494639bb",
-          "text": "Part of Biden’s “Build Back Better” agenda, these plans are a Green New Deal in all but name. ",
-          "start": 1019,
-          "end": 1113,
-          "context": "Biden proposes to pair these investments with new performance standards, most notably a clean electricity standard that would transition the United States to a carbon pollution-free power sector by 2035.\n Part of Biden’s “Build Back Better” agenda, these plans are a Green New Deal in all but name.  If you set aside the most attention-grabbing left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the left-wing of the Democratic party. "
-        },
-        {
-          "id": "doc-7f2ff8371330::sentence-1",
+          "id": "doc-7f2ff8371330::sentence-9",
           "documentId": "doc-7f2ff8371330",
           "text": "President Joe Biden campaigned on an economic platform to shore up the middle class, extend healthcare, raise taxes on the wealthy, and invest trillions of dollars in green energy infrastructure, among other issues.\n",
-          "start": 0,
-          "end": 216,
-          "context": "President Joe Biden campaigned on an economic platform to shore up the middle class, extend healthcare, raise taxes on the wealthy, and invest trillions of dollars in green energy infrastructure, among other issues.\n On March 11, 2021, Biden won his first major economic victory when he signed the American Rescue Plan Act of 2021 into law. "
+          "start": 699,
+          "end": 915,
+          "context": "RECOVERED SOURCE TEXT\n President Joe Biden campaigned on an economic platform to shore up the middle class, extend healthcare, raise taxes on the wealthy, and invest trillions of dollars in green energy infrastructure, among other issues.\n On March 11, 2021, Biden won his first major economic victory when he signed the American Rescue Plan Act of 2021 into law. "
         },
         {
-          "id": "doc-7f2ff8371330::sentence-145",
-          "documentId": "doc-7f2ff8371330",
-          "text": "The president's website said he supported the idea of a Green New Deal and that he wanted to ensure the U.S. has a carbon-pollution-free power sector by 2035 and reaches net-zero emissions no later than 2050. ",
-          "start": 15882,
-          "end": 16091,
-          "context": "The rest of the money would come from renewed appropriations for routine federal infrastructure spending.\n The president's website said he supported the idea of a Green New Deal and that he wanted to ensure the U.S. has a carbon-pollution-free power sector by 2035 and reaches net-zero emissions no later than 2050.  He also promised to rejoin the Paris Agreement, which he did in January 2021.\n"
+          "id": "doc-3da0494639bb::sentence-18",
+          "documentId": "doc-3da0494639bb",
+          "text": "If you set aside the most attention-grabbing left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the left-wing of the Democratic party. ",
+          "start": 2487,
+          "end": 2794,
+          "context": "Part of Biden’s “Build Back Better” agenda, these plans are a Green New Deal in all but name.  If you set aside the most attention-grabbing left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the left-wing of the Democratic party.  Firstly, like the Green New Deal, Biden’s plans reframe climate action as a jobs, infrastructure and clean energy stimulus.\n"
+        },
+        {
+          "id": "doc-3da0494639bb::sentence-9",
+          "documentId": "doc-3da0494639bb",
+          "text": "Evidence 3: Is Medicare for all included in the green new deal? ",
+          "start": 1283,
+          "end": 1347,
+          "context": "Firstly, like the Green New Deal, Biden’s plans reframe climate action as a jobs, infrastructure and clean energy stimulus.\n Evidence 3: Is Medicare for all included in the green new deal?  Yes\n\n"
         },
         {
           "id": "doc-3da0494639bb::sentence-8",
           "documentId": "doc-3da0494639bb",
           "text": "Firstly, like the Green New Deal, Biden’s plans reframe climate action as a jobs, infrastructure and clean energy stimulus.\n",
-          "start": 1420,
-          "end": 1544,
-          "context": "If you set aside the most attention-grabbing left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the left-wing of the Democratic party.  Firstly, like the Green New Deal, Biden’s plans reframe climate action as a jobs, infrastructure and clean energy stimulus.\n After three decades of economic elites failing to pitch a carbon tax as a solution to the supposed “market failure” of greenhouse gas emissions, Biden has elected to focus instead on economy-wide performance standards as the cutting edge of decarbonization. "
+          "start": 1159,
+          "end": 1283,
+          "context": "If you set aside the most attention-grabbing left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the left-wing of the Democratic party.  Firstly, like the Green New Deal, Biden’s plans reframe climate action as a jobs, infrastructure and clean energy stimulus.\n Evidence 3: Is Medicare for all included in the green new deal? "
         }
       ]
     },
@@ -98,49 +98,49 @@
           "id": "doc-3da0494639bb::sentence-7",
           "documentId": "doc-3da0494639bb",
           "text": "If you set aside the most attention-grabbing left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the left-wing of the Democratic party. ",
-          "start": 1113,
-          "end": 1420,
+          "start": 852,
+          "end": 1159,
           "context": "Part of Biden’s “Build Back Better” agenda, these plans are a Green New Deal in all but name.  If you set aside the most attention-grabbing left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the left-wing of the Democratic party.  Firstly, like the Green New Deal, Biden’s plans reframe climate action as a jobs, infrastructure and clean energy stimulus.\n"
         },
         {
-          "id": "doc-3da0494639bb::sentence-6",
+          "id": "doc-3da0494639bb::sentence-4",
           "documentId": "doc-3da0494639bb",
-          "text": "Part of Biden’s “Build Back Better” agenda, these plans are a Green New Deal in all but name. ",
-          "start": 1019,
-          "end": 1113,
-          "context": "Biden proposes to pair these investments with new performance standards, most notably a clean electricity standard that would transition the United States to a carbon pollution-free power sector by 2035.\n Part of Biden’s “Build Back Better” agenda, these plans are a Green New Deal in all but name.  If you set aside the most attention-grabbing left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the left-wing of the Democratic party. "
+          "text": "Evidence 1: Does U.S Presidential candidate  Joe Biden support the Green New Deal resolution introduced by Rep. Alexandria Ocasio-Cortez and Sen. Ed Markey in 2019 If you set aside the most left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the green new deal.\n",
+          "start": 268,
+          "end": 701,
+          "context": "Source URL: https://www.theguardian.com/commentisfree/2020/jul/20/joe-biden-has-endorsed-the-green-new-deal-in-all-but-name\n Evidence 1: Does U.S Presidential candidate  Joe Biden support the Green New Deal resolution introduced by Rep. Alexandria Ocasio-Cortez and Sen. Ed Markey in 2019 If you set aside the most left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the green new deal.\n Evidence 2: What are Joe Biden's environmental policies? "
         },
         {
-          "id": "doc-7f2ff8371330::sentence-145",
+          "id": "doc-3da0494639bb::sentence-18",
+          "documentId": "doc-3da0494639bb",
+          "text": "If you set aside the most attention-grabbing left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the left-wing of the Democratic party. ",
+          "start": 2487,
+          "end": 2794,
+          "context": "Part of Biden’s “Build Back Better” agenda, these plans are a Green New Deal in all but name.  If you set aside the most attention-grabbing left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the left-wing of the Democratic party.  Firstly, like the Green New Deal, Biden’s plans reframe climate action as a jobs, infrastructure and clean energy stimulus.\n"
+        },
+        {
+          "id": "doc-3da0494639bb::sentence-9",
+          "documentId": "doc-3da0494639bb",
+          "text": "Evidence 3: Is Medicare for all included in the green new deal? ",
+          "start": 1283,
+          "end": 1347,
+          "context": "Firstly, like the Green New Deal, Biden’s plans reframe climate action as a jobs, infrastructure and clean energy stimulus.\n Evidence 3: Is Medicare for all included in the green new deal?  Yes\n\n"
+        },
+        {
+          "id": "doc-3da0494639bb::sentence-8",
+          "documentId": "doc-3da0494639bb",
+          "text": "Firstly, like the Green New Deal, Biden’s plans reframe climate action as a jobs, infrastructure and clean energy stimulus.\n",
+          "start": 1159,
+          "end": 1283,
+          "context": "If you set aside the most attention-grabbing left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the left-wing of the Democratic party.  Firstly, like the Green New Deal, Biden’s plans reframe climate action as a jobs, infrastructure and clean energy stimulus.\n Evidence 3: Is Medicare for all included in the green new deal? "
+        },
+        {
+          "id": "doc-7f2ff8371330::sentence-153",
           "documentId": "doc-7f2ff8371330",
           "text": "The president's website said he supported the idea of a Green New Deal and that he wanted to ensure the U.S. has a carbon-pollution-free power sector by 2035 and reaches net-zero emissions no later than 2050. ",
-          "start": 15882,
-          "end": 16091,
+          "start": 16581,
+          "end": 16790,
           "context": "The rest of the money would come from renewed appropriations for routine federal infrastructure spending.\n The president's website said he supported the idea of a Green New Deal and that he wanted to ensure the U.S. has a carbon-pollution-free power sector by 2035 and reaches net-zero emissions no later than 2050.  He also promised to rejoin the Paris Agreement, which he did in January 2021.\n"
-        },
-        {
-          "id": "doc-3da0494639bb::sentence-38",
-          "documentId": "doc-3da0494639bb",
-          "text": "Julian Brave NoiseCat is director of Green New Deal Strategy for Data for Progress",
-          "start": 6368,
-          "end": 6450,
-          "context": "But come fall, it’s progressive ideas that just might carry him and his party to the presidency.\n Julian Brave NoiseCat is director of Green New Deal Strategy for Data for Progress"
-        },
-        {
-          "id": "doc-7f2ff8371330::sentence-34",
-          "documentId": "doc-7f2ff8371330",
-          "text": "The Consolidated Appropriations Act, 2021, passed in December 2020, provided $25 billion to the U.S. Treasury Emergency Rental Assistance program, which is still being distributed to those in need.\n",
-          "start": 4102,
-          "end": 4300,
-          "context": "While the moratorium on evictions and foreclosures has expired, there is still help with rental and mortgage payments available.  The Consolidated Appropriations Act, 2021, passed in December 2020, provided $25 billion to the U.S. Treasury Emergency Rental Assistance program, which is still being distributed to those in need.\n The National Low Income Housing Coalition provides a searchable list of all the housing relief programs available on its website. "
-        },
-        {
-          "id": "doc-7f2ff8371330::sentence-18",
-          "documentId": "doc-7f2ff8371330",
-          "text": "President Joe Biden formally announced his $1.9 trillion COVID-19 stimulus plan on Jan. 14, 2021. ",
-          "start": 1889,
-          "end": 1987,
-          "context": "The American Rescue Plan\n President Joe Biden formally announced his $1.9 trillion COVID-19 stimulus plan on Jan. 14, 2021.  On March 11, 2021, he made it a reality. "
         }
       ]
     },
@@ -148,52 +148,52 @@
       "atomId": "atom-3",
       "spans": [
         {
+          "id": "doc-3da0494639bb::sentence-4",
+          "documentId": "doc-3da0494639bb",
+          "text": "Evidence 1: Does U.S Presidential candidate  Joe Biden support the Green New Deal resolution introduced by Rep. Alexandria Ocasio-Cortez and Sen. Ed Markey in 2019 If you set aside the most left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the green new deal.\n",
+          "start": 268,
+          "end": 701,
+          "context": "Source URL: https://www.theguardian.com/commentisfree/2020/jul/20/joe-biden-has-endorsed-the-green-new-deal-in-all-but-name\n Evidence 1: Does U.S Presidential candidate  Joe Biden support the Green New Deal resolution introduced by Rep. Alexandria Ocasio-Cortez and Sen. Ed Markey in 2019 If you set aside the most left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the green new deal.\n Evidence 2: What are Joe Biden's environmental policies? "
+        },
+        {
           "id": "doc-3da0494639bb::sentence-7",
           "documentId": "doc-3da0494639bb",
           "text": "If you set aside the most attention-grabbing left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the left-wing of the Democratic party. ",
-          "start": 1113,
-          "end": 1420,
+          "start": 852,
+          "end": 1159,
           "context": "Part of Biden’s “Build Back Better” agenda, these plans are a Green New Deal in all but name.  If you set aside the most attention-grabbing left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the left-wing of the Democratic party.  Firstly, like the Green New Deal, Biden’s plans reframe climate action as a jobs, infrastructure and clean energy stimulus.\n"
         },
         {
-          "id": "doc-3da0494639bb::sentence-14",
+          "id": "doc-3da0494639bb::sentence-18",
+          "documentId": "doc-3da0494639bb",
+          "text": "If you set aside the most attention-grabbing left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the left-wing of the Democratic party. ",
+          "start": 2487,
+          "end": 2794,
+          "context": "Part of Biden’s “Build Back Better” agenda, these plans are a Green New Deal in all but name.  If you set aside the most attention-grabbing left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the left-wing of the Democratic party.  Firstly, like the Green New Deal, Biden’s plans reframe climate action as a jobs, infrastructure and clean energy stimulus.\n"
+        },
+        {
+          "id": "doc-3da0494639bb::sentence-25",
           "documentId": "doc-3da0494639bb",
           "text": "Biden’s plans draw upon the Green New Deal-inflected recommendations issued by the joint taskforce convened by surrogates of the Biden and Bernie Sanders campaigns, including Ocasio-Cortez. ",
-          "start": 2438,
-          "end": 2628,
+          "start": 3812,
+          "end": 4002,
           "context": "This is, in the broadest strokes, the climate policy gospel according to many progressives.  Biden’s plans draw upon the Green New Deal-inflected recommendations issued by the joint taskforce convened by surrogates of the Biden and Bernie Sanders campaigns, including Ocasio-Cortez.  They also crib heavily from plans devised by Washington governor Jay Inslee’s climate-focused presidential campaign and are delightfully similar to policies drafted by Data for Progress, an upstart leftwing thinktank where I work. "
         },
         {
-          "id": "doc-3da0494639bb::sentence-6",
+          "id": "doc-3da0494639bb::sentence-8",
           "documentId": "doc-3da0494639bb",
-          "text": "Part of Biden’s “Build Back Better” agenda, these plans are a Green New Deal in all but name. ",
-          "start": 1019,
-          "end": 1113,
-          "context": "Biden proposes to pair these investments with new performance standards, most notably a clean electricity standard that would transition the United States to a carbon pollution-free power sector by 2035.\n Part of Biden’s “Build Back Better” agenda, these plans are a Green New Deal in all but name.  If you set aside the most attention-grabbing left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the left-wing of the Democratic party. "
+          "text": "Firstly, like the Green New Deal, Biden’s plans reframe climate action as a jobs, infrastructure and clean energy stimulus.\n",
+          "start": 1159,
+          "end": 1283,
+          "context": "If you set aside the most attention-grabbing left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the left-wing of the Democratic party.  Firstly, like the Green New Deal, Biden’s plans reframe climate action as a jobs, infrastructure and clean energy stimulus.\n Evidence 3: Is Medicare for all included in the green new deal? "
         },
         {
-          "id": "doc-7f2ff8371330::sentence-18",
-          "documentId": "doc-7f2ff8371330",
-          "text": "President Joe Biden formally announced his $1.9 trillion COVID-19 stimulus plan on Jan. 14, 2021. ",
-          "start": 1889,
-          "end": 1987,
-          "context": "The American Rescue Plan\n President Joe Biden formally announced his $1.9 trillion COVID-19 stimulus plan on Jan. 14, 2021.  On March 11, 2021, he made it a reality. "
-        },
-        {
-          "id": "doc-7f2ff8371330::sentence-145",
+          "id": "doc-7f2ff8371330::sentence-153",
           "documentId": "doc-7f2ff8371330",
           "text": "The president's website said he supported the idea of a Green New Deal and that he wanted to ensure the U.S. has a carbon-pollution-free power sector by 2035 and reaches net-zero emissions no later than 2050. ",
-          "start": 15882,
-          "end": 16091,
+          "start": 16581,
+          "end": 16790,
           "context": "The rest of the money would come from renewed appropriations for routine federal infrastructure spending.\n The president's website said he supported the idea of a Green New Deal and that he wanted to ensure the U.S. has a carbon-pollution-free power sector by 2035 and reaches net-zero emissions no later than 2050.  He also promised to rejoin the Paris Agreement, which he did in January 2021.\n"
-        },
-        {
-          "id": "doc-7f2ff8371330::sentence-2",
-          "documentId": "doc-7f2ff8371330",
-          "text": "On March 11, 2021, Biden won his first major economic victory when he signed the American Rescue Plan Act of 2021 into law. ",
-          "start": 216,
-          "end": 340,
-          "context": "President Joe Biden campaigned on an economic platform to shore up the middle class, extend healthcare, raise taxes on the wealthy, and invest trillions of dollars in green energy infrastructure, among other issues.\n On March 11, 2021, Biden won his first major economic victory when he signed the American Rescue Plan Act of 2021 into law.  It's one part of his Build Back Better Plan, which also includes the American Jobs Plan and the American Families Plan. "
         }
       ]
     },
@@ -204,49 +204,49 @@
           "id": "doc-3da0494639bb::sentence-8",
           "documentId": "doc-3da0494639bb",
           "text": "Firstly, like the Green New Deal, Biden’s plans reframe climate action as a jobs, infrastructure and clean energy stimulus.\n",
-          "start": 1420,
-          "end": 1544,
+          "start": 1159,
+          "end": 1283,
+          "context": "If you set aside the most attention-grabbing left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the left-wing of the Democratic party.  Firstly, like the Green New Deal, Biden’s plans reframe climate action as a jobs, infrastructure and clean energy stimulus.\n Evidence 3: Is Medicare for all included in the green new deal? "
+        },
+        {
+          "id": "doc-3da0494639bb::sentence-19",
+          "documentId": "doc-3da0494639bb",
+          "text": "Firstly, like the Green New Deal, Biden’s plans reframe climate action as a jobs, infrastructure and clean energy stimulus.\n",
+          "start": 2794,
+          "end": 2918,
           "context": "If you set aside the most attention-grabbing left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the left-wing of the Democratic party.  Firstly, like the Green New Deal, Biden’s plans reframe climate action as a jobs, infrastructure and clean energy stimulus.\n After three decades of economic elites failing to pitch a carbon tax as a solution to the supposed “market failure” of greenhouse gas emissions, Biden has elected to focus instead on economy-wide performance standards as the cutting edge of decarbonization. "
         },
         {
-          "id": "doc-3da0494639bb::sentence-6",
+          "id": "doc-3da0494639bb::sentence-4",
           "documentId": "doc-3da0494639bb",
-          "text": "Part of Biden’s “Build Back Better” agenda, these plans are a Green New Deal in all but name. ",
-          "start": 1019,
-          "end": 1113,
-          "context": "Biden proposes to pair these investments with new performance standards, most notably a clean electricity standard that would transition the United States to a carbon pollution-free power sector by 2035.\n Part of Biden’s “Build Back Better” agenda, these plans are a Green New Deal in all but name.  If you set aside the most attention-grabbing left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the left-wing of the Democratic party. "
+          "text": "Evidence 1: Does U.S Presidential candidate  Joe Biden support the Green New Deal resolution introduced by Rep. Alexandria Ocasio-Cortez and Sen. Ed Markey in 2019 If you set aside the most left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the green new deal.\n",
+          "start": 268,
+          "end": 701,
+          "context": "Source URL: https://www.theguardian.com/commentisfree/2020/jul/20/joe-biden-has-endorsed-the-green-new-deal-in-all-but-name\n Evidence 1: Does U.S Presidential candidate  Joe Biden support the Green New Deal resolution introduced by Rep. Alexandria Ocasio-Cortez and Sen. Ed Markey in 2019 If you set aside the most left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the green new deal.\n Evidence 2: What are Joe Biden's environmental policies? "
+        },
+        {
+          "id": "doc-3da0494639bb::sentence-9",
+          "documentId": "doc-3da0494639bb",
+          "text": "Evidence 3: Is Medicare for all included in the green new deal? ",
+          "start": 1283,
+          "end": 1347,
+          "context": "Firstly, like the Green New Deal, Biden’s plans reframe climate action as a jobs, infrastructure and clean energy stimulus.\n Evidence 3: Is Medicare for all included in the green new deal?  Yes\n\n"
         },
         {
           "id": "doc-3da0494639bb::sentence-7",
           "documentId": "doc-3da0494639bb",
           "text": "If you set aside the most attention-grabbing left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the left-wing of the Democratic party. ",
-          "start": 1113,
-          "end": 1420,
+          "start": 852,
+          "end": 1159,
           "context": "Part of Biden’s “Build Back Better” agenda, these plans are a Green New Deal in all but name.  If you set aside the most attention-grabbing left-wing programs included in New York Representative Alexandria Ocasio-Cortez’s 2019 Green New Deal resolution, like Medicare for All and a federal job guarantee, Biden’s plans broadly align with an approach advocated by the left-wing of the Democratic party.  Firstly, like the Green New Deal, Biden’s plans reframe climate action as a jobs, infrastructure and clean energy stimulus.\n"
         },
         {
-          "id": "doc-7f2ff8371330::sentence-145",
+          "id": "doc-7f2ff8371330::sentence-153",
           "documentId": "doc-7f2ff8371330",
           "text": "The president's website said he supported the idea of a Green New Deal and that he wanted to ensure the U.S. has a carbon-pollution-free power sector by 2035 and reaches net-zero emissions no later than 2050. ",
-          "start": 15882,
-          "end": 16091,
+          "start": 16581,
+          "end": 16790,
           "context": "The rest of the money would come from renewed appropriations for routine federal infrastructure spending.\n The president's website said he supported the idea of a Green New Deal and that he wanted to ensure the U.S. has a carbon-pollution-free power sector by 2035 and reaches net-zero emissions no later than 2050.  He also promised to rejoin the Paris Agreement, which he did in January 2021.\n"
-        },
-        {
-          "id": "doc-7f2ff8371330::sentence-147",
-          "documentId": "doc-7f2ff8371330",
-          "text": "He also wanted to establish a new Environmental and Climate Justice Division within the Justice Department. ",
-          "start": 16169,
-          "end": 16277,
-          "context": "He also promised to rejoin the Paris Agreement, which he did in January 2021.\n He also wanted to establish a new Environmental and Climate Justice Division within the Justice Department.  To build a 100% clean energy economy and create millions of \"good union jobs,\" Biden's plan was to make investments in new infrastructure, public transit, clean electricity, the electric vehicle industry, buildings and housing, and agriculture.\n"
-        },
-        {
-          "id": "doc-7f2ff8371330::sentence-1",
-          "documentId": "doc-7f2ff8371330",
-          "text": "President Joe Biden campaigned on an economic platform to shore up the middle class, extend healthcare, raise taxes on the wealthy, and invest trillions of dollars in green energy infrastructure, among other issues.\n",
-          "start": 0,
-          "end": 216,
-          "context": "President Joe Biden campaigned on an economic platform to shore up the middle class, extend healthcare, raise taxes on the wealthy, and invest trillions of dollars in green energy infrastructure, among other issues.\n On March 11, 2021, Biden won his first major economic victory when he signed the American Rescue Plan Act of 2021 into law. "
         }
       ]
     }
@@ -256,34 +256,40 @@
       "atomId": "atom-1",
       "relations": [
         {
+          "spanId": "doc-3da0494639bb::sentence-4",
+          "documentId": "doc-3da0494639bb",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
           "spanId": "doc-3da0494639bb::sentence-7",
           "documentId": "doc-3da0494639bb",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-7f2ff8371330::sentence-2",
+          "spanId": "doc-7f2ff8371330::sentence-9",
           "documentId": "doc-7f2ff8371330",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-3da0494639bb::sentence-6",
+          "spanId": "doc-3da0494639bb::sentence-18",
           "documentId": "doc-3da0494639bb",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-7f2ff8371330::sentence-1",
-          "documentId": "doc-7f2ff8371330",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-7f2ff8371330::sentence-145",
-          "documentId": "doc-7f2ff8371330",
-          "relation": "CONTRADICTION"
+          "spanId": "doc-3da0494639bb::sentence-9",
+          "documentId": "doc-3da0494639bb",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
           "spanId": "doc-3da0494639bb::sentence-8",
           "documentId": "doc-3da0494639bb",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         }
       ]
     },
@@ -293,32 +299,38 @@
         {
           "spanId": "doc-3da0494639bb::sentence-7",
           "documentId": "doc-3da0494639bb",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-3da0494639bb::sentence-6",
+          "spanId": "doc-3da0494639bb::sentence-4",
           "documentId": "doc-3da0494639bb",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-7f2ff8371330::sentence-145",
-          "documentId": "doc-7f2ff8371330",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-3da0494639bb::sentence-38",
+          "spanId": "doc-3da0494639bb::sentence-18",
           "documentId": "doc-3da0494639bb",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-7f2ff8371330::sentence-34",
-          "documentId": "doc-7f2ff8371330",
-          "relation": "NEUTRAL"
+          "spanId": "doc-3da0494639bb::sentence-9",
+          "documentId": "doc-3da0494639bb",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-7f2ff8371330::sentence-18",
+          "spanId": "doc-3da0494639bb::sentence-8",
+          "documentId": "doc-3da0494639bb",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-7f2ff8371330::sentence-153",
           "documentId": "doc-7f2ff8371330",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         }
       ]
     },
@@ -326,34 +338,40 @@
       "atomId": "atom-3",
       "relations": [
         {
+          "spanId": "doc-3da0494639bb::sentence-4",
+          "documentId": "doc-3da0494639bb",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
           "spanId": "doc-3da0494639bb::sentence-7",
           "documentId": "doc-3da0494639bb",
-          "relation": "CONTRADICTION"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-3da0494639bb::sentence-14",
+          "spanId": "doc-3da0494639bb::sentence-18",
           "documentId": "doc-3da0494639bb",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-3da0494639bb::sentence-6",
+          "spanId": "doc-3da0494639bb::sentence-25",
           "documentId": "doc-3da0494639bb",
-          "relation": "CONTRADICTION"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-7f2ff8371330::sentence-18",
-          "documentId": "doc-7f2ff8371330",
-          "relation": "NEUTRAL"
+          "spanId": "doc-3da0494639bb::sentence-8",
+          "documentId": "doc-3da0494639bb",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-7f2ff8371330::sentence-145",
+          "spanId": "doc-7f2ff8371330::sentence-153",
           "documentId": "doc-7f2ff8371330",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-7f2ff8371330::sentence-2",
-          "documentId": "doc-7f2ff8371330",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         }
       ]
     },
@@ -363,36 +381,96 @@
         {
           "spanId": "doc-3da0494639bb::sentence-8",
           "documentId": "doc-3da0494639bb",
-          "relation": "ENTAILMENT"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-3da0494639bb::sentence-6",
+          "spanId": "doc-3da0494639bb::sentence-19",
           "documentId": "doc-3da0494639bb",
-          "relation": "ENTAILMENT"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-3da0494639bb::sentence-4",
+          "documentId": "doc-3da0494639bb",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-3da0494639bb::sentence-9",
+          "documentId": "doc-3da0494639bb",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
           "spanId": "doc-3da0494639bb::sentence-7",
           "documentId": "doc-3da0494639bb",
-          "relation": "ENTAILMENT"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-7f2ff8371330::sentence-145",
+          "spanId": "doc-7f2ff8371330::sentence-153",
           "documentId": "doc-7f2ff8371330",
-          "relation": "ENTAILMENT"
-        },
-        {
-          "spanId": "doc-7f2ff8371330::sentence-147",
-          "documentId": "doc-7f2ff8371330",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-7f2ff8371330::sentence-1",
-          "documentId": "doc-7f2ff8371330",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         }
       ]
     }
   ],
+  "evidenceAudit": {
+    "claimPosition": {
+      "position": "INSUFFICIENT",
+      "supportSpanIds": [],
+      "attackSpanIds": [],
+      "contextSpanIds": [
+        "doc-3da0494639bb::sentence-4",
+        "doc-3da0494639bb::sentence-7",
+        "doc-3da0494639bb::sentence-18",
+        "doc-3da0494639bb::sentence-25",
+        "doc-3da0494639bb::sentence-8",
+        "doc-3da0494639bb::sentence-8"
+      ],
+      "reason": "The claimed support-only position did not cite support for every obligation. The evidence supports that Joe Biden supports policies aligned with the Green New Deal, and that the Green New Deal is a nonbinding resolution. The context IDs provide additional details but do not contradict the main claim."
+    },
+    "obligations": [
+      {
+        "atomId": "atom-1",
+        "state": "UNRESOLVED",
+        "supportSpanIds": [],
+        "attackSpanIds": [],
+        "reason": "The claimed support-only position did not cite support for every obligation. The evidence supports that Joe Biden supports policies aligned with the Green New Deal, and that the Green New Deal is a nonbinding resolution. The context IDs provide additional details but do not contradict the main claim."
+      },
+      {
+        "atomId": "atom-2",
+        "state": "UNRESOLVED",
+        "supportSpanIds": [],
+        "attackSpanIds": [],
+        "reason": "The claimed support-only position did not cite support for every obligation. The evidence supports that Joe Biden supports policies aligned with the Green New Deal, and that the Green New Deal is a nonbinding resolution. The context IDs provide additional details but do not contradict the main claim."
+      },
+      {
+        "atomId": "atom-3",
+        "state": "UNRESOLVED",
+        "supportSpanIds": [],
+        "attackSpanIds": [],
+        "reason": "The claimed support-only position did not cite support for every obligation. The evidence supports that Joe Biden supports policies aligned with the Green New Deal, and that the Green New Deal is a nonbinding resolution. The context IDs provide additional details but do not contradict the main claim."
+      },
+      {
+        "atomId": "atom-4",
+        "state": "UNRESOLVED",
+        "supportSpanIds": [],
+        "attackSpanIds": [],
+        "reason": "The claimed support-only position did not cite support for every obligation. The evidence supports that Joe Biden supports policies aligned with the Green New Deal, and that the Green New Deal is a nonbinding resolution. The context IDs provide additional details but do not contradict the main claim."
+      }
+    ],
+    "materialOmission": {
+      "detected": false,
+      "supportSpanIds": [],
+      "contextSpanIds": [],
+      "reason": "No material omission was established."
+    },
+    "provider": "ollama",
+    "model": "qwen2.5:7b"
+  },
   "linguistics": {
     "schemaVersion": 2,
     "claimAnalysis": {
@@ -1974,30 +2052,28 @@
     "aggregationSchemaVersion": 1,
     "claimId": "averitec-dev-0100",
     "composition": "AND",
-    "verdict": "REFUTED",
+    "verdict": "NOT_ENOUGH_EVIDENCE",
     "positions": {
       "supportPosition": false,
-      "attackPosition": true,
-      "supportObligationIds": [
+      "attackPosition": false,
+      "materialOmissionPosition": false,
+      "supportObligationIds": [],
+      "attackObligationIds": [],
+      "unresolvedObligationIds": [
+        "atom-1",
+        "atom-2",
+        "atom-3",
         "atom-4"
       ],
-      "attackObligationIds": [
-        "atom-1",
-        "atom-3"
-      ],
-      "unresolvedObligationIds": [
-        "atom-2"
-      ]
+      "groundedClaimPosition": "INSUFFICIENT"
     },
     "obligations": [
       {
         "obligationId": "atom-1",
-        "state": "REFUTED",
+        "state": "UNRESOLVED",
         "supportEdgeIds": [],
-        "attackEdgeIds": [
-          "edge:ATTACKS:evidence:doc-7f2ff8371330:doc-7f2ff8371330::sentence-145:obligation:averitec-dev-0100:atom-1"
-        ],
-        "neutralCandidateCount": 5
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 6
       },
       {
         "obligationId": "atom-2",
@@ -2008,28 +2084,28 @@
       },
       {
         "obligationId": "atom-3",
-        "state": "REFUTED",
+        "state": "UNRESOLVED",
         "supportEdgeIds": [],
-        "attackEdgeIds": [
-          "edge:ATTACKS:evidence:doc-3da0494639bb:doc-3da0494639bb::sentence-7:obligation:averitec-dev-0100:atom-3",
-          "edge:ATTACKS:evidence:doc-3da0494639bb:doc-3da0494639bb::sentence-6:obligation:averitec-dev-0100:atom-3"
-        ],
-        "neutralCandidateCount": 4
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 6
       },
       {
         "obligationId": "atom-4",
-        "state": "SUPPORTED",
-        "supportEdgeIds": [
-          "edge:SUPPORTS:evidence:doc-3da0494639bb:doc-3da0494639bb::sentence-8:obligation:averitec-dev-0100:atom-4",
-          "edge:SUPPORTS:evidence:doc-3da0494639bb:doc-3da0494639bb::sentence-6:obligation:averitec-dev-0100:atom-4",
-          "edge:SUPPORTS:evidence:doc-3da0494639bb:doc-3da0494639bb::sentence-7:obligation:averitec-dev-0100:atom-4",
-          "edge:SUPPORTS:evidence:doc-7f2ff8371330:doc-7f2ff8371330::sentence-145:obligation:averitec-dev-0100:atom-4"
-        ],
+        "state": "UNRESOLVED",
+        "supportEdgeIds": [],
         "attackEdgeIds": [],
-        "neutralCandidateCount": 2
+        "neutralCandidateCount": 6
       }
     ],
     "warnings": [
+      {
+        "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
+        "message": "Obligation atom-1 has no supporting or attacking evidence."
+      },
+      {
+        "code": "ONLY_NEUTRAL_CANDIDATES",
+        "message": "Obligation atom-1 has only neutral retrieved candidates."
+      },
       {
         "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
         "message": "Obligation atom-2 has no supporting or attacking evidence."
@@ -2039,20 +2115,44 @@
         "message": "Obligation atom-2 has only neutral retrieved candidates."
       },
       {
+        "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
+        "message": "Obligation atom-3 has no supporting or attacking evidence."
+      },
+      {
+        "code": "ONLY_NEUTRAL_CANDIDATES",
+        "message": "Obligation atom-3 has only neutral retrieved candidates."
+      },
+      {
+        "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
+        "message": "Obligation atom-4 has no supporting or attacking evidence."
+      },
+      {
+        "code": "ONLY_NEUTRAL_CANDIDATES",
+        "message": "Obligation atom-4 has only neutral retrieved candidates."
+      },
+      {
         "code": "PARTIAL_LINGUISTIC_ANALYSIS",
         "message": "Linguistic analysis for obligation atom-4 requires inspection; it does not change the verdict."
       }
     ],
     "ruleTrace": [
-      "AND support requires support for every obligation; AND attack requires an attack on any obligation.",
-      "Support position: no; attack position: yes.",
-      "Final verdict: REFUTED."
+      "The provenance-constrained claim audit sets the overall evidence position; deterministic aggregation maps that position to status.",
+      "Grounded claim position: INSUFFICIENT; The claimed support-only position did not cite support for every obligation. The evidence supports that Joe Biden supports policies aligned with the Green New Deal, and that the Green New Deal is a nonbinding resolution. The context IDs provide additional details but do not contradict the main claim.",
+      "Support position: no; attack position: no.",
+      "Final verdict: NOT_ENOUGH_EVIDENCE."
     ]
   },
   "recordedWith": {
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
-    "nliModel": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    "nliModel": "qwen2.5:7b",
     "linguisticsModel": "en_core_web_sm@3.8.0"
+  },
+  "timingsSeconds": {
+    "decomposition": 21.625,
+    "retrievalAndLinguistics": 0.961,
+    "evidenceAudit": 30.129,
+    "aggregation": 0.005,
+    "total": 52.726
   }
 }

@@ -3,16 +3,16 @@
 ## Current scope
 
 VeriGraph currently runs three model-backed verification stages, a deterministic
-atom–evidence argumentation graph, an authoritative deterministic four-way
-verdict, and one optional linguistic sidecar.
+atom–evidence argumentation graph, a deterministic four-way draft status, and
+one optional linguistic sidecar.
 
 ```text
 Claim + documents
   → claim decomposition       live
   → candidate retrieval       live
-  → sentence-level NLI        live
-  → argumentation graph       derived from NLI outputs
-  → case verdict              deterministic FastAPI aggregation
+  → grounded claim audit      live, constrained to supplied span IDs
+  → argumentation graph       derived from audited selections
+  → draft case status         deterministic FastAPI mapping
 
 Atomic claims
   ↘ linguistic structure      live, verdict-neutral sidecar
@@ -25,22 +25,22 @@ Atomic claims
 | Claim decomposition | Schema-constrained, contextualized prompting through the local Ollama `/api/chat` endpoint | `qwen2.5:7b` by default, overridable with `VERIGRAPH_OLLAMA_MODEL` | A flat `SINGLE`/`AND`/`OR` decomposition of up to 12 standalone obligations; each atom has a verification role and exact UTF-16-grounded `sourceText` |
 | Document segmentation | Python sentence segmentation with server-owned character spans | PySBD `0.3.4` | Whole sentences with document-relative UTF-16 offsets |
 | Candidate retrieval | Batched normalized embeddings and cosine ranking; up to six sentences per atom, capped at three per document in multidocument cases | Sentence Transformers `3.4.1`, `BAAI/bge-small-en-v1.5` | Semantically nearest candidate sentences; no threshold or scores |
-| NLI support classification | A deterministic content-anchor gate keeps unrelated candidates neutral; remaining candidates use the sentence plus one neighbour on each side as the premise and the atom as the hypothesis; three-way argmax | Transformers `4.48.3`, `MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli`, revision `6f5cf0a2b59cabb106aca4c287eed12e357e90eb` | `ENTAILMENT`, `CONTRADICTION`, or `NEUTRAL` for every atom–sentence pair, with filtered pairs marked for inspection |
+| Grounded claim audit | Schema-constrained local prompting over the claim, obligations, and retrieved candidates; unknown IDs and ungrounded decisive positions are rejected | `qwen2.5:7b` via Ollama | One of `SUPPORT_ONLY`, `ATTACK_ONLY`, `MIXED_OR_MISLEADING`, or `INSUFFICIENT`, a concise rationale, and only supplied support/attack/context span IDs |
 | Linguistic structure | Batched dependency parsing and conservative decomposition auditing | spaCy `3.8.7`, `en_core_web_sm@3.8.0` | Claim and atom frames, cues, entities, syntax tokens, role-audit statuses, stable warnings, and compact graph-ready atom summaries |
-| Argumentation graph | Frontend-derived version-2 graph; no additional model inference | Existing decomposition, linguistic summaries, retrieval, and NLI outputs | Case-claim, typed-obligation, and evidence nodes linked by `DECOMPOSES_TO`, `SUPPORTS`, and `ATTACKS`; neutral candidates remain in the evidence pane |
-| Four-way verdict | Deterministic FastAPI aggregation; no model call | Stored decomposition, retrieval, and NLI labels | Version-1 composition-aware `SUPPORTED`, `REFUTED`, `NOT_ENOUGH_EVIDENCE`, or `CONFLICTING_EVIDENCE`, with obligation states and fixed rule trace |
+| Argumentation graph | Frontend-derived version-2 graph; no additional model inference | Existing decomposition, linguistic summaries, retrieval, and audited evidence selections | Case-claim, typed-obligation, and evidence nodes linked by `DECOMPOSES_TO`, `SUPPORTS`, and `ATTACKS`; unselected candidates remain in the evidence pane |
+| Four-way draft status | Deterministic FastAPI aggregation; no model call | Validated overall evidence position plus stored selections | Version-1 `SUPPORTED`, `REFUTED`, `NOT_ENOUGH_EVIDENCE`, or `CONFLICTING_EVIDENCE`, with obligation states and a fixed trace; legacy relation-only requests retain composition-aware rules |
 
 All model-generated or parsed spans are validated against unchanged source text
 and converted to UTF-16 offsets at the API boundary for exact browser
 highlighting. Invalid decomposition output receives one JSON-only repair attempt;
 if that also fails, the original claim is retained as one `CORE` atom with a
-machine-readable warning so retrieval and NLI can still run.
+machine-readable warning so retrieval and the grounded audit can still run.
 
 Candidate retrieval now fuses dense similarity with lexical anchors, including
 exact numbers, through reciprocal-rank fusion. Source diversity is a soft
-preference rather than a quota. NLI is intentionally conservative: a
-low-confidence non-neutral prediction becomes neutral, and a contradiction must
-also have an explicit negation, number, opposing-term, or entity-set anchor.
+preference rather than a quota. The grounded auditor must preserve exact scope,
+comparison, time, quantity, and preliminary-evidence distinctions, and every
+decisive position must cite retrieved spans.
 
 ## Orchestration
 
@@ -50,20 +50,20 @@ also have an explicit negation, number, opposing-term, or entity-set anchor.
    source-grounded decomposition.
 3. Successful decomposition starts candidate retrieval and a separate
    claim-plus-obligation linguistic audit concurrently.
-4. Successful retrieval automatically starts NLI over every retrieved
-   sentence–atom pair.
-5. Retrieval, NLI, and linguistics have independent error and retry states.
+4. Successful retrieval automatically starts the provenance-constrained claim
+   evidence audit.
+5. Retrieval, evidence auditing, and linguistics have independent error and retry states.
    Claim edits clear all derived results; document edits retain decomposition
-   and linguistics but clear retrieval and NLI.
-6. Once NLI completes, the frontend derives the versioned argumentation graph
+   and linguistics but clear retrieval and evidence auditing.
+6. Once the audit completes, the frontend derives the versioned argumentation graph
    and requests the backend-owned verdict aggregation result directly from
    typed obligations, linguistic summaries, candidate evidence, and
-   sentence-level relations.
+   validated claim position and selected relations.
 7. In walkthrough mode nothing is computed in the browser: the recorded run
    carries its own aggregation result, so stage 05 renders from the snapshot.
 
 The dataset's reference label is displayed only as metadata. It never supplies
-an NLI relation or computed verdict.
+an evidence position, relation, or computed status.
 
 ## Application stack
 
@@ -72,9 +72,10 @@ an NLI relation or computed verdict.
 - Backend: Python `3.9–3.13`, FastAPI `0.115.8`, Pydantic `2.10.6`, Uvicorn,
   HTTPX, NumPy, PyTorch `2.6.0`, and local CPU inference.
 - Demo data: an approved, immutable 32-case AVeriTeC dev bundle containing
-  claims, four-way reference labels, source metadata, and extracted full-text
-  documents. Trafilatura is used only during preparation; source sites are not
-  fetched during requests.
+  claims, four-way reference labels, source metadata, extracted full-text
+  documents, and human-written AVeriTeC evidence cards. The cards preserve
+  question-answer evidence across page drift and omit gold labels and
+  justifications. Source sites are not fetched during requests.
 - Deployment: Vercel serves an interactive static walkthrough of recorded
   local runs. The native launcher runs Next.js and FastAPI on the demonstration
   laptop and connects to host Ollama. BGE and DeBERTa weights remain local;
@@ -94,12 +95,12 @@ an NLI relation or computed verdict.
 ## Interpretation limits
 
 - Retrieval means semantic proximity, not evidence relevance or truth.
-- `NEUTRAL` is a sentence-level NLI relation, not the AVeriTeC
-  `NOT_ENOUGH_EVIDENCE` label.
-- Verdict aggregation uses only stored NLI labels. Reference labels and
-  linguistic warnings remain verdict-neutral; a linguistic warning is surfaced
+- An `INSUFFICIENT` audit position is a model-generated draft, not the AVeriTeC
+  `NOT_ENOUGH_EVIDENCE` reference label.
+- Status aggregation uses only the validated audit position. Reference labels
+  and linguistic warnings remain verdict-neutral; a linguistic warning is surfaced
   for inspection and never changes an obligation state.
-- The argumentation graph visualizes observed NLI links; it does not infer new
+- The argumentation graph visualizes selected evidence links; it does not infer new
   argument relationships or produce a verdict.
 - Absence from an apparently complete list and other closed-world/set reasoning
   are deferred to the argumentation stage.

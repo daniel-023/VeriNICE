@@ -226,6 +226,8 @@ export interface VerdictAggregationResult {
   positions: {
     supportPosition: boolean;
     attackPosition: boolean;
+    materialOmissionPosition?: boolean;
+    groundedClaimPosition?: GroundedClaimPosition | null;
     supportObligationIds: string[];
     attackObligationIds: string[];
     unresolvedObligationIds: string[];
@@ -237,7 +239,45 @@ export interface VerdictAggregationResult {
 
 export interface SupportClassificationResponse {
   classifications: AtomSupportClassification[];
-  provider: "transformers";
+  evidenceAudit?: GroundedEvidenceAuditResult;
+  provider: "transformers" | "ollama";
+  model: string;
+}
+
+export interface GroundedObligationAudit {
+  atomId: string;
+  state: "SUPPORTED" | "REFUTED" | "BOTH" | "UNRESOLVED";
+  supportSpanIds: string[];
+  attackSpanIds: string[];
+  reason: string;
+}
+
+export interface MaterialOmissionCertificate {
+  detected: boolean;
+  supportSpanIds: string[];
+  contextSpanIds: string[];
+  reason: string;
+}
+
+export type GroundedClaimPosition =
+  | "SUPPORT_ONLY"
+  | "ATTACK_ONLY"
+  | "MIXED_OR_MISLEADING"
+  | "INSUFFICIENT";
+
+export interface GroundedClaimAudit {
+  position: GroundedClaimPosition;
+  supportSpanIds: string[];
+  attackSpanIds: string[];
+  contextSpanIds: string[];
+  reason: string;
+}
+
+export interface GroundedEvidenceAuditResult {
+  claimPosition: GroundedClaimAudit;
+  obligations: GroundedObligationAudit[];
+  materialOmission: MaterialOmissionCertificate;
+  provider: "ollama";
   model: string;
 }
 
@@ -365,6 +405,7 @@ export interface WalkthroughRun {
   atoms: DecomposedAtom[];
   evidence: AtomEvidence[];
   classifications: AtomSupportClassification[];
+  evidenceAudit?: GroundedEvidenceAuditResult;
   /** Legacy recorded walkthroughs contain only atom analyses; new runs use v2. */
   linguistics: LinguisticAnalysisResponse | AtomLinguisticAnalysis[];
   /** Recorded aggregation result. Absent in walkthroughs recorded before stage 05. */

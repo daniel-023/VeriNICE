@@ -7,16 +7,16 @@
     {
       "id": "atom-1",
       "text": "UK Employees unable to work in tier 3 areas will get a combination of Job Support Scheme and Universal Credit.",
-      "sourceText": "UK Employees unable to work in tier 3 areas will get a combination of Job Support Scheme and Universal Credit,",
+      "sourceText": "UK Employees unable to work in tier 3 areas will get a combination of Job Support Scheme and Universal Credit, which will mean they get 80% of their wages.",
       "start": 0,
-      "end": 110,
+      "end": 155,
       "role": "CORE"
     },
     {
       "id": "atom-2",
-      "text": "they get 80% of their wages.",
-      "sourceText": "they get 80% of their wages",
-      "start": 127,
+      "text": "They will get 80% of their wages.",
+      "sourceText": "which will mean they get 80% of their wages",
+      "start": 111,
       "end": 154,
       "role": "NUMERIC_CONSTRAINT"
     }
@@ -26,52 +26,52 @@
       "atomId": "atom-1",
       "spans": [
         {
-          "id": "doc-d819ca86a555::sentence-21",
-          "documentId": "doc-d819ca86a555",
-          "text": "- Universal credit\n",
-          "start": 1695,
-          "end": 1714,
-          "context": "If you've been made redundant - or been told that you will soon be made redundant - there are three main types of financial support that you may be entitled to:\n - Universal credit\n - New Style Jobseeker's Allowance (New Style JSA), or\n"
-        },
-        {
-          "id": "doc-71e4a935f783::sentence-1",
-          "documentId": "doc-71e4a935f783",
-          "text": "Job Support Scheme: Concern mounts at Covid shutdown 'ripple effect'\n",
-          "start": 0,
-          "end": 69,
-          "context": "Job Support Scheme: Concern mounts at Covid shutdown 'ripple effect'\n - Published\n"
-        },
-        {
-          "id": "doc-d819ca86a555::sentence-20",
-          "documentId": "doc-d819ca86a555",
-          "text": "If you've been made redundant - or been told that you will soon be made redundant - there are three main types of financial support that you may be entitled to:\n",
-          "start": 1534,
-          "end": 1695,
-          "context": "The selection process must be fair, you must be given notice, and you are entitled to tax-free redundancy pay.\n If you've been made redundant - or been told that you will soon be made redundant - there are three main types of financial support that you may be entitled to:\n - Universal credit\n"
-        },
-        {
-          "id": "doc-f5ffa35607dc::sentence-36",
+          "id": "doc-f5ffa35607dc::sentence-57",
           "documentId": "doc-f5ffa35607dc",
           "text": "- The Government will support eligible businesses by paying two thirds of each employees’ salary (or 67%), up to a maximum of £2,100 a month.\n",
-          "start": 3970,
-          "end": 4112,
+          "start": 5994,
+          "end": 6136,
           "context": "This includes businesses that are required to provide only delivery and collection services from their premises, or food and drink outdoors from their premises.\n - The Government will support eligible businesses by paying two thirds of each employees’ salary (or 67%), up to a maximum of £2,100 a month.\n - Under the scheme, employers will not be required to contribute towards wages and only asked to cover NICS and pension contributions. "
         },
         {
-          "id": "doc-f5ffa35607dc::sentence-57",
-          "documentId": "doc-f5ffa35607dc",
-          "text": "A one off payment of £1,000 to the employer for each eligible employee will be claimable in February 2021.\n",
-          "start": 6614,
-          "end": 6721,
-          "context": "For those employees transferred to a new employer under a TUPE, they must have been furloughed and a successful claim made by their new employer in order to qualify.\n A one off payment of £1,000 to the employer for each eligible employee will be claimable in February 2021.\n The Government have started to release details of how the claim will work, but guidance on how to access the online claim service on Gov.UK is not expected until the end of January 2021.\n"
-        },
-        {
-          "id": "doc-71e4a935f783::sentence-14",
+          "id": "doc-71e4a935f783::sentence-20",
           "documentId": "doc-71e4a935f783",
           "text": "The expanded scheme, announced on Friday and available to firms ordered to shut down, will provide two-thirds of wages to employees unable to work.\n",
-          "start": 1516,
-          "end": 1664,
+          "start": 1928,
+          "end": 2076,
           "context": "It \"tops up\" the wages of employees who can't work their normal hours.\n The expanded scheme, announced on Friday and available to firms ordered to shut down, will provide two-thirds of wages to employees unable to work.\n On Monday, Boris Johnson is expected to announce a tiered system of measures for England in an effort to stall rising infection rates.\n"
+        },
+        {
+          "id": "doc-d819ca86a555::sentence-27",
+          "documentId": "doc-d819ca86a555",
+          "text": "- Universal credit\n",
+          "start": 2121,
+          "end": 2140,
+          "context": "If you've been made redundant - or been told that you will soon be made redundant - there are three main types of financial support that you may be entitled to:\n - Universal credit\n - New Style Jobseeker's Allowance (New Style JSA), or\n"
+        },
+        {
+          "id": "doc-f5ffa35607dc::sentence-39",
+          "documentId": "doc-f5ffa35607dc",
+          "text": "Please note that there is still some detail to be released by HMRC on what constitutes ‘usual pay’, particularly for those whose pay has changed since March to a new pay arrangement with their employers, and some of the finer details of how the Job Support Scheme will operate.\n",
+          "start": 3861,
+          "end": 4139,
+          "context": "This means that an employee earns 77% of their normal wage where the Government contribution has not been capped.\n Please note that there is still some detail to be released by HMRC on what constitutes ‘usual pay’, particularly for those whose pay has changed since March to a new pay arrangement with their employers, and some of the finer details of how the Job Support Scheme will operate.\n Claims made under this scheme will be made in arrears.\n"
+        },
+        {
+          "id": "doc-f5ffa35607dc::sentence-58",
+          "documentId": "doc-f5ffa35607dc",
+          "text": "- Under the scheme, employers will not be required to contribute towards wages and only asked to cover NICS and pension contributions. ",
+          "start": 6136,
+          "end": 6271,
+          "context": "- The Government will support eligible businesses by paying two thirds of each employees’ salary (or 67%), up to a maximum of £2,100 a month.\n - Under the scheme, employers will not be required to contribute towards wages and only asked to cover NICS and pension contributions.  Businesses will only be eligible to claim the grant while they are subject to restrictions and employees must be off work for a minimum of seven consecutive days.\n"
+        },
+        {
+          "id": "doc-d819ca86a555::sentence-29",
+          "documentId": "doc-d819ca86a555",
+          "text": "- New Style Employment and Support Allowance (New Style ESA)\n",
+          "start": 2194,
+          "end": 2255,
+          "context": "- New Style Jobseeker's Allowance (New Style JSA), or\n - New Style Employment and Support Allowance (New Style ESA)\n You might be able to claim a combination of these benefits.\n"
         }
       ]
     },
@@ -79,52 +79,52 @@
       "atomId": "atom-2",
       "spans": [
         {
-          "id": "doc-d819ca86a555::sentence-6",
-          "documentId": "doc-d819ca86a555",
-          "text": "At first it paid 80% of the wages, but in August and September it paid 60%, with employers paying 20%.\n",
-          "start": 363,
-          "end": 466,
-          "context": "The government has been paying towards the wages of people who couldn't work, or whose employers could no longer afford to pay them, up to a monthly limit of £2,500.\n At first it paid 80% of the wages, but in August and September it paid 60%, with employers paying 20%.\n How many people are still on it?\n"
-        },
-        {
-          "id": "doc-f5ffa35607dc::sentence-5",
+          "id": "doc-f5ffa35607dc::sentence-26",
           "documentId": "doc-f5ffa35607dc",
           "text": "Employers will pay Employers NIC, Pension Contributions and 20% of wages to make up 80% of the total to a cap of £2,500. ",
-          "start": 541,
-          "end": 662,
+          "start": 2565,
+          "end": 2686,
           "context": "During October the CJRS scheme will pay up to 60% of wages, up to a cap of £1,875, for the hours an employee does not work.  Employers will pay Employers NIC, Pension Contributions and 20% of wages to make up 80% of the total to a cap of £2,500.  This cap is proportional to the hours not worked.\n"
         },
         {
-          "id": "doc-f5ffa35607dc::sentence-17",
-          "documentId": "doc-f5ffa35607dc",
-          "text": "This means that an employee earns 77% of their normal wage where the Government contribution has not been capped.\n",
-          "start": 1723,
-          "end": 1837,
-          "context": "The remaining unpaid third is effectively the employee’s contribution to the scheme.  This means that an employee earns 77% of their normal wage where the Government contribution has not been capped.\n Please note that there is still some detail to be released by HMRC on what constitutes ‘usual pay’, particularly for those whose pay has changed since March to a new pay arrangement with their employers, and some of the finer details of how the Job Support Scheme will operate.\n"
-        },
-        {
-          "id": "doc-71e4a935f783::sentence-13",
+          "id": "doc-71e4a935f783::sentence-5",
           "documentId": "doc-71e4a935f783",
-          "text": "It \"tops up\" the wages of employees who can't work their normal hours.\n",
-          "start": 1445,
-          "end": 1516,
-          "context": "The Job Support Scheme was announced by Mr Sunak on 24 September and will replace the \"furlough\" scheme from 1 November for six months.\n It \"tops up\" the wages of employees who can't work their normal hours.\n The expanded scheme, announced on Friday and available to firms ordered to shut down, will provide two-thirds of wages to employees unable to work.\n"
+          "text": "staff at UK companies told to close would get 67% of their wages from the government under the expanded Job Support Scheme.\n\n",
+          "start": 265,
+          "end": 390,
+          "context": "Evidence 1: What are the terms of the UK Job Support Scheme?  staff at UK companies told to close would get 67% of their wages from the government under the expanded Job Support Scheme.\n\n RECOVERED SOURCE TEXT\n"
         },
         {
-          "id": "doc-71e4a935f783::sentence-4",
+          "id": "doc-71e4a935f783::sentence-10",
           "documentId": "doc-71e4a935f783",
           "text": "On Friday, the chancellor said staff at UK companies told to close would get 67% of their wages from the government under the expanded Job Support Scheme.\n",
-          "start": 225,
-          "end": 380,
+          "start": 637,
+          "end": 792,
           "context": "The Labour Party and business groups have voiced concern at the \"ripple effect\" of Covid shutdowns that are expected to be announced on Monday.\n On Friday, the chancellor said staff at UK companies told to close would get 67% of their wages from the government under the expanded Job Support Scheme.\n But no specific help was announced for workers who may be indirectly affected - for example, those in supply chains.\n"
         },
         {
-          "id": "doc-d819ca86a555::sentence-5",
+          "id": "doc-71e4a935f783::sentence-20",
+          "documentId": "doc-71e4a935f783",
+          "text": "The expanded scheme, announced on Friday and available to firms ordered to shut down, will provide two-thirds of wages to employees unable to work.\n",
+          "start": 1928,
+          "end": 2076,
+          "context": "It \"tops up\" the wages of employees who can't work their normal hours.\n The expanded scheme, announced on Friday and available to firms ordered to shut down, will provide two-thirds of wages to employees unable to work.\n On Monday, Boris Johnson is expected to announce a tiered system of measures for England in an effort to stall rising infection rates.\n"
+        },
+        {
+          "id": "doc-f5ffa35607dc::sentence-49",
+          "documentId": "doc-f5ffa35607dc",
+          "text": "- And for the time she is not working (3 days or 60%, worth £210), she will also earn2/3, or £140, bringing her total earnings to £280, 80% of her normal wage.\n",
+          "start": 4723,
+          "end": 4883,
+          "context": "- Her employer pays Beth £140 for the days she works.\n - And for the time she is not working (3 days or 60%, worth £210), she will also earn2/3, or £140, bringing her total earnings to £280, 80% of her normal wage.\n - The Government will give a grant worth £70 (1/3 of hours not worked, equivalent to 20% of her normal wages) to Beth’s employer to support them in keeping Beth’s job.\n"
+        },
+        {
+          "id": "doc-d819ca86a555::sentence-12",
           "documentId": "doc-d819ca86a555",
-          "text": "The government has been paying towards the wages of people who couldn't work, or whose employers could no longer afford to pay them, up to a monthly limit of £2,500.\n",
-          "start": 197,
-          "end": 363,
-          "context": "How did furlough work?\n The government has been paying towards the wages of people who couldn't work, or whose employers could no longer afford to pay them, up to a monthly limit of £2,500.\n At first it paid 80% of the wages, but in August and September it paid 60%, with employers paying 20%.\n"
+          "text": "At first it paid 80% of the wages, but in August and September it paid 60%, with employers paying 20%.\n",
+          "start": 789,
+          "end": 892,
+          "context": "The government has been paying towards the wages of people who couldn't work, or whose employers could no longer afford to pay them, up to a monthly limit of £2,500.\n At first it paid 80% of the wages, but in August and September it paid 60%, with employers paying 20%.\n How many people are still on it?\n"
         }
       ]
     }
@@ -134,34 +134,40 @@
       "atomId": "atom-1",
       "relations": [
         {
-          "spanId": "doc-d819ca86a555::sentence-21",
-          "documentId": "doc-d819ca86a555",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-71e4a935f783::sentence-1",
-          "documentId": "doc-71e4a935f783",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-d819ca86a555::sentence-20",
-          "documentId": "doc-d819ca86a555",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-f5ffa35607dc::sentence-36",
-          "documentId": "doc-f5ffa35607dc",
-          "relation": "NEUTRAL"
-        },
-        {
           "spanId": "doc-f5ffa35607dc::sentence-57",
           "documentId": "doc-f5ffa35607dc",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-71e4a935f783::sentence-14",
+          "spanId": "doc-71e4a935f783::sentence-20",
           "documentId": "doc-71e4a935f783",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-d819ca86a555::sentence-27",
+          "documentId": "doc-d819ca86a555",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-f5ffa35607dc::sentence-39",
+          "documentId": "doc-f5ffa35607dc",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-f5ffa35607dc::sentence-58",
+          "documentId": "doc-f5ffa35607dc",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-d819ca86a555::sentence-29",
+          "documentId": "doc-d819ca86a555",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         }
       ]
     },
@@ -169,38 +175,82 @@
       "atomId": "atom-2",
       "relations": [
         {
-          "spanId": "doc-d819ca86a555::sentence-6",
-          "documentId": "doc-d819ca86a555",
-          "relation": "CONTRADICTION"
-        },
-        {
-          "spanId": "doc-f5ffa35607dc::sentence-5",
+          "spanId": "doc-f5ffa35607dc::sentence-26",
           "documentId": "doc-f5ffa35607dc",
-          "relation": "CONTRADICTION"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-f5ffa35607dc::sentence-17",
+          "spanId": "doc-71e4a935f783::sentence-5",
+          "documentId": "doc-71e4a935f783",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-71e4a935f783::sentence-10",
+          "documentId": "doc-71e4a935f783",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-71e4a935f783::sentence-20",
+          "documentId": "doc-71e4a935f783",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-f5ffa35607dc::sentence-49",
           "documentId": "doc-f5ffa35607dc",
-          "relation": "CONTRADICTION"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-71e4a935f783::sentence-13",
-          "documentId": "doc-71e4a935f783",
-          "relation": "ENTAILMENT"
-        },
-        {
-          "spanId": "doc-71e4a935f783::sentence-4",
-          "documentId": "doc-71e4a935f783",
-          "relation": "CONTRADICTION"
-        },
-        {
-          "spanId": "doc-d819ca86a555::sentence-5",
+          "spanId": "doc-d819ca86a555::sentence-12",
           "documentId": "doc-d819ca86a555",
-          "relation": "CONTRADICTION"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         }
       ]
     }
   ],
+  "evidenceAudit": {
+    "claimPosition": {
+      "position": "INSUFFICIENT",
+      "supportSpanIds": [],
+      "attackSpanIds": [],
+      "contextSpanIds": [
+        "doc-71e4a935f783::sentence-20",
+        "doc-f5ffa35607dc::sentence-39",
+        "doc-71e4a935f783::sentence-5",
+        "doc-71e4a935f783::sentence-20"
+      ],
+      "reason": "The evidence shows the Job Support Scheme provides 67% of wages, not 80%, and there are exceptions and limitations. The claim is overly broad and unsupported by the evidence."
+    },
+    "obligations": [
+      {
+        "atomId": "atom-1",
+        "state": "UNRESOLVED",
+        "supportSpanIds": [],
+        "attackSpanIds": [],
+        "reason": "The evidence shows the Job Support Scheme provides 67% of wages, not 80%, and there are exceptions and limitations. The claim is overly broad and unsupported by the evidence."
+      },
+      {
+        "atomId": "atom-2",
+        "state": "UNRESOLVED",
+        "supportSpanIds": [],
+        "attackSpanIds": [],
+        "reason": "The evidence shows the Job Support Scheme provides 67% of wages, not 80%, and there are exceptions and limitations. The claim is overly broad and unsupported by the evidence."
+      }
+    ],
+    "materialOmission": {
+      "detected": false,
+      "supportSpanIds": [],
+      "contextSpanIds": [],
+      "reason": "No material omission was established."
+    },
+    "provider": "ollama",
+    "model": "qwen2.5:7b"
+  },
   "linguistics": {
     "schemaVersion": 2,
     "claimAnalysis": {
@@ -1019,13 +1069,13 @@
             "predicate": {
               "id": "atom-2-frame-1-predicate",
               "text": "get",
-              "start": 5,
-              "end": 8
+              "start": 10,
+              "end": 13
             },
             "subjects": [
               {
                 "id": "atom-2-frame-1-subject-1",
-                "text": "they",
+                "text": "They",
                 "start": 0,
                 "end": 4
               }
@@ -1034,8 +1084,8 @@
               {
                 "id": "atom-2-frame-1-argument-1",
                 "text": "80% of their wages",
-                "start": 9,
-                "end": 27,
+                "start": 14,
+                "end": 32,
                 "role": "direct_object"
               }
             ],
@@ -1045,10 +1095,17 @@
         ],
         "cues": [
           {
-            "id": "atom-2-cue-numeric-9-12",
+            "id": "atom-2-cue-modality-5-9",
+            "text": "will",
+            "start": 5,
+            "end": 9,
+            "kind": "modality"
+          },
+          {
+            "id": "atom-2-cue-numeric-14-17",
             "text": "80%",
-            "start": 9,
-            "end": 12,
+            "start": 14,
+            "end": 17,
             "kind": "numeric"
           }
         ],
@@ -1056,7 +1113,7 @@
         "tokens": [
           {
             "id": "atom-2-token-0",
-            "text": "they",
+            "text": "They",
             "start": 0,
             "end": 4,
             "lemma": "they",
@@ -1067,20 +1124,31 @@
           },
           {
             "id": "atom-2-token-1",
-            "text": "get",
+            "text": "will",
             "start": 5,
-            "end": 8,
+            "end": 9,
+            "lemma": "will",
+            "pos": "AUX",
+            "tag": "MD",
+            "dependency": "aux",
+            "head": "get"
+          },
+          {
+            "id": "atom-2-token-2",
+            "text": "get",
+            "start": 10,
+            "end": 13,
             "lemma": "get",
             "pos": "VERB",
-            "tag": "VBP",
+            "tag": "VB",
             "dependency": "ROOT",
             "head": "ROOT"
           },
           {
-            "id": "atom-2-token-2",
+            "id": "atom-2-token-3",
             "text": "80",
-            "start": 9,
-            "end": 11,
+            "start": 14,
+            "end": 16,
             "lemma": "80",
             "pos": "NUM",
             "tag": "CD",
@@ -1088,10 +1156,10 @@
             "head": "%"
           },
           {
-            "id": "atom-2-token-3",
+            "id": "atom-2-token-4",
             "text": "%",
-            "start": 11,
-            "end": 12,
+            "start": 16,
+            "end": 17,
             "lemma": "%",
             "pos": "NOUN",
             "tag": "NN",
@@ -1099,10 +1167,10 @@
             "head": "get"
           },
           {
-            "id": "atom-2-token-4",
+            "id": "atom-2-token-5",
             "text": "of",
-            "start": 13,
-            "end": 15,
+            "start": 18,
+            "end": 20,
             "lemma": "of",
             "pos": "ADP",
             "tag": "IN",
@@ -1110,10 +1178,10 @@
             "head": "%"
           },
           {
-            "id": "atom-2-token-5",
+            "id": "atom-2-token-6",
             "text": "their",
-            "start": 16,
-            "end": 21,
+            "start": 21,
+            "end": 26,
             "lemma": "their",
             "pos": "PRON",
             "tag": "PRP$",
@@ -1121,10 +1189,10 @@
             "head": "wages"
           },
           {
-            "id": "atom-2-token-6",
+            "id": "atom-2-token-7",
             "text": "wages",
-            "start": 22,
-            "end": 27,
+            "start": 27,
+            "end": 32,
             "lemma": "wage",
             "pos": "NOUN",
             "tag": "NNS",
@@ -1132,10 +1200,10 @@
             "head": "of"
           },
           {
-            "id": "atom-2-token-7",
+            "id": "atom-2-token-8",
             "text": ".",
-            "start": 27,
-            "end": 28,
+            "start": 32,
+            "end": 33,
             "lemma": ".",
             "pos": "PUNCT",
             "tag": ".",
@@ -1180,12 +1248,13 @@
         "analysisStatus": "complete",
         "roleAudit": "MATCH",
         "subjects": [
-          "they"
+          "They"
         ],
         "predicates": [
           "get"
         ],
         "cueKinds": [
+          "modality",
           "numeric"
         ],
         "modifierKinds": [],
@@ -1201,19 +1270,18 @@
     "aggregationSchemaVersion": 1,
     "claimId": "averitec-dev-0060",
     "composition": "AND",
-    "verdict": "REFUTED",
+    "verdict": "NOT_ENOUGH_EVIDENCE",
     "positions": {
       "supportPosition": false,
-      "attackPosition": true,
-      "supportObligationIds": [
-        "atom-2"
-      ],
-      "attackObligationIds": [
-        "atom-2"
-      ],
+      "attackPosition": false,
+      "materialOmissionPosition": false,
+      "supportObligationIds": [],
+      "attackObligationIds": [],
       "unresolvedObligationIds": [
-        "atom-1"
-      ]
+        "atom-1",
+        "atom-2"
+      ],
+      "groundedClaimPosition": "INSUFFICIENT"
     },
     "obligations": [
       {
@@ -1225,18 +1293,10 @@
       },
       {
         "obligationId": "atom-2",
-        "state": "CONFLICTING",
-        "supportEdgeIds": [
-          "edge:SUPPORTS:evidence:doc-71e4a935f783:doc-71e4a935f783::sentence-13:obligation:averitec-dev-0060:atom-2"
-        ],
-        "attackEdgeIds": [
-          "edge:ATTACKS:evidence:doc-d819ca86a555:doc-d819ca86a555::sentence-6:obligation:averitec-dev-0060:atom-2",
-          "edge:ATTACKS:evidence:doc-f5ffa35607dc:doc-f5ffa35607dc::sentence-5:obligation:averitec-dev-0060:atom-2",
-          "edge:ATTACKS:evidence:doc-f5ffa35607dc:doc-f5ffa35607dc::sentence-17:obligation:averitec-dev-0060:atom-2",
-          "edge:ATTACKS:evidence:doc-71e4a935f783:doc-71e4a935f783::sentence-4:obligation:averitec-dev-0060:atom-2",
-          "edge:ATTACKS:evidence:doc-d819ca86a555:doc-d819ca86a555::sentence-5:obligation:averitec-dev-0060:atom-2"
-        ],
-        "neutralCandidateCount": 0
+        "state": "UNRESOLVED",
+        "supportEdgeIds": [],
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 6
       }
     ],
     "warnings": [
@@ -1251,18 +1311,34 @@
       {
         "code": "PARTIAL_LINGUISTIC_ANALYSIS",
         "message": "Linguistic analysis for obligation atom-1 requires inspection; it does not change the verdict."
+      },
+      {
+        "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
+        "message": "Obligation atom-2 has no supporting or attacking evidence."
+      },
+      {
+        "code": "ONLY_NEUTRAL_CANDIDATES",
+        "message": "Obligation atom-2 has only neutral retrieved candidates."
       }
     ],
     "ruleTrace": [
-      "AND support requires support for every obligation; AND attack requires an attack on any obligation.",
-      "Support position: no; attack position: yes.",
-      "Final verdict: REFUTED."
+      "The provenance-constrained claim audit sets the overall evidence position; deterministic aggregation maps that position to status.",
+      "Grounded claim position: INSUFFICIENT; The evidence shows the Job Support Scheme provides 67% of wages, not 80%, and there are exceptions and limitations. The claim is overly broad and unsupported by the evidence.",
+      "Support position: no; attack position: no.",
+      "Final verdict: NOT_ENOUGH_EVIDENCE."
     ]
   },
   "recordedWith": {
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
-    "nliModel": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    "nliModel": "qwen2.5:7b",
     "linguisticsModel": "en_core_web_sm@3.8.0"
+  },
+  "timingsSeconds": {
+    "decomposition": 25.796,
+    "retrievalAndLinguistics": 0.772,
+    "evidenceAudit": 17.774,
+    "aggregation": 0.003,
+    "total": 44.351
   }
 }

@@ -14,14 +14,17 @@ import type {
   AtomSupportClassification,
   ClaimComposition,
   EvidenceNode,
+  EvidenceSpan,
   DecomposedAtom,
   DemoCase,
   DemoCaseSummary,
   DemoChallenge,
   DemoDocument,
   DemoTopic,
+  GroundedEvidenceAuditResult,
   Health,
   MobilePanel,
+  NLIRelation,
   ReferenceLabel,
   StageState,
   VerdictAggregationResult,
@@ -125,6 +128,7 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
   const [composition, setComposition] = useState<ClaimComposition>("SINGLE");
   const [evidence, setEvidence] = useState<AtomEvidence[]>([]);
   const [classifications, setClassifications] = useState<AtomSupportClassification[]>([]);
+  const [evidenceAudit, setEvidenceAudit] = useState<GroundedEvidenceAuditResult | null>(null);
   const [selectedAtomId, setSelectedAtomId] = useState<string | null>(null);
   const [decompositionState, setDecompositionState] = useState<StageState>("idle");
   const [retrievalState, setRetrievalState] = useState<StageState>("idle");
@@ -245,6 +249,7 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
     setComposition("SINGLE");
     setEvidence([]);
     setClassifications([]);
+    setEvidenceAudit(null);
     setSelectedAtomId(null);
     setDecompositionState("idle");
     setRetrievalState("idle");
@@ -260,6 +265,7 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
     requestVersionRef.current += 1;
     setEvidence([]);
     setClassifications([]);
+    setEvidenceAudit(null);
     setRetrievalState("idle");
     setNliState("idle");
     setVerdictState("idle");
@@ -381,12 +387,19 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
     requestVersion: number,
   ) => {
     setClassifications([]);
+    setEvidenceAudit(null);
     setNliState("running");
     setNliError(null);
     try {
-      const result = await api.classifySupport(atomInputs, retrievedEvidence);
+      const result = await api.classifySupport(
+        claim,
+        atomInputs,
+        retrievedEvidence,
+        Object.fromEntries(documents.map((document) => [document.id, document.title])),
+      );
       if (requestVersionRef.current !== requestVersion) return;
       setClassifications(result.classifications);
+      setEvidenceAudit(result.evidenceAudit ?? null);
       setNliState("complete");
     } catch (reason) {
       if (requestVersionRef.current !== requestVersion) return;
@@ -394,7 +407,7 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
       setNliError(
         reason instanceof Error
           ? reason.message
-          : "NLI support classification failed. Check the API and retry.",
+          : "Grounded evidence auditing failed. Check the API and retry.",
       );
     }
   };
@@ -413,6 +426,7 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
     setComposition("SINGLE");
     setEvidence([]);
     setClassifications([]);
+    setEvidenceAudit(null);
     setSelectedAtomId(null);
     linguistics.clear();
 
@@ -431,6 +445,7 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
         setComposition(recorded.composition ?? (recorded.atoms.length > 1 ? "AND" : "SINGLE"));
         setEvidence(recorded.evidence);
         setClassifications(recorded.classifications);
+        setEvidenceAudit(recorded.evidenceAudit ?? null);
         linguistics.loadRecorded(recorded.linguistics);
         setRecordedVerdict(recorded.verdict ?? null);
         setDecompositionState("complete");
@@ -500,6 +515,7 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
     setNliError(null);
     setEvidence([]);
     setClassifications([]);
+    setEvidenceAudit(null);
     try {
       const result = await retrieveAtoms(atoms.map(({ id, text }) => ({ id, text })), budget);
       if (requestVersionRef.current !== requestVersion) return;
@@ -578,7 +594,32 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
     linguistics.summaries.find((item) => item.atomId === selectedAtomId) ?? null;
   const selectedClassification =
     classifications.find((item) => item.atomId === selectedAtomId) ?? null;
+  const selectedEvidenceAudit =
+    evidenceAudit?.obligations.find((item) => item.atomId === selectedAtomId) ?? null;
   const selectedRelations = selectedClassification?.relations ?? [];
+  const reviewEvidenceRelation = useCallback(
+    (span: EvidenceSpan, relation: NLIRelation) => {
+      if (!selectedAtomId) return;
+      setClassifications((current) =>
+        current.map((classification) =>
+          classification.atomId !== selectedAtomId
+            ? classification
+            : {
+                ...classification,
+                relations: classification.relations.map((item) =>
+                  item.spanId === span.id && item.documentId === span.documentId
+                    ? { ...item, relation, relevanceFiltered: false }
+                    : item,
+                ),
+              },
+        ),
+      );
+      // A reviewer edit deliberately leaves the model's overall position and
+      // returns aggregation to the inspectable obligation-relation rules.
+      setEvidenceAudit(null);
+    },
+    [selectedAtomId],
+  );
   const argumentationGraph = useMemo(
     () => buildArgumentationGraph(
       selectedCaseId,
@@ -624,6 +665,8 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
       evidence,
       classifications,
       linguisticSummaries: linguistics.summaries,
+      materialOmission: evidenceAudit?.materialOmission,
+      claimAudit: evidenceAudit?.claimPosition,
     }).then((result) => {
       if (cancelled) return;
       setVerdict(result);
@@ -634,7 +677,7 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
       setVerdictState("error");
     });
     return () => { cancelled = true; };
-  }, [selectedCaseId, claim, composition, atoms, evidence, classifications, linguistics.summaries, nliState, walkthrough, recordedVerdict]);
+  }, [selectedCaseId, claim, composition, atoms, evidence, classifications, evidenceAudit, linguistics.summaries, nliState, walkthrough, recordedVerdict]);
   const graphLinkCount = argumentationGraph.stats.supportEdgeCount + argumentationGraph.stats.attackEdgeCount;
   const relationsByAtomId = useMemo(
     () => new Map(classifications.map((item) => [item.atomId, item.relations])),
@@ -675,7 +718,7 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
     nliState === "running";
   const documentsReady = documents.length > 0 && documents.every((document) => document.text.trim());
   const pipelineConfigured = Boolean(
-    health?.decompositionReady && health.retrievalConfigured && health.nliConfigured,
+    health?.decompositionReady && health.retrievalConfigured,
   );
 
   return (
@@ -689,16 +732,16 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
           <VeriGraphLogo />
           <span>
             VeriGraph
-            <small>CLAIM VERIFICATION PIPELINE</small>
+            <small>EVIDENCE AUDIT WORKBENCH</small>
           </span>
         </div>
-        <span className="header-context">Claim + Sources → Verdict</span>
+        <span className="header-context">Claim + Sources → Draft status</span>
         <div className="header-actions">
           <span
             className={`health-chip ${pipelineConfigured ? "health-ready" : "health-unconfigured"}`}
             title={
               health
-                ? `Decomposition: ${health.decompositionModel} (${health.decompositionReady ? "ready" : "unavailable"}); retrieval: ${health.retrievalModel}; NLI: ${health.nliModel}; linguistics: ${health.linguisticsModel} (${health.linguisticsConfigured ? "ready" : "not configured"})`
+                ? `Decomposition and grounded audit: ${health.decompositionModel} (${health.decompositionReady ? "ready" : "unavailable"}); retrieval: ${health.retrievalModel}; linguistics: ${health.linguisticsModel} (${health.linguisticsConfigured ? "ready" : "not configured"}); compatibility NLI: ${health.nliConfigured ? health.nliModel : "not loaded"}`
                 : undefined
             }
             aria-live="polite"
@@ -863,7 +906,7 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
                 : nliState === "running"
                   ? walkthrough
                     ? "Loading Recorded Run…"
-                    : "Classifying Support…"
+                    : "Auditing Evidence…"
                   : walkthrough
                     ? "Inspect Recorded Run"
                     : "Decompose Claim"}
@@ -877,7 +920,7 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
             : selectedAtomId
             ? "The selected atom is highlighted in the claim editor."
             : nliState === "running"
-              ? "Candidate retrieval complete. Classifying sentence relations for every atom."
+              ? "Candidate retrieval complete. Auditing grounded relations for every obligation."
               : retrievalState === "running"
                 ? "Decomposition complete. Semantically matching candidate sentences across sources."
                 : decompositionState === "complete"
@@ -890,7 +933,7 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
               {retrievalError
                 ? "Claim decomposed; candidate retrieval failed."
                 : nliError
-                  ? "Evidence matched; NLI classification failed."
+                  ? "Evidence matched; grounded evidence audit failed."
                   : "Could not complete this request."}
             </strong>
             <span>{activeError}</span>
@@ -933,6 +976,9 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
                 />
                 <SupportSummary
                   classification={selectedClassification}
+                  audit={selectedEvidenceAudit}
+                  materialOmission={evidenceAudit?.materialOmission}
+                  claimAudit={evidenceAudit?.claimPosition}
                   state={nliState}
                 />
               </div>
@@ -967,6 +1013,7 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
             onTitleChange={renameDocument}
             onAdd={addDocument}
             onRemove={removeDocument}
+            onRelationChange={walkthrough ? undefined : reviewEvidenceRelation}
             spans={selectedEvidence}
             relations={selectedRelations}
             selectedAtomText={selectedAtom?.text ?? null}

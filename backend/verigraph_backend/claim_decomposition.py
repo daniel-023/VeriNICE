@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 from typing import Any, Optional
 
 import httpx
@@ -29,6 +30,14 @@ causal relations. Do not add facts. sourceText must be copied exactly from one
 contiguous span of the claim. Use the most specific role. Never create support
 or attack relations, entities, isolated dates, numbers, or tokens.
 
+Do not split modifiers or constraints away from the proposition they qualify.
+A single event with a quantity, date, location, attribution, modality, or
+comparison is still one obligation containing all of those commitments. The
+role names the obligation's main verification challenge; it does not create an
+extra obligation. Split only propositions whose truth values can vary
+independently. Never include both a broad proposition and a narrower duplicate
+that merely repeats it with one qualifier restored.
+
 When several propositions share a subject, verb, or modal, quote only the part
 that distinguishes each one. sourceText is a locator, not the proposition: the
 text field carries the full reconstructed proposition, so a fragment is correct
@@ -56,7 +65,7 @@ JSON: {"composition":"SINGLE","obligations":[{"text":"The archive opened in 2021
 Claim: The minister said unemployment had fallen.
 JSON: {"composition":"SINGLE","obligations":[{"text":"The minister said that unemployment had fallen.","sourceText":"The minister said unemployment had fallen","role":"ATTRIBUTION"}]}
 Claim: The city cut emissions by 20% in 2023.
-JSON: {"composition":"AND","obligations":[{"text":"The city cut emissions.","sourceText":"The city cut emissions","role":"CORE"},{"text":"The city cut emissions by 20%.","sourceText":"by 20%","role":"NUMERIC_CONSTRAINT"},{"text":"The city cut emissions in 2023.","sourceText":"in 2023","role":"TEMPORAL_CONSTRAINT"}]}
+JSON: {"composition":"SINGLE","obligations":[{"text":"The city cut emissions by 20% in 2023.","sourceText":"The city cut emissions by 20% in 2023","role":"NUMERIC_CONSTRAINT"}]}
 Claim: ExampleCo's annual revenue for 2024 decreased from its revenue for 2023.
 JSON: {"composition":"SINGLE","obligations":[{"text":"ExampleCo's annual revenue for 2024 was lower than its annual revenue for 2023.","sourceText":"annual revenue for 2024 decreased from its revenue for 2023","role":"TEMPORAL_CONSTRAINT"}]}
 Claim: The mayor called the report a hoax. She later said the harbour project would finish in 2022. It opened in 2024.
@@ -152,6 +161,27 @@ _ADDED_EDGE_PUNCTUATION = " \t\n\r.,;:!?\"'’”"
 #: occur exactly once, so a shortened span cannot highlight the wrong place.
 _MAX_DROPPED_LEADING_WORDS = 5
 _MIN_LOCATOR_CHARACTERS = 4
+
+_TERM = re.compile(r"[^\W_]+", re.UNICODE)
+_COVERING_STOP_WORDS = {
+    "a", "an", "and", "are", "as", "at", "be", "been", "by", "for", "from",
+    "had", "has", "have", "in", "is", "it", "of", "on", "or", "that", "the",
+    "their", "they", "this", "to", "was", "were", "will", "with",
+}
+
+
+def _semantic_terms(text: str) -> set[str]:
+    """Return conservative content terms for safe duplicate removal.
+
+    Span containment alone is insufficient: a broad obligation may include a
+    third list item that the narrower obligations silently omitted. Removing it
+    would turn a decomposition error into an apparently complete claim.
+    """
+    return {
+        term
+        for term in (token.casefold() for token in _TERM.findall(text))
+        if term not in _COVERING_STOP_WORDS
+    }
 
 
 def _locate_source_text(claim: str, source_text: str) -> tuple[int, str]:
@@ -252,6 +282,39 @@ def _validate_and_normalize(
                 ),
             )
         )
+    if len(atoms) >= 3:
+        covering = next(
+            (
+                outer
+                for outer in atoms
+                if all(
+                    other.id == outer.id
+                    or (outer.start <= other.start and outer.end >= other.end)
+                    for other in atoms
+                )
+            ),
+            None,
+        )
+        components = [atom for atom in atoms if covering is not None and atom.id != covering.id]
+        component_terms = set().union(*(_semantic_terms(atom.text) for atom in components))
+        has_uncovered_content = bool(
+            covering is not None and _semantic_terms(covering.text) - component_terms
+        )
+        if covering is not None and not has_uncovered_content:
+            atoms = [atom for atom in atoms if atom.id != covering.id]
+            atoms = [
+                atom.model_copy(update={"id": f"atom-{index}"})
+                for index, atom in enumerate(atoms, start=1)
+            ]
+            warnings.append(
+                DecompositionWarning(
+                    code="REDUNDANT_COVERING_OBLIGATION_REMOVED",
+                    message=(
+                        "A broad obligation duplicated every component obligation and "
+                        "was removed before retrieval."
+                    ),
+                )
+            )
     return DecompositionResponse(
         composition=draft.composition,
         atoms=atoms,
@@ -296,6 +359,7 @@ def _decomposition_request_payload(
             {"role": "system", "content": DECOMPOSITION_INSTRUCTIONS},
             {"role": "user", "content": request},
         ],
+        "think": False,
         "format": ATOM_OUTPUT_SCHEMA,
         "options": _decomposition_options(),
         "keep_alive": settings.ollama_keep_alive,

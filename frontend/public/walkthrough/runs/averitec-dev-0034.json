@@ -55,52 +55,52 @@
       "atomId": "atom-1",
       "spans": [
         {
-          "id": "doc-5ef75348b513::sentence-212",
+          "id": "doc-5ef75348b513::sentence-4",
           "documentId": "doc-5ef75348b513",
-          "text": "- The organization’s terrorist activity or terrorism must threaten the security of U.S. nationals or the national security (national defense, foreign relations, or the economic interests) of the United States.\n",
-          "start": 7865,
-          "end": 8075,
-          "context": "(a)(3)(B)),or terrorism, as defined in section 140(d)(2) of the Foreign Relations Authorization Act, Fiscal Years 1988 and 1989 (22 U.S.C. § 2656f(d)(2)), or retain the capability and intent to engage in terrorist activity or terrorism.\n - The organization’s terrorist activity or terrorism must threaten the security of U.S. nationals or the national security (national defense, foreign relations, or the economic interests) of the United States.\n Legal Ramifications of Designation\n"
+          "text": "Evidence 1: Has the USA included the NDF in their official list of terrorist groups? ",
+          "start": 211,
+          "end": 296,
+          "context": "Source URL: https://www.state.gov/foreign-terrorist-organizations/\n Evidence 1: Has the USA included the NDF in their official list of terrorist groups?  No\n"
         },
         {
-          "id": "doc-5ef75348b513::sentence-224",
+          "id": "doc-5ef75348b513::sentence-6",
           "documentId": "doc-5ef75348b513",
-          "text": "- Stigmatizes and isolates designated terrorist organizations internationally.\n",
-          "start": 9842,
-          "end": 9921,
-          "context": "- Supports our efforts to curb terrorism financing and to encourage other nations to do the same.\n - Stigmatizes and isolates designated terrorist organizations internationally.\n - Deters donations or contributions to and economic transactions with named organizations.\n"
+          "text": "Evidence 2: Has the USA included the NDF in their official list of terrorist groups? ",
+          "start": 299,
+          "end": 384,
+          "context": "No\n Evidence 2: Has the USA included the NDF in their official list of terrorist groups?  No\n"
         },
         {
-          "id": "doc-9646fc73704d::sentence-39",
+          "id": "doc-ca6b563a3275::sentence-4",
+          "documentId": "doc-ca6b563a3275",
+          "text": "Evidence 1: Has the UK  included the NDF in their official list of terrorist groups? ",
+          "start": 222,
+          "end": 307,
+          "context": "Source URL: https://ofsistorage.blob.core.windows.net/publishlive/ConList.pdf\n Evidence 1: Has the UK  included the NDF in their official list of terrorist groups?  No\n"
+        },
+        {
+          "id": "doc-9646fc73704d::sentence-4",
           "documentId": "doc-9646fc73704d",
-          "text": "Primary Name: Ulster Defence Association Aliases: Ulster Freedom Fighters, UDA, UFF Address: Northern Ireland Original listing date: Listed by the Foreign Minister under section 15 of the Charter of the United Nations Act 1945 on 20 March 2002. ",
-          "start": 5125,
-          "end": 5370,
-          "context": "The RHD opposes the peace process and peace agreements, including the Good Friday Agreement.\n Primary Name: Ulster Defence Association Aliases: Ulster Freedom Fighters, UDA, UFF Address: Northern Ireland Original listing date: Listed by the Foreign Minister under section 15 of the Charter of the United Nations Act 1945 on 20 March 2002.  The listing was declared by the Foreign Minister on 4 October 2016 to continue in effect. "
+          "text": "Evidence 1: Has Australia included the NDF in their official list of terrorist groups? ",
+          "start": 207,
+          "end": 294,
+          "context": "Source URL: https://www.legislation.gov.au/Details/C2019G00862\n Evidence 1: Has Australia included the NDF in their official list of terrorist groups?  No\n\n"
         },
         {
-          "id": "doc-9646fc73704d::sentence-15",
-          "documentId": "doc-9646fc73704d",
-          "text": "Note 2: Under section 40 of the Charter of the United Nations (Dealing with Assets) Regulations 2008, the Department of Foreign Affairs and Trade maintains a list of all persons, entities, assets and classes of assets currently listed under section 15 of the Act, and has published this list on the internet at www.dfat.gov.au/sanctions/consolidated-list.html.\n",
-          "start": 1100,
-          "end": 1461,
-          "context": "Note 1: Under section 20 of the Charter of the United Nations (Dealing with Assets) Regulations 2008, the Minister must be satisfied that the person or entity is mentioned in paragraph 1(c) of United Nations Security Council Resolution 1373 (2001).\n Note 2: Under section 40 of the Charter of the United Nations (Dealing with Assets) Regulations 2008, the Department of Foreign Affairs and Trade maintains a list of all persons, entities, assets and classes of assets currently listed under section 15 of the Act, and has published this list on the internet at www.dfat.gov.au/sanctions/consolidated-list.html.\n Note 3: Additional information about the listing of persons and entities under section 15 of the Act is set out in Schedule 2.\n"
-        },
-        {
-          "id": "doc-9d46aa32f6a5::sentence-151",
+          "id": "doc-9d46aa32f6a5::sentence-5",
           "documentId": "doc-9d46aa32f6a5",
-          "text": "‘Hizballah Military Wing’ (a.k.a. ‘Hezbollah Military Wing’, a.k.a. ‘Hizbullah Military Wing’, a.k.a. ‘Hizbollah Military Wing’, a.k.a. ‘Hezballah Military Wing’, a.k.a. ‘Hisbollah Military Wing’, a.k.a. ‘Hizbu’llah Military Wing’ a.k.a. ‘Hizb Allah Military Wing’, a.k.a. ‘Jihad Council’ (and all units reporting to it, including the External Security Organisation)). ",
-          "start": 7225,
-          "end": 7594,
-          "context": "10. |\n ‘Hizballah Military Wing’ (a.k.a. ‘Hezbollah Military Wing’, a.k.a. ‘Hizbullah Military Wing’, a.k.a. ‘Hizbollah Military Wing’, a.k.a. ‘Hezballah Military Wing’, a.k.a. ‘Hisbollah Military Wing’, a.k.a. ‘Hizbu’llah Military Wing’ a.k.a. ‘Hizb Allah Military Wing’, a.k.a. ‘Jihad Council’ (and all units reporting to it, including the External Security Organisation)).  |\n"
+          "text": "Evidence 1: Has the EU included the NDF in their official list of terrorist groups? ",
+          "start": 225,
+          "end": 309,
+          "context": "uri=CELEX:32020D1132\n Evidence 1: Has the EU included the NDF in their official list of terrorist groups?  No\n\n"
         },
         {
-          "id": "doc-37564969436e::sentence-152",
+          "id": "doc-37564969436e::sentence-5",
           "documentId": "doc-37564969436e",
-          "text": "‘Hizballah Military Wing’ (a.k.a. ‘Hezbollah Military Wing’, a.k.a. ‘Hizbullah Military Wing’, a.k.a. ‘Hizbollah Military Wing’, a.k.a. ‘Hezballah Military Wing’, a.k.a. ‘Hisbollah Military Wing’, a.k.a. ‘Hizbu’llah Military Wing’ a.k.a. ‘Hizb Allah Military Wing’, a.k.a. ‘Jihad Council’ (and all units reporting to it, including the External Security Organisation)). ",
-          "start": 7408,
-          "end": 7777,
-          "context": "10. |\n ‘Hizballah Military Wing’ (a.k.a. ‘Hezbollah Military Wing’, a.k.a. ‘Hizbullah Military Wing’, a.k.a. ‘Hizbollah Military Wing’, a.k.a. ‘Hezballah Military Wing’, a.k.a. ‘Hisbollah Military Wing’, a.k.a. ‘Hizbu’llah Military Wing’ a.k.a. ‘Hizb Allah Military Wing’, a.k.a. ‘Jihad Council’ (and all units reporting to it, including the External Security Organisation)).  |\n"
+          "text": "Evidence 1: Has EU included NDF on the list of terrorists? ",
+          "start": 227,
+          "end": 286,
+          "context": "uri=CELEX%3A32020D1132\n Evidence 1: Has EU included NDF on the list of terrorists?  No\n\n"
         }
       ]
     },
@@ -108,52 +108,52 @@
       "atomId": "atom-2",
       "spans": [
         {
-          "id": "doc-9646fc73704d::sentence-22",
-          "documentId": "doc-9646fc73704d",
-          "text": "Primary Name: Loyalist Volunteer Force Aliases: LVF Address: Northern Ireland Original listing date: Listed by the Foreign Minister under section 15 of the Charter of the United Nations Act 1945 on 20 March 2002. ",
-          "start": 2314,
-          "end": 2527,
-          "context": "Additional information: The Continuity IRA (CIRA) is an extreme militant Irish republican group that emerged from a split in the Provisional Irish Republican Army (PIRA) and became active in opposition to PIRA’s ceasefire declaration in 1994.\n Primary Name: Loyalist Volunteer Force Aliases: LVF Address: Northern Ireland Original listing date: Listed by the Foreign Minister under section 15 of the Charter of the United Nations Act 1945 on 20 March 2002.  The listing was declared by the Foreign Minister on 4 October 2016 to continue in effect. "
-        },
-        {
-          "id": "doc-9646fc73704d::sentence-35",
-          "documentId": "doc-9646fc73704d",
-          "text": "Primary Name: Red Hand Defenders Aliases: RHD Address: Northern Ireland Original listing date: Listed by the Foreign Minister under section 15 of the Charter of the United Nations Act 1945 on 20 March 2002. ",
-          "start": 4627,
-          "end": 4834,
-          "context": "In July 2012, the RIRA announced that it was merging with the Republican Action Against Drugs (RAAD) and a coalition of unaffiliated armed republican groups into ‘a unified structure, under a single leadership’ and reclaiming the banner of the ‘Irish Republican Army’, and also now known as the ‘New IRA’.\n Primary Name: Red Hand Defenders Aliases: RHD Address: Northern Ireland Original listing date: Listed by the Foreign Minister under section 15 of the Charter of the United Nations Act 1945 on 20 March 2002.  The listing was declared by the Foreign Minister on 4 October 2016 to continue in effect. "
-        },
-        {
-          "id": "doc-5ef75348b513::sentence-212",
+          "id": "doc-5ef75348b513::sentence-8",
           "documentId": "doc-5ef75348b513",
-          "text": "- The organization’s terrorist activity or terrorism must threaten the security of U.S. nationals or the national security (national defense, foreign relations, or the economic interests) of the United States.\n",
-          "start": 7865,
-          "end": 8075,
-          "context": "(a)(3)(B)),or terrorism, as defined in section 140(d)(2) of the Foreign Relations Authorization Act, Fiscal Years 1988 and 1989 (22 U.S.C. § 2656f(d)(2)), or retain the capability and intent to engage in terrorist activity or terrorism.\n - The organization’s terrorist activity or terrorism must threaten the security of U.S. nationals or the national security (national defense, foreign relations, or the economic interests) of the United States.\n Legal Ramifications of Designation\n"
+          "text": "Evidence 3: Has Australia  included the NDF in their official list of terrorist groups? ",
+          "start": 387,
+          "end": 475,
+          "context": "No\n Evidence 3: Has Australia  included the NDF in their official list of terrorist groups?  No\n\n"
         },
         {
-          "id": "doc-5ef75348b513::sentence-224",
+          "id": "doc-5ef75348b513::sentence-4",
           "documentId": "doc-5ef75348b513",
-          "text": "- Stigmatizes and isolates designated terrorist organizations internationally.\n",
-          "start": 9842,
-          "end": 9921,
-          "context": "- Supports our efforts to curb terrorism financing and to encourage other nations to do the same.\n - Stigmatizes and isolates designated terrorist organizations internationally.\n - Deters donations or contributions to and economic transactions with named organizations.\n"
+          "text": "Evidence 1: Has the USA included the NDF in their official list of terrorist groups? ",
+          "start": 211,
+          "end": 296,
+          "context": "Source URL: https://www.state.gov/foreign-terrorist-organizations/\n Evidence 1: Has the USA included the NDF in their official list of terrorist groups?  No\n"
         },
         {
-          "id": "doc-9d46aa32f6a5::sentence-124",
+          "id": "doc-ca6b563a3275::sentence-6",
+          "documentId": "doc-ca6b563a3275",
+          "text": "Evidence 2: Has the UK  included the NDF in their official list of terrorist groups? ",
+          "start": 310,
+          "end": 395,
+          "context": "No\n Evidence 2: Has the UK  included the NDF in their official list of terrorist groups?  No\n\n"
+        },
+        {
+          "id": "doc-9646fc73704d::sentence-4",
+          "documentId": "doc-9646fc73704d",
+          "text": "Evidence 1: Has Australia included the NDF in their official list of terrorist groups? ",
+          "start": 207,
+          "end": 294,
+          "context": "Source URL: https://www.legislation.gov.au/Details/C2019G00862\n Evidence 1: Has Australia included the NDF in their official list of terrorist groups?  No\n\n"
+        },
+        {
+          "id": "doc-9d46aa32f6a5::sentence-5",
           "documentId": "doc-9d46aa32f6a5",
-          "text": "‘Abu Nidal Organisation’ – ‘ANO’ (a.k.a. ‘Fatah Revolutionary Council’, a.k.a. ‘Arab Revolutionary Brigades’, a.k.a. ‘Black September’, a.k.a. ‘Revolutionary Organisation of Socialist Muslims’). ",
-          "start": 6505,
-          "end": 6700,
-          "context": "1. |\n ‘Abu Nidal Organisation’ – ‘ANO’ (a.k.a. ‘Fatah Revolutionary Council’, a.k.a. ‘Arab Revolutionary Brigades’, a.k.a. ‘Black September’, a.k.a. ‘Revolutionary Organisation of Socialist Muslims’).  |\n"
+          "text": "Evidence 1: Has the EU included the NDF in their official list of terrorist groups? ",
+          "start": 225,
+          "end": 309,
+          "context": "uri=CELEX:32020D1132\n Evidence 1: Has the EU included the NDF in their official list of terrorist groups?  No\n\n"
         },
         {
-          "id": "doc-37564969436e::sentence-125",
+          "id": "doc-37564969436e::sentence-5",
           "documentId": "doc-37564969436e",
-          "text": "‘Abu Nidal Organisation’ – ‘ANO’ (a.k.a. ‘Fatah Revolutionary Council’, a.k.a. ‘Arab Revolutionary Brigades’, a.k.a. ‘Black September’, a.k.a. ‘Revolutionary Organisation of Socialist Muslims’). ",
-          "start": 6688,
-          "end": 6883,
-          "context": "1. |\n ‘Abu Nidal Organisation’ – ‘ANO’ (a.k.a. ‘Fatah Revolutionary Council’, a.k.a. ‘Arab Revolutionary Brigades’, a.k.a. ‘Black September’, a.k.a. ‘Revolutionary Organisation of Socialist Muslims’).  |\n"
+          "text": "Evidence 1: Has EU included NDF on the list of terrorists? ",
+          "start": 227,
+          "end": 286,
+          "context": "uri=CELEX%3A32020D1132\n Evidence 1: Has EU included NDF on the list of terrorists?  No\n\n"
         }
       ]
     },
@@ -161,52 +161,52 @@
       "atomId": "atom-3",
       "spans": [
         {
-          "id": "doc-9646fc73704d::sentence-22",
-          "documentId": "doc-9646fc73704d",
-          "text": "Primary Name: Loyalist Volunteer Force Aliases: LVF Address: Northern Ireland Original listing date: Listed by the Foreign Minister under section 15 of the Charter of the United Nations Act 1945 on 20 March 2002. ",
-          "start": 2314,
-          "end": 2527,
-          "context": "Additional information: The Continuity IRA (CIRA) is an extreme militant Irish republican group that emerged from a split in the Provisional Irish Republican Army (PIRA) and became active in opposition to PIRA’s ceasefire declaration in 1994.\n Primary Name: Loyalist Volunteer Force Aliases: LVF Address: Northern Ireland Original listing date: Listed by the Foreign Minister under section 15 of the Charter of the United Nations Act 1945 on 20 March 2002.  The listing was declared by the Foreign Minister on 4 October 2016 to continue in effect. "
+          "id": "doc-ca6b563a3275::sentence-4",
+          "documentId": "doc-ca6b563a3275",
+          "text": "Evidence 1: Has the UK  included the NDF in their official list of terrorist groups? ",
+          "start": 222,
+          "end": 307,
+          "context": "Source URL: https://ofsistorage.blob.core.windows.net/publishlive/ConList.pdf\n Evidence 1: Has the UK  included the NDF in their official list of terrorist groups?  No\n"
         },
         {
-          "id": "doc-9646fc73704d::sentence-39",
-          "documentId": "doc-9646fc73704d",
-          "text": "Primary Name: Ulster Defence Association Aliases: Ulster Freedom Fighters, UDA, UFF Address: Northern Ireland Original listing date: Listed by the Foreign Minister under section 15 of the Charter of the United Nations Act 1945 on 20 March 2002. ",
-          "start": 5125,
-          "end": 5370,
-          "context": "The RHD opposes the peace process and peace agreements, including the Good Friday Agreement.\n Primary Name: Ulster Defence Association Aliases: Ulster Freedom Fighters, UDA, UFF Address: Northern Ireland Original listing date: Listed by the Foreign Minister under section 15 of the Charter of the United Nations Act 1945 on 20 March 2002.  The listing was declared by the Foreign Minister on 4 October 2016 to continue in effect. "
-        },
-        {
-          "id": "doc-5ef75348b513::sentence-212",
+          "id": "doc-5ef75348b513::sentence-4",
           "documentId": "doc-5ef75348b513",
-          "text": "- The organization’s terrorist activity or terrorism must threaten the security of U.S. nationals or the national security (national defense, foreign relations, or the economic interests) of the United States.\n",
-          "start": 7865,
-          "end": 8075,
-          "context": "(a)(3)(B)),or terrorism, as defined in section 140(d)(2) of the Foreign Relations Authorization Act, Fiscal Years 1988 and 1989 (22 U.S.C. § 2656f(d)(2)), or retain the capability and intent to engage in terrorist activity or terrorism.\n - The organization’s terrorist activity or terrorism must threaten the security of U.S. nationals or the national security (national defense, foreign relations, or the economic interests) of the United States.\n Legal Ramifications of Designation\n"
+          "text": "Evidence 1: Has the USA included the NDF in their official list of terrorist groups? ",
+          "start": 211,
+          "end": 296,
+          "context": "Source URL: https://www.state.gov/foreign-terrorist-organizations/\n Evidence 1: Has the USA included the NDF in their official list of terrorist groups?  No\n"
         },
         {
-          "id": "doc-5ef75348b513::sentence-1",
+          "id": "doc-5ef75348b513::sentence-6",
           "documentId": "doc-5ef75348b513",
-          "text": "Foreign Terrorist Organizations (FTOs) are foreign organizations that are designated by the Secretary of State in accordance with section 219 of the Immigration and Nationality Act (INA), as amended. ",
-          "start": 0,
-          "end": 200,
-          "context": "Foreign Terrorist Organizations (FTOs) are foreign organizations that are designated by the Secretary of State in accordance with section 219 of the Immigration and Nationality Act (INA), as amended.  FTO designations play a critical role in our fight against terrorism and are an effective means of curtailing support for terrorist activities and pressuring groups to get out of the terrorism business.\n"
+          "text": "Evidence 2: Has the USA included the NDF in their official list of terrorist groups? ",
+          "start": 299,
+          "end": 384,
+          "context": "No\n Evidence 2: Has the USA included the NDF in their official list of terrorist groups?  No\n"
         },
         {
-          "id": "doc-9d46aa32f6a5::sentence-124",
+          "id": "doc-9d46aa32f6a5::sentence-5",
           "documentId": "doc-9d46aa32f6a5",
-          "text": "‘Abu Nidal Organisation’ – ‘ANO’ (a.k.a. ‘Fatah Revolutionary Council’, a.k.a. ‘Arab Revolutionary Brigades’, a.k.a. ‘Black September’, a.k.a. ‘Revolutionary Organisation of Socialist Muslims’). ",
-          "start": 6505,
-          "end": 6700,
-          "context": "1. |\n ‘Abu Nidal Organisation’ – ‘ANO’ (a.k.a. ‘Fatah Revolutionary Council’, a.k.a. ‘Arab Revolutionary Brigades’, a.k.a. ‘Black September’, a.k.a. ‘Revolutionary Organisation of Socialist Muslims’).  |\n"
+          "text": "Evidence 1: Has the EU included the NDF in their official list of terrorist groups? ",
+          "start": 225,
+          "end": 309,
+          "context": "uri=CELEX:32020D1132\n Evidence 1: Has the EU included the NDF in their official list of terrorist groups?  No\n\n"
         },
         {
-          "id": "doc-37564969436e::sentence-125",
+          "id": "doc-9646fc73704d::sentence-4",
+          "documentId": "doc-9646fc73704d",
+          "text": "Evidence 1: Has Australia included the NDF in their official list of terrorist groups? ",
+          "start": 207,
+          "end": 294,
+          "context": "Source URL: https://www.legislation.gov.au/Details/C2019G00862\n Evidence 1: Has Australia included the NDF in their official list of terrorist groups?  No\n\n"
+        },
+        {
+          "id": "doc-37564969436e::sentence-5",
           "documentId": "doc-37564969436e",
-          "text": "‘Abu Nidal Organisation’ – ‘ANO’ (a.k.a. ‘Fatah Revolutionary Council’, a.k.a. ‘Arab Revolutionary Brigades’, a.k.a. ‘Black September’, a.k.a. ‘Revolutionary Organisation of Socialist Muslims’). ",
-          "start": 6688,
-          "end": 6883,
-          "context": "1. |\n ‘Abu Nidal Organisation’ – ‘ANO’ (a.k.a. ‘Fatah Revolutionary Council’, a.k.a. ‘Arab Revolutionary Brigades’, a.k.a. ‘Black September’, a.k.a. ‘Revolutionary Organisation of Socialist Muslims’).  |\n"
+          "text": "Evidence 1: Has EU included NDF on the list of terrorists? ",
+          "start": 227,
+          "end": 286,
+          "context": "uri=CELEX%3A32020D1132\n Evidence 1: Has EU included NDF on the list of terrorists?  No\n\n"
         }
       ]
     },
@@ -214,52 +214,52 @@
       "atomId": "atom-4",
       "spans": [
         {
-          "id": "doc-9646fc73704d::sentence-15",
-          "documentId": "doc-9646fc73704d",
-          "text": "Note 2: Under section 40 of the Charter of the United Nations (Dealing with Assets) Regulations 2008, the Department of Foreign Affairs and Trade maintains a list of all persons, entities, assets and classes of assets currently listed under section 15 of the Act, and has published this list on the internet at www.dfat.gov.au/sanctions/consolidated-list.html.\n",
-          "start": 1100,
-          "end": 1461,
-          "context": "Note 1: Under section 20 of the Charter of the United Nations (Dealing with Assets) Regulations 2008, the Minister must be satisfied that the person or entity is mentioned in paragraph 1(c) of United Nations Security Council Resolution 1373 (2001).\n Note 2: Under section 40 of the Charter of the United Nations (Dealing with Assets) Regulations 2008, the Department of Foreign Affairs and Trade maintains a list of all persons, entities, assets and classes of assets currently listed under section 15 of the Act, and has published this list on the internet at www.dfat.gov.au/sanctions/consolidated-list.html.\n Note 3: Additional information about the listing of persons and entities under section 15 of the Act is set out in Schedule 2.\n"
-        },
-        {
-          "id": "doc-5ef75348b513::sentence-224",
+          "id": "doc-5ef75348b513::sentence-8",
           "documentId": "doc-5ef75348b513",
-          "text": "- Stigmatizes and isolates designated terrorist organizations internationally.\n",
-          "start": 9842,
-          "end": 9921,
-          "context": "- Supports our efforts to curb terrorism financing and to encourage other nations to do the same.\n - Stigmatizes and isolates designated terrorist organizations internationally.\n - Deters donations or contributions to and economic transactions with named organizations.\n"
+          "text": "Evidence 3: Has Australia  included the NDF in their official list of terrorist groups? ",
+          "start": 387,
+          "end": 475,
+          "context": "No\n Evidence 3: Has Australia  included the NDF in their official list of terrorist groups?  No\n\n"
         },
         {
-          "id": "doc-5ef75348b513::sentence-1",
-          "documentId": "doc-5ef75348b513",
-          "text": "Foreign Terrorist Organizations (FTOs) are foreign organizations that are designated by the Secretary of State in accordance with section 219 of the Immigration and Nationality Act (INA), as amended. ",
-          "start": 0,
-          "end": 200,
-          "context": "Foreign Terrorist Organizations (FTOs) are foreign organizations that are designated by the Secretary of State in accordance with section 219 of the Immigration and Nationality Act (INA), as amended.  FTO designations play a critical role in our fight against terrorism and are an effective means of curtailing support for terrorist activities and pressuring groups to get out of the terrorism business.\n"
-        },
-        {
-          "id": "doc-9646fc73704d::sentence-52",
+          "id": "doc-9646fc73704d::sentence-4",
           "documentId": "doc-9646fc73704d",
-          "text": "Primary Name: International Sikh Youth Federation Aliases: ISYF Address: Pakistan; United Kingdom; India Original listing date: Listed by the Foreign Minister under section 15 of the Charter of the United Nations Act 1945 on 16 June 2002. ",
-          "start": 7086,
-          "end": 7325,
-          "context": "Babbar Khalsa in its present form, however, appears to have been established in 1980.\n Primary Name: International Sikh Youth Federation Aliases: ISYF Address: Pakistan; United Kingdom; India Original listing date: Listed by the Foreign Minister under section 15 of the Charter of the United Nations Act 1945 on 16 June 2002.  The listing was declared by the Foreign Minister on 5 October 2016 to continue in effect. "
+          "text": "Evidence 1: Has Australia included the NDF in their official list of terrorist groups? ",
+          "start": 207,
+          "end": 294,
+          "context": "Source URL: https://www.legislation.gov.au/Details/C2019G00862\n Evidence 1: Has Australia included the NDF in their official list of terrorist groups?  No\n\n"
         },
         {
-          "id": "doc-9d46aa32f6a5::sentence-151",
+          "id": "doc-5ef75348b513::sentence-4",
+          "documentId": "doc-5ef75348b513",
+          "text": "Evidence 1: Has the USA included the NDF in their official list of terrorist groups? ",
+          "start": 211,
+          "end": 296,
+          "context": "Source URL: https://www.state.gov/foreign-terrorist-organizations/\n Evidence 1: Has the USA included the NDF in their official list of terrorist groups?  No\n"
+        },
+        {
+          "id": "doc-ca6b563a3275::sentence-4",
+          "documentId": "doc-ca6b563a3275",
+          "text": "Evidence 1: Has the UK  included the NDF in their official list of terrorist groups? ",
+          "start": 222,
+          "end": 307,
+          "context": "Source URL: https://ofsistorage.blob.core.windows.net/publishlive/ConList.pdf\n Evidence 1: Has the UK  included the NDF in their official list of terrorist groups?  No\n"
+        },
+        {
+          "id": "doc-9d46aa32f6a5::sentence-5",
           "documentId": "doc-9d46aa32f6a5",
-          "text": "‘Hizballah Military Wing’ (a.k.a. ‘Hezbollah Military Wing’, a.k.a. ‘Hizbullah Military Wing’, a.k.a. ‘Hizbollah Military Wing’, a.k.a. ‘Hezballah Military Wing’, a.k.a. ‘Hisbollah Military Wing’, a.k.a. ‘Hizbu’llah Military Wing’ a.k.a. ‘Hizb Allah Military Wing’, a.k.a. ‘Jihad Council’ (and all units reporting to it, including the External Security Organisation)). ",
-          "start": 7225,
-          "end": 7594,
-          "context": "10. |\n ‘Hizballah Military Wing’ (a.k.a. ‘Hezbollah Military Wing’, a.k.a. ‘Hizbullah Military Wing’, a.k.a. ‘Hizbollah Military Wing’, a.k.a. ‘Hezballah Military Wing’, a.k.a. ‘Hisbollah Military Wing’, a.k.a. ‘Hizbu’llah Military Wing’ a.k.a. ‘Hizb Allah Military Wing’, a.k.a. ‘Jihad Council’ (and all units reporting to it, including the External Security Organisation)).  |\n"
+          "text": "Evidence 1: Has the EU included the NDF in their official list of terrorist groups? ",
+          "start": 225,
+          "end": 309,
+          "context": "uri=CELEX:32020D1132\n Evidence 1: Has the EU included the NDF in their official list of terrorist groups?  No\n\n"
         },
         {
-          "id": "doc-37564969436e::sentence-152",
+          "id": "doc-37564969436e::sentence-5",
           "documentId": "doc-37564969436e",
-          "text": "‘Hizballah Military Wing’ (a.k.a. ‘Hezbollah Military Wing’, a.k.a. ‘Hizbullah Military Wing’, a.k.a. ‘Hizbollah Military Wing’, a.k.a. ‘Hezballah Military Wing’, a.k.a. ‘Hisbollah Military Wing’, a.k.a. ‘Hizbu’llah Military Wing’ a.k.a. ‘Hizb Allah Military Wing’, a.k.a. ‘Jihad Council’ (and all units reporting to it, including the External Security Organisation)). ",
-          "start": 7408,
-          "end": 7777,
-          "context": "10. |\n ‘Hizballah Military Wing’ (a.k.a. ‘Hezbollah Military Wing’, a.k.a. ‘Hizbullah Military Wing’, a.k.a. ‘Hizbollah Military Wing’, a.k.a. ‘Hezballah Military Wing’, a.k.a. ‘Hisbollah Military Wing’, a.k.a. ‘Hizbu’llah Military Wing’ a.k.a. ‘Hizb Allah Military Wing’, a.k.a. ‘Jihad Council’ (and all units reporting to it, including the External Security Organisation)).  |\n"
+          "text": "Evidence 1: Has EU included NDF on the list of terrorists? ",
+          "start": 227,
+          "end": 286,
+          "context": "uri=CELEX%3A32020D1132\n Evidence 1: Has EU included NDF on the list of terrorists?  No\n\n"
         }
       ]
     },
@@ -267,52 +267,52 @@
       "atomId": "atom-5",
       "spans": [
         {
-          "id": "doc-5ef75348b513::sentence-224",
+          "id": "doc-5ef75348b513::sentence-4",
           "documentId": "doc-5ef75348b513",
-          "text": "- Stigmatizes and isolates designated terrorist organizations internationally.\n",
-          "start": 9842,
-          "end": 9921,
-          "context": "- Supports our efforts to curb terrorism financing and to encourage other nations to do the same.\n - Stigmatizes and isolates designated terrorist organizations internationally.\n - Deters donations or contributions to and economic transactions with named organizations.\n"
+          "text": "Evidence 1: Has the USA included the NDF in their official list of terrorist groups? ",
+          "start": 211,
+          "end": 296,
+          "context": "Source URL: https://www.state.gov/foreign-terrorist-organizations/\n Evidence 1: Has the USA included the NDF in their official list of terrorist groups?  No\n"
         },
         {
-          "id": "doc-5ef75348b513::sentence-212",
+          "id": "doc-5ef75348b513::sentence-6",
           "documentId": "doc-5ef75348b513",
-          "text": "- The organization’s terrorist activity or terrorism must threaten the security of U.S. nationals or the national security (national defense, foreign relations, or the economic interests) of the United States.\n",
-          "start": 7865,
-          "end": 8075,
-          "context": "(a)(3)(B)),or terrorism, as defined in section 140(d)(2) of the Foreign Relations Authorization Act, Fiscal Years 1988 and 1989 (22 U.S.C. § 2656f(d)(2)), or retain the capability and intent to engage in terrorist activity or terrorism.\n - The organization’s terrorist activity or terrorism must threaten the security of U.S. nationals or the national security (national defense, foreign relations, or the economic interests) of the United States.\n Legal Ramifications of Designation\n"
+          "text": "Evidence 2: Has the USA included the NDF in their official list of terrorist groups? ",
+          "start": 299,
+          "end": 384,
+          "context": "No\n Evidence 2: Has the USA included the NDF in their official list of terrorist groups?  No\n"
         },
         {
-          "id": "doc-9646fc73704d::sentence-22",
-          "documentId": "doc-9646fc73704d",
-          "text": "Primary Name: Loyalist Volunteer Force Aliases: LVF Address: Northern Ireland Original listing date: Listed by the Foreign Minister under section 15 of the Charter of the United Nations Act 1945 on 20 March 2002. ",
-          "start": 2314,
-          "end": 2527,
-          "context": "Additional information: The Continuity IRA (CIRA) is an extreme militant Irish republican group that emerged from a split in the Provisional Irish Republican Army (PIRA) and became active in opposition to PIRA’s ceasefire declaration in 1994.\n Primary Name: Loyalist Volunteer Force Aliases: LVF Address: Northern Ireland Original listing date: Listed by the Foreign Minister under section 15 of the Charter of the United Nations Act 1945 on 20 March 2002.  The listing was declared by the Foreign Minister on 4 October 2016 to continue in effect. "
+          "id": "doc-ca6b563a3275::sentence-4",
+          "documentId": "doc-ca6b563a3275",
+          "text": "Evidence 1: Has the UK  included the NDF in their official list of terrorist groups? ",
+          "start": 222,
+          "end": 307,
+          "context": "Source URL: https://ofsistorage.blob.core.windows.net/publishlive/ConList.pdf\n Evidence 1: Has the UK  included the NDF in their official list of terrorist groups?  No\n"
         },
         {
-          "id": "doc-9646fc73704d::sentence-15",
-          "documentId": "doc-9646fc73704d",
-          "text": "Note 2: Under section 40 of the Charter of the United Nations (Dealing with Assets) Regulations 2008, the Department of Foreign Affairs and Trade maintains a list of all persons, entities, assets and classes of assets currently listed under section 15 of the Act, and has published this list on the internet at www.dfat.gov.au/sanctions/consolidated-list.html.\n",
-          "start": 1100,
-          "end": 1461,
-          "context": "Note 1: Under section 20 of the Charter of the United Nations (Dealing with Assets) Regulations 2008, the Minister must be satisfied that the person or entity is mentioned in paragraph 1(c) of United Nations Security Council Resolution 1373 (2001).\n Note 2: Under section 40 of the Charter of the United Nations (Dealing with Assets) Regulations 2008, the Department of Foreign Affairs and Trade maintains a list of all persons, entities, assets and classes of assets currently listed under section 15 of the Act, and has published this list on the internet at www.dfat.gov.au/sanctions/consolidated-list.html.\n Note 3: Additional information about the listing of persons and entities under section 15 of the Act is set out in Schedule 2.\n"
-        },
-        {
-          "id": "doc-9d46aa32f6a5::sentence-151",
+          "id": "doc-9d46aa32f6a5::sentence-5",
           "documentId": "doc-9d46aa32f6a5",
-          "text": "‘Hizballah Military Wing’ (a.k.a. ‘Hezbollah Military Wing’, a.k.a. ‘Hizbullah Military Wing’, a.k.a. ‘Hizbollah Military Wing’, a.k.a. ‘Hezballah Military Wing’, a.k.a. ‘Hisbollah Military Wing’, a.k.a. ‘Hizbu’llah Military Wing’ a.k.a. ‘Hizb Allah Military Wing’, a.k.a. ‘Jihad Council’ (and all units reporting to it, including the External Security Organisation)). ",
-          "start": 7225,
-          "end": 7594,
-          "context": "10. |\n ‘Hizballah Military Wing’ (a.k.a. ‘Hezbollah Military Wing’, a.k.a. ‘Hizbullah Military Wing’, a.k.a. ‘Hizbollah Military Wing’, a.k.a. ‘Hezballah Military Wing’, a.k.a. ‘Hisbollah Military Wing’, a.k.a. ‘Hizbu’llah Military Wing’ a.k.a. ‘Hizb Allah Military Wing’, a.k.a. ‘Jihad Council’ (and all units reporting to it, including the External Security Organisation)).  |\n"
+          "text": "Evidence 1: Has the EU included the NDF in their official list of terrorist groups? ",
+          "start": 225,
+          "end": 309,
+          "context": "uri=CELEX:32020D1132\n Evidence 1: Has the EU included the NDF in their official list of terrorist groups?  No\n\n"
         },
         {
-          "id": "doc-37564969436e::sentence-152",
+          "id": "doc-37564969436e::sentence-5",
           "documentId": "doc-37564969436e",
-          "text": "‘Hizballah Military Wing’ (a.k.a. ‘Hezbollah Military Wing’, a.k.a. ‘Hizbullah Military Wing’, a.k.a. ‘Hizbollah Military Wing’, a.k.a. ‘Hezballah Military Wing’, a.k.a. ‘Hisbollah Military Wing’, a.k.a. ‘Hizbu’llah Military Wing’ a.k.a. ‘Hizb Allah Military Wing’, a.k.a. ‘Jihad Council’ (and all units reporting to it, including the External Security Organisation)). ",
-          "start": 7408,
-          "end": 7777,
-          "context": "10. |\n ‘Hizballah Military Wing’ (a.k.a. ‘Hezbollah Military Wing’, a.k.a. ‘Hizbullah Military Wing’, a.k.a. ‘Hizbollah Military Wing’, a.k.a. ‘Hezballah Military Wing’, a.k.a. ‘Hisbollah Military Wing’, a.k.a. ‘Hizbu’llah Military Wing’ a.k.a. ‘Hizb Allah Military Wing’, a.k.a. ‘Jihad Council’ (and all units reporting to it, including the External Security Organisation)).  |\n"
+          "text": "Evidence 1: Has EU included NDF on the list of terrorists? ",
+          "start": 227,
+          "end": 286,
+          "context": "uri=CELEX%3A32020D1132\n Evidence 1: Has EU included NDF on the list of terrorists?  No\n\n"
+        },
+        {
+          "id": "doc-9646fc73704d::sentence-4",
+          "documentId": "doc-9646fc73704d",
+          "text": "Evidence 1: Has Australia included the NDF in their official list of terrorist groups? ",
+          "start": 207,
+          "end": 294,
+          "context": "Source URL: https://www.legislation.gov.au/Details/C2019G00862\n Evidence 1: Has Australia included the NDF in their official list of terrorist groups?  No\n\n"
         }
       ]
     }
@@ -322,34 +322,40 @@
       "atomId": "atom-1",
       "relations": [
         {
-          "spanId": "doc-5ef75348b513::sentence-212",
+          "spanId": "doc-5ef75348b513::sentence-4",
           "documentId": "doc-5ef75348b513",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-5ef75348b513::sentence-224",
+          "spanId": "doc-5ef75348b513::sentence-6",
           "documentId": "doc-5ef75348b513",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-9646fc73704d::sentence-39",
+          "spanId": "doc-ca6b563a3275::sentence-4",
+          "documentId": "doc-ca6b563a3275",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-9646fc73704d::sentence-4",
           "documentId": "doc-9646fc73704d",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-9646fc73704d::sentence-15",
-          "documentId": "doc-9646fc73704d",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-9d46aa32f6a5::sentence-151",
+          "spanId": "doc-9d46aa32f6a5::sentence-5",
           "documentId": "doc-9d46aa32f6a5",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-37564969436e::sentence-152",
+          "spanId": "doc-37564969436e::sentence-5",
           "documentId": "doc-37564969436e",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         }
       ]
     },
@@ -357,34 +363,40 @@
       "atomId": "atom-2",
       "relations": [
         {
-          "spanId": "doc-9646fc73704d::sentence-22",
-          "documentId": "doc-9646fc73704d",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-9646fc73704d::sentence-35",
-          "documentId": "doc-9646fc73704d",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-5ef75348b513::sentence-212",
+          "spanId": "doc-5ef75348b513::sentence-8",
           "documentId": "doc-5ef75348b513",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-5ef75348b513::sentence-224",
+          "spanId": "doc-5ef75348b513::sentence-4",
           "documentId": "doc-5ef75348b513",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-9d46aa32f6a5::sentence-124",
+          "spanId": "doc-ca6b563a3275::sentence-6",
+          "documentId": "doc-ca6b563a3275",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-9646fc73704d::sentence-4",
+          "documentId": "doc-9646fc73704d",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-9d46aa32f6a5::sentence-5",
           "documentId": "doc-9d46aa32f6a5",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-37564969436e::sentence-125",
+          "spanId": "doc-37564969436e::sentence-5",
           "documentId": "doc-37564969436e",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         }
       ]
     },
@@ -392,34 +404,40 @@
       "atomId": "atom-3",
       "relations": [
         {
-          "spanId": "doc-9646fc73704d::sentence-22",
-          "documentId": "doc-9646fc73704d",
-          "relation": "NEUTRAL"
+          "spanId": "doc-ca6b563a3275::sentence-4",
+          "documentId": "doc-ca6b563a3275",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-9646fc73704d::sentence-39",
-          "documentId": "doc-9646fc73704d",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-5ef75348b513::sentence-212",
+          "spanId": "doc-5ef75348b513::sentence-4",
           "documentId": "doc-5ef75348b513",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-5ef75348b513::sentence-1",
+          "spanId": "doc-5ef75348b513::sentence-6",
           "documentId": "doc-5ef75348b513",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-9d46aa32f6a5::sentence-124",
+          "spanId": "doc-9d46aa32f6a5::sentence-5",
           "documentId": "doc-9d46aa32f6a5",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-37564969436e::sentence-125",
+          "spanId": "doc-9646fc73704d::sentence-4",
+          "documentId": "doc-9646fc73704d",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-37564969436e::sentence-5",
           "documentId": "doc-37564969436e",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         }
       ]
     },
@@ -427,34 +445,40 @@
       "atomId": "atom-4",
       "relations": [
         {
-          "spanId": "doc-9646fc73704d::sentence-15",
-          "documentId": "doc-9646fc73704d",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-5ef75348b513::sentence-224",
+          "spanId": "doc-5ef75348b513::sentence-8",
           "documentId": "doc-5ef75348b513",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-5ef75348b513::sentence-1",
-          "documentId": "doc-5ef75348b513",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-9646fc73704d::sentence-52",
+          "spanId": "doc-9646fc73704d::sentence-4",
           "documentId": "doc-9646fc73704d",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-9d46aa32f6a5::sentence-151",
+          "spanId": "doc-5ef75348b513::sentence-4",
+          "documentId": "doc-5ef75348b513",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-ca6b563a3275::sentence-4",
+          "documentId": "doc-ca6b563a3275",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-9d46aa32f6a5::sentence-5",
           "documentId": "doc-9d46aa32f6a5",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-37564969436e::sentence-152",
+          "spanId": "doc-37564969436e::sentence-5",
           "documentId": "doc-37564969436e",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         }
       ]
     },
@@ -462,38 +486,98 @@
       "atomId": "atom-5",
       "relations": [
         {
-          "spanId": "doc-5ef75348b513::sentence-224",
+          "spanId": "doc-5ef75348b513::sentence-4",
           "documentId": "doc-5ef75348b513",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-5ef75348b513::sentence-212",
+          "spanId": "doc-5ef75348b513::sentence-6",
           "documentId": "doc-5ef75348b513",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-9646fc73704d::sentence-22",
-          "documentId": "doc-9646fc73704d",
-          "relation": "NEUTRAL"
+          "spanId": "doc-ca6b563a3275::sentence-4",
+          "documentId": "doc-ca6b563a3275",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-9646fc73704d::sentence-15",
-          "documentId": "doc-9646fc73704d",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-9d46aa32f6a5::sentence-151",
+          "spanId": "doc-9d46aa32f6a5::sentence-5",
           "documentId": "doc-9d46aa32f6a5",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-37564969436e::sentence-152",
+          "spanId": "doc-37564969436e::sentence-5",
           "documentId": "doc-37564969436e",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-9646fc73704d::sentence-4",
+          "documentId": "doc-9646fc73704d",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         }
       ]
     }
   ],
+  "evidenceAudit": {
+    "claimPosition": {
+      "position": "INSUFFICIENT",
+      "supportSpanIds": [],
+      "attackSpanIds": [],
+      "contextSpanIds": [],
+      "reason": "The claimed support-only position did not cite support for every obligation. All provided evidence consistently shows that the USA, UK, Australia, and EU have not included the NDF in their official list of terrorist groups."
+    },
+    "obligations": [
+      {
+        "atomId": "atom-1",
+        "state": "UNRESOLVED",
+        "supportSpanIds": [],
+        "attackSpanIds": [],
+        "reason": "The claimed support-only position did not cite support for every obligation. All provided evidence consistently shows that the USA, UK, Australia, and EU have not included the NDF in their official list of terrorist groups."
+      },
+      {
+        "atomId": "atom-2",
+        "state": "UNRESOLVED",
+        "supportSpanIds": [],
+        "attackSpanIds": [],
+        "reason": "The claimed support-only position did not cite support for every obligation. All provided evidence consistently shows that the USA, UK, Australia, and EU have not included the NDF in their official list of terrorist groups."
+      },
+      {
+        "atomId": "atom-3",
+        "state": "UNRESOLVED",
+        "supportSpanIds": [],
+        "attackSpanIds": [],
+        "reason": "The claimed support-only position did not cite support for every obligation. All provided evidence consistently shows that the USA, UK, Australia, and EU have not included the NDF in their official list of terrorist groups."
+      },
+      {
+        "atomId": "atom-4",
+        "state": "UNRESOLVED",
+        "supportSpanIds": [],
+        "attackSpanIds": [],
+        "reason": "The claimed support-only position did not cite support for every obligation. All provided evidence consistently shows that the USA, UK, Australia, and EU have not included the NDF in their official list of terrorist groups."
+      },
+      {
+        "atomId": "atom-5",
+        "state": "UNRESOLVED",
+        "supportSpanIds": [],
+        "attackSpanIds": [],
+        "reason": "The claimed support-only position did not cite support for every obligation. All provided evidence consistently shows that the USA, UK, Australia, and EU have not included the NDF in their official list of terrorist groups."
+      }
+    ],
+    "materialOmission": {
+      "detected": false,
+      "supportSpanIds": [],
+      "contextSpanIds": [],
+      "reason": "No material omission was established."
+    },
+    "provider": "ollama",
+    "model": "qwen2.5:7b"
+  },
   "linguistics": {
     "schemaVersion": 2,
     "claimAnalysis": {
@@ -2175,6 +2259,7 @@
     "positions": {
       "supportPosition": false,
       "attackPosition": false,
+      "materialOmissionPosition": false,
       "supportObligationIds": [],
       "attackObligationIds": [],
       "unresolvedObligationIds": [
@@ -2183,7 +2268,8 @@
         "atom-3",
         "atom-4",
         "atom-5"
-      ]
+      ],
+      "groundedClaimPosition": "INSUFFICIENT"
     },
     "obligations": [
       {
@@ -2265,7 +2351,8 @@
       }
     ],
     "ruleTrace": [
-      "AND support requires support for every obligation; AND attack requires an attack on any obligation.",
+      "The provenance-constrained claim audit sets the overall evidence position; deterministic aggregation maps that position to status.",
+      "Grounded claim position: INSUFFICIENT; The claimed support-only position did not cite support for every obligation. All provided evidence consistently shows that the USA, UK, Australia, and EU have not included the NDF in their official list of terrorist groups.",
       "Support position: no; attack position: no.",
       "Final verdict: NOT_ENOUGH_EVIDENCE."
     ]
@@ -2273,7 +2360,14 @@
   "recordedWith": {
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
-    "nliModel": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    "nliModel": "qwen2.5:7b",
     "linguisticsModel": "en_core_web_sm@3.8.0"
+  },
+  "timingsSeconds": {
+    "decomposition": 28.474,
+    "retrievalAndLinguistics": 1.635,
+    "evidenceAudit": 17.75,
+    "aggregation": 0.042,
+    "total": 47.903
   }
 }

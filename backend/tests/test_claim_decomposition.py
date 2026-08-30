@@ -73,6 +73,76 @@ def test_repeated_source_text_warns_but_is_valid() -> None:
     assert [warning.code for warning in result.warnings] == ["REUSED_SOURCE_TEXT"]
 
 
+def test_broad_obligation_is_removed_when_it_duplicates_all_components() -> None:
+    claim = "The pandemic lost 22 million jobs and 11.6 million jobs were added back."
+    result = parse_decomposition(
+        claim,
+        envelope(
+            {
+                "composition": "AND",
+                "obligations": [
+                    obligation(claim, claim, "NUMERIC_CONSTRAINT"),
+                    obligation(
+                        "The pandemic lost 22 million jobs.",
+                        "The pandemic lost 22 million jobs",
+                        "NUMERIC_CONSTRAINT",
+                    ),
+                    obligation(
+                        "11.6 million jobs were added back.",
+                        "11.6 million jobs were added back",
+                        "NUMERIC_CONSTRAINT",
+                    ),
+                ],
+            }
+        ),
+        "test-model",
+    )
+
+    assert [atom.id for atom in result.atoms] == ["atom-1", "atom-2"]
+    assert [atom.text for atom in result.atoms] == [
+        "The pandemic lost 22 million jobs.",
+        "11.6 million jobs were added back.",
+    ]
+    assert [warning.code for warning in result.warnings] == [
+        "REDUNDANT_COVERING_OBLIGATION_REMOVED"
+    ]
+
+
+def test_broad_obligation_is_kept_when_components_omit_a_list_item() -> None:
+    claim = (
+        "Illegal drug, border crossings, and human smuggling activities have "
+        "decreased where barriers are deployed."
+    )
+    result = parse_decomposition(
+        claim,
+        envelope(
+            {
+                "composition": "AND",
+                "obligations": [
+                    obligation(claim, claim, "CAUSAL_RELATION"),
+                    obligation(
+                        "Border crossings have decreased where barriers are deployed.",
+                        claim,
+                        "CAUSAL_RELATION",
+                    ),
+                    obligation(
+                        "Human smuggling activities have decreased where barriers are deployed.",
+                        claim,
+                        "CAUSAL_RELATION",
+                    ),
+                ],
+            }
+        ),
+        "test-model",
+    )
+
+    assert len(result.atoms) == 3
+    assert result.atoms[0].text == claim
+    assert "REDUNDANT_COVERING_OBLIGATION_REMOVED" not in {
+        warning.code for warning in result.warnings
+    }
+
+
 def test_source_text_locates_despite_punctuation_the_model_added() -> None:
     """A full stop the claim does not have there must not discard a good split."""
     claim = "Most deaths originated from bacterial pneumonia caused by face masks."
@@ -340,3 +410,15 @@ def test_prompt_keeps_comparisons_in_one_self_contained_obligation() -> None:
         in instructions
     )
     assert "Nigeria" not in instructions
+
+
+def test_prompt_keeps_qualifiers_with_the_proposition_they_modify() -> None:
+    instructions = claim_decomposition.DECOMPOSITION_INSTRUCTIONS
+    normalized = " ".join(instructions.split())
+    assert "Do not split modifiers or constraints away" in instructions
+    assert "Split only propositions whose truth values can vary independently" in normalized
+    city_example = instructions.split("Claim: The city cut emissions by 20% in 2023.", 1)[1]
+    city_example = city_example.split("Claim: ExampleCo", 1)[0]
+    assert '"composition":"SINGLE"' in city_example
+    assert city_example.count('"text"') == 1
+    assert "by 20% in 2023" in city_example

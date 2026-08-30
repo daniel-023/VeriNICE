@@ -10,13 +10,13 @@
       "sourceText": "Most deaths in the 1918 influenza pandemic originated from bacterial pneumonia",
       "start": 0,
       "end": 78,
-      "role": "CORE"
+      "role": "CAUSAL_RELATION"
     },
     {
       "id": "atom-2",
       "text": "Bacterial pneumonia was caused by face masks.",
-      "sourceText": "bacterial pneumonia caused by face masks",
-      "start": 59,
+      "sourceText": "originated from bacterial pneumonia caused by face masks",
+      "start": 43,
       "end": 99,
       "role": "CAUSAL_RELATION"
     },
@@ -34,52 +34,52 @@
       "atomId": "atom-1",
       "spans": [
         {
-          "id": "doc-1fd8789c830b::sentence-12",
-          "documentId": "doc-1fd8789c830b",
-          "text": "The majority of deaths in the 1918–1919 influenza pandemic likely resulted directly from secondary bacterial pneumonia caused by common upper respiratory–tract bacteria. ",
-          "start": 1122,
-          "end": 1292,
-          "context": "Conclusions\n The majority of deaths in the 1918–1919 influenza pandemic likely resulted directly from secondary bacterial pneumonia caused by common upper respiratory–tract bacteria.  Less substantial data from the subsequent 1957 and 1968 pandemics are consistent with these findings. "
-        },
-        {
-          "id": "doc-1fd8789c830b::sentence-129",
+          "id": "doc-1fd8789c830b::sentence-135",
           "documentId": "doc-1fd8789c830b",
           "text": "In the most recent influenza pandemic that did not involve the use of antibiotics to suppress bacteria (the 1918–1919 pandemic), histological and bacteriologic evidence suggests that the vast majority of influenza deaths resulted from secondary bacterial pneumonia. ",
-          "start": 21614,
-          "end": 21880,
+          "start": 22234,
+          "end": 22500,
           "context": "DISCUSSION\n In the most recent influenza pandemic that did not involve the use of antibiotics to suppress bacteria (the 1918–1919 pandemic), histological and bacteriologic evidence suggests that the vast majority of influenza deaths resulted from secondary bacterial pneumonia.  Compelling evidence for this conclusion includes the examination of 58 recut and restained autopsy specimens that showed changes fully consistent with classical descriptions of extensive bacterial pneumonia [25], culture results from numerous international autopsy series, and consistent epidemiologic and clinical findings (table 3).\n"
         },
         {
-          "id": "doc-1fd8789c830b::sentence-24",
+          "id": "doc-1fd8789c830b::sentence-18",
+          "documentId": "doc-1fd8789c830b",
+          "text": "The majority of deaths in the 1918–1919 influenza pandemic likely resulted directly from secondary bacterial pneumonia caused by common upper respiratory–tract bacteria. ",
+          "start": 1742,
+          "end": 1912,
+          "context": "Conclusions\n The majority of deaths in the 1918–1919 influenza pandemic likely resulted directly from secondary bacterial pneumonia caused by common upper respiratory–tract bacteria.  Less substantial data from the subsequent 1957 and 1968 pandemics are consistent with these findings. "
+        },
+        {
+          "id": "doc-1fd8789c830b::sentence-157",
+          "documentId": "doc-1fd8789c830b",
+          "text": "The pneumonia deaths during the influenza pandemic in 1918 proved so highly similar, pathologically, to the then-recent pneumonia deaths from the measles epidemics that noted experts considered them to be the result of one newly emerging disease: epidemic bacterial pneumonia precipitated by prevalent respiratory tract agents [20, 33, 63].\n",
+          "start": 25746,
+          "end": 26087,
+          "context": "This view was dramatically supported in 1917–1918 by the measles epidemics in US Army training camps, in which most deaths resulted from streptococcal pneumonia or, less commonly, pneumococcal pneumonia [20, 30, 32].  The pneumonia deaths during the influenza pandemic in 1918 proved so highly similar, pathologically, to the then-recent pneumonia deaths from the measles epidemics that noted experts considered them to be the result of one newly emerging disease: epidemic bacterial pneumonia precipitated by prevalent respiratory tract agents [20, 33, 63].\n The question of whether the pathogenesis of severe influenza-associated pneumonia was primarily viral (i.e., assumed to be an unknown etiologic agent in 1918) or a combination of viral and bacterial agents was carefully considered by pathologists in 1918–1919, without definitive resolution [26, 33]. "
+        },
+        {
+          "id": "doc-1fd8789c830b::sentence-30",
           "documentId": "doc-1fd8789c830b",
           "text": "Based on contemporary and modern evidence, we conclude here that influenza A virus infection in conjunction with bacterial infection led to most of the deaths during the 1918–1919 pandemic.\n",
-          "start": 3189,
-          "end": 3379,
+          "start": 3809,
+          "end": 3999,
           "context": "With the recent reconstruction of the 1918 pandemic influenza virus, investigators have begun to examine why it was so highly fatal [6, 7].  Based on contemporary and modern evidence, we conclude here that influenza A virus infection in conjunction with bacterial infection led to most of the deaths during the 1918–1919 pandemic.\n METHODS\n"
         },
         {
-          "id": "doc-4efdcbc2c487::sentence-12",
-          "documentId": "doc-4efdcbc2c487",
-          "text": "Conclusions: pH1N1 influenza seasons were characterized by marked increases in invasive S. aureus and S. pyogenes infections among children and adults, with the highest increase in S. pneumoniae BSI among children.\n",
-          "start": 1790,
-          "end": 2005,
-          "context": "The pH1N1/2009-2010 influenza outbreak was characterized by (1) higher rates of S. pneumoniae bacteremia among children but not among adults (IRRs for S. pneumoniae BSI among children aged 0-4 years during the summer and winter of 2009-2010 were 14.8 [95% confidence interval {CI}, 5-43.7] and 6.5 [95% CI, 3.6-11.8], compared with 2006-2009 summers and influenza-active winter weeks, respectively [P < .0001]), higher rates of S. aureus BSI in all age groups (IRRs during the summer and winter of 2009-2010 were 1.6 [95% CI, 1.4-1.9] and 1.5 [95% CI, 1.2-1.7], compared with 2006-2009 summers and influenza-active weeks, respectively [P < .0001]), higher rates of S. pyogenes BSI during 2009-2010 influenza season (IRR 2.7 [95% CI, 1.6-4.6] and 3.3 [95% CI, 1.9-5.8] during the summer and winter of 2009-2010, compared with 2006-2009 summers and influenza-active weeks, respectively [P < .0001]).\n Conclusions: pH1N1 influenza seasons were characterized by marked increases in invasive S. aureus and S. pyogenes infections among children and adults, with the highest increase in S. pneumoniae BSI among children.\n Similar articles\n"
+          "id": "doc-1fd8789c830b::sentence-56",
+          "documentId": "doc-1fd8789c830b",
+          "text": "Although the cause of influenza was disputed in 1918, there was almost universal agreement among experts [e.g., 20, 27–33] that deaths were virtually never caused by the unidentified etiologic agent itself, but resulted directly from severe secondary pneumonia caused by well-known bacterial “pneumopathogens” that colonized the upper respiratory tract (predominantly pneumococci, streptococci, and staphylococci). ",
+          "start": 9089,
+          "end": 9504,
+          "context": "Published pathologic and/or bacteriologic findings from the 1918–1919 influenza pandemic\n Although the cause of influenza was disputed in 1918, there was almost universal agreement among experts [e.g., 20, 27–33] that deaths were virtually never caused by the unidentified etiologic agent itself, but resulted directly from severe secondary pneumonia caused by well-known bacterial “pneumopathogens” that colonized the upper respiratory tract (predominantly pneumococci, streptococci, and staphylococci).  Without this secondary bacterial pneumonia, experts generally believed that most patients would have recovered [20]. "
         },
         {
-          "id": "doc-4efdcbc2c487::sentence-1",
-          "documentId": "doc-4efdcbc2c487",
-          "text": "Invasive bacterial infections in relation to influenza outbreaks, 2006-2010\n",
-          "start": 0,
-          "end": 76,
-          "context": "Invasive bacterial infections in relation to influenza outbreaks, 2006-2010\n - PMID: 22021918\n"
-        },
-        {
-          "id": "doc-4efdcbc2c487::sentence-4",
-          "documentId": "doc-4efdcbc2c487",
-          "text": "Invasive bacterial infections in relation to influenza outbreaks, 2006-2010\n",
-          "start": 119,
-          "end": 195,
-          "context": "- DOI: 10.1093/cid/cir726\n Invasive bacterial infections in relation to influenza outbreaks, 2006-2010\n Abstract\n"
+          "id": "doc-1fd8789c830b::sentence-15",
+          "documentId": "doc-1fd8789c830b",
+          "text": "The postmortem samples we examined from people who died of influenza during 1918–1919 uniformly exhibited severe changes indicative of bacterial pneumonia. ",
+          "start": 1356,
+          "end": 1512,
+          "context": "Results\n The postmortem samples we examined from people who died of influenza during 1918–1919 uniformly exhibited severe changes indicative of bacterial pneumonia.  Bacteriologic and histopathologic results from published autopsy series clearly and consistently implicated secondary bacterial pneumonia caused by common upper respiratory–tract bacteria in most influenza fatalities.\n"
         }
       ]
     },
@@ -87,52 +87,52 @@
       "atomId": "atom-2",
       "spans": [
         {
-          "id": "doc-1fd8789c830b::sentence-54",
+          "id": "doc-1fd8789c830b::sentence-4",
           "documentId": "doc-1fd8789c830b",
-          "text": "Bacteria were commonly observed in cases of pneumonia caused by each of these pathogens. ",
-          "start": 9375,
-          "end": 9464,
-          "context": "As described above, in cases for which a single lung pathogen was recovered from culture, the anatomical-pathological type of the pneumonia usually corresponded to what was expected.  Bacteria were commonly observed in cases of pneumonia caused by each of these pathogens.  Such findings reflect the characteristic pathology of bacterial pneumonia [10, 25, 27].\n"
-        },
-        {
-          "id": "doc-1fd8789c830b::sentence-50",
-          "documentId": "doc-1fd8789c830b",
-          "text": "Although the cause of influenza was disputed in 1918, there was almost universal agreement among experts [e.g., 20, 27–33] that deaths were virtually never caused by the unidentified etiologic agent itself, but resulted directly from severe secondary pneumonia caused by well-known bacterial “pneumopathogens” that colonized the upper respiratory tract (predominantly pneumococci, streptococci, and staphylococci). ",
-          "start": 8469,
-          "end": 8884,
-          "context": "Published pathologic and/or bacteriologic findings from the 1918–1919 influenza pandemic\n Although the cause of influenza was disputed in 1918, there was almost universal agreement among experts [e.g., 20, 27–33] that deaths were virtually never caused by the unidentified etiologic agent itself, but resulted directly from severe secondary pneumonia caused by well-known bacterial “pneumopathogens” that colonized the upper respiratory tract (predominantly pneumococci, streptococci, and staphylococci).  Without this secondary bacterial pneumonia, experts generally believed that most patients would have recovered [20]. "
+          "text": "Evidence 1: Did the National Institute of Allergy and Infectious Diseases undertake a study linking masks to bacterial pneumonia? ",
+          "start": 210,
+          "end": 340,
+          "context": "Source URL: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2599911/\n Evidence 1: Did the National Institute of Allergy and Infectious Diseases undertake a study linking masks to bacterial pneumonia?  NIAID told AFP in a statement: “The 2008 study does not mention masks and had nothing to do with masks” Instead, the study “analyzed data from fatal 1918 infections and showed that the majority of cases were associated with secondary bacterial pneumonias,”\n\n"
         },
         {
           "id": "doc-1fd8789c830b::sentence-56",
           "documentId": "doc-1fd8789c830b",
+          "text": "Although the cause of influenza was disputed in 1918, there was almost universal agreement among experts [e.g., 20, 27–33] that deaths were virtually never caused by the unidentified etiologic agent itself, but resulted directly from severe secondary pneumonia caused by well-known bacterial “pneumopathogens” that colonized the upper respiratory tract (predominantly pneumococci, streptococci, and staphylococci). ",
+          "start": 9089,
+          "end": 9504,
+          "context": "Published pathologic and/or bacteriologic findings from the 1918–1919 influenza pandemic\n Although the cause of influenza was disputed in 1918, there was almost universal agreement among experts [e.g., 20, 27–33] that deaths were virtually never caused by the unidentified etiologic agent itself, but resulted directly from severe secondary pneumonia caused by well-known bacterial “pneumopathogens” that colonized the upper respiratory tract (predominantly pneumococci, streptococci, and staphylococci).  Without this secondary bacterial pneumonia, experts generally believed that most patients would have recovered [20]. "
+        },
+        {
+          "id": "doc-1fd8789c830b::sentence-16",
+          "documentId": "doc-1fd8789c830b",
+          "text": "Bacteriologic and histopathologic results from published autopsy series clearly and consistently implicated secondary bacterial pneumonia caused by common upper respiratory–tract bacteria in most influenza fatalities.\n",
+          "start": 1512,
+          "end": 1730,
+          "context": "The postmortem samples we examined from people who died of influenza during 1918–1919 uniformly exhibited severe changes indicative of bacterial pneumonia.  Bacteriologic and histopathologic results from published autopsy series clearly and consistently implicated secondary bacterial pneumonia caused by common upper respiratory–tract bacteria in most influenza fatalities.\n Conclusions\n"
+        },
+        {
+          "id": "doc-1fd8789c830b::sentence-18",
+          "documentId": "doc-1fd8789c830b",
+          "text": "The majority of deaths in the 1918–1919 influenza pandemic likely resulted directly from secondary bacterial pneumonia caused by common upper respiratory–tract bacteria. ",
+          "start": 1742,
+          "end": 1912,
+          "context": "Conclusions\n The majority of deaths in the 1918–1919 influenza pandemic likely resulted directly from secondary bacterial pneumonia caused by common upper respiratory–tract bacteria.  Less substantial data from the subsequent 1957 and 1968 pandemics are consistent with these findings. "
+        },
+        {
+          "id": "doc-1fd8789c830b::sentence-62",
+          "documentId": "doc-1fd8789c830b",
           "text": "Surprising aspects of 1918–1919 influenza-associated pneumonia fatalities included the following: (1) the high incidence of secondary pneumonia associated with standard bacterial pneumopathogens; (2) the frequency of pneumonia caused by both mixed pneumopathogens (particularly pneumococci and streptococci) and by other mixed upper respiratory–tract bacteria; (3) the aggressiveness of bacterial invasion of the lung, often resulting in “phenomenal” [30] numbers of bacteria and polymorphonuclear neutrophils, as well as extensive necrosis, vasculitis, and hemorrhage [20, 32, 33]; and (4) the predominance of bronchopneumonia and lobular pneumonia, as opposed to lobar pneumonia, consistent with diffuse predisposing bronchiolar damage [27-33].\n",
-          "start": 9552,
-          "end": 10299,
+          "start": 10172,
+          "end": 10919,
           "context": "Such findings reflect the characteristic pathology of bacterial pneumonia [10, 25, 27].\n Surprising aspects of 1918–1919 influenza-associated pneumonia fatalities included the following: (1) the high incidence of secondary pneumonia associated with standard bacterial pneumopathogens; (2) the frequency of pneumonia caused by both mixed pneumopathogens (particularly pneumococci and streptococci) and by other mixed upper respiratory–tract bacteria; (3) the aggressiveness of bacterial invasion of the lung, often resulting in “phenomenal” [30] numbers of bacteria and polymorphonuclear neutrophils, as well as extensive necrosis, vasculitis, and hemorrhage [20, 32, 33]; and (4) the predominance of bronchopneumonia and lobular pneumonia, as opposed to lobar pneumonia, consistent with diffuse predisposing bronchiolar damage [27-33].\n Contemporary views of the natural history of severe influenza during the 1918–1919 influenza pandemic\n"
         },
         {
-          "id": "doc-4efdcbc2c487::sentence-84",
+          "id": "doc-4efdcbc2c487::sentence-4",
           "documentId": "doc-4efdcbc2c487",
-          "text": "A Perfect Storm: Increased Colonization and Failure of Vaccination Leads to Severe Secondary Bacterial Infection in Influenza Virus-Infected Obese Mice.mBio. ",
-          "start": 4263,
-          "end": 4421,
-          "context": "-\n A Perfect Storm: Increased Colonization and Failure of Vaccination Leads to Severe Secondary Bacterial Infection in Influenza Virus-Infected Obese Mice.mBio.  2017 Sep 19;8(5):e00889-17. "
-        },
-        {
-          "id": "doc-4efdcbc2c487::sentence-8",
-          "documentId": "doc-4efdcbc2c487",
-          "text": "The age-specific incidence of BSI due to Streptococcus pneumoniae, Staphylococcus aureus, and Streptococcus pyogenes was determined. ",
-          "start": 512,
-          "end": 645,
-          "context": "Methods: Eight hospitals, accounting for 33% of hospitalizations in Israel, provided data on BSI during 2006-2010.  The age-specific incidence of BSI due to Streptococcus pneumoniae, Staphylococcus aureus, and Streptococcus pyogenes was determined.  BSI incidence rate ratios (IRRs) during seasonal and pH1N1 influenza seasons were assessed.\n"
-        },
-        {
-          "id": "doc-4efdcbc2c487::sentence-12",
-          "documentId": "doc-4efdcbc2c487",
-          "text": "Conclusions: pH1N1 influenza seasons were characterized by marked increases in invasive S. aureus and S. pyogenes infections among children and adults, with the highest increase in S. pneumoniae BSI among children.\n",
-          "start": 1790,
-          "end": 2005,
-          "context": "The pH1N1/2009-2010 influenza outbreak was characterized by (1) higher rates of S. pneumoniae bacteremia among children but not among adults (IRRs for S. pneumoniae BSI among children aged 0-4 years during the summer and winter of 2009-2010 were 14.8 [95% confidence interval {CI}, 5-43.7] and 6.5 [95% CI, 3.6-11.8], compared with 2006-2009 summers and influenza-active winter weeks, respectively [P < .0001]), higher rates of S. aureus BSI in all age groups (IRRs during the summer and winter of 2009-2010 were 1.6 [95% CI, 1.4-1.9] and 1.5 [95% CI, 1.2-1.7], compared with 2006-2009 summers and influenza-active weeks, respectively [P < .0001]), higher rates of S. pyogenes BSI during 2009-2010 influenza season (IRR 2.7 [95% CI, 1.6-4.6] and 3.3 [95% CI, 1.9-5.8] during the summer and winter of 2009-2010, compared with 2006-2009 summers and influenza-active weeks, respectively [P < .0001]).\n Conclusions: pH1N1 influenza seasons were characterized by marked increases in invasive S. aureus and S. pyogenes infections among children and adults, with the highest increase in S. pneumoniae BSI among children.\n Similar articles\n"
+          "text": "Evidence 1: Is wearing a mask an increasing factor or a direct cause of secondary bacterial pneumonia? ",
+          "start": 198,
+          "end": 301,
+          "context": "Source URL: https://pubmed.ncbi.nlm.nih.gov/22021918/\n Evidence 1: Is wearing a mask an increasing factor or a direct cause of secondary bacterial pneumonia?  there is no evidence to support this and it has not been mentioned in any studies.\n\n"
         }
       ]
     },
@@ -140,52 +140,52 @@
       "atomId": "atom-3",
       "spans": [
         {
-          "id": "doc-4efdcbc2c487::sentence-52",
+          "id": "doc-4efdcbc2c487::sentence-58",
           "documentId": "doc-4efdcbc2c487",
           "text": "Staphylococcus aureus Bacteremia in Patients Infected With COVID-19: A Case Series.Open Forum Infect Dis. ",
-          "start": 3228,
-          "end": 3334,
+          "start": 3635,
+          "end": 3741,
           "context": "-\n Staphylococcus aureus Bacteremia in Patients Infected With COVID-19: A Case Series.Open Forum Infect Dis.  2020 Nov 12;7(11):ofaa518. "
         },
         {
-          "id": "doc-1fd8789c830b::sentence-161",
+          "id": "doc-1fd8789c830b::sentence-4",
           "documentId": "doc-1fd8789c830b",
-          "text": "We believe that the weight of 90 years of evidence (table 3), including the exceptional but largely forgotten work of an earlier generation of pathologists, indicates that the vast majority of pulmonary deaths from pandemic influenza viruses have resulted from poorly understood interactions between the infecting virus and secondary infections due to bacteria that colonize the upper respiratory tract. ",
-          "start": 27668,
-          "end": 28072,
-          "context": "These include viral neuraminidase (NA)–induced exposure of bacterial adherence receptors; bacterial NA-induced upregulation of influenza infection; interleukin 10–induced susceptibility to pneumococci and possibly staphylococci [76]; interferon type 1 effects [77]; viral PB1-F2 effects, the proaptotic and mitochondriopathic effects of which are correlated with enhanced bacterial infection [78]; and virus-induced desensitization to bacterial Toll-like receptor ligands [79].\n We believe that the weight of 90 years of evidence (table 3), including the exceptional but largely forgotten work of an earlier generation of pathologists, indicates that the vast majority of pulmonary deaths from pandemic influenza viruses have resulted from poorly understood interactions between the infecting virus and secondary infections due to bacteria that colonize the upper respiratory tract.  The data are consistent with a natural history in which the virus, highly cytopathic to bronchial and bronchiolar epithelial cells, extends rapidly and diffusely down the respiratory tree, damages the epithelium sufficiently to break down the mucociliary barrier to bacterial spread, and if able to gain access to the distal respiratory tree—perhaps on the basis of receptor affinity [80]—creates both a direct pathway for secondary bacterial spread and an environment (cell necrosis and proteinaceous edema fluid) favorable to bacterial growth. "
+          "text": "Evidence 1: Did the National Institute of Allergy and Infectious Diseases undertake a study linking masks to bacterial pneumonia? ",
+          "start": 210,
+          "end": 340,
+          "context": "Source URL: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2599911/\n Evidence 1: Did the National Institute of Allergy and Infectious Diseases undertake a study linking masks to bacterial pneumonia?  NIAID told AFP in a statement: “The 2008 study does not mention masks and had nothing to do with masks” Instead, the study “analyzed data from fatal 1918 infections and showed that the majority of cases were associated with secondary bacterial pneumonias,”\n\n"
         },
         {
-          "id": "doc-1fd8789c830b::sentence-50",
+          "id": "doc-1fd8789c830b::sentence-20",
+          "documentId": "doc-1fd8789c830b",
+          "text": "If severe pandemic influenza is largely a problem of viral-bacterial copathogenesis, pandemic planning needs to go beyond addressing the viral cause alone (e.g., influenza vaccines and antiviral drugs). ",
+          "start": 2014,
+          "end": 2217,
+          "context": "Less substantial data from the subsequent 1957 and 1968 pandemics are consistent with these findings.  If severe pandemic influenza is largely a problem of viral-bacterial copathogenesis, pandemic planning needs to go beyond addressing the viral cause alone (e.g., influenza vaccines and antiviral drugs).  Prevention, diagnosis, prophylaxis, and treatment of secondary bacterial pneumonia, as well as stockpiling of antibiotics and bacterial vaccines, should also be high priorities for pandemic planning.\n"
+        },
+        {
+          "id": "doc-1fd8789c830b::sentence-26",
+          "documentId": "doc-1fd8789c830b",
+          "text": "An important question related to pandemic preparedness remains unanswered: what killed people during the 1918–1919 pandemic and subsequent influenza pandemics? ",
+          "start": 3100,
+          "end": 3260,
+          "context": "Extrapolation from 1918–1919 pandemic data to the current population and age profile has led United States government officials to plan for more than 1.9 million excess deaths during a severe pandemic [2].\n An important question related to pandemic preparedness remains unanswered: what killed people during the 1918–1919 pandemic and subsequent influenza pandemics?  In the present study, we have examined recut tissue specimens obtained during autopsy from 58 influenza victims in 1918–1919, and have reviewed epidemiologic, pathologic, and microbiologic data from published reports for 8398 postmortem examinations bearing on this question. "
+        },
+        {
+          "id": "doc-1fd8789c830b::sentence-56",
           "documentId": "doc-1fd8789c830b",
           "text": "Although the cause of influenza was disputed in 1918, there was almost universal agreement among experts [e.g., 20, 27–33] that deaths were virtually never caused by the unidentified etiologic agent itself, but resulted directly from severe secondary pneumonia caused by well-known bacterial “pneumopathogens” that colonized the upper respiratory tract (predominantly pneumococci, streptococci, and staphylococci). ",
-          "start": 8469,
-          "end": 8884,
+          "start": 9089,
+          "end": 9504,
           "context": "Published pathologic and/or bacteriologic findings from the 1918–1919 influenza pandemic\n Although the cause of influenza was disputed in 1918, there was almost universal agreement among experts [e.g., 20, 27–33] that deaths were virtually never caused by the unidentified etiologic agent itself, but resulted directly from severe secondary pneumonia caused by well-known bacterial “pneumopathogens” that colonized the upper respiratory tract (predominantly pneumococci, streptococci, and staphylococci).  Without this secondary bacterial pneumonia, experts generally believed that most patients would have recovered [20]. "
         },
         {
-          "id": "doc-1fd8789c830b::sentence-151",
-          "documentId": "doc-1fd8789c830b",
-          "text": "The pneumonia deaths during the influenza pandemic in 1918 proved so highly similar, pathologically, to the then-recent pneumonia deaths from the measles epidemics that noted experts considered them to be the result of one newly emerging disease: epidemic bacterial pneumonia precipitated by prevalent respiratory tract agents [20, 33, 63].\n",
-          "start": 25126,
-          "end": 25467,
-          "context": "This view was dramatically supported in 1917–1918 by the measles epidemics in US Army training camps, in which most deaths resulted from streptococcal pneumonia or, less commonly, pneumococcal pneumonia [20, 30, 32].  The pneumonia deaths during the influenza pandemic in 1918 proved so highly similar, pathologically, to the then-recent pneumonia deaths from the measles epidemics that noted experts considered them to be the result of one newly emerging disease: epidemic bacterial pneumonia precipitated by prevalent respiratory tract agents [20, 33, 63].\n The question of whether the pathogenesis of severe influenza-associated pneumonia was primarily viral (i.e., assumed to be an unknown etiologic agent in 1918) or a combination of viral and bacterial agents was carefully considered by pathologists in 1918–1919, without definitive resolution [26, 33]. "
-        },
-        {
-          "id": "doc-4efdcbc2c487::sentence-76",
+          "id": "doc-4efdcbc2c487::sentence-27",
           "documentId": "doc-4efdcbc2c487",
-          "text": "CXCR1/2 Antagonism Is Protective during Influenza and Post-Influenza Pneumococcal Infection.Front Immunol. ",
-          "start": 4031,
-          "end": 4138,
-          "context": "-\n CXCR1/2 Antagonism Is Protective during Influenza and Post-Influenza Pneumococcal Infection.Front Immunol.  2017 Dec 13;8:1799. "
-        },
-        {
-          "id": "doc-4efdcbc2c487::sentence-78",
-          "documentId": "doc-4efdcbc2c487",
-          "text": "doi: 10.3389/fimmu.2017.01799. ",
-          "start": 4158,
-          "end": 4189,
-          "context": "2017 Dec 13;8:1799.  doi: 10.3389/fimmu.2017.01799.  eCollection 2017. "
+          "text": "The changing epidemiology of Staphylococcus aureus bloodstream infection: a multinational population-based surveillance study.Clin Microbiol Infect. ",
+          "start": 2634,
+          "end": 2783,
+          "context": "-\n The changing epidemiology of Staphylococcus aureus bloodstream infection: a multinational population-based surveillance study.Clin Microbiol Infect.  2013 May;19(5):465-71. "
         }
       ]
     }
@@ -195,34 +195,40 @@
       "atomId": "atom-1",
       "relations": [
         {
-          "spanId": "doc-1fd8789c830b::sentence-12",
+          "spanId": "doc-1fd8789c830b::sentence-135",
           "documentId": "doc-1fd8789c830b",
-          "relation": "ENTAILMENT"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-1fd8789c830b::sentence-129",
+          "spanId": "doc-1fd8789c830b::sentence-18",
           "documentId": "doc-1fd8789c830b",
-          "relation": "ENTAILMENT"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-1fd8789c830b::sentence-24",
+          "spanId": "doc-1fd8789c830b::sentence-157",
           "documentId": "doc-1fd8789c830b",
-          "relation": "CONTRADICTION"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-4efdcbc2c487::sentence-12",
-          "documentId": "doc-4efdcbc2c487",
-          "relation": "NEUTRAL"
+          "spanId": "doc-1fd8789c830b::sentence-30",
+          "documentId": "doc-1fd8789c830b",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-4efdcbc2c487::sentence-1",
-          "documentId": "doc-4efdcbc2c487",
-          "relation": "NEUTRAL"
+          "spanId": "doc-1fd8789c830b::sentence-56",
+          "documentId": "doc-1fd8789c830b",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-4efdcbc2c487::sentence-4",
-          "documentId": "doc-4efdcbc2c487",
-          "relation": "NEUTRAL"
+          "spanId": "doc-1fd8789c830b::sentence-15",
+          "documentId": "doc-1fd8789c830b",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         }
       ]
     },
@@ -230,34 +236,40 @@
       "atomId": "atom-2",
       "relations": [
         {
-          "spanId": "doc-1fd8789c830b::sentence-54",
+          "spanId": "doc-1fd8789c830b::sentence-4",
           "documentId": "doc-1fd8789c830b",
-          "relation": "CONTRADICTION"
-        },
-        {
-          "spanId": "doc-1fd8789c830b::sentence-50",
-          "documentId": "doc-1fd8789c830b",
-          "relation": "CONTRADICTION"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
           "spanId": "doc-1fd8789c830b::sentence-56",
           "documentId": "doc-1fd8789c830b",
-          "relation": "CONTRADICTION"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-4efdcbc2c487::sentence-84",
-          "documentId": "doc-4efdcbc2c487",
-          "relation": "CONTRADICTION"
+          "spanId": "doc-1fd8789c830b::sentence-16",
+          "documentId": "doc-1fd8789c830b",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-4efdcbc2c487::sentence-8",
-          "documentId": "doc-4efdcbc2c487",
-          "relation": "CONTRADICTION"
+          "spanId": "doc-1fd8789c830b::sentence-18",
+          "documentId": "doc-1fd8789c830b",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-4efdcbc2c487::sentence-12",
+          "spanId": "doc-1fd8789c830b::sentence-62",
+          "documentId": "doc-1fd8789c830b",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-4efdcbc2c487::sentence-4",
           "documentId": "doc-4efdcbc2c487",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         }
       ]
     },
@@ -265,38 +277,90 @@
       "atomId": "atom-3",
       "relations": [
         {
-          "spanId": "doc-4efdcbc2c487::sentence-52",
+          "spanId": "doc-4efdcbc2c487::sentence-58",
           "documentId": "doc-4efdcbc2c487",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-1fd8789c830b::sentence-161",
+          "spanId": "doc-1fd8789c830b::sentence-4",
           "documentId": "doc-1fd8789c830b",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-1fd8789c830b::sentence-50",
+          "spanId": "doc-1fd8789c830b::sentence-20",
           "documentId": "doc-1fd8789c830b",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-1fd8789c830b::sentence-151",
+          "spanId": "doc-1fd8789c830b::sentence-26",
           "documentId": "doc-1fd8789c830b",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-4efdcbc2c487::sentence-76",
+          "spanId": "doc-1fd8789c830b::sentence-56",
+          "documentId": "doc-1fd8789c830b",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-4efdcbc2c487::sentence-27",
           "documentId": "doc-4efdcbc2c487",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-4efdcbc2c487::sentence-78",
-          "documentId": "doc-4efdcbc2c487",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         }
       ]
     }
   ],
+  "evidenceAudit": {
+    "claimPosition": {
+      "position": "INSUFFICIENT",
+      "supportSpanIds": [],
+      "attackSpanIds": [],
+      "contextSpanIds": [
+        "doc-1fd8789c830b::sentence-56",
+        "doc-1fd8789c830b::sentence-16",
+        "doc-1fd8789c830b::sentence-18",
+        "doc-1fd8789c830b::sentence-62",
+        "doc-4efdcbc2c487::sentence-27"
+      ],
+      "reason": "Evidence does not support the claim that bacterial pneumonia was caused by face masks or that Dr. Fauci knew about it. The evidence focuses on the role of bacterial pneumonia in the 1918 pandemic but does not link it to masks or Fauci's knowledge."
+    },
+    "obligations": [
+      {
+        "atomId": "atom-1",
+        "state": "UNRESOLVED",
+        "supportSpanIds": [],
+        "attackSpanIds": [],
+        "reason": "Evidence does not support the claim that bacterial pneumonia was caused by face masks or that Dr. Fauci knew about it. The evidence focuses on the role of bacterial pneumonia in the 1918 pandemic but does not link it to masks or Fauci's knowledge."
+      },
+      {
+        "atomId": "atom-2",
+        "state": "UNRESOLVED",
+        "supportSpanIds": [],
+        "attackSpanIds": [],
+        "reason": "Evidence does not support the claim that bacterial pneumonia was caused by face masks or that Dr. Fauci knew about it. The evidence focuses on the role of bacterial pneumonia in the 1918 pandemic but does not link it to masks or Fauci's knowledge."
+      },
+      {
+        "atomId": "atom-3",
+        "state": "UNRESOLVED",
+        "supportSpanIds": [],
+        "attackSpanIds": [],
+        "reason": "Evidence does not support the claim that bacterial pneumonia was caused by face masks or that Dr. Fauci knew about it. The evidence focuses on the role of bacterial pneumonia in the 1918 pandemic but does not link it to masks or Fauci's knowledge."
+      }
+    ],
+    "materialOmission": {
+      "detected": false,
+      "supportSpanIds": [],
+      "contextSpanIds": [],
+      "reason": "No material omission was established."
+    },
+    "provider": "ollama",
+    "model": "qwen2.5:7b"
+  },
   "linguistics": {
     "schemaVersion": 2,
     "claimAnalysis": {
@@ -1393,7 +1457,7 @@
       {
         "atomId": "atom-1",
         "analysisStatus": "complete",
-        "roleAudit": "MATCH",
+        "roleAudit": "MISMATCH",
         "subjects": [
           "Most deaths in the 1918 influenza pandemic"
         ],
@@ -1406,7 +1470,9 @@
         ],
         "modifierKinds": [],
         "entityLabels": [],
-        "warnings": []
+        "warnings": [
+          "ROLE_CUE_MISMATCH"
+        ]
       },
       {
         "atomId": "atom-2",
@@ -1452,46 +1518,34 @@
     "aggregationSchemaVersion": 1,
     "claimId": "averitec-dev-0089",
     "composition": "AND",
-    "verdict": "REFUTED",
+    "verdict": "NOT_ENOUGH_EVIDENCE",
     "positions": {
       "supportPosition": false,
-      "attackPosition": true,
-      "supportObligationIds": [
-        "atom-1"
-      ],
-      "attackObligationIds": [
-        "atom-1",
-        "atom-2"
-      ],
+      "attackPosition": false,
+      "materialOmissionPosition": false,
+      "supportObligationIds": [],
+      "attackObligationIds": [],
       "unresolvedObligationIds": [
+        "atom-1",
+        "atom-2",
         "atom-3"
-      ]
+      ],
+      "groundedClaimPosition": "INSUFFICIENT"
     },
     "obligations": [
       {
         "obligationId": "atom-1",
-        "state": "CONFLICTING",
-        "supportEdgeIds": [
-          "edge:SUPPORTS:evidence:doc-1fd8789c830b:doc-1fd8789c830b::sentence-12:obligation:averitec-dev-0089:atom-1",
-          "edge:SUPPORTS:evidence:doc-1fd8789c830b:doc-1fd8789c830b::sentence-129:obligation:averitec-dev-0089:atom-1"
-        ],
-        "attackEdgeIds": [
-          "edge:ATTACKS:evidence:doc-1fd8789c830b:doc-1fd8789c830b::sentence-24:obligation:averitec-dev-0089:atom-1"
-        ],
-        "neutralCandidateCount": 3
+        "state": "UNRESOLVED",
+        "supportEdgeIds": [],
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 6
       },
       {
         "obligationId": "atom-2",
-        "state": "REFUTED",
+        "state": "UNRESOLVED",
         "supportEdgeIds": [],
-        "attackEdgeIds": [
-          "edge:ATTACKS:evidence:doc-1fd8789c830b:doc-1fd8789c830b::sentence-54:obligation:averitec-dev-0089:atom-2",
-          "edge:ATTACKS:evidence:doc-1fd8789c830b:doc-1fd8789c830b::sentence-50:obligation:averitec-dev-0089:atom-2",
-          "edge:ATTACKS:evidence:doc-1fd8789c830b:doc-1fd8789c830b::sentence-56:obligation:averitec-dev-0089:atom-2",
-          "edge:ATTACKS:evidence:doc-4efdcbc2c487:doc-4efdcbc2c487::sentence-84:obligation:averitec-dev-0089:atom-2",
-          "edge:ATTACKS:evidence:doc-4efdcbc2c487:doc-4efdcbc2c487::sentence-8:obligation:averitec-dev-0089:atom-2"
-        ],
-        "neutralCandidateCount": 1
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 6
       },
       {
         "obligationId": "atom-3",
@@ -1502,6 +1556,26 @@
       }
     ],
     "warnings": [
+      {
+        "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
+        "message": "Obligation atom-1 has no supporting or attacking evidence."
+      },
+      {
+        "code": "ONLY_NEUTRAL_CANDIDATES",
+        "message": "Obligation atom-1 has only neutral retrieved candidates."
+      },
+      {
+        "code": "LINGUISTIC_AUDIT_WARNING",
+        "message": "Linguistic analysis for obligation atom-1 requires inspection; it does not change the verdict."
+      },
+      {
+        "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
+        "message": "Obligation atom-2 has no supporting or attacking evidence."
+      },
+      {
+        "code": "ONLY_NEUTRAL_CANDIDATES",
+        "message": "Obligation atom-2 has only neutral retrieved candidates."
+      },
       {
         "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
         "message": "Obligation atom-3 has no supporting or attacking evidence."
@@ -1516,15 +1590,23 @@
       }
     ],
     "ruleTrace": [
-      "AND support requires support for every obligation; AND attack requires an attack on any obligation.",
-      "Support position: no; attack position: yes.",
-      "Final verdict: REFUTED."
+      "The provenance-constrained claim audit sets the overall evidence position; deterministic aggregation maps that position to status.",
+      "Grounded claim position: INSUFFICIENT; Evidence does not support the claim that bacterial pneumonia was caused by face masks or that Dr. Fauci knew about it. The evidence focuses on the role of bacterial pneumonia in the 1918 pandemic but does not link it to masks or Fauci's knowledge.",
+      "Support position: no; attack position: no.",
+      "Final verdict: NOT_ENOUGH_EVIDENCE."
     ]
   },
   "recordedWith": {
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
-    "nliModel": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    "nliModel": "qwen2.5:7b",
     "linguisticsModel": "en_core_web_sm@3.8.0"
+  },
+  "timingsSeconds": {
+    "decomposition": 19.715,
+    "retrievalAndLinguistics": 1.924,
+    "evidenceAudit": 27.146,
+    "aggregation": 0.006,
+    "total": 48.797
   }
 }

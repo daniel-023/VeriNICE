@@ -1,12 +1,25 @@
 {
   "caseId": "averitec-dev-0392",
   "schemaVersion": 2,
-  "composition": "SINGLE",
-  "warnings": [],
+  "composition": "AND",
+  "warnings": [
+    {
+      "code": "REUSED_SOURCE_TEXT",
+      "message": "One sourceText span grounds more than one obligation."
+    }
+  ],
   "atoms": [
     {
       "id": "atom-1",
-      "text": "The sky has turned orange to blood red in several parts of the United States.",
+      "text": "The sky has turned orange in several parts of the United States.",
+      "sourceText": "The sky has turned orange to blood red in several parts of the United States.",
+      "start": 0,
+      "end": 77,
+      "role": "CORE"
+    },
+    {
+      "id": "atom-2",
+      "text": "The sky has turned blood red in several parts of the United States.",
       "sourceText": "The sky has turned orange to blood red in several parts of the United States.",
       "start": 0,
       "end": 77,
@@ -18,51 +31,104 @@
       "atomId": "atom-1",
       "spans": [
         {
-          "id": "doc-7d4923c19c25::sentence-43",
+          "id": "doc-4cbdb3ff10fa::sentence-4",
+          "documentId": "doc-4cbdb3ff10fa",
+          "text": "Evidence 1: Have there been reports of the sky tuning orange to blood red in parts of the USA? ",
+          "start": 249,
+          "end": 344,
+          "context": "Source URL: https://www.insider.com/oregon-california-smoke-turns-skies-apocalyptic-orange-photos-2020-9\n Evidence 1: Have there been reports of the sky tuning orange to blood red in parts of the USA?  Yes\n"
+        },
+        {
+          "id": "doc-7d4923c19c25::sentence-8",
+          "documentId": "doc-7d4923c19c25",
+          "text": "This causes the red and orange colored sky.\n\n",
+          "start": 703,
+          "end": 748,
+          "context": "If there a sufficient amount of smoke, Mie scattering will dominate over Rayleigh scattering, which is how light is primarily scattered in the atmosphere.  This causes the red and orange colored sky.\n\n RECOVERED SOURCE TEXT\n"
+        },
+        {
+          "id": "doc-149989fb127e::sentence-16",
+          "documentId": "doc-149989fb127e",
+          "text": "“Because the sun is low on the horizon, sunlight passes through more air at sunset and sunrise than during the day, when the sun is higher in the sky. More atmosphere means more molecules to scatter the violet and blue light away from your eyes. If the path is long enough, all of the blue and violet light scatters out of your line of sight. The other colors continue on their way to your eyes. This is why sunsets are often yellow, orange, and red.”\n",
+          "start": 1171,
+          "end": 1623,
+          "context": "Scattering also explains the colors of the sunrise and sunset, Ackerman says.\n “Because the sun is low on the horizon, sunlight passes through more air at sunset and sunrise than during the day, when the sun is higher in the sky. More atmosphere means more molecules to scatter the violet and blue light away from your eyes. If the path is long enough, all of the blue and violet light scatters out of your line of sight. The other colors continue on their way to your eyes. This is why sunsets are often yellow, orange, and red.”\n And because red has the longest wavelength of any visible light, the sun is red when it’s on the horizon, where its extremely long path through the atmosphere blocks all other colors.\n"
+        },
+        {
+          "id": "doc-7d4923c19c25::sentence-52",
           "documentId": "doc-7d4923c19c25",
           "text": "This causes the red and orange colored sky.\n",
-          "start": 4836,
-          "end": 4880,
+          "start": 5606,
+          "end": 5650,
           "context": "If there a sufficient amount of smoke, Mie scattering will dominate over Rayleigh scattering, which is how light is primarily scattered in the atmosphere.  This causes the red and orange colored sky.\n In the early afternoon, S-NPP flew over the region at near nadir at approximately 2:35pm AEDT on 31 December 2019. "
         },
         {
-          "id": "doc-7d4923c19c25::sentence-7",
+          "id": "doc-7d4923c19c25::sentence-16",
           "documentId": "doc-7d4923c19c25",
           "text": "The scene has been described as apocalyptic, with the sky literally turning dark orange and blood red. ",
-          "start": 448,
-          "end": 551,
+          "start": 1218,
+          "end": 1321,
           "context": "Over 4000 people were forced to seek refuge on the beach and even boats in the water yesterday as deadly blazes closed in.  The scene has been described as apocalyptic, with the sky literally turning dark orange and blood red.  In addition, there have been at least 2 confirmed fatalities as a result of this wildfire.\n"
         },
         {
           "id": "doc-4cbdb3ff10fa::sentence-16",
           "documentId": "doc-4cbdb3ff10fa",
-          "text": "That's a phenomenon called Mie scattering, and it's why skies turn orange and red due to wildfire smoke (it doesn't have to do with the color of the flames themselves).\n",
-          "start": 1660,
-          "end": 1829,
-          "context": "Particles from smoke, meanwhile — like volatile organic compounds, dust, and soot — are much larger than gas molecules, and they scatter light with longer wavelengths.  That's a phenomenon called Mie scattering, and it's why skies turn orange and red due to wildfire smoke (it doesn't have to do with the color of the flames themselves).\n From Washington to San Francisco, here are nine striking and apocalyptic images of the smoke-discolored skies.\n"
-        },
+          "text": "As hundreds of wildfires tore through Washington, California, and Oregon on Tuesday and Wednesday, their has smoke accumulated in the sky, casting many regions in creepy, apocalyptic shades of orange and red.\n",
+          "start": 1121,
+          "end": 1330,
+          "context": "Wickman isn't the only one referencing the end times this week.  As hundreds of wildfires tore through Washington, California, and Oregon on Tuesday and Wednesday, their has smoke accumulated in the sky, casting many regions in creepy, apocalyptic shades of orange and red.\n \"Welcome to Mordor,\" Blake Stearman tweeted from southern Oregon, alongside images of tangerine skies.\n"
+        }
+      ]
+    },
+    {
+      "atomId": "atom-2",
+      "spans": [
         {
-          "id": "doc-4cbdb3ff10fa::sentence-26",
+          "id": "doc-4cbdb3ff10fa::sentence-4",
           "documentId": "doc-4cbdb3ff10fa",
-          "text": "In the area around the Sumner Grade Fire in Sumner, Washington, a blood-red sky surrounded the setting sun.\n",
-          "start": 2839,
-          "end": 2947,
-          "context": "Just north of San Francisco, the town of Sausalito was also blanketed in orange.\n In the area around the Sumner Grade Fire in Sumner, Washington, a blood-red sky surrounded the setting sun.\n And in Seattle and Mercer Island, Washington, smoke from multiple brushfires turned the sunset over Lake Washington a dull purple.\n"
+          "text": "Evidence 1: Have there been reports of the sky tuning orange to blood red in parts of the USA? ",
+          "start": 249,
+          "end": 344,
+          "context": "Source URL: https://www.insider.com/oregon-california-smoke-turns-skies-apocalyptic-orange-photos-2020-9\n Evidence 1: Have there been reports of the sky tuning orange to blood red in parts of the USA?  Yes\n"
         },
         {
-          "id": "doc-149989fb127e::sentence-10",
-          "documentId": "doc-149989fb127e",
-          "text": "“Because the sun is low on the horizon, sunlight passes through more air at sunset and sunrise than during the day, when the sun is higher in the sky. More atmosphere means more molecules to scatter the violet and blue light away from your eyes. If the path is long enough, all of the blue and violet light scatters out of your line of sight. The other colors continue on their way to your eyes. This is why sunsets are often yellow, orange, and red.”\n",
-          "start": 834,
-          "end": 1286,
-          "context": "Scattering also explains the colors of the sunrise and sunset, Ackerman says.\n “Because the sun is low on the horizon, sunlight passes through more air at sunset and sunrise than during the day, when the sun is higher in the sky. More atmosphere means more molecules to scatter the violet and blue light away from your eyes. If the path is long enough, all of the blue and violet light scatters out of your line of sight. The other colors continue on their way to your eyes. This is why sunsets are often yellow, orange, and red.”\n And because red has the longest wavelength of any visible light, the sun is red when it’s on the horizon, where its extremely long path through the atmosphere blocks all other colors.\n"
+          "id": "doc-7d4923c19c25::sentence-16",
+          "documentId": "doc-7d4923c19c25",
+          "text": "The scene has been described as apocalyptic, with the sky literally turning dark orange and blood red. ",
+          "start": 1218,
+          "end": 1321,
+          "context": "Over 4000 people were forced to seek refuge on the beach and even boats in the water yesterday as deadly blazes closed in.  The scene has been described as apocalyptic, with the sky literally turning dark orange and blood red.  In addition, there have been at least 2 confirmed fatalities as a result of this wildfire.\n"
         },
         {
-          "id": "doc-149989fb127e::sentence-11",
+          "id": "doc-7d4923c19c25::sentence-8",
+          "documentId": "doc-7d4923c19c25",
+          "text": "This causes the red and orange colored sky.\n\n",
+          "start": 703,
+          "end": 748,
+          "context": "If there a sufficient amount of smoke, Mie scattering will dominate over Rayleigh scattering, which is how light is primarily scattered in the atmosphere.  This causes the red and orange colored sky.\n\n RECOVERED SOURCE TEXT\n"
+        },
+        {
+          "id": "doc-7d4923c19c25::sentence-5",
+          "documentId": "doc-7d4923c19c25",
+          "text": "The reason for the sky turning red is the way smoke particles scatter sunlight. ",
+          "start": 342,
+          "end": 422,
+          "context": "Evidence 1: Were the skies red just because of the flames/smoke?  The reason for the sky turning red is the way smoke particles scatter sunlight.  Smoke particles are fairly large and are better at scattering the longer (red) wavelengths of light, known as Mie scattering. "
+        },
+        {
+          "id": "doc-7d4923c19c25::sentence-52",
+          "documentId": "doc-7d4923c19c25",
+          "text": "This causes the red and orange colored sky.\n",
+          "start": 5606,
+          "end": 5650,
+          "context": "If there a sufficient amount of smoke, Mie scattering will dominate over Rayleigh scattering, which is how light is primarily scattered in the atmosphere.  This causes the red and orange colored sky.\n In the early afternoon, S-NPP flew over the region at near nadir at approximately 2:35pm AEDT on 31 December 2019. "
+        },
+        {
+          "id": "doc-149989fb127e::sentence-17",
           "documentId": "doc-149989fb127e",
           "text": "And because red has the longest wavelength of any visible light, the sun is red when it’s on the horizon, where its extremely long path through the atmosphere blocks all other colors.\n",
-          "start": 1286,
-          "end": 1470,
+          "start": 1623,
+          "end": 1807,
           "context": "“Because the sun is low on the horizon, sunlight passes through more air at sunset and sunrise than during the day, when the sun is higher in the sky. More atmosphere means more molecules to scatter the violet and blue light away from your eyes. If the path is long enough, all of the blue and violet light scatters out of your line of sight. The other colors continue on their way to your eyes. This is why sunsets are often yellow, orange, and red.”\n And because red has the longest wavelength of any visible light, the sun is red when it’s on the horizon, where its extremely long path through the atmosphere blocks all other colors.\n Tags: curiosities, weather"
         }
       ]
@@ -73,38 +139,118 @@
       "atomId": "atom-1",
       "relations": [
         {
-          "spanId": "doc-7d4923c19c25::sentence-43",
-          "documentId": "doc-7d4923c19c25",
-          "relation": "NEUTRAL"
+          "spanId": "doc-4cbdb3ff10fa::sentence-4",
+          "documentId": "doc-4cbdb3ff10fa",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-7d4923c19c25::sentence-7",
+          "spanId": "doc-7d4923c19c25::sentence-8",
           "documentId": "doc-7d4923c19c25",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-149989fb127e::sentence-16",
+          "documentId": "doc-149989fb127e",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-7d4923c19c25::sentence-52",
+          "documentId": "doc-7d4923c19c25",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-7d4923c19c25::sentence-16",
+          "documentId": "doc-7d4923c19c25",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
           "spanId": "doc-4cbdb3ff10fa::sentence-16",
           "documentId": "doc-4cbdb3ff10fa",
-          "relation": "NEUTRAL"
-        },
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        }
+      ]
+    },
+    {
+      "atomId": "atom-2",
+      "relations": [
         {
-          "spanId": "doc-4cbdb3ff10fa::sentence-26",
+          "spanId": "doc-4cbdb3ff10fa::sentence-4",
           "documentId": "doc-4cbdb3ff10fa",
-          "relation": "ENTAILMENT"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-149989fb127e::sentence-10",
-          "documentId": "doc-149989fb127e",
-          "relation": "NEUTRAL"
+          "spanId": "doc-7d4923c19c25::sentence-16",
+          "documentId": "doc-7d4923c19c25",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-149989fb127e::sentence-11",
+          "spanId": "doc-7d4923c19c25::sentence-8",
+          "documentId": "doc-7d4923c19c25",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-7d4923c19c25::sentence-5",
+          "documentId": "doc-7d4923c19c25",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-7d4923c19c25::sentence-52",
+          "documentId": "doc-7d4923c19c25",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-149989fb127e::sentence-17",
           "documentId": "doc-149989fb127e",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         }
       ]
     }
   ],
+  "evidenceAudit": {
+    "claimPosition": {
+      "position": "INSUFFICIENT",
+      "supportSpanIds": [],
+      "attackSpanIds": [],
+      "contextSpanIds": [],
+      "reason": "The claimed support-only position did not cite support for every obligation. The evidence supports the claim that the sky has turned orange in several parts of the United States due to fire smoke. While some evidence mentions blood red, it is consistent with the orange description and the mechanism of Mie scattering."
+    },
+    "obligations": [
+      {
+        "atomId": "atom-1",
+        "state": "UNRESOLVED",
+        "supportSpanIds": [],
+        "attackSpanIds": [],
+        "reason": "The claimed support-only position did not cite support for every obligation. The evidence supports the claim that the sky has turned orange in several parts of the United States due to fire smoke. While some evidence mentions blood red, it is consistent with the orange description and the mechanism of Mie scattering."
+      },
+      {
+        "atomId": "atom-2",
+        "state": "UNRESOLVED",
+        "supportSpanIds": [],
+        "attackSpanIds": [],
+        "reason": "The claimed support-only position did not cite support for every obligation. The evidence supports the claim that the sky has turned orange in several parts of the United States due to fire smoke. While some evidence mentions blood red, it is consistent with the orange description and the mechanism of Mie scattering."
+      }
+    ],
+    "materialOmission": {
+      "detected": false,
+      "supportSpanIds": [],
+      "contextSpanIds": [],
+      "reason": "No material omission was established."
+    },
+    "provider": "ollama",
+    "model": "qwen2.5:7b"
+  },
   "linguistics": {
     "schemaVersion": 2,
     "claimAnalysis": {
@@ -368,38 +514,38 @@
             "coreArguments": [
               {
                 "id": "atom-1-frame-1-argument-1",
-                "text": "orange to blood",
+                "text": "orange",
                 "start": 19,
-                "end": 34,
-                "role": "object_complement"
-              },
-              {
-                "id": "atom-1-frame-1-argument-2",
-                "text": "red in several parts of the United States",
-                "start": 35,
-                "end": 76,
+                "end": 25,
                 "role": "object_complement"
               }
             ],
             "adjuncts": [],
-            "otherModifiers": []
+            "otherModifiers": [
+              {
+                "id": "atom-1-frame-1-other-modifier-1",
+                "text": "in several parts of the United States",
+                "start": 26,
+                "end": 63
+              }
+            ]
           }
         ],
         "cues": [
           {
-            "id": "atom-1-cue-quantifier-42-49",
+            "id": "atom-1-cue-quantifier-29-36",
             "text": "several",
-            "start": 42,
-            "end": 49,
+            "start": 29,
+            "end": 36,
             "kind": "quantifier"
           }
         ],
         "entities": [
           {
-            "id": "atom-1-entity-gpe-59-76",
+            "id": "atom-1-entity-gpe-46-63",
             "text": "the United States",
-            "start": 59,
-            "end": 76,
+            "start": 46,
+            "end": 63,
             "label": "GPE"
           }
         ],
@@ -461,53 +607,20 @@
           },
           {
             "id": "atom-1-token-5",
-            "text": "to",
+            "text": "in",
             "start": 26,
             "end": 28,
-            "lemma": "to",
-            "pos": "ADP",
-            "tag": "IN",
-            "dependency": "prep",
-            "head": "orange"
-          },
-          {
-            "id": "atom-1-token-6",
-            "text": "blood",
-            "start": 29,
-            "end": 34,
-            "lemma": "blood",
-            "pos": "NOUN",
-            "tag": "NN",
-            "dependency": "pobj",
-            "head": "to"
-          },
-          {
-            "id": "atom-1-token-7",
-            "text": "red",
-            "start": 35,
-            "end": 38,
-            "lemma": "red",
-            "pos": "ADJ",
-            "tag": "JJ",
-            "dependency": "oprd",
-            "head": "turned"
-          },
-          {
-            "id": "atom-1-token-8",
-            "text": "in",
-            "start": 39,
-            "end": 41,
             "lemma": "in",
             "pos": "ADP",
             "tag": "IN",
             "dependency": "prep",
-            "head": "red"
+            "head": "turned"
           },
           {
-            "id": "atom-1-token-9",
+            "id": "atom-1-token-6",
             "text": "several",
-            "start": 42,
-            "end": 49,
+            "start": 29,
+            "end": 36,
             "lemma": "several",
             "pos": "ADJ",
             "tag": "JJ",
@@ -515,10 +628,10 @@
             "head": "parts"
           },
           {
-            "id": "atom-1-token-10",
+            "id": "atom-1-token-7",
             "text": "parts",
-            "start": 50,
-            "end": 55,
+            "start": 37,
+            "end": 42,
             "lemma": "part",
             "pos": "NOUN",
             "tag": "NNS",
@@ -526,10 +639,10 @@
             "head": "in"
           },
           {
-            "id": "atom-1-token-11",
+            "id": "atom-1-token-8",
             "text": "of",
-            "start": 56,
-            "end": 58,
+            "start": 43,
+            "end": 45,
             "lemma": "of",
             "pos": "ADP",
             "tag": "IN",
@@ -537,10 +650,10 @@
             "head": "parts"
           },
           {
-            "id": "atom-1-token-12",
+            "id": "atom-1-token-9",
             "text": "the",
-            "start": 59,
-            "end": 62,
+            "start": 46,
+            "end": 49,
             "lemma": "the",
             "pos": "DET",
             "tag": "DT",
@@ -548,10 +661,10 @@
             "head": "States"
           },
           {
-            "id": "atom-1-token-13",
+            "id": "atom-1-token-10",
             "text": "United",
-            "start": 63,
-            "end": 69,
+            "start": 50,
+            "end": 56,
             "lemma": "United",
             "pos": "PROPN",
             "tag": "NNP",
@@ -559,10 +672,10 @@
             "head": "States"
           },
           {
-            "id": "atom-1-token-14",
+            "id": "atom-1-token-11",
             "text": "States",
-            "start": 70,
-            "end": 76,
+            "start": 57,
+            "end": 63,
             "lemma": "States",
             "pos": "PROPN",
             "tag": "NNP",
@@ -570,10 +683,226 @@
             "head": "of"
           },
           {
-            "id": "atom-1-token-15",
+            "id": "atom-1-token-12",
             "text": ".",
-            "start": 76,
-            "end": 77,
+            "start": 63,
+            "end": 64,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "turned"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      },
+      {
+        "atomId": "atom-2",
+        "frames": [
+          {
+            "id": "atom-2-frame-1",
+            "predicate": {
+              "id": "atom-2-frame-1-predicate",
+              "text": "turned",
+              "start": 12,
+              "end": 18
+            },
+            "subjects": [
+              {
+                "id": "atom-2-frame-1-subject-1",
+                "text": "The sky",
+                "start": 0,
+                "end": 7
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-2-frame-1-argument-1",
+                "text": "blood",
+                "start": 19,
+                "end": 24,
+                "role": "direct_object"
+              },
+              {
+                "id": "atom-2-frame-1-argument-2",
+                "text": "red in several parts of the United States",
+                "start": 25,
+                "end": 66,
+                "role": "object_complement"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [
+          {
+            "id": "atom-2-cue-quantifier-32-39",
+            "text": "several",
+            "start": 32,
+            "end": 39,
+            "kind": "quantifier"
+          }
+        ],
+        "entities": [
+          {
+            "id": "atom-2-entity-gpe-49-66",
+            "text": "the United States",
+            "start": 49,
+            "end": 66,
+            "label": "GPE"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-2-token-0",
+            "text": "The",
+            "start": 0,
+            "end": 3,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "sky"
+          },
+          {
+            "id": "atom-2-token-1",
+            "text": "sky",
+            "start": 4,
+            "end": 7,
+            "lemma": "sky",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "nsubj",
+            "head": "turned"
+          },
+          {
+            "id": "atom-2-token-2",
+            "text": "has",
+            "start": 8,
+            "end": 11,
+            "lemma": "have",
+            "pos": "AUX",
+            "tag": "VBZ",
+            "dependency": "aux",
+            "head": "turned"
+          },
+          {
+            "id": "atom-2-token-3",
+            "text": "turned",
+            "start": 12,
+            "end": 18,
+            "lemma": "turn",
+            "pos": "VERB",
+            "tag": "VBN",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-2-token-4",
+            "text": "blood",
+            "start": 19,
+            "end": 24,
+            "lemma": "blood",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "dobj",
+            "head": "turned"
+          },
+          {
+            "id": "atom-2-token-5",
+            "text": "red",
+            "start": 25,
+            "end": 28,
+            "lemma": "red",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "oprd",
+            "head": "turned"
+          },
+          {
+            "id": "atom-2-token-6",
+            "text": "in",
+            "start": 29,
+            "end": 31,
+            "lemma": "in",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "red"
+          },
+          {
+            "id": "atom-2-token-7",
+            "text": "several",
+            "start": 32,
+            "end": 39,
+            "lemma": "several",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "parts"
+          },
+          {
+            "id": "atom-2-token-8",
+            "text": "parts",
+            "start": 40,
+            "end": 45,
+            "lemma": "part",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "pobj",
+            "head": "in"
+          },
+          {
+            "id": "atom-2-token-9",
+            "text": "of",
+            "start": 46,
+            "end": 48,
+            "lemma": "of",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "parts"
+          },
+          {
+            "id": "atom-2-token-10",
+            "text": "the",
+            "start": 49,
+            "end": 52,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "States"
+          },
+          {
+            "id": "atom-2-token-11",
+            "text": "United",
+            "start": 53,
+            "end": 59,
+            "lemma": "United",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "States"
+          },
+          {
+            "id": "atom-2-token-12",
+            "text": "States",
+            "start": 60,
+            "end": 66,
+            "lemma": "States",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "pobj",
+            "head": "of"
+          },
+          {
+            "id": "atom-2-token-13",
+            "text": ".",
+            "start": 66,
+            "end": 67,
             "lemma": ".",
             "pos": "PUNCT",
             "tag": ".",
@@ -604,6 +933,25 @@
           "GPE"
         ],
         "warnings": []
+      },
+      {
+        "atomId": "atom-2",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "The sky"
+        ],
+        "predicates": [
+          "turn"
+        ],
+        "cueKinds": [
+          "quantifier"
+        ],
+        "modifierKinds": [],
+        "entityLabels": [
+          "GPE"
+        ],
+        "warnings": []
       }
     ],
     "claimWarnings": [],
@@ -613,39 +961,72 @@
   "verdict": {
     "aggregationSchemaVersion": 1,
     "claimId": "averitec-dev-0392",
-    "composition": "SINGLE",
-    "verdict": "SUPPORTED",
+    "composition": "AND",
+    "verdict": "NOT_ENOUGH_EVIDENCE",
     "positions": {
-      "supportPosition": true,
+      "supportPosition": false,
       "attackPosition": false,
-      "supportObligationIds": [
-        "atom-1"
-      ],
+      "materialOmissionPosition": false,
+      "supportObligationIds": [],
       "attackObligationIds": [],
-      "unresolvedObligationIds": []
+      "unresolvedObligationIds": [
+        "atom-1",
+        "atom-2"
+      ],
+      "groundedClaimPosition": "INSUFFICIENT"
     },
     "obligations": [
       {
         "obligationId": "atom-1",
-        "state": "SUPPORTED",
-        "supportEdgeIds": [
-          "edge:SUPPORTS:evidence:doc-4cbdb3ff10fa:doc-4cbdb3ff10fa::sentence-26:obligation:averitec-dev-0392:atom-1"
-        ],
+        "state": "UNRESOLVED",
+        "supportEdgeIds": [],
         "attackEdgeIds": [],
-        "neutralCandidateCount": 5
+        "neutralCandidateCount": 6
+      },
+      {
+        "obligationId": "atom-2",
+        "state": "UNRESOLVED",
+        "supportEdgeIds": [],
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 6
       }
     ],
-    "warnings": [],
+    "warnings": [
+      {
+        "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
+        "message": "Obligation atom-1 has no supporting or attacking evidence."
+      },
+      {
+        "code": "ONLY_NEUTRAL_CANDIDATES",
+        "message": "Obligation atom-1 has only neutral retrieved candidates."
+      },
+      {
+        "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
+        "message": "Obligation atom-2 has no supporting or attacking evidence."
+      },
+      {
+        "code": "ONLY_NEUTRAL_CANDIDATES",
+        "message": "Obligation atom-2 has only neutral retrieved candidates."
+      }
+    ],
     "ruleTrace": [
-      "SINGLE uses its only obligation's support and attack positions.",
-      "Support position: yes; attack position: no.",
-      "Final verdict: SUPPORTED."
+      "The provenance-constrained claim audit sets the overall evidence position; deterministic aggregation maps that position to status.",
+      "Grounded claim position: INSUFFICIENT; The claimed support-only position did not cite support for every obligation. The evidence supports the claim that the sky has turned orange in several parts of the United States due to fire smoke. While some evidence mentions blood red, it is consistent with the orange description and the mechanism of Mie scattering.",
+      "Support position: no; attack position: no.",
+      "Final verdict: NOT_ENOUGH_EVIDENCE."
     ]
   },
   "recordedWith": {
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
-    "nliModel": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    "nliModel": "qwen2.5:7b",
     "linguisticsModel": "en_core_web_sm@3.8.0"
+  },
+  "timingsSeconds": {
+    "decomposition": 22.694,
+    "retrievalAndLinguistics": 0.78,
+    "evidenceAudit": 17.909,
+    "aggregation": 0.007,
+    "total": 41.398
   }
 }

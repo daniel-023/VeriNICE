@@ -1,0 +1,1080 @@
+{
+  "caseId": "averitec-dev-0082",
+  "schemaVersion": 2,
+  "composition": "AND",
+  "warnings": [],
+  "atoms": [
+    {
+      "id": "atom-1",
+      "text": "Lockdowns are partly responsible for excess deaths not directly attributed to COVID-19.",
+      "sourceText": "lockdowns are partly responsible for excess deaths not directly attributed to COVID-19 which were observed in 2020.",
+      "start": 10,
+      "end": 125,
+      "role": "CAUSAL_RELATION"
+    },
+    {
+      "id": "atom-2",
+      "text": "Excess deaths not directly attributed to COVID-19 were observed in 2020.",
+      "sourceText": "excess deaths not directly attributed to COVID-19 which were observed in 2020.",
+      "start": 47,
+      "end": 125,
+      "role": "TEMPORAL_CONSTRAINT"
+    }
+  ],
+  "evidence": [
+    {
+      "atomId": "atom-1",
+      "spans": [
+        {
+          "id": "doc-1cd1d3b7cf15::sentence-14",
+          "documentId": "doc-1cd1d3b7cf15",
+          "text": "Estimates of excess deaths can provide a comprehensive account of mortality related to the COVID-19 pandemic, including deaths that are directly or indirectly attributable to COVID-19. ",
+          "start": 2019,
+          "end": 2204,
+          "context": "These results provide information about the degree to which COVID-19 deaths might be underascertained and inform efforts to prevent mortality directly or indirectly associated with the COVID-19 pandemic, such as efforts to minimize disruptions to health care.\n\n Estimates of excess deaths can provide a comprehensive account of mortality related to the COVID-19 pandemic, including deaths that are directly or indirectly attributable to COVID-19.  Estimates of the numbers of deaths directly attributable to COVID-19 might be limi\n"
+        },
+        {
+          "id": "doc-1cd1d3b7cf15::sentence-55",
+          "documentId": "doc-1cd1d3b7cf15",
+          "text": "Estimates of excess deaths can provide a comprehensive account of mortality related to the COVID-19 pandemic, including deaths that are directly or indirectly attributable to COVID-19. ",
+          "start": 7424,
+          "end": 7609,
+          "context": "These results provide information about the degree to which COVID-19 deaths might be underascertained and inform efforts to prevent mortality directly or indirectly associated with the COVID-19 pandemic, such as efforts to minimize disruptions to health care.\n Estimates of excess deaths can provide a comprehensive account of mortality related to the COVID-19 pandemic, including deaths that are directly or indirectly attributable to COVID-19.  Estimates of the numbers of deaths directly attributable to COVID-19 might be limited by factors such as the availability and use of diagnostic testing (including postmortem testing) and the accurate and complete reporting of cause of death information on the death certificate. "
+        },
+        {
+          "id": "doc-1cd1d3b7cf15::sentence-75",
+          "documentId": "doc-1cd1d3b7cf15",
+          "text": "Two thirds of excess deaths during the analysis period (66.2%; 198,081) were attributed to COVID-19 and the remaining third to other causes†† (Figure 1).\n",
+          "start": 11477,
+          "end": 11631,
+          "context": "** Excess deaths reached their highest points to date during the weeks ending April 11 (40.4% excess) and August 8, 2020 (23.5% excess) (Figure 1).  Two thirds of excess deaths during the analysis period (66.2%; 198,081) were attributed to COVID-19 and the remaining third to other causes†† (Figure 1).\n The total number of excess deaths (deaths above average levels) from January 26 through October 3 ranged from a low of approximately 841 in the youngest age group (<25 years) to a high of 94,646 among adults aged 75–84 years."
+        },
+        {
+          "id": "doc-1cd1d3b7cf15::sentence-4",
+          "documentId": "doc-1cd1d3b7cf15",
+          "text": "Evidence 1: How is  lockdown partly responsible for excess deaths in the US ? ",
+          "start": 208,
+          "end": 286,
+          "context": "Source URL: https://www.cdc.gov/mmwr/volumes/69/wr/mm6942e2.htm\n Evidence 1: How is  lockdown partly responsible for excess deaths in the US ?  As of October 15, 216,025 deaths from coronavirus disease 2019 (COVID-19) have been reported in the United States*; however, this number might underestimate the total impact of the pandemic on mortality. "
+        },
+        {
+          "id": "doc-1cd1d3b7cf15::sentence-102",
+          "documentId": "doc-1cd1d3b7cf15",
+          "text": "Finally, estimates of excess deaths attributed to COVID-19 might underestimate the actual number directly attributable to COVID-19, because deaths from other causes might represent misclassified COVID-19–related deaths or deaths indirectly caused by the pandemic. ",
+          "start": 15633,
+          "end": 15897,
+          "context": "Fourth, using the average numbers of deaths from past years might underestimate the total expected numbers because of population growth or aging, or because of increasing trends in certain causes such as drug overdose mortality.  Finally, estimates of excess deaths attributed to COVID-19 might underestimate the actual number directly attributable to COVID-19, because deaths from other causes might represent misclassified COVID-19–related deaths or deaths indirectly caused by the pandemic.  Specifically, deaths from circulatory diseases, Alzheimer disease and dementia, and respiratory diseases have increased in 2020 relative to past years (7), and it is unclear to what extent these represent misclassified COVID-19 deaths or deaths indirectly related to the pandemic (e.g., because of disruptions in health care access or utilization).\n"
+        },
+        {
+          "id": "doc-6c57002a5a1b::sentence-392",
+          "documentId": "doc-6c57002a5a1b",
+          "text": "Excess deaths attributed to causes other than COVID-19 could reflect deaths from unrecognized or undocumented infection with severe acute respiratory syndrome coronavirus 2 or deaths among uninfected patients resulting from disruptions produced by the pandemic. ",
+          "start": 22167,
+          "end": 22429,
+          "context": "US deaths attributed to some noninfectious causes increased during COVID-19 surges.  Excess deaths attributed to causes other than COVID-19 could reflect deaths from unrecognized or undocumented infection with severe acute respiratory syndrome coronavirus 2 or deaths among uninfected patients resulting from disruptions produced by the pandemic.  Study limitations include the reliance on provisional data, inaccuracies in death certificates, and assumptions applied to the model.\n"
+        }
+      ]
+    },
+    {
+      "atomId": "atom-2",
+      "spans": [
+        {
+          "id": "doc-1cd1d3b7cf15::sentence-11",
+          "documentId": "doc-1cd1d3b7cf15",
+          "text": "Overall, an estimated 299,028 excess deaths have occurred in the United States from late January through October 3, 2020, with two thirds of these attributed to COVID-19. ",
+          "start": 1465,
+          "end": 1636,
+          "context": "Weekly numbers of deaths by age group and race/ethnicity were assessed to examine the difference between the weekly number of deaths occurring in 2020 and the average number occurring in the same week during 2015–2019 and the percentage change in 2020.  Overall, an estimated 299,028 excess deaths have occurred in the United States from late January through October 3, 2020, with two thirds of these attributed to COVID-19.  The largest percentage increases were seen among adults aged 25–44 years and among Hispanic or Latino (Hispanic) persons. "
+        },
+        {
+          "id": "doc-1cd1d3b7cf15::sentence-42",
+          "documentId": "doc-1cd1d3b7cf15",
+          "text": "Overall, an estimated 299,028 excess deaths occurred from late January through October 3, 2020, with 198,081 (66%) excess deaths attributed to COVID-19. ",
+          "start": 5206,
+          "end": 5359,
+          "context": "What is added by this report?\n Overall, an estimated 299,028 excess deaths occurred from late January through October 3, 2020, with 198,081 (66%) excess deaths attributed to COVID-19.  The largest percentage increases were seen among adults aged 25–44 years and among Hispanic or Latino persons.\n"
+        },
+        {
+          "id": "doc-1cd1d3b7cf15::sentence-52",
+          "documentId": "doc-1cd1d3b7cf15",
+          "text": "Overall, an estimated 299,028 excess deaths have occurred in the United States from late January through October 3, 2020, with two thirds of these attributed to COVID-19. ",
+          "start": 6871,
+          "end": 7042,
+          "context": "Weekly numbers of deaths by age group and race/ethnicity were assessed to examine the difference between the weekly number of deaths occurring in 2020 and the average number occurring in the same week during 2015–2019 and the percentage change in 2020.  Overall, an estimated 299,028 excess deaths have occurred in the United States from late January through October 3, 2020, with two thirds of these attributed to COVID-19.  The largest percentage increases were seen among adults aged 25–44 years and among Hispanic or Latino (Hispanic) persons. "
+        },
+        {
+          "id": "doc-1cd1d3b7cf15::sentence-67",
+          "documentId": "doc-1cd1d3b7cf15",
+          "text": "Weekly NVSS data on excess deaths occurring from January 26 (the week ending February 1), 2020, through October 3, 2020, were used to quantify the number of excess deaths and the percentage excess for deaths from all causes and deaths from all causes excluding COVID-19.¶ Deaths attributed to COVID-19 have the International Classification of Diseases, Tenth Revision code U07.1 as an underlying or contributing cause of death.\n",
+          "start": 9698,
+          "end": 10126,
+          "context": "Observed numbers of deaths are weighted to account for incomplete reporting by jurisdictions (50 states and the District of Columbia [DC]) in the most recent weeks, where the weights were estimated based on completeness of provisional data in the past year (7).\n Weekly NVSS data on excess deaths occurring from January 26 (the week ending February 1), 2020, through October 3, 2020, were used to quantify the number of excess deaths and the percentage excess for deaths from all causes and deaths from all causes excluding COVID-19.¶ Deaths attributed to COVID-19 have the International Classification of Diseases, Tenth Revision code U07.1 as an underlying or contributing cause of death.\n Weekly numbers of deaths by age group (0–24, 25–44, 45–64, 65–74, 75–84, and ≥85 years) and race/ethnicity (Hispanic or Latino [Hispanic], non-Hispanic White [White], non-Hispanic Black or African American [Black], non-Hispanic Asian [Asian], non-Hispanic American Indian or Alaska Native [AI/AN], and other/unknown race/ethnicity, which included non-Hispanic Native Hawaiian or other Pacific Islander, non-Hispanic multiracial, and unknown) were used to examine the difference between the weekly number of deaths occurring in 2020 and the average number occurring in the same week during 2015–2019. "
+        },
+        {
+          "id": "doc-1cd1d3b7cf15::sentence-148",
+          "documentId": "doc-1cd1d3b7cf15",
+          "text": "Excess deaths from COVID-19 and other causes, March–July 2020. ",
+          "start": 20848,
+          "end": 20911,
+          "context": "- Woolf SH, Chapman DA, Sabo RT, Weinberger DM, Hill L, Taylor DDH.  Excess deaths from COVID-19 and other causes, March–July 2020.  JAMA 2020. "
+        },
+        {
+          "id": "doc-6c57002a5a1b::sentence-364",
+          "documentId": "doc-6c57002a5a1b",
+          "text": "Previous studies of excess deaths (the gap between observed and expected deaths) during the coronavirus disease 2019 (COVID-19) pandemic found that publicly reported COVID-19 deaths underestimated the full death toll, which includes documented and undocumented deaths from the virus and non–COVID-19 deaths caused by disruptions from the pandemic.1,2 A previous analysis found that COVID-19 was cited in only 65% of excess deaths in the first weeks of the pandemic (March-April 2020); deaths from non–COVID-19 causes (eg, Alzheimer disease, diabetes, heart disease) increased sharply in 5 states with the most COVID-19 deaths.1 ",
+          "start": 17739,
+          "end": 18367,
+          "context": "Research LetterAll-Cause Excess Mortality and COVID-19–Related Mortality Among US Adults Aged 25-44 Years, March-July 2020Jeremy Samuel Faust, MD, MS; Harlan M. Krumholz, MD, SM; Chengan Du, PhD; Katherine Dickerson Mayes, MD, PhD; Zhenqiu Lin, PhD; Cleavon Gilman, MD; Rochelle P. Walensky, MD, MPH\n Previous studies of excess deaths (the gap between observed and expected deaths) during the coronavirus disease 2019 (COVID-19) pandemic found that publicly reported COVID-19 deaths underestimated the full death toll, which includes documented and undocumented deaths from the virus and non–COVID-19 deaths caused by disruptions from the pandemic.1,2 A previous analysis found that COVID-19 was cited in only 65% of excess deaths in the first weeks of the pandemic (March-April 2020); deaths from non–COVID-19 causes (eg, Alzheimer disease, diabetes, heart disease) increased sharply in 5 states with the most COVID-19 deaths.1  This study updates through August 1, 2020, the estimate of excess deaths and explores temporal relationships with state reopenings (lifting of coronavirus restrictions).\n"
+        }
+      ]
+    }
+  ],
+  "classifications": [
+    {
+      "atomId": "atom-1",
+      "relations": [
+        {
+          "spanId": "doc-1cd1d3b7cf15::sentence-14",
+          "documentId": "doc-1cd1d3b7cf15",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-1cd1d3b7cf15::sentence-55",
+          "documentId": "doc-1cd1d3b7cf15",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-1cd1d3b7cf15::sentence-75",
+          "documentId": "doc-1cd1d3b7cf15",
+          "relation": "ENTAILMENT",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-1cd1d3b7cf15::sentence-4",
+          "documentId": "doc-1cd1d3b7cf15",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-1cd1d3b7cf15::sentence-102",
+          "documentId": "doc-1cd1d3b7cf15",
+          "relation": "ENTAILMENT",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-6c57002a5a1b::sentence-392",
+          "documentId": "doc-6c57002a5a1b",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        }
+      ]
+    },
+    {
+      "atomId": "atom-2",
+      "relations": [
+        {
+          "spanId": "doc-1cd1d3b7cf15::sentence-11",
+          "documentId": "doc-1cd1d3b7cf15",
+          "relation": "ENTAILMENT",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-1cd1d3b7cf15::sentence-42",
+          "documentId": "doc-1cd1d3b7cf15",
+          "relation": "ENTAILMENT",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-1cd1d3b7cf15::sentence-52",
+          "documentId": "doc-1cd1d3b7cf15",
+          "relation": "ENTAILMENT",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-1cd1d3b7cf15::sentence-67",
+          "documentId": "doc-1cd1d3b7cf15",
+          "relation": "ENTAILMENT",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-1cd1d3b7cf15::sentence-148",
+          "documentId": "doc-1cd1d3b7cf15",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-6c57002a5a1b::sentence-364",
+          "documentId": "doc-6c57002a5a1b",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        }
+      ]
+    }
+  ],
+  "evidenceAudit": {
+    "claimPosition": {
+      "position": "SUPPORT_ONLY",
+      "supportSpanIds": [
+        "doc-1cd1d3b7cf15::sentence-75",
+        "doc-1cd1d3b7cf15::sentence-102",
+        "doc-1cd1d3b7cf15::sentence-11",
+        "doc-1cd1d3b7cf15::sentence-42",
+        "doc-1cd1d3b7cf15::sentence-52",
+        "doc-1cd1d3b7cf15::sentence-67"
+      ],
+      "attackSpanIds": [],
+      "contextSpanIds": [],
+      "reason": "Evidence shows excess deaths occurred in 2020, with two-thirds attributed to COVID-19, and suggests lockdowns may have contributed to non-COVID-19 deaths."
+    },
+    "obligations": [
+      {
+        "atomId": "atom-1",
+        "state": "SUPPORTED",
+        "supportSpanIds": [
+          "doc-1cd1d3b7cf15::sentence-75",
+          "doc-1cd1d3b7cf15::sentence-102"
+        ],
+        "attackSpanIds": [],
+        "reason": "Evidence shows excess deaths occurred in 2020, with two-thirds attributed to COVID-19, and suggests lockdowns may have contributed to non-COVID-19 deaths."
+      },
+      {
+        "atomId": "atom-2",
+        "state": "SUPPORTED",
+        "supportSpanIds": [
+          "doc-1cd1d3b7cf15::sentence-11",
+          "doc-1cd1d3b7cf15::sentence-42",
+          "doc-1cd1d3b7cf15::sentence-52"
+        ],
+        "attackSpanIds": [],
+        "reason": "Evidence shows excess deaths occurred in 2020, with two-thirds attributed to COVID-19, and suggests lockdowns may have contributed to non-COVID-19 deaths."
+      }
+    ],
+    "materialOmission": {
+      "detected": false,
+      "supportSpanIds": [],
+      "contextSpanIds": [],
+      "reason": "No material omission was established."
+    },
+    "provider": "ollama",
+    "model": "qwen2.5:7b"
+  },
+  "linguistics": {
+    "schemaVersion": 2,
+    "claimAnalysis": {
+      "atomId": "claim",
+      "frames": [
+        {
+          "id": "claim-frame-1",
+          "predicate": {
+            "id": "claim-frame-1-predicate",
+            "text": "are",
+            "start": 20,
+            "end": 23
+          },
+          "subjects": [],
+          "coreArguments": [
+            {
+              "id": "claim-frame-1-argument-1",
+              "text": "partly responsible for excess deaths not directly attributed to COVID-19 which were observed in 2020",
+              "start": 24,
+              "end": 124,
+              "role": "subject_complement"
+            }
+          ],
+          "adjuncts": [],
+          "otherModifiers": [
+            {
+              "id": "claim-frame-1-other-modifier-1",
+              "text": "In the US lockdowns",
+              "start": 0,
+              "end": 19
+            }
+          ]
+        }
+      ],
+      "cues": [
+        {
+          "id": "claim-cue-negation-61-64",
+          "text": "not",
+          "start": 61,
+          "end": 64,
+          "kind": "negation"
+        },
+        {
+          "id": "claim-cue-temporal-120-124",
+          "text": "2020",
+          "start": 120,
+          "end": 124,
+          "kind": "temporal"
+        }
+      ],
+      "entities": [
+        {
+          "id": "claim-entity-gpe-7-9",
+          "text": "US",
+          "start": 7,
+          "end": 9,
+          "label": "GPE"
+        },
+        {
+          "id": "claim-entity-person-88-96",
+          "text": "COVID-19",
+          "start": 88,
+          "end": 96,
+          "label": "PERSON"
+        }
+      ],
+      "tokens": [
+        {
+          "id": "claim-token-0",
+          "text": "In",
+          "start": 0,
+          "end": 2,
+          "lemma": "in",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "are"
+        },
+        {
+          "id": "claim-token-1",
+          "text": "the",
+          "start": 3,
+          "end": 6,
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "lockdowns"
+        },
+        {
+          "id": "claim-token-2",
+          "text": "US",
+          "start": 7,
+          "end": 9,
+          "lemma": "US",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "lockdowns"
+        },
+        {
+          "id": "claim-token-3",
+          "text": "lockdowns",
+          "start": 10,
+          "end": 19,
+          "lemma": "lockdown",
+          "pos": "NOUN",
+          "tag": "NNS",
+          "dependency": "pobj",
+          "head": "In"
+        },
+        {
+          "id": "claim-token-4",
+          "text": "are",
+          "start": 20,
+          "end": 23,
+          "lemma": "be",
+          "pos": "AUX",
+          "tag": "VBP",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "claim-token-5",
+          "text": "partly",
+          "start": 24,
+          "end": 30,
+          "lemma": "partly",
+          "pos": "ADV",
+          "tag": "RB",
+          "dependency": "advmod",
+          "head": "responsible"
+        },
+        {
+          "id": "claim-token-6",
+          "text": "responsible",
+          "start": 31,
+          "end": 42,
+          "lemma": "responsible",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "acomp",
+          "head": "are"
+        },
+        {
+          "id": "claim-token-7",
+          "text": "for",
+          "start": 43,
+          "end": 46,
+          "lemma": "for",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "responsible"
+        },
+        {
+          "id": "claim-token-8",
+          "text": "excess",
+          "start": 47,
+          "end": 53,
+          "lemma": "excess",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "deaths"
+        },
+        {
+          "id": "claim-token-9",
+          "text": "deaths",
+          "start": 54,
+          "end": 60,
+          "lemma": "death",
+          "pos": "NOUN",
+          "tag": "NNS",
+          "dependency": "pobj",
+          "head": "for"
+        },
+        {
+          "id": "claim-token-10",
+          "text": "not",
+          "start": 61,
+          "end": 64,
+          "lemma": "not",
+          "pos": "PART",
+          "tag": "RB",
+          "dependency": "neg",
+          "head": "attributed"
+        },
+        {
+          "id": "claim-token-11",
+          "text": "directly",
+          "start": 65,
+          "end": 73,
+          "lemma": "directly",
+          "pos": "ADV",
+          "tag": "RB",
+          "dependency": "advmod",
+          "head": "attributed"
+        },
+        {
+          "id": "claim-token-12",
+          "text": "attributed",
+          "start": 74,
+          "end": 84,
+          "lemma": "attribute",
+          "pos": "VERB",
+          "tag": "VBN",
+          "dependency": "acl",
+          "head": "deaths"
+        },
+        {
+          "id": "claim-token-13",
+          "text": "to",
+          "start": 85,
+          "end": 87,
+          "lemma": "to",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "attributed"
+        },
+        {
+          "id": "claim-token-14",
+          "text": "COVID-19",
+          "start": 88,
+          "end": 96,
+          "lemma": "covid-19",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "pobj",
+          "head": "to"
+        },
+        {
+          "id": "claim-token-15",
+          "text": "which",
+          "start": 97,
+          "end": 102,
+          "lemma": "which",
+          "pos": "PRON",
+          "tag": "WDT",
+          "dependency": "nsubjpass",
+          "head": "observed"
+        },
+        {
+          "id": "claim-token-16",
+          "text": "were",
+          "start": 103,
+          "end": 107,
+          "lemma": "be",
+          "pos": "AUX",
+          "tag": "VBD",
+          "dependency": "auxpass",
+          "head": "observed"
+        },
+        {
+          "id": "claim-token-17",
+          "text": "observed",
+          "start": 108,
+          "end": 116,
+          "lemma": "observe",
+          "pos": "VERB",
+          "tag": "VBN",
+          "dependency": "relcl",
+          "head": "COVID-19"
+        },
+        {
+          "id": "claim-token-18",
+          "text": "in",
+          "start": 117,
+          "end": 119,
+          "lemma": "in",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "observed"
+        },
+        {
+          "id": "claim-token-19",
+          "text": "2020",
+          "start": 120,
+          "end": 124,
+          "lemma": "2020",
+          "pos": "NUM",
+          "tag": "CD",
+          "dependency": "pobj",
+          "head": "in"
+        },
+        {
+          "id": "claim-token-20",
+          "text": ".",
+          "start": 124,
+          "end": 125,
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "are"
+        }
+      ],
+      "status": "partial",
+      "unresolved": [
+        "subject"
+      ]
+    },
+    "analyses": [
+      {
+        "atomId": "atom-1",
+        "frames": [
+          {
+            "id": "atom-1-frame-1",
+            "predicate": {
+              "id": "atom-1-frame-1-predicate",
+              "text": "are",
+              "start": 10,
+              "end": 13
+            },
+            "subjects": [
+              {
+                "id": "atom-1-frame-1-subject-1",
+                "text": "Lockdowns",
+                "start": 0,
+                "end": 9
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-1-frame-1-argument-1",
+                "text": "partly responsible for excess deaths not directly attributed to COVID-19",
+                "start": 14,
+                "end": 86,
+                "role": "subject_complement"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [
+          {
+            "id": "atom-1-cue-negation-51-54",
+            "text": "not",
+            "start": 51,
+            "end": 54,
+            "kind": "negation"
+          }
+        ],
+        "entities": [
+          {
+            "id": "atom-1-entity-person-0-9",
+            "text": "Lockdowns",
+            "start": 0,
+            "end": 9,
+            "label": "PERSON"
+          },
+          {
+            "id": "atom-1-entity-org-78-86",
+            "text": "COVID-19",
+            "start": 78,
+            "end": 86,
+            "label": "ORG"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-1-token-0",
+            "text": "Lockdowns",
+            "start": 0,
+            "end": 9,
+            "lemma": "lockdown",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "nsubj",
+            "head": "are"
+          },
+          {
+            "id": "atom-1-token-1",
+            "text": "are",
+            "start": 10,
+            "end": 13,
+            "lemma": "be",
+            "pos": "AUX",
+            "tag": "VBP",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-1-token-2",
+            "text": "partly",
+            "start": 14,
+            "end": 20,
+            "lemma": "partly",
+            "pos": "ADV",
+            "tag": "RB",
+            "dependency": "advmod",
+            "head": "responsible"
+          },
+          {
+            "id": "atom-1-token-3",
+            "text": "responsible",
+            "start": 21,
+            "end": 32,
+            "lemma": "responsible",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "acomp",
+            "head": "are"
+          },
+          {
+            "id": "atom-1-token-4",
+            "text": "for",
+            "start": 33,
+            "end": 36,
+            "lemma": "for",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "responsible"
+          },
+          {
+            "id": "atom-1-token-5",
+            "text": "excess",
+            "start": 37,
+            "end": 43,
+            "lemma": "excess",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "deaths"
+          },
+          {
+            "id": "atom-1-token-6",
+            "text": "deaths",
+            "start": 44,
+            "end": 50,
+            "lemma": "death",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "pobj",
+            "head": "for"
+          },
+          {
+            "id": "atom-1-token-7",
+            "text": "not",
+            "start": 51,
+            "end": 54,
+            "lemma": "not",
+            "pos": "PART",
+            "tag": "RB",
+            "dependency": "neg",
+            "head": "attributed"
+          },
+          {
+            "id": "atom-1-token-8",
+            "text": "directly",
+            "start": 55,
+            "end": 63,
+            "lemma": "directly",
+            "pos": "ADV",
+            "tag": "RB",
+            "dependency": "advmod",
+            "head": "attributed"
+          },
+          {
+            "id": "atom-1-token-9",
+            "text": "attributed",
+            "start": 64,
+            "end": 74,
+            "lemma": "attribute",
+            "pos": "VERB",
+            "tag": "VBN",
+            "dependency": "acl",
+            "head": "deaths"
+          },
+          {
+            "id": "atom-1-token-10",
+            "text": "to",
+            "start": 75,
+            "end": 77,
+            "lemma": "to",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "attributed"
+          },
+          {
+            "id": "atom-1-token-11",
+            "text": "COVID-19",
+            "start": 78,
+            "end": 86,
+            "lemma": "covid-19",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "pobj",
+            "head": "to"
+          },
+          {
+            "id": "atom-1-token-12",
+            "text": ".",
+            "start": 86,
+            "end": 87,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "are"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      },
+      {
+        "atomId": "atom-2",
+        "frames": [
+          {
+            "id": "atom-2-frame-1",
+            "predicate": {
+              "id": "atom-2-frame-1-predicate",
+              "text": "observed",
+              "start": 55,
+              "end": 63
+            },
+            "subjects": [
+              {
+                "id": "atom-2-frame-1-subject-1",
+                "text": "Excess deaths not directly attributed to COVID-19",
+                "start": 0,
+                "end": 49
+              }
+            ],
+            "coreArguments": [],
+            "adjuncts": [
+              {
+                "id": "atom-2-frame-1-adjunct-1",
+                "text": "in 2020",
+                "start": 64,
+                "end": 71,
+                "kind": "temporal"
+              }
+            ],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [
+          {
+            "id": "atom-2-cue-negation-14-17",
+            "text": "not",
+            "start": 14,
+            "end": 17,
+            "kind": "negation"
+          },
+          {
+            "id": "atom-2-cue-temporal-67-71",
+            "text": "2020",
+            "start": 67,
+            "end": 71,
+            "kind": "temporal"
+          }
+        ],
+        "entities": [
+          {
+            "id": "atom-2-entity-person-41-49",
+            "text": "COVID-19",
+            "start": 41,
+            "end": 49,
+            "label": "PERSON"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-2-token-0",
+            "text": "Excess",
+            "start": 0,
+            "end": 6,
+            "lemma": "excess",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "deaths"
+          },
+          {
+            "id": "atom-2-token-1",
+            "text": "deaths",
+            "start": 7,
+            "end": 13,
+            "lemma": "death",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "nsubjpass",
+            "head": "observed"
+          },
+          {
+            "id": "atom-2-token-2",
+            "text": "not",
+            "start": 14,
+            "end": 17,
+            "lemma": "not",
+            "pos": "PART",
+            "tag": "RB",
+            "dependency": "neg",
+            "head": "attributed"
+          },
+          {
+            "id": "atom-2-token-3",
+            "text": "directly",
+            "start": 18,
+            "end": 26,
+            "lemma": "directly",
+            "pos": "ADV",
+            "tag": "RB",
+            "dependency": "advmod",
+            "head": "attributed"
+          },
+          {
+            "id": "atom-2-token-4",
+            "text": "attributed",
+            "start": 27,
+            "end": 37,
+            "lemma": "attribute",
+            "pos": "VERB",
+            "tag": "VBN",
+            "dependency": "acl",
+            "head": "deaths"
+          },
+          {
+            "id": "atom-2-token-5",
+            "text": "to",
+            "start": 38,
+            "end": 40,
+            "lemma": "to",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "attributed"
+          },
+          {
+            "id": "atom-2-token-6",
+            "text": "COVID-19",
+            "start": 41,
+            "end": 49,
+            "lemma": "covid-19",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "pobj",
+            "head": "to"
+          },
+          {
+            "id": "atom-2-token-7",
+            "text": "were",
+            "start": 50,
+            "end": 54,
+            "lemma": "be",
+            "pos": "AUX",
+            "tag": "VBD",
+            "dependency": "auxpass",
+            "head": "observed"
+          },
+          {
+            "id": "atom-2-token-8",
+            "text": "observed",
+            "start": 55,
+            "end": 63,
+            "lemma": "observe",
+            "pos": "VERB",
+            "tag": "VBN",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-2-token-9",
+            "text": "in",
+            "start": 64,
+            "end": 66,
+            "lemma": "in",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "observed"
+          },
+          {
+            "id": "atom-2-token-10",
+            "text": "2020",
+            "start": 67,
+            "end": 71,
+            "lemma": "2020",
+            "pos": "NUM",
+            "tag": "CD",
+            "dependency": "pobj",
+            "head": "in"
+          },
+          {
+            "id": "atom-2-token-11",
+            "text": ".",
+            "start": 71,
+            "end": 72,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "observed"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      }
+    ],
+    "summaries": [
+      {
+        "atomId": "atom-1",
+        "analysisStatus": "complete",
+        "roleAudit": "INCONCLUSIVE",
+        "subjects": [
+          "Lockdowns"
+        ],
+        "predicates": [
+          "be"
+        ],
+        "cueKinds": [
+          "negation"
+        ],
+        "modifierKinds": [],
+        "entityLabels": [
+          "PERSON",
+          "ORG"
+        ],
+        "warnings": []
+      },
+      {
+        "atomId": "atom-2",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "Excess deaths not directly attributed to COVID-19"
+        ],
+        "predicates": [
+          "observe"
+        ],
+        "cueKinds": [
+          "negation",
+          "temporal"
+        ],
+        "modifierKinds": [
+          "temporal"
+        ],
+        "entityLabels": [
+          "PERSON"
+        ],
+        "warnings": []
+      }
+    ],
+    "claimWarnings": [
+      "LOCATION_NOT_PRESERVED"
+    ],
+    "provider": "spacy",
+    "model": "en_core_web_sm@3.8.0"
+  },
+  "verdict": {
+    "aggregationSchemaVersion": 1,
+    "claimId": "averitec-dev-0082",
+    "composition": "AND",
+    "verdict": "SUPPORTED",
+    "positions": {
+      "supportPosition": true,
+      "attackPosition": false,
+      "materialOmissionPosition": false,
+      "supportObligationIds": [
+        "atom-1",
+        "atom-2"
+      ],
+      "attackObligationIds": [],
+      "unresolvedObligationIds": [],
+      "groundedClaimPosition": "SUPPORT_ONLY"
+    },
+    "obligations": [
+      {
+        "obligationId": "atom-1",
+        "state": "SUPPORTED",
+        "supportEdgeIds": [
+          "edge:SUPPORTS:evidence:doc-1cd1d3b7cf15:doc-1cd1d3b7cf15::sentence-75:obligation:averitec-dev-0082:atom-1",
+          "edge:SUPPORTS:evidence:doc-1cd1d3b7cf15:doc-1cd1d3b7cf15::sentence-102:obligation:averitec-dev-0082:atom-1"
+        ],
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 4
+      },
+      {
+        "obligationId": "atom-2",
+        "state": "SUPPORTED",
+        "supportEdgeIds": [
+          "edge:SUPPORTS:evidence:doc-1cd1d3b7cf15:doc-1cd1d3b7cf15::sentence-11:obligation:averitec-dev-0082:atom-2",
+          "edge:SUPPORTS:evidence:doc-1cd1d3b7cf15:doc-1cd1d3b7cf15::sentence-42:obligation:averitec-dev-0082:atom-2",
+          "edge:SUPPORTS:evidence:doc-1cd1d3b7cf15:doc-1cd1d3b7cf15::sentence-52:obligation:averitec-dev-0082:atom-2",
+          "edge:SUPPORTS:evidence:doc-1cd1d3b7cf15:doc-1cd1d3b7cf15::sentence-67:obligation:averitec-dev-0082:atom-2"
+        ],
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 2
+      }
+    ],
+    "warnings": [],
+    "ruleTrace": [
+      "The provenance-constrained claim audit sets the overall evidence position; deterministic aggregation maps that position to status.",
+      "Grounded claim position: SUPPORT_ONLY; Evidence shows excess deaths occurred in 2020, with two-thirds attributed to COVID-19, and suggests lockdowns may have contributed to non-COVID-19 deaths.",
+      "Support position: yes; attack position: no.",
+      "Final verdict: SUPPORTED."
+    ]
+  },
+  "recordedWith": {
+    "decompositionModel": "qwen2.5:7b",
+    "retrievalModel": "BAAI/bge-small-en-v1.5",
+    "nliModel": "qwen2.5:7b",
+    "linguisticsModel": "en_core_web_sm@3.8.0"
+  },
+  "timingsSeconds": {
+    "decomposition": 27.449,
+    "retrievalAndLinguistics": 1.8,
+    "evidenceAudit": 22.934,
+    "aggregation": 0.007,
+    "total": 52.197
+  }
+}

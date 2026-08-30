@@ -25,7 +25,11 @@ def openapi_schema(*, properties: dict[str, object], required: list[str]) -> dic
                     "type": "object",
                     "properties": properties,
                     "required": required,
-                }
+                },
+                "SupportClassificationResponse": {
+                    "type": "object",
+                    "properties": {"evidenceAudit": {}},
+                },
             }
         }
     }
@@ -33,7 +37,10 @@ def openapi_schema(*, properties: dict[str, object], required: list[str]) -> dic
 
 def test_current_aggregation_contract_is_accepted() -> None:
     record_walkthrough.validate_api_contract(
-        openapi_schema(properties={"claimId": {}}, required=["claimId"])
+        openapi_schema(
+            properties={"claimId": {}, "materialOmission": {}, "claimAudit": {}},
+            required=["claimId"],
+        )
     )
 
 

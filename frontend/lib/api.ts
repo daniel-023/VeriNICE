@@ -9,6 +9,8 @@ import type {
   EvidenceRetrievalResponse,
   Health,
   LinguisticAnalysisResponse,
+  MaterialOmissionCertificate,
+  GroundedClaimAudit,
   SupportClassificationResponse,
   VerdictAggregationResult,
 } from "./types";
@@ -65,11 +67,18 @@ export const api = {
         evidencePerAtom,
       }),
     }),
-  classifySupport: (atoms: AtomInput, evidence: AtomEvidence[]) =>
+  classifySupport: (
+    claim: string,
+    atoms: AtomInput,
+    evidence: AtomEvidence[],
+    documentTitles: Record<string, string>,
+  ) =>
     request<SupportClassificationResponse>("/api/v1/classify-support", {
       method: "POST",
       body: JSON.stringify({
+        claim,
         atoms,
+        documentTitles,
         evidence: evidence.map((item) => ({
           atomId: item.atomId,
           spans: item.spans.map(({ id, documentId, text, context }) => ({
@@ -93,6 +102,8 @@ export const api = {
     evidence: AtomEvidence[];
     classifications: SupportClassificationResponse["classifications"];
     linguisticSummaries?: LinguisticAnalysisResponse["summaries"];
+    materialOmission?: MaterialOmissionCertificate;
+    claimAudit?: GroundedClaimAudit;
   }) => request<VerdictAggregationResult>("/api/v1/aggregate-verdict", {
     method: "POST",
     body: JSON.stringify(input),

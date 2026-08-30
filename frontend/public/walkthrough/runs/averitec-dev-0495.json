@@ -34,52 +34,52 @@
       "atomId": "atom-1",
       "spans": [
         {
-          "id": "doc-f70c7d8aac56::sentence-59",
+          "id": "doc-5e4a01b775ac::sentence-4",
+          "documentId": "doc-5e4a01b775ac",
+          "text": "Evidence 1: Is the Democratic Party of Joe Biden pushing the so-called Green New Deal? ",
+          "start": 273,
+          "end": 360,
+          "context": "Source URL: https://www.nbcnews.com/politics/2020-election/green-new-deal-how-it-works-presidential-candidate-positions-n1044811\n Evidence 1: Is the Democratic Party of Joe Biden pushing the so-called Green New Deal?  The Sunrise Movement, which supported Vermont Sen. Bernie Sanders in the Democratic primary, in April called on Biden to adopt the frameworks of the Green New Deal. "
+        },
+        {
+          "id": "doc-5e4a01b775ac::sentence-5",
+          "documentId": "doc-5e4a01b775ac",
+          "text": "The Sunrise Movement, which supported Vermont Sen. Bernie Sanders in the Democratic primary, in April called on Biden to adopt the frameworks of the Green New Deal. ",
+          "start": 360,
+          "end": 525,
+          "context": "Evidence 1: Is the Democratic Party of Joe Biden pushing the so-called Green New Deal?  The Sunrise Movement, which supported Vermont Sen. Bernie Sanders in the Democratic primary, in April called on Biden to adopt the frameworks of the Green New Deal.  When Biden released the new plan July 14, the group tweeted its support.\n"
+        },
+        {
+          "id": "doc-f70c7d8aac56::sentence-78",
           "documentId": "doc-f70c7d8aac56",
           "text": "The Sunrise Movement, which supported Vermont Sen. Bernie Sanders in the Democratic primary, in April called on Biden to adopt the frameworks of the Green New Deal. ",
-          "start": 7277,
-          "end": 7442,
+          "start": 9573,
+          "end": 9738,
           "context": "He added that including a fee on imports would \"get other countries to join us in fixing the economics of free dumping into the trash dump of the sky.\"\n The Sunrise Movement, which supported Vermont Sen. Bernie Sanders in the Democratic primary, in April called on Biden to adopt the frameworks of the Green New Deal.  When Biden released the new plan July 14, the group tweeted its support.\n"
         },
         {
-          "id": "doc-5e4a01b775ac::sentence-7",
+          "id": "doc-5e4a01b775ac::sentence-26",
           "documentId": "doc-5e4a01b775ac",
-          "text": "What is the Green New Deal?\n",
-          "start": 691,
-          "end": 719,
-          "context": "What the candidate positions (including Trump) are on the Green New Deal\n What is the Green New Deal?\n The Democratic debate over environmental issues has centered heavily around the Green New Deal, a plan to rapidly switch to clean energy to head off the worst projected effects of climate change.\n"
+          "text": "- Not all Democratic presidential candidates back the Green New Deal, with some arguing it boxes them in too much on specifics, while many Republicans, including the president, say it’s not affordable and could cost tens of trillions of dollars if fully implemented.\n",
+          "start": 2971,
+          "end": 3238,
+          "context": "- It goes beyond the environment and climate change to call for universal health care and affordable housing, among other goals.\n - Not all Democratic presidential candidates back the Green New Deal, with some arguing it boxes them in too much on specifics, while many Republicans, including the president, say it’s not affordable and could cost tens of trillions of dollars if fully implemented.\n What the candidate positions (including Trump) are on the Green New Deal\n"
         },
         {
           "id": "doc-5e4a01b775ac::sentence-8",
           "documentId": "doc-5e4a01b775ac",
-          "text": "The Democratic debate over environmental issues has centered heavily around the Green New Deal, a plan to rapidly switch to clean energy to head off the worst projected effects of climate change.\n",
-          "start": 719,
-          "end": 915,
-          "context": "What is the Green New Deal?\n The Democratic debate over environmental issues has centered heavily around the Green New Deal, a plan to rapidly switch to clean energy to head off the worst projected effects of climate change.\n However, unlike other ideas that Democrats are discussing on the campaign trail, the Green New Deal is not a clear policy proposal in and of itself. "
+          "text": "The Democratic debate over environmental issues has centered heavily around the Green New Deal, a plan to rapidly switch to clean energy to head off the worst projected effects of climate change.\n\n",
+          "start": 638,
+          "end": 835,
+          "context": "Evidence 2: What is the Green New Deal?  The Democratic debate over environmental issues has centered heavily around the Green New Deal, a plan to rapidly switch to clean energy to head off the worst projected effects of climate change.\n\n However, unlike other ideas that Democrats are discussing on the campaign trail, the Green New Deal is not a clear policy proposal in and of itself. "
         },
         {
-          "id": "doc-f70c7d8aac56::sentence-67",
+          "id": "doc-f70c7d8aac56::sentence-4",
           "documentId": "doc-f70c7d8aac56",
-          "text": "Joe Biden for President, Joe’s Plan for a Clean Energy Revolution and Environmental Justice, accessed July 21, 2020\n",
-          "start": 8078,
-          "end": 8194,
-          "context": "C-SPAN, Joe Biden Remarks on Energy Policy in Wilmington, Delaware, July 14, 2020\n Joe Biden for President, Joe’s Plan for a Clean Energy Revolution and Environmental Justice, accessed July 21, 2020\n Joe Biden for President, Build Back Better: Joe Biden’s Jobs and Economic Recovery Plan for Working Families, accessed July 21, 2020\n"
-        },
-        {
-          "id": "doc-af46153b534f::sentence-41",
-          "documentId": "doc-af46153b534f",
-          "text": "For instance, the Green New Deal proposed by Democrats calls for phasing out carbon-emitting vehicles within a decade — which would require not only very fast production of electric vehicles but also a sudden withdrawal of combustion vehicles from roads.\n",
-          "start": 4078,
-          "end": 4333,
-          "context": "That's what environmental activists want, for the sake of curbing climate change.  For instance, the Green New Deal proposed by Democrats calls for phasing out carbon-emitting vehicles within a decade — which would require not only very fast production of electric vehicles but also a sudden withdrawal of combustion vehicles from roads.\n That's an ambitious target. "
-        },
-        {
-          "id": "doc-af46153b534f::sentence-40",
-          "documentId": "doc-af46153b534f",
-          "text": "That's what environmental activists want, for the sake of curbing climate change. ",
-          "start": 3996,
-          "end": 4078,
-          "context": "One possibility is that they might get replaced quite quickly with electric vehicles.\n That's what environmental activists want, for the sake of curbing climate change.  For instance, the Green New Deal proposed by Democrats calls for phasing out carbon-emitting vehicles within a decade — which would require not only very fast production of electric vehicles but also a sudden withdrawal of combustion vehicles from roads.\n"
+          "text": "Evidence 1: What is Joe Biden's plan for the Green New Deal? ",
+          "start": 245,
+          "end": 306,
+          "context": "Source URL: https://www.politifact.com/article/2020/aug/03/joe-bidens-climate-change-plan-explained/\n Evidence 1: What is Joe Biden's plan for the Green New Deal?  Biden’s overarching economic recovery plan, which includes his new climate plan. "
         }
       ]
     },
@@ -87,52 +87,52 @@
       "atomId": "atom-2",
       "spans": [
         {
-          "id": "doc-af46153b534f::sentence-40",
-          "documentId": "doc-af46153b534f",
-          "text": "That's what environmental activists want, for the sake of curbing climate change. ",
-          "start": 3996,
-          "end": 4078,
-          "context": "One possibility is that they might get replaced quite quickly with electric vehicles.\n That's what environmental activists want, for the sake of curbing climate change.  For instance, the Green New Deal proposed by Democrats calls for phasing out carbon-emitting vehicles within a decade — which would require not only very fast production of electric vehicles but also a sudden withdrawal of combustion vehicles from roads.\n"
+          "id": "doc-5e4a01b775ac::sentence-19",
+          "documentId": "doc-5e4a01b775ac",
+          "text": "Evidence 4: Will the Green New Deal ban animal agriculture? ",
+          "start": 2486,
+          "end": 2546,
+          "context": "Warren's plan calls for $3 trillion in federal investment over ten years, Biden calls for $1.7 trillion, and O'Rourke calls for $1.5 trillion, and they predict their plans would mobilize even larger contributions from the private sector.\n Evidence 4: Will the Green New Deal ban animal agriculture?  There is no mention of banning animal agriculture.\n\n"
         },
         {
-          "id": "doc-af46153b534f::sentence-39",
-          "documentId": "doc-af46153b534f",
-          "text": "One possibility is that they might get replaced quite quickly with electric vehicles.\n",
-          "start": 3910,
-          "end": 3996,
-          "context": "The next question is, what happens to all the combustion vehicles already on the road?\n One possibility is that they might get replaced quite quickly with electric vehicles.\n That's what environmental activists want, for the sake of curbing climate change. "
+          "id": "doc-5e4a01b775ac::sentence-20",
+          "documentId": "doc-5e4a01b775ac",
+          "text": "There is no mention of banning animal agriculture.\n\n",
+          "start": 2546,
+          "end": 2598,
+          "context": "Evidence 4: Will the Green New Deal ban animal agriculture?  There is no mention of banning animal agriculture.\n\n RECOVERED SOURCE TEXT\n"
         },
         {
-          "id": "doc-5e4a01b775ac::sentence-57",
+          "id": "doc-5e4a01b775ac::sentence-78",
           "documentId": "doc-5e4a01b775ac",
           "text": "In general, they’ve also pledged to pursue rules that would require power plants, buildings, and vehicles to slash pollution, jumping off efforts by President Barack Obama that Trump halted or reversed and taking them further.\n",
-          "start": 9780,
-          "end": 10007,
+          "start": 12400,
+          "end": 12627,
           "context": "Every Democratic candidate has pledged to rejoin the Paris Climate agreement, with some saying they would try to set its targets even higher.  In general, they’ve also pledged to pursue rules that would require power plants, buildings, and vehicles to slash pollution, jumping off efforts by President Barack Obama that Trump halted or reversed and taking them further.\n Sanders has gone the furthest in this regard, pledging to run all transportation and power on renewable energy by 2030. "
         },
         {
-          "id": "doc-5e4a01b775ac::sentence-30",
+          "id": "doc-5e4a01b775ac::sentence-55",
           "documentId": "doc-5e4a01b775ac",
-          "text": "If the United States and other countries tackle the problem too slowly, it could require them to either accept more devastating consequences from climate change or make sudden and more drastic sacrifices to head them off. ",
-          "start": 4986,
-          "end": 5208,
-          "context": "Green New Deal advocates argue that the scale of the problem requires massive coordinated action across the government and private sector and that by tackling the issue as soon as possible, the changes can be implemented in ways that would benefit Americans by creating jobs, providing cleaner air and water, and expanding the safety net.\n If the United States and other countries tackle the problem too slowly, it could require them to either accept more devastating consequences from climate change or make sudden and more drastic sacrifices to head them off.  That could also make the necessary solutions less politically palatable, hindering their goals even further.\n"
+          "text": "One complaint is that it creates unreasonable expectations by demanding a rapid shift toward net-zero emissions that some climate and industry experts argue is beyond current limitations, especially given that some activists backing the Green New Deal say the United States should reach net-zero emissions as soon as 2030.\n",
+          "start": 8123,
+          "end": 8446,
+          "context": "Among the Democratic field, candidates who have not signed onto the Green New Deal so far all publicly support its aims, but say it boxes them in too much on specifics.\n One complaint is that it creates unreasonable expectations by demanding a rapid shift toward net-zero emissions that some climate and industry experts argue is beyond current limitations, especially given that some activists backing the Green New Deal say the United States should reach net-zero emissions as soon as 2030.\n Another common objection is that the Green New Deal needlessly complicates the debate around climate change policy by linking it to other issues like health care and a jobs guarantee.\n"
         },
         {
-          "id": "doc-f70c7d8aac56::sentence-9",
+          "id": "doc-f70c7d8aac56::sentence-28",
           "documentId": "doc-f70c7d8aac56",
           "text": "The plan’s big goals are to eradicate carbon pollution from the power sector by 2035 and to achieve net-zero emissions by 2050.\n",
-          "start": 325,
-          "end": 453,
+          "start": 2621,
+          "end": 2749,
           "context": "-\n The plan’s big goals are to eradicate carbon pollution from the power sector by 2035 and to achieve net-zero emissions by 2050.\n -\n"
         },
         {
-          "id": "doc-f70c7d8aac56::sentence-52",
-          "documentId": "doc-f70c7d8aac56",
-          "text": "For all the proposals Biden wants to implement to fight climate change, some climate activists say his plan doesn’t go far enough to reduce carbon emissions and protect Indigenous lands from fossil fuel pollution.\n",
-          "start": 5925,
-          "end": 6139,
-          "context": "\"It is a go to the moon project to get people to work,\" Inslee said July 14 on MSNBC’s \"Andrea Mitchell Reports.\" \"This would have been a good plan a year ago. It’s a great plan now, because it answers the needs of the moment.\"\n For all the proposals Biden wants to implement to fight climate change, some climate activists say his plan doesn’t go far enough to reduce carbon emissions and protect Indigenous lands from fossil fuel pollution.\n The plan’s focus on carbon capture and removal technology is one of the \"false solutions\" throughout Biden’s agenda, said Tom Goldtooth, executive director of the Indigenous Environmental Network. "
+          "id": "doc-af46153b534f::sentence-45",
+          "documentId": "doc-af46153b534f",
+          "text": "One possibility is that they might get replaced quite quickly with electric vehicles.\n",
+          "start": 4376,
+          "end": 4462,
+          "context": "The next question is, what happens to all the combustion vehicles already on the road?\n One possibility is that they might get replaced quite quickly with electric vehicles.\n That's what environmental activists want, for the sake of curbing climate change. "
         }
       ]
     },
@@ -140,52 +140,52 @@
       "atomId": "atom-3",
       "spans": [
         {
-          "id": "doc-af46153b534f::sentence-23",
+          "id": "doc-af46153b534f::sentence-4",
+          "documentId": "doc-af46153b534f",
+          "text": "Evidence 1: Will the Green New Deal eliminate gas-powered cars? ",
+          "start": 267,
+          "end": 331,
+          "context": "Source URL: https://www.npr.org/2019/02/16/694303169/as-more-electric-cars-arrive-whats-the-future-for-gas-powered-engines\n Evidence 1: Will the Green New Deal eliminate gas-powered cars?  The rise of electric vehicles, however, doesn't automatically mean the end of the reign of the gas-powered car.\n\n"
+        },
+        {
+          "id": "doc-af46153b534f::sentence-7",
+          "documentId": "doc-af46153b534f",
+          "text": "As More Electric Cars Arrive, What's The Future For Gas-Powered Engines?\n",
+          "start": 466,
+          "end": 539,
+          "context": "RECOVERED SOURCE TEXT\n As More Electric Cars Arrive, What's The Future For Gas-Powered Engines?\n As More Electric Cars Arrive, What's The Future For Gas-Powered Engines?\n"
+        },
+        {
+          "id": "doc-af46153b534f::sentence-29",
           "documentId": "doc-af46153b534f",
           "text": "On the other hand, gas-powered cars are cheaper to buy than electric vehicles. ",
-          "start": 2356,
-          "end": 2435,
+          "start": 2822,
+          "end": 2901,
           "context": "\"They're enjoyable, they're quiet ... and there's loads of torque\" — which means instant acceleration, he says.\n On the other hand, gas-powered cars are cheaper to buy than electric vehicles.  It's also quicker to fill up at the pump than it is to recharge, and the country is packed with gas stations, while charging station infrastructure is still in its infancy.\n"
         },
         {
-          "id": "doc-af46153b534f::sentence-1",
+          "id": "doc-af46153b534f::sentence-8",
           "documentId": "doc-af46153b534f",
           "text": "As More Electric Cars Arrive, What's The Future For Gas-Powered Engines?\n",
-          "start": 0,
-          "end": 73,
-          "context": "As More Electric Cars Arrive, What's The Future For Gas-Powered Engines?\n As More Electric Cars Arrive, What's The Future For Gas-Powered Engines?\n"
+          "start": 539,
+          "end": 612,
+          "context": "As More Electric Cars Arrive, What's The Future For Gas-Powered Engines?\n As More Electric Cars Arrive, What's The Future For Gas-Powered Engines?\n Most American automobiles are powered by internal combustion engines: Gas or diesel goes in, tiny explosions power pistons and turn a crankshaft, the car moves forward, and carbon dioxide goes out.\n"
         },
         {
-          "id": "doc-5e4a01b775ac::sentence-57",
+          "id": "doc-5e4a01b775ac::sentence-78",
           "documentId": "doc-5e4a01b775ac",
           "text": "In general, they’ve also pledged to pursue rules that would require power plants, buildings, and vehicles to slash pollution, jumping off efforts by President Barack Obama that Trump halted or reversed and taking them further.\n",
-          "start": 9780,
-          "end": 10007,
+          "start": 12400,
+          "end": 12627,
           "context": "Every Democratic candidate has pledged to rejoin the Paris Climate agreement, with some saying they would try to set its targets even higher.  In general, they’ve also pledged to pursue rules that would require power plants, buildings, and vehicles to slash pollution, jumping off efforts by President Barack Obama that Trump halted or reversed and taking them further.\n Sanders has gone the furthest in this regard, pledging to run all transportation and power on renewable energy by 2030. "
         },
         {
-          "id": "doc-f70c7d8aac56::sentence-9",
+          "id": "doc-f70c7d8aac56::sentence-28",
           "documentId": "doc-f70c7d8aac56",
           "text": "The plan’s big goals are to eradicate carbon pollution from the power sector by 2035 and to achieve net-zero emissions by 2050.\n",
-          "start": 325,
-          "end": 453,
+          "start": 2621,
+          "end": 2749,
           "context": "-\n The plan’s big goals are to eradicate carbon pollution from the power sector by 2035 and to achieve net-zero emissions by 2050.\n -\n"
-        },
-        {
-          "id": "doc-5e4a01b775ac::sentence-71",
-          "documentId": "doc-5e4a01b775ac",
-          "text": "But other candidates have suggested it's necessary to provide enough energy to transition to a zero-emissions economy.\n",
-          "start": 11872,
-          "end": 11991,
-          "context": "Many of the candidates like Harris, Warren, Sanders and Booker, oppose the practice and have pledged to pursue restricting or eliminating its use, warning of potential environmental consequences.  But other candidates have suggested it's necessary to provide enough energy to transition to a zero-emissions economy.\n They also disagree over nuclear power, with Warren, Gabbard and Sanders oppose due to safety concerns, while others, including Sen. Michael Bennett, Booker and Yang support it as a source of clean power.\n"
-        },
-        {
-          "id": "doc-f70c7d8aac56::sentence-38",
-          "documentId": "doc-f70c7d8aac56",
-          "text": "\"Biden will also transform the energy sources that power the transportation sector, making it easier for mobility to be powered by electricity and clean fuels,\" the plan says.\n",
-          "start": 4055,
-          "end": 4231,
-          "context": "Biden also wants to make infrastructure more resilient to disasters exacerbated by a changing climate.\n \"Biden will also transform the energy sources that power the transportation sector, making it easier for mobility to be powered by electricity and clean fuels,\" the plan says.\n The plan states that Biden’s infrastructure investments will address disparities in accessing clean air and water, transportation, high-speed internet, jobs, and educational opportunities. "
         }
       ]
     }
@@ -195,34 +195,40 @@
       "atomId": "atom-1",
       "relations": [
         {
-          "spanId": "doc-f70c7d8aac56::sentence-59",
-          "documentId": "doc-f70c7d8aac56",
-          "relation": "CONTRADICTION"
+          "spanId": "doc-5e4a01b775ac::sentence-4",
+          "documentId": "doc-5e4a01b775ac",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-5e4a01b775ac::sentence-7",
+          "spanId": "doc-5e4a01b775ac::sentence-5",
           "documentId": "doc-5e4a01b775ac",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-f70c7d8aac56::sentence-78",
+          "documentId": "doc-f70c7d8aac56",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-5e4a01b775ac::sentence-26",
+          "documentId": "doc-5e4a01b775ac",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
           "spanId": "doc-5e4a01b775ac::sentence-8",
           "documentId": "doc-5e4a01b775ac",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-f70c7d8aac56::sentence-67",
+          "spanId": "doc-f70c7d8aac56::sentence-4",
           "documentId": "doc-f70c7d8aac56",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-af46153b534f::sentence-41",
-          "documentId": "doc-af46153b534f",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-af46153b534f::sentence-40",
-          "documentId": "doc-af46153b534f",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         }
       ]
     },
@@ -230,34 +236,40 @@
       "atomId": "atom-2",
       "relations": [
         {
-          "spanId": "doc-af46153b534f::sentence-40",
-          "documentId": "doc-af46153b534f",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-af46153b534f::sentence-39",
-          "documentId": "doc-af46153b534f",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-5e4a01b775ac::sentence-57",
+          "spanId": "doc-5e4a01b775ac::sentence-19",
           "documentId": "doc-5e4a01b775ac",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-5e4a01b775ac::sentence-30",
+          "spanId": "doc-5e4a01b775ac::sentence-20",
           "documentId": "doc-5e4a01b775ac",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-f70c7d8aac56::sentence-9",
-          "documentId": "doc-f70c7d8aac56",
-          "relation": "NEUTRAL"
+          "spanId": "doc-5e4a01b775ac::sentence-78",
+          "documentId": "doc-5e4a01b775ac",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-f70c7d8aac56::sentence-52",
+          "spanId": "doc-5e4a01b775ac::sentence-55",
+          "documentId": "doc-5e4a01b775ac",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-f70c7d8aac56::sentence-28",
           "documentId": "doc-f70c7d8aac56",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-af46153b534f::sentence-45",
+          "documentId": "doc-af46153b534f",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         }
       ]
     },
@@ -265,38 +277,90 @@
       "atomId": "atom-3",
       "relations": [
         {
-          "spanId": "doc-af46153b534f::sentence-23",
+          "spanId": "doc-af46153b534f::sentence-4",
           "documentId": "doc-af46153b534f",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-af46153b534f::sentence-1",
+          "spanId": "doc-af46153b534f::sentence-7",
           "documentId": "doc-af46153b534f",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-5e4a01b775ac::sentence-57",
+          "spanId": "doc-af46153b534f::sentence-29",
+          "documentId": "doc-af46153b534f",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-af46153b534f::sentence-8",
+          "documentId": "doc-af46153b534f",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-5e4a01b775ac::sentence-78",
           "documentId": "doc-5e4a01b775ac",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-f70c7d8aac56::sentence-9",
+          "spanId": "doc-f70c7d8aac56::sentence-28",
           "documentId": "doc-f70c7d8aac56",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-5e4a01b775ac::sentence-71",
-          "documentId": "doc-5e4a01b775ac",
-          "relation": "NEUTRAL"
-        },
-        {
-          "spanId": "doc-f70c7d8aac56::sentence-38",
-          "documentId": "doc-f70c7d8aac56",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         }
       ]
     }
   ],
+  "evidenceAudit": {
+    "claimPosition": {
+      "position": "INSUFFICIENT",
+      "supportSpanIds": [],
+      "attackSpanIds": [],
+      "contextSpanIds": [
+        "doc-5e4a01b775ac::sentence-8",
+        "doc-af46153b534f::sentence-29",
+        "doc-af46153b534f::sentence-8",
+        "doc-5e4a01b775ac::sentence-78",
+        "doc-f70c7d8aac56::sentence-28"
+      ],
+      "reason": "The evidence does not support the claim of banning animal agriculture or eliminating gas-powered cars. While some candidates have set ambitious goals, there is no clear indication that the Democratic Party or Joe Biden would ban animal agriculture or eliminate gas-powered cars entirely."
+    },
+    "obligations": [
+      {
+        "atomId": "atom-1",
+        "state": "UNRESOLVED",
+        "supportSpanIds": [],
+        "attackSpanIds": [],
+        "reason": "The evidence does not support the claim of banning animal agriculture or eliminating gas-powered cars. While some candidates have set ambitious goals, there is no clear indication that the Democratic Party or Joe Biden would ban animal agriculture or eliminate gas-powered cars entirely."
+      },
+      {
+        "atomId": "atom-2",
+        "state": "UNRESOLVED",
+        "supportSpanIds": [],
+        "attackSpanIds": [],
+        "reason": "The evidence does not support the claim of banning animal agriculture or eliminating gas-powered cars. While some candidates have set ambitious goals, there is no clear indication that the Democratic Party or Joe Biden would ban animal agriculture or eliminate gas-powered cars entirely."
+      },
+      {
+        "atomId": "atom-3",
+        "state": "UNRESOLVED",
+        "supportSpanIds": [],
+        "attackSpanIds": [],
+        "reason": "The evidence does not support the claim of banning animal agriculture or eliminating gas-powered cars. While some candidates have set ambitious goals, there is no clear indication that the Democratic Party or Joe Biden would ban animal agriculture or eliminate gas-powered cars entirely."
+      }
+    ],
+    "materialOmission": {
+      "detected": false,
+      "supportSpanIds": [],
+      "contextSpanIds": [],
+      "reason": "No material omission was established."
+    },
+    "provider": "ollama",
+    "model": "qwen2.5:7b"
+  },
   "linguistics": {
     "schemaVersion": 2,
     "claimAnalysis": {
@@ -1467,28 +1531,27 @@
     "aggregationSchemaVersion": 1,
     "claimId": "averitec-dev-0495",
     "composition": "AND",
-    "verdict": "REFUTED",
+    "verdict": "NOT_ENOUGH_EVIDENCE",
     "positions": {
       "supportPosition": false,
-      "attackPosition": true,
+      "attackPosition": false,
+      "materialOmissionPosition": false,
       "supportObligationIds": [],
-      "attackObligationIds": [
-        "atom-1"
-      ],
+      "attackObligationIds": [],
       "unresolvedObligationIds": [
+        "atom-1",
         "atom-2",
         "atom-3"
-      ]
+      ],
+      "groundedClaimPosition": "INSUFFICIENT"
     },
     "obligations": [
       {
         "obligationId": "atom-1",
-        "state": "REFUTED",
+        "state": "UNRESOLVED",
         "supportEdgeIds": [],
-        "attackEdgeIds": [
-          "edge:ATTACKS:evidence:doc-f70c7d8aac56:doc-f70c7d8aac56::sentence-59:obligation:averitec-dev-0495:atom-1"
-        ],
-        "neutralCandidateCount": 5
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 6
       },
       {
         "obligationId": "atom-2",
@@ -1506,6 +1569,14 @@
       }
     ],
     "warnings": [
+      {
+        "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
+        "message": "Obligation atom-1 has no supporting or attacking evidence."
+      },
+      {
+        "code": "ONLY_NEUTRAL_CANDIDATES",
+        "message": "Obligation atom-1 has only neutral retrieved candidates."
+      },
       {
         "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
         "message": "Obligation atom-2 has no supporting or attacking evidence."
@@ -1532,15 +1603,23 @@
       }
     ],
     "ruleTrace": [
-      "AND support requires support for every obligation; AND attack requires an attack on any obligation.",
-      "Support position: no; attack position: yes.",
-      "Final verdict: REFUTED."
+      "The provenance-constrained claim audit sets the overall evidence position; deterministic aggregation maps that position to status.",
+      "Grounded claim position: INSUFFICIENT; The evidence does not support the claim of banning animal agriculture or eliminating gas-powered cars. While some candidates have set ambitious goals, there is no clear indication that the Democratic Party or Joe Biden would ban animal agriculture or eliminate gas-powered cars entirely.",
+      "Support position: no; attack position: no.",
+      "Final verdict: NOT_ENOUGH_EVIDENCE."
     ]
   },
   "recordedWith": {
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
-    "nliModel": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    "nliModel": "qwen2.5:7b",
     "linguisticsModel": "en_core_web_sm@3.8.0"
+  },
+  "timingsSeconds": {
+    "decomposition": 17.007,
+    "retrievalAndLinguistics": 1.037,
+    "evidenceAudit": 21.575,
+    "aggregation": 0.006,
+    "total": 39.634
   }
 }

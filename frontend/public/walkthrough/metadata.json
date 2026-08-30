@@ -1,24 +1,390 @@
 {
-  "averitec-dev-0034": {"displayTitle":"NDF listings across five jurisdictions","topics":["CONFLICT_SECURITY","LAW_PUBLIC_POLICY"],"challenges":["MULTI_PART","NEGATION","LIST_SET_REASONING"],"featured":false},
-  "averitec-dev-0146": {"displayTitle":"Pandemic job losses and recovery","topics":["ECONOMY_BUSINESS","PUBLIC_HEALTH"],"challenges":["NUMBERS","TIME","MULTI_PART"],"featured":false},
-  "averitec-dev-0158": {"displayTitle":"Trump's Regeneron treatment","topics":["PUBLIC_HEALTH","POLITICS_ELECTIONS"],"challenges":["MULTI_PART","ATTRIBUTION"],"featured":false},
-  "averitec-dev-0125": {"displayTitle":"Nigeria GDP in 2019 and 2020","topics":["ECONOMY_BUSINESS"],"challenges":["NUMBERS","TIME"],"featured":false},
-  "averitec-dev-0392": {"displayTitle":"Wildfire smoke and orange skies","topics":["CLIMATE_ENVIRONMENT"],"challenges":[],"featured":true},
-  "averitec-dev-0145": {"displayTitle":"Delay in the Kayla Mueller rescue response","topics":["CONFLICT_SECURITY","POLITICS_ELECTIONS"],"challenges":["TIME","CAUSALITY","MULTI_PART"],"featured":false},
-  "averitec-dev-0044": {"displayTitle":"COVID-19 pox parties and herd immunity","topics":["PUBLIC_HEALTH"],"challenges":["CAUSALITY","ATTRIBUTION"],"featured":true},
-  "averitec-dev-0280": {"displayTitle":"Rapid tests and a second COVID-19 wave","topics":["PUBLIC_HEALTH"],"challenges":["NEGATION","CAUSALITY","MULTI_PART"],"featured":false},
-  "averitec-dev-0419": {"displayTitle":"CDC reporting of COVID-19 deaths","topics":["PUBLIC_HEALTH","LAW_PUBLIC_POLICY"],"challenges":["ATTRIBUTION","CAUSALITY"],"featured":false},
-  "averitec-dev-0495": {"displayTitle":"Green New Deal, agriculture, and cars","topics":["CLIMATE_ENVIRONMENT","POLITICS_ELECTIONS"],"challenges":["MULTI_PART","ATTRIBUTION"],"featured":false},
-  "averitec-dev-0089": {"displayTitle":"Masks and the 1918 influenza pandemic","topics":["PUBLIC_HEALTH","SOCIETY_CULTURE"],"challenges":["CAUSALITY","ATTRIBUTION","MULTI_PART"],"featured":false},
-  "averitec-dev-0015": {"displayTitle":"U.S. border barriers and illegal activity","topics":["LAW_PUBLIC_POLICY","POLITICS_ELECTIONS"],"challenges":["CAUSALITY","MULTI_PART","SPARSE_EVIDENCE"],"featured":false},
-  "averitec-dev-0413": {"displayTitle":"Uyghur population growth in Xinjiang","topics":["SOCIETY_CULTURE","POLITICS_ELECTIONS"],"challenges":["NUMBERS","TIME","SPARSE_EVIDENCE"],"featured":false},
-  "averitec-dev-0026": {"displayTitle":"Ivermectin as a coronavirus treatment","topics":["PUBLIC_HEALTH"],"challenges":["SPARSE_EVIDENCE"],"featured":false},
-  "averitec-dev-0208": {"displayTitle":"Oil prices in Nigeria and Saudi Arabia","topics":["ECONOMY_BUSINESS"],"challenges":["SPARSE_EVIDENCE"],"featured":true},
-  "averitec-dev-0435": {"displayTitle":"Igbo wealth per capita in Africa","topics":["ECONOMY_BUSINESS","SOCIETY_CULTURE"],"challenges":["SPARSE_EVIDENCE","ATTRIBUTION"],"featured":false},
-  "averitec-dev-0060": {"displayTitle":"UK wage support in tier-three areas","topics":["ECONOMY_BUSINESS","LAW_PUBLIC_POLICY"],"challenges":["CONFLICTING_SOURCES","MULTI_PART","NUMBERS"],"featured":false},
-  "averitec-dev-0100": {"displayTitle":"Joe Biden and the Green New Deal","topics":["CLIMATE_ENVIRONMENT","POLITICS_ELECTIONS"],"challenges":["CONFLICTING_SOURCES","ATTRIBUTION"],"featured":false},
-  "averitec-dev-0423": {"displayTitle":"Martha McSally and Medicare proposals","topics":["POLITICS_ELECTIONS","LAW_PUBLIC_POLICY"],"challenges":["CONFLICTING_SOURCES","MULTI_PART","ATTRIBUTION"],"featured":false},
-  "averitec-dev-0010": {"displayTitle":"Three attributed statements by Donald Trump","topics":["POLITICS_ELECTIONS","CLIMATE_ENVIRONMENT"],"challenges":["ATTRIBUTION","MULTI_PART","CONFLICTING_SOURCES"],"featured":false},
-  "averitec-dev-0018": {"displayTitle":"Deadlines for mail-in ballots","topics":["POLITICS_ELECTIONS","LAW_PUBLIC_POLICY"],"challenges":["CONFLICTING_SOURCES","TIME"],"featured":true},
-  "averitec-dev-0058": {"displayTitle":"Russian medical aid to the United States","topics":["PUBLIC_HEALTH","CONFLICT_SECURITY"],"challenges":["CONFLICTING_SOURCES","ATTRIBUTION"],"featured":false}
+  "averitec-dev-0034": {
+    "displayTitle": "NDF listings across five jurisdictions",
+    "topics": [
+      "CONFLICT_SECURITY",
+      "LAW_PUBLIC_POLICY"
+    ],
+    "challenges": [
+      "MULTI_PART",
+      "NEGATION",
+      "LIST_SET_REASONING"
+    ],
+    "featured": false
+  },
+  "averitec-dev-0146": {
+    "displayTitle": "Pandemic job losses and recovery",
+    "topics": [
+      "ECONOMY_BUSINESS",
+      "PUBLIC_HEALTH"
+    ],
+    "challenges": [
+      "NUMBERS",
+      "TIME",
+      "MULTI_PART"
+    ],
+    "featured": false
+  },
+  "averitec-dev-0158": {
+    "displayTitle": "Trump's Regeneron treatment",
+    "topics": [
+      "PUBLIC_HEALTH",
+      "POLITICS_ELECTIONS"
+    ],
+    "challenges": [
+      "MULTI_PART",
+      "ATTRIBUTION"
+    ],
+    "featured": false
+  },
+  "averitec-dev-0125": {
+    "displayTitle": "Nigeria GDP in 2019 and 2020",
+    "topics": [
+      "ECONOMY_BUSINESS"
+    ],
+    "challenges": [
+      "NUMBERS",
+      "TIME"
+    ],
+    "featured": false
+  },
+  "averitec-dev-0319": {
+    "displayTitle": "Nigeria's cassava production ranking",
+    "topics": [
+      "ECONOMY_BUSINESS"
+    ],
+    "challenges": [
+      "ATTRIBUTION",
+      "LIST_SET_REASONING"
+    ],
+    "featured": false
+  },
+  "averitec-dev-0392": {
+    "displayTitle": "Wildfire smoke and orange skies",
+    "topics": [
+      "CLIMATE_ENVIRONMENT"
+    ],
+    "challenges": [],
+    "featured": true
+  },
+  "averitec-dev-0145": {
+    "displayTitle": "Delay in the Kayla Mueller rescue response",
+    "topics": [
+      "CONFLICT_SECURITY",
+      "POLITICS_ELECTIONS"
+    ],
+    "challenges": [
+      "TIME",
+      "CAUSALITY",
+      "MULTI_PART"
+    ],
+    "featured": false
+  },
+  "averitec-dev-0323": {
+    "displayTitle": "Affordable Care Act and preexisting conditions",
+    "topics": [
+      "PUBLIC_HEALTH",
+      "LAW_PUBLIC_POLICY",
+      "POLITICS_ELECTIONS"
+    ],
+    "challenges": [
+      "NUMBERS",
+      "ATTRIBUTION",
+      "MULTI_PART"
+    ],
+    "featured": false
+  },
+  "averitec-dev-0044": {
+    "displayTitle": "COVID-19 pox parties and herd immunity",
+    "topics": [
+      "PUBLIC_HEALTH"
+    ],
+    "challenges": [
+      "CAUSALITY",
+      "ATTRIBUTION"
+    ],
+    "featured": true
+  },
+  "averitec-dev-0280": {
+    "displayTitle": "Rapid tests and a second COVID-19 wave",
+    "topics": [
+      "PUBLIC_HEALTH"
+    ],
+    "challenges": [
+      "NEGATION",
+      "CAUSALITY",
+      "MULTI_PART"
+    ],
+    "featured": false
+  },
+  "averitec-dev-0419": {
+    "displayTitle": "CDC reporting of COVID-19 deaths",
+    "topics": [
+      "PUBLIC_HEALTH",
+      "LAW_PUBLIC_POLICY"
+    ],
+    "challenges": [
+      "ATTRIBUTION",
+      "CAUSALITY"
+    ],
+    "featured": false
+  },
+  "averitec-dev-0495": {
+    "displayTitle": "Green New Deal, agriculture, and cars",
+    "topics": [
+      "CLIMATE_ENVIRONMENT",
+      "POLITICS_ELECTIONS"
+    ],
+    "challenges": [
+      "MULTI_PART",
+      "ATTRIBUTION"
+    ],
+    "featured": false
+  },
+  "averitec-dev-0089": {
+    "displayTitle": "Masks and the 1918 influenza pandemic",
+    "topics": [
+      "PUBLIC_HEALTH",
+      "SOCIETY_CULTURE"
+    ],
+    "challenges": [
+      "CAUSALITY",
+      "ATTRIBUTION",
+      "MULTI_PART"
+    ],
+    "featured": false
+  },
+  "averitec-dev-0003": {
+    "displayTitle": "UNESCO and the Nadar community",
+    "topics": [
+      "SOCIETY_CULTURE"
+    ],
+    "challenges": [
+      "ATTRIBUTION"
+    ],
+    "featured": false
+  },
+  "averitec-dev-0004": {
+    "displayTitle": "Matt Gaetz and hospice fraud",
+    "topics": [
+      "POLITICS_ELECTIONS",
+      "LAW_PUBLIC_POLICY"
+    ],
+    "challenges": [
+      "NUMBERS",
+      "ATTRIBUTION",
+      "MULTI_PART"
+    ],
+    "featured": false
+  },
+  "averitec-dev-0008": {
+    "displayTitle": "Ballot counting after election day",
+    "topics": [
+      "POLITICS_ELECTIONS",
+      "LAW_PUBLIC_POLICY"
+    ],
+    "challenges": [
+      "TIME",
+      "ATTRIBUTION",
+      "MULTI_PART"
+    ],
+    "featured": true
+  },
+  "averitec-dev-0015": {
+    "displayTitle": "U.S. border barriers and illegal activity",
+    "topics": [
+      "LAW_PUBLIC_POLICY",
+      "POLITICS_ELECTIONS"
+    ],
+    "challenges": [
+      "CAUSALITY",
+      "MULTI_PART",
+      "SPARSE_EVIDENCE"
+    ],
+    "featured": false
+  },
+  "averitec-dev-0413": {
+    "displayTitle": "Uyghur population growth in Xinjiang",
+    "topics": [
+      "SOCIETY_CULTURE",
+      "POLITICS_ELECTIONS"
+    ],
+    "challenges": [
+      "NUMBERS",
+      "TIME",
+      "SPARSE_EVIDENCE"
+    ],
+    "featured": false
+  },
+  "averitec-dev-0026": {
+    "displayTitle": "Ivermectin as a coronavirus treatment",
+    "topics": [
+      "PUBLIC_HEALTH"
+    ],
+    "challenges": [
+      "SPARSE_EVIDENCE"
+    ],
+    "featured": false
+  },
+  "averitec-dev-0208": {
+    "displayTitle": "Oil prices in Nigeria and Saudi Arabia",
+    "topics": [
+      "ECONOMY_BUSINESS"
+    ],
+    "challenges": [
+      "SPARSE_EVIDENCE"
+    ],
+    "featured": true
+  },
+  "averitec-dev-0435": {
+    "displayTitle": "Igbo wealth per capita in Africa",
+    "topics": [
+      "ECONOMY_BUSINESS",
+      "SOCIETY_CULTURE"
+    ],
+    "challenges": [
+      "SPARSE_EVIDENCE",
+      "ATTRIBUTION"
+    ],
+    "featured": false
+  },
+  "averitec-dev-0082": {
+    "displayTitle": "Lockdowns and non-COVID excess deaths",
+    "topics": [
+      "PUBLIC_HEALTH",
+      "LAW_PUBLIC_POLICY"
+    ],
+    "challenges": [
+      "CAUSALITY",
+      "TIME",
+      "SPARSE_EVIDENCE"
+    ],
+    "featured": false
+  },
+  "averitec-dev-0142": {
+    "displayTitle": "CDC estimate of non-COVID deaths",
+    "topics": [
+      "PUBLIC_HEALTH"
+    ],
+    "challenges": [
+      "NUMBERS",
+      "ATTRIBUTION",
+      "CAUSALITY",
+      "SPARSE_EVIDENCE"
+    ],
+    "featured": false
+  },
+  "averitec-dev-0394": {
+    "displayTitle": "Trump-era auto assembly plants",
+    "topics": [
+      "ECONOMY_BUSINESS",
+      "POLITICS_ELECTIONS"
+    ],
+    "challenges": [
+      "TIME",
+      "LIST_SET_REASONING",
+      "SPARSE_EVIDENCE"
+    ],
+    "featured": false
+  },
+  "averitec-dev-0060": {
+    "displayTitle": "UK wage support in tier-three areas",
+    "topics": [
+      "ECONOMY_BUSINESS",
+      "LAW_PUBLIC_POLICY"
+    ],
+    "challenges": [
+      "CONFLICTING_SOURCES",
+      "MULTI_PART",
+      "NUMBERS"
+    ],
+    "featured": false
+  },
+  "averitec-dev-0100": {
+    "displayTitle": "Joe Biden and the Green New Deal",
+    "topics": [
+      "CLIMATE_ENVIRONMENT",
+      "POLITICS_ELECTIONS"
+    ],
+    "challenges": [
+      "CONFLICTING_SOURCES",
+      "ATTRIBUTION"
+    ],
+    "featured": false
+  },
+  "averitec-dev-0423": {
+    "displayTitle": "Martha McSally and Medicare proposals",
+    "topics": [
+      "POLITICS_ELECTIONS",
+      "LAW_PUBLIC_POLICY"
+    ],
+    "challenges": [
+      "CONFLICTING_SOURCES",
+      "MULTI_PART",
+      "ATTRIBUTION"
+    ],
+    "featured": false
+  },
+  "averitec-dev-0010": {
+    "displayTitle": "Three attributed statements by Donald Trump",
+    "topics": [
+      "POLITICS_ELECTIONS",
+      "CLIMATE_ENVIRONMENT"
+    ],
+    "challenges": [
+      "ATTRIBUTION",
+      "MULTI_PART",
+      "CONFLICTING_SOURCES"
+    ],
+    "featured": false
+  },
+  "averitec-dev-0018": {
+    "displayTitle": "Deadlines for mail-in ballots",
+    "topics": [
+      "POLITICS_ELECTIONS",
+      "LAW_PUBLIC_POLICY"
+    ],
+    "challenges": [
+      "CONFLICTING_SOURCES",
+      "TIME"
+    ],
+    "featured": true
+  },
+  "averitec-dev-0058": {
+    "displayTitle": "Russian medical aid to the United States",
+    "topics": [
+      "PUBLIC_HEALTH",
+      "CONFLICT_SECURITY"
+    ],
+    "challenges": [
+      "CONFLICTING_SOURCES",
+      "ATTRIBUTION"
+    ],
+    "featured": false
+  },
+  "averitec-dev-0303": {
+    "displayTitle": "Senate treatment of Supreme Court nominees",
+    "topics": [
+      "POLITICS_ELECTIONS",
+      "LAW_PUBLIC_POLICY"
+    ],
+    "challenges": [
+      "CONFLICTING_SOURCES",
+      "TIME"
+    ],
+    "featured": false
+  },
+  "averitec-dev-0480": {
+    "displayTitle": "Biden, charter schools, and school choice",
+    "topics": [
+      "POLITICS_ELECTIONS",
+      "LAW_PUBLIC_POLICY"
+    ],
+    "challenges": [
+      "ATTRIBUTION",
+      "CONFLICTING_SOURCES",
+      "MULTI_PART"
+    ],
+    "featured": false
+  }
 }

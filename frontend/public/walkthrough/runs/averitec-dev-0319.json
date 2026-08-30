@@ -1,0 +1,896 @@
+{
+  "caseId": "averitec-dev-0319",
+  "schemaVersion": 2,
+  "composition": "AND",
+  "warnings": [
+    {
+      "code": "REUSED_SOURCE_TEXT",
+      "message": "One sourceText span grounds more than one obligation."
+    }
+  ],
+  "atoms": [
+    {
+      "id": "atom-1",
+      "text": "Nigeria is the leading producer of cassava in Africa.",
+      "sourceText": "Nigeria is the leading producer of cassava in Africa and the world.",
+      "start": 0,
+      "end": 67,
+      "role": "CORE"
+    },
+    {
+      "id": "atom-2",
+      "text": "Nigeria is the leading producer of cassava in the world.",
+      "sourceText": "Nigeria is the leading producer of cassava in Africa and the world.",
+      "start": 0,
+      "end": 67,
+      "role": "CORE"
+    }
+  ],
+  "evidence": [
+    {
+      "atomId": "atom-1",
+      "spans": [
+        {
+          "id": "doc-adf0330a9cdd::sentence-14",
+          "documentId": "doc-adf0330a9cdd",
+          "text": "A virtual guide to Nigeria, officially the Federal Republic of Nigeria, a country in the south east of West Africa, with a coast at the Bight of Benin and the Gulf of Guinea. ",
+          "start": 369,
+          "end": 544,
+          "context": "Image: Jeff Attaway |\n A virtual guide to Nigeria, officially the Federal Republic of Nigeria, a country in the south east of West Africa, with a coast at the Bight of Benin and the Gulf of Guinea.  Nigeria is bordered by Benin, Cameroon, Chad, and Niger, it shares maritime borders with Equatorial Guinea, Ghana, and São Tomé and Príncipe. "
+        },
+        {
+          "id": "doc-adf0330a9cdd::sentence-157",
+          "documentId": "doc-adf0330a9cdd",
+          "text": "- The World Factbook -- Nigeria\n",
+          "start": 13985,
+          "end": 14017,
+          "context": "- Wikipedia: Nigeria\n - The World Factbook -- Nigeria\n |\n"
+        },
+        {
+          "id": "doc-d361a14b1bd5::sentence-12",
+          "documentId": "doc-d361a14b1bd5",
+          "text": "More recently the Collaborative Study of Cassava in Africa (COSCA) study (Nweke et al., 2002) dismissed the myth that cassava is a subsistence crop produced by and for rural households. ",
+          "start": 927,
+          "end": 1113,
+          "context": "Cassava has long ceased to be such a subsistence crop, even in Africa, where substantial trading of the crop was reported more than 60 years ago (Jones, 1959).  More recently the Collaborative Study of Cassava in Africa (COSCA) study (Nweke et al., 2002) dismissed the myth that cassava is a subsistence crop produced by and for rural households.  Rather, it is increasingly being transformed into a cash crop and marketed as an urban food staple in many African countries. "
+        },
+        {
+          "id": "doc-d361a14b1bd5::sentence-11",
+          "documentId": "doc-d361a14b1bd5",
+          "text": "Cassava has long ceased to be such a subsistence crop, even in Africa, where substantial trading of the crop was reported more than 60 years ago (Jones, 1959). ",
+          "start": 767,
+          "end": 927,
+          "context": "Cassava is frequently, and we suggest wrongly, described as a crop of subsistence agriculture which ‘farmers grow to feed themselves and their families’ such that production is targeted to survival and local requirements with little or no surplus for trade.  Cassava has long ceased to be such a subsistence crop, even in Africa, where substantial trading of the crop was reported more than 60 years ago (Jones, 1959).  More recently the Collaborative Study of Cassava in Africa (COSCA) study (Nweke et al., 2002) dismissed the myth that cassava is a subsistence crop produced by and for rural households. "
+        },
+        {
+          "id": "doc-adf0330a9cdd::sentence-19",
+          "documentId": "doc-adf0330a9cdd",
+          "text": "Nigeria has a population of 192 million people (UN est. in 2017), making it the seventh most populous country in the world. ",
+          "start": 1144,
+          "end": 1268,
+          "context": "The country's highest point is Chappal Waddi (or Gangirwal) with 2,419 m (7,936 ft.), located in the Adamawa mountains in the Gashaka-Gumti National Park, Taraba State, on the border with Cameroon.  Nigeria has a population of 192 million people (UN est. in 2017), making it the seventh most populous country in the world.  Capital city is Abuja, located in the center of the nation, while Lagos is the country's primary port, economic hub and the largest city. "
+        },
+        {
+          "id": "doc-d361a14b1bd5::sentence-19",
+          "documentId": "doc-d361a14b1bd5",
+          "text": "Cassava served as a food reserve during civil strife (1961–97) in Angola and Mozambique and in the Biafran war. ",
+          "start": 2013,
+          "end": 2125,
+          "context": "Unfortunately, these programmes have usually been abandoned soon after the drought.  Cassava served as a food reserve during civil strife (1961–97) in Angola and Mozambique and in the Biafran war.  This commonly perceived role as a famine fighter has tended to lessen its contribution to raising farmers’ incomes (Jones, 1959, p. 281).\n"
+        }
+      ]
+    },
+    {
+      "atomId": "atom-2",
+      "spans": [
+        {
+          "id": "doc-adf0330a9cdd::sentence-157",
+          "documentId": "doc-adf0330a9cdd",
+          "text": "- The World Factbook -- Nigeria\n",
+          "start": 13985,
+          "end": 14017,
+          "context": "- Wikipedia: Nigeria\n - The World Factbook -- Nigeria\n |\n"
+        },
+        {
+          "id": "doc-adf0330a9cdd::sentence-19",
+          "documentId": "doc-adf0330a9cdd",
+          "text": "Nigeria has a population of 192 million people (UN est. in 2017), making it the seventh most populous country in the world. ",
+          "start": 1144,
+          "end": 1268,
+          "context": "The country's highest point is Chappal Waddi (or Gangirwal) with 2,419 m (7,936 ft.), located in the Adamawa mountains in the Gashaka-Gumti National Park, Taraba State, on the border with Cameroon.  Nigeria has a population of 192 million people (UN est. in 2017), making it the seventh most populous country in the world.  Capital city is Abuja, located in the center of the nation, while Lagos is the country's primary port, economic hub and the largest city. "
+        },
+        {
+          "id": "doc-d361a14b1bd5::sentence-12",
+          "documentId": "doc-d361a14b1bd5",
+          "text": "More recently the Collaborative Study of Cassava in Africa (COSCA) study (Nweke et al., 2002) dismissed the myth that cassava is a subsistence crop produced by and for rural households. ",
+          "start": 927,
+          "end": 1113,
+          "context": "Cassava has long ceased to be such a subsistence crop, even in Africa, where substantial trading of the crop was reported more than 60 years ago (Jones, 1959).  More recently the Collaborative Study of Cassava in Africa (COSCA) study (Nweke et al., 2002) dismissed the myth that cassava is a subsistence crop produced by and for rural households.  Rather, it is increasingly being transformed into a cash crop and marketed as an urban food staple in many African countries. "
+        },
+        {
+          "id": "doc-adf0330a9cdd::sentence-14",
+          "documentId": "doc-adf0330a9cdd",
+          "text": "A virtual guide to Nigeria, officially the Federal Republic of Nigeria, a country in the south east of West Africa, with a coast at the Bight of Benin and the Gulf of Guinea. ",
+          "start": 369,
+          "end": 544,
+          "context": "Image: Jeff Attaway |\n A virtual guide to Nigeria, officially the Federal Republic of Nigeria, a country in the south east of West Africa, with a coast at the Bight of Benin and the Gulf of Guinea.  Nigeria is bordered by Benin, Cameroon, Chad, and Niger, it shares maritime borders with Equatorial Guinea, Ghana, and São Tomé and Príncipe. "
+        },
+        {
+          "id": "doc-d361a14b1bd5::sentence-11",
+          "documentId": "doc-d361a14b1bd5",
+          "text": "Cassava has long ceased to be such a subsistence crop, even in Africa, where substantial trading of the crop was reported more than 60 years ago (Jones, 1959). ",
+          "start": 767,
+          "end": 927,
+          "context": "Cassava is frequently, and we suggest wrongly, described as a crop of subsistence agriculture which ‘farmers grow to feed themselves and their families’ such that production is targeted to survival and local requirements with little or no surplus for trade.  Cassava has long ceased to be such a subsistence crop, even in Africa, where substantial trading of the crop was reported more than 60 years ago (Jones, 1959).  More recently the Collaborative Study of Cassava in Africa (COSCA) study (Nweke et al., 2002) dismissed the myth that cassava is a subsistence crop produced by and for rural households. "
+        },
+        {
+          "id": "doc-adf0330a9cdd::sentence-26",
+          "documentId": "doc-adf0330a9cdd",
+          "text": "Background: British influence and control over what would become Nigeria and today Africa's most populous country grew through the 19th century. ",
+          "start": 1658,
+          "end": 1803,
+          "context": "Country Profile |\n Background: British influence and control over what would become Nigeria and today Africa's most populous country grew through the 19th century.  A series of constitutions after World War II granted Nigeria greater autonomy; independence came in 1960. "
+        }
+      ]
+    }
+  ],
+  "classifications": [
+    {
+      "atomId": "atom-1",
+      "relations": [
+        {
+          "spanId": "doc-adf0330a9cdd::sentence-14",
+          "documentId": "doc-adf0330a9cdd",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-adf0330a9cdd::sentence-157",
+          "documentId": "doc-adf0330a9cdd",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-d361a14b1bd5::sentence-12",
+          "documentId": "doc-d361a14b1bd5",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-d361a14b1bd5::sentence-11",
+          "documentId": "doc-d361a14b1bd5",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-adf0330a9cdd::sentence-19",
+          "documentId": "doc-adf0330a9cdd",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-d361a14b1bd5::sentence-19",
+          "documentId": "doc-d361a14b1bd5",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        }
+      ]
+    },
+    {
+      "atomId": "atom-2",
+      "relations": [
+        {
+          "spanId": "doc-adf0330a9cdd::sentence-157",
+          "documentId": "doc-adf0330a9cdd",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-adf0330a9cdd::sentence-19",
+          "documentId": "doc-adf0330a9cdd",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-d361a14b1bd5::sentence-12",
+          "documentId": "doc-d361a14b1bd5",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-adf0330a9cdd::sentence-14",
+          "documentId": "doc-adf0330a9cdd",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-d361a14b1bd5::sentence-11",
+          "documentId": "doc-d361a14b1bd5",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-adf0330a9cdd::sentence-26",
+          "documentId": "doc-adf0330a9cdd",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        }
+      ]
+    }
+  ],
+  "evidenceAudit": {
+    "claimPosition": {
+      "position": "INSUFFICIENT",
+      "supportSpanIds": [],
+      "attackSpanIds": [],
+      "contextSpanIds": [
+        "doc-adf0330a9cdd::sentence-14",
+        "doc-adf0330a9cdd::sentence-157",
+        "doc-adf0330a9cdd::sentence-19",
+        "doc-adf0330a9cdd::sentence-157",
+        "doc-adf0330a9cdd::sentence-19",
+        "doc-adf0330a9cdd::sentence-26"
+      ],
+      "reason": "The evidence does not provide specific production data to support Nigeria as the leading producer of cassava. The provided information discusses the transformation of cassava into a cash crop but lacks concrete production figures."
+    },
+    "obligations": [
+      {
+        "atomId": "atom-1",
+        "state": "UNRESOLVED",
+        "supportSpanIds": [],
+        "attackSpanIds": [],
+        "reason": "The evidence does not provide specific production data to support Nigeria as the leading producer of cassava. The provided information discusses the transformation of cassava into a cash crop but lacks concrete production figures."
+      },
+      {
+        "atomId": "atom-2",
+        "state": "UNRESOLVED",
+        "supportSpanIds": [],
+        "attackSpanIds": [],
+        "reason": "The evidence does not provide specific production data to support Nigeria as the leading producer of cassava. The provided information discusses the transformation of cassava into a cash crop but lacks concrete production figures."
+      }
+    ],
+    "materialOmission": {
+      "detected": false,
+      "supportSpanIds": [],
+      "contextSpanIds": [],
+      "reason": "No material omission was established."
+    },
+    "provider": "ollama",
+    "model": "qwen2.5:7b"
+  },
+  "linguistics": {
+    "schemaVersion": 2,
+    "claimAnalysis": {
+      "atomId": "claim",
+      "frames": [
+        {
+          "id": "claim-frame-1",
+          "predicate": {
+            "id": "claim-frame-1-predicate",
+            "text": "is",
+            "start": 8,
+            "end": 10
+          },
+          "subjects": [
+            {
+              "id": "claim-frame-1-subject-1",
+              "text": "Nigeria",
+              "start": 0,
+              "end": 7
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "claim-frame-1-argument-1",
+              "text": "the leading producer of cassava in Africa and the world",
+              "start": 11,
+              "end": 66,
+              "role": "subject_complement"
+            }
+          ],
+          "adjuncts": [],
+          "otherModifiers": []
+        }
+      ],
+      "cues": [],
+      "entities": [
+        {
+          "id": "claim-entity-org-35-42",
+          "text": "cassava",
+          "start": 35,
+          "end": 42,
+          "label": "ORG"
+        },
+        {
+          "id": "claim-entity-loc-46-52",
+          "text": "Africa",
+          "start": 46,
+          "end": 52,
+          "label": "LOC"
+        }
+      ],
+      "tokens": [
+        {
+          "id": "claim-token-0",
+          "text": "Nigeria",
+          "start": 0,
+          "end": 7,
+          "lemma": "Nigeria",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "nsubj",
+          "head": "is"
+        },
+        {
+          "id": "claim-token-1",
+          "text": "is",
+          "start": 8,
+          "end": 10,
+          "lemma": "be",
+          "pos": "AUX",
+          "tag": "VBZ",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "claim-token-2",
+          "text": "the",
+          "start": 11,
+          "end": 14,
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "producer"
+        },
+        {
+          "id": "claim-token-3",
+          "text": "leading",
+          "start": 15,
+          "end": 22,
+          "lemma": "lead",
+          "pos": "VERB",
+          "tag": "VBG",
+          "dependency": "amod",
+          "head": "producer"
+        },
+        {
+          "id": "claim-token-4",
+          "text": "producer",
+          "start": 23,
+          "end": 31,
+          "lemma": "producer",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "attr",
+          "head": "is"
+        },
+        {
+          "id": "claim-token-5",
+          "text": "of",
+          "start": 32,
+          "end": 34,
+          "lemma": "of",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "producer"
+        },
+        {
+          "id": "claim-token-6",
+          "text": "cassava",
+          "start": 35,
+          "end": 42,
+          "lemma": "cassava",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "pobj",
+          "head": "of"
+        },
+        {
+          "id": "claim-token-7",
+          "text": "in",
+          "start": 43,
+          "end": 45,
+          "lemma": "in",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "producer"
+        },
+        {
+          "id": "claim-token-8",
+          "text": "Africa",
+          "start": 46,
+          "end": 52,
+          "lemma": "Africa",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "pobj",
+          "head": "in"
+        },
+        {
+          "id": "claim-token-9",
+          "text": "and",
+          "start": 53,
+          "end": 56,
+          "lemma": "and",
+          "pos": "CCONJ",
+          "tag": "CC",
+          "dependency": "cc",
+          "head": "producer"
+        },
+        {
+          "id": "claim-token-10",
+          "text": "the",
+          "start": 57,
+          "end": 60,
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "world"
+        },
+        {
+          "id": "claim-token-11",
+          "text": "world",
+          "start": 61,
+          "end": 66,
+          "lemma": "world",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "conj",
+          "head": "producer"
+        },
+        {
+          "id": "claim-token-12",
+          "text": ".",
+          "start": 66,
+          "end": 67,
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "is"
+        }
+      ],
+      "status": "complete",
+      "unresolved": []
+    },
+    "analyses": [
+      {
+        "atomId": "atom-1",
+        "frames": [
+          {
+            "id": "atom-1-frame-1",
+            "predicate": {
+              "id": "atom-1-frame-1-predicate",
+              "text": "is",
+              "start": 8,
+              "end": 10
+            },
+            "subjects": [
+              {
+                "id": "atom-1-frame-1-subject-1",
+                "text": "Nigeria",
+                "start": 0,
+                "end": 7
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-1-frame-1-argument-1",
+                "text": "the leading producer of cassava in Africa",
+                "start": 11,
+                "end": 52,
+                "role": "subject_complement"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [],
+        "entities": [
+          {
+            "id": "atom-1-entity-org-35-42",
+            "text": "cassava",
+            "start": 35,
+            "end": 42,
+            "label": "ORG"
+          },
+          {
+            "id": "atom-1-entity-loc-46-52",
+            "text": "Africa",
+            "start": 46,
+            "end": 52,
+            "label": "LOC"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-1-token-0",
+            "text": "Nigeria",
+            "start": 0,
+            "end": 7,
+            "lemma": "Nigeria",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "nsubj",
+            "head": "is"
+          },
+          {
+            "id": "atom-1-token-1",
+            "text": "is",
+            "start": 8,
+            "end": 10,
+            "lemma": "be",
+            "pos": "AUX",
+            "tag": "VBZ",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-1-token-2",
+            "text": "the",
+            "start": 11,
+            "end": 14,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "producer"
+          },
+          {
+            "id": "atom-1-token-3",
+            "text": "leading",
+            "start": 15,
+            "end": 22,
+            "lemma": "lead",
+            "pos": "VERB",
+            "tag": "VBG",
+            "dependency": "amod",
+            "head": "producer"
+          },
+          {
+            "id": "atom-1-token-4",
+            "text": "producer",
+            "start": 23,
+            "end": 31,
+            "lemma": "producer",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "attr",
+            "head": "is"
+          },
+          {
+            "id": "atom-1-token-5",
+            "text": "of",
+            "start": 32,
+            "end": 34,
+            "lemma": "of",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "producer"
+          },
+          {
+            "id": "atom-1-token-6",
+            "text": "cassava",
+            "start": 35,
+            "end": 42,
+            "lemma": "cassava",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "pobj",
+            "head": "of"
+          },
+          {
+            "id": "atom-1-token-7",
+            "text": "in",
+            "start": 43,
+            "end": 45,
+            "lemma": "in",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "producer"
+          },
+          {
+            "id": "atom-1-token-8",
+            "text": "Africa",
+            "start": 46,
+            "end": 52,
+            "lemma": "Africa",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "pobj",
+            "head": "in"
+          },
+          {
+            "id": "atom-1-token-9",
+            "text": ".",
+            "start": 52,
+            "end": 53,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "is"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      },
+      {
+        "atomId": "atom-2",
+        "frames": [
+          {
+            "id": "atom-2-frame-1",
+            "predicate": {
+              "id": "atom-2-frame-1-predicate",
+              "text": "is",
+              "start": 8,
+              "end": 10
+            },
+            "subjects": [
+              {
+                "id": "atom-2-frame-1-subject-1",
+                "text": "Nigeria",
+                "start": 0,
+                "end": 7
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-2-frame-1-argument-1",
+                "text": "the leading producer of cassava in the world",
+                "start": 11,
+                "end": 55,
+                "role": "subject_complement"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [],
+        "entities": [],
+        "tokens": [
+          {
+            "id": "atom-2-token-0",
+            "text": "Nigeria",
+            "start": 0,
+            "end": 7,
+            "lemma": "Nigeria",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "nsubj",
+            "head": "is"
+          },
+          {
+            "id": "atom-2-token-1",
+            "text": "is",
+            "start": 8,
+            "end": 10,
+            "lemma": "be",
+            "pos": "AUX",
+            "tag": "VBZ",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-2-token-2",
+            "text": "the",
+            "start": 11,
+            "end": 14,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "producer"
+          },
+          {
+            "id": "atom-2-token-3",
+            "text": "leading",
+            "start": 15,
+            "end": 22,
+            "lemma": "lead",
+            "pos": "VERB",
+            "tag": "VBG",
+            "dependency": "amod",
+            "head": "producer"
+          },
+          {
+            "id": "atom-2-token-4",
+            "text": "producer",
+            "start": 23,
+            "end": 31,
+            "lemma": "producer",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "attr",
+            "head": "is"
+          },
+          {
+            "id": "atom-2-token-5",
+            "text": "of",
+            "start": 32,
+            "end": 34,
+            "lemma": "of",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "producer"
+          },
+          {
+            "id": "atom-2-token-6",
+            "text": "cassava",
+            "start": 35,
+            "end": 42,
+            "lemma": "cassava",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "pobj",
+            "head": "of"
+          },
+          {
+            "id": "atom-2-token-7",
+            "text": "in",
+            "start": 43,
+            "end": 45,
+            "lemma": "in",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "producer"
+          },
+          {
+            "id": "atom-2-token-8",
+            "text": "the",
+            "start": 46,
+            "end": 49,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "world"
+          },
+          {
+            "id": "atom-2-token-9",
+            "text": "world",
+            "start": 50,
+            "end": 55,
+            "lemma": "world",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "pobj",
+            "head": "in"
+          },
+          {
+            "id": "atom-2-token-10",
+            "text": ".",
+            "start": 55,
+            "end": 56,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "is"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      }
+    ],
+    "summaries": [
+      {
+        "atomId": "atom-1",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "Nigeria"
+        ],
+        "predicates": [
+          "be"
+        ],
+        "cueKinds": [],
+        "modifierKinds": [],
+        "entityLabels": [
+          "ORG",
+          "LOC"
+        ],
+        "warnings": []
+      },
+      {
+        "atomId": "atom-2",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "Nigeria"
+        ],
+        "predicates": [
+          "be"
+        ],
+        "cueKinds": [],
+        "modifierKinds": [],
+        "entityLabels": [],
+        "warnings": []
+      }
+    ],
+    "claimWarnings": [],
+    "provider": "spacy",
+    "model": "en_core_web_sm@3.8.0"
+  },
+  "verdict": {
+    "aggregationSchemaVersion": 1,
+    "claimId": "averitec-dev-0319",
+    "composition": "AND",
+    "verdict": "NOT_ENOUGH_EVIDENCE",
+    "positions": {
+      "supportPosition": false,
+      "attackPosition": false,
+      "materialOmissionPosition": false,
+      "supportObligationIds": [],
+      "attackObligationIds": [],
+      "unresolvedObligationIds": [
+        "atom-1",
+        "atom-2"
+      ],
+      "groundedClaimPosition": "INSUFFICIENT"
+    },
+    "obligations": [
+      {
+        "obligationId": "atom-1",
+        "state": "UNRESOLVED",
+        "supportEdgeIds": [],
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 6
+      },
+      {
+        "obligationId": "atom-2",
+        "state": "UNRESOLVED",
+        "supportEdgeIds": [],
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 6
+      }
+    ],
+    "warnings": [
+      {
+        "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
+        "message": "Obligation atom-1 has no supporting or attacking evidence."
+      },
+      {
+        "code": "ONLY_NEUTRAL_CANDIDATES",
+        "message": "Obligation atom-1 has only neutral retrieved candidates."
+      },
+      {
+        "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
+        "message": "Obligation atom-2 has no supporting or attacking evidence."
+      },
+      {
+        "code": "ONLY_NEUTRAL_CANDIDATES",
+        "message": "Obligation atom-2 has only neutral retrieved candidates."
+      }
+    ],
+    "ruleTrace": [
+      "The provenance-constrained claim audit sets the overall evidence position; deterministic aggregation maps that position to status.",
+      "Grounded claim position: INSUFFICIENT; The evidence does not provide specific production data to support Nigeria as the leading producer of cassava. The provided information discusses the transformation of cassava into a cash crop but lacks concrete production figures.",
+      "Support position: no; attack position: no.",
+      "Final verdict: NOT_ENOUGH_EVIDENCE."
+    ]
+  },
+  "recordedWith": {
+    "decompositionModel": "qwen2.5:7b",
+    "retrievalModel": "BAAI/bge-small-en-v1.5",
+    "nliModel": "qwen2.5:7b",
+    "linguisticsModel": "en_core_web_sm@3.8.0"
+  },
+  "timingsSeconds": {
+    "decomposition": 15.868,
+    "retrievalAndLinguistics": 0.766,
+    "evidenceAudit": 19.137,
+    "aggregation": 0.007,
+    "total": 35.783
+  }
+}

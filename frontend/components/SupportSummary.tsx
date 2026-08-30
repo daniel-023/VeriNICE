@@ -1,4 +1,11 @@
-import type { AtomSupportClassification, NLIRelation, StageState } from "@/lib/types";
+import type {
+  AtomSupportClassification,
+  GroundedObligationAudit,
+  GroundedClaimAudit,
+  MaterialOmissionCertificate,
+  NLIRelation,
+  StageState,
+} from "@/lib/types";
 
 const RELATION_LABELS: Record<NLIRelation, string> = {
   ENTAILMENT: "support",
@@ -15,9 +22,15 @@ function stateLabel(state: StageState): string {
 
 export function SupportSummary({
   classification,
+  audit,
+  materialOmission,
+  claimAudit,
   state,
 }: {
   classification: AtomSupportClassification | null;
+  audit?: GroundedObligationAudit | null;
+  materialOmission?: MaterialOmissionCertificate | null;
+  claimAudit?: GroundedClaimAudit | null;
   state: StageState;
 }) {
   const counts: Record<NLIRelation, number> = {
@@ -34,12 +47,12 @@ export function SupportSummary({
     <section className="support-summary" aria-labelledby={`support-summary-${classification?.atomId ?? "pending"}`}>
       <div className="support-summary-heading">
         <h3 id={`support-summary-${classification?.atomId ?? "pending"}`}>
-          NLI Sentence Relations
+          Grounded evidence relations
         </h3>
         <span aria-live="polite">{stateLabel(state)}</span>
       </div>
       <p>
-        These are model judgments about candidate sentences, not the case verdict.
+        Provenance-constrained selections behind the draft evidence position; the reference label is never an input.
       </p>
       {state === "complete" ? (
         <>
@@ -55,13 +68,28 @@ export function SupportSummary({
               {relevanceFiltered} unrelated candidate{relevanceFiltered === 1 ? " was" : "s were"} kept neutral by the relevance gate.
             </p>
           ) : null}
+          {audit ? (
+            <p className="support-summary-state">
+              Support audit: {audit.reason}
+            </p>
+          ) : null}
+          {claimAudit ? (
+            <p className="support-summary-state">
+              Overall position: {claimAudit.position.replace(/_/g, " ").toLowerCase()}. {claimAudit.reason}
+            </p>
+          ) : null}
+          {materialOmission?.detected ? (
+            <p className="support-summary-state">
+              Material omission detected: {materialOmission.reason}
+            </p>
+          ) : null}
         </>
       ) : (
         <p className="support-summary-state">
           {state === "running"
-            ? "Classifying candidate sentences…"
-            : state === "error"
-              ? "Relations are unavailable. Retry NLI in the pipeline."
+              ? "Auditing candidate evidence…"
+              : state === "error"
+              ? "Relations are unavailable. Retry the evidence audit in the pipeline."
               : "Relations appear after candidate retrieval."}
         </p>
       )}

@@ -98,6 +98,7 @@ describe("multidocument workbench accessibility", () => {
   });
 
   it("exposes candidate evidence spans as a labelled, keyboard-reachable list", async () => {
+    const onRelationChange = vi.fn();
     const { container, getByRole } = render(
       <DocumentPanel
         documents={sources}
@@ -123,6 +124,7 @@ describe("multidocument workbench accessibility", () => {
             relation: "ENTAILMENT",
           },
         ]}
+        onRelationChange={onRelationChange}
         selectedAtomText="A fact."
         retrievalState="complete"
       />,
@@ -130,6 +132,12 @@ describe("multidocument workbench accessibility", () => {
     const list = getByRole("navigation", { name: "Candidate evidence spans" });
     expect(list).toBeInTheDocument();
     expect(getByRole("button", { name: /Full source document/ })).toBeInTheDocument();
+    const reviewer = getByRole("combobox", { name: /Reviewer relation for evidence/ });
+    fireEvent.change(reviewer, { target: { value: "CONTRADICTION" } });
+    expect(onRelationChange).toHaveBeenCalledWith(
+      expect.objectContaining({ id: "doc-a::sentence-1" }),
+      "CONTRADICTION",
+    );
     const result = await axe.run(container, { rules: { "color-contrast": { enabled: false } } });
     expect(result.violations).toEqual([]);
   });
@@ -375,7 +383,7 @@ describe("multidocument workbench accessibility", () => {
     const { container, getByRole, getByText } = render(
       <VerdictPanel result={result} atoms={atoms} referenceLabel="SUPPORTED" />,
     );
-    expect(getByRole("heading", { name: /Predicted verdict REFUTED/ })).toBeInTheDocument();
+    expect(getByRole("heading", { name: /Rule-derived evidence status REFUTED/ })).toBeInTheDocument();
     expect(getByText("Mara joined Orion in 2022.")).toBeInTheDocument();
     expect(getByText("Attack position held")).toBeInTheDocument();
     expect(getByText("differs")).toBeInTheDocument();
@@ -397,7 +405,7 @@ describe("multidocument workbench accessibility", () => {
         }}
       />,
     );
-    expect(getByRole("heading", { name: "NLI Sentence Relations" })).toBeInTheDocument();
+    expect(getByRole("heading", { name: "Grounded evidence relations" })).toBeInTheDocument();
     expect(getByText(/not the case verdict/i)).toBeInTheDocument();
     expect(getByRole("list", { name: "Selected atom relation counts" })).toBeInTheDocument();
     const result = await axe.run(container, { rules: { "color-contrast": { enabled: false } } });

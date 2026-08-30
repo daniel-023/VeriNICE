@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "verigraph-backend"
 version = "0.7.0"
-description = "Claim decomposition, evidence retrieval, local NLI, and linguistic inspection for VeriGraph"
+description = "Claim decomposition, evidence retrieval, grounded evidence auditing, and linguistic inspection for VeriGraph"
 requires-python = ">=3.10,<3.14"
 dependencies = [
   "annotated-doc==0.0.5",
@@ -67,6 +67,7 @@ dependencies = [
 
 [project.optional-dependencies]
 data = [
+  "pypdf==5.9.0",
   "trafilatura==1.12.2",
 ]
 test = [

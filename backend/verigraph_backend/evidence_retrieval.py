@@ -177,6 +177,7 @@ def _rank_sentences(
 #: enough to resolve the pronouns and ellipsis that strand an isolated sentence;
 #: this is a fixed reading window, not a value to search over.
 CONTEXT_NEIGHBOURS = 1
+MAX_CONTEXT_CHARACTERS = 4000
 
 
 def _context(sentence: SentenceSpan, ordered: Sequence[SentenceSpan]) -> str:
@@ -188,10 +189,35 @@ def _context(sentence: SentenceSpan, ordered: Sequence[SentenceSpan]) -> str:
     )
     if position is None:
         return sentence.text
+    window_start = max(0, position - CONTEXT_NEIGHBOURS)
     window = same_document[
-        max(0, position - CONTEXT_NEIGHBOURS) : position + CONTEXT_NEIGHBOURS + 1
+        window_start : position + CONTEXT_NEIGHBOURS + 1
     ]
-    return " ".join(item.text for item in window)
+    context = " ".join(item.text for item in window)
+    if len(context) <= MAX_CONTEXT_CHARACTERS:
+        return context
+
+    # Extraction artifacts occasionally produce a very long neighbouring
+    # "sentence". Keep the selected sentence intact and spend the remaining
+    # context budget evenly on the text immediately before and after it.
+    target_position = position - window_start
+    target_offset = sum(len(item.text) + 1 for item in window[:target_position])
+    target_end = target_offset + len(sentence.text)
+    if len(sentence.text) >= MAX_CONTEXT_CHARACTERS:
+        return sentence.text[:MAX_CONTEXT_CHARACTERS]
+    remaining = MAX_CONTEXT_CHARACTERS - len(sentence.text)
+    before_budget = remaining // 2
+    after_budget = remaining - before_budget
+    before = context[max(0, target_offset - before_budget) : target_offset]
+    after = context[target_end : target_end + after_budget]
+    unused = remaining - len(before) - len(after)
+    if unused and target_offset > len(before):
+        extra_start = max(0, target_offset - len(before) - unused)
+        before = context[extra_start:target_offset]
+    unused = remaining - len(before) - len(after)
+    if unused:
+        after = context[target_end : target_end + len(after) + unused]
+    return f"{before}{sentence.text}{after}"[:MAX_CONTEXT_CHARACTERS]
 
 
 def _span(

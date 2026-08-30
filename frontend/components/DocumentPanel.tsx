@@ -36,6 +36,7 @@ export function DocumentPanel({
   onTitleChange,
   onAdd,
   onRemove,
+  onRelationChange,
   spans,
   relations,
   selectedAtomText,
@@ -50,6 +51,7 @@ export function DocumentPanel({
   onTitleChange: (documentId: string, value: string) => void;
   onAdd: () => void;
   onRemove: (documentId: string) => void;
+  onRelationChange?: (span: EvidenceSpan, relation: NLIRelation) => void;
   spans: EvidenceSpan[];
   relations: EvidenceRelation[];
   selectedAtomText: string | null;
@@ -308,6 +310,22 @@ export function DocumentPanel({
                           </span>
                         ) : null}
                       </button>
+                      {relation && onRelationChange ? (
+                        <label className="evidence-review-control">
+                          <span>Reviewer relation</span>
+                          <select
+                            aria-label={`Reviewer relation for evidence from ${titlesByDocument.get(span.documentId) ?? span.documentId}`}
+                            value={relation.relation}
+                            onChange={(event) =>
+                              onRelationChange(span, event.target.value as NLIRelation)
+                            }
+                          >
+                            <option value="ENTAILMENT">Supports</option>
+                            <option value="CONTRADICTION">Attacks</option>
+                            <option value="NEUTRAL">Neither</option>
+                          </select>
+                        </label>
+                      ) : null}
                     </li>
                   );
                 })}

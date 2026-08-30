@@ -124,8 +124,10 @@ def main() -> int:
                 "atoms",
                 "evidence",
                 "classifications",
+                "evidenceAudit",
                 "linguistics",
                 "verdict",
+                "timingsSeconds",
             )
         ):
             raise RuntimeError(f"Recorded run is incomplete: {case_id}")
@@ -133,6 +135,19 @@ def main() -> int:
             raise RuntimeError(f"Recorded run uses an unsupported schema version: {case_id}")
         if run["composition"] not in {"SINGLE", "AND", "OR"}:
             raise RuntimeError(f"Recorded run has an invalid composition: {case_id}")
+        audit = run["evidenceAudit"]
+        if not isinstance(audit, dict) or audit.get("provider") != "ollama":
+            raise RuntimeError(f"Recorded run is missing the grounded evidence audit: {case_id}")
+        claim_position = audit.get("claimPosition")
+        if not isinstance(claim_position, dict) or claim_position.get("position") not in {
+            "SUPPORT_ONLY",
+            "ATTACK_ONLY",
+            "MIXED_OR_MISLEADING",
+            "INSUFFICIENT",
+        }:
+            raise RuntimeError(f"Recorded run is missing the grounded claim position: {case_id}")
+        if len(audit.get("obligations", [])) != len(run["atoms"]):
+            raise RuntimeError(f"Grounded audit does not cover every obligation: {case_id}")
         if any("role" not in atom for atom in run["atoms"]):
             raise RuntimeError(f"Recorded run has atoms without roles: {case_id}")
         linguistics = run["linguistics"]
@@ -154,6 +169,18 @@ def main() -> int:
             raise RuntimeError(f"Recorded run has an invalid verdict: {case_id}")
         if len(verdict.get("obligations", [])) != len(run["atoms"]):
             raise RuntimeError(f"Recorded verdict does not cover every obligation: {case_id}")
+        timings = run["timingsSeconds"]
+        if not isinstance(timings, dict) or any(
+            not isinstance(timings.get(key), (int, float)) or timings[key] < 0
+            for key in (
+                "decomposition",
+                "retrievalAndLinguistics",
+                "evidenceAudit",
+                "aggregation",
+                "total",
+            )
+        ):
+            raise RuntimeError(f"Recorded run is missing valid latency timings: {case_id}")
         copy_json(run_path, output / "runs" / run_path.name)
         run_digests[case_id] = sha256(run_path)
 

@@ -9,6 +9,11 @@
         "url": "https://www.state.gov/foreign-terrorist-organizations/"
       },
       {
+        "id": "doc-ca6b563a3275",
+        "title": "CONSOLIDATED LIST OF FINANCIAL SANCTIONS TARGETS IN THE UK",
+        "url": "https://ofsistorage.blob.core.windows.net/publishlive/ConList.pdf"
+      },
+      {
         "id": "doc-9646fc73704d",
         "title": "Charter of the United Nations Act 1945 Listing Declaration (No. 2) 2019",
         "url": "https://www.legislation.gov.au/Details/C2019G00862"
@@ -24,7 +29,11 @@
         "url": "https://eur-lex.europa.eu/legal-content/en/TXT/?uri=CELEX%3A32020D1132"
       }
     ],
-    "label": "SUPPORTED"
+    "label": "SUPPORTED",
+    "displayTitle": "",
+    "topics": [],
+    "challenges": [],
+    "featured": false
   },
   {
     "id": "averitec-dev-0146",
@@ -39,9 +48,18 @@
         "id": "doc-a46f0d421238",
         "title": "All Employees, Total Nonfarm (PAYEMS) | FRED | St. Louis Fed",
         "url": "https://fred.stlouisfed.org/series/payems"
+      },
+      {
+        "id": "doc-12b587084e5a",
+        "title": "News Release",
+        "url": "https://www.dol.gov/ui/data.pdf"
       }
     ],
-    "label": "SUPPORTED"
+    "label": "SUPPORTED",
+    "displayTitle": "",
+    "topics": [],
+    "challenges": [],
+    "featured": false
   },
   {
     "id": "averitec-dev-0158",
@@ -56,9 +74,18 @@
         "id": "doc-765a0e4b3d83",
         "title": "Regeneron's REGN-COV2 Antibody Cocktail Reduced Viral Levels and Improved Symptoms in Non-Hospitalized COVID-19 Patients | Regeneron Pharmaceuticals Inc.",
         "url": "https://investor.regeneron.com/news-releases/news-release-details/regenerons-regn-cov2-antibody-cocktail-reduced-viral-levels-and"
+      },
+      {
+        "id": "doc-b90777a55e83",
+        "title": "Antibody treatment Trump touts relied on testing with cells derived from fetal tissue - The Washington Post",
+        "url": "https://www.washingtonpost.com/health/trump-antibody-treatment-fetal-tissue/2020/10/08/92f9b2d6-0971-11eb-9be6-cf25fb429f1a_story.html"
       }
     ],
-    "label": "SUPPORTED"
+    "label": "SUPPORTED",
+    "displayTitle": "",
+    "topics": [],
+    "challenges": [],
+    "featured": false
   },
   {
     "id": "averitec-dev-0125",
@@ -75,7 +102,11 @@
         "url": "https://qz.com/africa/1895582/nigeria-economy-gdp-drops-6-1-percent-in-q2-2020/"
       }
     ],
-    "label": "SUPPORTED"
+    "label": "SUPPORTED",
+    "displayTitle": "",
+    "topics": [],
+    "challenges": [],
+    "featured": false
   },
   {
     "id": "averitec-dev-0319",
@@ -92,7 +123,11 @@
         "url": "https://www.nationsonline.org/oneworld/nigeria.htm"
       }
     ],
-    "label": "SUPPORTED"
+    "label": "SUPPORTED",
+    "displayTitle": "",
+    "topics": [],
+    "challenges": [],
+    "featured": false
   },
   {
     "id": "averitec-dev-0392",
@@ -114,7 +149,11 @@
         "url": "https://www.ssec.wisc.edu/jpss-sdoc/posts/2019-australian-wildfires/fires-near-mallacoota-over-31-december-to-1-january/"
       }
     ],
-    "label": "SUPPORTED"
+    "label": "SUPPORTED",
+    "displayTitle": "",
+    "topics": [],
+    "challenges": [],
+    "featured": false
   },
   {
     "id": "averitec-dev-0145",
@@ -136,7 +175,11 @@
         "url": "https://abcnews.go.com/International/timeline-kayla-mueller-isis-captivity/story?id=41398733"
       }
     ],
-    "label": "SUPPORTED"
+    "label": "SUPPORTED",
+    "displayTitle": "",
+    "topics": [],
+    "challenges": [],
+    "featured": false
   },
   {
     "id": "averitec-dev-0323",
@@ -153,7 +196,11 @@
         "url": "https://www.ajmc.com/view/republican-attorneys-general-file-briefs-to-repeal-aca"
       }
     ],
-    "label": "SUPPORTED"
+    "label": "SUPPORTED",
+    "displayTitle": "",
+    "topics": [],
+    "challenges": [],
+    "featured": false
   },
   {
     "id": "averitec-dev-0044",
@@ -170,7 +217,11 @@
         "url": "https://www.health.harvard.edu/diseases-and-conditions/coronavirus-outbreak-and-kids"
       }
     ],
-    "label": "REFUTED"
+    "label": "REFUTED",
+    "displayTitle": "",
+    "topics": [],
+    "challenges": [],
+    "featured": false
   },
   {
     "id": "averitec-dev-0280",
@@ -187,7 +238,11 @@
         "url": "https://www.webmd.com/lung/news/20200925/us-still-in-first-wave-of-covid-19-fauci-says"
       }
     ],
-    "label": "REFUTED"
+    "label": "REFUTED",
+    "displayTitle": "",
+    "topics": [],
+    "challenges": [],
+    "featured": false
   },
   {
     "id": "averitec-dev-0419",
@@ -204,7 +259,11 @@
         "url": "https://www.snopes.com/fact-check/cdc-guidelines-covid19/"
       }
     ],
-    "label": "REFUTED"
+    "label": "REFUTED",
+    "displayTitle": "",
+    "topics": [],
+    "challenges": [],
+    "featured": false
   },
   {
     "id": "averitec-dev-0495",
@@ -226,7 +285,11 @@
         "url": "https://www.npr.org/2019/02/16/694303169/as-more-electric-cars-arrive-whats-the-future-for-gas-powered-engines"
       }
     ],
-    "label": "REFUTED"
+    "label": "REFUTED",
+    "displayTitle": "",
+    "topics": [],
+    "challenges": [],
+    "featured": false
   },
   {
     "id": "averitec-dev-0089",
@@ -243,7 +306,11 @@
         "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2599911/"
       }
     ],
-    "label": "REFUTED"
+    "label": "REFUTED",
+    "displayTitle": "",
+    "topics": [],
+    "challenges": [],
+    "featured": false
   },
   {
     "id": "averitec-dev-0003",
@@ -260,7 +327,11 @@
         "url": "https://www.independent.co.uk/news/science/world-s-most-ancient-race-traced-in-dna-study-1677113.html"
       }
     ],
-    "label": "REFUTED"
+    "label": "REFUTED",
+    "displayTitle": "",
+    "topics": [],
+    "challenges": [],
+    "featured": false
   },
   {
     "id": "averitec-dev-0004",
@@ -282,7 +353,11 @@
         "url": "http://ir.chemed.com/news-releases/news-release-details/roto-rooter-inc-completes-merger-vitas-healthcare-corporation"
       }
     ],
-    "label": "REFUTED"
+    "label": "REFUTED",
+    "displayTitle": "",
+    "topics": [],
+    "challenges": [],
+    "featured": false
   },
   {
     "id": "averitec-dev-0008",
@@ -299,7 +374,11 @@
         "url": "https://calmatters.org/politics/california-election-2020/2020/03/california-primary-election-results-delayed/"
       }
     ],
-    "label": "REFUTED"
+    "label": "REFUTED",
+    "displayTitle": "",
+    "topics": [],
+    "challenges": [],
+    "featured": false
   },
   {
     "id": "averitec-dev-0015",
@@ -316,7 +395,11 @@
         "url": "https://www.nfid.org/infectious-diseases/coronaviruses/"
       }
     ],
-    "label": "NOT_ENOUGH_EVIDENCE"
+    "label": "NOT_ENOUGH_EVIDENCE",
+    "displayTitle": "",
+    "topics": [],
+    "challenges": [],
+    "featured": false
   },
   {
     "id": "averitec-dev-0413",
@@ -324,16 +407,20 @@
     "documents": [
       {
         "id": "doc-22d3f92a3016",
-        "title": "China cuts Uighur births with IUDs, abortion, sterilization | AP News",
+        "title": "China cuts Uighur births with IUDs, abortion, sterilization",
         "url": "https://apnews.com/article/269b3de1af34e17c1941a514f78d764c"
       },
       {
         "id": "doc-8c62afe872e1",
-        "title": "What's At Stake In Xinjiang | USC China",
+        "title": "What's At Stake In Xinjiang | US-China Institute",
         "url": "https://china.usc.edu/whats-stake-xinjiang"
       }
     ],
-    "label": "NOT_ENOUGH_EVIDENCE"
+    "label": "NOT_ENOUGH_EVIDENCE",
+    "displayTitle": "",
+    "topics": [],
+    "challenges": [],
+    "featured": false
   },
   {
     "id": "averitec-dev-0026",
@@ -341,16 +428,20 @@
     "documents": [
       {
         "id": "doc-640b644a3867",
-        "title": "www.thelancet.com",
+        "title": "Is ivermectin safe in pregnancy? - The Lancet Global Health",
         "url": "https://www.thelancet.com/journals/langlo/article/PIIS2214-109X(19)30490-5/fulltext"
       },
       {
         "id": "doc-41f1926ad4ef",
-        "title": "www.ncbi.nlm.nih.gov",
+        "title": "Ivermectin in COVID-19: What do we know? - PMC",
         "url": "https://www.ncbi.nlm.nih.gov/labs/pmc/articles/PMC7521351/"
       }
     ],
-    "label": "NOT_ENOUGH_EVIDENCE"
+    "label": "NOT_ENOUGH_EVIDENCE",
+    "displayTitle": "",
+    "topics": [],
+    "challenges": [],
+    "featured": false
   },
   {
     "id": "averitec-dev-0208",
@@ -362,12 +453,21 @@
         "url": "https://www150.statcan.gc.ca/n1/pub/11f0027m/2009058/part-partie1-eng.htm"
       },
       {
+        "id": "doc-cd2ffd52140b",
+        "title": "Deaton Aten Trying to understand ICP 2011 V5 March 2015",
+        "url": "https://www.princeton.edu/~deaton/downloads/Deaton_Aten_Trying_to_understand_ICP_2011_V5.pdf"
+      },
+      {
         "id": "doc-4480543c9460",
         "title": "Nigeria GDP per capita, PPP - data, chart | TheGlobalEconomy.com",
         "url": "https://www.theglobaleconomy.com/Nigeria/gdp_per_capita_ppp/"
       }
     ],
-    "label": "NOT_ENOUGH_EVIDENCE"
+    "label": "NOT_ENOUGH_EVIDENCE",
+    "displayTitle": "",
+    "topics": [],
+    "challenges": [],
+    "featured": false
   },
   {
     "id": "averitec-dev-0435",
@@ -380,11 +480,15 @@
       },
       {
         "id": "doc-308dd4e1ff1f",
-        "title": "Fact check: No evidence 80 million Yoruba live in Brazil – Daily Trust",
+        "title": "Daily Trust - Fact check: No evidence 80 million Yoruba live in Brazil",
         "url": "https://dailytrust.com/fact-check-no-evidence-80-million-yoruba-live-in-brazil"
       }
     ],
-    "label": "NOT_ENOUGH_EVIDENCE"
+    "label": "NOT_ENOUGH_EVIDENCE",
+    "displayTitle": "",
+    "topics": [],
+    "challenges": [],
+    "featured": false
   },
   {
     "id": "averitec-dev-0082",
@@ -401,7 +505,11 @@
         "url": "https://jamanetwork.com/journals/jama/fullarticle/2771761"
       }
     ],
-    "label": "NOT_ENOUGH_EVIDENCE"
+    "label": "NOT_ENOUGH_EVIDENCE",
+    "displayTitle": "",
+    "topics": [],
+    "challenges": [],
+    "featured": false
   },
   {
     "id": "averitec-dev-0142",
@@ -418,7 +526,11 @@
         "url": "https://www.cdc.gov/mmwr/Novel_Coronavirus_Reports.html"
       }
     ],
-    "label": "NOT_ENOUGH_EVIDENCE"
+    "label": "NOT_ENOUGH_EVIDENCE",
+    "displayTitle": "",
+    "topics": [],
+    "challenges": [],
+    "featured": false
   },
   {
     "id": "averitec-dev-0394",
@@ -440,7 +552,11 @@
         "url": "https://9to5google.com/2019/01/22/waymo-michigan-self-driving-factory/"
       }
     ],
-    "label": "NOT_ENOUGH_EVIDENCE"
+    "label": "NOT_ENOUGH_EVIDENCE",
+    "displayTitle": "",
+    "topics": [],
+    "challenges": [],
+    "featured": false
   },
   {
     "id": "averitec-dev-0060",
@@ -462,7 +578,11 @@
         "url": "https://www.englandandcompany.co.uk/briefing-15-15th-october/"
       }
     ],
-    "label": "CONFLICTING_EVIDENCE"
+    "label": "CONFLICTING_EVIDENCE",
+    "displayTitle": "",
+    "topics": [],
+    "challenges": [],
+    "featured": false
   },
   {
     "id": "averitec-dev-0100",
@@ -479,7 +599,11 @@
         "url": "https://www.investopedia.com/joe-biden-s-economic-plan-save-the-middle-class-4769869"
       }
     ],
-    "label": "CONFLICTING_EVIDENCE"
+    "label": "CONFLICTING_EVIDENCE",
+    "displayTitle": "",
+    "topics": [],
+    "challenges": [],
+    "featured": false
   },
   {
     "id": "averitec-dev-0423",
@@ -496,7 +620,11 @@
         "url": "https://www.gvnews.com/elections/question/article_02354b6a-7e89-11e1-801f-001a4bcf887a.html?_ga=2.154024123.2058216465.1599409801-1261549759.1594155977"
       }
     ],
-    "label": "CONFLICTING_EVIDENCE"
+    "label": "CONFLICTING_EVIDENCE",
+    "displayTitle": "",
+    "topics": [],
+    "challenges": [],
+    "featured": false
   },
   {
     "id": "averitec-dev-0010",
@@ -513,7 +641,11 @@
         "url": "https://www.nbcnews.com/politics/donald-trump/trump-blames-teleprompter-revolutionary-war-airports-flub-n1026931"
       }
     ],
-    "label": "CONFLICTING_EVIDENCE"
+    "label": "CONFLICTING_EVIDENCE",
+    "displayTitle": "",
+    "topics": [],
+    "challenges": [],
+    "featured": false
   },
   {
     "id": "averitec-dev-0018",
@@ -530,7 +662,11 @@
         "url": "https://www.cbsnews.com/news/wisconsin-election-supreme-court-rules-againt-absentee-ballots-after-election-day/"
       }
     ],
-    "label": "CONFLICTING_EVIDENCE"
+    "label": "CONFLICTING_EVIDENCE",
+    "displayTitle": "",
+    "topics": [],
+    "challenges": [],
+    "featured": false
   },
   {
     "id": "averitec-dev-0058",
@@ -547,7 +683,11 @@
         "url": "https://www.buzzfeednews.com/article/christopherm51/fema-russia-ventilators-coronavirus?fbclid=IwAR0NDhdqILPthpTHGNnmK_-8yH7CjmyDtbo81pzlHEVVKI9loXMnfI9uVas"
       }
     ],
-    "label": "CONFLICTING_EVIDENCE"
+    "label": "CONFLICTING_EVIDENCE",
+    "displayTitle": "",
+    "topics": [],
+    "challenges": [],
+    "featured": false
   },
   {
     "id": "averitec-dev-0303",
@@ -564,7 +704,11 @@
         "url": "https://www.usatoday.com/story/news/2016/03/16/gop-senators-vow-not-consider-garland-fill-supreme-court-vacancy/81856428/"
       }
     ],
-    "label": "CONFLICTING_EVIDENCE"
+    "label": "CONFLICTING_EVIDENCE",
+    "displayTitle": "",
+    "topics": [],
+    "challenges": [],
+    "featured": false
   },
   {
     "id": "averitec-dev-0480",
@@ -591,6 +735,10 @@
         "url": "https://www.edweek.org/policy-politics/federal-funding-and-charter-school-closures-what-the-latest-government-data-show/2022/10"
       }
     ],
-    "label": "CONFLICTING_EVIDENCE"
+    "label": "CONFLICTING_EVIDENCE",
+    "displayTitle": "",
+    "topics": [],
+    "challenges": [],
+    "featured": false
   }
 ]

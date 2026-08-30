@@ -57,7 +57,7 @@ def main() -> None:
         rightMargin=margin,
         topMargin=0.62 * inch,
         bottomMargin=0.68 * inch,
-        title="VeriGraph: Inspectable Claim Verification",
+        title="VeriGraph: Interactive Evidence Auditing",
         author="Anonymous AAAI-27 demonstration submission",
     )
     doc.addPageTemplates(PageTemplate(id="two-column", frames=frames, onPage=footer))
@@ -105,20 +105,20 @@ def main() -> None:
     small = ParagraphStyle("Small", parent=body, fontSize=8.1, leading=9.8)
 
     story = [
-        Paragraph("VeriGraph: Inspectable Claim Verification<br/>from Evidence Spans to Verdict Rules", title),
+        Paragraph("VeriGraph: Interactive Evidence Auditing<br/>with Editable Decision Traces", title),
         Paragraph("Anonymous demonstration submission · content/layout draft", anonymous),
         Paragraph("Abstract", heading),
         paragraph(
-            "Fact-verification systems often return a label while hiding the intermediate decisions that made it possible. VeriGraph turns a complex claim into typed verification obligations, retrieves source-grounded evidence, classifies sentence-level support and contradiction, and assembles an argument graph with a deterministic four-way verdict. Visitors can move from a verdict to its rule, an obligation, a model relation, and the exact source passage. The system combines local language-model decomposition, hybrid retrieval, conservative natural-language inference, linguistic auditing, and symbolic aggregation. Its contribution is an inspectable bridge between statistical components and rule-governed decisions, not another opaque factuality score.",
+            "Fact-verification systems often return a label while hiding the intermediate decisions that made it possible. VeriGraph turns a complex claim into typed verification obligations, retrieves source-grounded evidence, assigns a provenance-constrained claim evidence position, and assembles the selected spans into an argument graph with a deterministic four-way draft status. Visitors can move from a status to its rule, an obligation, an audited relation, and the exact source passage. The system combines local language-model decomposition and evidence auditing, hybrid retrieval, linguistic auditing, and symbolic aggregation. Its contribution is an inspectable bridge between statistical components and human review, not another opaque factuality score.",
             abstract,
         ),
         Paragraph("1. Motivation and significance", heading),
         paragraph(
-            "A single fact-checking label compresses several different questions: Was the claim decomposed faithfully? Did retrieval miss a decisive passage? Did an NLI model over-read contradiction? Did the final rule respect conjunction, alternatives, and mixed evidence? These questions matter even when the final label is correct, yet they are difficult to ask when intermediate results are discarded or shown as unconnected tables.",
+            "A single fact-checking label compresses several different questions: Was the claim decomposed faithfully? Did retrieval miss a decisive passage? Did the evidence auditor over-read contradiction? Did the final rule respect conjunction, alternatives, and mixed evidence? These questions matter even when the final label is correct, yet they are difficult to ask when intermediate results are discarded or shown as unconnected tables.",
             body,
         ),
         paragraph(
-            "VeriGraph makes the chain itself the interface. Every obligation retains exact grounding in the original claim. Every evidence candidate retains document and sentence offsets. Support and attack edges come from stored NLI relations. The final SUPPORTED, REFUTED, NOT_ENOUGH_EVIDENCE, or CONFLICTING_EVIDENCE decision follows a deterministic, composition-aware rule shown with its trace. Dataset reference labels are metadata and never enter inference.",
+            "VeriGraph makes the chain itself the interface. Every obligation retains exact grounding in the original claim. Every evidence candidate retains document and sentence offsets. The local auditor can select only supplied span IDs. Its overall support-only, attack-only, mixed-or-misleading, or insufficient position maps deterministically to a four-way draft status and trace. Dataset reference labels are metadata and never enter inference.",
             body,
         ),
         FrameBreak(),
@@ -132,16 +132,16 @@ def main() -> None:
             body,
         ),
         paragraph(
-            "A DeBERTa model classifies each obligation/passage pair. The system defaults to neutral when a non-neutral prediction is weak. Contradiction additionally requires an inspectable anchor such as negation, incompatible numbers, opposing terms, or a matched entity-set mismatch. These gates trade recall for defensibility.",
+            "A schema-constrained Qwen2.5 audit reads the claim, obligations, and retrieved candidates. It must cite supplied span IDs for every decisive position. Exact scope, comparison, time, quantity, preliminary-evidence, and omitted-context rules are part of the contract; unknown IDs and ungrounded decisive positions are rejected.",
             body,
         ),
         paragraph(
-            "The frontend builds a typed argument graph from decomposition and NLI outputs. A backend rule engine aggregates obligation states using SINGLE, AND, or OR composition. A spaCy sidecar audits entities, qualifiers, negation, modality, and role preservation. Its warnings are deliberately verdict-neutral.",
+            "The frontend builds a typed argument graph from decomposition and audited evidence selections. A backend rule engine maps the validated overall position to a draft status. In live mode, visitors can relabel a cited span as support, attack, or neither; the graph and composition-aware status then recompute from the reviewed edges. A spaCy sidecar audits entities, qualifiers, negation, modality, and role preservation without changing the status.",
             body,
         ),
         Paragraph("3. Interaction design", heading),
         paragraph(
-            "Human-titled cases can be searched and filtered by topic, verification challenge, and reference verdict. A visitor selects numerical conflict, cross-source disagreement, or insufficient evidence; opens one obligation; follows its highlighted passage into the full source; and traces that same obligation through the graph to the verdict rule. The visitor is invited to challenge a specific step rather than accept or reject the system wholesale.",
+            "Human-titled cases can be searched and filtered by topic, verification challenge, and reference verdict. A visitor selects numerical conflict, cross-source disagreement, or insufficient evidence; opens one obligation; follows its highlighted passage into the full source; and traces that same obligation through the graph to the status rule. The visitor can then correct a support, attack, or neither relation and observe the deterministic graph and status update.",
             body,
         ),
         PageBreak(),
@@ -151,16 +151,16 @@ def main() -> None:
             body,
         ),
         paragraph(
-            "Live inference runs locally to avoid conference connectivity. The backup is a static interactive walkthrough containing the same typed intermediates from recorded local runs. The current snapshot has 22 cases across four reference labels. Preparation and validation target a balanced 32-case bundle, but that expansion will be claimed only after all 32 runs are recorded and audited.",
+            "Live inference runs locally to avoid conference connectivity. The backup is a static interactive walkthrough containing the same typed intermediates from recorded local runs. The current snapshot has 32 cases, balanced at eight cases per reference label.",
             body,
         ),
         Paragraph("5. Evaluation and limitations", heading),
         paragraph(
-            "Evaluation separates verdict agreement from decomposition quality and error source. Deterministic diagnostics cover atomicity, coverage, sufficiency, non-fabrication, non-redundancy, readability, and linguistic warnings. They are engineering proxies, not human judgments or the FactLens evaluator. The current 22-run snapshot has 10/22 reference-verdict agreement (45.5%), so accuracy is not presented as a contribution. Before final submission we will complete error attribution, a small human decomposition audit, and the balanced 32-case rerun.",
+            "Evaluation separates draft-status agreement from decomposition quality and error source. Deterministic diagnostics cover atomicity, coverage, sufficiency, non-fabrication, non-redundancy, readability, and linguistic warnings. They are engineering proxies, not human judgments or the FactLens evaluator. In the current 32-run snapshot, automatic draft status agrees with the reference label on 14/32 cases (43.8%): 5/8 supported, 1/8 refuted, 4/8 not-enough-evidence, and 4/8 conflicting-evidence cases. Median end-to-end latency on the recording laptop is 39.36 seconds. These results do not support an autonomous-verification claim, and accuracy is not presented as a contribution. Before final submission we will complete error attribution and conduct a small human study of decomposition quality, evidence correction, and trace usefulness.",
             body,
         ),
         paragraph(
-            "VeriGraph verifies supplied documents; it does not establish source authority or perform open-web fact checking. Retrieval rank is not truth, NLI neutral is not a case-level insufficient-evidence label, and the graph does not infer new relations. These boundaries are stated in the interface and narration.",
+            "VeriGraph audits supplied documents; it does not establish source authority or perform open-web fact checking. Retrieval rank is not truth, an automatic evidence position is not a human verdict, and the graph does not infer new relations. These boundaries are stated in the interface and narration.",
             body,
         ),
         FrameBreak(),
@@ -170,7 +170,7 @@ def main() -> None:
             body,
         ),
         paragraph(
-            "VeriGraph operationalizes these concerns in an interactive audit surface. Its novelty is the inspectable connection from schema-grounded obligations through conservative evidence relations to a deterministic argument and verdict trace. It does not claim novelty for the component models or linguistic parser.",
+            "VeriGraph operationalizes these concerns in an interactive audit surface. Its novelty is the inspectable, editable connection from schema-grounded obligations through cited evidence positions to a deterministic argument and status trace. It does not claim novelty for the component models or linguistic parser.",
             body,
         ),
         Paragraph("7. Audience relevance", heading),
@@ -199,4 +199,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

@@ -32,6 +32,13 @@ from .errors import (
     EvidenceRetrievalOutputError,
 )
 from .evidence_retrieval import retrieve_evidence
+from .grounded_evidence_audit import (
+    GroundedEvidenceAuditConfigurationError,
+    GroundedEvidenceAuditOutputError,
+    GroundedEvidenceAuditProviderError,
+    audit_grounded_evidence,
+    classifications_from_grounded_audit,
+)
 from .linguistic_analysis import (
     MODEL_ID as LINGUISTICS_MODEL_ID,
     LinguisticAnalysisConfigurationError,
@@ -45,7 +52,6 @@ from .nli_classification import (
     NLIClassificationError,
     classify_support,
     is_available as nli_available,
-    warm as warm_nli,
 )
 from .verdict_aggregation import aggregate_verdict
 from .schemas import (
@@ -80,23 +86,15 @@ async def lifespan(_: FastAPI) -> AsyncIterator[None]:
         )
     except Exception as error:  # optional sidecar must not block startup
         linguistic_result = error
-    try:
-        nli_result = await loop.run_in_executor(_nli_worker, warm_nli)
-    except Exception as error:
-        nli_result = error
     if isinstance(linguistic_result, Exception):
         logging.getLogger(__name__).warning(
             "Optional linguistic analysis is unavailable; run launcher setup to install it."
         )
-    if isinstance(nli_result, Exception):
-        logging.getLogger(__name__).warning(
-            "NLI support classification is unavailable; run ./run-verigraph --prepare."
-        )
-    # sentence-transformers and transformers share a lazy import surface. Start
-    # BGE only after NLI has finished importing transformers, then let the app
-    # become ready while the content-free BGE warm-up completes in the
-    # background. Retrieval itself remains serialized and waits on the model
-    # lock if a request arrives during this short window.
+    # The standard claim path uses the grounded Ollama audit, so the optional
+    # compatibility NLI model now loads only on its first relation-only request.
+    # Let the app become ready while the content-free BGE warm-up completes in
+    # the background. Retrieval remains serialized and waits on the model lock
+    # if a request arrives during this short window.
     retrieval_warmup = loop.run_in_executor(_retrieval_worker, warm_embeddings)
 
     def report_retrieval_warmup(result: asyncio.Future[None]) -> None:
@@ -114,7 +112,7 @@ async def lifespan(_: FastAPI) -> AsyncIterator[None]:
 app = FastAPI(
     title="VeriGraph API",
     version="0.7.0",
-    description="Live claim decomposition, semantic retrieval, local NLI, and linguistic inspection.",
+    description="Live claim decomposition, semantic retrieval, grounded evidence auditing, and linguistic inspection.",
     lifespan=lifespan,
 )
 if settings.allowed_origins:
@@ -205,7 +203,7 @@ def health() -> HealthResponse:
     nli = nli_available()
     linguistics = linguistics_available()
     return HealthResponse(
-        status=("ready" if decomposition_ready and retrieval and nli
+        status=("ready" if decomposition_ready and retrieval
                 else "degraded" if decomposition or retrieval or nli
                 else "unconfigured"),
         decomposition_configured=decomposition,
@@ -285,13 +283,22 @@ async def classify_candidate_support(
     request: SupportClassificationRequest,
 ) -> SupportClassificationResponse:
     try:
-        async with _nli_slots:
-            return await asyncio.get_running_loop().run_in_executor(
-                _nli_worker,
-                classify_support,
+        if request.claim is None:
+            async with _nli_slots:
+                return await asyncio.get_running_loop().run_in_executor(
+                    _nli_worker,
+                    classify_support,
+                    request.atoms,
+                    request.evidence,
+                )
+        async with _llm_slots:
+            audit = await audit_grounded_evidence(
+                request.claim,
                 request.atoms,
                 request.evidence,
+                request.document_titles,
             )
+        return classifications_from_grounded_audit(request.evidence, audit)
     except NLIClassificationConfigurationError as error:
         raise HTTPException(status_code=503, detail=str(error)) from error
     except NLIClassificationError as error:
@@ -299,10 +306,14 @@ async def classify_candidate_support(
             status_code=500,
             detail="Local NLI support classification failed. Please retry.",
         ) from error
+    except GroundedEvidenceAuditConfigurationError as error:
+        raise HTTPException(status_code=503, detail=str(error)) from error
+    except (GroundedEvidenceAuditProviderError, GroundedEvidenceAuditOutputError) as error:
+        raise HTTPException(status_code=502, detail=str(error)) from error
     except Exception as error:
         raise HTTPException(
             status_code=500,
-            detail="Local NLI support classification failed. Please retry.",
+            detail="Grounded evidence classification failed. Please retry.",
         ) from error
 
 

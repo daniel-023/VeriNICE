@@ -1,0 +1,1159 @@
+{
+  "caseId": "averitec-dev-0004",
+  "schemaVersion": 2,
+  "composition": "AND",
+  "warnings": [],
+  "atoms": [
+    {
+      "id": "atom-1",
+      "text": "Republican Matt Gaetz was part of a company that had to pay 75 million in hospice fraud.",
+      "sourceText": "Republican Matt Gaetz was part of a company that had to pay 75 million in hospice fraud.",
+      "start": 0,
+      "end": 88,
+      "role": "NUMERIC_CONSTRAINT"
+    },
+    {
+      "id": "atom-2",
+      "text": "They stole from dying people.",
+      "sourceText": "They stole from dying people.",
+      "start": 89,
+      "end": 118,
+      "role": "CAUSAL_RELATION"
+    }
+  ],
+  "evidence": [
+    {
+      "atomId": "atom-1",
+      "spans": [
+        {
+          "id": "doc-5f8f89c22c41::sentence-5",
+          "documentId": "doc-5f8f89c22c41",
+          "text": "Gaetz is the retired co-founder of VITAS Healthcare Corp., a hospice care provider that comforts patients and their families and preserves their dignity in the face of terminal illness. ",
+          "start": 277,
+          "end": 463,
+          "context": "Evidence 1: Did Matt Gaetz's father Don Gaetz co-found Vitas?  Gaetz is the retired co-founder of VITAS Healthcare Corp., a hospice care provider that comforts patients and their families and preserves their dignity in the face of terminal illness.  He was also president of the National Hospice Organization.\n\n"
+        },
+        {
+          "id": "doc-5f8f89c22c41::sentence-20",
+          "documentId": "doc-5f8f89c22c41",
+          "text": "Gaetz is the retired co-founder of VITAS Healthcare Corp., a hospice care provider that comforts patients and their families and preserves their dignity in the face of terminal illness. ",
+          "start": 2333,
+          "end": 2519,
+          "context": "Of the Aerospace Institute that has been named in his honor, Sen. Gaetz said, “Connecting our high school and college enrollment programs to Florida’s economic development in the aerospace industry equals added value to our students, at no cost to their families.”\n Gaetz is the retired co-founder of VITAS Healthcare Corp., a hospice care provider that comforts patients and their families and preserves their dignity in the face of terminal illness.  He was also president of the National Hospice Organization.\n"
+        },
+        {
+          "id": "doc-a1bb01cd9461::sentence-24",
+          "documentId": "doc-a1bb01cd9461",
+          "text": "In 1982, Gaetz was a primary figure in passing the Federal Hospice Care Reimbursement Act. ",
+          "start": 1915,
+          "end": 2006,
+          "context": "Business Career\n In 1982, Gaetz was a primary figure in passing the Federal Hospice Care Reimbursement Act.  This act made hospice care a benefit covered by Medicare. "
+        },
+        {
+          "id": "doc-a1bb01cd9461::sentence-8",
+          "documentId": "doc-a1bb01cd9461",
+          "text": "Don Gaetz is an American politician who has a net worth of $40 million. ",
+          "start": 451,
+          "end": 523,
+          "context": "What is Don Gaetz's net worth and Salary?\n Don Gaetz is an American politician who has a net worth of $40 million.  Don Gaetz is a former member of the Florida State Senate and businessman, but he is probably best-known or being the father of politician Matt Gaetz. "
+        },
+        {
+          "id": "doc-5f8f89c22c41::sentence-4",
+          "documentId": "doc-5f8f89c22c41",
+          "text": "Evidence 1: Did Matt Gaetz's father Don Gaetz co-found Vitas? ",
+          "start": 215,
+          "end": 277,
+          "context": "Source URL: https://erau.edu/gaetz-aerospace-institute/about/don-gaetz\n Evidence 1: Did Matt Gaetz's father Don Gaetz co-found Vitas?  Gaetz is the retired co-founder of VITAS Healthcare Corp., a hospice care provider that comforts patients and their families and preserves their dignity in the face of terminal illness. "
+        },
+        {
+          "id": "doc-c380bf708a16::sentence-6",
+          "documentId": "doc-c380bf708a16",
+          "text": "The lawsuit against the company was filed in 2013 — nine years after Don Gaetz sold the company to Chemed in 2004. ",
+          "start": 348,
+          "end": 463,
+          "context": "Yes :\n The lawsuit against the company was filed in 2013 — nine years after Don Gaetz sold the company to Chemed in 2004.  It’s true that at least some of the instances were alleged to have occurred before that sale date (dating back to 2002), but it’s worth noting that Don Gaetz was not a party to the lawsuit. "
+        }
+      ]
+    },
+    {
+      "atomId": "atom-2",
+      "spans": [
+        {
+          "id": "doc-a1bb01cd9461::sentence-27",
+          "documentId": "doc-a1bb01cd9461",
+          "text": "They eventually changed the company name to VITAS Healthcare.\n",
+          "start": 2245,
+          "end": 2307,
+          "context": "One year later, Don and a group of partners converted what had been a non-profit hospice organization called VITAS into a for-profit healthcare company called Hospice Incorporated.  They eventually changed the company name to VITAS Healthcare.\n Today, VITAS is the largest end-of-life healthcare provider in the US, operating in roughly 50 hospitals in 14 states plus the District of Columbia. "
+        },
+        {
+          "id": "doc-a1bb01cd9461::sentence-21",
+          "documentId": "doc-a1bb01cd9461",
+          "text": "While serving in this role, he successfully lobbied the state legislature to create hospice care programs for the dying. ",
+          "start": 1610,
+          "end": 1731,
+          "context": "In 1978, at the age of 30, he moved to Jacksonville, Florida, where he took a job as a hospital administrator.  While serving in this role, he successfully lobbied the state legislature to create hospice care programs for the dying.  More specifically, he helped make Florida the first state in the US to have licensure law, which required those practicing in the hospice care space to have a license.\n"
+        },
+        {
+          "id": "doc-5f8f89c22c41::sentence-4",
+          "documentId": "doc-5f8f89c22c41",
+          "text": "Evidence 1: Did Matt Gaetz's father Don Gaetz co-found Vitas? ",
+          "start": 215,
+          "end": 277,
+          "context": "Source URL: https://erau.edu/gaetz-aerospace-institute/about/don-gaetz\n Evidence 1: Did Matt Gaetz's father Don Gaetz co-found Vitas?  Gaetz is the retired co-founder of VITAS Healthcare Corp., a hospice care provider that comforts patients and their families and preserves their dignity in the face of terminal illness. "
+        },
+        {
+          "id": "doc-5f8f89c22c41::sentence-5",
+          "documentId": "doc-5f8f89c22c41",
+          "text": "Gaetz is the retired co-founder of VITAS Healthcare Corp., a hospice care provider that comforts patients and their families and preserves their dignity in the face of terminal illness. ",
+          "start": 277,
+          "end": 463,
+          "context": "Evidence 1: Did Matt Gaetz's father Don Gaetz co-found Vitas?  Gaetz is the retired co-founder of VITAS Healthcare Corp., a hospice care provider that comforts patients and their families and preserves their dignity in the face of terminal illness.  He was also president of the National Hospice Organization.\n\n"
+        },
+        {
+          "id": "doc-5f8f89c22c41::sentence-6",
+          "documentId": "doc-5f8f89c22c41",
+          "text": "He was also president of the National Hospice Organization.\n\n",
+          "start": 463,
+          "end": 524,
+          "context": "Gaetz is the retired co-founder of VITAS Healthcare Corp., a hospice care provider that comforts patients and their families and preserves their dignity in the face of terminal illness.  He was also president of the National Hospice Organization.\n\n RECOVERED SOURCE TEXT\n"
+        },
+        {
+          "id": "doc-c380bf708a16::sentence-21",
+          "documentId": "doc-c380bf708a16",
+          "text": "Roto-Rooter funded the merger with debt financing and the proceeds received from the sale of 2 million shares of Roto-Rooter Inc. ",
+          "start": 3051,
+          "end": 3181,
+          "context": "VITAS employs more than 6,100 professionals who care for more than 8,000 terminally ill patients daily, primarily in the patients' homes, but also in the company's 18 hospice inpatient units, as well as in hospitals, nursing homes, and assisted living/residential care facilities for the elderly.\n Roto-Rooter funded the merger with debt financing and the proceeds received from the sale of 2 million shares of Roto-Rooter Inc.  Capital Stock, issued in a private placement at a price of $50 per share. "
+        }
+      ]
+    }
+  ],
+  "classifications": [
+    {
+      "atomId": "atom-1",
+      "relations": [
+        {
+          "spanId": "doc-5f8f89c22c41::sentence-5",
+          "documentId": "doc-5f8f89c22c41",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-5f8f89c22c41::sentence-20",
+          "documentId": "doc-5f8f89c22c41",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-a1bb01cd9461::sentence-24",
+          "documentId": "doc-a1bb01cd9461",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-a1bb01cd9461::sentence-8",
+          "documentId": "doc-a1bb01cd9461",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-5f8f89c22c41::sentence-4",
+          "documentId": "doc-5f8f89c22c41",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-c380bf708a16::sentence-6",
+          "documentId": "doc-c380bf708a16",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        }
+      ]
+    },
+    {
+      "atomId": "atom-2",
+      "relations": [
+        {
+          "spanId": "doc-a1bb01cd9461::sentence-27",
+          "documentId": "doc-a1bb01cd9461",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-a1bb01cd9461::sentence-21",
+          "documentId": "doc-a1bb01cd9461",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-5f8f89c22c41::sentence-4",
+          "documentId": "doc-5f8f89c22c41",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-5f8f89c22c41::sentence-5",
+          "documentId": "doc-5f8f89c22c41",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-5f8f89c22c41::sentence-6",
+          "documentId": "doc-5f8f89c22c41",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-c380bf708a16::sentence-21",
+          "documentId": "doc-c380bf708a16",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        }
+      ]
+    }
+  ],
+  "evidenceAudit": {
+    "claimPosition": {
+      "position": "INSUFFICIENT",
+      "supportSpanIds": [],
+      "attackSpanIds": [],
+      "contextSpanIds": [
+        "doc-5f8f89c22c41::sentence-5",
+        "doc-5f8f89c22c41::sentence-20",
+        "doc-a1bb01cd9461::sentence-24",
+        "doc-a1bb01cd9461::sentence-8",
+        "doc-5f8f89c22c41::sentence-4",
+        "doc-a1bb01cd9461::sentence-27"
+      ],
+      "reason": "The evidence does not establish that Matt Gaetz was directly involved in the fraud. O1-E6 indicates he was not a party to the lawsuit. O2-E6 shows VITAS operates in patients' homes and other facilities, but does not support the claim of stealing from dying people."
+    },
+    "obligations": [
+      {
+        "atomId": "atom-1",
+        "state": "UNRESOLVED",
+        "supportSpanIds": [],
+        "attackSpanIds": [],
+        "reason": "The evidence does not establish that Matt Gaetz was directly involved in the fraud. O1-E6 indicates he was not a party to the lawsuit. O2-E6 shows VITAS operates in patients' homes and other facilities, but does not support the claim of stealing from dying people."
+      },
+      {
+        "atomId": "atom-2",
+        "state": "UNRESOLVED",
+        "supportSpanIds": [],
+        "attackSpanIds": [],
+        "reason": "The evidence does not establish that Matt Gaetz was directly involved in the fraud. O1-E6 indicates he was not a party to the lawsuit. O2-E6 shows VITAS operates in patients' homes and other facilities, but does not support the claim of stealing from dying people."
+      }
+    ],
+    "materialOmission": {
+      "detected": false,
+      "supportSpanIds": [],
+      "contextSpanIds": [],
+      "reason": "No material omission was established."
+    },
+    "provider": "ollama",
+    "model": "qwen2.5:7b"
+  },
+  "linguistics": {
+    "schemaVersion": 2,
+    "claimAnalysis": {
+      "atomId": "claim",
+      "frames": [
+        {
+          "id": "claim-frame-1",
+          "predicate": {
+            "id": "claim-frame-1-predicate",
+            "text": "was",
+            "start": 22,
+            "end": 25
+          },
+          "subjects": [
+            {
+              "id": "claim-frame-1-subject-1",
+              "text": "Republican Matt Gaetz",
+              "start": 0,
+              "end": 21
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "claim-frame-1-argument-1",
+              "text": "part of a company that had to pay 75 million in hospice fraud",
+              "start": 26,
+              "end": 87,
+              "role": "subject_complement"
+            }
+          ],
+          "adjuncts": [],
+          "otherModifiers": []
+        },
+        {
+          "id": "claim-frame-2",
+          "predicate": {
+            "id": "claim-frame-2-predicate",
+            "text": "pay",
+            "start": 56,
+            "end": 59
+          },
+          "subjects": [],
+          "coreArguments": [
+            {
+              "id": "claim-frame-2-argument-1",
+              "text": "75 million",
+              "start": 60,
+              "end": 70,
+              "role": "direct_object"
+            }
+          ],
+          "adjuncts": [],
+          "otherModifiers": [
+            {
+              "id": "claim-frame-2-other-modifier-1",
+              "text": "in hospice fraud",
+              "start": 71,
+              "end": 87
+            }
+          ]
+        },
+        {
+          "id": "claim-frame-3",
+          "predicate": {
+            "id": "claim-frame-3-predicate",
+            "text": "stole",
+            "start": 94,
+            "end": 99
+          },
+          "subjects": [
+            {
+              "id": "claim-frame-3-subject-1",
+              "text": "They",
+              "start": 89,
+              "end": 93
+            }
+          ],
+          "coreArguments": [],
+          "adjuncts": [],
+          "otherModifiers": [
+            {
+              "id": "claim-frame-3-other-modifier-1",
+              "text": "from dying people",
+              "start": 100,
+              "end": 117
+            }
+          ]
+        }
+      ],
+      "cues": [
+        {
+          "id": "claim-cue-numeric-60-70",
+          "text": "75 million",
+          "start": 60,
+          "end": 70,
+          "kind": "numeric"
+        }
+      ],
+      "entities": [
+        {
+          "id": "claim-entity-norp-0-10",
+          "text": "Republican",
+          "start": 0,
+          "end": 10,
+          "label": "NORP"
+        },
+        {
+          "id": "claim-entity-person-11-21",
+          "text": "Matt Gaetz",
+          "start": 11,
+          "end": 21,
+          "label": "PERSON"
+        }
+      ],
+      "tokens": [
+        {
+          "id": "claim-token-0",
+          "text": "Republican",
+          "start": 0,
+          "end": 10,
+          "lemma": "Republican",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "Gaetz"
+        },
+        {
+          "id": "claim-token-1",
+          "text": "Matt",
+          "start": 11,
+          "end": 15,
+          "lemma": "Matt",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "Gaetz"
+        },
+        {
+          "id": "claim-token-2",
+          "text": "Gaetz",
+          "start": 16,
+          "end": 21,
+          "lemma": "Gaetz",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "nsubj",
+          "head": "was"
+        },
+        {
+          "id": "claim-token-3",
+          "text": "was",
+          "start": 22,
+          "end": 25,
+          "lemma": "be",
+          "pos": "AUX",
+          "tag": "VBD",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "claim-token-4",
+          "text": "part",
+          "start": 26,
+          "end": 30,
+          "lemma": "part",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "attr",
+          "head": "was"
+        },
+        {
+          "id": "claim-token-5",
+          "text": "of",
+          "start": 31,
+          "end": 33,
+          "lemma": "of",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "part"
+        },
+        {
+          "id": "claim-token-6",
+          "text": "a",
+          "start": 34,
+          "end": 35,
+          "lemma": "a",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "company"
+        },
+        {
+          "id": "claim-token-7",
+          "text": "company",
+          "start": 36,
+          "end": 43,
+          "lemma": "company",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "pobj",
+          "head": "of"
+        },
+        {
+          "id": "claim-token-8",
+          "text": "that",
+          "start": 44,
+          "end": 48,
+          "lemma": "that",
+          "pos": "PRON",
+          "tag": "WDT",
+          "dependency": "nsubj",
+          "head": "had"
+        },
+        {
+          "id": "claim-token-9",
+          "text": "had",
+          "start": 49,
+          "end": 52,
+          "lemma": "have",
+          "pos": "VERB",
+          "tag": "VBD",
+          "dependency": "relcl",
+          "head": "company"
+        },
+        {
+          "id": "claim-token-10",
+          "text": "to",
+          "start": 53,
+          "end": 55,
+          "lemma": "to",
+          "pos": "PART",
+          "tag": "TO",
+          "dependency": "aux",
+          "head": "pay"
+        },
+        {
+          "id": "claim-token-11",
+          "text": "pay",
+          "start": 56,
+          "end": 59,
+          "lemma": "pay",
+          "pos": "VERB",
+          "tag": "VB",
+          "dependency": "xcomp",
+          "head": "had"
+        },
+        {
+          "id": "claim-token-12",
+          "text": "75",
+          "start": 60,
+          "end": 62,
+          "lemma": "75",
+          "pos": "NUM",
+          "tag": "CD",
+          "dependency": "compound",
+          "head": "million"
+        },
+        {
+          "id": "claim-token-13",
+          "text": "million",
+          "start": 63,
+          "end": 70,
+          "lemma": "million",
+          "pos": "NUM",
+          "tag": "CD",
+          "dependency": "dobj",
+          "head": "pay"
+        },
+        {
+          "id": "claim-token-14",
+          "text": "in",
+          "start": 71,
+          "end": 73,
+          "lemma": "in",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "pay"
+        },
+        {
+          "id": "claim-token-15",
+          "text": "hospice",
+          "start": 74,
+          "end": 81,
+          "lemma": "hospice",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "compound",
+          "head": "fraud"
+        },
+        {
+          "id": "claim-token-16",
+          "text": "fraud",
+          "start": 82,
+          "end": 87,
+          "lemma": "fraud",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "pobj",
+          "head": "in"
+        },
+        {
+          "id": "claim-token-17",
+          "text": ".",
+          "start": 87,
+          "end": 88,
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "was"
+        },
+        {
+          "id": "claim-token-18",
+          "text": "They",
+          "start": 89,
+          "end": 93,
+          "lemma": "they",
+          "pos": "PRON",
+          "tag": "PRP",
+          "dependency": "nsubj",
+          "head": "stole"
+        },
+        {
+          "id": "claim-token-19",
+          "text": "stole",
+          "start": 94,
+          "end": 99,
+          "lemma": "steal",
+          "pos": "VERB",
+          "tag": "VBD",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "claim-token-20",
+          "text": "from",
+          "start": 100,
+          "end": 104,
+          "lemma": "from",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "stole"
+        },
+        {
+          "id": "claim-token-21",
+          "text": "dying",
+          "start": 105,
+          "end": 110,
+          "lemma": "die",
+          "pos": "VERB",
+          "tag": "VBG",
+          "dependency": "pcomp",
+          "head": "from"
+        },
+        {
+          "id": "claim-token-22",
+          "text": "people",
+          "start": 111,
+          "end": 117,
+          "lemma": "people",
+          "pos": "NOUN",
+          "tag": "NNS",
+          "dependency": "dobj",
+          "head": "dying"
+        },
+        {
+          "id": "claim-token-23",
+          "text": ".",
+          "start": 117,
+          "end": 118,
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "stole"
+        }
+      ],
+      "status": "partial",
+      "unresolved": [
+        "subject"
+      ]
+    },
+    "analyses": [
+      {
+        "atomId": "atom-1",
+        "frames": [
+          {
+            "id": "atom-1-frame-1",
+            "predicate": {
+              "id": "atom-1-frame-1-predicate",
+              "text": "was",
+              "start": 22,
+              "end": 25
+            },
+            "subjects": [
+              {
+                "id": "atom-1-frame-1-subject-1",
+                "text": "Republican Matt Gaetz",
+                "start": 0,
+                "end": 21
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-1-frame-1-argument-1",
+                "text": "part of a company that had to pay 75 million in hospice fraud",
+                "start": 26,
+                "end": 87,
+                "role": "subject_complement"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": []
+          },
+          {
+            "id": "atom-1-frame-2",
+            "predicate": {
+              "id": "atom-1-frame-2-predicate",
+              "text": "pay",
+              "start": 56,
+              "end": 59
+            },
+            "subjects": [],
+            "coreArguments": [
+              {
+                "id": "atom-1-frame-2-argument-1",
+                "text": "75 million",
+                "start": 60,
+                "end": 70,
+                "role": "direct_object"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": [
+              {
+                "id": "atom-1-frame-2-other-modifier-1",
+                "text": "in hospice fraud",
+                "start": 71,
+                "end": 87
+              }
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "atom-1-cue-numeric-60-70",
+            "text": "75 million",
+            "start": 60,
+            "end": 70,
+            "kind": "numeric"
+          }
+        ],
+        "entities": [
+          {
+            "id": "atom-1-entity-norp-0-10",
+            "text": "Republican",
+            "start": 0,
+            "end": 10,
+            "label": "NORP"
+          },
+          {
+            "id": "atom-1-entity-person-11-21",
+            "text": "Matt Gaetz",
+            "start": 11,
+            "end": 21,
+            "label": "PERSON"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-1-token-0",
+            "text": "Republican",
+            "start": 0,
+            "end": 10,
+            "lemma": "Republican",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Gaetz"
+          },
+          {
+            "id": "atom-1-token-1",
+            "text": "Matt",
+            "start": 11,
+            "end": 15,
+            "lemma": "Matt",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Gaetz"
+          },
+          {
+            "id": "atom-1-token-2",
+            "text": "Gaetz",
+            "start": 16,
+            "end": 21,
+            "lemma": "Gaetz",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "nsubj",
+            "head": "was"
+          },
+          {
+            "id": "atom-1-token-3",
+            "text": "was",
+            "start": 22,
+            "end": 25,
+            "lemma": "be",
+            "pos": "AUX",
+            "tag": "VBD",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-1-token-4",
+            "text": "part",
+            "start": 26,
+            "end": 30,
+            "lemma": "part",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "attr",
+            "head": "was"
+          },
+          {
+            "id": "atom-1-token-5",
+            "text": "of",
+            "start": 31,
+            "end": 33,
+            "lemma": "of",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "part"
+          },
+          {
+            "id": "atom-1-token-6",
+            "text": "a",
+            "start": 34,
+            "end": 35,
+            "lemma": "a",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "company"
+          },
+          {
+            "id": "atom-1-token-7",
+            "text": "company",
+            "start": 36,
+            "end": 43,
+            "lemma": "company",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "pobj",
+            "head": "of"
+          },
+          {
+            "id": "atom-1-token-8",
+            "text": "that",
+            "start": 44,
+            "end": 48,
+            "lemma": "that",
+            "pos": "PRON",
+            "tag": "WDT",
+            "dependency": "nsubj",
+            "head": "had"
+          },
+          {
+            "id": "atom-1-token-9",
+            "text": "had",
+            "start": 49,
+            "end": 52,
+            "lemma": "have",
+            "pos": "VERB",
+            "tag": "VBD",
+            "dependency": "relcl",
+            "head": "company"
+          },
+          {
+            "id": "atom-1-token-10",
+            "text": "to",
+            "start": 53,
+            "end": 55,
+            "lemma": "to",
+            "pos": "PART",
+            "tag": "TO",
+            "dependency": "aux",
+            "head": "pay"
+          },
+          {
+            "id": "atom-1-token-11",
+            "text": "pay",
+            "start": 56,
+            "end": 59,
+            "lemma": "pay",
+            "pos": "VERB",
+            "tag": "VB",
+            "dependency": "xcomp",
+            "head": "had"
+          },
+          {
+            "id": "atom-1-token-12",
+            "text": "75",
+            "start": 60,
+            "end": 62,
+            "lemma": "75",
+            "pos": "NUM",
+            "tag": "CD",
+            "dependency": "compound",
+            "head": "million"
+          },
+          {
+            "id": "atom-1-token-13",
+            "text": "million",
+            "start": 63,
+            "end": 70,
+            "lemma": "million",
+            "pos": "NUM",
+            "tag": "CD",
+            "dependency": "dobj",
+            "head": "pay"
+          },
+          {
+            "id": "atom-1-token-14",
+            "text": "in",
+            "start": 71,
+            "end": 73,
+            "lemma": "in",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "pay"
+          },
+          {
+            "id": "atom-1-token-15",
+            "text": "hospice",
+            "start": 74,
+            "end": 81,
+            "lemma": "hospice",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "compound",
+            "head": "fraud"
+          },
+          {
+            "id": "atom-1-token-16",
+            "text": "fraud",
+            "start": 82,
+            "end": 87,
+            "lemma": "fraud",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "pobj",
+            "head": "in"
+          },
+          {
+            "id": "atom-1-token-17",
+            "text": ".",
+            "start": 87,
+            "end": 88,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "was"
+          }
+        ],
+        "status": "partial",
+        "unresolved": [
+          "subject"
+        ]
+      },
+      {
+        "atomId": "atom-2",
+        "frames": [
+          {
+            "id": "atom-2-frame-1",
+            "predicate": {
+              "id": "atom-2-frame-1-predicate",
+              "text": "stole",
+              "start": 5,
+              "end": 10
+            },
+            "subjects": [
+              {
+                "id": "atom-2-frame-1-subject-1",
+                "text": "They",
+                "start": 0,
+                "end": 4
+              }
+            ],
+            "coreArguments": [],
+            "adjuncts": [],
+            "otherModifiers": [
+              {
+                "id": "atom-2-frame-1-other-modifier-1",
+                "text": "from dying people",
+                "start": 11,
+                "end": 28
+              }
+            ]
+          }
+        ],
+        "cues": [],
+        "entities": [],
+        "tokens": [
+          {
+            "id": "atom-2-token-0",
+            "text": "They",
+            "start": 0,
+            "end": 4,
+            "lemma": "they",
+            "pos": "PRON",
+            "tag": "PRP",
+            "dependency": "nsubj",
+            "head": "stole"
+          },
+          {
+            "id": "atom-2-token-1",
+            "text": "stole",
+            "start": 5,
+            "end": 10,
+            "lemma": "steal",
+            "pos": "VERB",
+            "tag": "VBD",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-2-token-2",
+            "text": "from",
+            "start": 11,
+            "end": 15,
+            "lemma": "from",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "stole"
+          },
+          {
+            "id": "atom-2-token-3",
+            "text": "dying",
+            "start": 16,
+            "end": 21,
+            "lemma": "die",
+            "pos": "VERB",
+            "tag": "VBG",
+            "dependency": "pcomp",
+            "head": "from"
+          },
+          {
+            "id": "atom-2-token-4",
+            "text": "people",
+            "start": 22,
+            "end": 28,
+            "lemma": "people",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "dobj",
+            "head": "dying"
+          },
+          {
+            "id": "atom-2-token-5",
+            "text": ".",
+            "start": 28,
+            "end": 29,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "stole"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      }
+    ],
+    "summaries": [
+      {
+        "atomId": "atom-1",
+        "analysisStatus": "partial",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "Republican Matt Gaetz"
+        ],
+        "predicates": [
+          "be",
+          "pay"
+        ],
+        "cueKinds": [
+          "numeric"
+        ],
+        "modifierKinds": [],
+        "entityLabels": [
+          "NORP",
+          "PERSON"
+        ],
+        "warnings": [
+          "MULTIPLE_PROPOSITION_FRAMES",
+          "UNRESOLVED_SUBJECT",
+          "PARTIAL_LINGUISTIC_ANALYSIS",
+          "QUALIFIER_ATTACHMENT_UNCLEAR"
+        ]
+      },
+      {
+        "atomId": "atom-2",
+        "analysisStatus": "complete",
+        "roleAudit": "INCONCLUSIVE",
+        "subjects": [
+          "They"
+        ],
+        "predicates": [
+          "steal"
+        ],
+        "cueKinds": [],
+        "modifierKinds": [],
+        "entityLabels": [],
+        "warnings": []
+      }
+    ],
+    "claimWarnings": [],
+    "provider": "spacy",
+    "model": "en_core_web_sm@3.8.0"
+  },
+  "verdict": {
+    "aggregationSchemaVersion": 1,
+    "claimId": "averitec-dev-0004",
+    "composition": "AND",
+    "verdict": "NOT_ENOUGH_EVIDENCE",
+    "positions": {
+      "supportPosition": false,
+      "attackPosition": false,
+      "materialOmissionPosition": false,
+      "supportObligationIds": [],
+      "attackObligationIds": [],
+      "unresolvedObligationIds": [
+        "atom-1",
+        "atom-2"
+      ],
+      "groundedClaimPosition": "INSUFFICIENT"
+    },
+    "obligations": [
+      {
+        "obligationId": "atom-1",
+        "state": "UNRESOLVED",
+        "supportEdgeIds": [],
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 6
+      },
+      {
+        "obligationId": "atom-2",
+        "state": "UNRESOLVED",
+        "supportEdgeIds": [],
+        "attackEdgeIds": [],
+        "neutralCandidateCount": 6
+      }
+    ],
+    "warnings": [
+      {
+        "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
+        "message": "Obligation atom-1 has no supporting or attacking evidence."
+      },
+      {
+        "code": "ONLY_NEUTRAL_CANDIDATES",
+        "message": "Obligation atom-1 has only neutral retrieved candidates."
+      },
+      {
+        "code": "PARTIAL_LINGUISTIC_ANALYSIS",
+        "message": "Linguistic analysis for obligation atom-1 requires inspection; it does not change the verdict."
+      },
+      {
+        "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
+        "message": "Obligation atom-2 has no supporting or attacking evidence."
+      },
+      {
+        "code": "ONLY_NEUTRAL_CANDIDATES",
+        "message": "Obligation atom-2 has only neutral retrieved candidates."
+      }
+    ],
+    "ruleTrace": [
+      "The provenance-constrained claim audit sets the overall evidence position; deterministic aggregation maps that position to status.",
+      "Grounded claim position: INSUFFICIENT; The evidence does not establish that Matt Gaetz was directly involved in the fraud. O1-E6 indicates he was not a party to the lawsuit. O2-E6 shows VITAS operates in patients' homes and other facilities, but does not support the claim of stealing from dying people.",
+      "Support position: no; attack position: no.",
+      "Final verdict: NOT_ENOUGH_EVIDENCE."
+    ]
+  },
+  "recordedWith": {
+    "decompositionModel": "qwen2.5:7b",
+    "retrievalModel": "BAAI/bge-small-en-v1.5",
+    "nliModel": "qwen2.5:7b",
+    "linguisticsModel": "en_core_web_sm@3.8.0"
+  },
+  "timingsSeconds": {
+    "decomposition": 23.411,
+    "retrievalAndLinguistics": 0.718,
+    "evidenceAudit": 18.535,
+    "aggregation": 0.004,
+    "total": 42.674
+  }
+}

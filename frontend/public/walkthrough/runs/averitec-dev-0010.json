@@ -6,26 +6,26 @@
   "atoms": [
     {
       "id": "atom-1",
-      "text": "Donald Trump says hoax when he thinks of climate change.",
-      "sourceText": "he says hoax. Well, guess what? Speaking of hoaxes, remember what he said about these increasing violent hurricanes and the frequency?",
+      "text": "Donald Trump says climate change is a hoax.",
+      "sourceText": "he says hoax",
       "start": 48,
-      "end": 182,
+      "end": 60,
       "role": "ATTRIBUTION"
     },
     {
       "id": "atom-2",
       "text": "Donald Trump said maybe we should detonate a nuclear bomb over the Atlantic.",
-      "sourceText": "He actually said, maybe we should detonate a nuclear bomb over the Atlantic.",
-      "start": 183,
-      "end": 259,
+      "sourceText": "actually said, maybe we should detonate a nuclear bomb over the Atlantic",
+      "start": 186,
+      "end": 258,
       "role": "ATTRIBUTION"
     },
     {
       "id": "atom-3",
-      "text": "Donald Trump said the biggest problem we had in the Revolutionary War is we didn’t have enough airports.",
-      "sourceText": "By the way, the same stable genius who said the biggest problem we had in the Revolutionary War is we didn’t have enough airports.",
-      "start": 260,
-      "end": 390,
+      "text": "Donald Trump said the biggest problem in the Revolutionary War was not having enough airports.",
+      "sourceText": "the same stable genius who said the biggest problem we had in the Revolutionary War is we didn’t have enough airports",
+      "start": 272,
+      "end": 389,
       "role": "ATTRIBUTION"
     }
   ],
@@ -34,52 +34,52 @@
       "atomId": "atom-1",
       "spans": [
         {
-          "id": "doc-a9e260356e8f::sentence-53",
-          "documentId": "doc-a9e260356e8f",
-          "text": "About 3 weeks after Trump's 2016 election, National Geographic published an article titled, \"Nuking Hurricanes: The Surprising History of a Really Bad Idea.\" ",
-          "start": 5565,
-          "end": 5723,
-          "context": "- The page states: \"Apart from the fact that this might not even alter the storm, this approach neglects the problem that the released radioactive fallout would fairly quickly move with the tradewinds to affect land areas and cause devastating environmental problems. Needless to say, this is not a good idea.\"\n About 3 weeks after Trump's 2016 election, National Geographic published an article titled, \"Nuking Hurricanes: The Surprising History of a Really Bad Idea.\"  It found, among other problems, that:\n"
-        },
-        {
-          "id": "doc-a9e260356e8f::sentence-46",
+          "id": "doc-a9e260356e8f::sentence-51",
           "documentId": "doc-a9e260356e8f",
           "text": "- Trump called this story \"ridiculous\" in a Monday tweet from the G7 summit. ",
-          "start": 4535,
-          "end": 4612,
+          "start": 4964,
+          "end": 5041,
           "context": "- \"What people near the president do is they say 'I love a president who asks questions like that, who’s willing to ask tough questions.' ... It takes strong people to respond to him in the right way when stuff like this comes up. For me, alarm bells weren't going off when I heard about it, but I did think somebody is going to use this to feed into 'the president is crazy' narrative.\"\n - Trump called this story \"ridiculous\" in a Monday tweet from the G7 summit.  He added, \"I never said this. Just more FAKE NEWS!\"\n"
         },
         {
-          "id": "doc-a9e260356e8f::sentence-40",
+          "id": "doc-a9e260356e8f::sentence-4",
           "documentId": "doc-a9e260356e8f",
-          "text": "- The sources said that Trump's \"bomb the hurricanes\" idea — which he floated early in the first year and a bit of his presidency before John Bolton took over as national security adviser — went nowhere and never entered a formal policy process.\n",
-          "start": 3415,
-          "end": 3661,
-          "context": "- The source added that this NSC memo captured \"multiple topics, not just hurricanes. … It wasn't that somebody was so terrified of the bombing idea that they wrote it down. They just captured the president’s comments.\"\n - The sources said that Trump's \"bomb the hurricanes\" idea — which he floated early in the first year and a bit of his presidency before John Bolton took over as national security adviser — went nowhere and never entered a formal policy process.\n White House response: A senior administration official said, \"We don't comment on private discussions that the president may or may not have had with his national security team.\"\n"
+          "text": "Evidence 1: Did Trump ever suggest bombing hurricanes to prevent them from reaching the US Trump suggested nuking hurricanes to stop them from hitting U.S\n\n",
+          "start": 251,
+          "end": 407,
+          "context": "Source URL: https://www.axios.com/trump-nuclear-bombs-hurricanes-97231f38-2394-4120-a3fa-8c9cf0e3f51c.html\n Evidence 1: Did Trump ever suggest bombing hurricanes to prevent them from reaching the US Trump suggested nuking hurricanes to stop them from hitting U.S\n\n RECOVERED SOURCE TEXT\n"
         },
         {
-          "id": "doc-1389236b080c::sentence-12",
-          "documentId": "doc-1389236b080c",
-          "text": "But Trump said he wasn't letting the rain dampen his spirits about the event.\n",
-          "start": 1708,
-          "end": 1786,
-          "context": "The teleprompter screen had been \"hard to look at anyway cause it was raining all over it.\"\n But Trump said he wasn't letting the rain dampen his spirits about the event.\n \"I do the speech very well, so I was able to do it without a teleprompter, but the teleprompter did go out,\" he said. "
+          "id": "doc-a9e260356e8f::sentence-38",
+          "documentId": "doc-a9e260356e8f",
+          "text": "- Trump replied by asking incredulously how many hurricanes the U.S. could handle and reiterating his suggestion that the government intervene before they make landfall.\n",
+          "start": 2837,
+          "end": 3007,
+          "context": "- Asked how the briefer reacted, the source recalled he said something to the effect of, \"Sir, we'll look into that.\"\n - Trump replied by asking incredulously how many hurricanes the U.S. could handle and reiterating his suggestion that the government intervene before they make landfall.\n - The briefer \"was knocked back on his heels,\" the source in the room added. "
         },
         {
-          "id": "doc-1389236b080c::sentence-6",
+          "id": "doc-1389236b080c::sentence-4",
           "documentId": "doc-1389236b080c",
-          "text": "Trump, speaking to reporters on the White House lawn en route to his property in Bedminster, New Jersey, acknowledged Friday he had some technical problems because of the soggy conditions during his speech.\n",
-          "start": 861,
-          "end": 1068,
-          "context": "\"Our Army manned the air, it rammed the ramparts, it took over the airports, it did everything it had to do, and at Fort McHenry, under the rocket's red glare it had nothing but victory.\"\n Trump, speaking to reporters on the White House lawn en route to his property in Bedminster, New Jersey, acknowledged Friday he had some technical problems because of the soggy conditions during his speech.\n \"We had a lot of rain. I stood in the rain. The teleprompter went out,\" he said in response to a question from NBC's Kelly O'Donnell. "
+          "text": "Evidence 1: Did Donald J. Trump say; ''biggest problem we had in the Revolutionary War is we didn’t have enough airports''? ",
+          "start": 269,
+          "end": 393,
+          "context": "Source URL: https://www.nbcnews.com/politics/donald-trump/trump-blames-teleprompter-revolutionary-war-airports-flub-n1026931\n Evidence 1: Did Donald J. Trump say; ''biggest problem we had in the Revolutionary War is we didn’t have enough airports''?  He did speak of the congressional army taking all of the airports over, however there were no airports at the time. "
         },
         {
-          "id": "doc-1389236b080c::sentence-2",
-          "documentId": "doc-1389236b080c",
-          "text": "President Donald Trump — who used to mock predecessor Barack Obama for using the devices during speeches — said Friday that technical problems with the teleprompter during his \"Salute to America\" led to his head-scratching remarks about the Continental Army securing not-yet existent \"airports\" during the Revolutionary War.\n",
-          "start": 34,
-          "end": 359,
-          "context": "No wonder he hates teleprompters.\n President Donald Trump — who used to mock predecessor Barack Obama for using the devices during speeches — said Friday that technical problems with the teleprompter during his \"Salute to America\" led to his head-scratching remarks about the Continental Army securing not-yet existent \"airports\" during the Revolutionary War.\n \"In June of 1775, the Continental Congress created a unified Army out of the Revolutionary Forces encamped around Boston and New York, and named after the great George Washington, commander in chief,\" Trump said during his address Thursday — although the army was not named after Washington. "
+          "id": "doc-a9e260356e8f::sentence-35",
+          "documentId": "doc-a9e260356e8f",
+          "text": "Behind the scenes: During one hurricane briefing at the White House, Trump said, \"I got it. I got it. Why don't we nuke them?\" according to one source who was there. ",
+          "start": 2323,
+          "end": 2489,
+          "context": "President Trump has suggested multiple times to senior Homeland Security and national security officials that they explore using nuclear bombs to stop hurricanes from hitting the United States, according to sources who have heard the president's private remarks and been briefed on a National Security Council memorandum that recorded those comments.\n Behind the scenes: During one hurricane briefing at the White House, Trump said, \"I got it. I got it. Why don't we nuke them?\" according to one source who was there.  \"They start forming off the coast of Africa, as they're moving across the Atlantic, we drop a bomb inside the eye of the hurricane and it disrupts it. Why can't we do that?\" the source added, paraphrasing the president's remarks.\n"
+        },
+        {
+          "id": "doc-a9e260356e8f::sentence-3",
+          "documentId": "doc-a9e260356e8f",
+          "text": "Source URL: https://www.axios.com/trump-nuclear-bombs-hurricanes-97231f38-2394-4120-a3fa-8c9cf0e3f51c.html\n",
+          "start": 144,
+          "end": 251,
+          "context": "These question-answer statements were written by AVeriTeC annotators and attributed to the source below.\n Source URL: https://www.axios.com/trump-nuclear-bombs-hurricanes-97231f38-2394-4120-a3fa-8c9cf0e3f51c.html\n Evidence 1: Did Trump ever suggest bombing hurricanes to prevent them from reaching the US Trump suggested nuking hurricanes to stop them from hitting U.S\n\n"
         }
       ]
     },
@@ -87,52 +87,52 @@
       "atomId": "atom-2",
       "spans": [
         {
-          "id": "doc-a9e260356e8f::sentence-29",
-          "documentId": "doc-a9e260356e8f",
-          "text": "President Trump has suggested multiple times to senior Homeland Security and national security officials that they explore using nuclear bombs to stop hurricanes from hitting the United States, according to sources who have heard the president's private remarks and been briefed on a National Security Council memorandum that recorded those comments.\n",
-          "start": 1543,
-          "end": 1894,
-          "context": "Illustration: Lazaro Gamio/Axios\n President Trump has suggested multiple times to senior Homeland Security and national security officials that they explore using nuclear bombs to stop hurricanes from hitting the United States, according to sources who have heard the president's private remarks and been briefed on a National Security Council memorandum that recorded those comments.\n Behind the scenes: During one hurricane briefing at the White House, Trump said, \"I got it. I got it. Why don't we nuke them?\" according to one source who was there. "
-        },
-        {
-          "id": "doc-a9e260356e8f::sentence-40",
+          "id": "doc-a9e260356e8f::sentence-45",
           "documentId": "doc-a9e260356e8f",
           "text": "- The sources said that Trump's \"bomb the hurricanes\" idea — which he floated early in the first year and a bit of his presidency before John Bolton took over as national security adviser — went nowhere and never entered a formal policy process.\n",
-          "start": 3415,
-          "end": 3661,
+          "start": 3844,
+          "end": 4090,
           "context": "- The source added that this NSC memo captured \"multiple topics, not just hurricanes. … It wasn't that somebody was so terrified of the bombing idea that they wrote it down. They just captured the president’s comments.\"\n - The sources said that Trump's \"bomb the hurricanes\" idea — which he floated early in the first year and a bit of his presidency before John Bolton took over as national security adviser — went nowhere and never entered a formal policy process.\n White House response: A senior administration official said, \"We don't comment on private discussions that the president may or may not have had with his national security team.\"\n"
         },
         {
-          "id": "doc-a9e260356e8f::sentence-30",
+          "id": "doc-a9e260356e8f::sentence-42",
           "documentId": "doc-a9e260356e8f",
-          "text": "Behind the scenes: During one hurricane briefing at the White House, Trump said, \"I got it. I got it. Why don't we nuke them?\" according to one source who was there. ",
-          "start": 1894,
-          "end": 2060,
-          "context": "President Trump has suggested multiple times to senior Homeland Security and national security officials that they explore using nuclear bombs to stop hurricanes from hitting the United States, according to sources who have heard the president's private remarks and been briefed on a National Security Council memorandum that recorded those comments.\n Behind the scenes: During one hurricane briefing at the White House, Trump said, \"I got it. I got it. Why don't we nuke them?\" according to one source who was there.  \"They start forming off the coast of Africa, as they're moving across the Atlantic, we drop a bomb inside the eye of the hurricane and it disrupts it. Why can't we do that?\" the source added, paraphrasing the president's remarks.\n"
+          "text": "A 2017 NSC memo describes that second conversation, in which Trump asked whether the administration should bomb hurricanes to stop them from hitting the homeland. ",
+          "start": 3323,
+          "end": 3486,
+          "context": "Trump also raised the idea in another conversation with a senior administration official.  A 2017 NSC memo describes that second conversation, in which Trump asked whether the administration should bomb hurricanes to stop them from hitting the homeland.  A source briefed on the NSC memo said it does not contain the word \"nuclear\"; it just says the president talked about bombing hurricanes.\n"
         },
         {
-          "id": "doc-1389236b080c::sentence-2",
+          "id": "doc-a9e260356e8f::sentence-60",
+          "documentId": "doc-a9e260356e8f",
+          "text": "- Dropping a nuclear bomb into a hurricane would be banned under the terms of the Peaceful Nuclear Explosions Treaty between the U.S. and the former Soviet Union. ",
+          "start": 6190,
+          "end": 6353,
+          "context": "It found, among other problems, that:\n - Dropping a nuclear bomb into a hurricane would be banned under the terms of the Peaceful Nuclear Explosions Treaty between the U.S. and the former Soviet Union.  So that could stave off any experiments, as long as the U.S. observes the terms of the treaty.\n"
+        },
+        {
+          "id": "doc-a9e260356e8f::sentence-34",
+          "documentId": "doc-a9e260356e8f",
+          "text": "President Trump has suggested multiple times to senior Homeland Security and national security officials that they explore using nuclear bombs to stop hurricanes from hitting the United States, according to sources who have heard the president's private remarks and been briefed on a National Security Council memorandum that recorded those comments.\n",
+          "start": 1972,
+          "end": 2323,
+          "context": "Illustration: Lazaro Gamio/Axios\n President Trump has suggested multiple times to senior Homeland Security and national security officials that they explore using nuclear bombs to stop hurricanes from hitting the United States, according to sources who have heard the president's private remarks and been briefed on a National Security Council memorandum that recorded those comments.\n Behind the scenes: During one hurricane briefing at the White House, Trump said, \"I got it. I got it. Why don't we nuke them?\" according to one source who was there. "
+        },
+        {
+          "id": "doc-a9e260356e8f::sentence-54",
+          "documentId": "doc-a9e260356e8f",
+          "text": "The notion that detonating a nuclear bomb over the eye of a hurricane could be used to counteract convection currents dates to the Eisenhower era, when it was floated by a government scientist.\n",
+          "start": 5141,
+          "end": 5335,
+          "context": "The big picture: Trump didn't invent this idea.  The notion that detonating a nuclear bomb over the eye of a hurricane could be used to counteract convection currents dates to the Eisenhower era, when it was floated by a government scientist.\n - The idea keeps resurfacing in the public even though scientists agree it won't work. "
+        },
+        {
+          "id": "doc-1389236b080c::sentence-9",
           "documentId": "doc-1389236b080c",
           "text": "President Donald Trump — who used to mock predecessor Barack Obama for using the devices during speeches — said Friday that technical problems with the teleprompter during his \"Salute to America\" led to his head-scratching remarks about the Continental Army securing not-yet existent \"airports\" during the Revolutionary War.\n",
-          "start": 34,
-          "end": 359,
+          "start": 602,
+          "end": 927,
           "context": "No wonder he hates teleprompters.\n President Donald Trump — who used to mock predecessor Barack Obama for using the devices during speeches — said Friday that technical problems with the teleprompter during his \"Salute to America\" led to his head-scratching remarks about the Continental Army securing not-yet existent \"airports\" during the Revolutionary War.\n \"In June of 1775, the Continental Congress created a unified Army out of the Revolutionary Forces encamped around Boston and New York, and named after the great George Washington, commander in chief,\" Trump said during his address Thursday — although the army was not named after Washington. "
-        },
-        {
-          "id": "doc-1389236b080c::sentence-3",
-          "documentId": "doc-1389236b080c",
-          "text": "\"In June of 1775, the Continental Congress created a unified Army out of the Revolutionary Forces encamped around Boston and New York, and named after the great George Washington, commander in chief,\" Trump said during his address Thursday — although the army was not named after Washington. ",
-          "start": 359,
-          "end": 651,
-          "context": "President Donald Trump — who used to mock predecessor Barack Obama for using the devices during speeches — said Friday that technical problems with the teleprompter during his \"Salute to America\" led to his head-scratching remarks about the Continental Army securing not-yet existent \"airports\" during the Revolutionary War.\n \"In June of 1775, the Continental Congress created a unified Army out of the Revolutionary Forces encamped around Boston and New York, and named after the great George Washington, commander in chief,\" Trump said during his address Thursday — although the army was not named after Washington.  It then got stranger.\n"
-        },
-        {
-          "id": "doc-1389236b080c::sentence-6",
-          "documentId": "doc-1389236b080c",
-          "text": "Trump, speaking to reporters on the White House lawn en route to his property in Bedminster, New Jersey, acknowledged Friday he had some technical problems because of the soggy conditions during his speech.\n",
-          "start": 861,
-          "end": 1068,
-          "context": "\"Our Army manned the air, it rammed the ramparts, it took over the airports, it did everything it had to do, and at Fort McHenry, under the rocket's red glare it had nothing but victory.\"\n Trump, speaking to reporters on the White House lawn en route to his property in Bedminster, New Jersey, acknowledged Friday he had some technical problems because of the soggy conditions during his speech.\n \"We had a lot of rain. I stood in the rain. The teleprompter went out,\" he said in response to a question from NBC's Kelly O'Donnell. "
         }
       ]
     },
@@ -140,52 +140,52 @@
       "atomId": "atom-3",
       "spans": [
         {
-          "id": "doc-1389236b080c::sentence-2",
+          "id": "doc-1389236b080c::sentence-4",
+          "documentId": "doc-1389236b080c",
+          "text": "Evidence 1: Did Donald J. Trump say; ''biggest problem we had in the Revolutionary War is we didn’t have enough airports''? ",
+          "start": 269,
+          "end": 393,
+          "context": "Source URL: https://www.nbcnews.com/politics/donald-trump/trump-blames-teleprompter-revolutionary-war-airports-flub-n1026931\n Evidence 1: Did Donald J. Trump say; ''biggest problem we had in the Revolutionary War is we didn’t have enough airports''?  He did speak of the congressional army taking all of the airports over, however there were no airports at the time. "
+        },
+        {
+          "id": "doc-1389236b080c::sentence-9",
           "documentId": "doc-1389236b080c",
           "text": "President Donald Trump — who used to mock predecessor Barack Obama for using the devices during speeches — said Friday that technical problems with the teleprompter during his \"Salute to America\" led to his head-scratching remarks about the Continental Army securing not-yet existent \"airports\" during the Revolutionary War.\n",
-          "start": 34,
-          "end": 359,
+          "start": 602,
+          "end": 927,
           "context": "No wonder he hates teleprompters.\n President Donald Trump — who used to mock predecessor Barack Obama for using the devices during speeches — said Friday that technical problems with the teleprompter during his \"Salute to America\" led to his head-scratching remarks about the Continental Army securing not-yet existent \"airports\" during the Revolutionary War.\n \"In June of 1775, the Continental Congress created a unified Army out of the Revolutionary Forces encamped around Boston and New York, and named after the great George Washington, commander in chief,\" Trump said during his address Thursday — although the army was not named after Washington. "
         },
         {
-          "id": "doc-a9e260356e8f::sentence-33",
-          "documentId": "doc-a9e260356e8f",
-          "text": "- Trump replied by asking incredulously how many hurricanes the U.S. could handle and reiterating his suggestion that the government intervene before they make landfall.\n",
-          "start": 2408,
-          "end": 2578,
-          "context": "- Asked how the briefer reacted, the source recalled he said something to the effect of, \"Sir, we'll look into that.\"\n - Trump replied by asking incredulously how many hurricanes the U.S. could handle and reiterating his suggestion that the government intervene before they make landfall.\n - The briefer \"was knocked back on his heels,\" the source in the room added. "
-        },
-        {
-          "id": "doc-1389236b080c::sentence-3",
+          "id": "doc-1389236b080c::sentence-10",
           "documentId": "doc-1389236b080c",
           "text": "\"In June of 1775, the Continental Congress created a unified Army out of the Revolutionary Forces encamped around Boston and New York, and named after the great George Washington, commander in chief,\" Trump said during his address Thursday — although the army was not named after Washington. ",
-          "start": 359,
-          "end": 651,
+          "start": 927,
+          "end": 1219,
           "context": "President Donald Trump — who used to mock predecessor Barack Obama for using the devices during speeches — said Friday that technical problems with the teleprompter during his \"Salute to America\" led to his head-scratching remarks about the Continental Army securing not-yet existent \"airports\" during the Revolutionary War.\n \"In June of 1775, the Continental Congress created a unified Army out of the Revolutionary Forces encamped around Boston and New York, and named after the great George Washington, commander in chief,\" Trump said during his address Thursday — although the army was not named after Washington.  It then got stranger.\n"
         },
         {
-          "id": "doc-a9e260356e8f::sentence-48",
+          "id": "doc-a9e260356e8f::sentence-38",
           "documentId": "doc-a9e260356e8f",
-          "text": "The big picture: Trump didn't invent this idea. ",
-          "start": 4664,
-          "end": 4712,
-          "context": "He added, \"I never said this. Just more FAKE NEWS!\"\n The big picture: Trump didn't invent this idea.  The notion that detonating a nuclear bomb over the eye of a hurricane could be used to counteract convection currents dates to the Eisenhower era, when it was floated by a government scientist.\n"
+          "text": "- Trump replied by asking incredulously how many hurricanes the U.S. could handle and reiterating his suggestion that the government intervene before they make landfall.\n",
+          "start": 2837,
+          "end": 3007,
+          "context": "- Asked how the briefer reacted, the source recalled he said something to the effect of, \"Sir, we'll look into that.\"\n - Trump replied by asking incredulously how many hurricanes the U.S. could handle and reiterating his suggestion that the government intervene before they make landfall.\n - The briefer \"was knocked back on his heels,\" the source in the room added. "
         },
         {
-          "id": "doc-1389236b080c::sentence-6",
-          "documentId": "doc-1389236b080c",
-          "text": "Trump, speaking to reporters on the White House lawn en route to his property in Bedminster, New Jersey, acknowledged Friday he had some technical problems because of the soggy conditions during his speech.\n",
-          "start": 861,
-          "end": 1068,
-          "context": "\"Our Army manned the air, it rammed the ramparts, it took over the airports, it did everything it had to do, and at Fort McHenry, under the rocket's red glare it had nothing but victory.\"\n Trump, speaking to reporters on the White House lawn en route to his property in Bedminster, New Jersey, acknowledged Friday he had some technical problems because of the soggy conditions during his speech.\n \"We had a lot of rain. I stood in the rain. The teleprompter went out,\" he said in response to a question from NBC's Kelly O'Donnell. "
+          "id": "doc-a9e260356e8f::sentence-47",
+          "documentId": "doc-a9e260356e8f",
+          "text": "- A different senior administration official, who has been briefed on the president's hurricane bombing suggestion, defended Trump's idea and said it was no cause for alarm. ",
+          "start": 4269,
+          "end": 4443,
+          "context": "White House response: A senior administration official said, \"We don't comment on private discussions that the president may or may not have had with his national security team.\"\n - A different senior administration official, who has been briefed on the president's hurricane bombing suggestion, defended Trump's idea and said it was no cause for alarm.  \"His goal — to keep a catastrophic hurricane from hitting the mainland — is not bad,\" the official said. "
         },
         {
-          "id": "doc-a9e260356e8f::sentence-40",
+          "id": "doc-a9e260356e8f::sentence-35",
           "documentId": "doc-a9e260356e8f",
-          "text": "- The sources said that Trump's \"bomb the hurricanes\" idea — which he floated early in the first year and a bit of his presidency before John Bolton took over as national security adviser — went nowhere and never entered a formal policy process.\n",
-          "start": 3415,
-          "end": 3661,
-          "context": "- The source added that this NSC memo captured \"multiple topics, not just hurricanes. … It wasn't that somebody was so terrified of the bombing idea that they wrote it down. They just captured the president’s comments.\"\n - The sources said that Trump's \"bomb the hurricanes\" idea — which he floated early in the first year and a bit of his presidency before John Bolton took over as national security adviser — went nowhere and never entered a formal policy process.\n White House response: A senior administration official said, \"We don't comment on private discussions that the president may or may not have had with his national security team.\"\n"
+          "text": "Behind the scenes: During one hurricane briefing at the White House, Trump said, \"I got it. I got it. Why don't we nuke them?\" according to one source who was there. ",
+          "start": 2323,
+          "end": 2489,
+          "context": "President Trump has suggested multiple times to senior Homeland Security and national security officials that they explore using nuclear bombs to stop hurricanes from hitting the United States, according to sources who have heard the president's private remarks and been briefed on a National Security Council memorandum that recorded those comments.\n Behind the scenes: During one hurricane briefing at the White House, Trump said, \"I got it. I got it. Why don't we nuke them?\" according to one source who was there.  \"They start forming off the coast of Africa, as they're moving across the Atlantic, we drop a bomb inside the eye of the hurricane and it disrupts it. Why can't we do that?\" the source added, paraphrasing the president's remarks.\n"
         }
       ]
     }
@@ -195,34 +195,40 @@
       "atomId": "atom-1",
       "relations": [
         {
-          "spanId": "doc-a9e260356e8f::sentence-53",
+          "spanId": "doc-a9e260356e8f::sentence-51",
           "documentId": "doc-a9e260356e8f",
-          "relation": "NEUTRAL"
+          "relation": "CONTRADICTION",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-a9e260356e8f::sentence-46",
+          "spanId": "doc-a9e260356e8f::sentence-4",
           "documentId": "doc-a9e260356e8f",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-a9e260356e8f::sentence-40",
+          "spanId": "doc-a9e260356e8f::sentence-38",
           "documentId": "doc-a9e260356e8f",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-1389236b080c::sentence-12",
+          "spanId": "doc-1389236b080c::sentence-4",
           "documentId": "doc-1389236b080c",
-          "relation": "NEUTRAL"
+          "relation": "ENTAILMENT",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-1389236b080c::sentence-6",
-          "documentId": "doc-1389236b080c",
-          "relation": "NEUTRAL"
+          "spanId": "doc-a9e260356e8f::sentence-35",
+          "documentId": "doc-a9e260356e8f",
+          "relation": "ENTAILMENT",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-1389236b080c::sentence-2",
-          "documentId": "doc-1389236b080c",
-          "relation": "NEUTRAL"
+          "spanId": "doc-a9e260356e8f::sentence-3",
+          "documentId": "doc-a9e260356e8f",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         }
       ]
     },
@@ -230,34 +236,40 @@
       "atomId": "atom-2",
       "relations": [
         {
-          "spanId": "doc-a9e260356e8f::sentence-29",
+          "spanId": "doc-a9e260356e8f::sentence-45",
           "documentId": "doc-a9e260356e8f",
-          "relation": "NEUTRAL"
+          "relation": "CONTRADICTION",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-a9e260356e8f::sentence-40",
+          "spanId": "doc-a9e260356e8f::sentence-42",
           "documentId": "doc-a9e260356e8f",
-          "relation": "NEUTRAL"
+          "relation": "CONTRADICTION",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-a9e260356e8f::sentence-30",
+          "spanId": "doc-a9e260356e8f::sentence-60",
           "documentId": "doc-a9e260356e8f",
-          "relation": "ENTAILMENT"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-1389236b080c::sentence-2",
-          "documentId": "doc-1389236b080c",
-          "relation": "CONTRADICTION"
+          "spanId": "doc-a9e260356e8f::sentence-34",
+          "documentId": "doc-a9e260356e8f",
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-1389236b080c::sentence-3",
-          "documentId": "doc-1389236b080c",
-          "relation": "NEUTRAL"
+          "spanId": "doc-a9e260356e8f::sentence-54",
+          "documentId": "doc-a9e260356e8f",
+          "relation": "CONTRADICTION",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-1389236b080c::sentence-6",
+          "spanId": "doc-1389236b080c::sentence-9",
           "documentId": "doc-1389236b080c",
-          "relation": "NEUTRAL"
+          "relation": "ENTAILMENT",
+          "relevanceFiltered": false
         }
       ]
     },
@@ -265,38 +277,114 @@
       "atomId": "atom-3",
       "relations": [
         {
-          "spanId": "doc-1389236b080c::sentence-2",
+          "spanId": "doc-1389236b080c::sentence-4",
           "documentId": "doc-1389236b080c",
-          "relation": "CONTRADICTION"
+          "relation": "ENTAILMENT",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-a9e260356e8f::sentence-33",
-          "documentId": "doc-a9e260356e8f",
-          "relation": "CONTRADICTION"
-        },
-        {
-          "spanId": "doc-1389236b080c::sentence-3",
+          "spanId": "doc-1389236b080c::sentence-9",
           "documentId": "doc-1389236b080c",
-          "relation": "NEUTRAL"
+          "relation": "ENTAILMENT",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-a9e260356e8f::sentence-48",
-          "documentId": "doc-a9e260356e8f",
-          "relation": "CONTRADICTION"
-        },
-        {
-          "spanId": "doc-1389236b080c::sentence-6",
+          "spanId": "doc-1389236b080c::sentence-10",
           "documentId": "doc-1389236b080c",
-          "relation": "NEUTRAL"
+          "relation": "ENTAILMENT",
+          "relevanceFiltered": false
         },
         {
-          "spanId": "doc-a9e260356e8f::sentence-40",
+          "spanId": "doc-a9e260356e8f::sentence-38",
           "documentId": "doc-a9e260356e8f",
-          "relation": "NEUTRAL"
+          "relation": "NEUTRAL",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-a9e260356e8f::sentence-47",
+          "documentId": "doc-a9e260356e8f",
+          "relation": "CONTRADICTION",
+          "relevanceFiltered": false
+        },
+        {
+          "spanId": "doc-a9e260356e8f::sentence-35",
+          "documentId": "doc-a9e260356e8f",
+          "relation": "ENTAILMENT",
+          "relevanceFiltered": false
         }
       ]
     }
   ],
+  "evidenceAudit": {
+    "claimPosition": {
+      "position": "MIXED_OR_MISLEADING",
+      "supportSpanIds": [
+        "doc-a9e260356e8f::sentence-35",
+        "doc-1389236b080c::sentence-4",
+        "doc-1389236b080c::sentence-9",
+        "doc-1389236b080c::sentence-10"
+      ],
+      "attackSpanIds": [
+        "doc-a9e260356e8f::sentence-51",
+        "doc-a9e260356e8f::sentence-45",
+        "doc-a9e260356e8f::sentence-42",
+        "doc-a9e260356e8f::sentence-54",
+        "doc-a9e260356e8f::sentence-47",
+        "doc-a9e260356e8f::sentence-35"
+      ],
+      "contextSpanIds": [
+        "doc-a9e260356e8f::sentence-60",
+        "doc-a9e260356e8f::sentence-34"
+      ],
+      "reason": "The evidence supports Trump's statements about climate change and the Revolutionary War, but attacks the nuclear bomb suggestion as a non-serious, non-policy proposal. The context clarifies that these were private, non-formalized ideas."
+    },
+    "obligations": [
+      {
+        "atomId": "atom-1",
+        "state": "BOTH",
+        "supportSpanIds": [
+          "doc-a9e260356e8f::sentence-35"
+        ],
+        "attackSpanIds": [
+          "doc-a9e260356e8f::sentence-51"
+        ],
+        "reason": "The evidence supports Trump's statements about climate change and the Revolutionary War, but attacks the nuclear bomb suggestion as a non-serious, non-policy proposal. The context clarifies that these were private, non-formalized ideas."
+      },
+      {
+        "atomId": "atom-2",
+        "state": "REFUTED",
+        "supportSpanIds": [],
+        "attackSpanIds": [
+          "doc-a9e260356e8f::sentence-45",
+          "doc-a9e260356e8f::sentence-42",
+          "doc-a9e260356e8f::sentence-54"
+        ],
+        "reason": "The evidence supports Trump's statements about climate change and the Revolutionary War, but attacks the nuclear bomb suggestion as a non-serious, non-policy proposal. The context clarifies that these were private, non-formalized ideas."
+      },
+      {
+        "atomId": "atom-3",
+        "state": "BOTH",
+        "supportSpanIds": [
+          "doc-1389236b080c::sentence-4",
+          "doc-1389236b080c::sentence-9",
+          "doc-1389236b080c::sentence-10"
+        ],
+        "attackSpanIds": [
+          "doc-a9e260356e8f::sentence-47",
+          "doc-a9e260356e8f::sentence-35"
+        ],
+        "reason": "The evidence supports Trump's statements about climate change and the Revolutionary War, but attacks the nuclear bomb suggestion as a non-serious, non-policy proposal. The context clarifies that these were private, non-formalized ideas."
+      }
+    ],
+    "materialOmission": {
+      "detected": false,
+      "supportSpanIds": [],
+      "contextSpanIds": [],
+      "reason": "No material omission was established."
+    },
+    "provider": "ollama",
+    "model": "qwen2.5:7b"
+  },
   "linguistics": {
     "schemaVersion": 2,
     "claimAnalysis": {
@@ -1532,57 +1620,42 @@
             "coreArguments": [
               {
                 "id": "atom-1-frame-1-argument-1",
-                "text": "hoax",
+                "text": "climate change is a hoax",
                 "start": 18,
-                "end": 22,
-                "role": "direct_object"
+                "end": 42,
+                "role": "clausal_complement"
               }
             ],
-            "adjuncts": [
-              {
-                "id": "atom-1-frame-1-adjunct-1",
-                "text": "when he thinks of climate change",
-                "start": 23,
-                "end": 55,
-                "kind": "temporal"
-              }
-            ],
+            "adjuncts": [],
             "otherModifiers": []
           },
           {
             "id": "atom-1-frame-2",
             "predicate": {
               "id": "atom-1-frame-2-predicate",
-              "text": "thinks",
-              "start": 31,
-              "end": 37
+              "text": "is",
+              "start": 33,
+              "end": 35
             },
             "subjects": [
               {
                 "id": "atom-1-frame-2-subject-1",
-                "text": "he",
-                "start": 28,
-                "end": 30
+                "text": "climate change",
+                "start": 18,
+                "end": 32
               }
             ],
-            "coreArguments": [],
-            "adjuncts": [
+            "coreArguments": [
               {
-                "id": "atom-1-frame-2-adjunct-1",
-                "text": "when",
-                "start": 23,
-                "end": 27,
-                "kind": "temporal"
+                "id": "atom-1-frame-2-argument-1",
+                "text": "a hoax",
+                "start": 36,
+                "end": 42,
+                "role": "subject_complement"
               }
             ],
-            "otherModifiers": [
-              {
-                "id": "atom-1-frame-2-other-modifier-1",
-                "text": "of climate change",
-                "start": 38,
-                "end": 55
-              }
-            ]
+            "adjuncts": [],
+            "otherModifiers": []
           }
         ],
         "cues": [
@@ -1639,64 +1712,9 @@
           },
           {
             "id": "atom-1-token-3",
-            "text": "hoax",
-            "start": 18,
-            "end": 22,
-            "lemma": "hoax",
-            "pos": "ADJ",
-            "tag": "JJ",
-            "dependency": "dobj",
-            "head": "says"
-          },
-          {
-            "id": "atom-1-token-4",
-            "text": "when",
-            "start": 23,
-            "end": 27,
-            "lemma": "when",
-            "pos": "SCONJ",
-            "tag": "WRB",
-            "dependency": "advmod",
-            "head": "thinks"
-          },
-          {
-            "id": "atom-1-token-5",
-            "text": "he",
-            "start": 28,
-            "end": 30,
-            "lemma": "he",
-            "pos": "PRON",
-            "tag": "PRP",
-            "dependency": "nsubj",
-            "head": "thinks"
-          },
-          {
-            "id": "atom-1-token-6",
-            "text": "thinks",
-            "start": 31,
-            "end": 37,
-            "lemma": "think",
-            "pos": "VERB",
-            "tag": "VBZ",
-            "dependency": "advcl",
-            "head": "says"
-          },
-          {
-            "id": "atom-1-token-7",
-            "text": "of",
-            "start": 38,
-            "end": 40,
-            "lemma": "of",
-            "pos": "ADP",
-            "tag": "IN",
-            "dependency": "prep",
-            "head": "thinks"
-          },
-          {
-            "id": "atom-1-token-8",
             "text": "climate",
-            "start": 41,
-            "end": 48,
+            "start": 18,
+            "end": 25,
             "lemma": "climate",
             "pos": "NOUN",
             "tag": "NN",
@@ -1704,21 +1722,54 @@
             "head": "change"
           },
           {
-            "id": "atom-1-token-9",
+            "id": "atom-1-token-4",
             "text": "change",
-            "start": 49,
-            "end": 55,
+            "start": 26,
+            "end": 32,
             "lemma": "change",
             "pos": "NOUN",
             "tag": "NN",
-            "dependency": "pobj",
-            "head": "of"
+            "dependency": "nsubj",
+            "head": "is"
           },
           {
-            "id": "atom-1-token-10",
+            "id": "atom-1-token-5",
+            "text": "is",
+            "start": 33,
+            "end": 35,
+            "lemma": "be",
+            "pos": "AUX",
+            "tag": "VBZ",
+            "dependency": "ccomp",
+            "head": "says"
+          },
+          {
+            "id": "atom-1-token-6",
+            "text": "a",
+            "start": 36,
+            "end": 37,
+            "lemma": "a",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "hoax"
+          },
+          {
+            "id": "atom-1-token-7",
+            "text": "hoax",
+            "start": 38,
+            "end": 42,
+            "lemma": "hoax",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "attr",
+            "head": "is"
+          },
+          {
+            "id": "atom-1-token-8",
             "text": ".",
-            "start": 55,
-            "end": 56,
+            "start": 42,
+            "end": 43,
             "lemma": ".",
             "pos": "PUNCT",
             "tag": ".",
@@ -2017,9 +2068,9 @@
             "coreArguments": [
               {
                 "id": "atom-3-frame-1-argument-1",
-                "text": "the biggest problem we had in the Revolutionary War is we didn’t have enough airports",
+                "text": "the biggest problem in the Revolutionary War was not having enough airports",
                 "start": 18,
-                "end": 103,
+                "end": 93,
                 "role": "clausal_complement"
               }
             ],
@@ -2030,52 +2081,24 @@
             "id": "atom-3-frame-2",
             "predicate": {
               "id": "atom-3-frame-2-predicate",
-              "text": "is",
-              "start": 70,
-              "end": 72
+              "text": "having",
+              "start": 71,
+              "end": 77
             },
             "subjects": [
               {
                 "id": "atom-3-frame-2-subject-1",
-                "text": "the biggest problem we had in the Revolutionary War",
+                "text": "the biggest problem in the Revolutionary War",
                 "start": 18,
-                "end": 69
+                "end": 62
               }
             ],
             "coreArguments": [
               {
                 "id": "atom-3-frame-2-argument-1",
-                "text": "we didn’t have enough airports",
-                "start": 73,
-                "end": 103,
-                "role": "clausal_complement"
-              }
-            ],
-            "adjuncts": [],
-            "otherModifiers": []
-          },
-          {
-            "id": "atom-3-frame-3",
-            "predicate": {
-              "id": "atom-3-frame-3-predicate",
-              "text": "have",
-              "start": 83,
-              "end": 87
-            },
-            "subjects": [
-              {
-                "id": "atom-3-frame-3-subject-1",
-                "text": "we",
-                "start": 73,
-                "end": 75
-              }
-            ],
-            "coreArguments": [
-              {
-                "id": "atom-3-frame-3-argument-1",
                 "text": "enough airports",
-                "start": 88,
-                "end": 103,
+                "start": 78,
+                "end": 93,
                 "role": "direct_object"
               }
             ],
@@ -2092,10 +2115,10 @@
             "kind": "attribution"
           },
           {
-            "id": "atom-3-cue-negation-79-82",
-            "text": "n’t",
-            "start": 79,
-            "end": 82,
+            "id": "atom-3-cue-negation-67-70",
+            "text": "not",
+            "start": 67,
+            "end": 70,
             "kind": "negation"
           }
         ],
@@ -2108,10 +2131,10 @@
             "label": "PERSON"
           },
           {
-            "id": "atom-3-entity-event-48-69",
+            "id": "atom-3-entity-event-41-62",
             "text": "the Revolutionary War",
-            "start": 48,
-            "end": 69,
+            "start": 41,
+            "end": 62,
             "label": "EVENT"
           }
         ],
@@ -2180,46 +2203,24 @@
             "pos": "NOUN",
             "tag": "NN",
             "dependency": "nsubj",
-            "head": "is"
+            "head": "having"
           },
           {
             "id": "atom-3-token-6",
-            "text": "we",
+            "text": "in",
             "start": 38,
             "end": 40,
-            "lemma": "we",
-            "pos": "PRON",
-            "tag": "PRP",
-            "dependency": "nsubj",
-            "head": "had"
-          },
-          {
-            "id": "atom-3-token-7",
-            "text": "had",
-            "start": 41,
-            "end": 44,
-            "lemma": "have",
-            "pos": "VERB",
-            "tag": "VBD",
-            "dependency": "relcl",
-            "head": "problem"
-          },
-          {
-            "id": "atom-3-token-8",
-            "text": "in",
-            "start": 45,
-            "end": 47,
             "lemma": "in",
             "pos": "ADP",
             "tag": "IN",
             "dependency": "prep",
-            "head": "had"
+            "head": "problem"
           },
           {
-            "id": "atom-3-token-9",
+            "id": "atom-3-token-7",
             "text": "the",
-            "start": 48,
-            "end": 51,
+            "start": 41,
+            "end": 44,
             "lemma": "the",
             "pos": "DET",
             "tag": "DT",
@@ -2227,10 +2228,10 @@
             "head": "War"
           },
           {
-            "id": "atom-3-token-10",
+            "id": "atom-3-token-8",
             "text": "Revolutionary",
-            "start": 52,
-            "end": 65,
+            "start": 45,
+            "end": 58,
             "lemma": "Revolutionary",
             "pos": "PROPN",
             "tag": "NNP",
@@ -2238,10 +2239,10 @@
             "head": "War"
           },
           {
-            "id": "atom-3-token-11",
+            "id": "atom-3-token-9",
             "text": "War",
-            "start": 66,
-            "end": 69,
+            "start": 59,
+            "end": 62,
             "lemma": "War",
             "pos": "PROPN",
             "tag": "NNP",
@@ -2249,65 +2250,43 @@
             "head": "in"
           },
           {
-            "id": "atom-3-token-12",
-            "text": "is",
-            "start": 70,
-            "end": 72,
+            "id": "atom-3-token-10",
+            "text": "was",
+            "start": 63,
+            "end": 66,
             "lemma": "be",
             "pos": "AUX",
-            "tag": "VBZ",
+            "tag": "VBD",
+            "dependency": "aux",
+            "head": "having"
+          },
+          {
+            "id": "atom-3-token-11",
+            "text": "not",
+            "start": 67,
+            "end": 70,
+            "lemma": "not",
+            "pos": "PART",
+            "tag": "RB",
+            "dependency": "neg",
+            "head": "having"
+          },
+          {
+            "id": "atom-3-token-12",
+            "text": "having",
+            "start": 71,
+            "end": 77,
+            "lemma": "have",
+            "pos": "VERB",
+            "tag": "VBG",
             "dependency": "ccomp",
             "head": "said"
           },
           {
             "id": "atom-3-token-13",
-            "text": "we",
-            "start": 73,
-            "end": 75,
-            "lemma": "we",
-            "pos": "PRON",
-            "tag": "PRP",
-            "dependency": "nsubj",
-            "head": "have"
-          },
-          {
-            "id": "atom-3-token-14",
-            "text": "did",
-            "start": 76,
-            "end": 79,
-            "lemma": "do",
-            "pos": "AUX",
-            "tag": "VBD",
-            "dependency": "aux",
-            "head": "have"
-          },
-          {
-            "id": "atom-3-token-15",
-            "text": "n’t",
-            "start": 79,
-            "end": 82,
-            "lemma": "not",
-            "pos": "PART",
-            "tag": "RB",
-            "dependency": "neg",
-            "head": "have"
-          },
-          {
-            "id": "atom-3-token-16",
-            "text": "have",
-            "start": 83,
-            "end": 87,
-            "lemma": "have",
-            "pos": "VERB",
-            "tag": "VB",
-            "dependency": "ccomp",
-            "head": "is"
-          },
-          {
-            "id": "atom-3-token-17",
             "text": "enough",
-            "start": 88,
-            "end": 94,
+            "start": 78,
+            "end": 84,
             "lemma": "enough",
             "pos": "ADJ",
             "tag": "JJ",
@@ -2315,21 +2294,21 @@
             "head": "airports"
           },
           {
-            "id": "atom-3-token-18",
+            "id": "atom-3-token-14",
             "text": "airports",
-            "start": 95,
-            "end": 103,
+            "start": 85,
+            "end": 93,
             "lemma": "airport",
             "pos": "NOUN",
             "tag": "NNS",
             "dependency": "dobj",
-            "head": "have"
+            "head": "having"
           },
           {
-            "id": "atom-3-token-19",
+            "id": "atom-3-token-15",
             "text": ".",
-            "start": 103,
-            "end": 104,
+            "start": 93,
+            "end": 94,
             "lemma": ".",
             "pos": "PUNCT",
             "tag": ".",
@@ -2348,18 +2327,16 @@
         "roleAudit": "MATCH",
         "subjects": [
           "Donald Trump",
-          "he"
+          "climate change"
         ],
         "predicates": [
           "say",
-          "think"
+          "be"
         ],
         "cueKinds": [
           "attribution"
         ],
-        "modifierKinds": [
-          "temporal"
-        ],
+        "modifierKinds": [],
         "entityLabels": [
           "PERSON"
         ],
@@ -2402,12 +2379,10 @@
         "roleAudit": "MATCH",
         "subjects": [
           "Donald Trump",
-          "the biggest problem we had in the Revolutionary War",
-          "we"
+          "the biggest problem in the Revolutionary War"
         ],
         "predicates": [
           "say",
-          "be",
           "have"
         ],
         "cueKinds": [
@@ -2435,61 +2410,66 @@
     "aggregationSchemaVersion": 1,
     "claimId": "averitec-dev-0010",
     "composition": "AND",
-    "verdict": "REFUTED",
+    "verdict": "CONFLICTING_EVIDENCE",
     "positions": {
-      "supportPosition": false,
+      "supportPosition": true,
       "attackPosition": true,
+      "materialOmissionPosition": false,
       "supportObligationIds": [
-        "atom-2"
-      ],
-      "attackObligationIds": [
+        "atom-1",
         "atom-2",
         "atom-3"
       ],
-      "unresolvedObligationIds": [
-        "atom-1"
-      ]
+      "attackObligationIds": [
+        "atom-1",
+        "atom-2",
+        "atom-3"
+      ],
+      "unresolvedObligationIds": [],
+      "groundedClaimPosition": "MIXED_OR_MISLEADING"
     },
     "obligations": [
       {
         "obligationId": "atom-1",
-        "state": "UNRESOLVED",
-        "supportEdgeIds": [],
-        "attackEdgeIds": [],
-        "neutralCandidateCount": 6
+        "state": "CONFLICTING",
+        "supportEdgeIds": [
+          "edge:SUPPORTS:evidence:doc-1389236b080c:doc-1389236b080c::sentence-4:obligation:averitec-dev-0010:atom-1",
+          "edge:SUPPORTS:evidence:doc-a9e260356e8f:doc-a9e260356e8f::sentence-35:obligation:averitec-dev-0010:atom-1"
+        ],
+        "attackEdgeIds": [
+          "edge:ATTACKS:evidence:doc-a9e260356e8f:doc-a9e260356e8f::sentence-51:obligation:averitec-dev-0010:atom-1"
+        ],
+        "neutralCandidateCount": 3
       },
       {
         "obligationId": "atom-2",
         "state": "CONFLICTING",
         "supportEdgeIds": [
-          "edge:SUPPORTS:evidence:doc-a9e260356e8f:doc-a9e260356e8f::sentence-30:obligation:averitec-dev-0010:atom-2"
+          "edge:SUPPORTS:evidence:doc-1389236b080c:doc-1389236b080c::sentence-9:obligation:averitec-dev-0010:atom-2"
         ],
         "attackEdgeIds": [
-          "edge:ATTACKS:evidence:doc-1389236b080c:doc-1389236b080c::sentence-2:obligation:averitec-dev-0010:atom-2"
+          "edge:ATTACKS:evidence:doc-a9e260356e8f:doc-a9e260356e8f::sentence-45:obligation:averitec-dev-0010:atom-2",
+          "edge:ATTACKS:evidence:doc-a9e260356e8f:doc-a9e260356e8f::sentence-42:obligation:averitec-dev-0010:atom-2",
+          "edge:ATTACKS:evidence:doc-a9e260356e8f:doc-a9e260356e8f::sentence-54:obligation:averitec-dev-0010:atom-2"
         ],
-        "neutralCandidateCount": 4
+        "neutralCandidateCount": 2
       },
       {
         "obligationId": "atom-3",
-        "state": "REFUTED",
-        "supportEdgeIds": [],
-        "attackEdgeIds": [
-          "edge:ATTACKS:evidence:doc-1389236b080c:doc-1389236b080c::sentence-2:obligation:averitec-dev-0010:atom-3",
-          "edge:ATTACKS:evidence:doc-a9e260356e8f:doc-a9e260356e8f::sentence-33:obligation:averitec-dev-0010:atom-3",
-          "edge:ATTACKS:evidence:doc-a9e260356e8f:doc-a9e260356e8f::sentence-48:obligation:averitec-dev-0010:atom-3"
+        "state": "CONFLICTING",
+        "supportEdgeIds": [
+          "edge:SUPPORTS:evidence:doc-1389236b080c:doc-1389236b080c::sentence-4:obligation:averitec-dev-0010:atom-3",
+          "edge:SUPPORTS:evidence:doc-1389236b080c:doc-1389236b080c::sentence-9:obligation:averitec-dev-0010:atom-3",
+          "edge:SUPPORTS:evidence:doc-1389236b080c:doc-1389236b080c::sentence-10:obligation:averitec-dev-0010:atom-3",
+          "edge:SUPPORTS:evidence:doc-a9e260356e8f:doc-a9e260356e8f::sentence-35:obligation:averitec-dev-0010:atom-3"
         ],
-        "neutralCandidateCount": 3
+        "attackEdgeIds": [
+          "edge:ATTACKS:evidence:doc-a9e260356e8f:doc-a9e260356e8f::sentence-47:obligation:averitec-dev-0010:atom-3"
+        ],
+        "neutralCandidateCount": 1
       }
     ],
     "warnings": [
-      {
-        "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
-        "message": "Obligation atom-1 has no supporting or attacking evidence."
-      },
-      {
-        "code": "ONLY_NEUTRAL_CANDIDATES",
-        "message": "Obligation atom-1 has only neutral retrieved candidates."
-      },
       {
         "code": "LINGUISTIC_AUDIT_WARNING",
         "message": "Linguistic analysis for obligation atom-1 requires inspection; it does not change the verdict."
@@ -2504,15 +2484,23 @@
       }
     ],
     "ruleTrace": [
-      "AND support requires support for every obligation; AND attack requires an attack on any obligation.",
-      "Support position: no; attack position: yes.",
-      "Final verdict: REFUTED."
+      "The provenance-constrained claim audit sets the overall evidence position; deterministic aggregation maps that position to status.",
+      "Grounded claim position: MIXED_OR_MISLEADING; The evidence supports Trump's statements about climate change and the Revolutionary War, but attacks the nuclear bomb suggestion as a non-serious, non-policy proposal. The context clarifies that these were private, non-formalized ideas.",
+      "Support position: yes; attack position: yes.",
+      "Final verdict: CONFLICTING_EVIDENCE."
     ]
   },
   "recordedWith": {
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
-    "nliModel": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    "nliModel": "qwen2.5:7b",
     "linguisticsModel": "en_core_web_sm@3.8.0"
+  },
+  "timingsSeconds": {
+    "decomposition": 18.273,
+    "retrievalAndLinguistics": 0.614,
+    "evidenceAudit": 24.249,
+    "aggregation": 0.005,
+    "total": 43.148
   }
 }

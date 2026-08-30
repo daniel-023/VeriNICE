@@ -38,6 +38,9 @@ class Settings:
     # the input claim and JSON response. This remains configurable for smaller
     # CPU-only Ollama installations.
     ollama_context_size: int = int(os.getenv("VERIGRAPH_OLLAMA_CONTEXT_SIZE", "4096"))
+    evidence_audit_context_size: int = int(
+        os.getenv("VERIGRAPH_EVIDENCE_AUDIT_CONTEXT_SIZE", "12288")
+    )
     embedding_model: str = os.getenv(
         "VERIGRAPH_EMBEDDING_MODEL", "BAAI/bge-small-en-v1.5"
     )

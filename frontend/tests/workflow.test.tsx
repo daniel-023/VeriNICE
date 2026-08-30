@@ -293,11 +293,13 @@ describe("multidocument claim decomposition workflow", () => {
       ]),
     }));
     expect(apiMock.classifySupport).toHaveBeenCalledWith(
+      details[0].claim,
       [
         { id: "atom-1", text: "Mara joined Orion in 2022." },
         { id: "atom-2", text: "Mara became CTO." },
       ],
       expect.any(Array),
+      { "doc-a": "Appointment report", "doc-b": "Leadership profile" },
     );
 
     await user.click(screen.getByRole("button", { name: /^Mara became CTO/i }));
@@ -310,7 +312,7 @@ describe("multidocument claim decomposition workflow", () => {
       "Orion later named Mara its CTO.",
     );
     expect(screen.getByRole("heading", { name: "Linguistic Structure" })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: "NLI Sentence Relations" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Grounded evidence relations" })).toBeInTheDocument();
     expect(screen.getByText("Contradicts atom")).toBeInTheDocument();
     const graphHeading = screen.getByRole("heading", { name: "Argumentation Graph" });
     const graphSection = graphHeading.closest("section");
@@ -479,8 +481,8 @@ describe("multidocument claim decomposition workflow", () => {
     await user.click(screen.getByRole("button", { name: "Decompose Claim" }));
     await user.click(await screen.findByRole("button", { name: /^Mara joined Orion/i }));
     expect(await screen.findByTestId("evidence-highlight")).toBeInTheDocument();
-    expect(await screen.findByRole("button", { name: "Retry NLI" })).toBeInTheDocument();
-    await user.click(screen.getByRole("button", { name: "Retry NLI" }));
+    expect(await screen.findByRole("button", { name: "Retry audit" })).toBeInTheDocument();
+    await user.click(screen.getByRole("button", { name: "Retry audit" }));
     await waitFor(() => expect(apiMock.classifySupport).toHaveBeenCalledTimes(2));
     expect(apiMock.decompose).toHaveBeenCalledTimes(1);
     expect(apiMock.retrieveCase).toHaveBeenCalledTimes(1);
@@ -529,7 +531,7 @@ describe("multidocument claim decomposition workflow", () => {
     await screen.findByDisplayValue(details[0].claim);
     await user.click(screen.getByRole("button", { name: "Decompose Claim" }));
     await user.click(await screen.findByRole("button", { name: /^Mara joined Orion/i }));
-    expect(screen.getByText("Classifying candidate sentences…")).toBeInTheDocument();
+    expect(screen.getByText("Auditing candidate evidence…")).toBeInTheDocument();
 
     await user.type(
       screen.getByRole("textbox", { name: "Evidence document: Appointment report" }),
