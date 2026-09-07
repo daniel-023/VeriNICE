@@ -381,6 +381,10 @@ export function ArgumentationGraph({
   const composition = claimNode?.composition ?? "SINGLE";
   const total = relationCounts(graph);
   const distinctWarnings = [...new Set(graph.warnings.map((item) => item.code))];
+  const verdictNotes = verdict?.warnings.filter(
+    (warning) => warning.code !== "PROVISIONAL_EVIDENCE_EXCLUDED",
+  ) ?? [];
+  const hasConflictingVerdict = verdict?.verdict === "CONFLICTING_EVIDENCE";
 
   useEffect(() => {
     const root = graphRef.current;
@@ -553,10 +557,11 @@ export function ArgumentationGraph({
             </div>
           </div>
 
-          {verdict && (verdict.warnings.length > 0 || materialOmission?.detected) ? (
+          {verdict && (verdictNotes.length > 0 || hasConflictingVerdict || materialOmission?.detected) ? (
             <details className="logic-verdict-details">
               <summary>Verdict notes</summary>
-              {verdict.warnings.length ? <p>{verdict.warnings.map((warning) => warning.message || display(warning.code)).join(" ")}</p> : null}
+              {verdictNotes.length ? <p>{verdictNotes.map((warning) => warning.message || display(warning.code)).join(" ")}</p> : null}
+              {hasConflictingVerdict && !materialOmission?.detected ? <p>Both supporting and refuting relations remain after validation.</p> : null}
               {materialOmission?.detected ? <p>Material omission: {materialOmission.reason}</p> : null}
             </details>
           ) : null}

@@ -110,6 +110,20 @@ describe("Milestone 5 accessibility", () => {
     expect(container.textContent).toContain("Total · 2 support · 0 refute");
   });
 
+  it("keeps routine provisional-evidence diagnostics out of verdict notes", () => {
+    const graph = buildArgumentationGraph("case", "NDF is not listed.", "SINGLE", [atom], [{ atomId: "a1", spans: [span] }], [{ atomId: "a1", relations: [] }], [document]);
+    const verdict = {
+      aggregationSchemaVersion: 3 as const, claimId: "case", composition: "SINGLE" as const, verdict: "SUPPORTED" as const,
+      positions: { supportPosition: true, refutePosition: false, supportObligationIds: ["a1"], refuteObligationIds: [], unresolvedObligationIds: [] },
+      obligations: [{ obligationId: "a1", state: "SUPPORTED" as const, supportEdgeIds: [], refuteEdgeIds: [], unselectedCandidateCount: 0, provisionalRelationCount: 1 }],
+      warnings: [{ code: "PROVISIONAL_EVIDENCE_EXCLUDED", message: "One provisional relation was excluded." }],
+      ruleTrace: [],
+    };
+    const { container } = render(<ArgumentationGraph graph={graph} selectedAtomId="a1" onSelectAtom={vi.fn()} onSelectEvidence={vi.fn()} obligationStates={{ a1: "SUPPORTED" }} verdict={verdict} verdictState="complete" />);
+    expect(container.textContent).not.toContain("Verdict notes");
+    expect(container.textContent).not.toContain("One provisional relation was excluded.");
+  });
+
   it("presents a grounded location rule between its evidence and atomic result", () => {
     const locationAtom: DecomposedAtom = {
       id: "a1", text: "The landmark is located in Germany.",
