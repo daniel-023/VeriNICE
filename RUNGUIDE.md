@@ -1,4 +1,4 @@
-# VeriGraph run guide
+# VeriTrace run guide
 
 Run every command from the `verigraph/` directory.
 
@@ -14,9 +14,6 @@ Run every command from the `verigraph/` directory.
 
 - `qwen2.5:7b` in the host Ollama installation (about 4.7 GB)
 - `BAAI/bge-small-en-v1.5` in `data/models/bge-small-en-v1.5`
-- optional compatibility model `MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli`
-  in `data/models/deberta-v3-base-mnli-fever-anli` (not used by the standard
-  claim-audit workflow)
 - the pinned spaCy parser in `backend/.venv`
 
 Those generated assets are ignored by Git. Once preparation finishes, the
@@ -49,20 +46,26 @@ Start from a healthy prepared stack, then run:
 ./run-verigraph --record-walkthrough
 ```
 
-The recorder calls the local FastAPI backend directly for every approved case
-in the private bundle (32, with eight per reference verdict). It saves the resulting typed
-obligations, candidate evidence, audited relations, linguistic analyses, and the
-deterministic draft status under `frontend/public/walkthrough/`. The launcher
-enforces a complete 22-case snapshot before succeeding.
+The recorder calls the local FastAPI backend directly for all 18 showcase
+cases. It saves the resulting typed
+atomic claims, candidate evidence, evidence assessments, symbolic results,
+linguistic analyses, and the deterministic verdict under
+`frontend/public/walkthrough/`. The launcher requires a complete run for every
+curated case before succeeding.
 
-Walkthrough mode computes nothing in the browser, so the status has to travel
+Prepared case documents contain recovered source text only. AVeriTeC's gold
+question-answer annotations are read solely during offline dataset preparation
+and evaluation; they are never serialized into runtime or walkthrough inputs.
+
+Walkthrough mode computes nothing in the browser, so the verdict has to travel
 with the run. A recording made before stage 05 existed will build, but it
-renders no status panel and no typed obligations — check that
-`frontend/public/walkthrough/runs/*.json` carry `"schemaVersion": 2`, a
-`composition`, a `role` on every atom, and a `verdict`.
+renders no current reasoning graph — check that
+`frontend/public/walkthrough/runs/*.json` carry `"schemaVersion": 5`, an
+`assessment`, `reasoning`, `composition`, a `role` on every atom, and an
+aggregation-schema-v3 `verdict`.
 
-Regenerate the demonstration-set summary afterwards, then review and commit
-both before deploying to Vercel:
+The full 32-case local recording can still be summarized for internal error
+analysis when needed:
 
 ```bash
 python3 scripts/summarize_runs.py --output artifacts/evaluation-table.md
@@ -73,12 +76,12 @@ python3 scripts/summarize_runs.py --output artifacts/evaluation-table.md
 - Project root: `frontend`
 - No `VERIGRAPH_BACKEND_URL` environment variable
 - Build mode: set by `frontend/vercel.json` to `walkthrough`
-- Static snapshot: `frontend/public/walkthrough/manifest.json` reports 32 cases
-  and 32 recorded runs, and every run is schema version 2 with a recorded
-  verdict
+- Static snapshot: `frontend/public/walkthrough/manifest.json` reports 18 cases
+  and 18 recorded runs, and every run is schema version 6 with evidence scope
+  assessment, symbolic reasoning, and a recorded verdict
 
-The online UI is illustrative only: “Demo mode — results are precomputed. Live
-analysis is available locally.”
+The online UI states: “Illustrative recorded run — no live inference on this
+website.”
 
 ## API contracts in local live mode
 
@@ -87,9 +90,14 @@ analysis is available locally.”
 - `GET /api/v1/demo-cases/{id}`
 - `POST /api/v1/decompose`
 - `POST /api/v1/retrieve`
-- `POST /api/v1/classify-support`
+- `POST /api/v1/assess-evidence`
+- `POST /api/v1/reason`
 - `POST /api/v1/aggregate-verdict`
 - `POST /api/v1/analyze-linguistics`
 
 The browser reaches these endpoints only through the same-origin Next proxy.
 The Vercel walkthrough neither requests nor exposes them.
+
+`POST /api/v1/retrieve` accepts `retrievalMethod` as `HYBRID`, `SEMANTIC`, or
+`LEXICAL`. Hybrid is the default. The selected method is returned with the
+retrieval result and recorded in walkthrough provenance.

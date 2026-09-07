@@ -1,0 +1,608 @@
+{
+  "caseId": "showcase-science-lightning",
+  "schemaVersion": 6,
+  "composition": "SINGLE",
+  "warnings": [],
+  "atoms": [
+    {
+      "id": "atom-1",
+      "text": "Lightning can strike the same place more than once.",
+      "sourceText": "Lightning can strike the same place more than once.",
+      "start": 0,
+      "end": 51,
+      "role": "CORE"
+    }
+  ],
+  "evidence": [
+    {
+      "atomId": "atom-1",
+      "spans": [
+        {
+          "id": "doc-7cb444a67bc0::sentence-5",
+          "documentId": "doc-7cb444a67bc0",
+          "text": "Fact: Lightning often strikes the same place repeatedly, especially if it's a tall, pointy, isolated object. ",
+          "start": 214,
+          "end": 323,
+          "contextSpans": [
+            {
+              "id": "doc-7cb444a67bc0::sentence-4",
+              "documentId": "doc-7cb444a67bc0",
+              "text": "Myth: Lightning never strikes the same place twice.\n",
+              "start": 162,
+              "end": 214,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "Myth: Lightning never strikes the same place twice. Fact: Lightning often strikes the same place repeatedly, especially if it's a tall, pointy, isolated object."
+        },
+        {
+          "id": "doc-7cb444a67bc0::sentence-8",
+          "documentId": "doc-7cb444a67bc0",
+          "text": "Fact: Lightning often strikes more than three miles from the center of the thunderstorm, far outside the rain or thunderstorm cloud. ",
+          "start": 473,
+          "end": 606,
+          "contextSpans": [],
+          "context": "Fact: Lightning often strikes more than three miles from the center of the thunderstorm, far outside the rain or thunderstorm cloud."
+        },
+        {
+          "id": "doc-a82c0e708ef3::sentence-6",
+          "documentId": "doc-a82c0e708ef3",
+          "text": "Understanding the dangers of lightning is important so that you can get to a safe place when thunderstorms threaten. ",
+          "start": 462,
+          "end": 579,
+          "contextSpans": [
+            {
+              "id": "doc-a82c0e708ef3::sentence-5",
+              "documentId": "doc-a82c0e708ef3",
+              "text": "In addition, lightning injures many more people than it kills and leaves some victims with life-long health problems.\n",
+              "start": 344,
+              "end": 462,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "In addition, lightning injures many more people than it kills and leaves some victims with life-long health problems. Understanding the dangers of lightning is important so that you can get to a safe place when thunderstorms threaten."
+        },
+        {
+          "id": "doc-a82c0e708ef3::sentence-5",
+          "documentId": "doc-a82c0e708ef3",
+          "text": "In addition, lightning injures many more people than it kills and leaves some victims with life-long health problems.\n",
+          "start": 344,
+          "end": 462,
+          "contextSpans": [
+            {
+              "id": "doc-a82c0e708ef3::sentence-4",
+              "documentId": "doc-a82c0e708ef3",
+              "text": "While lightning fatalities have decreased over the past 30 years, lightning continues to be one of the top weather killers in the United States. ",
+              "start": 199,
+              "end": 344,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "While lightning fatalities have decreased over the past 30 years, lightning continues to be one of the top weather killers in the United States. In addition, lightning injures many more people than it kills and leaves some victims with life-long health problems."
+        },
+        {
+          "id": "doc-7cb444a67bc0::sentence-18",
+          "documentId": "doc-7cb444a67bc0",
+          "text": "Fact: Being underneath a tree is the second leading cause of lightning casualties. ",
+          "start": 1239,
+          "end": 1322,
+          "contextSpans": [],
+          "context": "Fact: Being underneath a tree is the second leading cause of lightning casualties."
+        },
+        {
+          "id": "doc-a82c0e708ef3::sentence-2",
+          "documentId": "doc-a82c0e708ef3",
+          "text": "In the United States, there are about 25 million lightning flashes every year. ",
+          "start": 64,
+          "end": 143,
+          "contextSpans": [],
+          "context": "In the United States, there are about 25 million lightning flashes every year."
+        }
+      ]
+    }
+  ],
+  "assessment": {
+    "obligations": [
+      {
+        "atomId": "atom-1",
+        "supportSpanIds": [
+          "doc-7cb444a67bc0::sentence-5"
+        ],
+        "refuteSpanIds": [],
+        "contextSpanIds": [
+          "doc-7cb444a67bc0::sentence-8",
+          "doc-a82c0e708ef3::sentence-6",
+          "doc-a82c0e708ef3::sentence-5"
+        ],
+        "sufficiency": "SUFFICIENT",
+        "missingInformation": "",
+        "reason": "O1-E1 directly supports the claim that lightning can strike the same place more than once.",
+        "scopeChecks": [
+          {
+            "spanId": "doc-7cb444a67bc0::sentence-5",
+            "documentId": "doc-7cb444a67bc0",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-7cb444a67bc0::sentence-8",
+            "documentId": "doc-7cb444a67bc0",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-a82c0e708ef3::sentence-6",
+            "documentId": "doc-a82c0e708ef3",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "US"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-a82c0e708ef3::sentence-5",
+            "documentId": "doc-a82c0e708ef3",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "US"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-7cb444a67bc0::sentence-18",
+            "documentId": "doc-7cb444a67bc0",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-a82c0e708ef3::sentence-2",
+            "documentId": "doc-a82c0e708ef3",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "US"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          }
+        ]
+      }
+    ],
+    "materialOmission": {
+      "detected": false,
+      "supportSpanIds": [],
+      "contextSpanIds": [],
+      "reason": "No material omission was established."
+    }
+  },
+  "reasoning": [],
+  "linguistics": {
+    "schemaVersion": 2,
+    "claimAnalysis": {
+      "atomId": "claim",
+      "frames": [
+        {
+          "id": "claim-frame-1",
+          "predicate": {
+            "id": "claim-frame-1-predicate",
+            "text": "strike",
+            "start": 14,
+            "end": 20
+          },
+          "subjects": [
+            {
+              "id": "claim-frame-1-subject-1",
+              "text": "Lightning",
+              "start": 0,
+              "end": 9
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "claim-frame-1-argument-1",
+              "text": "the same place",
+              "start": 21,
+              "end": 35,
+              "role": "direct_object"
+            }
+          ],
+          "adjuncts": [],
+          "otherModifiers": [
+            {
+              "id": "claim-frame-1-other-modifier-1",
+              "text": "more than once",
+              "start": 36,
+              "end": 50
+            }
+          ]
+        }
+      ],
+      "cues": [
+        {
+          "id": "claim-cue-modality-10-13",
+          "text": "can",
+          "start": 10,
+          "end": 13,
+          "kind": "modality"
+        },
+        {
+          "id": "claim-cue-quantifier-36-45",
+          "text": "more than",
+          "start": 36,
+          "end": 45,
+          "kind": "quantifier"
+        }
+      ],
+      "entities": [],
+      "tokens": [
+        {
+          "id": "claim-token-0",
+          "text": "Lightning",
+          "start": 0,
+          "end": 9,
+          "lemma": "lightning",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "nsubj",
+          "head": "strike"
+        },
+        {
+          "id": "claim-token-1",
+          "text": "can",
+          "start": 10,
+          "end": 13,
+          "lemma": "can",
+          "pos": "AUX",
+          "tag": "MD",
+          "dependency": "aux",
+          "head": "strike"
+        },
+        {
+          "id": "claim-token-2",
+          "text": "strike",
+          "start": 14,
+          "end": 20,
+          "lemma": "strike",
+          "pos": "VERB",
+          "tag": "VB",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "claim-token-3",
+          "text": "the",
+          "start": 21,
+          "end": 24,
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "place"
+        },
+        {
+          "id": "claim-token-4",
+          "text": "same",
+          "start": 25,
+          "end": 29,
+          "lemma": "same",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "place"
+        },
+        {
+          "id": "claim-token-5",
+          "text": "place",
+          "start": 30,
+          "end": 35,
+          "lemma": "place",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "dobj",
+          "head": "strike"
+        },
+        {
+          "id": "claim-token-6",
+          "text": "more",
+          "start": 36,
+          "end": 40,
+          "lemma": "more",
+          "pos": "ADJ",
+          "tag": "JJR",
+          "dependency": "advmod",
+          "head": "strike"
+        },
+        {
+          "id": "claim-token-7",
+          "text": "than",
+          "start": 41,
+          "end": 45,
+          "lemma": "than",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "more"
+        },
+        {
+          "id": "claim-token-8",
+          "text": "once",
+          "start": 46,
+          "end": 50,
+          "lemma": "once",
+          "pos": "ADV",
+          "tag": "RB",
+          "dependency": "pcomp",
+          "head": "than"
+        },
+        {
+          "id": "claim-token-9",
+          "text": ".",
+          "start": 50,
+          "end": 51,
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "strike"
+        }
+      ],
+      "status": "complete",
+      "unresolved": []
+    },
+    "analyses": [
+      {
+        "atomId": "atom-1",
+        "frames": [
+          {
+            "id": "atom-1-frame-1",
+            "predicate": {
+              "id": "atom-1-frame-1-predicate",
+              "text": "strike",
+              "start": 14,
+              "end": 20
+            },
+            "subjects": [
+              {
+                "id": "atom-1-frame-1-subject-1",
+                "text": "Lightning",
+                "start": 0,
+                "end": 9
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-1-frame-1-argument-1",
+                "text": "the same place",
+                "start": 21,
+                "end": 35,
+                "role": "direct_object"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": [
+              {
+                "id": "atom-1-frame-1-other-modifier-1",
+                "text": "more than once",
+                "start": 36,
+                "end": 50
+              }
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "atom-1-cue-modality-10-13",
+            "text": "can",
+            "start": 10,
+            "end": 13,
+            "kind": "modality"
+          },
+          {
+            "id": "atom-1-cue-quantifier-36-45",
+            "text": "more than",
+            "start": 36,
+            "end": 45,
+            "kind": "quantifier"
+          }
+        ],
+        "entities": [],
+        "tokens": [
+          {
+            "id": "atom-1-token-0",
+            "text": "Lightning",
+            "start": 0,
+            "end": 9,
+            "lemma": "lightning",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "nsubj",
+            "head": "strike"
+          },
+          {
+            "id": "atom-1-token-1",
+            "text": "can",
+            "start": 10,
+            "end": 13,
+            "lemma": "can",
+            "pos": "AUX",
+            "tag": "MD",
+            "dependency": "aux",
+            "head": "strike"
+          },
+          {
+            "id": "atom-1-token-2",
+            "text": "strike",
+            "start": 14,
+            "end": 20,
+            "lemma": "strike",
+            "pos": "VERB",
+            "tag": "VB",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-1-token-3",
+            "text": "the",
+            "start": 21,
+            "end": 24,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "place"
+          },
+          {
+            "id": "atom-1-token-4",
+            "text": "same",
+            "start": 25,
+            "end": 29,
+            "lemma": "same",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "place"
+          },
+          {
+            "id": "atom-1-token-5",
+            "text": "place",
+            "start": 30,
+            "end": 35,
+            "lemma": "place",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "dobj",
+            "head": "strike"
+          },
+          {
+            "id": "atom-1-token-6",
+            "text": "more",
+            "start": 36,
+            "end": 40,
+            "lemma": "more",
+            "pos": "ADJ",
+            "tag": "JJR",
+            "dependency": "advmod",
+            "head": "strike"
+          },
+          {
+            "id": "atom-1-token-7",
+            "text": "than",
+            "start": 41,
+            "end": 45,
+            "lemma": "than",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "more"
+          },
+          {
+            "id": "atom-1-token-8",
+            "text": "once",
+            "start": 46,
+            "end": 50,
+            "lemma": "once",
+            "pos": "ADV",
+            "tag": "RB",
+            "dependency": "pcomp",
+            "head": "than"
+          },
+          {
+            "id": "atom-1-token-9",
+            "text": ".",
+            "start": 50,
+            "end": 51,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "strike"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      }
+    ],
+    "summaries": [
+      {
+        "atomId": "atom-1",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "Lightning"
+        ],
+        "predicates": [
+          "strike"
+        ],
+        "cueKinds": [
+          "modality",
+          "quantifier"
+        ],
+        "modifierKinds": [],
+        "entityLabels": [],
+        "warnings": []
+      }
+    ],
+    "claimWarnings": [],
+    "provider": "spacy",
+    "model": "en_core_web_sm@3.8.0"
+  },
+  "verdict": {
+    "aggregationSchemaVersion": 3,
+    "claimId": "showcase-science-lightning",
+    "composition": "SINGLE",
+    "verdict": "SUPPORTED",
+    "positions": {
+      "supportPosition": true,
+      "refutePosition": false,
+      "materialOmissionPosition": false,
+      "supportObligationIds": [
+        "atom-1"
+      ],
+      "refuteObligationIds": [],
+      "unresolvedObligationIds": []
+    },
+    "obligations": [
+      {
+        "obligationId": "atom-1",
+        "state": "SUPPORTED",
+        "supportEdgeIds": [
+          "edge:SUPPORTS:evidence:doc-7cb444a67bc0:doc-7cb444a67bc0::sentence-5:obligation:showcase-science-lightning:atom-1"
+        ],
+        "refuteEdgeIds": [],
+        "unselectedCandidateCount": 2,
+        "provisionalRelationCount": 0
+      }
+    ],
+    "warnings": [],
+    "ruleTrace": [
+      "SINGLE maps its one obligation's validated relations directly.",
+      "Validated positions — support: yes; refute: no.",
+      "Verdict: SUPPORTED."
+    ]
+  },
+  "recordedWith": {
+    "pipelineRevision": "submission-ready-v2",
+    "inputDigest": "1bbd25d3aeed915cb358bdc078e9aabc1dcbae5403252ebb740dbd0c9b7d74e7",
+    "decompositionModel": "qwen2.5:7b",
+    "retrievalModel": "BAAI/bge-small-en-v1.5",
+    "retrievalMethod": "HYBRID",
+    "assessmentModel": "qwen2.5:7b",
+    "reasoningModel": "qwen2.5:7b",
+    "linguisticsModel": "en_core_web_sm@3.8.0"
+  },
+  "timingsSeconds": {
+    "decomposition": 14.062,
+    "retrievalAndLinguistics": 0.132,
+    "evidenceAssessment": 14.746,
+    "symbolicReasoning": 0.002,
+    "aggregation": 0.001,
+    "total": 28.944
+  }
+}

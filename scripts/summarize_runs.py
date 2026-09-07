@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Summarise recorded VeriGraph runs against the AVeriTeC reference labels.
+"""Summarise recorded VeriTrace runs against the AVeriTeC reference labels.
 
 This is a descriptive summary of the demonstration set, not a benchmark
 evaluation. Reference labels are dataset metadata: they never enter the
@@ -32,14 +32,36 @@ def read_json(path: Path) -> Any:
 
 
 def recorded_verdict(run: dict[str, Any]) -> str:
-    """Return the rule-derived draft status from a schema-v2 recording."""
+    """Return the rule-derived verdict from a schema-v4 recording."""
     recorded = run.get("verdict")
     if isinstance(recorded, dict) and recorded.get("verdict") in LABELS:
         return recorded["verdict"]
     raise SystemExit(
-        f"Recorded run {run.get('caseId', '<unknown>')} has no valid schema-v1 aggregation result. "
+        f"Recorded run {run.get('caseId', '<unknown>')} has no valid aggregation-schema-v3 result. "
         "Re-record the walkthrough."
     )
+
+
+def assessment_only_verdict(run: dict[str, Any]) -> str:
+    """Apply composition to Qwen-selected relations without symbolic rule results."""
+    states: list[str] = []
+    for item in run.get("assessment", {}).get("obligations", []):
+        decisive = item.get("sufficiency") == "SUFFICIENT"
+        support = decisive and bool(item.get("supportSpanIds"))
+        refute = decisive and bool(item.get("refuteSpanIds"))
+        states.append("BOTH" if support and refute else "SUPPORT" if support else "REFUTE" if refute else "NONE")
+    composition = run.get("composition", "SINGLE")
+    if not states:
+        verdict = "NOT_ENOUGH_EVIDENCE"
+    elif composition == "AND":
+        verdict = "REFUTED" if "REFUTE" in states else "CONFLICTING_EVIDENCE" if "BOTH" in states else "SUPPORTED" if all(state == "SUPPORT" for state in states) else "NOT_ENOUGH_EVIDENCE"
+    elif composition == "OR":
+        verdict = "SUPPORTED" if "SUPPORT" in states else "CONFLICTING_EVIDENCE" if "BOTH" in states else "REFUTED" if all(state == "REFUTE" for state in states) else "NOT_ENOUGH_EVIDENCE"
+    else:
+        verdict = {"SUPPORT": "SUPPORTED", "REFUTE": "REFUTED", "BOTH": "CONFLICTING_EVIDENCE"}.get(states[0], "NOT_ENOUGH_EVIDENCE")
+    if run.get("assessment", {}).get("materialOmission", {}).get("detected"):
+        verdict = "CONFLICTING_EVIDENCE"
+    return verdict
 
 
 def render(runs_dir: Path, catalog_path: Path) -> str:
@@ -51,8 +73,10 @@ def render(runs_dir: Path, catalog_path: Path) -> str:
             f"No recorded runs in {runs_dir}. Run ./run-verigraph --record-walkthrough first."
         )
 
-    rows: list[tuple[str, int, str, str, str]] = []
+    rows: list[tuple[str, int, str, str, str, str]] = []
     relations = Counter()
+    relation_effects = Counter()
+    symbolic = Counter()
     atom_counts = Counter()
     predicted = Counter()
     confusion: Counter[tuple[str, str]] = Counter()
@@ -107,17 +131,31 @@ def render(runs_dir: Path, catalog_path: Path) -> str:
         for stage, seconds in run.get("timingsSeconds", {}).items():
             if isinstance(seconds, (int, float)) and seconds >= 0:
                 timings.setdefault(stage, []).append(float(seconds))
-        for item in run["classifications"]:
-            for relation in item["relations"]:
-                relations[relation["relation"]] += 1
+        run_relation_counts = Counter()
+        for item in run.get("assessment", {}).get("obligations", []):
+            run_relation_counts["SUPPORTS"] += len(item.get("supportSpanIds", []))
+            run_relation_counts["REFUTES"] += len(item.get("refuteSpanIds", []))
+            run_relation_counts["CONTEXT"] += len(item.get("contextSpanIds", []))
+            selected_decisive = len(item.get("supportSpanIds", [])) + len(item.get("refuteSpanIds", []))
+            relation_effects["DECISIVE" if item.get("sufficiency") == "SUFFICIENT" else "PROVISIONAL"] += selected_decisive
+            relation_effects["SCOPE_MISMATCH"] += sum(
+                check.get("status") == "MISMATCH" for check in item.get("scopeChecks", [])
+            )
+        relations.update(run_relation_counts)
+        selected_span_count = sum(run_relation_counts.values())
+        relations["NOT_SELECTED"] += max(0, sum(len(item.get("spans", [])) for item in run.get("evidence", [])) - selected_span_count)
+        for execution in run.get("reasoning", []):
+            symbolic[(execution.get("operator", "UNKNOWN"), execution.get("status", "UNKNOWN"))] += 1
         verdict = recorded_verdict(run)
+        baseline = assessment_only_verdict(run)
         label = reference.get(case_id, "UNKNOWN")
         predicted[verdict] += 1
         confusion[(label, verdict)] += 1
         composition = run.get("composition") or ("AND" if len(run["atoms"]) > 1 else "SINGLE")
-        rows.append((case_id, len(run["atoms"]), composition, label, verdict))
+        rows.append((case_id, len(run["atoms"]), composition, label, verdict, baseline))
 
-    agreement = sum(1 for _, _, _, label, verdict in rows if label == verdict)
+    agreement = sum(1 for _, _, _, label, verdict, _ in rows if label == verdict)
+    baseline_agreement = sum(1 for _, _, _, label, _, baseline in rows if label == baseline)
     total = len(rows)
     lines: list[str] = []
     add = lines.append
@@ -138,7 +176,7 @@ def render(runs_dir: Path, catalog_path: Path) -> str:
     add(f"| Cases recorded | {total} |")
     add(f"| Run schema versions | {', '.join(f'{k} ({v})' for k, v in sorted(schema_versions.items(), key=str))} |")
     for label in LABELS:
-        add(f"| Reference `{label}` | {sum(1 for _, _, _, ref, _ in rows if ref == label)} |")
+        add(f"| Reference `{label}` | {sum(1 for _, _, _, ref, _, _ in rows if ref == label)} |")
     add(f"| Obligations per case | {min(atom_counts)}–{max(atom_counts)} |")
     add("")
 
@@ -168,14 +206,26 @@ def render(runs_dir: Path, catalog_path: Path) -> str:
     add(f"| Linguistic audit warnings | {decomposition_quality['audit_warning_count']} | warnings |")
     add("")
 
-    add("## Audited span relations")
+    add("## Assessed evidence relations")
     add("")
     total_relations = sum(relations.values()) or 1
     add("| Relation | Count | Share |")
     add("| --- | ---: | ---: |")
-    for relation in ("ENTAILMENT", "CONTRADICTION", "NEUTRAL"):
+    for relation in ("SUPPORTS", "REFUTES", "CONTEXT", "NOT_SELECTED"):
         count = relations[relation]
         add(f"| `{relation}` | {count} | {count / total_relations:.1%} |")
+    add("")
+    add(f"Decisive support/refute selections: **{relation_effects['DECISIVE']}**. ")
+    add(f"Provisional support/refute selections: **{relation_effects['PROVISIONAL']}**. ")
+    add(f"Candidates excluded for an explicit jurisdiction mismatch: **{relation_effects['SCOPE_MISMATCH']}**.")
+    add("")
+
+    add("## Symbolic operator executions")
+    add("")
+    add("| Operator | Status | Count |")
+    add("| --- | --- | ---: |")
+    for (operator, status), count in sorted(symbolic.items()):
+        add(f"| `{operator}` | `{status}` | {count} |")
     add("")
 
     if timings:
@@ -186,7 +236,7 @@ def render(runs_dir: Path, catalog_path: Path) -> str:
         add("")
         add("| Stage | Median | Mean | Maximum | Cases |")
         add("| --- | ---: | ---: | ---: | ---: |")
-        for stage in ("decomposition", "retrievalAndLinguistics", "evidenceAudit", "aggregation", "total"):
+        for stage in ("decomposition", "retrievalAndLinguistics", "evidenceAssessment", "symbolicReasoning", "aggregation", "total"):
             values = timings.get(stage, [])
             if values:
                 add(
@@ -195,9 +245,10 @@ def render(runs_dir: Path, catalog_path: Path) -> str:
                 )
         add("")
 
-    add("## Draft status against the reference label")
+    add("## Predicted verdict against the reference label")
     add("")
     add(f"Agreement: **{agreement}/{total}** ({agreement / total:.1%}).")
+    add(f"Qwen assessment-only agreement: **{baseline_agreement}/{total}** ({baseline_agreement / total:.1%}).")
     add("")
     add("| Reference \\ status | " + " | ".join(f"`{label}`" for label in LABELS) + " |")
     add("| --- | " + " | ".join("---:" for _ in LABELS) + " |")
@@ -208,11 +259,11 @@ def render(runs_dir: Path, catalog_path: Path) -> str:
 
     add("## Per case")
     add("")
-    add("| Case | Obligations | Composition | Reference | Draft status | |")
-    add("| --- | ---: | --- | --- | --- | --- |")
-    for case_id, atoms, composition, label, verdict in rows:
+    add("| Case | Obligations | Composition | Reference | Qwen only | Qwen + symbolic | |")
+    add("| --- | ---: | --- | --- | --- | --- | --- |")
+    for case_id, atoms, composition, label, verdict, baseline in rows:
         mark = "match" if label == verdict else ""
-        add(f"| `{case_id}` | {atoms} | {composition} | {label} | {verdict} | {mark} |")
+        add(f"| `{case_id}` | {atoms} | {composition} | {label} | {baseline} | {verdict} | {mark} |")
     add("")
     return "\n".join(lines) + "\n"
 

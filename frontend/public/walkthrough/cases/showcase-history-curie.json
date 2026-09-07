@@ -1,0 +1,38 @@
+{
+  "id": "showcase-history-curie",
+  "claim": "Marie Curie won Nobel Prizes in two different scientific fields.",
+  "documents": [
+    {
+      "id": "doc-eef64596d10c",
+      "title": "The Nobel Prize in Physics 1903",
+      "url": "https://www.nobelprize.org/prizes/physics/1903/marie-curie/facts/",
+      "layout": "PROSE",
+      "publisher": "Nobel Prize Outreach",
+      "retrievedAt": "2026-09-05",
+      "sourceType": "SOURCE_EXCERPT",
+      "excerptSha256": "8e03d6a777927767516b8b57be62db1f1d48ad6395b5c5d8beb7fc2eaca691df",
+      "sourceSha256": "8e03d6a777927767516b8b57be62db1f1d48ad6395b5c5d8beb7fc2eaca691df",
+      "text": "Marie Curie\nFacts\nMarie Curie, née Skłodowska\nNobel Prize in Physics 1903\nBorn: 7 November 1867, Warsaw, Russian Empire (now Poland)\nDied: 4 July 1934, Sallanches, France\nPrize motivation: “in recognition of the extraordinary services they have rendered by their joint researches on the radiation phenomena discovered by Professor Henri Becquerel”\nPrize share: 1/4\nAlso awarded: Nobel Prize in Chemistry 1911\nLife\nMarie Skłodowska was born in Warsaw, Poland, to a family of teachers who believed strongly in education. She moved to Paris to continue her studies and there met Pierre Curie, who became both her husband and colleague in the field of radioactivity. The couple later shared the 1903 Nobel Prize in Physics. Marie was widowed in 1906, but continued the couple's work and went on to become the first person ever to be awarded two Nobel Prizes. During World War I, Curie organized mobile X-ray teams. The Curies' daughter, Irene, was also jointly awarded the Nobel Prize in Chemistry alongside her husband, Frederic Joliot\nWork\nThe 1896 discovery of radioactivity by Henri Becquerel inspired Marie and Pierre Curie to further investigate this phenomenon. They examined many substances and minerals for signs of radioactivity. They found that the mineral pitchblende was more radioactive than uranium and concluded that it must contain other radioactive substances. From it they managed to extract two previously unknown elements, polonium and radium, both more radioactive than uranium."
+    },
+    {
+      "id": "doc-a0826bb5a83d",
+      "title": "The Nobel Prize in Chemistry 1911",
+      "url": "https://www.nobelprize.org/prizes/chemistry/1911/marie-curie/facts/",
+      "layout": "PROSE",
+      "publisher": "Nobel Prize Outreach",
+      "retrievedAt": "2026-09-05",
+      "sourceType": "SOURCE_EXCERPT",
+      "excerptSha256": "7ea564b9eeabd2c4f7de54ad5e0b7f87e2faa8571665f33b059847eef73dfa36",
+      "sourceSha256": "ae0e6831f9221cb71f145796832c414bbe939ce3b971a2c41305896a23e34801",
+      "text": "Marie Curie\nFacts\nMarie Curie, née Skłodowska\nNobel Prize in Chemistry 1911\nBorn: 7 November 1867, Warsaw, Russian Empire (now Poland)\nDied: 4 July 1934, Sallanches, France\nAffiliation at the time of the award: Sorbonne University, Paris, France\nPrize motivation: “in recognition of her services to the advancement of chemistry by the discovery of the elements radium and polonium, by the isolation of radium and the study of the nature and compounds of this remarkable element”\nPrize share: 1/1\nAlso awarded: Nobel Prize in Physics 1903\nLife\nMarie Skłodowska was born in Warsaw, Poland, to a family of teachers who believed strongly in education. She moved to Paris to continue her studies and there met Pierre Curie, who became both her husband and colleague in the field of radioactivity. The couple later shared the 1903 Nobel Prize in Physics. Marie was widowed in 1906, but continued the couple's work and went on to become the first person ever to be awarded two Nobel Prizes. During World War I, Curie organized mobile X-ray teams. The Curies' daughter, Irene, was also jointly awarded the Nobel Prize in Chemistry alongside her husband, Frederic Joliot\nWork\nAfter Marie Skłodowska Curie and Pierre Curie first discovered the radioactive elements polonium and radium, Marie continued to investigate their properties. In 1910 she successfully produced radium as a pure metal, which proved the new element's existence beyond a doubt. She also documented the properties of the radioactive"
+    }
+  ],
+  "label": "SUPPORTED",
+  "displayTitle": "Marie Curie's two Nobel fields",
+  "topics": [],
+  "challenges": [],
+  "featured": false,
+  "origin": "CONSTRUCTED",
+  "category": "HISTORY",
+  "demoFocus": "DISTINCT_VALUE_COUNT"
+}

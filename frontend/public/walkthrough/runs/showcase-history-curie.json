@@ -1,0 +1,817 @@
+{
+  "caseId": "showcase-history-curie",
+  "schemaVersion": 6,
+  "composition": "SINGLE",
+  "warnings": [],
+  "atoms": [
+    {
+      "id": "atom-1",
+      "text": "Marie Curie won Nobel Prizes in two different scientific fields.",
+      "sourceText": "Marie Curie won Nobel Prizes in two different scientific fields.",
+      "start": 0,
+      "end": 64,
+      "role": "CORE"
+    }
+  ],
+  "evidence": [
+    {
+      "atomId": "atom-1",
+      "spans": [
+        {
+          "id": "doc-eef64596d10c::sentence-18",
+          "documentId": "doc-eef64596d10c",
+          "text": "The 1896 discovery of radioactivity by Henri Becquerel inspired Marie and Pierre Curie to further investigate this phenomenon. ",
+          "start": 1038,
+          "end": 1165,
+          "contextSpans": [
+            {
+              "id": "doc-eef64596d10c::sentence-17",
+              "documentId": "doc-eef64596d10c",
+              "text": "Work\n",
+              "start": 1033,
+              "end": 1038,
+              "direction": "PREVIOUS"
+            },
+            {
+              "id": "doc-eef64596d10c::sentence-19",
+              "documentId": "doc-eef64596d10c",
+              "text": "They examined many substances and minerals for signs of radioactivity. ",
+              "start": 1165,
+              "end": 1236,
+              "direction": "NEXT"
+            }
+          ],
+          "context": "Work The 1896 discovery of radioactivity by Henri Becquerel inspired Marie and Pierre Curie to further investigate this phenomenon. They examined many substances and minerals for signs of radioactivity."
+        },
+        {
+          "id": "doc-a0826bb5a83d::sentence-19",
+          "documentId": "doc-a0826bb5a83d",
+          "text": "After Marie Skłodowska Curie and Pierre Curie first discovered the radioactive elements polonium and radium, Marie continued to investigate their properties. ",
+          "start": 1167,
+          "end": 1325,
+          "contextSpans": [],
+          "context": "After Marie Skłodowska Curie and Pierre Curie first discovered the radioactive elements polonium and radium, Marie continued to investigate their properties."
+        },
+        {
+          "id": "doc-eef64596d10c::sentence-14",
+          "documentId": "doc-eef64596d10c",
+          "text": "Marie was widowed in 1906, but continued the couple's work and went on to become the first person ever to be awarded two Nobel Prizes. ",
+          "start": 720,
+          "end": 855,
+          "contextSpans": [],
+          "context": "Marie was widowed in 1906, but continued the couple's work and went on to become the first person ever to be awarded two Nobel Prizes."
+        },
+        {
+          "id": "doc-a0826bb5a83d::sentence-15",
+          "documentId": "doc-a0826bb5a83d",
+          "text": "Marie was widowed in 1906, but continued the couple's work and went on to become the first person ever to be awarded two Nobel Prizes. ",
+          "start": 849,
+          "end": 984,
+          "contextSpans": [],
+          "context": "Marie was widowed in 1906, but continued the couple's work and went on to become the first person ever to be awarded two Nobel Prizes."
+        },
+        {
+          "id": "doc-eef64596d10c::sentence-12",
+          "documentId": "doc-eef64596d10c",
+          "text": "She moved to Paris to continue her studies and there met Pierre Curie, who became both her husband and colleague in the field of radioactivity. ",
+          "start": 519,
+          "end": 663,
+          "contextSpans": [
+            {
+              "id": "doc-eef64596d10c::sentence-11",
+              "documentId": "doc-eef64596d10c",
+              "text": "Marie Skłodowska was born in Warsaw, Poland, to a family of teachers who believed strongly in education. ",
+              "start": 414,
+              "end": 519,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "Marie Skłodowska was born in Warsaw, Poland, to a family of teachers who believed strongly in education. She moved to Paris to continue her studies and there met Pierre Curie, who became both her husband and colleague in the field of radioactivity."
+        },
+        {
+          "id": "doc-a0826bb5a83d::sentence-13",
+          "documentId": "doc-a0826bb5a83d",
+          "text": "She moved to Paris to continue her studies and there met Pierre Curie, who became both her husband and colleague in the field of radioactivity. ",
+          "start": 648,
+          "end": 792,
+          "contextSpans": [
+            {
+              "id": "doc-a0826bb5a83d::sentence-12",
+              "documentId": "doc-a0826bb5a83d",
+              "text": "Marie Skłodowska was born in Warsaw, Poland, to a family of teachers who believed strongly in education. ",
+              "start": 543,
+              "end": 648,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "Marie Skłodowska was born in Warsaw, Poland, to a family of teachers who believed strongly in education. She moved to Paris to continue her studies and there met Pierre Curie, who became both her husband and colleague in the field of radioactivity."
+        }
+      ]
+    }
+  ],
+  "assessment": {
+    "obligations": [
+      {
+        "atomId": "atom-1",
+        "supportSpanIds": [
+          "doc-a0826bb5a83d::sentence-19"
+        ],
+        "refuteSpanIds": [
+          "doc-eef64596d10c::sentence-18"
+        ],
+        "contextSpanIds": [
+          "doc-eef64596d10c::sentence-12",
+          "doc-a0826bb5a83d::sentence-13"
+        ],
+        "sufficiency": "PARTIAL",
+        "missingInformation": "The evidence does not specify the scientific fields for the Nobel Prizes in Physics 1903 and Chemistry 1911.",
+        "reason": "The evidence confirms Marie Curie won Nobel Prizes in both Physics and Chemistry, but does not specify the fields for each prize.",
+        "scopeChecks": [
+          {
+            "spanId": "doc-eef64596d10c::sentence-18",
+            "documentId": "doc-eef64596d10c",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "FR",
+              "PL"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-a0826bb5a83d::sentence-19",
+            "documentId": "doc-a0826bb5a83d",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "FR",
+              "PL"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-eef64596d10c::sentence-14",
+            "documentId": "doc-eef64596d10c",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "FR",
+              "PL"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-a0826bb5a83d::sentence-15",
+            "documentId": "doc-a0826bb5a83d",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "FR",
+              "PL"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-eef64596d10c::sentence-12",
+            "documentId": "doc-eef64596d10c",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "PL"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-a0826bb5a83d::sentence-13",
+            "documentId": "doc-a0826bb5a83d",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "PL"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          }
+        ]
+      }
+    ],
+    "materialOmission": {
+      "detected": false,
+      "supportSpanIds": [],
+      "contextSpanIds": [],
+      "reason": "No material omission was established."
+    }
+  },
+  "reasoning": [
+    {
+      "id": "proof:atom-1:attribute_compare:2",
+      "atomId": "atom-1",
+      "operator": "ATTRIBUTE_COMPARE",
+      "status": "UNRESOLVED",
+      "relation": null,
+      "premiseIds": [
+        "context:atom-1:doc-eef64596d10c:doc-eef64596d10c::sentence-11",
+        "context:atom-1:doc-a0826bb5a83d:doc-a0826bb5a83d::sentence-12"
+      ],
+      "premises": [
+        {
+          "id": "context:atom-1:doc-eef64596d10c:doc-eef64596d10c::sentence-11",
+          "documentId": "doc-eef64596d10c",
+          "text": "Marie Skłodowska was born in Warsaw, Poland, to a family of teachers who believed strongly in education. ",
+          "start": 414,
+          "end": 519,
+          "kind": "OPERAND",
+          "contentHash": null,
+          "itemCount": null
+        },
+        {
+          "id": "context:atom-1:doc-a0826bb5a83d:doc-a0826bb5a83d::sentence-12",
+          "documentId": "doc-a0826bb5a83d",
+          "text": "Marie Skłodowska was born in Warsaw, Poland, to a family of teachers who believed strongly in education. ",
+          "start": 543,
+          "end": 648,
+          "kind": "OPERAND",
+          "contentHash": null,
+          "itemCount": null
+        }
+      ],
+      "expression": "attribute comparison",
+      "conclusion": "Attribute relation is unresolved",
+      "explanation": "The premises do not provide one unambiguous attribute value for deterministic comparison.",
+      "validationWarnings": [
+        "AMBIGUOUS_ATTRIBUTE_MAPPING"
+      ],
+      "program": {
+        "version": 1,
+        "steps": [
+          {
+            "id": "input-1",
+            "operation": "LOOKUP",
+            "inputIds": [
+              "context:atom-1:doc-eef64596d10c:doc-eef64596d10c::sentence-11"
+            ],
+            "outputType": "FACT",
+            "description": "Read an unchanged server-owned premise."
+          },
+          {
+            "id": "input-2",
+            "operation": "LOOKUP",
+            "inputIds": [
+              "context:atom-1:doc-a0826bb5a83d:doc-a0826bb5a83d::sentence-12"
+            ],
+            "outputType": "FACT",
+            "description": "Read an unchanged server-owned premise."
+          },
+          {
+            "id": "result",
+            "operation": "EQUAL",
+            "inputIds": [
+              "input-1",
+              "input-2"
+            ],
+            "outputType": "BOOLEAN",
+            "description": "Validate operand alignment and execute the typed operation in Python."
+          }
+        ],
+        "outputStepId": "result"
+      }
+    },
+    {
+      "id": "proof:atom-1:count_distinct:1",
+      "atomId": "atom-1",
+      "operator": "COUNT_DISTINCT",
+      "status": "PROVED",
+      "relation": "SUPPORTS",
+      "premiseIds": [
+        "operand:doc-eef64596d10c:line:4",
+        "operand:doc-eef64596d10c:line:9"
+      ],
+      "premises": [
+        {
+          "id": "operand:doc-eef64596d10c:line:4",
+          "documentId": "doc-eef64596d10c",
+          "text": "Nobel Prize in Physics 1903",
+          "start": 46,
+          "end": 73,
+          "kind": "OPERAND",
+          "contentHash": null,
+          "itemCount": null
+        },
+        {
+          "id": "operand:doc-eef64596d10c:line:9",
+          "documentId": "doc-eef64596d10c",
+          "text": "Also awarded: Nobel Prize in Chemistry 1911",
+          "start": 365,
+          "end": 408,
+          "kind": "OPERAND",
+          "contentHash": null,
+          "itemCount": null
+        }
+      ],
+      "expression": "count({chemistry, physics}) = 2",
+      "conclusion": "The sources ground 2 distinct values.",
+      "explanation": "Python normalized and counted explicit source values; it did not infer field equivalence.",
+      "validationWarnings": [],
+      "program": {
+        "version": 1,
+        "steps": [
+          {
+            "id": "input-1",
+            "operation": "LOOKUP",
+            "inputIds": [
+              "operand:doc-eef64596d10c:line:4"
+            ],
+            "outputType": "FACT",
+            "description": "Read an unchanged server-owned premise."
+          },
+          {
+            "id": "input-2",
+            "operation": "LOOKUP",
+            "inputIds": [
+              "operand:doc-eef64596d10c:line:9"
+            ],
+            "outputType": "FACT",
+            "description": "Read an unchanged server-owned premise."
+          },
+          {
+            "id": "result",
+            "operation": "COUNT_DISTINCT",
+            "inputIds": [
+              "input-1",
+              "input-2"
+            ],
+            "outputType": "NUMBER",
+            "description": "Validate operand alignment and execute the typed operation in Python."
+          }
+        ],
+        "outputStepId": "result"
+      }
+    }
+  ],
+  "linguistics": {
+    "schemaVersion": 2,
+    "claimAnalysis": {
+      "atomId": "claim",
+      "frames": [
+        {
+          "id": "claim-frame-1",
+          "predicate": {
+            "id": "claim-frame-1-predicate",
+            "text": "won",
+            "start": 12,
+            "end": 15
+          },
+          "subjects": [
+            {
+              "id": "claim-frame-1-subject-1",
+              "text": "Marie Curie",
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "claim-frame-1-argument-1",
+              "text": "Nobel Prizes",
+              "start": 16,
+              "end": 28,
+              "role": "direct_object"
+            }
+          ],
+          "adjuncts": [],
+          "otherModifiers": [
+            {
+              "id": "claim-frame-1-other-modifier-1",
+              "text": "in two different scientific fields",
+              "start": 29,
+              "end": 63
+            }
+          ]
+        }
+      ],
+      "cues": [
+        {
+          "id": "claim-cue-numeric-32-35",
+          "text": "two",
+          "start": 32,
+          "end": 35,
+          "kind": "numeric"
+        }
+      ],
+      "entities": [
+        {
+          "id": "claim-entity-person-0-11",
+          "text": "Marie Curie",
+          "start": 0,
+          "end": 11,
+          "label": "PERSON"
+        },
+        {
+          "id": "claim-entity-work_of_art-16-28",
+          "text": "Nobel Prizes",
+          "start": 16,
+          "end": 28,
+          "label": "WORK_OF_ART"
+        }
+      ],
+      "tokens": [
+        {
+          "id": "claim-token-0",
+          "text": "Marie",
+          "start": 0,
+          "end": 5,
+          "lemma": "Marie",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "Curie"
+        },
+        {
+          "id": "claim-token-1",
+          "text": "Curie",
+          "start": 6,
+          "end": 11,
+          "lemma": "Curie",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "nsubj",
+          "head": "won"
+        },
+        {
+          "id": "claim-token-2",
+          "text": "won",
+          "start": 12,
+          "end": 15,
+          "lemma": "win",
+          "pos": "VERB",
+          "tag": "VBD",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "claim-token-3",
+          "text": "Nobel",
+          "start": 16,
+          "end": 21,
+          "lemma": "Nobel",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "Prizes"
+        },
+        {
+          "id": "claim-token-4",
+          "text": "Prizes",
+          "start": 22,
+          "end": 28,
+          "lemma": "Prizes",
+          "pos": "PROPN",
+          "tag": "NNPS",
+          "dependency": "dobj",
+          "head": "won"
+        },
+        {
+          "id": "claim-token-5",
+          "text": "in",
+          "start": 29,
+          "end": 31,
+          "lemma": "in",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "won"
+        },
+        {
+          "id": "claim-token-6",
+          "text": "two",
+          "start": 32,
+          "end": 35,
+          "lemma": "two",
+          "pos": "NUM",
+          "tag": "CD",
+          "dependency": "nummod",
+          "head": "fields"
+        },
+        {
+          "id": "claim-token-7",
+          "text": "different",
+          "start": 36,
+          "end": 45,
+          "lemma": "different",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "fields"
+        },
+        {
+          "id": "claim-token-8",
+          "text": "scientific",
+          "start": 46,
+          "end": 56,
+          "lemma": "scientific",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "fields"
+        },
+        {
+          "id": "claim-token-9",
+          "text": "fields",
+          "start": 57,
+          "end": 63,
+          "lemma": "field",
+          "pos": "NOUN",
+          "tag": "NNS",
+          "dependency": "pobj",
+          "head": "in"
+        },
+        {
+          "id": "claim-token-10",
+          "text": ".",
+          "start": 63,
+          "end": 64,
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "won"
+        }
+      ],
+      "status": "complete",
+      "unresolved": []
+    },
+    "analyses": [
+      {
+        "atomId": "atom-1",
+        "frames": [
+          {
+            "id": "atom-1-frame-1",
+            "predicate": {
+              "id": "atom-1-frame-1-predicate",
+              "text": "won",
+              "start": 12,
+              "end": 15
+            },
+            "subjects": [
+              {
+                "id": "atom-1-frame-1-subject-1",
+                "text": "Marie Curie",
+                "start": 0,
+                "end": 11
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-1-frame-1-argument-1",
+                "text": "Nobel Prizes",
+                "start": 16,
+                "end": 28,
+                "role": "direct_object"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": [
+              {
+                "id": "atom-1-frame-1-other-modifier-1",
+                "text": "in two different scientific fields",
+                "start": 29,
+                "end": 63
+              }
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "atom-1-cue-numeric-32-35",
+            "text": "two",
+            "start": 32,
+            "end": 35,
+            "kind": "numeric"
+          }
+        ],
+        "entities": [
+          {
+            "id": "atom-1-entity-person-0-11",
+            "text": "Marie Curie",
+            "start": 0,
+            "end": 11,
+            "label": "PERSON"
+          },
+          {
+            "id": "atom-1-entity-work_of_art-16-28",
+            "text": "Nobel Prizes",
+            "start": 16,
+            "end": 28,
+            "label": "WORK_OF_ART"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-1-token-0",
+            "text": "Marie",
+            "start": 0,
+            "end": 5,
+            "lemma": "Marie",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Curie"
+          },
+          {
+            "id": "atom-1-token-1",
+            "text": "Curie",
+            "start": 6,
+            "end": 11,
+            "lemma": "Curie",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "nsubj",
+            "head": "won"
+          },
+          {
+            "id": "atom-1-token-2",
+            "text": "won",
+            "start": 12,
+            "end": 15,
+            "lemma": "win",
+            "pos": "VERB",
+            "tag": "VBD",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-1-token-3",
+            "text": "Nobel",
+            "start": 16,
+            "end": 21,
+            "lemma": "Nobel",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Prizes"
+          },
+          {
+            "id": "atom-1-token-4",
+            "text": "Prizes",
+            "start": 22,
+            "end": 28,
+            "lemma": "Prizes",
+            "pos": "PROPN",
+            "tag": "NNPS",
+            "dependency": "dobj",
+            "head": "won"
+          },
+          {
+            "id": "atom-1-token-5",
+            "text": "in",
+            "start": 29,
+            "end": 31,
+            "lemma": "in",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "won"
+          },
+          {
+            "id": "atom-1-token-6",
+            "text": "two",
+            "start": 32,
+            "end": 35,
+            "lemma": "two",
+            "pos": "NUM",
+            "tag": "CD",
+            "dependency": "nummod",
+            "head": "fields"
+          },
+          {
+            "id": "atom-1-token-7",
+            "text": "different",
+            "start": 36,
+            "end": 45,
+            "lemma": "different",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "fields"
+          },
+          {
+            "id": "atom-1-token-8",
+            "text": "scientific",
+            "start": 46,
+            "end": 56,
+            "lemma": "scientific",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "fields"
+          },
+          {
+            "id": "atom-1-token-9",
+            "text": "fields",
+            "start": 57,
+            "end": 63,
+            "lemma": "field",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "pobj",
+            "head": "in"
+          },
+          {
+            "id": "atom-1-token-10",
+            "text": ".",
+            "start": 63,
+            "end": 64,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "won"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      }
+    ],
+    "summaries": [
+      {
+        "atomId": "atom-1",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "Marie Curie"
+        ],
+        "predicates": [
+          "win"
+        ],
+        "cueKinds": [
+          "numeric"
+        ],
+        "modifierKinds": [],
+        "entityLabels": [
+          "PERSON",
+          "WORK_OF_ART"
+        ],
+        "warnings": []
+      }
+    ],
+    "claimWarnings": [],
+    "provider": "spacy",
+    "model": "en_core_web_sm@3.8.0"
+  },
+  "verdict": {
+    "aggregationSchemaVersion": 3,
+    "claimId": "showcase-history-curie",
+    "composition": "SINGLE",
+    "verdict": "SUPPORTED",
+    "positions": {
+      "supportPosition": true,
+      "refutePosition": false,
+      "materialOmissionPosition": false,
+      "supportObligationIds": [
+        "atom-1"
+      ],
+      "refuteObligationIds": [],
+      "unresolvedObligationIds": []
+    },
+    "obligations": [
+      {
+        "obligationId": "atom-1",
+        "state": "SUPPORTED",
+        "supportEdgeIds": [
+          "edge:SUPPORTS:inference:proof:atom-1:count_distinct:1:obligation:showcase-history-curie:atom-1"
+        ],
+        "refuteEdgeIds": [],
+        "unselectedCandidateCount": 2,
+        "provisionalRelationCount": 2
+      }
+    ],
+    "warnings": [
+      {
+        "code": "PROVISIONAL_EVIDENCE_EXCLUDED",
+        "message": "2 assessed relation(s) for obligation atom-1 are provisional because the evidence is not sufficient."
+      }
+    ],
+    "ruleTrace": [
+      "SINGLE maps its one obligation's validated relations directly.",
+      "Validated positions — support: yes; refute: no.",
+      "Verdict: SUPPORTED."
+    ]
+  },
+  "recordedWith": {
+    "pipelineRevision": "submission-ready-v2",
+    "inputDigest": "79740dc831135eb454faec8c9ab29f68f422e7321197b1beeb830ba5145163f9",
+    "decompositionModel": "qwen2.5:7b",
+    "retrievalModel": "BAAI/bge-small-en-v1.5",
+    "retrievalMethod": "HYBRID",
+    "assessmentModel": "qwen2.5:7b",
+    "reasoningModel": "qwen2.5:7b",
+    "linguisticsModel": "en_core_web_sm@3.8.0"
+  },
+  "timingsSeconds": {
+    "decomposition": 16.042,
+    "retrievalAndLinguistics": 0.145,
+    "evidenceAssessment": 18.987,
+    "symbolicReasoning": 26.652,
+    "aggregation": 0.016,
+    "total": 61.841
+  }
+}

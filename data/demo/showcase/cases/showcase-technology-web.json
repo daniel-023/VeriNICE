@@ -1,0 +1,38 @@
+{
+  "id": "showcase-technology-web",
+  "claim": "Tim Berners-Lee invented the World Wide Web at CERN in 1989.",
+  "documents": [
+    {
+      "id": "doc-fddf62bfb7b8",
+      "title": "A Brief History of the Internet",
+      "url": "https://www.internetsociety.org/internet/history-internet/brief-history-internet/",
+      "layout": "PROSE",
+      "publisher": "Internet Society",
+      "retrievedAt": "2026-09-05",
+      "sourceType": "SOURCE_EXCERPT",
+      "excerptSha256": "5b8c6b25ec325067aefef09796c2213f5270a95dac0faa29b52aabae30410846",
+      "sourceSha256": "708c403b2a6e6fb4477e387187c1fadbb5821d48748650b4badbe216df621c3a",
+      "text": "respond to messages. From there email took off as the largest network application for over a decade. This was a harbinger of the kind of activity we see on the World Wide Web today, namely, the enormous growth of all kinds of “people-to-people” traffic.\n\n## The Initial Internetting Concepts\n\nThe original ARPANET grew into the Internet. Internet was based on the idea that there would be multiple independent networks of rather arbitrary design, beginning with the ARPANET as the pioneering packet switching network, but soon to include packet satellite networks, ground-based packet radio networks and other networks. The Internet as we now know it embodies a key underlying technical idea, namely that of open architecture networking. In this approach, the choice of any individual network technology was not dictated by a particular network architecture but rather could be selected freely by a provider and made to interwork with the other networks through a meta-level “Internetworking Architecture”. Up until that time there was only one general method for federating networks. This was the traditional circuit switching method where networks would interconnect at the circuit level, passing individual bits on a synchronous basis along a portion of an end-to-end circuit between a pair of end locations. Recall that Kleinrock had shown in 1961 that packet switching was a more efficient switching method. Along with packet switching, special purpose interconnection arrangements between networks were another possibility. While there were other limited ways to"
+    },
+    {
+      "id": "doc-2c20bee83e25",
+      "title": "Tim Berners-Lee",
+      "url": "https://www.w3.org/People/Berners-Lee/",
+      "layout": "PROSE",
+      "publisher": "World Wide Web Consortium",
+      "retrievedAt": "2026-09-05",
+      "sourceType": "SOURCE_EXCERPT",
+      "excerptSha256": "a9ae2fbfed5f4ad8af668639f4c9ecde89480052461fd1fd8aebc13611ec9e1b",
+      "sourceSha256": "e2d78f6b4c8fe858905e36b03465d30080158c1f9cef12f7ec5659ca43e5713e",
+      "text": "Sir Tim Berners-Lee invented the World Wide Web while at CERN, the European Particle Physics Laboratory, in 1989. He wrote the first web client and server in 1990. His specifications of URIs, HTTP and HTML were refined as Web technology spread.\nHe is the co-founder and CTO of Inrupt.com, a tech start-up that uses, promotes and helps develop the open source Solid platform. Solid aims to give people control and agency over their data, questioning many assumptions about how the web has to work. Solid technically is a new level of standard at the web layer, which adds features never put into the original spec, such as global single sign-on, universal access control, and a universal data API so that any app can store data in any storage place. Socially Solid is a movement away from much of the issues with the current WWW, and toward a world in which users are in control, and empowered by large amounts of data, private, shared, and public.\nSir Tim is the Founder, Emeritus Director, and an Honorary Member of the Board of Directors of the World Wide Web Consortium (W3C), a Web standards organization that he founded in 1994 which develops interoperable technologies (specifications, guidelines, software, and tools) to lead the Web to its full potential. He is a Director of the World Wide Web Foundation that was launched in 2009 to coordinate efforts to further the potential of the Web to"
+    }
+  ],
+  "label": "SUPPORTED",
+  "displayTitle": "The invention of the World Wide Web",
+  "topics": [],
+  "challenges": [],
+  "featured": false,
+  "origin": "CONSTRUCTED",
+  "category": "TECHNOLOGY",
+  "demoFocus": "DIRECT_EVIDENCE"
+}

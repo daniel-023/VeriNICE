@@ -1,414 +1,198 @@
-import { cleanup, fireEvent, render } from "@testing-library/react";
+import { cleanup, render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import axe from "axe-core";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { AtomRail } from "@/components/AtomRail";
 import { ArgumentationGraph } from "@/components/ArgumentationGraph";
 import { DocumentPanel } from "@/components/DocumentPanel";
-import { LinguisticPanel } from "@/components/LinguisticPanel";
 import { PipelinePanel } from "@/components/PipelinePanel";
+import { SymbolicProofPanel } from "@/components/SymbolicProofPanel";
 import { SupportSummary } from "@/components/SupportSummary";
-import { VerdictPanel } from "@/components/VerdictPanel";
 import { buildArgumentationGraph } from "@/lib/argumentationGraph";
-import type {
-  AtomLinguisticAnalysis,
-  DecomposedAtom,
-  VerdictAggregationResult,
-} from "@/lib/types";
+import type { DecomposedAtom } from "@/lib/types";
 
-afterEach(() => cleanup());
+afterEach(cleanup);
+const atom: DecomposedAtom = { id: "a1", text: "NDF is not listed.", sourceText: "NDF is not listed", start: 0, end: 17, role: "CORE" };
+const document = { id: "d1", title: "Official list", url: "https://example.test", text: "The complete list is Alpha and Beta.", layout: "PROSE" as const };
+const span = { id: "s1", documentId: "d1", text: document.text, start: 0, end: document.text.length };
 
-const sources = [
-  { id: "doc-a", title: "Source A", url: "https://example.test/a", text: "Full source document." },
-  { id: "doc-b", title: "Source B", url: "https://example.test/b", text: "Another source." },
-];
+async function expectAccessible(container: HTMLElement) {
+  expect((await axe.run(container)).violations).toEqual([]);
+}
 
-const atoms: DecomposedAtom[] = [
-  {
-    id: "atom-1",
-    text: "Mara joined Orion in 2022.",
-    sourceText: "Mara joined Orion in 2022 and became CTO.",
-    start: 0,
-    end: 46,
-    role: "CORE",
-  },
-];
-
-const analysis: AtomLinguisticAnalysis = {
-  atomId: "atom-1",
-  frames: [{
-    id: "frame-1",
-    predicate: { id: "predicate-1", text: "joined", start: 5, end: 11 },
-    subjects: [{ id: "subject-1", text: "Mara", start: 0, end: 4 }],
-    coreArguments: [{ id: "object-1", text: "Orion", start: 12, end: 17, role: "direct_object" }],
-    adjuncts: [{ id: "adjunct-1", text: "in 2022", start: 18, end: 25, kind: "temporal" }],
-    otherModifiers: [],
-  }],
-  cues: [{ id: "cue-1", kind: "temporal", text: "2022", start: 21, end: 25 }],
-  entities: [{ id: "entity-1", label: "PERSON", text: "Mara", start: 0, end: 4 }],
-  tokens: [{ id: "token-1", text: "Mara", lemma: "Mara", pos: "PROPN", tag: "NNP", dependency: "nsubj", head: "joined", start: 0, end: 4 }],
-  status: "complete",
-  unresolved: [],
-};
-
-describe("multidocument workbench accessibility", () => {
-  it("has no automated violations in the atom and pipeline panels", async () => {
-    const { container } = render(
-      <main>
-        <AtomRail atoms={atoms} state="complete" selectedAtomId={null} onSelect={() => {}} />
-        <PipelinePanel
-          decompositionState="complete"
-          retrievalState="complete"
-          nliState="complete"
-          graphState="complete"
-          graphLinkCount={1}
-          atomCount={1}
-          evidenceCount={1}
-          relationCount={1}
-          onRetryEvidence={() => {}}
-          onRetryNli={() => {}}
-        />
-      </main>,
-    );
-    const result = await axe.run(container, { rules: { "color-contrast": { enabled: false } } });
-    expect(result.violations).toEqual([]);
+describe("Milestone 5 accessibility", () => {
+  it("keeps all five pipeline stages and retry controls accessible", async () => {
+    const { container } = render(<PipelinePanel
+      decompositionState="complete" retrievalState="complete" assessmentState="complete"
+      reasoningState="error" graphLinkCount={0} atomCount={1} evidenceCount={1}
+      relationCount={1} onRetryEvidence={vi.fn()} onRetryAssessment={vi.fn()}
+      onRetryReasoning={vi.fn()} verdictState="idle"
+    />);
+    await expectAccessible(container);
   });
 
-  it("gives tabs, source controls, and the document editor accessible names", async () => {
-    const { container, getByRole } = render(
-      <DocumentPanel
-        documents={sources}
-        activeDocumentId="doc-a"
-        onActivate={() => {}}
-        onTextChange={() => {}}
-        onTitleChange={() => {}}
-        onAdd={() => {}}
-        onRemove={() => {}}
-        spans={[]}
-        relations={[]}
-        selectedAtomText={null}
-        retrievalState="idle"
-      />,
-    );
-    expect(getByRole("tablist", { name: "Evidence sources" })).toBeInTheDocument();
-    expect(getByRole("textbox", { name: "Evidence document: Source A" })).toHaveValue(
-      "Full source document.",
-    );
-    const result = await axe.run(container, { rules: { "color-contrast": { enabled: false } } });
-    expect(result.violations).toEqual([]);
+  it("renders source tabs, highlights and four reviewer relations accessibly", async () => {
+    const { container } = render(<DocumentPanel
+      documents={[document]} activeDocumentId="d1" onActivate={vi.fn()} onTextChange={vi.fn()}
+      onTitleChange={vi.fn()} onAdd={vi.fn()} onRemove={vi.fn()} onRelationChange={vi.fn()}
+      spans={[span]} relations={[{
+        spanId: "s1", documentId: "d1", relation: "NOT_SELECTED", decisive: false,
+        scopeCheck: { spanId: "s1", documentId: "d1", status: "MISMATCH", claimJurisdictions: ["AU"], evidenceJurisdictions: ["US"], reason: "Different jurisdiction." },
+      }]}
+      selectedAtomText={atom.text} retrievalState="complete"
+    />);
+    expect(container.textContent).toContain("Different jurisdiction — not used in assessment");
+    expect(container.querySelector('option[value="SUPPORTS"]')).toBeDisabled();
+    expect(container.querySelector('option[value="REFUTES"]')).toBeDisabled();
+    await expectAccessible(container);
   });
 
-  it("exposes candidate evidence spans as a labelled, keyboard-reachable list", async () => {
-    const onRelationChange = vi.fn();
-    const { container, getByRole } = render(
-      <DocumentPanel
-        documents={sources}
-        activeDocumentId="doc-a"
-        onActivate={() => {}}
-        onTextChange={() => {}}
-        onTitleChange={() => {}}
-        onAdd={() => {}}
-        onRemove={() => {}}
-        spans={[
-          {
-            id: "doc-a::sentence-1",
-            documentId: "doc-a",
-            text: "Full source document.",
-            start: 0,
-            end: 21,
-          },
-        ]}
-        relations={[
-          {
-            spanId: "doc-a::sentence-1",
-            documentId: "doc-a",
-            relation: "ENTAILMENT",
-          },
-        ]}
-        onRelationChange={onRelationChange}
-        selectedAtomText="A fact."
-        retrievalState="complete"
-      />,
-    );
-    const list = getByRole("navigation", { name: "Candidate evidence spans" });
-    expect(list).toBeInTheDocument();
-    expect(getByRole("button", { name: /Full source document/ })).toBeInTheDocument();
-    const reviewer = getByRole("combobox", { name: /Reviewer relation for evidence/ });
-    fireEvent.change(reviewer, { target: { value: "CONTRADICTION" } });
-    expect(onRelationChange).toHaveBeenCalledWith(
-      expect.objectContaining({ id: "doc-a::sentence-1" }),
-      "CONTRADICTION",
-    );
-    const result = await axe.run(container, { rules: { "color-contrast": { enabled: false } } });
-    expect(result.violations).toEqual([]);
-  });
-
-  it("lists five implemented stages and marks them ready before a run", () => {
-    const { getByText, getAllByText, queryByText } = render(
-      <PipelinePanel
-        decompositionState="idle"
-        retrievalState="idle"
-        nliState="idle"
-        graphState="idle"
-        graphLinkCount={0}
-        atomCount={0}
-        evidenceCount={0}
-        relationCount={0}
-        onRetryEvidence={() => {}}
-        onRetryNli={() => {}}
-      />,
-    );
-    expect(getByText("Find candidate evidence")).toBeInTheDocument();
-    expect(getByText("Compare claim and evidence")).toBeInTheDocument();
-    expect(getByText("Map support and conflict")).toBeInTheDocument();
-    expect(getByText("Apply verdict rules")).toBeInTheDocument();
-    expect(getByText("5 live stages")).toBeInTheDocument();
-    expect(getAllByText("Ready")).toHaveLength(5);
-    expect(queryByText("Pending")).not.toBeInTheDocument();
-  });
-
-  it("omits the candidate budget when it cannot be changed", () => {
-    const { queryByRole } = render(
-      <PipelinePanel
-        decompositionState="complete"
-        retrievalState="complete"
-        nliState="complete"
-        graphState="complete"
-        graphLinkCount={2}
-        atomCount={1}
-        evidenceCount={6}
-        relationCount={6}
-        onRetryEvidence={() => {}}
-        onRetryNli={() => {}}
-        evidencePerAtom={6}
-        recorded
-      />,
-    );
-    // Recorded walkthroughs compute nothing in the browser, so the budget is fixed.
-    expect(queryByRole("combobox", { name: /Candidates per obligation/i })).not.toBeInTheDocument();
-  });
-
-  it("reports the aggregated verdict on stage five once it completes", () => {
-    const { getByText } = render(
-      <PipelinePanel
-        decompositionState="complete"
-        retrievalState="complete"
-        nliState="complete"
-        graphState="complete"
-        verdictState="complete"
-        verdict="CONFLICTING_EVIDENCE"
-        graphLinkCount={3}
-        atomCount={2}
-        evidenceCount={6}
-        relationCount={6}
-        onRetryEvidence={() => {}}
-        onRetryNli={() => {}}
-      />,
-    );
-    expect(getByText("Aggregated to conflicting evidence.")).toBeInTheDocument();
-    expect(getByText("View Verdict")).toHaveAttribute("href", "#case-verdict");
-  });
-
-  it("keeps linguistic features and syntax details semantic and keyboard reachable", async () => {
-    const { container, getByText, getByRole } = render(
-      <LinguisticPanel
-        atom={atoms[0]}
-        analysis={analysis}
-        summary={null}
-        state="complete"
-        error={null}
-        onRetry={() => {}}
-      />,
-    );
-    expect(getByRole("button", { name: "Predicate: joined" })).toHaveAttribute("aria-pressed", "false");
-    const summary = getByText("Syntax Details");
-    summary.focus();
-    expect(summary).toHaveFocus();
-    fireEvent.click(summary);
-    expect(getByRole("table")).toBeVisible();
-    expect(getByText(/lemma = base word/)).toBeInTheDocument();
-    expect(getByRole("tab", { name: "Readable syntax" })).toHaveAttribute("aria-selected", "true");
-    fireEvent.keyDown(getByRole("tab", { name: "Readable syntax" }), { key: "ArrowRight" });
-    expect(getByRole("tab", { name: "Raw details" })).toHaveFocus();
-    expect(getByRole("tabpanel")).toHaveAttribute(
-      "aria-labelledby",
-      getByRole("tab", { name: "Raw details" }).id,
-    );
-    fireEvent.click(getByRole("tab", { name: "Raw details" }));
-    expect(getByRole("tab", { name: "Raw details" })).toHaveAttribute("aria-selected", "true");
-    const tokenButton = getByRole("button", { name: "Token: Mara" });
-    fireEvent.click(tokenButton);
-    expect(tokenButton).toHaveAttribute("aria-pressed", "true");
-    const result = await axe.run(container, { rules: { "color-contrast": { enabled: false } } });
-    expect(result.violations).toEqual([]);
-  });
-
-  it("exposes selected-atom graph relations without neutral candidates", async () => {
-    const graph = buildArgumentationGraph(
-      "case", "Mara joined Orion in 2022.", "SINGLE",
-      atoms,
-      [{
-        atomId: "atom-1",
-        spans: [
-          { id: "support", documentId: "doc-a", text: "Mara joined Orion.", start: 0, end: 18 },
-          { id: "neutral", documentId: "doc-b", text: "Orion published a report.", start: 0, end: 25 },
-        ],
-      }],
-      [{
-        atomId: "atom-1",
-        relations: [
-          { spanId: "support", documentId: "doc-a", relation: "ENTAILMENT" },
-          { spanId: "neutral", documentId: "doc-b", relation: "NEUTRAL" },
-        ],
-      }],
-      sources,
-    );
-    const { container, getByRole, queryByText } = render(
-      <ArgumentationGraph
-        graph={graph}
-        selectedAtomId="atom-1"
-        onSelectAtom={() => {}}
-        onSelectEvidence={() => {}}
-      />,
-    );
-
-    expect(
-      getByRole("group", { name: "Case claim, verification obligations, and evidence relationships" }),
-    ).toBeInTheDocument();
-    expect(getByRole("button", { name: /Obligation 1, CORE: Mara joined Orion in 2022\./ })).toBeInTheDocument();
-    expect(
-      getByRole("button", { name: /Evidence from Source A: Mara joined Orion\.\. supports obligation 1/ }),
-    ).toBeInTheDocument();
-    expect(queryByText("Orion published a report.")).not.toBeInTheDocument();
-    const result = await axe.run(container, { rules: { "color-contrast": { enabled: false } } });
-    expect(result.violations).toEqual([]);
-  });
-
-  it("preserves the selected atom when shared evidence is activated", () => {
-    const sharedAtoms = [
-      { ...atoms[0], text: "First atom.", sourceText: "First atom.", end: 11 },
-      { ...atoms[0], id: "atom-2", text: "Second atom.", sourceText: "Second atom.", end: 12 },
-    ];
-    const graph = buildArgumentationGraph(
-      "case", "First atom. Second atom.", "AND", sharedAtoms,
-      [
-        { atomId: "atom-1", spans: [{ id: "shared", documentId: "doc-a", text: "The same sentence concerns both atoms.", start: 0, end: 38 }] },
-        { atomId: "atom-2", spans: [{ id: "shared", documentId: "doc-a", text: "The same sentence concerns both atoms.", start: 0, end: 38 }] },
-      ],
-      [
-        { atomId: "atom-1", relations: [{ spanId: "shared", documentId: "doc-a", relation: "ENTAILMENT" }] },
-        { atomId: "atom-2", relations: [{ spanId: "shared", documentId: "doc-a", relation: "ENTAILMENT" }] },
-      ],
-      sources,
-    );
-    const onSelectEvidence = vi.fn();
-    const { getByRole } = render(
-      <ArgumentationGraph
-        graph={graph}
-        selectedAtomId="atom-2"
-        onSelectAtom={() => {}}
-        onSelectEvidence={onSelectEvidence}
-      />,
-    );
-
-    fireEvent.click(getByRole("button", { name: /Evidence from Source A/ }));
-    expect(onSelectEvidence.mock.calls[0][0]).toMatchObject({ evidenceId: "shared" });
-    expect(onSelectEvidence.mock.calls[0][1]).toBe("atom-2");
-  });
-
-  it("collapses the linguistic panel without losing its heading", () => {
-    const onToggle = vi.fn();
-    const { getByRole, queryByLabelText, rerender } = render(
-      <LinguisticPanel
-        atom={atoms[0]}
-        analysis={analysis}
-        summary={null}
-        state="complete"
-        error={null}
-        onRetry={() => {}}
-        open
-        onToggle={onToggle}
-      />,
-    );
-    const toggle = getByRole("button", { name: /Hide linguistic structure/i });
-    expect(toggle).toHaveAttribute("aria-expanded", "true");
-    expect(queryByLabelText("Atomic claim preview")).toBeInTheDocument();
-    fireEvent.click(toggle);
-    expect(onToggle).toHaveBeenCalledTimes(1);
-
-    rerender(
-      <LinguisticPanel
-        atom={atoms[0]}
-        analysis={analysis}
-        summary={null}
-        state="complete"
-        error={null}
-        onRetry={() => {}}
-        open={false}
-        onToggle={onToggle}
-      />,
-    );
-    expect(getByRole("heading", { name: "Linguistic Structure" })).toBeInTheDocument();
-    expect(getByRole("button", { name: /Show linguistic structure/i })).toHaveAttribute(
-      "aria-expanded",
-      "false",
-    );
-    expect(queryByLabelText("Atomic claim preview")).not.toBeInTheDocument();
-  });
-
-  it("presents the aggregated verdict with obligation text and a decision trace", async () => {
-    const result: VerdictAggregationResult = {
-      aggregationSchemaVersion: 1,
-      claimId: "case-1",
-      composition: "AND",
-      verdict: "REFUTED",
-      positions: {
-        supportPosition: false,
-        attackPosition: true,
-        supportObligationIds: [],
-        attackObligationIds: ["atom-1"],
-        unresolvedObligationIds: [],
-      },
-      obligations: [
-        {
-          obligationId: "atom-1",
-          state: "REFUTED",
-          supportEdgeIds: [],
-          attackEdgeIds: ["edge-1"],
-          neutralCandidateCount: 2,
-        },
-      ],
-      warnings: [],
-      ruleTrace: ["AND attack requires an attack on any obligation.", "Final verdict: REFUTED."],
+  it("renders a compact evidence-to-verdict graph without accessibility violations", async () => {
+    const graph = buildArgumentationGraph("case", "NDF is not listed.", "SINGLE", [atom], [{ atomId: "a1", spans: [span] }], [{ atomId: "a1", relations: [{ spanId: "s1", documentId: "d1", relation: "SUPPORTS", decisive: true }] }], [document]);
+    const verdict = {
+      aggregationSchemaVersion: 3 as const, claimId: "case", composition: "SINGLE" as const, verdict: "SUPPORTED" as const,
+      positions: { supportPosition: true, refutePosition: false, supportObligationIds: ["a1"], refuteObligationIds: [], unresolvedObligationIds: [] },
+      obligations: [{ obligationId: "a1", state: "SUPPORTED" as const, supportEdgeIds: [], refuteEdgeIds: [], unselectedCandidateCount: 0, provisionalRelationCount: 0 }],
+      warnings: [], ruleTrace: [],
     };
-    const { container, getByRole, getByText } = render(
-      <VerdictPanel result={result} atoms={atoms} referenceLabel="SUPPORTED" />,
-    );
-    expect(getByRole("heading", { name: /Rule-derived evidence status REFUTED/ })).toBeInTheDocument();
-    expect(getByText("Mara joined Orion in 2022.")).toBeInTheDocument();
-    expect(getByText("Attack position held")).toBeInTheDocument();
-    expect(getByText("differs")).toBeInTheDocument();
-    expect(getByText("Decision trace")).toBeInTheDocument();
-    const audit = await axe.run(container, { rules: { "color-contrast": { enabled: false } } });
-    expect(audit.violations).toEqual([]);
+    const { container } = render(<ArgumentationGraph graph={graph} selectedAtomId={null} onSelectAtom={vi.fn()} onSelectEvidence={vi.fn()} obligationStates={{ a1: "SUPPORTED" }} verdict={verdict} verdictState="complete" />);
+    expect(container.textContent).toContain("Selected evidence");
+    expect(container.textContent).toContain("1 sentence");
+    expect(container.textContent).toContain("Atomic Claim");
+    expect(container.textContent).toContain("Atomic result · O1");
+    expect(container.textContent).not.toContain("Joint assessment");
+    expect(container.textContent).not.toContain("Composition · SINGLE");
+    expect(container.textContent).toContain("Verdict · Single claim");
+    expect(container.textContent).toContain("Verdict");
+    expect(container.textContent).toContain("SUPPORTED");
+    await expectAccessible(container);
   });
 
-  it("announces NLI state and exposes relation counts without a verdict", async () => {
-    const { container, getByText, getByRole } = render(
-      <SupportSummary
-        state="complete"
-        classification={{
-          atomId: "atom-1",
-          relations: [
-            { spanId: "s1", documentId: "doc-a", relation: "ENTAILMENT" },
-            { spanId: "s2", documentId: "doc-b", relation: "NEUTRAL" },
-          ],
-        }}
-      />,
+  it("keeps every atomic claim visible and opens the exact source from a lane", async () => {
+    const secondAtom: DecomposedAtom = { ...atom, id: "a2", text: "Beta is listed.", sourceText: "Beta is listed", start: 0, end: 14 };
+    const onSelectEvidence = vi.fn();
+    const graph = buildArgumentationGraph(
+      "case", "NDF is not listed.", "AND", [atom, secondAtom],
+      [{ atomId: "a1", spans: [span] }, { atomId: "a2", spans: [span] }],
+      [
+        { atomId: "a1", relations: [{ spanId: "s1", documentId: "d1", relation: "SUPPORTS", decisive: true }] },
+        { atomId: "a2", relations: [{ spanId: "s1", documentId: "d1", relation: "SUPPORTS", decisive: true }] },
+      ],
+      [document],
     );
-    expect(getByRole("heading", { name: "Grounded evidence relations" })).toBeInTheDocument();
-    expect(getByText(/not the case verdict/i)).toBeInTheDocument();
-    expect(getByRole("list", { name: "Selected atom relation counts" })).toBeInTheDocument();
-    const result = await axe.run(container, { rules: { "color-contrast": { enabled: false } } });
-    expect(result.violations).toEqual([]);
+    render(<ArgumentationGraph graph={graph} selectedAtomId="a1" onSelectAtom={vi.fn()} onSelectEvidence={onSelectEvidence} />);
+    expect(screen.getByRole("button", { name: /select atomic claim 1/i })).toBeVisible();
+    expect(screen.getByRole("button", { name: /select atomic claim 2/i })).toBeVisible();
+    const sourceButtons = screen.getAllByRole("button", { name: /open evidence from official list/i });
+    expect(sourceButtons).toHaveLength(2);
+    expect(screen.getByText("Composition · AND")).toBeVisible();
+    await userEvent.click(sourceButtons[1]);
+    expect(onSelectEvidence).toHaveBeenCalledWith(expect.objectContaining({ evidenceId: "s1" }), "a2");
+  });
+
+  it("aggregates sentence relations across evidence bundles", () => {
+    const secondDocument = { ...document, id: "d2", title: "Second source" };
+    const secondSpan = { ...span, id: "s2", documentId: "d2" };
+    const graph = buildArgumentationGraph(
+      "case",
+      "NDF is not listed.",
+      "SINGLE",
+      [atom],
+      [{ atomId: "a1", spans: [span, secondSpan] }],
+      [{ atomId: "a1", relations: [
+        { spanId: "s1", documentId: "d1", relation: "SUPPORTS", decisive: true },
+        { spanId: "s2", documentId: "d2", relation: "SUPPORTS", decisive: true },
+      ] }],
+      [document, secondDocument],
+    );
+    const { container } = render(<ArgumentationGraph graph={graph} selectedAtomId="a1" onSelectAtom={vi.fn()} onSelectEvidence={vi.fn()} />);
+    expect(container.textContent).toContain("Evidence bundle");
+    expect(container.textContent).toContain("Joint assessment");
+    expect(container.textContent).toContain("Total · 2 support · 0 refute");
+  });
+
+  it("presents a grounded location rule between its evidence and atomic result", () => {
+    const locationAtom: DecomposedAtom = {
+      id: "a1", text: "The landmark is located in Germany.",
+      sourceText: "The landmark is located in Germany", start: 0, end: 35,
+      role: "LOCATION_CONSTRAINT",
+    };
+    const locationDocument = {
+      ...document, text: "Its official address is Paris, France.",
+    };
+    const locationSpan = {
+      ...span, text: locationDocument.text, end: locationDocument.text.length,
+    };
+    const graph = buildArgumentationGraph(
+      "location-case", `${locationAtom.text}`, "SINGLE", [locationAtom],
+      [{ atomId: "a1", spans: [locationSpan] }], [{ atomId: "a1", relations: [] }],
+      [locationDocument], [{
+        id: "proof-1", atomId: "a1", operator: "ATTRIBUTE_COMPARE", status: "DISPROVED",
+        relation: "REFUTES", premiseIds: ["p1"], premises: [{
+          id: "p1", documentId: "d1", text: locationDocument.text, start: 0,
+          end: locationDocument.text.length, kind: "EVIDENCE",
+        }], expression: "France ≠ Germany", conclusion: "The locations differ.",
+        explanation: "Compared locations.", validationWarnings: [], program: {
+          version: 1, outputStepId: "result", steps: [{
+            id: "result", operation: "EQUAL", inputIds: ["p1"], outputType: "BOOLEAN",
+            description: "Compare values.",
+          }],
+        },
+      }],
+    );
+    const { container } = render(<ArgumentationGraph
+      graph={graph} selectedAtomId="a1" onSelectAtom={vi.fn()} onSelectEvidence={vi.fn()}
+      obligationStates={{ a1: "REFUTED" }}
+    />);
+    expect(container.textContent).toContain("Location comparison");
+    expect(container.textContent).toContain("France ≠ Germany");
+    expect(container.textContent).toContain("Atomic result · O1");
+    expect(container.textContent).not.toContain("ATTRIBUTE COMPARE");
+  });
+
+  it("shows the verdict contribution and keeps rule mechanics in details", async () => {
+    const { container } = render(<SymbolicProofPanel atomId="a1" documents={[]} onSelectPremise={vi.fn()} state="complete" proofs={[{
+      id: "p1", atomId: "a1", operator: "SET_MEMBERSHIP", status: "PROVED", relation: "SUPPORTS",
+      premiseIds: [], premises: [], expression: "ndf ∉ S", conclusion: "NDF is absent.", explanation: "Validated.", validationWarnings: [],
+      program: {
+        version: 1,
+        steps: [{ id: "step-1", operation: "MEMBER", inputIds: [], outputType: "BOOLEAN", description: "Check membership." }],
+        outputStepId: "step-1",
+      },
+    }]} />);
+    expect(container.textContent).toContain("Effect on this atom");
+    expect(container.textContent).toContain("Supports this atomic claim");
+    expect(container.textContent).toContain("Rule details");
+    expect(container.textContent).not.toContain("Qwen");
+    expect(container.textContent).not.toContain("Python");
+    expect(container.textContent?.toLowerCase()).not.toContain("confidence");
+    await expectAccessible(container);
+  });
+
+  it("hides routine scope checks and groups repeated exceptions", async () => {
+    const scopeCheck = {
+      spanId: "s1", documentId: "d1", status: "UNRESOLVED" as const,
+      claimJurisdictions: [], evidenceJurisdictions: [], reason: "Source scope is unclear.",
+    };
+    const { container } = render(<SupportSummary
+      state="complete"
+      classification={{ atomId: "a1", relations: [
+        { spanId: "s1", documentId: "d1", relation: "REFUTES", decisive: false },
+        { spanId: "s2", documentId: "d1", relation: "CONTEXT", decisive: false },
+      ] }}
+      audit={{
+        atomId: "a1", supportSpanIds: [], refuteSpanIds: ["s1"], contextSpanIds: ["s2"],
+        sufficiency: "INSUFFICIENT", missingInformation: "A direct source statement is missing.",
+        reason: "The selected material is incomplete.",
+        scopeChecks: [scopeCheck, { ...scopeCheck, spanId: "s2" }, {
+          ...scopeCheck, spanId: "s3", status: "NOT_APPLICABLE", reason: "No scope comparison is needed.",
+        }],
+      }}
+    />);
+    expect(container.textContent).toContain("No decisive relation");
+    expect(container.textContent).toContain("1 refute · 1 context");
+    expect(container.textContent).toContain("2 unresolved");
+    expect(container.textContent).not.toContain("No scope comparison is needed.");
+    expect(container.textContent).not.toContain("Not selected");
+    await expectAccessible(container);
   });
 });

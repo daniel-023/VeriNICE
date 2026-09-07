@@ -1,0 +1,38 @@
+{
+  "id": "showcase-history-viking-helmet",
+  "claim": "The only preserved complete Viking Age helmet has horns.",
+  "documents": [
+    {
+      "id": "doc-4437a7e42d03",
+      "title": "Viking helmets",
+      "url": "https://en.natmus.dk/historical-knowledge/denmark/prehistoric-period-until-1050-ad/the-viking-age/weapons/helmets/",
+      "layout": "PROSE",
+      "publisher": "National Museum of Denmark",
+      "retrievedAt": "2026-09-05",
+      "sourceType": "SOURCE_EXCERPT",
+      "excerptSha256": "9ed32d1a114773fff1d1c8a838052c65340209ef70701da3fbf963478681f9cd",
+      "sourceSha256": "9cc743473beeb75dc45512a94f640f4a9366772bb13ccb2318755601f0af427a",
+      "text": "Viking helmets\nThe popular image of the Vikings is one of fearsome warriors wearing horned helmets. Many depictions of the Vikings display this particular attribute. However, there is only one preserved helmet from the Viking Age and this does not have horns. It was found in the Norwegian warrior’s burial at Gjermundbu, north of Oslo, together with the only complete suit of chain mail from the period.\nParts of helmets have been found in Denmark, including “brow ridges” to protect the warrior’s face in battle. The lack of helmet finds may also be partly due to the fact that no tradition existed of placing them in graves. In addition, helmets were not sacrificed like spears and swords, so we do not come across them in this context either. It is also possible that relatively few Vikings wore helmets and therefore only a small number are found today.\nHelmets with horns?\nDepictions of an Iron Age date exist featuring people with horned helmets/heads, such as upon the Golden Horns. Similar images are also known from the Viking period itself.\nIn the Oseberg burial from Norway, which dates to the early Viking period, a tapestry was found on which horned helmets are also depicted. Does this prove that all Vikings wore the famous helmets with horns? The answer is probably not. However, there is some evidence to suggest that certain warriors wore such headgear. The horned figures on the Golden Horns are"
+    },
+    {
+      "id": "doc-231a5983562d",
+      "title": "Frequently asked questions",
+      "url": "https://thevikingmuseum.com/en/faq/",
+      "layout": "PROSE",
+      "publisher": "The Viking Museum",
+      "retrievedAt": "2026-09-05",
+      "sourceType": "SOURCE_EXCERPT",
+      "excerptSha256": "39d1ed0e1daacf6edf149fa9d49e45757d2d335bdb39ab6b4e3f4272f53b70a9",
+      "sourceSha256": "61a6c2a0aea7bfb979f860b1ff2741d857dcaad45b08a8e90070a36ab0c493d1",
+      "text": "for those who, for different reasons, can’t take part of our written material. For the visually impaired, it is possible to feel and touch different objects in the exhibition. We also allow guide dogs in the entire building.\nCan I enjoy the museum if I am deaf or have hearing loss?\nYes! We have a hearing loop in the entrance area. There is also the option to follow the story of our adventure ride in written form.\nFood and Beverages\nIs it possible to get something to eat at The Viking Museum?\nInside The Viking Museum you will also find Eld restaurant. The menu offers quality dishes with Nordic influences. There is also a wide selection of organic pastries, buns and cookies. Children-friendly dishes and vegetarian options are also available.\nWe do not have a space for consuming food that has been brought from outside. Food and open containers of drinks are not allowed in the exhibition or in the ride.\nCan I visit Restaurant Eld without paying the entrance fee to the museum?\nYou are very welcome to visit our restaurant without paying the entrance fee. The same goes for our museum shop.\nOther questions\nDid the Vikings have horns on their helmets?\nNo, the Vikings did not have horns on their helmets. This is a myth that started in the 19th century, when Richard Wagner used horned helmets as costumes in his opera The Ring of the Nibelung."
+    }
+  ],
+  "label": "REFUTED",
+  "displayTitle": "The preserved Viking helmet",
+  "topics": [],
+  "challenges": [],
+  "featured": false,
+  "origin": "CONSTRUCTED",
+  "category": "HISTORY",
+  "demoFocus": "ATTRIBUTE_COMPARISON"
+}

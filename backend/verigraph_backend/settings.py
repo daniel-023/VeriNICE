@@ -48,20 +48,8 @@ class Settings:
         "VERIGRAPH_EMBEDDING_MODEL_PATH",
         ROOT / "data" / "models" / "bge-small-en-v1.5",
     )
-    nli_model: str = os.getenv(
-        "VERIGRAPH_NLI_MODEL",
-        "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
-    )
-    nli_model_revision: str = os.getenv(
-        "VERIGRAPH_NLI_MODEL_REVISION",
-        "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
-    )
-    nli_model_path: Path = _path_env(
-        "VERIGRAPH_NLI_MODEL_PATH",
-        ROOT / "data" / "models" / "deberta-v3-base-mnli-fever-anli",
-    )
     request_timeout_seconds: float = float(
-        os.getenv("VERIGRAPH_REQUEST_TIMEOUT_SECONDS", "120")
+        os.getenv("VERIGRAPH_REQUEST_TIMEOUT_SECONDS", "240")
     )
     max_llm_concurrency: int = int(
         os.getenv("VERIGRAPH_MAX_LLM_CONCURRENCY", "4")
@@ -82,7 +70,7 @@ class Settings:
     public_demo_data_path: Path = ROOT / "data" / "demo_cases.json"
     private_demo_bundle_path: Path = _path_env(
         "VERIGRAPH_DEMO_BUNDLE_PATH",
-        ROOT / "data" / "demo" / "averitec",
+        ROOT / "data" / "demo" / "showcase",
     )
     require_private_catalog: bool = _bool_env(
         "VERIGRAPH_REQUIRE_PRIVATE_CATALOG", False

@@ -1,0 +1,664 @@
+{
+  "caseId": "showcase-current-unsc",
+  "schemaVersion": 6,
+  "composition": "SINGLE",
+  "warnings": [],
+  "atoms": [
+    {
+      "id": "atom-1",
+      "text": "Australia is a permanent member of the UN Security Council.",
+      "sourceText": "Australia is a permanent member of the UN Security Council.",
+      "start": 0,
+      "end": 59,
+      "role": "CORE"
+    }
+  ],
+  "evidence": [
+    {
+      "atomId": "atom-1",
+      "spans": [
+        {
+          "id": "doc-4de8403c2f50::sentence-15",
+          "documentId": "doc-4de8403c2f50",
+          "text": "More than 50 United Nations Member States have never been Members of the Security Council.\n",
+          "start": 503,
+          "end": 594,
+          "contextSpans": [],
+          "context": "More than 50 United Nations Member States have never been Members of the Security Council."
+        },
+        {
+          "id": "doc-4de8403c2f50::sentence-16",
+          "documentId": "doc-4de8403c2f50",
+          "text": "A State which is a Member of the United Nations but not of the Security Council may participate, without a vote, in its discussions when the Council considers that country's interests are affected. ",
+          "start": 594,
+          "end": 792,
+          "contextSpans": [
+            {
+              "id": "doc-4de8403c2f50::sentence-15",
+              "documentId": "doc-4de8403c2f50",
+              "text": "More than 50 United Nations Member States have never been Members of the Security Council.\n",
+              "start": 503,
+              "end": 594,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "More than 50 United Nations Member States have never been Members of the Security Council. A State which is a Member of the United Nations but not of the Security Council may participate, without a vote, in its discussions when the Council considers that country's interests are affected."
+        },
+        {
+          "id": "doc-4de8403c2f50::sentence-3",
+          "documentId": "doc-4de8403c2f50",
+          "text": "Five permanent members: China, France, Russian Federation, the United Kingdom, and the United States, and ten non-permanent members elected for two-year terms by the General Assembly (with end of term year):\n",
+          "start": 75,
+          "end": 283,
+          "contextSpans": [],
+          "context": "Five permanent members: China, France, Russian Federation, the United Kingdom, and the United States, and ten non-permanent members elected for two-year terms by the General Assembly (with end of term year):"
+        },
+        {
+          "id": "doc-3a71d897be6a::sentence-1",
+          "documentId": "doc-3a71d897be6a",
+          "text": "Below you can see the list of all countries which have been elected as members of the Security Council at least once since 1946.\n",
+          "start": 0,
+          "end": 129,
+          "contextSpans": [],
+          "context": "Below you can see the list of all countries which have been elected as members of the Security Council at least once since 1946."
+        },
+        {
+          "id": "doc-3a71d897be6a::sentence-68",
+          "documentId": "doc-3a71d897be6a",
+          "text": "Democratic Republic of the Congo\n",
+          "start": 1530,
+          "end": 1563,
+          "contextSpans": [],
+          "context": "Democratic Republic of the Congo"
+        },
+        {
+          "id": "doc-3a71d897be6a::sentence-93",
+          "documentId": "doc-3a71d897be6a",
+          "text": "German Democratic Republic (see Germany)\n",
+          "start": 2019,
+          "end": 2060,
+          "contextSpans": [],
+          "context": "German Democratic Republic (see Germany)"
+        }
+      ]
+    }
+  ],
+  "assessment": {
+    "obligations": [
+      {
+        "atomId": "atom-1",
+        "supportSpanIds": [],
+        "refuteSpanIds": [
+          "doc-4de8403c2f50::sentence-3"
+        ],
+        "contextSpanIds": [
+          "doc-4de8403c2f50::sentence-15",
+          "doc-4de8403c2f50::sentence-16",
+          "doc-3a71d897be6a::sentence-1"
+        ],
+        "sufficiency": "PARTIAL",
+        "missingInformation": "The evidence does not explicitly state that Australia is not a permanent member of the UN Security Council, but it lists the permanent members and does not include Australia.",
+        "reason": "The list of permanent members does not include Australia, but it does not explicitly state that Australia is not a member.",
+        "scopeChecks": [
+          {
+            "spanId": "doc-4de8403c2f50::sentence-15",
+            "documentId": "doc-4de8403c2f50",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [
+              "AU"
+            ],
+            "evidenceJurisdictions": [],
+            "reason": "Jurisdiction is the claimed value being compared, not a source-scope constraint."
+          },
+          {
+            "spanId": "doc-4de8403c2f50::sentence-16",
+            "documentId": "doc-4de8403c2f50",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [
+              "AU"
+            ],
+            "evidenceJurisdictions": [],
+            "reason": "Jurisdiction is the claimed value being compared, not a source-scope constraint."
+          },
+          {
+            "spanId": "doc-4de8403c2f50::sentence-3",
+            "documentId": "doc-4de8403c2f50",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [
+              "AU"
+            ],
+            "evidenceJurisdictions": [],
+            "reason": "Jurisdiction is the claimed value being compared, not a source-scope constraint."
+          },
+          {
+            "spanId": "doc-3a71d897be6a::sentence-1",
+            "documentId": "doc-3a71d897be6a",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [
+              "AU"
+            ],
+            "evidenceJurisdictions": [],
+            "reason": "Jurisdiction is the claimed value being compared, not a source-scope constraint."
+          },
+          {
+            "spanId": "doc-3a71d897be6a::sentence-68",
+            "documentId": "doc-3a71d897be6a",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [
+              "AU"
+            ],
+            "evidenceJurisdictions": [
+              "CG"
+            ],
+            "reason": "Jurisdiction is the claimed value being compared, not a source-scope constraint."
+          },
+          {
+            "spanId": "doc-3a71d897be6a::sentence-93",
+            "documentId": "doc-3a71d897be6a",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [
+              "AU"
+            ],
+            "evidenceJurisdictions": [
+              "DE"
+            ],
+            "reason": "Jurisdiction is the claimed value being compared, not a source-scope constraint."
+          }
+        ]
+      }
+    ],
+    "materialOmission": {
+      "detected": false,
+      "supportSpanIds": [],
+      "contextSpanIds": [],
+      "reason": "No material omission was established."
+    }
+  },
+  "reasoning": [
+    {
+      "id": "proof:atom-1:set_membership:1",
+      "atomId": "atom-1",
+      "operator": "SET_MEMBERSHIP",
+      "status": "DISPROVED",
+      "relation": "REFUTES",
+      "premiseIds": [
+        "list:doc-4de8403c2f50:counted-1:certificate"
+      ],
+      "premises": [
+        {
+          "id": "list:doc-4de8403c2f50:counted-1:certificate",
+          "documentId": "doc-4de8403c2f50",
+          "text": "Five permanent members: ",
+          "start": 75,
+          "end": 99,
+          "kind": "LIST_CERTIFICATE",
+          "contentHash": "b32b4734528d854cab6161340ca9c16d30f2b0e5c87fe61a2f84e824bad8322e",
+          "itemCount": 5
+        }
+      ],
+      "expression": "australia ∈ source list",
+      "conclusion": "australia is absent from the validated exhaustive list.",
+      "explanation": "Absence is conclusive only because the source explicitly certifies the list as complete.",
+      "validationWarnings": [],
+      "program": {
+        "version": 1,
+        "steps": [
+          {
+            "id": "input-1",
+            "operation": "LOOKUP",
+            "inputIds": [
+              "list:doc-4de8403c2f50:counted-1:certificate"
+            ],
+            "outputType": "FACT",
+            "description": "Read an unchanged server-owned premise."
+          },
+          {
+            "id": "result",
+            "operation": "MEMBER",
+            "inputIds": [
+              "input-1"
+            ],
+            "outputType": "BOOLEAN",
+            "description": "Validate operand alignment and execute the typed operation in Python."
+          }
+        ],
+        "outputStepId": "result"
+      }
+    }
+  ],
+  "linguistics": {
+    "schemaVersion": 2,
+    "claimAnalysis": {
+      "atomId": "claim",
+      "frames": [
+        {
+          "id": "claim-frame-1",
+          "predicate": {
+            "id": "claim-frame-1-predicate",
+            "text": "is",
+            "start": 10,
+            "end": 12
+          },
+          "subjects": [
+            {
+              "id": "claim-frame-1-subject-1",
+              "text": "Australia",
+              "start": 0,
+              "end": 9
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "claim-frame-1-argument-1",
+              "text": "a permanent member of the UN Security Council",
+              "start": 13,
+              "end": 58,
+              "role": "subject_complement"
+            }
+          ],
+          "adjuncts": [],
+          "otherModifiers": []
+        }
+      ],
+      "cues": [],
+      "entities": [
+        {
+          "id": "claim-entity-gpe-0-9",
+          "text": "Australia",
+          "start": 0,
+          "end": 9,
+          "label": "GPE"
+        },
+        {
+          "id": "claim-entity-org-35-58",
+          "text": "the UN Security Council",
+          "start": 35,
+          "end": 58,
+          "label": "ORG"
+        }
+      ],
+      "tokens": [
+        {
+          "id": "claim-token-0",
+          "text": "Australia",
+          "start": 0,
+          "end": 9,
+          "lemma": "Australia",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "nsubj",
+          "head": "is"
+        },
+        {
+          "id": "claim-token-1",
+          "text": "is",
+          "start": 10,
+          "end": 12,
+          "lemma": "be",
+          "pos": "AUX",
+          "tag": "VBZ",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "claim-token-2",
+          "text": "a",
+          "start": 13,
+          "end": 14,
+          "lemma": "a",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "member"
+        },
+        {
+          "id": "claim-token-3",
+          "text": "permanent",
+          "start": 15,
+          "end": 24,
+          "lemma": "permanent",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "member"
+        },
+        {
+          "id": "claim-token-4",
+          "text": "member",
+          "start": 25,
+          "end": 31,
+          "lemma": "member",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "attr",
+          "head": "is"
+        },
+        {
+          "id": "claim-token-5",
+          "text": "of",
+          "start": 32,
+          "end": 34,
+          "lemma": "of",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "member"
+        },
+        {
+          "id": "claim-token-6",
+          "text": "the",
+          "start": 35,
+          "end": 38,
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "Council"
+        },
+        {
+          "id": "claim-token-7",
+          "text": "UN",
+          "start": 39,
+          "end": 41,
+          "lemma": "UN",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "Council"
+        },
+        {
+          "id": "claim-token-8",
+          "text": "Security",
+          "start": 42,
+          "end": 50,
+          "lemma": "Security",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "Council"
+        },
+        {
+          "id": "claim-token-9",
+          "text": "Council",
+          "start": 51,
+          "end": 58,
+          "lemma": "Council",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "pobj",
+          "head": "of"
+        },
+        {
+          "id": "claim-token-10",
+          "text": ".",
+          "start": 58,
+          "end": 59,
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "is"
+        }
+      ],
+      "status": "complete",
+      "unresolved": []
+    },
+    "analyses": [
+      {
+        "atomId": "atom-1",
+        "frames": [
+          {
+            "id": "atom-1-frame-1",
+            "predicate": {
+              "id": "atom-1-frame-1-predicate",
+              "text": "is",
+              "start": 10,
+              "end": 12
+            },
+            "subjects": [
+              {
+                "id": "atom-1-frame-1-subject-1",
+                "text": "Australia",
+                "start": 0,
+                "end": 9
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-1-frame-1-argument-1",
+                "text": "a permanent member of the UN Security Council",
+                "start": 13,
+                "end": 58,
+                "role": "subject_complement"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [],
+        "entities": [
+          {
+            "id": "atom-1-entity-gpe-0-9",
+            "text": "Australia",
+            "start": 0,
+            "end": 9,
+            "label": "GPE"
+          },
+          {
+            "id": "atom-1-entity-org-35-58",
+            "text": "the UN Security Council",
+            "start": 35,
+            "end": 58,
+            "label": "ORG"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-1-token-0",
+            "text": "Australia",
+            "start": 0,
+            "end": 9,
+            "lemma": "Australia",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "nsubj",
+            "head": "is"
+          },
+          {
+            "id": "atom-1-token-1",
+            "text": "is",
+            "start": 10,
+            "end": 12,
+            "lemma": "be",
+            "pos": "AUX",
+            "tag": "VBZ",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-1-token-2",
+            "text": "a",
+            "start": 13,
+            "end": 14,
+            "lemma": "a",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "member"
+          },
+          {
+            "id": "atom-1-token-3",
+            "text": "permanent",
+            "start": 15,
+            "end": 24,
+            "lemma": "permanent",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "member"
+          },
+          {
+            "id": "atom-1-token-4",
+            "text": "member",
+            "start": 25,
+            "end": 31,
+            "lemma": "member",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "attr",
+            "head": "is"
+          },
+          {
+            "id": "atom-1-token-5",
+            "text": "of",
+            "start": 32,
+            "end": 34,
+            "lemma": "of",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "member"
+          },
+          {
+            "id": "atom-1-token-6",
+            "text": "the",
+            "start": 35,
+            "end": 38,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "Council"
+          },
+          {
+            "id": "atom-1-token-7",
+            "text": "UN",
+            "start": 39,
+            "end": 41,
+            "lemma": "UN",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Council"
+          },
+          {
+            "id": "atom-1-token-8",
+            "text": "Security",
+            "start": 42,
+            "end": 50,
+            "lemma": "Security",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Council"
+          },
+          {
+            "id": "atom-1-token-9",
+            "text": "Council",
+            "start": 51,
+            "end": 58,
+            "lemma": "Council",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "pobj",
+            "head": "of"
+          },
+          {
+            "id": "atom-1-token-10",
+            "text": ".",
+            "start": 58,
+            "end": 59,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "is"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      }
+    ],
+    "summaries": [
+      {
+        "atomId": "atom-1",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "Australia"
+        ],
+        "predicates": [
+          "be"
+        ],
+        "cueKinds": [],
+        "modifierKinds": [],
+        "entityLabels": [
+          "GPE",
+          "ORG"
+        ],
+        "warnings": []
+      }
+    ],
+    "claimWarnings": [],
+    "provider": "spacy",
+    "model": "en_core_web_sm@3.8.0"
+  },
+  "verdict": {
+    "aggregationSchemaVersion": 3,
+    "claimId": "showcase-current-unsc",
+    "composition": "SINGLE",
+    "verdict": "REFUTED",
+    "positions": {
+      "supportPosition": false,
+      "refutePosition": true,
+      "materialOmissionPosition": false,
+      "supportObligationIds": [],
+      "refuteObligationIds": [
+        "atom-1"
+      ],
+      "unresolvedObligationIds": []
+    },
+    "obligations": [
+      {
+        "obligationId": "atom-1",
+        "state": "REFUTED",
+        "supportEdgeIds": [],
+        "refuteEdgeIds": [
+          "edge:REFUTES:inference:proof:atom-1:set_membership:1:obligation:showcase-current-unsc:atom-1"
+        ],
+        "unselectedCandidateCount": 2,
+        "provisionalRelationCount": 1
+      }
+    ],
+    "warnings": [
+      {
+        "code": "PROVISIONAL_EVIDENCE_EXCLUDED",
+        "message": "1 assessed relation(s) for obligation atom-1 are provisional because the evidence is not sufficient."
+      }
+    ],
+    "ruleTrace": [
+      "SINGLE maps its one obligation's validated relations directly.",
+      "Validated positions — support: no; refute: yes.",
+      "Verdict: REFUTED."
+    ]
+  },
+  "recordedWith": {
+    "pipelineRevision": "submission-ready-v2",
+    "inputDigest": "a71a9eb3ecf3478f9a37c30cb4c7b31bd79494befc51522da939b6b8a6bf8a1b",
+    "decompositionModel": "qwen2.5:7b",
+    "retrievalModel": "BAAI/bge-small-en-v1.5",
+    "retrievalMethod": "HYBRID",
+    "assessmentModel": "qwen2.5:7b",
+    "reasoningModel": "qwen2.5:7b",
+    "linguisticsModel": "en_core_web_sm@3.8.0"
+  },
+  "timingsSeconds": {
+    "decomposition": 13.546,
+    "retrievalAndLinguistics": 0.271,
+    "evidenceAssessment": 15.895,
+    "symbolicReasoning": 4.856,
+    "aggregation": 0.002,
+    "total": 34.57
+  }
+}

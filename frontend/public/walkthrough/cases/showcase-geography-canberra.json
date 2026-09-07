@@ -1,0 +1,38 @@
+{
+  "id": "showcase-geography-canberra",
+  "claim": "Canberra was Australia's most populous capital city on 30 June 2024.",
+  "documents": [
+    {
+      "id": "doc-5cdeff0e8e07",
+      "title": "Regional population, 2023-24",
+      "url": "https://www.abs.gov.au/statistics/people/population/regional-population/2023-24",
+      "layout": "PROSE",
+      "publisher": "Australian Bureau of Statistics",
+      "retrievedAt": "2026-09-05",
+      "sourceType": "SOURCE_EXCERPT",
+      "excerptSha256": "04be4a5b9de8f371d1d11730232f2976a737353daad6093b0d55d80ef596671c",
+      "sourceSha256": "e2fdb4c156cefac0e526303f165f26b5dc266ae466b7322f50b57b9c570c9388",
+      "text": "Greater Capital City Statistical Area (GCCSA), and any reference to area refers to Statistical Area Level 2 (SA2).\n- Melbourne had the largest growth (up by 142,600 people), followed by Sydney (107,500), Brisbane (72,900) and Perth (72,700).\n- Perth had the highest growth rate (3.1%), followed by Melbourne and Brisbane (both 2.7%).\nCapital city | ERP at 30 June 2024 | 2023-24 (no.) | 2023-24 (%) |\n---|---|---|---|\nSydney | 5,557,233 | 107,538 | 2.0 |\nMelbourne | 5,350,705 | 142,637 | 2.7 |\nBrisbane | 2,780,063 | 72,930 | 2.7 |\nAdelaide | 1,469,163 | 22,125 | 1.5 |\nPerth | 2,384,371 | 72,742 | 3.1 |\nHobart | 254,930 | 946 | 0.4 |\nDarwin | 152,489 | 1,367 | 0.9 |\nCanberra | 473,855 | 7,496 | 1.6 |\nTotal capital cities | 18,422,809 | 427,781 | 2.4 |\nPopulation change at the regional level has three components: natural increase, internal migration and overseas migration.\n- Natural increase was highest in Melbourne followed by Sydney, Brisbane and Perth.\n- Brisbane and Perth were the only capitals to have net internal migration gains. Net internal migration loss was largest in Sydney and Melbourne.\n- All capital cities experienced net overseas migration gain, which was largest in Melbourne followed by Sydney, Perth and Brisbane.\nThe areas with the largest growth were:\n- Fraser Rise - Plumpton (up by 4,300 people) and Rockbank - Mount Cottrell (4,100) in Melbourne's outer"
+    },
+    {
+      "id": "doc-988b8061bae5",
+      "title": "Capital cities continue strong growth",
+      "url": "https://www.abs.gov.au/media-centre/media-releases/capital-cities-continue-strong-growth",
+      "layout": "PROSE",
+      "publisher": "Australian Bureau of Statistics",
+      "retrievedAt": "2026-09-05",
+      "sourceType": "SOURCE_EXCERPT",
+      "excerptSha256": "814b6bd0fa592dde30bf4ae2bbe16dcbc12f64e5775a9d0b367fe4a1cc65fdda",
+      "sourceSha256": "8cf7ec42abc54851e23aa45934c704f101a78c5a844a4ae3fa043ade4c66af3f",
+      "text": "Capital cities continue strong growth\nThe population of Australia’s capital cities grew by almost 430,000 people in the year ending June 2024, according to figures released today by the Australian Bureau of Statistics (ABS).\nBeidar Cho, ABS head of demography said: ‘Australia's capital cities grew by 427,800 people last financial year, down from a record growth of 520,900 the previous year. This was largely driven by net overseas migration.’\nMelbourne (+142,600) and Sydney (+107,500) had the biggest rises in population in 2023-24. Perth and Brisbane each also added 73,000 people.\nThe growth rate for Australian capitals combined was 2.4 per cent, almost double the growth rate for regional Australia (1.3 per cent).\nPerth had the highest growth rate (3.1 per cent), followed by Melbourne and Brisbane, both at 2.7 per cent.\nCapital city | Population change 2023-24 | Population 30 June 2024 | |\n---|---|---|---|\nPeople | Per cent | ||\nSydney | 107,500 | 2.0 | 5,557,200 |\nMelbourne | 142,600 | 2.7 | 5,350,700 |\nBrisbane | 72,900 | 2.7 | 2,780,100 |\nAdelaide | 22,100 | 1.5 | 1,469,200 |\nPerth | 72,700 | 3.1 | 2,384,400 |\nHobart | 950 | 0.4 | 254,900 |\nDarwin | 1,400 | 0.9 | 152,500 |\nCanberra | 7,500 | 1.6 | 473,900 |\nAll capitals | 427,800 | 2.4 | 18,422,800 |\nRegional Australia | 113,800 | 1.3 | 8,771,600 |\nThe largest growth areas were mostly in"
+    }
+  ],
+  "label": "REFUTED",
+  "displayTitle": "Canberra and Australia's largest city",
+  "topics": [],
+  "challenges": [],
+  "featured": false,
+  "origin": "CONSTRUCTED",
+  "category": "GEOGRAPHY",
+  "demoFocus": "EXTREMUM"
+}

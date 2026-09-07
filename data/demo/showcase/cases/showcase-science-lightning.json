@@ -1,0 +1,38 @@
+{
+  "id": "showcase-science-lightning",
+  "claim": "Lightning can strike the same place more than once.",
+  "documents": [
+    {
+      "id": "doc-a82c0e708ef3",
+      "title": "The Science of Lightning",
+      "url": "https://www.weather.gov/safety/lightning-science-overview",
+      "layout": "PROSE",
+      "publisher": "U.S. National Weather Service",
+      "retrievedAt": "2026-09-05",
+      "sourceType": "SOURCE_EXCERPT",
+      "excerptSha256": "f459cf60ee75ebb51e411acd15e440da4de9c8c5bac3596101573e8cae776d31",
+      "sourceSha256": "8f640af8883cf0d5e20273fa4b0900c35d52583af27c1c71046703c9f1fbccce",
+      "text": "Lightning is fascinating to watch but also extremely dangerous. In the United States, there are about 25 million lightning flashes every year. Each of those 25 million flashes is a potential killer. While lightning fatalities have decreased over the past 30 years, lightning continues to be one of the top weather killers in the United States. In addition, lightning injures many more people than it kills and leaves some victims with life-long health problems.\nUnderstanding the dangers of lightning is important so that you can get to a safe place when thunderstorms threaten. If you hear thunder—even a distant rumble—you are already in danger of becoming a lightning victim.\nAll thunderstorms go through stages of growth, development, electrification and dissipation. Thunderstorms often begin to develop early in the day when the sun heats the air near the ground and pockets of warmer air start to rise in the atmosphere. When these pockets of air reach a certain level in the atmosphere, cumulus clouds start to form. Continued heating causes these clouds to grow vertically into the atmosphere. These \"towering cumulus\" clouds may be one of the first signs of a developing thunderstorm. The final stage of development occurs as the top of the cloud becomes anvil-shaped.\nAs a thunderstorm cloud grows, precipitation forms within the cloud. A well-developed thunderstorm cloud contains mostly small ice crystals in the upper levels of the cloud, a mixture of small ice crystals and small"
+    },
+    {
+      "id": "doc-7cb444a67bc0",
+      "title": "Lightning Myths and Facts",
+      "url": "https://www.weather.gov/safety/lightning-myths",
+      "layout": "PROSE",
+      "publisher": "U.S. National Weather Service",
+      "retrievedAt": "2026-09-05",
+      "sourceType": "SOURCE_EXCERPT",
+      "excerptSha256": "61953bb1cf805679caad02ceadce07d91de4f987666a7ab840891e3b152ebbb7",
+      "sourceSha256": "bd68a1643a783326642a13f878218fb06e6a5957c89a43301d56b21d2ac31a01",
+      "text": "to one of these options, you have no other good alternative. You are NOT safe anywhere outdoors. See our safety page for tips that may slightly reduce your risk.\nMyth: Lightning never strikes the same place twice.\nFact: Lightning often strikes the same place repeatedly, especially if it's a tall, pointy, isolated object. The Empire State Building is hit an average of 23 times a year\nMyth: If it’s not raining or there aren’t clouds overhead, you’re safe from lightning.\nFact: Lightning often strikes more than three miles from the center of the thunderstorm, far outside the rain or thunderstorm cloud. “Bolts from the blue” can strike 10-15 miles from the thunderstorm.\nMyth: A lightning victim is electrified. If you touch them, you’ll be electrocuted.\nFact: The human body does not store electricity. It is perfectly safe to touch a lightning victim to give them first aid. This is the most chilling of lightning Myths. Imagine if someone died because people were afraid to give CPR! When tending to a lightning victim, be aware of the continued threat for lightning, and move yourself and the victim to a safe location as soon as it is possible.\nMyth: If outside in a thunderstorm, you should seek shelter under a tree to stay dry.\nFact: Being underneath a tree is the second leading cause of lightning casualties. Better to get wet than fried!\nMyth: If you are in a house, you are"
+    }
+  ],
+  "label": "SUPPORTED",
+  "displayTitle": "Lightning striking twice",
+  "topics": [],
+  "challenges": [],
+  "featured": false,
+  "origin": "CONSTRUCTED",
+  "category": "SCIENCE",
+  "demoFocus": "DIRECT_EVIDENCE"
+}

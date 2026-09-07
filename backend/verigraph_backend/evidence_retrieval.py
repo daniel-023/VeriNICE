@@ -10,10 +10,12 @@ from .errors import EvidenceRetrievalConfigurationError, EvidenceRetrievalError
 from .schemas import (
     DEFAULT_EVIDENCE_PER_ATOM,
     AtomEvidence,
+    EvidenceContextSpan,
     EvidenceRetrievalResponse,
     EvidenceSpan,
     RetrievalAtom,
     RetrievalDocument,
+    RetrievalMethod,
 )
 from .segmentation import SentenceSpan, segment_document, segment_documents
 from .settings import settings
@@ -59,7 +61,7 @@ def _reciprocal_rank_fusion(primary: Sequence[float], secondary: Sequence[float]
     primary_rank = {index: rank for rank, index in enumerate(primary_order, start=1)}
     secondary_rank = {index: rank for rank, index in enumerate(secondary_order, start=1)}
     return [
-        1 / (60 + primary_rank[index]) + 1.2 / (60 + secondary_rank[index])
+        1 / (60 + primary_rank[index]) + 1 / (60 + secondary_rank[index])
         for index in range(len(primary))
     ]
 
@@ -73,8 +75,31 @@ def _rank_hybrid_sentences(
     """Fuse semantic and lexical ranks, then apply diversity as a soft guard."""
     lexical_scores = [_lexical_score(query, sentence.text) for sentence in sentences]
     fused = _reciprocal_rank_fusion(dense_scores, lexical_scores)
-    ranked = sorted(range(len(sentences)), key=lambda index: (-fused[index], index))
-    selected = ranked[:budget]
+    # Equal-weight RRF frequently creates symmetric ties (for example, ranks
+    # 1/2 versus 2/1). Exact lexical anchors are the deterministic tie-breaker;
+    # document order and sentence offset remain the final stable ordering.
+    ranked = sorted(
+        range(len(sentences)),
+        key=lambda index: (-fused[index], -lexical_scores[index], index),
+    )
+    document_count = len({sentence.document_id for sentence in sentences})
+    # Preserve Hybrid's soft diversity for small budgets, while allowing a
+    # user-selected budget above six to expand beyond the former 3-per-source
+    # ceiling. The replacement pass below may still introduce another source
+    # when its best lexical anchor is competitive.
+    per_document_limit = budget if document_count <= 1 else max(
+        3, _per_document_limit(budget, document_count)
+    )
+    selected: List[int] = []
+    counts: Counter[str] = Counter()
+    for index in ranked:
+        document_id = sentences[index].document_id
+        if counts[document_id] >= per_document_limit:
+            continue
+        selected.append(index)
+        counts[document_id] += 1
+        if len(selected) >= budget:
+            break
     if not selected:
         return []
 
@@ -116,8 +141,22 @@ def _is_sentence_like(text: str) -> bool:
     stripped = text.strip()
     if not stripped:
         return False
+    # A labelled myth heading quotes a proposition but does not assert it.
+    # Keep the accompanying explanatory sentence, which is the evidence unit.
+    if re.match(r"(?i)^myth\s*:", stripped):
+        return False
     word_count = len(_LEXICAL_WORD.findall(stripped))
     if word_count >= MIN_HEADING_WORDS or stripped.endswith((".", "?", "!")):
+        return True
+    # Compact source fact rows can be complete evidence units even without
+    # sentence punctuation (for example, an award, place, and year). Require
+    # both a typed fact cue and a number so ordinary navigation headings stay
+    # excluded.
+    if (
+        word_count >= 3
+        and re.search(r"\d", stripped)
+        and re.search(r"(?i)\b(?:awarded|award|born|date|died|joined|member|nobel|population|prize|sale)\b", stripped)
+    ):
         return True
     # Short explicit list entries remain available for the future symbolic stage.
     return bool(_LIST_PREFIX.match(stripped))
@@ -173,51 +212,104 @@ def _rank_sentences(
     return selected
 
 
-#: Neighbouring sentences included in the NLI premise on each side. One is
-#: enough to resolve the pronouns and ellipsis that strand an isolated sentence;
-#: this is a fixed reading window, not a value to search over.
-CONTEXT_NEIGHBOURS = 1
+#: Bound assembled reading context while keeping the highlighted anchor intact.
+#: Adjacent sentences are added only when an anaphoric or forward-introduction
+#: cue makes the anchor dependent on them.
 MAX_CONTEXT_CHARACTERS = 4000
 
+_BACKWARD_CONTEXT = re.compile(
+    r"^(?:however|but|and|also|instead|meanwhile|therefore|thus|accordingly|"
+    r"consequently|similarly|this|that|these|those|such|he|she|it|they|his|"
+    r"her|its|their|the former|the latter)\b",
+    re.IGNORECASE,
+)
+_FORWARD_CONTEXT = re.compile(
+    r"(?:as follows|the following|these are|listed below)\s*[:.]?$",
+    re.IGNORECASE,
+)
+_REFERENCE_DEPENDENT = re.compile(
+    r"\b(?:he|she|it|they|this|that|these|those|former|latter|above|below)\b",
+    re.IGNORECASE,
+)
 
-def _context(sentence: SentenceSpan, ordered: Sequence[SentenceSpan]) -> str:
-    """The sentence plus its immediate neighbours from the same document."""
+
+def _same_paragraph(left: SentenceSpan, right: SentenceSpan) -> bool:
+    boundary = f"{left.text[-4:]}{right.text[:4]}"
+    return re.search(r"\n\s*\n", boundary) is None
+
+
+def _context_sentences(
+    sentence: SentenceSpan, ordered: Sequence[SentenceSpan]
+) -> List[tuple[SentenceSpan, str]]:
+    """Select only context signalled by the anchor's language.
+
+    Context never crosses a document or paragraph boundary. The exact anchor
+    remains the evidence unit; these sentences only resolve references or an
+    explicit forward introduction.
+    """
     same_document = [item for item in ordered if item.document_id == sentence.document_id]
     position = next(
         (index for index, item in enumerate(same_document) if item.id == sentence.id),
         None,
     )
     if position is None:
-        return sentence.text
-    window_start = max(0, position - CONTEXT_NEIGHBOURS)
-    window = same_document[
-        window_start : position + CONTEXT_NEIGHBOURS + 1
-    ]
-    context = " ".join(item.text for item in window)
-    if len(context) <= MAX_CONTEXT_CHARACTERS:
-        return context
+        return []
+    stripped = sentence.text.strip()
+    selected: List[tuple[SentenceSpan, str]] = []
+    needs_previous = bool(
+        _BACKWARD_CONTEXT.match(stripped)
+        or _REFERENCE_DEPENDENT.search(stripped)
+        or stripped.startswith(('"', "“", "'"))
+    )
+    if needs_previous and position > 0:
+        previous = same_document[position - 1]
+        if (
+            len(previous.text) <= MAX_CANDIDATE_CHARACTERS
+            and _same_paragraph(previous, sentence)
+        ):
+            selected.append((previous, "PREVIOUS"))
+    if _FORWARD_CONTEXT.search(stripped) and position + 1 < len(same_document):
+        following = same_document[position + 1]
+        if (
+            len(following.text) <= MAX_CANDIDATE_CHARACTERS
+            and _same_paragraph(sentence, following)
+        ):
+            selected.append((following, "NEXT"))
+    elif position + 1 < len(same_document):
+        following = same_document[position + 1]
+        if (
+            _BACKWARD_CONTEXT.match(following.text.strip())
+            and len(following.text) <= MAX_CANDIDATE_CHARACTERS
+            and _same_paragraph(sentence, following)
+        ):
+            selected.append((following, "NEXT"))
+    return selected
 
-    # Extraction artifacts occasionally produce a very long neighbouring
-    # "sentence". Keep the selected sentence intact and spend the remaining
-    # context budget evenly on the text immediately before and after it.
-    target_position = position - window_start
-    target_offset = sum(len(item.text) + 1 for item in window[:target_position])
-    target_end = target_offset + len(sentence.text)
-    if len(sentence.text) >= MAX_CONTEXT_CHARACTERS:
-        return sentence.text[:MAX_CONTEXT_CHARACTERS]
-    remaining = MAX_CONTEXT_CHARACTERS - len(sentence.text)
-    before_budget = remaining // 2
-    after_budget = remaining - before_budget
-    before = context[max(0, target_offset - before_budget) : target_offset]
-    after = context[target_end : target_end + after_budget]
-    unused = remaining - len(before) - len(after)
-    if unused and target_offset > len(before):
-        extra_start = max(0, target_offset - len(before) - unused)
-        before = context[extra_start:target_offset]
-    unused = remaining - len(before) - len(after)
-    if unused:
-        after = context[target_end : target_end + len(after) + unused]
-    return f"{before}{sentence.text}{after}"[:MAX_CONTEXT_CHARACTERS]
+
+def _context(sentence: SentenceSpan, ordered: Sequence[SentenceSpan]) -> str:
+    """Assemble the anchor and only its explicitly selected reading context."""
+    context_items = [item for item, _direction in _context_sentences(sentence, ordered)]
+    context_items.append(sentence)
+    context_items.sort(key=lambda item: item.ordinal)
+    return " ".join(item.text.strip() for item in context_items)[:MAX_CONTEXT_CHARACTERS]
+
+
+def _context_span(
+    sentence: SentenceSpan,
+    direction: str,
+    documents_by_id: dict[str, str],
+) -> EvidenceContextSpan:
+    document = documents_by_id[sentence.document_id]
+    if document[sentence.start : sentence.end] != sentence.text:
+        raise EvidenceRetrievalError("A context sentence no longer matches its source document.")
+    return EvidenceContextSpan(
+        id=sentence.id,
+        document_id=sentence.document_id,
+        text=sentence.text,
+        start=utf16_offset(document, sentence.start),
+        end=utf16_offset(document, sentence.end),
+        direction=direction,
+    )
 
 
 def _span(
@@ -236,6 +328,10 @@ def _span(
         text=sentence.text,
         start=utf16_offset(document, sentence.start),
         end=utf16_offset(document, sentence.end),
+        context_spans=[
+            _context_span(item, direction, documents_by_id)
+            for item, direction in _context_sentences(sentence, ordered)
+        ],
         context=_context(sentence, ordered),
     )
 
@@ -246,6 +342,7 @@ async def retrieve_evidence(
     *,
     prepared_cache_key: Optional[str] = None,
     evidence_per_atom: int = DEFAULT_EVIDENCE_PER_ATOM,
+    retrieval_method: RetrievalMethod = RetrievalMethod.hybrid,
 ) -> EvidenceRetrievalResponse:
     if not settings.embedding_model_path.is_dir():
         raise EvidenceRetrievalConfigurationError(
@@ -257,14 +354,22 @@ async def retrieve_evidence(
     if not sentences:
         return EvidenceRetrievalResponse(
             evidence=[AtomEvidence(atom_id=atom.id, spans=[]) for atom in atoms],
-            model=settings.embedding_model,
+            provider=("python" if retrieval_method == RetrievalMethod.lexical else "sentence-transformers"),
+            model=("lexical-overlap-v1" if retrieval_method == RetrievalMethod.lexical else settings.embedding_model),
+            retrieval_method=retrieval_method,
         )
 
-    score_matrix = await embeddings.similarity_matrix(
-        [atom.text for atom in atoms],
-        [sentence.text for sentence in sentences],
-        cache_key=prepared_cache_key,
-    )
+    if retrieval_method == RetrievalMethod.lexical:
+        score_matrix = [
+            [_lexical_score(atom.text, sentence.text) for sentence in sentences]
+            for atom in atoms
+        ]
+    else:
+        score_matrix = await embeddings.similarity_matrix(
+            [atom.text for atom in atoms],
+            [sentence.text for sentence in sentences],
+            cache_key=prepared_cache_key,
+        )
     if len(score_matrix) != len(atoms):
         raise EvidenceRetrievalError(
             "The embedding model returned an invalid evidence score matrix."
@@ -273,18 +378,24 @@ async def retrieve_evidence(
     documents_by_id = {document.id: document.text for document in documents}
     evidence: List[AtomEvidence] = []
     for atom, scores in zip(atoms, score_matrix):
+        if retrieval_method == RetrievalMethod.hybrid:
+            ranked = _rank_hybrid_sentences(
+                sentences, scores, atom.text, evidence_per_atom
+            )
+        else:
+            ranked = _rank_sentences(sentences, scores, evidence_per_atom)
         evidence.append(
             AtomEvidence(
                 atom_id=atom.id,
                 spans=[
                     _span(sentence, documents_by_id, all_sentences)
-                    for sentence in _rank_hybrid_sentences(
-                        sentences, scores, atom.text, evidence_per_atom
-                    )
+                    for sentence in ranked
                 ],
             )
         )
     return EvidenceRetrievalResponse(
         evidence=evidence,
-        model=settings.embedding_model,
+        provider=("python" if retrieval_method == RetrievalMethod.lexical else "sentence-transformers"),
+        model=("lexical-overlap-v1" if retrieval_method == RetrievalMethod.lexical else settings.embedding_model),
+        retrieval_method=retrieval_method,
     )

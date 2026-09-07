@@ -1,175 +1,146 @@
-"""Deterministic, versioned four-way verdict aggregation."""
+"""Composition-first aggregation of grounded neural and symbolic relations."""
 
 from .schemas import (
-    AggregationWarning,
-    ClaimComposition,
-    ClaimEvidencePositions,
-    GroundedClaimPosition,
-    NLIRelation,
-    ObligationEvidenceState,
-    ObligationEvidenceSummary,
-    ReferenceLabel,
-    VerdictAggregationRequest,
-    VerdictAggregationResult,
+    AggregationWarning, ClaimComposition, ClaimEvidencePositions,
+    ObligationEvidenceState, ObligationEvidenceSummary, ReferenceLabel,
+    SymbolicStatus, VerdictAggregationRequest, VerdictAggregationResult,
 )
 
 
-def _edge_id(kind: str, claim_id: str, atom_id: str, document_id: str, span_id: str) -> str:
+def _evidence_edge(kind: str, claim_id: str, atom_id: str, document_id: str, span_id: str) -> str:
     return f"edge:{kind}:evidence:{document_id}:{span_id}:obligation:{claim_id}:{atom_id}"
 
 
+def _proof_edge(kind: str, claim_id: str, atom_id: str, execution_id: str) -> str:
+    return f"edge:{kind}:inference:{execution_id}:obligation:{claim_id}:{atom_id}"
+
+
+def _assessed_edges(
+    kind: str, claim_id: str, atom_id: str, span_ids: list[str], span_by_id: dict
+) -> list[str]:
+    if len(span_ids) >= 2:
+        inference_id = f"inference:bundle:{atom_id}:{kind.lower()}"
+        return [f"edge:{kind}:{inference_id}:obligation:{claim_id}:{atom_id}"]
+    return [
+        _evidence_edge(kind, claim_id, atom_id, span_by_id[item].document_id, item)
+        for item in span_ids
+    ]
+
+
 def aggregate_verdict(request: VerdictAggregationRequest) -> VerdictAggregationResult:
-    """Map validated evidence positions; reference labels never enter this function."""
+    """Aggregate validated relations without consulting the reference label."""
     atoms = request.atoms
     if request.composition == ClaimComposition.single and len(atoms) != 1:
         raise ValueError("SINGLE composition requires exactly one verification obligation")
+    evidence_by_atom = {item.atom_id: item for item in request.evidence}
+    audits_by_atom = {item.atom_id: item for item in request.assessment.obligations}
+    proofs_by_atom: dict[str, list] = {atom.id: [] for atom in atoms}
+    for proof in request.reasoning:
+        proofs_by_atom[proof.atom_id].append(proof)
 
-    evidence_keys = {
-        (item.atom_id, span.document_id, span.id)
-        for item in request.evidence
-        for span in item.spans
-    }
     warnings: list[AggregationWarning] = []
-    entailed_span_ids: set[str] = set()
-    relations_by_atom = {item.atom_id: item.relations for item in request.classifications}
-    summaries_by_atom = {item.atom_id: item for item in request.linguistic_summaries}
-    obligation_summaries: list[ObligationEvidenceSummary] = []
-
+    obligations: list[ObligationEvidenceSummary] = []
+    accepted_support_ids: set[str] = set()
+    all_span_ids = {span.id for group in request.evidence for span in group.spans}
     for atom in atoms:
-        support_ids: list[str] = []
-        attack_ids: list[str] = []
-        neutral_count = 0
-        seen: set[tuple[str, str, str]] = set()
-        for relation in relations_by_atom[atom.id]:
-            key = (relation.relation.value, relation.document_id, relation.span_id)
-            if key in seen:
-                warnings.append(AggregationWarning(
-                    code="DUPLICATE_ARGUMENT_RELATION",
-                    message=f"Duplicate NLI relation for obligation {atom.id} was deduplicated.",
-                ))
+        group = evidence_by_atom[atom.id]
+        audit = audits_by_atom[atom.id]
+        span_by_id = {span.id: span for span in group.spans}
+        provisional_support_ids = list(dict.fromkeys(audit.support_span_ids))
+        provisional_refute_ids = list(dict.fromkeys(audit.refute_span_ids))
+        if not set(provisional_support_ids + provisional_refute_ids + audit.context_span_ids).issubset(span_by_id):
+            raise ValueError(f"Assessment references missing evidence for obligation {atom.id}")
+        decisive = audit.sufficiency == "SUFFICIENT"
+        support_ids = provisional_support_ids if decisive else []
+        refute_ids = provisional_refute_ids if decisive else []
+        accepted_support_ids.update(support_ids)
+        support_edges = _assessed_edges("SUPPORTS", request.claim_id, atom.id, support_ids, span_by_id)
+        refute_edges = _assessed_edges("REFUTES", request.claim_id, atom.id, refute_ids, span_by_id)
+        for proof in proofs_by_atom[atom.id]:
+            if proof.status not in {SymbolicStatus.proved, SymbolicStatus.disproved}:
                 continue
-            seen.add(key)
-            if (atom.id, relation.document_id, relation.span_id) not in evidence_keys:
-                raise ValueError(f"NLI relation references missing evidence for obligation {atom.id}")
-            if relation.relation == NLIRelation.neutral:
-                neutral_count += 1
-            elif relation.relation == NLIRelation.entailment:
-                entailed_span_ids.add(relation.span_id)
-                support_ids.append(_edge_id("SUPPORTS", request.claim_id, atom.id, relation.document_id, relation.span_id))
-            elif relation.relation == NLIRelation.contradiction:
-                attack_ids.append(_edge_id("ATTACKS", request.claim_id, atom.id, relation.document_id, relation.span_id))
-
+            if proof.relation == "SUPPORTS":
+                support_edges.append(_proof_edge("SUPPORTS", request.claim_id, atom.id, proof.id))
+            elif proof.relation == "REFUTES":
+                refute_edges.append(_proof_edge("REFUTES", request.claim_id, atom.id, proof.id))
         state = (
-            ObligationEvidenceState.conflicting if support_ids and attack_ids
-            else ObligationEvidenceState.supported if support_ids
-            else ObligationEvidenceState.refuted if attack_ids
+            ObligationEvidenceState.conflicting if support_edges and refute_edges
+            else ObligationEvidenceState.supported if support_edges
+            else ObligationEvidenceState.refuted if refute_edges
             else ObligationEvidenceState.unresolved
         )
         if state == ObligationEvidenceState.unresolved:
+            warnings.append(AggregationWarning(code="OBLIGATION_WITHOUT_ARGUMENT_EDGES", message=f"Obligation {atom.id} has no validated supporting or refuting relation."))
+        provisional_count = len(set(provisional_support_ids + provisional_refute_ids)) if not decisive else 0
+        if provisional_count:
             warnings.append(AggregationWarning(
-                code="OBLIGATION_WITHOUT_ARGUMENT_EDGES",
-                message=f"Obligation {atom.id} has no supporting or attacking evidence.",
+                code="PROVISIONAL_EVIDENCE_EXCLUDED",
+                message=f"{provisional_count} assessed relation(s) for obligation {atom.id} are provisional because the evidence is not sufficient.",
             ))
-            if neutral_count:
-                warnings.append(AggregationWarning(
-                    code="ONLY_NEUTRAL_CANDIDATES",
-                    message=f"Obligation {atom.id} has only neutral retrieved candidates.",
-                ))
-        summary = summaries_by_atom.get(atom.id)
-        if summary and (summary.analysis_status == "partial" or summary.warnings):
-            warnings.append(AggregationWarning(
-                code="PARTIAL_LINGUISTIC_ANALYSIS" if summary.analysis_status == "partial" else "LINGUISTIC_AUDIT_WARNING",
-                message=f"Linguistic analysis for obligation {atom.id} requires inspection; it does not change the verdict.",
-            ))
-        obligation_summaries.append(ObligationEvidenceSummary(
-            obligation_id=atom.id,
-            state=state,
-            support_edge_ids=support_ids,
-            attack_edge_ids=attack_ids,
-            neutral_candidate_count=neutral_count,
+        obligations.append(ObligationEvidenceSummary(
+            obligation_id=atom.id, state=state,
+            support_edge_ids=support_edges, refute_edge_ids=refute_edges,
+            unselected_candidate_count=max(0, len(group.spans) - len(set(provisional_support_ids + provisional_refute_ids + audit.context_span_ids))),
+            provisional_relation_count=provisional_count,
         ))
 
-    supported = [item.obligation_id for item in obligation_summaries if item.support_edge_ids]
-    attacked = [item.obligation_id for item in obligation_summaries if item.attack_edge_ids]
-    unresolved = [item.obligation_id for item in obligation_summaries if item.state == ObligationEvidenceState.unresolved]
-    composition = request.composition
-    material_omission_position = False
-    if request.material_omission is not None and request.material_omission.detected:
-        all_span_ids = {span.id for item in request.evidence for span in item.spans}
-        missing = (
-            set(request.material_omission.support_span_ids)
-            | set(request.material_omission.context_span_ids)
-        ) - all_span_ids
-        if missing:
-            raise ValueError("Material-omission certificate references missing evidence spans")
-        if not set(request.material_omission.support_span_ids).issubset(entailed_span_ids):
-            raise ValueError("Material-omission support spans must be grounded support relations")
-        material_omission_position = True
-    grounded_position = None
-    if request.claim_audit is not None:
-        all_span_ids = {span.id for item in request.evidence for span in item.spans}
-        referenced = (
-            set(request.claim_audit.support_span_ids)
-            | set(request.claim_audit.attack_span_ids)
-            | set(request.claim_audit.context_span_ids)
-        )
+    supported_only = [item.obligation_id for item in obligations if item.state == ObligationEvidenceState.supported]
+    refuted_only = [item.obligation_id for item in obligations if item.state == ObligationEvidenceState.refuted]
+    conflicting = [item.obligation_id for item in obligations if item.state == ObligationEvidenceState.conflicting]
+    unresolved = [item.obligation_id for item in obligations if item.state == ObligationEvidenceState.unresolved]
+    omission = request.assessment.material_omission
+    if omission.detected:
+        referenced = set(omission.support_span_ids + omission.context_span_ids)
         if not referenced.issubset(all_span_ids):
-            raise ValueError("Grounded claim audit references missing evidence spans")
-        grounded_position = request.claim_audit.position
-        support_position = grounded_position in {
-            GroundedClaimPosition.support_only,
-            GroundedClaimPosition.mixed_or_misleading,
-        }
-        attack_position = grounded_position in {
-            GroundedClaimPosition.attack_only,
-            GroundedClaimPosition.mixed_or_misleading,
-        }
-        rule = (
-            "The provenance-constrained claim audit sets the overall evidence "
-            "position; deterministic aggregation maps that position to status."
-        )
-    elif composition == ClaimComposition.and_:
-        support_position, attack_position = len(supported) == len(atoms), bool(attacked)
-        rule = "AND support requires support for every obligation; AND attack requires an attack on any obligation."
-    elif composition == ClaimComposition.or_:
-        support_position, attack_position = bool(supported), len(attacked) == len(atoms)
-        rule = "OR support requires support for any obligation; OR attack requires attacks on every obligation."
+            raise ValueError("Material-omission certificate references missing evidence spans")
+        if not set(omission.support_span_ids).issubset(accepted_support_ids):
+            raise ValueError("Material-omission support spans must be grounded support relations")
+
+    if request.composition == ClaimComposition.and_:
+        if refuted_only:
+            support_position, refute_position, rule = False, True, "AND is refuted when any obligation is refuted-only."
+        elif conflicting:
+            support_position, refute_position, rule = True, True, "AND is conflicting when no obligation is refuted-only and an obligation has both relations."
+        elif len(supported_only) == len(atoms):
+            support_position, refute_position, rule = True, False, "AND is supported only when every obligation is support-only."
+        else:
+            support_position, refute_position, rule = False, False, "AND is insufficient while any obligation remains unresolved."
+    elif request.composition == ClaimComposition.or_:
+        if supported_only:
+            support_position, refute_position, rule = True, False, "OR is supported when any obligation is support-only."
+        elif conflicting:
+            support_position, refute_position, rule = True, True, "OR is conflicting when none is support-only and an obligation has both relations."
+        elif len(refuted_only) == len(atoms):
+            support_position, refute_position, rule = False, True, "OR is refuted only when every obligation is refuted-only."
+        else:
+            support_position, refute_position, rule = False, False, "OR is insufficient while no disjunct is support-only and some remain unresolved."
     else:
-        support_position, attack_position = bool(supported), bool(attacked)
-        rule = "SINGLE uses its only obligation's support and attack positions."
-    positions = ClaimEvidencePositions(
-        support_position=support_position,
-        attack_position=attack_position,
-        material_omission_position=material_omission_position,
-        support_obligation_ids=supported,
-        attack_obligation_ids=attacked,
-        unresolved_obligation_ids=unresolved,
-        grounded_claim_position=grounded_position,
-    )
+        state = obligations[0].state
+        support_position = state in {ObligationEvidenceState.supported, ObligationEvidenceState.conflicting}
+        refute_position = state in {ObligationEvidenceState.refuted, ObligationEvidenceState.conflicting}
+        rule = "SINGLE maps its one obligation's validated relations directly."
+
     verdict = (
-        ReferenceLabel.conflicting_evidence if material_omission_position or (support_position and attack_position)
+        ReferenceLabel.conflicting_evidence if omission.detected or (support_position and refute_position)
         else ReferenceLabel.supported if support_position
-        else ReferenceLabel.refuted if attack_position
+        else ReferenceLabel.refuted if refute_position
         else ReferenceLabel.not_enough_evidence
     )
-    trace = [rule]
-    if request.claim_audit is not None:
-        trace.append(
-            f"Grounded claim position: {request.claim_audit.position.value}; "
-            f"{request.claim_audit.reason}"
-        )
-    trace.append(f"Support position: {'yes' if support_position else 'no'}; attack position: {'yes' if attack_position else 'no'}.")
-    if material_omission_position:
-        trace.append(
-            "Material-omission position: yes; selected support and correcting-context spans establish a cherrypicking conflict."
-        )
-    trace.append(f"Final verdict: {verdict.value}.")
+    positions = ClaimEvidencePositions(
+        support_position=support_position, refute_position=refute_position,
+        material_omission_position=omission.detected,
+        support_obligation_ids=[item.obligation_id for item in obligations if item.support_edge_ids],
+        refute_obligation_ids=[item.obligation_id for item in obligations if item.refute_edge_ids],
+        unresolved_obligation_ids=unresolved,
+    )
+    trace = [
+        rule,
+        f"Validated positions — support: {'yes' if support_position else 'no'}; refute: {'yes' if refute_position else 'no'}.",
+    ]
+    if omission.detected:
+        trace.append("A separately grounded material-omission certificate establishes a misleading conflict.")
+    trace.append(f"Verdict: {verdict.value}.")
     return VerdictAggregationResult(
-        claim_id=request.claim_id,
-        composition=composition,
-        verdict=verdict,
-        positions=positions,
-        obligations=obligation_summaries,
-        warnings=warnings,
-        rule_trace=trace,
+        claim_id=request.claim_id, composition=request.composition, verdict=verdict,
+        positions=positions, obligations=obligations, warnings=warnings, rule_trace=trace,
     )

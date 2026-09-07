@@ -15,7 +15,7 @@ from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Callable, Dict, Iterable, List, Optional, Sequence, Tuple
-from urllib.parse import urldefrag, urlparse
+from urllib.parse import parse_qsl, urlencode, urldefrag, urlparse, urlsplit, urlunsplit
 
 import httpx
 
@@ -27,6 +27,7 @@ from verigraph_backend.demo_data import bundle_digest  # noqa: E402
 from verigraph_backend.schemas import (  # noqa: E402
     DemoCase,
     DemoDocument,
+    DocumentLayout,
     ReferenceLabel,
 )
 
@@ -45,10 +46,7 @@ MAX_PDF_PAGES = 300
 MAX_DOCUMENT_CHARACTERS = 250_000
 MIN_CASES_PER_LABEL = 8
 MAX_CASES_PER_LABEL = 8
-USER_AGENT = "VeriGraph-demo/0.4 (offline research dataset preparation)"
-EVIDENCE_CARD_HEADING = "AVERITEC HUMAN-ANNOTATED EVIDENCE CARD"
-
-
+USER_AGENT = "VeriTrace-demo/0.4 (offline research dataset preparation)"
 PUBLISHED_CASES: Dict[ReferenceLabel, Sequence[int]] = {
     ReferenceLabel.supported: (34, 146, 158, 125, 319, 392, 145, 323),
     ReferenceLabel.refuted: (44, 280, 419, 495, 89, 3, 4, 8),
@@ -84,6 +82,7 @@ class FetchResult:
     title: str = ""
     error: str = ""
     method: str = ""
+    layout: str = "PROSE"
 
 
 def _tokens(value: str) -> set[str]:
@@ -110,6 +109,18 @@ def _canonical_source_url(value: str) -> str:
         flags=re.IGNORECASE,
     )
     return _canonical_url(match.group(1)) if match else url
+
+
+def _source_identity_url(value: str) -> str:
+    """Normalize equivalent source URLs without altering the displayed URL."""
+    source = _canonical_source_url(value)
+    parts = urlsplit(source)
+    host = (parts.hostname or "").casefold()
+    port = parts.port
+    netloc = host if port is None else f"{host}:{port}"
+    path = re.sub(r"/{2,}", "/", parts.path or "/")
+    query = urlencode(sorted(parse_qsl(parts.query, keep_blank_values=True)), doseq=True)
+    return urlunsplit(("https", netloc, path, query, ""))
 
 
 def _raw_wayback_url(value: str) -> Optional[str]:
@@ -146,6 +157,29 @@ def _clean_extracted_text(value: str) -> str:
         output.append(line)
         previous_blank = False
     return "\n".join(output).strip()
+
+
+def _reflow_word_per_line_text(value: str) -> str:
+    """Repair PDF extraction that places nearly every word on its own line.
+
+    The deliberately strict trigger avoids flattening ordinary paragraphs,
+    headings, tables, and structured lists. Blank lines remain paragraph
+    boundaries, while line breaks inside an affected block become spaces.
+    """
+    cleaned = _clean_extracted_text(value)
+    nonempty = [line for line in cleaned.splitlines() if line]
+    if len(nonempty) < 100:
+        return cleaned
+    one_word_ratio = sum(len(line.split()) == 1 for line in nonempty) / len(nonempty)
+    short_line_ratio = sum(len(line.split()) <= 2 for line in nonempty) / len(nonempty)
+    if one_word_ratio < 0.8 or short_line_ratio < 0.95:
+        return cleaned
+    blocks = re.split(r"\n{2,}", cleaned)
+    return "\n\n".join(
+        " ".join(line.strip() for line in block.splitlines() if line.strip())
+        for block in blocks
+        if block.strip()
+    )
 
 
 def extract_html(page_html: str, url: str) -> FetchResult:
@@ -219,6 +253,14 @@ def _compact_structured_list_pdf(text: str, title: str) -> Optional[str]:
     return compact if len(compact) <= MAX_DOCUMENT_CHARACTERS else None
 
 
+def _document_layout(result: FetchResult) -> DocumentLayout:
+    if result.layout == DocumentLayout.structured_list.value:
+        return DocumentLayout.structured_list
+    if "Complete compact membership index extracted from every structured Name 6 field" in result.text:
+        return DocumentLayout.structured_list
+    return DocumentLayout.prose
+
+
 def extract_pdf(content: bytes, url: str) -> FetchResult:
     """Extract selectable PDF text without OCR or layout-derived inference."""
     try:
@@ -237,7 +279,7 @@ def extract_pdf(content: bytes, url: str) -> FetchResult:
         page_text = [page.extract_text() or "" for page in reader.pages]
     except Exception as error:
         return FetchResult(status="extraction_failed", error=f"PDF extraction failed: {error}")
-    text = _clean_extracted_text("\n\n".join(page_text))
+    text = _reflow_word_per_line_text("\n\n".join(page_text))
     if not text:
         return FetchResult(
             status="extraction_failed",
@@ -249,6 +291,7 @@ def extract_pdf(content: bytes, url: str) -> FetchResult:
     except Exception:
         title = ""
     title = title or Path(urlparse(url).path).name or urlparse(url).netloc or "PDF evidence"
+    layout = DocumentLayout.prose.value
     if len(text) > MAX_DOCUMENT_CHARACTERS:
         compact = _compact_structured_list_pdf(text, title)
         if compact is None:
@@ -260,10 +303,12 @@ def extract_pdf(content: bytes, url: str) -> FetchResult:
                 ),
             )
         text = compact
+        layout = DocumentLayout.structured_list.value
     return FetchResult(
         status="ok",
         text=text,
         title=title[:300],
+        layout=layout,
     )
 
 
@@ -353,6 +398,19 @@ class HttpFetcher:
                     method="cached_pdf_compaction",
                 )
                 self._save_cache(url, result)
+            if result.status == "ok" and (
+                "pdf" in result.method.casefold()
+                or urlparse(url).path.casefold().endswith(".pdf")
+            ):
+                reflowed = _reflow_word_per_line_text(result.text)
+                if reflowed != result.text:
+                    result = FetchResult(
+                        status="ok",
+                        text=reflowed,
+                        title=result.title,
+                        method="cached_pdf_reflow",
+                    )
+                    self._save_cache(url, result)
             return result
         except (OSError, TypeError, ValueError):
             return None
@@ -525,10 +583,12 @@ def _source_groups(row: Dict[str, Any]) -> List[Dict[str, Any]]:
                 continue
             archived_source_url = _canonical_url(source_url)
             canonical = _canonical_source_url(source_url)
+            identity = _source_identity_url(source_url)
             group = groups.setdefault(
-                canonical,
+                identity,
                 {
                     "source_url": canonical,
+                    "source_identity": identity,
                     "cached_urls": [],
                     "evidence_text": [],
                 },
@@ -549,23 +609,6 @@ def _source_groups(row: Dict[str, Any]) -> List[Dict[str, Any]]:
             answer_text = (answer.get("answer") or "").strip()
             group["evidence_text"].append(f"{question_text} {answer_text}".strip())
     return list(groups.values())
-
-
-def _annotated_evidence_card(evidence_text: Sequence[str], source_url: str) -> str:
-    """Preserve the evidence-conditioned AVeriTeC task input transparently.
-
-    Archived pages can drift or disappear after annotation.  The benchmark's
-    human question-answer evidence is therefore stored beside the recovered
-    page text, without copying either the reference label or its justification.
-    """
-    rows = [
-        EVIDENCE_CARD_HEADING,
-        "These question-answer statements were written by AVeriTeC annotators and attributed to the source below.",
-        f"Source URL: {source_url}",
-    ]
-    for index, item in enumerate(evidence_text, start=1):
-        rows.append(f"Evidence {index}: {item.strip()}")
-    return "\n".join(rows)
 
 
 def _is_relevant(claim: str, evidence_text: Sequence[str], document: str) -> bool:
@@ -637,6 +680,15 @@ def prepare_case(
                 )
                 if candidate.status == "ok":
                     result, resolved_url = candidate, snapshot
+            else:
+                source_audit["attempts"].append(
+                    {
+                        "url": group["source_url"],
+                        "method": "wayback_lookup",
+                        "status": "not_found",
+                        "error": "No archived snapshot was available.",
+                    }
+                )
 
         if result is None:
             source_audit["reason"] = "fetch_failed"
@@ -648,17 +700,14 @@ def prepare_case(
             source_audit["wordCount"] = _word_count(result.text)
         else:
             document_id = "doc-" + hashlib.sha256(
-                group["source_url"].encode("utf-8")
+                group["source_identity"].encode("utf-8")
             ).hexdigest()[:12]
-            evidence_card = _annotated_evidence_card(
-                group["evidence_text"], group["source_url"]
-            )
-            document_text = f"{evidence_card}\n\nRECOVERED SOURCE TEXT\n{result.text}"
             document = DemoDocument(
                 id=document_id,
                 title=result.title or urlparse(group["source_url"]).netloc or "Evidence source",
                 url=group["source_url"],
-                text=document_text,
+                text=result.text,
+                layout=_document_layout(result),
             )
             source_audit.update(
                 {
@@ -666,9 +715,6 @@ def prepare_case(
                     "resolvedUrl": resolved_url,
                     "wordCount": _word_count(result.text),
                     "sha256": hashlib.sha256(result.text.encode("utf-8")).hexdigest(),
-                    "annotatedEvidenceSha256": hashlib.sha256(
-                        evidence_card.encode("utf-8")
-                    ).hexdigest(),
                 }
             )
             return document, source_audit

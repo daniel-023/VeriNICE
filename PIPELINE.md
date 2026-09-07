@@ -1,85 +1,84 @@
-# VeriGraph pipeline reference
+# VeriTrace pipeline reference
 
 ## Current scope
 
-VeriGraph currently runs three model-backed verification stages, a deterministic
-atom–evidence argumentation graph, a deterministic four-way draft status, and
-one optional linguistic sidecar.
-
 ```text
 Claim + documents
-  → claim decomposition       live
-  → candidate retrieval       live
-  → grounded claim audit      live, constrained to supplied span IDs
-  → argumentation graph       derived from audited selections
-  → draft case status         deterministic FastAPI mapping
+  → Decompose Claim          Qwen via Ollama
+  → Retrieve Evidence        BGE + lexical anchors
+  → Assess Evidence          Qwen, restricted to supplied span IDs
+  → Apply Symbolic Rules     Qwen rule mapping + Python execution
+  → Verdict                  deterministic composition rules
 
 Atomic claims
-  ↘ linguistic structure      live, verdict-neutral sidecar
+  ↘ Claim Structure          heuristic spaCy inspection, verdict-neutral
 ```
 
-## Stages
+The symbolic registry covers set membership, numeric and temporal comparison,
+attribute equality, distinct-value counting, and extremum counterexamples.
+Programs use a small versioned IR with grounded lookup, equality/inequality,
+numeric comparison, before/after comparison, membership, distinct counting,
+and extremum-counterexample steps. Qwen can only map server-issued candidate
+and premise IDs into a typed program. Python validates source grounding, types,
+scope, units, and completeness before computing a result. An unresolved or
+inapplicable program never affects the verdict.
 
-| Stage | Implementation | Model / library | Output |
-| --- | --- | --- | --- |
-| Claim decomposition | Schema-constrained, contextualized prompting through the local Ollama `/api/chat` endpoint | `qwen2.5:7b` by default, overridable with `VERIGRAPH_OLLAMA_MODEL` | A flat `SINGLE`/`AND`/`OR` decomposition of up to 12 standalone obligations; each atom has a verification role and exact UTF-16-grounded `sourceText` |
-| Document segmentation | Python sentence segmentation with server-owned character spans | PySBD `0.3.4` | Whole sentences with document-relative UTF-16 offsets |
-| Candidate retrieval | Batched normalized embeddings and cosine ranking; up to six sentences per atom, capped at three per document in multidocument cases | Sentence Transformers `3.4.1`, `BAAI/bge-small-en-v1.5` | Semantically nearest candidate sentences; no threshold or scores |
-| Grounded claim audit | Schema-constrained local prompting over the claim, obligations, and retrieved candidates; unknown IDs and ungrounded decisive positions are rejected | `qwen2.5:7b` via Ollama | One of `SUPPORT_ONLY`, `ATTACK_ONLY`, `MIXED_OR_MISLEADING`, or `INSUFFICIENT`, a concise rationale, and only supplied support/attack/context span IDs |
-| Linguistic structure | Batched dependency parsing and conservative decomposition auditing | spaCy `3.8.7`, `en_core_web_sm@3.8.0` | Claim and atom frames, cues, entities, syntax tokens, role-audit statuses, stable warnings, and compact graph-ready atom summaries |
-| Argumentation graph | Frontend-derived version-2 graph; no additional model inference | Existing decomposition, linguistic summaries, retrieval, and audited evidence selections | Case-claim, typed-obligation, and evidence nodes linked by `DECOMPOSES_TO`, `SUPPORTS`, and `ATTACKS`; unselected candidates remain in the evidence pane |
-| Four-way draft status | Deterministic FastAPI aggregation; no model call | Validated overall evidence position plus stored selections | Version-1 `SUPPORTED`, `REFUTED`, `NOT_ENOUGH_EVIDENCE`, or `CONFLICTING_EVIDENCE`, with obligation states and a fixed trace; legacy relation-only requests retain composition-aware rules |
+## Components
 
-All model-generated or parsed spans are validated against unchanged source text
-and converted to UTF-16 offsets at the API boundary for exact browser
-highlighting. Invalid decomposition output receives one JSON-only repair attempt;
-if that also fails, the original claim is retained as one `CORE` atom with a
-machine-readable warning so retrieval and the grounded audit can still run.
+| Stage | Implementation | Output |
+| --- | --- | --- |
+| Decomposition | Schema-constrained Qwen2.5 through local Ollama | `SINGLE`, `AND`, or `OR` composition and up to 12 atomic claims |
+| Segmentation | PySBD | Whole sentences with document-relative UTF-16 offsets |
+| Retrieval | User-selectable Hybrid (default), Semantic, or Lexical ranking. Hybrid uses equal-weight reciprocal rank fusion over normalized `BAAI/bge-small-en-v1.5` similarity and exact lexical anchors. | 1–12 candidate anchors per atom; default 6; method is included in provenance; adaptive adjacent reading context remains separate |
+| Assessment | Schema-constrained Qwen2.5 | Atom-scoped support, refute, context, sufficiency, missing-information, and material-omission fields |
+| Scope validation | Deterministic Python with an offline ISO country/subdivision registry | Match, mismatch, unresolved, or not applicable for each candidate; explicit mismatches are excluded from assessment |
+| Symbolic reasoning | Qwen maps eligible inputs to typed rules; a Python operator registry checks premises and executes them | Results marked proved, disproved, unresolved, or not applicable |
+| Linguistics | spaCy `en_core_web_sm@3.8.0` | Conservative proposition roles, cues, entities, tokens, and verdict-neutral warnings |
+| Graph | Frontend schema version 4 | Claim, obligation, inference, evidence, and collapsed context nodes; attempted programs expand to their typed steps and premises |
+| Verdict | Deterministic Python aggregation | Four-way verdict plus composition rule trace |
 
-Candidate retrieval now fuses dense similarity with lexical anchors, including
-exact numbers, through reciprocal-rank fusion. Source diversity is a soft
-preference rather than a quota. The grounded auditor must preserve exact scope,
-comparison, time, quantity, and preliminary-evidence distinctions, and every
-decisive position must cite retrieved spans.
+The evidence assessment considers one or more selected sentences jointly while
+preserving atomic-claim and source identity. It is not sentence-pair NLI.
 
-## Orchestration
+## Composition rules
 
-1. The user selects an AVeriTeC sample or supplies an editable claim and up to
-   eight documents.
-2. Clicking **Decompose Claim** asks Ollama for a schema-constrained,
-   source-grounded decomposition.
-3. Successful decomposition starts candidate retrieval and a separate
-   claim-plus-obligation linguistic audit concurrently.
-4. Successful retrieval automatically starts the provenance-constrained claim
-   evidence audit.
-5. Retrieval, evidence auditing, and linguistics have independent error and retry states.
-   Claim edits clear all derived results; document edits retain decomposition
-   and linguistics but clear retrieval and evidence auditing.
-6. Once the audit completes, the frontend derives the versioned argumentation graph
-   and requests the backend-owned verdict aggregation result directly from
-   typed obligations, linguistic summaries, candidate evidence, and
-   validated claim position and selected relations.
-7. In walkthrough mode nothing is computed in the browser: the recorded run
-   carries its own aggregation result, so stage 05 renders from the snapshot.
+- `AND`: a refuted-only atom refutes the conjunction; otherwise a two-sided
+  atom produces conflict; every atom must be support-only for support.
+- `OR`: a support-only atom supports the disjunction; otherwise a two-sided
+  atom produces conflict; every atom must be refuted-only for refutation.
+- `SINGLE`: use the one atomic claim's assessed evidence relations and resolved
+  rule results directly.
+- A separately grounded material-omission certificate may produce
+  `CONFLICTING_EVIDENCE`.
 
-The dataset's reference label is displayed only as metadata. It never supplies
-an evidence position, relation, or computed status.
+Only support and refute relations from sufficient evidence bundles affect the
+graph and verdict. Partial or insufficient selections remain visible as
+provisional annotations. Resolved Python symbolic results remain independently
+decisive. Reference labels are display-only.
 
-## Application stack
+## Terminology
 
-- Frontend: Next.js `16.2.12`, React `18.3.1`, TypeScript, and a server-side
-  same-origin `/api/v1/*` proxy.
-- Backend: Python `3.9–3.13`, FastAPI `0.115.8`, Pydantic `2.10.6`, Uvicorn,
-  HTTPX, NumPy, PyTorch `2.6.0`, and local CPU inference.
-- Demo data: an approved, immutable 32-case AVeriTeC dev bundle containing
-  claims, four-way reference labels, source metadata, extracted full-text
-  documents, and human-written AVeriTeC evidence cards. The cards preserve
-  question-answer evidence across page drift and omit gold labels and
-  justifications. Source sites are not fetched during requests.
-- Deployment: Vercel serves an interactive static walkthrough of recorded
-  local runs. The native launcher runs Next.js and FastAPI on the demonstration
-  laptop and connects to host Ollama. BGE and DeBERTa weights remain local;
-  Vercel hosts no inference backend.
+- **Atomic claim** is the public name for a decomposed claim unit. Existing API
+  fields that use `obligation` remain unchanged for schema compatibility.
+- **Candidate evidence** is a retrieved sentence. Qwen may assess it as
+  supporting, refuting, context, or unselected.
+- **Symbolic check** covers every attempted operator. A resolved check produces
+  a **rule result**; unresolved and inapplicable checks do not affect the verdict.
+- The **reasoning graph** displays evidence relations and rule results. It is
+  not a formal argumentation semantics.
+- **Verdict** is the system output. **Reference label** means the AVeriTeC label
+  used only for display and evaluation.
+
+## Orchestration and failure boundaries
+
+1. Decomposition starts retrieval and optional linguistic analysis.
+2. Successful retrieval starts evidence assessment.
+3. Successful assessment starts program-guided reasoning.
+4. The reasoning graph and verdict combine assessed relations with resolved rule results.
+5. Each stage has its own retry. Claim edits clear all derived results;
+   document edits retain decomposition and linguistics but clear later stages.
+6. Reviewer relation edits immediately recompute the graph and verdict while
+   retaining symbolic results whose premises remain valid.
 
 ## Public API
 
@@ -88,36 +87,13 @@ an evidence position, relation, or computed status.
 - `GET /api/v1/demo-cases/{id}`
 - `POST /api/v1/decompose`
 - `POST /api/v1/retrieve`
-- `POST /api/v1/classify-support`
+- `POST /api/v1/assess-evidence`
+- `POST /api/v1/reason`
 - `POST /api/v1/aggregate-verdict`
 - `POST /api/v1/analyze-linguistics`
 
-## Interpretation limits
+## Deployment
 
-- Retrieval means semantic proximity, not evidence relevance or truth.
-- An `INSUFFICIENT` audit position is a model-generated draft, not the AVeriTeC
-  `NOT_ENOUGH_EVIDENCE` reference label.
-- Status aggregation uses only the validated audit position. Reference labels
-  and linguistic warnings remain verdict-neutral; a linguistic warning is surfaced
-  for inspection and never changes an obligation state.
-- The argumentation graph visualizes selected evidence links; it does not infer new
-  argument relationships or produce a verdict.
-- Absence from an apparently complete list and other closed-world/set reasoning
-  are deferred to the argumentation stage.
-- Linguistic features describe claim structure and audit preservation; they do
-  not influence support classification, graph relations, or verdicts.
-
-## Decomposition basis and evaluation
-
-WiCE remains relevant prior work for real-world entailment and subclaim
-verification, but it is not the name of VeriGraph's current method. The
-implemented method is **schema-constrained, contextualized decomposition**:
-every obligation must be standalone, must preserve the original context, and
-must point back to exact source text. Its diagnostic report uses transparent
-proxies for the qualities emphasized by newer fine-grained verification work:
-atomicity, coverage, sufficiency, non-fabrication, non-redundancy, and
-readability. These proxies are engineering checks, not a substitute for human
-annotation or the FactLens evaluator.
-
-See Wanner et al. (2024), Mitra et al. (2025), and Hu et al. (2025) in the
-[AAAI-27 submission notes](AAAI27_DEMO.md#research-positioning).
+The local demo runs Next.js, FastAPI, Ollama, BGE, and spaCy natively. Vercel
+serves only schema-version-6 runs recorded by the local pipeline. Source sites
+and model registries are never accessed during inference.

@@ -4,14 +4,15 @@ import type {
   DemoDocument,
   EvidenceRelation,
   EvidenceSpan,
-  NLIRelation,
+  CandidateRelation,
   StageState,
 } from "@/lib/types";
 
-const RELATION_COPY: Record<NLIRelation, string> = {
-  ENTAILMENT: "Supports atom",
-  CONTRADICTION: "Contradicts atom",
-  NEUTRAL: "Neither",
+const RELATION_COPY: Record<CandidateRelation, string> = {
+  SUPPORTS: "Supports atomic claim",
+  REFUTES: "Refutes atomic claim",
+  CONTEXT: "Reading context",
+  NOT_SELECTED: "Not selected",
 };
 
 function validSpans(value: string, spans: EvidenceSpan[]): EvidenceSpan[] {
@@ -41,7 +42,6 @@ export function DocumentPanel({
   relations,
   selectedAtomText,
   retrievalState,
-  evidencePerAtom,
   readOnly = false,
 }: {
   documents: DemoDocument[];
@@ -51,12 +51,11 @@ export function DocumentPanel({
   onTitleChange: (documentId: string, value: string) => void;
   onAdd: () => void;
   onRemove: (documentId: string) => void;
-  onRelationChange?: (span: EvidenceSpan, relation: NLIRelation) => void;
+  onRelationChange?: (span: EvidenceSpan, relation: CandidateRelation) => void;
   spans: EvidenceSpan[];
   relations: EvidenceRelation[];
   selectedAtomText: string | null;
   retrievalState: StageState;
-  evidencePerAtom?: number;
   readOnly?: boolean;
 }) {
   const activeDocument =
@@ -168,32 +167,21 @@ export function DocumentPanel({
     tabRefs.current.get(next.id)?.focus();
   };
 
-  const silentSources = documents.filter(
-    (document) => (evidenceCountByDocument.get(document.id) ?? 0) === 0,
-  );
-  const silentNote =
-    selectedAtomText && retrievalState === "complete" && spans.length && silentSources.length
-      ? ` ${silentSources.length} source${silentSources.length === 1 ? "" : "s"} returned no candidate${
-          evidencePerAtom ? ` at ${evidencePerAtom} per obligation` : ""
-        }.`
-      : "";
   const elsewhere = spans.length - activeSpans.length;
-  const highlightCount = `${highlights.length} candidate evidence span${
-    highlights.length === 1 ? "" : "s"
-  } highlighted in this source`;
+  const highlightCount = `${highlights.length} match${highlights.length === 1 ? "" : "es"} in this source`;
   const candidateStatus = !selectedAtomText
-    ? "Select an atomic claim to show its candidate evidence."
+    ? "Select an atomic claim."
     : retrievalState === "running"
-      ? "Finding candidate evidence across the source documents."
+      ? "Matching sentences…"
       : retrievalState === "complete" && spans.length
         ? elsewhere
-          ? `${highlightCount}, ${elsewhere} in other sources.${silentNote}`
-          : `${highlightCount}.${silentNote}`
+          ? `${highlightCount} · ${elsewhere} elsewhere`
+          : highlightCount
         : retrievalState === "complete"
-          ? "No candidate evidence was selected for this atom."
-          : retrievalState === "error"
-            ? "Candidate evidence is unavailable until retrieval is retried."
-            : "Candidate evidence has not been retrieved yet.";
+          ? "No matching sentences."
+        : retrievalState === "error"
+            ? "Sentence matching unavailable."
+            : "Not yet matched.";
 
   return (
     <section className="document-panel" aria-labelledby="document-heading">
@@ -236,15 +224,17 @@ export function DocumentPanel({
             );
           })}
         </div>
-        <button
-          type="button"
-          className="source-icon-button"
-          aria-label="Add evidence source"
-          onClick={onAdd}
-          disabled={readOnly || documents.length >= 8}
-        >
-          <Plus size={15} aria-hidden="true" />
-        </button>
+        {!readOnly ? (
+          <button
+            type="button"
+            className="source-icon-button"
+            aria-label="Add evidence source"
+            onClick={onAdd}
+            disabled={documents.length >= 8}
+          >
+            <Plus size={15} aria-hidden="true" />
+          </button>
+        ) : null}
       </div>
 
       {activeDocument ? (
@@ -254,43 +244,65 @@ export function DocumentPanel({
           id={`source-panel-${activeDocument.id}`}
           aria-labelledby={`source-tab-${activeDocument.id}`}
         >
-          <div className="source-controls">
-            <label>
-              <span className="sr-only">Source title</span>
-              <input
-                name={`source-title-${activeDocument.id}`}
-                autoComplete="off"
-                value={activeDocument.title}
-                maxLength={300}
-                readOnly={readOnly}
-                onChange={(event) => onTitleChange(activeDocument.id, event.target.value)}
-                aria-label="Source title"
-              />
-            </label>
-            {activeDocument.url.startsWith("http") ? (
-              <a href={activeDocument.url} target="_blank" rel="noreferrer">
-                View source <ExternalLink size={12} aria-hidden="true" />
-              </a>
-            ) : null}
-            <button
-              type="button"
-              className="source-icon-button source-remove-button"
-              aria-label={`Remove ${activeDocument.title}`}
-              onClick={() => onRemove(activeDocument.id)}
-              disabled={readOnly || documents.length === 1}
-            >
-              <Trash2 size={14} aria-hidden="true" />
-            </button>
-          </div>
+          {!readOnly ? (
+            <div className="source-controls">
+              <label>
+                <span className="sr-only">Source title</span>
+                <input
+                  name={`source-title-${activeDocument.id}`}
+                  autoComplete="off"
+                  value={activeDocument.title}
+                  maxLength={300}
+                  onChange={(event) => onTitleChange(activeDocument.id, event.target.value)}
+                  aria-label="Source title"
+                />
+              </label>
+              {activeDocument.url.startsWith("http") ? (
+                <a href={activeDocument.url} target="_blank" rel="noreferrer">
+                  View source <ExternalLink size={12} aria-hidden="true" />
+                </a>
+              ) : null}
+              <button
+                type="button"
+                className="source-icon-button source-remove-button"
+                aria-label={`Remove ${activeDocument.title}`}
+                onClick={() => onRemove(activeDocument.id)}
+                disabled={documents.length === 1}
+              >
+                <Trash2 size={14} aria-hidden="true" />
+              </button>
+            </div>
+          ) : null}
+          {activeDocument.publisher ? (
+            <div className="source-provenance-row">
+              <p className="source-provenance">
+                {activeDocument.publisher}
+                {activeDocument.sourceType === "SOURCE_EXCERPT" ? " · Source excerpt" : " · Full recovered source"}
+              </p>
+              {readOnly && activeDocument.url.startsWith("http") ? (
+                <a className="source-link" href={activeDocument.url} target="_blank" rel="noreferrer">
+                  View source <ExternalLink size={12} aria-hidden="true" />
+                </a>
+              ) : null}
+            </div>
+          ) : null}
           <p className="document-match-status" id="document-candidate-status" aria-live="polite">
             {candidateStatus}
           </p>
           {selectedAtomText && spans.length ? (
-            <nav className="evidence-list-panel" aria-labelledby="evidence-list-heading">
-              <h3 id="evidence-list-heading">Candidate evidence spans</h3>
+            <details className="evidence-list-panel">
+              <summary>Matched sentences <span>{spans.length}</span></summary>
               <ol className="evidence-list">
                 {spans.map((span) => {
                   const relation = relationsBySpan.get(`${span.documentId}:${span.id}`);
+                  const mismatched = relation?.scopeCheck?.status === "MISMATCH";
+                  const relationCopy = mismatched
+                    ? "Different jurisdiction — not used in assessment"
+                    : relation?.relation === "SUPPORTS" && !relation.decisive
+                      ? "Potential support — not used in verdict"
+                      : relation?.relation === "REFUTES" && !relation.decisive
+                        ? "Potential refutation — not used in verdict"
+                        : relation ? RELATION_COPY[relation.relation] : "";
                   return (
                     <li key={`${span.documentId}:${span.id}:${span.start}`}>
                       <button
@@ -306,10 +318,29 @@ export function DocumentPanel({
                           <span
                             className={`evidence-relation relation-${relation.relation.toLowerCase()}`}
                           >
-                            {relation.relevanceFiltered ? "Filtered as unrelated" : RELATION_COPY[relation.relation]}
+                            {relationCopy}
                           </span>
                         ) : null}
                       </button>
+                      {span.contextSpans?.length ? (
+                        <details className="evidence-context">
+                          <summary>
+                            Reading context · {span.contextSpans.length} sentence
+                            {span.contextSpans.length === 1 ? "" : "s"}
+                          </summary>
+                          <p>Context only; not assessed separately.</p>
+                          <ul>
+                            {span.contextSpans.map((contextSpan) => (
+                              <li key={`${contextSpan.documentId}:${contextSpan.id}`}>
+                                <small>
+                                  {contextSpan.direction === "PREVIOUS" ? "Previous" : "Next"}
+                                </small>
+                                <q>{contextSpan.text.trim()}</q>
+                              </li>
+                            ))}
+                          </ul>
+                        </details>
+                      ) : null}
                       {relation && onRelationChange ? (
                         <label className="evidence-review-control">
                           <span>Reviewer relation</span>
@@ -317,22 +348,24 @@ export function DocumentPanel({
                             aria-label={`Reviewer relation for evidence from ${titlesByDocument.get(span.documentId) ?? span.documentId}`}
                             value={relation.relation}
                             onChange={(event) =>
-                              onRelationChange(span, event.target.value as NLIRelation)
+                              onRelationChange(span, event.target.value as CandidateRelation)
                             }
                           >
-                            <option value="ENTAILMENT">Supports</option>
-                            <option value="CONTRADICTION">Attacks</option>
-                            <option value="NEUTRAL">Neither</option>
+                            <option value="SUPPORTS" disabled={mismatched}>Supports</option>
+                            <option value="REFUTES" disabled={mismatched}>Refutes</option>
+                            <option value="CONTEXT">Context</option>
+                            <option value="NOT_SELECTED">Not selected</option>
                           </select>
+                          {mismatched ? <small>Support and refute are disabled for this jurisdiction mismatch.</small> : null}
                         </label>
                       ) : null}
                     </li>
                   );
                 })}
               </ol>
-            </nav>
+            </details>
           ) : null}
-          <label className="document-paper document-editor">
+          <label className={`document-paper document-editor ${activeDocument.layout === "STRUCTURED_LIST" ? "document-structured-list" : ""}`}>
             <span className="sr-only">Evidence document: {activeDocument.title}</span>
             <div className="document-mirror" ref={mirrorRef} aria-hidden="true">
               <div className="document-mirror-content">{mirrorContent}</div>

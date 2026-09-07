@@ -1,0 +1,835 @@
+{
+  "caseId": "showcase-technology-web",
+  "schemaVersion": 6,
+  "composition": "SINGLE",
+  "warnings": [],
+  "atoms": [
+    {
+      "id": "atom-1",
+      "text": "Tim Berners-Lee invented the World Wide Web at CERN in 1989.",
+      "sourceText": "Tim Berners-Lee invented the World Wide Web at CERN in 1989.",
+      "start": 0,
+      "end": 60,
+      "role": "CORE"
+    }
+  ],
+  "evidence": [
+    {
+      "atomId": "atom-1",
+      "spans": [
+        {
+          "id": "doc-2c20bee83e25::sentence-1",
+          "documentId": "doc-2c20bee83e25",
+          "text": "Sir Tim Berners-Lee invented the World Wide Web while at CERN, the European Particle Physics Laboratory, in 1989. ",
+          "start": 0,
+          "end": 114,
+          "contextSpans": [
+            {
+              "id": "doc-2c20bee83e25::sentence-2",
+              "documentId": "doc-2c20bee83e25",
+              "text": "He wrote the first web client and server in 1990. ",
+              "start": 114,
+              "end": 164,
+              "direction": "NEXT"
+            }
+          ],
+          "context": "Sir Tim Berners-Lee invented the World Wide Web while at CERN, the European Particle Physics Laboratory, in 1989. He wrote the first web client and server in 1990."
+        },
+        {
+          "id": "doc-2c20bee83e25::sentence-8",
+          "documentId": "doc-2c20bee83e25",
+          "text": "Sir Tim is the Founder, Emeritus Director, and an Honorary Member of the Board of Directors of the World Wide Web Consortium (W3C), a Web standards organization that he founded in 1994 which develops interoperable technologies (specifications, guidelines, software, and tools) to lead the Web to its full potential. ",
+          "start": 948,
+          "end": 1264,
+          "contextSpans": [
+            {
+              "id": "doc-2c20bee83e25::sentence-7",
+              "documentId": "doc-2c20bee83e25",
+              "text": "Socially Solid is a movement away from much of the issues with the current WWW, and toward a world in which users are in control, and empowered by large amounts of data, private, shared, and public.\n",
+              "start": 749,
+              "end": 948,
+              "direction": "PREVIOUS"
+            },
+            {
+              "id": "doc-2c20bee83e25::sentence-9",
+              "documentId": "doc-2c20bee83e25",
+              "text": "He is a Director of the World Wide Web Foundation that was launched in 2009 to coordinate efforts to further the potential of the Web to",
+              "start": 1264,
+              "end": 1400,
+              "direction": "NEXT"
+            }
+          ],
+          "context": "Socially Solid is a movement away from much of the issues with the current WWW, and toward a world in which users are in control, and empowered by large amounts of data, private, shared, and public. Sir Tim is the Founder, Emeritus Director, and an Honorary Member of the Board of Directors of the World Wide Web Consortium (W3C), a Web standards organization that he founded in 1994 which develops interoperable technologies (specifications, guidelines, software, and tools) to lead the Web to its full potential. He is a Director of the World Wide Web Foundation that was launched in 2009 to coordinate efforts to further the potential of the Web to"
+        },
+        {
+          "id": "doc-fddf62bfb7b8::sentence-3",
+          "documentId": "doc-fddf62bfb7b8",
+          "text": "This was a harbinger of the kind of activity we see on the World Wide Web today, namely, the enormous growth of all kinds of “people-to-people” traffic.\n\n",
+          "start": 101,
+          "end": 255,
+          "contextSpans": [
+            {
+              "id": "doc-fddf62bfb7b8::sentence-2",
+              "documentId": "doc-fddf62bfb7b8",
+              "text": "From there email took off as the largest network application for over a decade. ",
+              "start": 21,
+              "end": 101,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "From there email took off as the largest network application for over a decade. This was a harbinger of the kind of activity we see on the World Wide Web today, namely, the enormous growth of all kinds of “people-to-people” traffic."
+        },
+        {
+          "id": "doc-2c20bee83e25::sentence-2",
+          "documentId": "doc-2c20bee83e25",
+          "text": "He wrote the first web client and server in 1990. ",
+          "start": 114,
+          "end": 164,
+          "contextSpans": [
+            {
+              "id": "doc-2c20bee83e25::sentence-1",
+              "documentId": "doc-2c20bee83e25",
+              "text": "Sir Tim Berners-Lee invented the World Wide Web while at CERN, the European Particle Physics Laboratory, in 1989. ",
+              "start": 0,
+              "end": 114,
+              "direction": "PREVIOUS"
+            },
+            {
+              "id": "doc-2c20bee83e25::sentence-3",
+              "documentId": "doc-2c20bee83e25",
+              "text": "His specifications of URIs, HTTP and HTML were refined as Web technology spread.\n",
+              "start": 164,
+              "end": 245,
+              "direction": "NEXT"
+            }
+          ],
+          "context": "Sir Tim Berners-Lee invented the World Wide Web while at CERN, the European Particle Physics Laboratory, in 1989. He wrote the first web client and server in 1990. His specifications of URIs, HTTP and HTML were refined as Web technology spread."
+        },
+        {
+          "id": "doc-fddf62bfb7b8::sentence-5",
+          "documentId": "doc-fddf62bfb7b8",
+          "text": "The original ARPANET grew into the Internet. ",
+          "start": 293,
+          "end": 338,
+          "contextSpans": [],
+          "context": "The original ARPANET grew into the Internet."
+        },
+        {
+          "id": "doc-fddf62bfb7b8::sentence-7",
+          "documentId": "doc-fddf62bfb7b8",
+          "text": "The Internet as we now know it embodies a key underlying technical idea, namely that of open architecture networking. ",
+          "start": 620,
+          "end": 738,
+          "contextSpans": [
+            {
+              "id": "doc-fddf62bfb7b8::sentence-6",
+              "documentId": "doc-fddf62bfb7b8",
+              "text": "Internet was based on the idea that there would be multiple independent networks of rather arbitrary design, beginning with the ARPANET as the pioneering packet switching network, but soon to include packet satellite networks, ground-based packet radio networks and other networks. ",
+              "start": 338,
+              "end": 620,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "Internet was based on the idea that there would be multiple independent networks of rather arbitrary design, beginning with the ARPANET as the pioneering packet switching network, but soon to include packet satellite networks, ground-based packet radio networks and other networks. The Internet as we now know it embodies a key underlying technical idea, namely that of open architecture networking."
+        }
+      ]
+    }
+  ],
+  "assessment": {
+    "obligations": [
+      {
+        "atomId": "atom-1",
+        "supportSpanIds": [
+          "doc-2c20bee83e25::sentence-1"
+        ],
+        "refuteSpanIds": [],
+        "contextSpanIds": [
+          "doc-2c20bee83e25::sentence-8",
+          "doc-fddf62bfb7b8::sentence-3",
+          "doc-fddf62bfb7b8::sentence-5"
+        ],
+        "sufficiency": "SUFFICIENT",
+        "missingInformation": "",
+        "reason": "O1-E1 directly supports the claim that Tim Berners-Lee invented the World Wide Web at CERN in 1989.",
+        "scopeChecks": [
+          {
+            "spanId": "doc-2c20bee83e25::sentence-1",
+            "documentId": "doc-2c20bee83e25",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-2c20bee83e25::sentence-8",
+            "documentId": "doc-2c20bee83e25",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-fddf62bfb7b8::sentence-3",
+            "documentId": "doc-fddf62bfb7b8",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-2c20bee83e25::sentence-2",
+            "documentId": "doc-2c20bee83e25",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-fddf62bfb7b8::sentence-5",
+            "documentId": "doc-fddf62bfb7b8",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-fddf62bfb7b8::sentence-7",
+            "documentId": "doc-fddf62bfb7b8",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          }
+        ]
+      }
+    ],
+    "materialOmission": {
+      "detected": false,
+      "supportSpanIds": [],
+      "contextSpanIds": [],
+      "reason": "No material omission was established."
+    }
+  },
+  "reasoning": [
+    {
+      "id": "proof:atom-1:attribute_compare:1",
+      "atomId": "atom-1",
+      "operator": "ATTRIBUTE_COMPARE",
+      "status": "UNRESOLVED",
+      "relation": null,
+      "premiseIds": [
+        "evidence:atom-1:doc-2c20bee83e25:doc-2c20bee83e25::sentence-1",
+        "evidence:atom-1:doc-2c20bee83e25:doc-2c20bee83e25::sentence-2"
+      ],
+      "premises": [
+        {
+          "id": "evidence:atom-1:doc-2c20bee83e25:doc-2c20bee83e25::sentence-1",
+          "documentId": "doc-2c20bee83e25",
+          "text": "Sir Tim Berners-Lee invented the World Wide Web while at CERN, the European Particle Physics Laboratory, in 1989. ",
+          "start": 0,
+          "end": 114,
+          "kind": "EVIDENCE",
+          "contentHash": null,
+          "itemCount": null
+        },
+        {
+          "id": "evidence:atom-1:doc-2c20bee83e25:doc-2c20bee83e25::sentence-2",
+          "documentId": "doc-2c20bee83e25",
+          "text": "He wrote the first web client and server in 1990. ",
+          "start": 114,
+          "end": 164,
+          "kind": "EVIDENCE",
+          "contentHash": null,
+          "itemCount": null
+        }
+      ],
+      "expression": "attribute comparison",
+      "conclusion": "Attribute relation is unresolved",
+      "explanation": "The premises do not provide one unambiguous attribute value for deterministic comparison.",
+      "validationWarnings": [
+        "AMBIGUOUS_ATTRIBUTE_MAPPING"
+      ],
+      "program": {
+        "version": 1,
+        "steps": [
+          {
+            "id": "input-1",
+            "operation": "LOOKUP",
+            "inputIds": [
+              "evidence:atom-1:doc-2c20bee83e25:doc-2c20bee83e25::sentence-1"
+            ],
+            "outputType": "FACT",
+            "description": "Read an unchanged server-owned premise."
+          },
+          {
+            "id": "input-2",
+            "operation": "LOOKUP",
+            "inputIds": [
+              "evidence:atom-1:doc-2c20bee83e25:doc-2c20bee83e25::sentence-2"
+            ],
+            "outputType": "FACT",
+            "description": "Read an unchanged server-owned premise."
+          },
+          {
+            "id": "result",
+            "operation": "EQUAL",
+            "inputIds": [
+              "input-1",
+              "input-2"
+            ],
+            "outputType": "BOOLEAN",
+            "description": "Validate operand alignment and execute the typed operation in Python."
+          }
+        ],
+        "outputStepId": "result"
+      }
+    }
+  ],
+  "linguistics": {
+    "schemaVersion": 2,
+    "claimAnalysis": {
+      "atomId": "claim",
+      "frames": [
+        {
+          "id": "claim-frame-1",
+          "predicate": {
+            "id": "claim-frame-1-predicate",
+            "text": "invented",
+            "start": 16,
+            "end": 24
+          },
+          "subjects": [
+            {
+              "id": "claim-frame-1-subject-1",
+              "text": "Tim Berners-Lee",
+              "start": 0,
+              "end": 15
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "claim-frame-1-argument-1",
+              "text": "the World Wide Web at CERN",
+              "start": 25,
+              "end": 51,
+              "role": "direct_object"
+            }
+          ],
+          "adjuncts": [
+            {
+              "id": "claim-frame-1-adjunct-1",
+              "text": "in 1989",
+              "start": 52,
+              "end": 59,
+              "kind": "temporal"
+            }
+          ],
+          "otherModifiers": []
+        }
+      ],
+      "cues": [
+        {
+          "id": "claim-cue-temporal-55-59",
+          "text": "1989",
+          "start": 55,
+          "end": 59,
+          "kind": "temporal"
+        }
+      ],
+      "entities": [
+        {
+          "id": "claim-entity-person-0-15",
+          "text": "Tim Berners-Lee",
+          "start": 0,
+          "end": 15,
+          "label": "PERSON"
+        },
+        {
+          "id": "claim-entity-event-25-43",
+          "text": "the World Wide Web",
+          "start": 25,
+          "end": 43,
+          "label": "EVENT"
+        },
+        {
+          "id": "claim-entity-gpe-47-51",
+          "text": "CERN",
+          "start": 47,
+          "end": 51,
+          "label": "GPE"
+        }
+      ],
+      "tokens": [
+        {
+          "id": "claim-token-0",
+          "text": "Tim",
+          "start": 0,
+          "end": 3,
+          "lemma": "Tim",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "Lee"
+        },
+        {
+          "id": "claim-token-1",
+          "text": "Berners",
+          "start": 4,
+          "end": 11,
+          "lemma": "Berners",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "Lee"
+        },
+        {
+          "id": "claim-token-2",
+          "text": "-",
+          "start": 11,
+          "end": 12,
+          "lemma": "-",
+          "pos": "PUNCT",
+          "tag": "HYPH",
+          "dependency": "punct",
+          "head": "Lee"
+        },
+        {
+          "id": "claim-token-3",
+          "text": "Lee",
+          "start": 12,
+          "end": 15,
+          "lemma": "Lee",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "nsubj",
+          "head": "invented"
+        },
+        {
+          "id": "claim-token-4",
+          "text": "invented",
+          "start": 16,
+          "end": 24,
+          "lemma": "invent",
+          "pos": "VERB",
+          "tag": "VBD",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "claim-token-5",
+          "text": "the",
+          "start": 25,
+          "end": 28,
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "Web"
+        },
+        {
+          "id": "claim-token-6",
+          "text": "World",
+          "start": 29,
+          "end": 34,
+          "lemma": "World",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "Web"
+        },
+        {
+          "id": "claim-token-7",
+          "text": "Wide",
+          "start": 35,
+          "end": 39,
+          "lemma": "Wide",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "Web"
+        },
+        {
+          "id": "claim-token-8",
+          "text": "Web",
+          "start": 40,
+          "end": 43,
+          "lemma": "web",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "dobj",
+          "head": "invented"
+        },
+        {
+          "id": "claim-token-9",
+          "text": "at",
+          "start": 44,
+          "end": 46,
+          "lemma": "at",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "Web"
+        },
+        {
+          "id": "claim-token-10",
+          "text": "CERN",
+          "start": 47,
+          "end": 51,
+          "lemma": "CERN",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "pobj",
+          "head": "at"
+        },
+        {
+          "id": "claim-token-11",
+          "text": "in",
+          "start": 52,
+          "end": 54,
+          "lemma": "in",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "invented"
+        },
+        {
+          "id": "claim-token-12",
+          "text": "1989",
+          "start": 55,
+          "end": 59,
+          "lemma": "1989",
+          "pos": "NUM",
+          "tag": "CD",
+          "dependency": "pobj",
+          "head": "in"
+        },
+        {
+          "id": "claim-token-13",
+          "text": ".",
+          "start": 59,
+          "end": 60,
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "invented"
+        }
+      ],
+      "status": "complete",
+      "unresolved": []
+    },
+    "analyses": [
+      {
+        "atomId": "atom-1",
+        "frames": [
+          {
+            "id": "atom-1-frame-1",
+            "predicate": {
+              "id": "atom-1-frame-1-predicate",
+              "text": "invented",
+              "start": 16,
+              "end": 24
+            },
+            "subjects": [
+              {
+                "id": "atom-1-frame-1-subject-1",
+                "text": "Tim Berners-Lee",
+                "start": 0,
+                "end": 15
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-1-frame-1-argument-1",
+                "text": "the World Wide Web at CERN",
+                "start": 25,
+                "end": 51,
+                "role": "direct_object"
+              }
+            ],
+            "adjuncts": [
+              {
+                "id": "atom-1-frame-1-adjunct-1",
+                "text": "in 1989",
+                "start": 52,
+                "end": 59,
+                "kind": "temporal"
+              }
+            ],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [
+          {
+            "id": "atom-1-cue-temporal-55-59",
+            "text": "1989",
+            "start": 55,
+            "end": 59,
+            "kind": "temporal"
+          }
+        ],
+        "entities": [
+          {
+            "id": "atom-1-entity-person-0-15",
+            "text": "Tim Berners-Lee",
+            "start": 0,
+            "end": 15,
+            "label": "PERSON"
+          },
+          {
+            "id": "atom-1-entity-event-25-43",
+            "text": "the World Wide Web",
+            "start": 25,
+            "end": 43,
+            "label": "EVENT"
+          },
+          {
+            "id": "atom-1-entity-gpe-47-51",
+            "text": "CERN",
+            "start": 47,
+            "end": 51,
+            "label": "GPE"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-1-token-0",
+            "text": "Tim",
+            "start": 0,
+            "end": 3,
+            "lemma": "Tim",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Lee"
+          },
+          {
+            "id": "atom-1-token-1",
+            "text": "Berners",
+            "start": 4,
+            "end": 11,
+            "lemma": "Berners",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Lee"
+          },
+          {
+            "id": "atom-1-token-2",
+            "text": "-",
+            "start": 11,
+            "end": 12,
+            "lemma": "-",
+            "pos": "PUNCT",
+            "tag": "HYPH",
+            "dependency": "punct",
+            "head": "Lee"
+          },
+          {
+            "id": "atom-1-token-3",
+            "text": "Lee",
+            "start": 12,
+            "end": 15,
+            "lemma": "Lee",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "nsubj",
+            "head": "invented"
+          },
+          {
+            "id": "atom-1-token-4",
+            "text": "invented",
+            "start": 16,
+            "end": 24,
+            "lemma": "invent",
+            "pos": "VERB",
+            "tag": "VBD",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-1-token-5",
+            "text": "the",
+            "start": 25,
+            "end": 28,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "Web"
+          },
+          {
+            "id": "atom-1-token-6",
+            "text": "World",
+            "start": 29,
+            "end": 34,
+            "lemma": "World",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Web"
+          },
+          {
+            "id": "atom-1-token-7",
+            "text": "Wide",
+            "start": 35,
+            "end": 39,
+            "lemma": "Wide",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Web"
+          },
+          {
+            "id": "atom-1-token-8",
+            "text": "Web",
+            "start": 40,
+            "end": 43,
+            "lemma": "web",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "dobj",
+            "head": "invented"
+          },
+          {
+            "id": "atom-1-token-9",
+            "text": "at",
+            "start": 44,
+            "end": 46,
+            "lemma": "at",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "Web"
+          },
+          {
+            "id": "atom-1-token-10",
+            "text": "CERN",
+            "start": 47,
+            "end": 51,
+            "lemma": "CERN",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "pobj",
+            "head": "at"
+          },
+          {
+            "id": "atom-1-token-11",
+            "text": "in",
+            "start": 52,
+            "end": 54,
+            "lemma": "in",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "invented"
+          },
+          {
+            "id": "atom-1-token-12",
+            "text": "1989",
+            "start": 55,
+            "end": 59,
+            "lemma": "1989",
+            "pos": "NUM",
+            "tag": "CD",
+            "dependency": "pobj",
+            "head": "in"
+          },
+          {
+            "id": "atom-1-token-13",
+            "text": ".",
+            "start": 59,
+            "end": 60,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "invented"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      }
+    ],
+    "summaries": [
+      {
+        "atomId": "atom-1",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "Tim Berners-Lee"
+        ],
+        "predicates": [
+          "invent"
+        ],
+        "cueKinds": [
+          "temporal"
+        ],
+        "modifierKinds": [
+          "temporal"
+        ],
+        "entityLabels": [
+          "PERSON",
+          "EVENT",
+          "GPE"
+        ],
+        "warnings": []
+      }
+    ],
+    "claimWarnings": [],
+    "provider": "spacy",
+    "model": "en_core_web_sm@3.8.0"
+  },
+  "verdict": {
+    "aggregationSchemaVersion": 3,
+    "claimId": "showcase-technology-web",
+    "composition": "SINGLE",
+    "verdict": "SUPPORTED",
+    "positions": {
+      "supportPosition": true,
+      "refutePosition": false,
+      "materialOmissionPosition": false,
+      "supportObligationIds": [
+        "atom-1"
+      ],
+      "refuteObligationIds": [],
+      "unresolvedObligationIds": []
+    },
+    "obligations": [
+      {
+        "obligationId": "atom-1",
+        "state": "SUPPORTED",
+        "supportEdgeIds": [
+          "edge:SUPPORTS:evidence:doc-2c20bee83e25:doc-2c20bee83e25::sentence-1:obligation:showcase-technology-web:atom-1"
+        ],
+        "refuteEdgeIds": [],
+        "unselectedCandidateCount": 2,
+        "provisionalRelationCount": 0
+      }
+    ],
+    "warnings": [],
+    "ruleTrace": [
+      "SINGLE maps its one obligation's validated relations directly.",
+      "Validated positions — support: yes; refute: no.",
+      "Verdict: SUPPORTED."
+    ]
+  },
+  "recordedWith": {
+    "pipelineRevision": "submission-ready-v2",
+    "inputDigest": "06fe3e2643b36505c5a9e2e366cfc53004153ed71015a139b6606e2e7df2098d",
+    "decompositionModel": "qwen2.5:7b",
+    "retrievalModel": "BAAI/bge-small-en-v1.5",
+    "retrievalMethod": "HYBRID",
+    "assessmentModel": "qwen2.5:7b",
+    "reasoningModel": "qwen2.5:7b",
+    "linguisticsModel": "en_core_web_sm@3.8.0"
+  },
+  "timingsSeconds": {
+    "decomposition": 15.438,
+    "retrievalAndLinguistics": 0.152,
+    "evidenceAssessment": 16.547,
+    "symbolicReasoning": 15.351,
+    "aggregation": 0.002,
+    "total": 47.489
+  }
+}

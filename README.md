@@ -1,46 +1,55 @@
-# VeriGraph
+# VeriTrace
 
-VeriGraph lets an audience follow a fact check instead of asking them to trust
-one opaque score. It turns a complex claim into grounded verification
-obligations, finds candidate passages, audits the overall evidence position
-with exact span citations, and exposes the deterministic mapping that produces
-the draft case status.
+VeriTrace shows how a claim-verification result is produced. It decomposes a
+complex claim, retrieves candidate evidence, assesses the evidence against each
+atomic claim, applies supported symbolic rules, and exposes the deterministic
+aggregation behind the verdict.
 
-The main contribution is the inspectable bridge from language models to a
-rule-governed argument graph. Linguistic analysis is useful supporting
-instrumentation: it catches lost entities, qualifiers, and role drift, but it
-does not supply evidence and cannot change a verdict.
+The reasoning graph links atomic claims to assessed evidence, reading context,
+and resolved rule results. Linguistic analysis flags entities, qualifiers, and
+role changes, but it does not supply evidence or affect the verdict.
 
 The current live pipeline is:
 
 ```text
 Claim + source documents
         ↓
-Schema-constrained claim decomposition (Qwen2.5 via Ollama)
+Claim decomposition (Qwen2.5 via Ollama)
         ↓
-Hybrid candidate retrieval (BGE embeddings + lexical anchors)
+Candidate evidence retrieval (user-selectable Hybrid, Semantic, or Lexical ranking)
         ↓
-Provenance-constrained claim audit (Qwen2.5 selects only supplied span IDs)
+Jurisdiction scope check (offline ISO data + deterministic Python)
         ↓
-Deterministic atom–evidence argumentation graph
+Evidence assessment (Qwen2.5 selects only retrieved sentence IDs)
         ↓
-Deterministic four-way verdict (SUPPORTED / REFUTED / NOT_ENOUGH_EVIDENCE /
+Symbolic rule mapping (Qwen2.5) and deterministic execution (Python)
+        ↓
+Version-4 reasoning graph and deterministic four-way verdict (SUPPORTED / REFUTED / NOT_ENOUGH_EVIDENCE /
 CONFLICTING_EVIDENCE)
 ```
 
-Linguistic structure is an optional local spaCy sidecar. It describes atom
-syntax and cues; it is not evidence or a verdict input.
+Claim Structure is an optional local spaCy sidecar. It heuristically describes
+atom syntax and cues; it is not evidence or a verdict input. Explicit
+jurisdiction mismatches remain visible but are excluded from assessment,
+symbolic reasoning, the graph, and the verdict. Relations from insufficient
+evidence remain visible as provisional annotations.
+
+The retrieval stage defaults to **Hybrid**, which combines normalized BGE
+similarity with exact terms, names, dates, and numbers using equal-weight
+reciprocal rank fusion. Its collapsed settings
+control also supports **Semantic** (BGE only) and **Lexical** (exact-anchor
+ranking only); changing the method reruns retrieval and the dependent stages.
 
 ## Two intentional modes
 
 
 | Mode        | Where                           | What is live                                                               |
 | ------------- | --------------------------------- | ---------------------------------------------------------------------------- |
-| Walkthrough | Vercel                          | Nothing. It presents recorded local runs of approved AVeriTeC cases.       |
-| Live demo   | Native processes on your laptop | Qwen/Ollama decomposition and evidence audit, BGE retrieval, and spaCy analysis. |
+| Walkthrough | Vercel                          | Nothing. It presents 18 recorded local runs: 15 source-grounded constructed examples and three AVeriTeC cases. |
+| Live demo   | Native processes on your laptop | Qwen/Ollama decomposition, evidence assessment, and rule mapping; BGE retrieval; Python rule execution; spaCy analysis. |
 
-The Vercel UI always states: **“Demo mode — results are precomputed. Live
-analysis is available locally.”** It never attempts to connect to a laptop or
+The Vercel UI always states: **“Illustrative recorded run — no live inference
+on this website.”** It never attempts to connect to a laptop or
 to a public inference service.
 
 ## Local live demo
@@ -66,8 +75,8 @@ cd verigraph
 ```
 
 Open [http://localhost:3000](http://localhost:3000). The browser talks to the local Next.js process,
-which proxies to FastAPI on port 8001. BGE and the compatibility NLI model are stored in the
-gitignored `data/models/` directory; Ollama stores its model in its normal host
+which proxies to FastAPI on port 8001. BGE is stored in the gitignored
+`data/models/` directory; Ollama stores Qwen in its normal host
 installation. After preparation, inference is local and does not fetch source
 documents or model files.
 
@@ -82,10 +91,10 @@ Useful commands:
 ./run-verigraph --record-walkthrough
 ```
 
-`--record-walkthrough` uses the already-running native services to run all 32
-approved cases—eight per reference label—and writes the static assets
-consumed by Vercel. It must complete successfully before deploying a new
-walkthrough.
+`--record-walkthrough` uses the already-running native services to record all
+18 showcase cases and writes the static assets consumed by Vercel.
+The full 32-case bundle remains available locally for internal audits. Recording
+must complete successfully before deploying a new walkthrough.
 
 ## Vercel deployment
 
@@ -96,7 +105,7 @@ walkthrough.
 4. Commit `frontend/public/walkthrough/` only after
    `./run-verigraph --record-walkthrough` has generated a complete snapshot.
 
-Vercel does not host FastAPI, Ollama, BGE, or DeBERTa in this design. This
+Vercel does not host FastAPI, Ollama, or BGE in this design. This
 keeps the permanent public site inexpensive and the in-person demonstration
 independent of a fragile remote GPU arrangement.
 
@@ -109,22 +118,31 @@ set.
 
 ## Demo data and licences
 
-The approved 32-case AVeriTeC bundle is stored in `data/demo/averitec/` and
-contains claims, reference labels, recovered source documents, human-written
-AVeriTeC evidence cards with their source URLs, audit metadata, and a digest.
-The cards preserve evidence when archived pages drift; they never contain the
-reference label or gold justification. Reference labels remain dataset
-metadata and are never used as pipeline inputs.
+The default showcase is a qualitative collection of 18 cases grouped under
+Science, History, Geography, Technology, and Current Affairs. Fifteen are
+constructed claims paired with two 150--400-word excerpts from distinct
+authoritative sources; six are curated AVeriTeC cases retained for realism.
+The claim and intended interpretation may be authored, but quoted evidence is
+stored source text rather than an evidence card, paraphrase, or synthetic
+quotation. Publisher, canonical URL, retrieval date, extraction offsets, and
+content hashes are recorded by the offline preparation process. Maintainers
+must review redistribution permission before publishing an excerpt.
 
-The sample browser supports plain-language search plus topic, challenge, and
-reference-verdict filters. The private catalog is now balanced at eight cases
-per verdict and preserves every case from the earlier 22-case release. The
-static walkthrough contains complete recorded runs for all 32 cases. Generate
-the descriptive run audit with `python3 scripts/summarize_runs.py`; the report
-is explicit that this curated demonstration set is not a held-out benchmark.
+The approved 32-case AVeriTeC bundle is stored in `data/demo/averitec/` and
+contains claims, reference labels, recovered source documents, source metadata,
+audit metadata, and a digest. Inference uses only extracted source text.
+AVeriTeC's human question-answer annotations remain in the pinned upstream
+dataset for optional offline evaluation and are never copied into demo
+documents or model inputs. Reference labels remain dataset metadata and are
+never used as pipeline inputs.
+
+The interface offers five category buttons and one selector grouped into
+source-grounded examples and AVeriTeC cases. The separate 32-case AVeriTeC
+bundle remains available for internal regression and error analysis; it is not
+presented as the public showcase or as a benchmark result.
 
 See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for AVeriTeC attribution,
-source-text clearance, and model notices. VeriGraph code is released under the
+source-text clearance, and model notices. VeriTrace code is released under the
 [MIT License](LICENSE).
 
 See [PIPELINE.md](PIPELINE.md) for model and API detail, and

@@ -1,82 +1,67 @@
-"""Provenance-constrained claim-position auditing with Ollama.
-
-The model chooses an evidence position and supplied span IDs. It never emits a
-published four-way verdict; deterministic aggregation maps the validated
-position to the rule-derived demo status.
-"""
+"""Atom-scoped, provenance-constrained evidence assessment with Ollama."""
 from __future__ import annotations
 
 import json
+import re
 from typing import Any, Dict, Sequence
 
 import httpx
 from pydantic import ValidationError
 
+from .evidence_scope import check_evidence_scope, mismatched_span_ids
 from .schemas import (
-    AtomSupportClassification,
-    EvidenceRelation,
-    GroundedClaimAudit,
-    GroundedClaimPosition,
-    GroundedEvidenceAuditResult,
+    AssessmentAtomEvidence,
+    DemoDocument,
+    EvidenceScopeCheck,
+    GroundedEvidenceAssessment,
     GroundedObligationAudit,
     MaterialOmissionCertificate,
-    NLIAtomEvidence,
-    NLIRelation,
     PipelineAtom,
-    SupportClassificationResponse,
 )
 from .settings import settings
 
 
-AUDIT_INSTRUCTIONS = """You audit the overall position established by
-supplied evidence for a fact-checking claim. Use only supplied evidence IDs. Do
-not use outside knowledge. The output is an evidence position, not a published
-verdict.
+AUDIT_INSTRUCTIONS = """Assess the supplied candidate evidence for each atomic
+claim. Use only supplied evidence IDs and do not use outside knowledge. This is
+an evidence assessment, not a case verdict.
 
-Choose exactly one position:
-- SUPPORT_ONLY: the cited evidence establishes every material part of the full
-  claim and there is no material counterevidence.
-- ATTACK_ONLY: the cited evidence directly falsifies any required part of the
-  claim. A counterexample attacks an absolute or universal claim. Other true,
-  undisputed background or obligations do not turn a refuted conjunction into
-  mixed evidence.
-- MIXED_OR_MISLEADING: credible evidence supports and attacks the same disputed
-  required proposition, or the literal facts are selectively true while an
-  omitted scope, cost, exception, comparison period, eligibility condition,
-  jurisdiction, or conflated program materially reverses the overall
-  impression. Do not choose mixed merely because one conjunct is true and a
-  different required conjunct is false; choose ATTACK_ONLY.
-- INSUFFICIENT: the supplied evidence cannot establish or falsify the full
-  claim. Topical discussion, possibility, a preliminary study, or a missing
-  comparison is insufficient.
+For every atomic claim, select zero to three IDs in each field. atomTrueIds are
+sentences that make the exact atomic claim true. atomFalseIds are sentences
+that make the exact atomic claim false. contextIds provide context but establish
+neither truth value. Assess the selected sentences jointly and mark the bundle SUFFICIENT,
+PARTIAL, or INSUFFICIENT. Support requires the asserted entity, relationship,
+time, quantity, comparison, and scope. Refutation requires a direct conflict;
+mere irrelevance, missing evidence, or uncertainty is not refutation. Context
+may help interpret evidence but does not itself support or refute the claim.
 
-Calibration rules:
-- Support requires the exact entities, relationship, comparison, time,
-  quantity, and scope asserted. If a claim compares X with Y and evidence lacks
-  facts about Y, choose INSUFFICIENT; general theory about X cannot fill the
-  missing side.
-- A preliminary study, possible use, ongoing review, unpredictable result, or
-  call for more research does not support an unqualified claim of established
-  status. Apparent preliminary support plus uncertainty is still INSUFFICIENT,
-  not mixed. Uncertainty alone is not an attack.
-- Evidence that identifies a different actor or entity, gives a counterexample
-  to a universal, denies an asserted inclusion, or states that an authoritative
-  plan contains no asserted provision is an attack, not merely insufficient.
-- Judge the literal proposition. Do not add an unstated qualifier such as
-  "natural," "legal," or "intentional" and then attack that stronger claim.
-- An explanation for an observed event does not attack the observation. For
-  example, scattering can explain a red-looking sky without contradicting that
-  the sky was described as red.
-- Choose MIXED_OR_MISLEADING when evidence establishes a narrower underlying
-  policy, event, or concern but the claim turns it into a materially stronger
-  accusation by omitting scope or qualifications. Its support IDs may establish
-  that narrower basis rather than the exaggerated full claim.
+An authoritative sentence that explicitly calls the proposition false or a
+myth is direct refutation; it does not need an opposing exact number. Likewise,
+"does not change" directly refutes a claimed increase without a measurement,
+and an explicit different location refutes a location claim. Each evidence ID
+may appear in at most one of atomTrueIds, atomFalseIds, or contextIds. If the
+rationale says a candidate directly supports or refutes the atom, include that
+candidate in the corresponding list. Judge sufficiency from whether the bundle
+resolves the atom, not from whether it contains a numeric measurement.
 
-Select at most six IDs in each list. Every selected ID must be supplied.
-SUPPORT_ONLY requires support IDs. ATTACK_ONLY requires attack IDs.
-MIXED_OR_MISLEADING requires support IDs and attack or context IDs.
-INSUFFICIENT has no support or attack IDs. Keep the reason concrete and under
-55 words. Return JSON only."""
+Relation examples: for atom "The bridge has cables," a source saying "the
+bridge does not have cables" is REFUTES, never SUPPORTS. A source calling the
+atom's proposition a "myth" or "false" is REFUTES; a heading that merely quotes
+a myth is CONTEXT unless its truth status is explicit. For "A happened before
+B," two dated sentences establishing B before A jointly REFUTE the atom. For a
+superlative, values measured under different definitions are not opposing
+evidence: mark the bundle PARTIAL or INSUFFICIENT and explain the ambiguity.
+
+Each ANCHOR is selectable. READING CONTEXT may resolve a reference in that
+anchor but is not an independent candidate. Never move evidence between atomic
+claims. Some candidates may be absent because deterministic scope validation
+excluded an explicit jurisdiction mismatch.
+
+Keep missingInformation to one short sentence, and keep reason under 40 words.
+
+Return materialOmission.detected only when sufficient selected support evidence
+establishes a narrower fact and selected context establishes an omitted scope,
+exception, cost, comparison period, or eligibility condition that materially
+changes the claim. Otherwise return false and empty ID lists. Return JSON only."""
 
 MAX_CONTEXT_CHARACTERS = 1600
 
@@ -101,53 +86,86 @@ def _compact(text: str, limit: int = MAX_CONTEXT_CHARACTERS) -> str:
     return " ".join(text.split())[:limit]
 
 
-def _audit_schema(all_codes: list[str]) -> dict[str, Any]:
-    evidence_items: dict[str, Any] = {"type": "string"}
+def _audit_schema(codes_by_atom: dict[str, list[str]]) -> dict[str, Any]:
+    all_codes = [code for codes in codes_by_atom.values() for code in codes]
+    all_evidence_items: dict[str, Any] = {"type": "string"}
     if all_codes:
-        evidence_items["enum"] = all_codes
+        all_evidence_items["enum"] = all_codes
+    obligation_schemas: dict[str, Any] = {}
+    for atom_code, codes in codes_by_atom.items():
+        local_items: dict[str, Any] = {"type": "string"}
+        if codes:
+            local_items["enum"] = codes
+        selection = {"type": "array", "items": local_items, "maxItems": min(3, len(codes))}
+        obligation_schemas[atom_code] = {
+            "type": "object",
+            "properties": {
+                "atomTrueIds": selection,
+                "atomFalseIds": selection,
+                "contextIds": selection,
+                "sufficiency": {"type": "string", "enum": ["SUFFICIENT", "PARTIAL", "INSUFFICIENT"]},
+                "missingInformation": {"type": "string", "maxLength": 180},
+                "reason": {"type": "string", "maxLength": 300},
+            },
+            "required": ["atomTrueIds", "atomFalseIds", "contextIds", "sufficiency", "missingInformation", "reason"],
+        }
     return {
         "type": "object",
         "properties": {
-            "position": {
-                "type": "string",
-                "enum": [
-                    "SUPPORT_ONLY",
-                    "ATTACK_ONLY",
-                    "MIXED_OR_MISLEADING",
-                    "INSUFFICIENT",
-                ],
+            "obligations": {
+                "type": "object",
+                "properties": obligation_schemas,
+                "required": list(codes_by_atom),
             },
-            "supportIds": {"type": "array", "items": evidence_items, "maxItems": 6},
-            "attackIds": {"type": "array", "items": evidence_items, "maxItems": 6},
-            "contextIds": {"type": "array", "items": evidence_items, "maxItems": 6},
-            "reason": {"type": "string"},
+            "materialOmission": {
+                "type": "object",
+                "properties": {
+                    "detected": {"type": "boolean"},
+                    "supportIds": {"type": "array", "items": all_evidence_items, "maxItems": 3},
+                    "contextIds": {"type": "array", "items": all_evidence_items, "maxItems": 3},
+                    "reason": {"type": "string", "maxLength": 300},
+                },
+                "required": ["detected", "supportIds", "contextIds", "reason"],
+            },
         },
-        "required": ["position", "supportIds", "attackIds", "contextIds", "reason"],
+        "required": ["obligations", "materialOmission"],
     }
 
 
 def _audit_input(
     claim: str,
     atoms: Sequence[PipelineAtom],
-    evidence: Sequence[NLIAtomEvidence],
-    document_titles: Dict[str, str],
+    evidence: Sequence[AssessmentAtomEvidence],
+    documents: Sequence[DemoDocument],
+    scope_checks: dict[str, list[EvidenceScopeCheck]],
 ) -> tuple[str, Dict[str, tuple[PipelineAtom, Dict[str, Any]]], dict[str, Any]]:
     evidence_by_atom = {item.atom_id: item for item in evidence}
+    documents_by_id = {item.id: item for item in documents}
     mapped: Dict[str, tuple[PipelineAtom, Dict[str, Any]]] = {}
     lines = [f"CLAIM: {claim}"]
-    all_codes: list[str] = []
     for atom_index, atom in enumerate(atoms, start=1):
         atom_code = f"O{atom_index}"
-        lines.append(f"\nOBLIGATION {atom_code}: {atom.text}")
+        lines.append(f"\nATOMIC CLAIM {atom_code}: {atom.text}")
+        excluded = mismatched_span_ids(scope_checks[atom.id])
         candidates: Dict[str, Any] = {}
-        for evidence_index, span in enumerate(evidence_by_atom[atom.id].spans, start=1):
-            code = f"{atom_code}-E{evidence_index}"
+        eligible_index = 0
+        for span in evidence_by_atom[atom.id].spans:
+            if span.id in excluded:
+                continue
+            eligible_index += 1
+            code = f"{atom_code}-E{eligible_index}"
             candidates[code] = span
-            all_codes.append(code)
-            title = _compact(document_titles.get(span.document_id, "Untitled source"), 180)
-            lines.append(f"{code} | {title} | {_compact(span.context or span.text)}")
+            document = documents_by_id[span.document_id]
+            lines.append(f"{code} | {_compact(document.title, 180)} | ANCHOR: {_compact(span.text)}")
+            if span.context_spans:
+                context = " ".join(f"[{item.direction}] {_compact(item.text)}" for item in span.context_spans)
+                lines.append(f"  READING CONTEXT (not independent evidence): {context}")
+            elif span.context and span.context.strip() != span.text.strip():
+                lines.append(f"  READING CONTEXT (not independent evidence): {_compact(span.context)}")
         mapped[atom_code] = (atom, candidates)
-    return "\n".join(lines), mapped, _audit_schema(all_codes)
+    return "\n".join(lines), mapped, _audit_schema({
+        atom_code: list(candidates) for atom_code, (_atom, candidates) in mapped.items()
+    })
 
 
 def _response_content(payload: Any) -> str:
@@ -155,220 +173,183 @@ def _response_content(payload: Any) -> str:
         raise GroundedEvidenceAuditOutputError("Ollama returned an invalid response envelope.")
     message = payload.get("message")
     if not isinstance(message, dict) or not isinstance(message.get("content"), str):
-        raise GroundedEvidenceAuditOutputError("Ollama returned no grounded audit JSON.")
+        raise GroundedEvidenceAuditOutputError("Ollama returned no evidence assessment JSON.")
     if not payload.get("done", True):
-        raise GroundedEvidenceAuditProviderError("Ollama stopped before completing the evidence audit.")
+        raise GroundedEvidenceAuditProviderError("Ollama stopped before completing the evidence assessment.")
     return message["content"]
 
 
 async def _request_audit(prompt: str, schema: dict[str, Any]) -> Any:
     payload = {
-        "model": settings.ollama_model,
-        "stream": False,
-        "messages": [
-            {"role": "system", "content": AUDIT_INSTRUCTIONS},
-            {"role": "user", "content": prompt},
-        ],
-        # Disable optional reasoning-channel generation. The typed evidence
-        # audit needs only the schema-constrained answer, and Qwen3 otherwise
-        # spends the entire local request budget on hidden thinking tokens.
-        "think": False,
-        "format": schema,
-        "options": {
-            "temperature": 0,
-            "seed": 0,
-            "num_ctx": settings.evidence_audit_context_size,
-            "num_predict": 600,
-        },
+        "model": settings.ollama_model, "stream": False,
+        "messages": [{"role": "system", "content": AUDIT_INSTRUCTIONS}, {"role": "user", "content": prompt}],
+        "think": False, "format": schema,
+        "options": {"temperature": 0, "seed": 0, "num_ctx": settings.evidence_audit_context_size, "num_predict": 1400},
         "keep_alive": settings.ollama_keep_alive,
     }
     try:
         async with httpx.AsyncClient(timeout=settings.request_timeout_seconds) as client:
-            response = await client.post(
-                f"{settings.ollama_url.rstrip('/')}/api/chat", json=payload
-            )
+            response = await client.post(f"{settings.ollama_url.rstrip('/')}/api/chat", json=payload)
             response.raise_for_status()
             return response.json()
     except httpx.TimeoutException as error:
-        raise GroundedEvidenceAuditProviderError(
-            "The Ollama evidence audit timed out. Check that Ollama is running and retry."
-        ) from error
+        raise GroundedEvidenceAuditProviderError("The Ollama evidence assessment timed out. Check that Ollama is running and retry.") from error
     except httpx.HTTPStatusError as error:
-        raise GroundedEvidenceAuditProviderError(
-            "Ollama rejected the grounded evidence audit request."
-        ) from error
+        raise GroundedEvidenceAuditProviderError("Ollama rejected the evidence assessment request.") from error
     except (httpx.HTTPError, ValueError) as error:
-        raise GroundedEvidenceAuditProviderError(
-            "Ollama could not complete the grounded evidence audit."
-        ) from error
+        raise GroundedEvidenceAuditProviderError("Ollama could not complete the evidence assessment.") from error
 
 
 def _unique_valid_codes(raw: Any, candidates: Dict[str, Any]) -> list[str]:
     if not isinstance(raw, list):
         return []
-    codes = list(dict.fromkeys(str(code) for code in raw))[:6]
-    if any(code not in candidates for code in codes):
-        raise GroundedEvidenceAuditOutputError("The model selected an unknown evidence ID.")
+    codes = list(dict.fromkeys(str(code) for code in raw))[:3]
+    unknown = [code for code in codes if code not in candidates]
+    if unknown:
+        raise GroundedEvidenceAuditOutputError(
+            "The model selected unavailable evidence IDs: " + ", ".join(unknown)
+        )
     return codes
+
+
+_EMPTY_MODEL_VALUES = {"", "false", "null", "none", "n/a", "not applicable", "no"}
+
+
+def _clean_model_sentence(value: Any, *, fallback: str = "", limit: int = 300) -> str:
+    """Normalize short display copy without exposing JSON-ish model values."""
+    if value is None or isinstance(value, bool):
+        return fallback
+    text = " ".join(str(value).split()).strip()
+    if text.casefold() in _EMPTY_MODEL_VALUES:
+        return fallback
+    complete = re.match(r"^(.+?[.!?])(?:\s|$)", text)
+    if complete:
+        return complete.group(1)[:limit]
+    if len(text) <= limit:
+        return text if text.endswith((".", "!", "?")) else f"{text}."
+    # A long fragment has no safe sentence boundary. Do not publish a clipped
+    # half-sentence as an explanation.
+    return fallback or "Additional source information is needed."
 
 
 def _parse_audit(
     payload: Any,
     mapped: Dict[str, tuple[PipelineAtom, Dict[str, Any]]],
-) -> GroundedEvidenceAuditResult:
+    scope_checks: dict[str, list[EvidenceScopeCheck]],
+) -> GroundedEvidenceAssessment:
     try:
         raw = json.loads(_response_content(payload))
     except (ValueError, json.JSONDecodeError) as error:
-        raise GroundedEvidenceAuditOutputError("The model returned malformed audit JSON.") from error
-    if not isinstance(raw, dict):
-        raise GroundedEvidenceAuditOutputError("The model omitted the grounded claim position.")
-
-    all_candidates = {
-        code: span
-        for _atom, candidates in mapped.values()
-        for code, span in candidates.items()
-    }
-    try:
-        position = GroundedClaimPosition(str(raw.get("position", "")))
-    except ValueError as error:
-        raise GroundedEvidenceAuditOutputError("The model returned an unknown claim position.") from error
-    support_codes = _unique_valid_codes(raw.get("supportIds"), all_candidates)
-    attack_codes = _unique_valid_codes(raw.get("attackIds"), all_candidates)
-    context_codes = _unique_valid_codes(raw.get("contextIds"), all_candidates)
-    if position == GroundedClaimPosition.support_only:
-        selected_support_span_ids = {
-            all_candidates[code].id for code in support_codes
+        raise GroundedEvidenceAuditOutputError("The model returned malformed assessment JSON.") from error
+    items = raw.get("obligations") if isinstance(raw, dict) else None
+    if isinstance(items, dict):
+        items = [dict(value, obligationId=atom_code) for atom_code, value in items.items() if isinstance(value, dict)]
+    if not isinstance(items, list) or len(items) != len(mapped):
+        raise GroundedEvidenceAuditOutputError("The model returned incomplete atomic-claim assessments.")
+    selections: dict[str, dict[str, Any]] = {}
+    for item in items:
+        if not isinstance(item, dict):
+            raise GroundedEvidenceAuditOutputError("The model returned an invalid atomic-claim assessment.")
+        atom_code = str(item.get("obligationId", ""))
+        if atom_code not in mapped or atom_code in selections:
+            raise GroundedEvidenceAuditOutputError("The model returned duplicate or unknown atomic-claim assessments.")
+        candidates = mapped[atom_code][1]
+        sufficiency = str(item.get("sufficiency", ""))
+        if sufficiency not in {"SUFFICIENT", "PARTIAL", "INSUFFICIENT"}:
+            raise GroundedEvidenceAuditOutputError("The model returned an unknown evidence sufficiency value.")
+        selections[atom_code] = {
+            "support": _unique_valid_codes(item.get("atomTrueIds"), candidates),
+            "refute": _unique_valid_codes(item.get("atomFalseIds"), candidates),
+            "context": _unique_valid_codes(item.get("contextIds"), candidates),
+            "sufficiency": sufficiency,
+            "missing": _clean_model_sentence(item.get("missingInformation"), limit=220),
+            "reason": _clean_model_sentence(
+                item.get("reason"), fallback="No rationale was returned.", limit=300
+            ),
         }
-        support_atoms = {
-            atom_code
-            for atom_code, (_atom, candidates) in mapped.items()
-            if any(
-                span.id in selected_support_span_ids
-                for span in candidates.values()
-            )
+        support = selections[atom_code]["support"]
+        refute = selections[atom_code]["refute"]
+        context = selections[atom_code]["context"]
+        contradictory = set(support) & set(refute)
+        # Two sources may reproduce the same sentence under different IDs. The
+        # same normalized statement cannot coherently support and refute one
+        # atom, so demote both copies to reading context.
+        support_by_text = {
+            " ".join(candidates[code].text.casefold().split()): code for code in support
         }
-        if support_atoms != set(mapped):
-            position = GroundedClaimPosition.insufficient
-            reason_prefix = (
-                "The claimed support-only position did not cite support for every obligation. "
-            )
-        else:
-            reason_prefix = ""
-    else:
-        reason_prefix = ""
-    if position == GroundedClaimPosition.support_only:
-        attack_codes = []
-    elif position == GroundedClaimPosition.attack_only:
-        support_codes = []
-    elif position == GroundedClaimPosition.insufficient:
-        support_codes, attack_codes = [], []
-    reason = reason_prefix + (
-        str(raw.get("reason", "")).strip()
-        or "The model did not provide a concrete audit reason."
-    )
-
-    try:
-        claim_position = GroundedClaimAudit(
-            position=position,
-            support_span_ids=[all_candidates[code].id for code in support_codes],
-            attack_span_ids=[all_candidates[code].id for code in attack_codes],
-            context_span_ids=[all_candidates[code].id for code in context_codes],
-            reason=reason[:500],
-        )
-    except ValidationError as error:
-        raise GroundedEvidenceAuditOutputError(
-            "The model returned an ungrounded decisive claim position."
-        ) from error
+        refute_by_text = {
+            " ".join(candidates[code].text.casefold().split()): code for code in refute
+        }
+        duplicated_conflicts = support_by_text.keys() & refute_by_text.keys()
+        for text in duplicated_conflicts:
+            contradictory.update({support_by_text[text], refute_by_text[text]})
+        if contradictory:
+            # A single sentence cannot be both decisive support and decisive
+            # refutation for one atom. Preserve it conservatively as context
+            # instead of turning an invalid model assignment into a verdict.
+            support = [code for code in support if code not in contradictory]
+            refute = [code for code in refute if code not in contradictory]
+            context = list(dict.fromkeys([*context, *sorted(contradictory)]))[:3]
+        decisive = set(support) | set(refute)
+        selections[atom_code]["support"] = support
+        selections[atom_code]["refute"] = refute
+        selections[atom_code]["context"] = [code for code in context if code not in decisive]
 
     obligations: list[GroundedObligationAudit] = []
-    selected_support_span_ids = {
-        all_candidates[code].id for code in support_codes
-    }
-    selected_attack_span_ids = {
-        all_candidates[code].id for code in attack_codes
-    }
-    for _atom_code, (atom, candidates) in mapped.items():
-        atom_support = list(
-            dict.fromkeys(
-                span.id
-                for span in candidates.values()
-                if span.id in selected_support_span_ids
-            )
-        )[:3]
-        atom_attack = list(
-            dict.fromkeys(
-                span.id
-                for span in candidates.values()
-                if span.id in selected_attack_span_ids
-            )
-        )[:3]
-        state = (
-            "BOTH" if atom_support and atom_attack
-            else "SUPPORTED" if atom_support
-            else "REFUTED" if atom_attack
-            else "UNRESOLVED"
-        )
-        obligations.append(
-            GroundedObligationAudit(
-                atom_id=atom.id,
-                state=state,
-                support_span_ids=atom_support,
-                attack_span_ids=atom_attack,
-                reason=reason[:500],
-            )
-        )
+    all_candidates: dict[str, Any] = {}
+    for atom_code, (atom, candidates) in mapped.items():
+        selection = selections[atom_code]
+        all_candidates.update(candidates)
+        obligations.append(GroundedObligationAudit(
+            atom_id=atom.id,
+            support_span_ids=[candidates[code].id for code in selection["support"]],
+            refute_span_ids=[candidates[code].id for code in selection["refute"]],
+            context_span_ids=[candidates[code].id for code in selection["context"]],
+            sufficiency=selection["sufficiency"],
+            missing_information=selection["missing"],
+            reason=selection["reason"],
+            scope_checks=scope_checks[atom.id],
+        ))
 
-    return GroundedEvidenceAuditResult(
-        claim_position=claim_position,
-        obligations=obligations,
-        material_omission=MaterialOmissionCertificate(),
-        model=settings.ollama_model,
-    )
+    omission_raw = raw.get("materialOmission")
+    if not isinstance(omission_raw, dict):
+        raise GroundedEvidenceAuditOutputError("The model omitted the material-omission certificate.")
+    detected = bool(omission_raw.get("detected"))
+    support_codes = _unique_valid_codes(omission_raw.get("supportIds"), all_candidates)
+    context_codes = _unique_valid_codes(omission_raw.get("contextIds"), all_candidates)
+    if detected:
+        sufficient_codes = {
+            code for atom_code, selection in selections.items()
+            if selection["sufficiency"] == "SUFFICIENT" for code in selection["support"]
+        }
+        if not set(support_codes).issubset(sufficient_codes):
+            raise GroundedEvidenceAuditOutputError("A material omission must cite sufficient supporting evidence.")
+    else:
+        support_codes, context_codes = [], []
+    try:
+        omission = MaterialOmissionCertificate(
+            detected=detected,
+            support_span_ids=[all_candidates[code].id for code in support_codes],
+            context_span_ids=[all_candidates[code].id for code in context_codes],
+            reason=_clean_model_sentence(
+                omission_raw.get("reason"),
+                fallback="No material omission was established.",
+                limit=300,
+            ),
+        )
+    except ValidationError as error:
+        raise GroundedEvidenceAuditOutputError("The model returned an invalid material-omission certificate.") from error
+    return GroundedEvidenceAssessment(obligations=obligations, material_omission=omission)
 
 
 async def audit_grounded_evidence(
     claim: str,
     atoms: Sequence[PipelineAtom],
-    evidence: Sequence[NLIAtomEvidence],
-    document_titles: Dict[str, str],
-) -> GroundedEvidenceAuditResult:
+    evidence: Sequence[AssessmentAtomEvidence],
+    documents: Sequence[DemoDocument],
+) -> GroundedEvidenceAssessment:
     if not settings.ollama_url.strip() or not settings.ollama_model.strip():
-        raise GroundedEvidenceAuditConfigurationError(
-            "Grounded evidence auditing requires a configured local Ollama model."
-        )
-    prompt, mapped, schema = _audit_input(claim, atoms, evidence, document_titles)
-    return _parse_audit(await _request_audit(prompt, schema), mapped)
-
-
-def classifications_from_grounded_audit(
-    evidence: Sequence[NLIAtomEvidence],
-    audit: GroundedEvidenceAuditResult,
-) -> SupportClassificationResponse:
-    """Turn validated claim-level evidence selections into graph relations."""
-    support_ids = set(audit.claim_position.support_span_ids)
-    attack_ids = set(audit.claim_position.attack_span_ids)
-    classifications = []
-    for group in evidence:
-        relations = []
-        for span in group.spans:
-            relation = (
-                NLIRelation.entailment if span.id in support_ids
-                else NLIRelation.contradiction if span.id in attack_ids
-                else NLIRelation.neutral
-            )
-            relations.append(
-                EvidenceRelation(
-                    span_id=span.id,
-                    document_id=span.document_id,
-                    relation=relation,
-                )
-            )
-        classifications.append(
-            AtomSupportClassification(atom_id=group.atom_id, relations=relations)
-        )
-    return SupportClassificationResponse(
-        classifications=classifications,
-        evidence_audit=audit,
-        provider="ollama",
-        model=audit.model,
-    )
+        raise GroundedEvidenceAuditConfigurationError("Evidence assessment requires a configured local Ollama model.")
+    scope_checks = check_evidence_scope(atoms, evidence, documents)
+    prompt, mapped, schema = _audit_input(claim, atoms, evidence, documents, scope_checks)
+    return _parse_audit(await _request_audit(prompt, schema), mapped, scope_checks)

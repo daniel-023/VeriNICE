@@ -18,8 +18,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20210116025723/https://www.state.gov/foreign-terrorist-organizations/",
         "wordCount": 1714,
-        "sha256": "7ad28a63e17bc9fab28e06f57f63747f2bf8889b578522a9c637e664c8409993",
-        "annotatedEvidenceSha256": "587b7afbd6067a62ae1a81038d7964a3e343b113693eb182fd25705167943589"
+        "sha256": "7ad28a63e17bc9fab28e06f57f63747f2bf8889b578522a9c637e664c8409993"
       },
       {
         "sourceUrl": "https://ofsistorage.blob.core.windows.net/publishlive/ConList.pdf",
@@ -34,8 +33,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20210124041112/https://ofsistorage.blob.core.windows.net/publishlive/ConList.pdf",
         "wordCount": 4730,
-        "sha256": "91b0ab8dd4c7569c35f3b989784e5142f3bbfd8bc8239ad5dcdf474efe741466",
-        "annotatedEvidenceSha256": "88dd135c9ecb9f7e59a8b9b90947b9ed7e9ad56933cf03e91949351a3ef6e511"
+        "sha256": "91b0ab8dd4c7569c35f3b989784e5142f3bbfd8bc8239ad5dcdf474efe741466"
       },
       {
         "sourceUrl": "https://www.legislation.gov.au/Details/C2019G00862",
@@ -50,8 +48,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230324152751/https://www.legislation.gov.au/Details/C2019G00862",
         "wordCount": 1752,
-        "sha256": "66b1d2f63beb8b2bf43512b320286a7bfc3145c5a0676d4ddf85552bb0cc3560",
-        "annotatedEvidenceSha256": "b270702b16027b5311bbde0d3641b3e6fd20646227feee033c5b31bfa78a999f"
+        "sha256": "66b1d2f63beb8b2bf43512b320286a7bfc3145c5a0676d4ddf85552bb0cc3560"
       },
       {
         "sourceUrl": "https://eur-lex.europa.eu/legal-content/en/TXT/?uri=CELEX:32020D1132",
@@ -66,8 +63,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20210120070334/https://eur-lex.europa.eu/legal-content/en/TXT/?uri=CELEX:32020D1132",
         "wordCount": 1339,
-        "sha256": "661082f56216a17e665acba32748bf821fa5a61fad222f154f2c1329c6711f18",
-        "annotatedEvidenceSha256": "5d4be5b718c9d38215d465670e181f395058c9c82f8fbdf92f12ff682d379363"
+        "sha256": "661082f56216a17e665acba32748bf821fa5a61fad222f154f2c1329c6711f18"
       },
       {
         "sourceUrl": "https://www.police.govt.nz/sites/default/files/publications/designated-entities-12-october-2020.pdf",
@@ -77,30 +73,20 @@
             "method": "original",
             "status": "not_found",
             "error": "HTTP 404"
+          },
+          {
+            "url": "https://www.police.govt.nz/sites/default/files/publications/designated-entities-12-october-2020.pdf",
+            "method": "wayback_lookup",
+            "status": "not_found",
+            "error": "No archived snapshot was available."
           }
         ],
         "accepted": false,
         "reason": "fetch_failed"
-      },
-      {
-        "sourceUrl": "https://eur-lex.europa.eu/legal-content/en/TXT/?uri=CELEX%3A32020D1132",
-        "attempts": [
-          {
-            "url": "https://web.archive.org/web/20230324153307/https://eur-lex.europa.eu/legal-content/en/TXT/?uri=CELEX%3A32020D1132",
-            "method": "dataset_archive",
-            "status": "ok",
-            "error": ""
-          }
-        ],
-        "accepted": true,
-        "resolvedUrl": "https://web.archive.org/web/20230324153307/https://eur-lex.europa.eu/legal-content/en/TXT/?uri=CELEX%3A32020D1132",
-        "wordCount": 1368,
-        "sha256": "984a185f6bac3ecc98efaa21afb5f04fbf85d4a076ebc413db7b6ad621cee191",
-        "annotatedEvidenceSha256": "8b030d0f1acefa6fd4ec529dfcab7a687f6bf9d1e78e565f4100cf321decabbc"
       }
     ],
     "accepted": true,
-    "documentCount": 5
+    "documentCount": 4
   },
   {
     "sourceIndex": 146,
@@ -121,8 +107,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230403105118/https://www.aha.org/news/headline/2020-01-31-us-declares-coronavirus-public-health-emergency-cdc-updates-guidance",
         "wordCount": 304,
-        "sha256": "dd7daf5bf36b7c773b98ceb3cbe648c7bb5f6a74b0cd70f5f3e1d149aed3037f",
-        "annotatedEvidenceSha256": "a926298dffc1d3ff51fdd5efe10748e08bd97613de0af06b3cecd3eb26e00c1e"
+        "sha256": "dd7daf5bf36b7c773b98ceb3cbe648c7bb5f6a74b0cd70f5f3e1d149aed3037f"
       },
       {
         "sourceUrl": "https://fred.stlouisfed.org/series/payems",
@@ -137,8 +122,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20210415044925/https://fred.stlouisfed.org/series/payems",
         "wordCount": 537,
-        "sha256": "71d899b60dbd0e15ca03015588b6eee3cda0ebbe8febe7f34ec85cdd073ac48a",
-        "annotatedEvidenceSha256": "b3af495be4152b98fb98eb33835cef57e90302f5e7621d1903c649e2f07bf732"
+        "sha256": "71d899b60dbd0e15ca03015588b6eee3cda0ebbe8febe7f34ec85cdd073ac48a"
       },
       {
         "sourceUrl": "https://www.dol.gov/ui/data.pdf",
@@ -153,8 +137,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20210415193015/https://www.dol.gov/ui/data.pdf",
         "wordCount": 4914,
-        "sha256": "0ee9eb930e79c36eefd6c11b51c8855ba3c1bba2ba1fae1269f28031fda2d72b",
-        "annotatedEvidenceSha256": "f38791f2161beac934a39b5d8b76114ce39b11daa819180a3ae95df8d60a1157"
+        "sha256": "0ee9eb930e79c36eefd6c11b51c8855ba3c1bba2ba1fae1269f28031fda2d72b"
       }
     ],
     "accepted": true,
@@ -179,8 +162,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230403110524/https://www.abc.net.au/news/2020-10-03/donald-trump-experiment-coronavirus-treatment-what-we-know/12728896",
         "wordCount": 990,
-        "sha256": "32f6c349c092654d389b1964ba98de06c1181ec0156654af0764fbcce257d9f1",
-        "annotatedEvidenceSha256": "f30bca2b8a0e16f99881cc60ab3529cfe28aaae2fa76c9026cce8044d33dbd51"
+        "sha256": "32f6c349c092654d389b1964ba98de06c1181ec0156654af0764fbcce257d9f1"
       },
       {
         "sourceUrl": "https://investor.regeneron.com/news-releases/news-release-details/regenerons-regn-cov2-antibody-cocktail-reduced-viral-levels-and",
@@ -195,8 +177,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230110111709/https://investor.regeneron.com/news-releases/news-release-details/regenerons-regn-cov2-antibody-cocktail-reduced-viral-levels-and/",
         "wordCount": 2002,
-        "sha256": "70ae862ad0a1b49940c1ef943f5162165e4ba2d86fe9c89c3405a08ede794560",
-        "annotatedEvidenceSha256": "7748659ec1b5c94101d7867f6c4bb72c27da40c980145c87cec3d5984e3afe5c"
+        "sha256": "70ae862ad0a1b49940c1ef943f5162165e4ba2d86fe9c89c3405a08ede794560"
       },
       {
         "sourceUrl": "https://www.washingtonpost.com/health/trump-antibody-treatment-fetal-tissue/2020/10/08/92f9b2d6-0971-11eb-9be6-cf25fb429f1a_story.html",
@@ -217,8 +198,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20240105053942/https://www.washingtonpost.com/health/trump-antibody-treatment-fetal-tissue/2020/10/08/92f9b2d6-0971-11eb-9be6-cf25fb429f1a_story.html",
         "wordCount": 1318,
-        "sha256": "c2aad5edf713484681c3d4c5a6774c33f95f29b70d6fe51ed238a9d5cf58a07b",
-        "annotatedEvidenceSha256": "dd69f89a0ffa275017a163b3fcae3e7b33a6742369f99130e38c1d4d2563629d"
+        "sha256": "c2aad5edf713484681c3d4c5a6774c33f95f29b70d6fe51ed238a9d5cf58a07b"
       }
     ],
     "accepted": true,
@@ -243,8 +223,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230327153143/https://www.vanguardngr.com/2020/02/nigerias-gdp-grows-by-2-27-in-q4-2019/",
         "wordCount": 447,
-        "sha256": "c8d8c7c4e0e493c1187fef7f808cd4335ac712351f92ac97823cbe46bb68ab3f",
-        "annotatedEvidenceSha256": "dfba8b69a11869d8869bec78d55d5144af0963d9cf17125e921e8a9ab5b2952c"
+        "sha256": "c8d8c7c4e0e493c1187fef7f808cd4335ac712351f92ac97823cbe46bb68ab3f"
       },
       {
         "sourceUrl": "https://qz.com/africa/1895582/nigeria-economy-gdp-drops-6-1-percent-in-q2-2020/",
@@ -259,8 +238,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230327154552/https://qz.com/africa/1895582/nigeria-economy-gdp-drops-6-1-percent-in-q2-2020",
         "wordCount": 408,
-        "sha256": "ad1afa3e27bc140323f9087a1edfc35b5495daa7f590035c54c333169b268f57",
-        "annotatedEvidenceSha256": "587d451b634eb3a3f088fd34e60a8bbdc2b19ca98b6e4bdd613833bd0e7a08f8"
+        "sha256": "ad1afa3e27bc140323f9087a1edfc35b5495daa7f590035c54c333169b268f57"
       }
     ],
     "accepted": true,
@@ -291,8 +269,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20221024064116/https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/cassava",
         "wordCount": 414,
-        "sha256": "cd6ce44753f3af10190e6f5f06c7a9296013138afde55eaeaa9a2614fc4ce002",
-        "annotatedEvidenceSha256": "eec5e69146f1e47fcbe559118ab29a788eebcd6652ec2ef6dca8a25c98fd50ab"
+        "sha256": "cd6ce44753f3af10190e6f5f06c7a9296013138afde55eaeaa9a2614fc4ce002"
       },
       {
         "sourceUrl": "https://www.pwc.com/ng/en/publications/economic-potential-of-cassava-production-in-nigeria.html",
@@ -321,8 +298,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230321061007/https://www.nationsonline.org/oneworld/nigeria.htm",
         "wordCount": 2206,
-        "sha256": "c31657a179093102327793fe935936d00c28d0b6e56a153ac2ecea7054438795",
-        "annotatedEvidenceSha256": "bca5047db05860982ed0fa63246352aecdfa997001eea9be2c712e165b8cf54f"
+        "sha256": "c31657a179093102327793fe935936d00c28d0b6e56a153ac2ecea7054438795"
       }
     ],
     "accepted": true,
@@ -347,8 +323,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230406141038/https://news.wisc.edu/curiosities-what-determines-the-colors-of-the-sky-at-sunrise-and-sunset/",
         "wordCount": 259,
-        "sha256": "833dc48fa746fc8bfa220ccb9a01f3139945751916fcbbd16049850887eb0438",
-        "annotatedEvidenceSha256": "605e537405179d1d6e2fa558379f600ab16183c127504bf8475f7d4ab483bbf3"
+        "sha256": "833dc48fa746fc8bfa220ccb9a01f3139945751916fcbbd16049850887eb0438"
       },
       {
         "sourceUrl": "https://www.insider.com/oregon-california-smoke-turns-skies-apocalyptic-orange-photos-2020-9",
@@ -363,8 +338,7 @@
         "accepted": true,
         "resolvedUrl": "https://www.insider.com/oregon-california-smoke-turns-skies-apocalyptic-orange-photos-2020-9",
         "wordCount": 600,
-        "sha256": "9763e79c748946442777a2397be688ec0e3cfb60305fd6868294fbe4e57cbfa1",
-        "annotatedEvidenceSha256": "c4eaf27ad17323993e0c87e505b9f823fbc88a3e6a33974f47f51fc6782d220e"
+        "sha256": "9763e79c748946442777a2397be688ec0e3cfb60305fd6868294fbe4e57cbfa1"
       },
       {
         "sourceUrl": "https://www.ssec.wisc.edu/jpss-sdoc/posts/2019-australian-wildfires/fires-near-mallacoota-over-31-december-to-1-january/",
@@ -379,8 +353,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230406141108/https://www.ssec.wisc.edu/jpss-sdoc/posts/2019-australian-wildfires/fires-near-mallacoota-over-31-december-to-1-january/",
         "wordCount": 1116,
-        "sha256": "8092ea218e90bfb6ee042d8ce618c061be76006bc868e3cf60011e5cbe620cfb",
-        "annotatedEvidenceSha256": "5fabd83720dbd30ccd0a1f7bcb4bbfd1ab40cb04a5f86406f4ddeed217b84518"
+        "sha256": "8092ea218e90bfb6ee042d8ce618c061be76006bc868e3cf60011e5cbe620cfb"
       }
     ],
     "accepted": true,
@@ -405,8 +378,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230326032955/https://millercenter.org/president/barack-obama/key-events",
         "wordCount": 2687,
-        "sha256": "092f810549a9def8889b4a7ec054653b9785d7a4b6eb0762d98a424497fa4f8c",
-        "annotatedEvidenceSha256": "4acfdb0732ec87a9f19bfc8519ed47cd6e7228b3bddccdaaa26437a446302a18"
+        "sha256": "092f810549a9def8889b4a7ec054653b9785d7a4b6eb0762d98a424497fa4f8c"
       },
       {
         "sourceUrl": "https://www.thetimes.co.uk/article/obamas-iraqi-mission-impossible-vcq608j5nxl",
@@ -435,8 +407,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230403104708/https://www.thedailybeast.com/white-house-stalled-isis-rescue-foley-sotloff-and-mueller-died?ref=scroll",
         "wordCount": 1419,
-        "sha256": "61200c0d795803799a514789b6446dcbe8affed8caa5afa24bfdd3e86aa42c2a",
-        "annotatedEvidenceSha256": "785263a8dafe9e6e0e8c1267e694bd285653793044c5503eaf79fcb53f5dd547"
+        "sha256": "61200c0d795803799a514789b6446dcbe8affed8caa5afa24bfdd3e86aa42c2a"
       },
       {
         "sourceUrl": "https://abcnews.go.com/International/timeline-kayla-mueller-isis-captivity/story?id=41398733",
@@ -451,8 +422,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230403104857/https://abcnews.go.com/International/timeline-kayla-mueller-isis-captivity/story?id=41398733",
         "wordCount": 1989,
-        "sha256": "ea36035fe363bb17e8ca0c94ad026a6be641432eb931e3540e8a48d2e3f9ae0c",
-        "annotatedEvidenceSha256": "b5cc1701324df882687e43272e54e41e69e4b6b87163bb011823150170668d62"
+        "sha256": "ea36035fe363bb17e8ca0c94ad026a6be641432eb931e3540e8a48d2e3f9ae0c"
       }
     ],
     "accepted": true,
@@ -477,8 +447,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230325051355/https://www.usa.gov/finding-health-insurance",
         "wordCount": 557,
-        "sha256": "3fb809de1aac527f60ace1e13bddf2ac2c21890c11bb5b29aef13b8073bd0436",
-        "annotatedEvidenceSha256": "6d18018d052807675abae8544bccc6309a9a1dfbcdd43a12bcfc5f84061bb8eb"
+        "sha256": "3fb809de1aac527f60ace1e13bddf2ac2c21890c11bb5b29aef13b8073bd0436"
       },
       {
         "sourceUrl": "https://www.ajmc.com/view/republican-attorneys-general-file-briefs-to-repeal-aca",
@@ -493,8 +462,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230403160700/https://www.ajmc.com/view/republican-attorneys-general-file-briefs-to-repeal-aca",
         "wordCount": 1206,
-        "sha256": "2cfaf6e152d961e3eaca9a4f87268eed23cdd2f8b06125886d171de74e9b1738",
-        "annotatedEvidenceSha256": "4398dd32834d93b7d050039374be824bb595a290128dcc2701bf066b5ab43ef2"
+        "sha256": "2cfaf6e152d961e3eaca9a4f87268eed23cdd2f8b06125886d171de74e9b1738"
       }
     ],
     "accepted": true,
@@ -519,8 +487,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20201125111456/https://www.cdc.gov/chickenpox/about/transmission.html",
         "wordCount": 310,
-        "sha256": "7999d57120682234b52192146df6c73261cd65a37da48b42b7508db061ffbdd3",
-        "annotatedEvidenceSha256": "cb1d3590b738a4bfa79ec34c9a127594dec7e55c449b297267b16c0dc1901bdd"
+        "sha256": "7999d57120682234b52192146df6c73261cd65a37da48b42b7508db061ffbdd3"
       },
       {
         "sourceUrl": "https://www.health.harvard.edu/diseases-and-conditions/coronavirus-outbreak-and-kids",
@@ -535,8 +502,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20201202080005/https://www.health.harvard.edu/diseases-and-conditions/coronavirus-outbreak-and-kids",
         "wordCount": 2084,
-        "sha256": "fb4cc9ed998bc7b86dea68f59dea827ad8aaf5ea8c40287a835461ee5c017707",
-        "annotatedEvidenceSha256": "72f1e0069ad598d48138fb4eddb43abf0bb15187381b5eb73ef94c1ae2a1d895"
+        "sha256": "fb4cc9ed998bc7b86dea68f59dea827ad8aaf5ea8c40287a835461ee5c017707"
       },
       {
         "sourceUrl": "https://secure.jbs.elsevierhealth.com/action/consumeSsoCookie?redirectUri=https%3A%2F%2Fwww.thelancet.com%2Faction%2FconsumeSharedSessionAction%3FSERVER%3DWZ6myaEXBLF%252B9vQ18y9JMw%253D%253D%26MAID%3DTSoTVMTupZ%252FD37sdGKDXfw%253D%253D%26JSESSIONID%3DaaadVfLNuRc7B8uvBTFyx%26ORIGIN%3D412177833%26RD%3DRD&code=null&acw=Secure;SameSite=None&utt=",
@@ -558,6 +524,12 @@
             "method": "original",
             "status": "http_error",
             "error": "Client error '403 Forbidden' for url 'https://www.thelancet.com/action/consumeSharedSessionAction?SERVER=WZ6myaEXBLF%2B9vQ18y9JMw%3D%3D&MAID=TSoTVMTupZ%2FD37sdGKDXfw%3D%3D&JSESSIONID=aaadVfLNuRc7B8uvBTFyx&ORIGIN=412177833&RD=RD'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
+          },
+          {
+            "url": "https://secure.jbs.elsevierhealth.com/action/consumeSsoCookie?redirectUri=https%3A%2F%2Fwww.thelancet.com%2Faction%2FconsumeSharedSessionAction%3FSERVER%3DWZ6myaEXBLF%252B9vQ18y9JMw%253D%253D%26MAID%3DTSoTVMTupZ%252FD37sdGKDXfw%253D%253D%26JSESSIONID%3DaaadVfLNuRc7B8uvBTFyx%26ORIGIN%3D412177833%26RD%3DRD&code=null&acw=Secure;SameSite=None&utt=",
+            "method": "wayback_lookup",
+            "status": "not_found",
+            "error": "No archived snapshot was available."
           }
         ],
         "accepted": false,
@@ -586,8 +558,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230319110417/https://www.cochrane.org/CD013652/INFECTN_what-diagnostic-accuracy-antibody-tests-detection-infection-covid-19-virus",
         "wordCount": 2487,
-        "sha256": "8f5e8bb7d38d43fd45226753dae4c98584af503ff2822b778b4fec9776bdc93e",
-        "annotatedEvidenceSha256": "13fcc4e08fef6cd48c49390c49bc1e980708742e39ded64a74c9ff3872127d5f"
+        "sha256": "8f5e8bb7d38d43fd45226753dae4c98584af503ff2822b778b4fec9776bdc93e"
       },
       {
         "sourceUrl": "https://www.webmd.com/lung/news/20200925/us-still-in-first-wave-of-covid-19-fauci-says",
@@ -602,8 +573,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20210228174018/https://www.webmd.com/lung/news/20200925/us-still-in-first-wave-of-covid-19-fauci-says",
         "wordCount": 380,
-        "sha256": "f2453f3030c8c661deaf1743e534b49a0e6cea5b1b704fd578a6ee3a27a1f2c8",
-        "annotatedEvidenceSha256": "8345d9c9cedb6f5b7d24f4d9f5135876c4e34f3f7315421bb79bd307b4a2b8f9"
+        "sha256": "f2453f3030c8c661deaf1743e534b49a0e6cea5b1b704fd578a6ee3a27a1f2c8"
       }
     ],
     "accepted": true,
@@ -628,8 +598,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230403231839/https://msdh.ms.gov/msdhsite/_static/14,22075,420,694.html",
         "wordCount": 782,
-        "sha256": "4e65a75b559bd4d6895d74b8c35111c97f848a45e8bd4bba2a947e857ff15bf3",
-        "annotatedEvidenceSha256": "d9b6927b85bd6fc65f23fca033246c0ae3b0094e2a51fd85e4abd985d99d6302"
+        "sha256": "4e65a75b559bd4d6895d74b8c35111c97f848a45e8bd4bba2a947e857ff15bf3"
       },
       {
         "sourceUrl": "https://www.snopes.com/fact-check/cdc-guidelines-covid19/",
@@ -644,8 +613,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230406151615/https://www.snopes.com/fact-check/cdc-guidelines-covid19/",
         "wordCount": 549,
-        "sha256": "7bba6161b3a9477ab685703152c612bdfb243e73019630b534e5c45e1c8b42dd",
-        "annotatedEvidenceSha256": "d3112bd3ee731937a68d0af2e475813008d27d8f8c663faef6d4204fedbb6997"
+        "sha256": "7bba6161b3a9477ab685703152c612bdfb243e73019630b534e5c45e1c8b42dd"
       }
     ],
     "accepted": true,
@@ -665,6 +633,12 @@
             "method": "original",
             "status": "http_error",
             "error": "[Errno 8] nodename nor servname provided, or not known"
+          },
+          {
+            "url": "https://web.archihttps://joebiden.com/clean-energy/",
+            "method": "wayback_lookup",
+            "status": "not_found",
+            "error": "No archived snapshot was available."
           }
         ],
         "accepted": false,
@@ -683,8 +657,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230412074657/https://www.nbcnews.com/politics/2020-election/green-new-deal-how-it-works-presidential-candidate-positions-n1044811",
         "wordCount": 1995,
-        "sha256": "0658771b075e865050c4c67656ca62f7538fa1e374ea25cb0ce6c9a3a9ab169c",
-        "annotatedEvidenceSha256": "fe634ad2963c3acea6ca8f00b64596b1208077c74f4e042a901fe75d56b0449c"
+        "sha256": "0658771b075e865050c4c67656ca62f7538fa1e374ea25cb0ce6c9a3a9ab169c"
       },
       {
         "sourceUrl": "https://www.politifact.com/article/2020/aug/03/joe-bidens-climate-change-plan-explained/",
@@ -699,8 +672,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20210505150952/https://www.politifact.com/article/2020/aug/03/joe-bidens-climate-change-plan-explained/",
         "wordCount": 1474,
-        "sha256": "f9e0eeffc1675e0c2b96bd74c1fb6264cefe20c2b1b423a2fa20a9f0f866338e",
-        "annotatedEvidenceSha256": "9b4317151b4aaa02895c4a1cacbccf443b9b931cbecbf25c29a7f565ec38eff6"
+        "sha256": "f9e0eeffc1675e0c2b96bd74c1fb6264cefe20c2b1b423a2fa20a9f0f866338e"
       },
       {
         "sourceUrl": "https://www.npr.org/2019/02/16/694303169/as-more-electric-cars-arrive-whats-the-future-for-gas-powered-engines",
@@ -715,8 +687,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230414184201/https://www.npr.org/2019/02/16/694303169/as-more-electric-cars-arrive-whats-the-future-for-gas-powered-engines",
         "wordCount": 1272,
-        "sha256": "b0de7525ca9d9b22ad1f91934af6477c98db16339390af2ad03523cff09f6ae8",
-        "annotatedEvidenceSha256": "c73674e8ceadc303938bdf2d4016552661c7e24b37bfb190974a6396907f3a02"
+        "sha256": "b0de7525ca9d9b22ad1f91934af6477c98db16339390af2ad03523cff09f6ae8"
       }
     ],
     "accepted": true,
@@ -741,8 +712,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20201215165742/https://pubmed.ncbi.nlm.nih.gov/22021918/",
         "wordCount": 616,
-        "sha256": "052e95f4e550762ee0f94ed8d1c119ed5ad467b1c2b7199c78f29176518d09dc",
-        "annotatedEvidenceSha256": "a7bffaacfea202a4f7ebaf4cee14715dab2d2c555d2352a6e8632be2e6c99266"
+        "sha256": "052e95f4e550762ee0f94ed8d1c119ed5ad467b1c2b7199c78f29176518d09dc"
       },
       {
         "sourceUrl": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2599911/",
@@ -757,8 +727,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20210613090038/https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2599911/",
         "wordCount": 5079,
-        "sha256": "6ad3c298eb818341e47140f94def2bd84247ff3205a5f27bfa1d2834d42383b0",
-        "annotatedEvidenceSha256": "907a3a9fe302535040962d3dfd85bafd02fd54ff4f44729c620c4805b1aaaa73"
+        "sha256": "6ad3c298eb818341e47140f94def2bd84247ff3205a5f27bfa1d2834d42383b0"
       }
     ],
     "accepted": true,
@@ -795,8 +764,7 @@
         "accepted": true,
         "resolvedUrl": "https://www.familytreedna.com/groups/nadar/about/background",
         "wordCount": 567,
-        "sha256": "1b4be41e26e060ac76662201758e338f085ef720d724ffa36da896dcc24f2d06",
-        "annotatedEvidenceSha256": "ea759a87b8197bf31a96db59c94289c70b3532fba439beec5a9ed0c294a5c5f2"
+        "sha256": "1b4be41e26e060ac76662201758e338f085ef720d724ffa36da896dcc24f2d06"
       },
       {
         "sourceUrl": "https://www.independent.co.uk/news/science/world-s-most-ancient-race-traced-in-dna-study-1677113.html",
@@ -811,8 +779,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230327112418/https://www.independent.co.uk/news/science/world-s-most-ancient-race-traced-in-dna-study-1677113.html",
         "wordCount": 400,
-        "sha256": "ba381ff1f2b41cdbe73859299c268363b65eafbee09eb45344f338ff0c4a9775",
-        "annotatedEvidenceSha256": "89a41a298542fa79eb0e1d6baab3511db14c453d2e1aa5fc39eff1505a9f4d3e"
+        "sha256": "ba381ff1f2b41cdbe73859299c268363b65eafbee09eb45344f338ff0c4a9775"
       }
     ],
     "accepted": true,
@@ -837,8 +804,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230324140142/https://erau.edu/gaetz-aerospace-institute/about/don-gaetz",
         "wordCount": 316,
-        "sha256": "bdeaa9b69495f4fc92b9ab30616a5362037034a62bc0efe529cc84a2176441f3",
-        "annotatedEvidenceSha256": "07819925cf92a48b824188161a4a47796b9bf646012d286270faa972a2743a84"
+        "sha256": "bdeaa9b69495f4fc92b9ab30616a5362037034a62bc0efe529cc84a2176441f3"
       },
       {
         "sourceUrl": "https://www.celebritynetworth.com/richest-politicians/republicans/don-gaetz-net-worth/",
@@ -865,8 +831,7 @@
         "accepted": true,
         "resolvedUrl": "https://www.celebritynetworth.com/richest-politicians/republicans/don-gaetz-net-worth/",
         "wordCount": 617,
-        "sha256": "bf0fda57d30dffdb1335e6971925453eeb9c03dd4aa440dd6288cdf85494667b",
-        "annotatedEvidenceSha256": "5599a8b1dd3bf0fc7d5fb5fb890abfe8d263cfbe5e907d572a1bf72cbb919c3b"
+        "sha256": "bf0fda57d30dffdb1335e6971925453eeb9c03dd4aa440dd6288cdf85494667b"
       },
       {
         "sourceUrl": "http://ir.chemed.com/news-releases/news-release-details/roto-rooter-inc-completes-merger-vitas-healthcare-corporation",
@@ -881,8 +846,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20210713185816/http://ir.chemed.com/news-releases/news-release-details/roto-rooter-inc-completes-merger-vitas-healthcare-corporation",
         "wordCount": 654,
-        "sha256": "f12ab35047ddb9b420c84379c1f532eea077ddaf3019986ee35b708afce012df",
-        "annotatedEvidenceSha256": "292ad858e498a5dbb8399febf08ec6ab078f5a98a597860f455177c58bb215db"
+        "sha256": "f12ab35047ddb9b420c84379c1f532eea077ddaf3019986ee35b708afce012df"
       }
     ],
     "accepted": true,
@@ -907,8 +871,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230324140705/https://www.sos.ca.gov/elections/voter-registration/vote-mail",
         "wordCount": 1517,
-        "sha256": "776b3c44fbd930329c29eb6ba198ca0f6727a409348cf06be80c96c14db1ec25",
-        "annotatedEvidenceSha256": "c4537c3203aff9616cdd19befedba39a434bcc24be9117a9f355df84ae560d05"
+        "sha256": "776b3c44fbd930329c29eb6ba198ca0f6727a409348cf06be80c96c14db1ec25"
       },
       {
         "sourceUrl": "https://calmatters.org/politics/california-election-2020/2020/03/california-primary-election-results-delayed/",
@@ -923,8 +886,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230324140839/https://calmatters.org/politics/california-election-2020/2020/03/california-primary-election-results-delayed/",
         "wordCount": 820,
-        "sha256": "d8063b7e1adaa8dc21e842e1113daa776b27d6bd016a1b6174af65273edaafcc",
-        "annotatedEvidenceSha256": "23f12dc885014e592a597ede9ec856a16d595c48a6e85e967a93f538aaf2b398"
+        "sha256": "d8063b7e1adaa8dc21e842e1113daa776b27d6bd016a1b6174af65273edaafcc"
       }
     ],
     "accepted": true,
@@ -963,8 +925,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230322221316/https://www.bbc.com/news/world-us-canada-46824649",
         "wordCount": 2121,
-        "sha256": "dcbd00b96073fc27a1f386856eaea44f9301efdc43bfc6e08a3bffb6c0f261ec",
-        "annotatedEvidenceSha256": "f4855414cd860c46a6c5a582e45a30fee5681826f49d48f5cba9a9cf97a43f4a"
+        "sha256": "dcbd00b96073fc27a1f386856eaea44f9301efdc43bfc6e08a3bffb6c0f261ec"
       },
       {
         "sourceUrl": "https://www.nfid.org/infectious-diseases/coronaviruses/",
@@ -979,8 +940,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230321143009/https://www.nfid.org/infectious-diseases/coronaviruses/",
         "wordCount": 985,
-        "sha256": "bb24a2c0994e0f14c27b242b1eb72da4a4290c690fa8894ff83e32b5b5c98069",
-        "annotatedEvidenceSha256": "9fd2c8fad2826e61a72c02256184ed9507690e756961fae12d8ea1f2cd4ca51b"
+        "sha256": "bb24a2c0994e0f14c27b242b1eb72da4a4290c690fa8894ff83e32b5b5c98069"
       }
     ],
     "accepted": true,
@@ -1011,8 +971,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20210116174221id_/https://apnews.com/article/269b3de1af34e17c1941a514f78d764c",
         "wordCount": 3326,
-        "sha256": "900d2627487fc95876ff2a8b52f4f5f5d3ba1dc5d9d0b24f232e2ab077792795",
-        "annotatedEvidenceSha256": "042beee3fc4a93768cc0425445a4a9d634037fc185d99f09ff43437ef718fb4f"
+        "sha256": "900d2627487fc95876ff2a8b52f4f5f5d3ba1dc5d9d0b24f232e2ab077792795"
       },
       {
         "sourceUrl": "https://china.usc.edu/whats-stake-xinjiang",
@@ -1033,8 +992,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230406145321id_/https://china.usc.edu/whats-stake-xinjiang",
         "wordCount": 1075,
-        "sha256": "095481df0f597d7d6361260135ffe6c40481a450f46a8b53ece59a8a7767b2c5",
-        "annotatedEvidenceSha256": "5a270776b31a2e928728b7578b3498c7e6aa343d5483a83108a92c6c84026f6a"
+        "sha256": "095481df0f597d7d6361260135ffe6c40481a450f46a8b53ece59a8a7767b2c5"
       }
     ],
     "accepted": true,
@@ -1065,8 +1023,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230324150531id_/https://www.thelancet.com/journals/langlo/article/PIIS2214-109X%2819%2930490-5/fulltext",
         "wordCount": 1345,
-        "sha256": "f073c16cd09747734376dcde5b8678d9c0599cbb753d35ba96e2ac2b7241da27",
-        "annotatedEvidenceSha256": "ae4d91ce2a833bdcdb8ef49ffdef6439d88aab11ceb67c1edb1130165b94d6cb"
+        "sha256": "f073c16cd09747734376dcde5b8678d9c0599cbb753d35ba96e2ac2b7241da27"
       },
       {
         "sourceUrl": "https://www.ncbi.nlm.nih.gov/labs/pmc/articles/PMC7521351/",
@@ -1087,8 +1044,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230327115331id_/https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7521351/",
         "wordCount": 866,
-        "sha256": "dcc9534bd256d5d6509c4f7cf1584254420d96ba3c144b3c661ce63135e7c0f9",
-        "annotatedEvidenceSha256": "4eab5118f6439757981928dbe5176e2681cb7b395f44211c8c5f485389378b63"
+        "sha256": "dcc9534bd256d5d6509c4f7cf1584254420d96ba3c144b3c661ce63135e7c0f9"
       }
     ],
     "accepted": true,
@@ -1133,8 +1089,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230403125536id_/https://www150.statcan.gc.ca/n1/pub/11f0027m/2009058/part-partie1-eng.htm",
         "wordCount": 9381,
-        "sha256": "6e8a73fee8a4bf8a39304f278c5e9e905c465f38cd55635afac4da79b95ba305",
-        "annotatedEvidenceSha256": "e8a6afab9537ddc00881b51d76a11ad614414411bc7a8c1ee228342f9b663dc1"
+        "sha256": "6e8a73fee8a4bf8a39304f278c5e9e905c465f38cd55635afac4da79b95ba305"
       },
       {
         "sourceUrl": "https://www.princeton.edu/~deaton/downloads/Deaton_Aten_Trying_to_understand_ICP_2011_V5.pdf",
@@ -1155,8 +1110,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230218123050id_/https://www.princeton.edu/~deaton/downloads/Deaton_Aten_Trying_to_understand_ICP_2011_V5.pdf",
         "wordCount": 11234,
-        "sha256": "8ce6ec480801bdf02424a493fd0a81485b0ad67fbb4818d524fb878ef2170557",
-        "annotatedEvidenceSha256": "5cfe6e85cea84fd8a078d44b4a7c6c608be744b01e5d4d91e9b5602aa21acf1a"
+        "sha256": "48cd40290fc40c234b5ce293a2eedfef24f8538bcc89d9be52834b3417f13548"
       },
       {
         "sourceUrl": "https://www.theglobaleconomy.com/Nigeria/gdp_per_capita_ppp/",
@@ -1177,8 +1131,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230403125653id_/https://www.theglobaleconomy.com/Nigeria/gdp_per_capita_ppp/",
         "wordCount": 538,
-        "sha256": "4f788abaa0c41d509d230e87202b236e0089a3241d47a6dd833721d89caa7160",
-        "annotatedEvidenceSha256": "3bd747f918d73b58d32cd933928daa0f62ec32927c3f41c2d6534ec79ca1b84d"
+        "sha256": "4f788abaa0c41d509d230e87202b236e0089a3241d47a6dd833721d89caa7160"
       }
     ],
     "accepted": true,
@@ -1209,8 +1162,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230325094838id_/https://minorityrights.org/minorities/igbo/",
         "wordCount": 838,
-        "sha256": "51a65eb0417c868942f8bf77729c74bd6b352948c59e4b506db1335d3ce058dc",
-        "annotatedEvidenceSha256": "02194c6b56f125f7ebc67fcf997683201dd6fd50a345950dea75d787bc0c2235"
+        "sha256": "51a65eb0417c868942f8bf77729c74bd6b352948c59e4b506db1335d3ce058dc"
       },
       {
         "sourceUrl": "https://theculturetrip.com/africa/nigeria/articles/an-introduction-to-nigerias-igbo-people/",
@@ -1251,8 +1203,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20200908012032id_/https://dailytrust.com/fact-check-no-evidence-80-million-yoruba-live-in-brazil",
         "wordCount": 996,
-        "sha256": "bed9053db2cf41ce9983b88b35d9b121a485a9f0637fb58f2de766d300043fca",
-        "annotatedEvidenceSha256": "22dd87c01451c507310073b070651dab4578e40c78f4b8c548e172da6289cd84"
+        "sha256": "bed9053db2cf41ce9983b88b35d9b121a485a9f0637fb58f2de766d300043fca"
       }
     ],
     "accepted": true,
@@ -1277,8 +1228,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230324181251/https://www.cdc.gov/mmwr/volumes/69/wr/mm6942e2.htm",
         "wordCount": 2917,
-        "sha256": "912c4b1cc84711ec4fd751b0224d5687aed6110402d278fe4c2c7e0d91378c0d",
-        "annotatedEvidenceSha256": "fac9ab0251f9b217c261926b8203251d4f440324fb61fa0edc2e2c341373caa5"
+        "sha256": "912c4b1cc84711ec4fd751b0224d5687aed6110402d278fe4c2c7e0d91378c0d"
       },
       {
         "sourceUrl": "https://jamanetwork.com/journals/jama/fullarticle/2771761",
@@ -1299,8 +1249,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20210310112506id_/https://jamanetwork.com/journals/jama/fullarticle/2771761",
         "wordCount": 4235,
-        "sha256": "3a5ac7d8beaba041f20e4fa5ec8fbbe9dd32be840300ef7e36485ee0c0ec3ca0",
-        "annotatedEvidenceSha256": "87fba4b9befb167d12e6d4bdd9f95802560e7826f54d728d79d235b121af2ddb"
+        "sha256": "3a5ac7d8beaba041f20e4fa5ec8fbbe9dd32be840300ef7e36485ee0c0ec3ca0"
       }
     ],
     "accepted": true,
@@ -1331,8 +1280,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20210302101747id_/https://jamanetwork.com/journals/jama/fullarticle/2768086",
         "wordCount": 3938,
-        "sha256": "807a8d88c56c0ea9a1d81dcca09629b8ac9b5fb4587428b8c19c67e3378d9c0b",
-        "annotatedEvidenceSha256": "a01411c2c61bd3b174315b71a3ab311b43c7cfb343a60118ce2762bc6e3de110"
+        "sha256": "807a8d88c56c0ea9a1d81dcca09629b8ac9b5fb4587428b8c19c67e3378d9c0b"
       },
       {
         "sourceUrl": "https://www.cdc.gov/mmwr/Novel_Coronavirus_Reports.html",
@@ -1353,8 +1301,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230313222854id_/https://www.cdc.gov/mmwr/Novel_Coronavirus_Reports.html",
         "wordCount": 9645,
-        "sha256": "80deaf27ea848f727b1ca2634b6408652048c3c42528b887e44c6e10e66994a0",
-        "annotatedEvidenceSha256": "b47e66bd19dec163a873e41d773593682600c9f0c8a54e2148fc50b4db07bbfa"
+        "sha256": "80deaf27ea848f727b1ca2634b6408652048c3c42528b887e44c6e10e66994a0"
       }
     ],
     "accepted": true,
@@ -1385,8 +1332,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230406141149id_/https://www.intelligenttransport.com/transport-news/24458/navya-production-plant-michigan/",
         "wordCount": 537,
-        "sha256": "a8342655ecf0d6f12dce201ecdf633502f7535813b97b6666cc0f25728568991",
-        "annotatedEvidenceSha256": "a5317bdcf2eec69f8a3599cdb4de643afe6e63dbf11252c858ca579f19ccf32d"
+        "sha256": "a8342655ecf0d6f12dce201ecdf633502f7535813b97b6666cc0f25728568991"
       },
       {
         "sourceUrl": "https://alabamanewscenter.com/2017/09/27/toyota-to-invest-106m-in-alabama-engine-plant-add-50-jobs/",
@@ -1407,8 +1353,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230406141327id_/https://alabamanewscenter.com/2017/09/27/toyota-to-invest-106m-in-alabama-engine-plant-add-50-jobs/",
         "wordCount": 462,
-        "sha256": "d9d2b72f0479779c5b90fc18c150e6d2bb7db313729b3850c8b11bc4e9d570d2",
-        "annotatedEvidenceSha256": "0a3daf785287bd40835b4349e591711db166f0a4a9e6a2fabecc04ee7d81eb5e"
+        "sha256": "d9d2b72f0479779c5b90fc18c150e6d2bb7db313729b3850c8b11bc4e9d570d2"
       },
       {
         "sourceUrl": "https://9to5google.com/2019/01/22/waymo-michigan-self-driving-factory/",
@@ -1429,8 +1374,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230322153629id_/https://9to5google.com/2019/01/22/waymo-michigan-self-driving-factory/",
         "wordCount": 288,
-        "sha256": "ee7f9a6364df574d89c77c94640407319f9f8851ac46a6662c52e09d39564c53",
-        "annotatedEvidenceSha256": "4071ed1404456ac72ea88ce8b7f9cc9bf93b5cab54f5d5e6496417e0cbbf9e42"
+        "sha256": "ee7f9a6364df574d89c77c94640407319f9f8851ac46a6662c52e09d39564c53"
       }
     ],
     "accepted": true,
@@ -1455,8 +1399,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230324161932/https://www.bbc.com/news/explainers-52135342",
         "wordCount": 612,
-        "sha256": "7cd7ddff40e1b4226fffabf399f5748ebd7e912b075be86c991ef8de17a0829f",
-        "annotatedEvidenceSha256": "49c2d24e7e6dcc377c1e6439f4589b24dc8672762a8a81f79c564872d71d3126"
+        "sha256": "7cd7ddff40e1b4226fffabf399f5748ebd7e912b075be86c991ef8de17a0829f"
       },
       {
         "sourceUrl": "https://www.bbc.co.uk/news/uk-politics-54492574",
@@ -1471,8 +1414,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230324162057/https://www.bbc.co.uk/news/uk-politics-54492574",
         "wordCount": 596,
-        "sha256": "148f5362414a804de7044065fb4f6f61e78bc412fd76be646aecec93168d5cf3",
-        "annotatedEvidenceSha256": "41c99c3d6c33f4edd08aeddf40adb29255ce152fa4cc2e2e762ad699375e355f"
+        "sha256": "148f5362414a804de7044065fb4f6f61e78bc412fd76be646aecec93168d5cf3"
       },
       {
         "sourceUrl": "https://www.englandandcompany.co.uk/briefing-15-15th-october/",
@@ -1487,8 +1429,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230324162240/https://www.englandandcompany.co.uk/briefing-15-15th-october/",
         "wordCount": 2116,
-        "sha256": "88ac1ca366d9d7c1144ee58641b8c3474a521f657dc9f3614533a7724d0ef38b",
-        "annotatedEvidenceSha256": "409762cd1d6959f31a8508c657614a6ef5b56453d8841882d67311c2f99af37b"
+        "sha256": "88ac1ca366d9d7c1144ee58641b8c3474a521f657dc9f3614533a7724d0ef38b"
       }
     ],
     "accepted": true,
@@ -1513,8 +1454,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230324191647/https://www.theguardian.com/commentisfree/2020/jul/20/joe-biden-has-endorsed-the-green-new-deal-in-all-but-name",
         "wordCount": 1037,
-        "sha256": "42998de90a9ddc20ea70afbe5205f6a68dbc7fc1d53c5280a548c911e7b9c22d",
-        "annotatedEvidenceSha256": "e9af367f044cfc18c25bcc817c6d7a6cbaf8aa429e9ac2a949711b7e3eec2f65"
+        "sha256": "42998de90a9ddc20ea70afbe5205f6a68dbc7fc1d53c5280a548c911e7b9c22d"
       },
       {
         "sourceUrl": "https://www.investopedia.com/joe-biden-s-economic-plan-save-the-middle-class-4769869",
@@ -1529,8 +1469,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230326134031/https://www.investopedia.com/joe-biden-s-economic-plan-save-the-middle-class-4769869",
         "wordCount": 3267,
-        "sha256": "3841881844ae381fa7af6601222d43274f14f02edc3a7e87e031cdbb508bfd4b",
-        "annotatedEvidenceSha256": "5d48466436c236e429d3a00d5e1f67063f3a9af9ad04421489493ad7feec49b1"
+        "sha256": "3841881844ae381fa7af6601222d43274f14f02edc3a7e87e031cdbb508bfd4b"
       }
     ],
     "accepted": true,
@@ -1555,8 +1494,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230406151854/https://clerk.house.gov/Votes/2017557",
         "wordCount": 4706,
-        "sha256": "c8b2070a7f9a020acbd44845aff39c83a4248c9076f5da6d43e5601530777fe5",
-        "annotatedEvidenceSha256": "6a7fcff974b6fc85d91ee77deea8d97cec7b28f80bc125b5a7599a1e1fe47e49"
+        "sha256": "c8b2070a7f9a020acbd44845aff39c83a4248c9076f5da6d43e5601530777fe5"
       },
       {
         "sourceUrl": "https://www.gvnews.com/elections/question/article_02354b6a-7e89-11e1-801f-001a4bcf887a.html?_ga=2.154024123.2058216465.1599409801-1261549759.1594155977",
@@ -1571,8 +1509,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230406151951/https://www.gvnews.com/elections/question/article_02354b6a-7e89-11e1-801f-001a4bcf887a.html?_ga=2.154024123.2058216465.1599409801-1261549759.1594155977",
         "wordCount": 688,
-        "sha256": "ed1b04ac2eaf903229422ab305e9fc1519e0bd9f352a16d0405259f065fe1501",
-        "annotatedEvidenceSha256": "faf88279304005f8907c05a4090eceab6271a1fb4d4d9b563910c67911487828"
+        "sha256": "ed1b04ac2eaf903229422ab305e9fc1519e0bd9f352a16d0405259f065fe1501"
       }
     ],
     "accepted": true,
@@ -1597,8 +1534,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20210212183744/https://www.axios.com/trump-nuclear-bombs-hurricanes-97231f38-2394-4120-a3fa-8c9cf0e3f51c.html",
         "wordCount": 1050,
-        "sha256": "0b898931cf37ca7b9dca2eab94af9dd375f4fc9f2b3c122617740735dd418c58",
-        "annotatedEvidenceSha256": "ab38ecfd6d7ddd6a9a08da7dbb54e236fdd1eae45f05a69fde1b2b46a63829e6"
+        "sha256": "0b898931cf37ca7b9dca2eab94af9dd375f4fc9f2b3c122617740735dd418c58"
       },
       {
         "sourceUrl": "https://www.nbcnews.com/politics/donald-trump/trump-blames-teleprompter-revolutionary-war-airports-flub-n1026931",
@@ -1613,8 +1549,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230324140950/https://www.nbcnews.com/politics/donald-trump/trump-blames-teleprompter-revolutionary-war-airports-flub-n1026931",
         "wordCount": 342,
-        "sha256": "1f8464c6ad649aa4eebbf19d4c586f9610f657c6cd063038eaa46541d9929627",
-        "annotatedEvidenceSha256": "d0e29c22c57072b75a9eec81b3dcc917a892bee562816681983ee6b4f03d826b"
+        "sha256": "1f8464c6ad649aa4eebbf19d4c586f9610f657c6cd063038eaa46541d9929627"
       }
     ],
     "accepted": true,
@@ -1639,8 +1574,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230324145811/https://www.buzzfeednews.com/article/addybaird/vote-by-mail-state-deadlines",
         "wordCount": 498,
-        "sha256": "b93dcdfea75bade1864ee26a863b7ebfbf9eb026d83e6a674315b62faebd336f",
-        "annotatedEvidenceSha256": "8d6b47590b0c61998e3f2d680f7f1cd916dc8cffed2ab72922a4be63cca8fa6d"
+        "sha256": "b93dcdfea75bade1864ee26a863b7ebfbf9eb026d83e6a674315b62faebd336f"
       },
       {
         "sourceUrl": "https://www.cbsnews.com/news/wisconsin-election-supreme-court-rules-againt-absentee-ballots-after-election-day/",
@@ -1655,8 +1589,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230324145915/https://www.cbsnews.com/news/wisconsin-election-supreme-court-rules-againt-absentee-ballots-after-election-day/",
         "wordCount": 921,
-        "sha256": "c7c85f2c18c046e2f40d659f4a9c68be10db6e292f38a75f76f8c05b23dd7c87",
-        "annotatedEvidenceSha256": "adc5fba12580c03620c1d911920c1e13b89fed6767d0b68e57c65ef39af5f3d6"
+        "sha256": "c7c85f2c18c046e2f40d659f4a9c68be10db6e292f38a75f76f8c05b23dd7c87"
       },
       {
         "sourceUrl": "https://www.facebook.com/GilbertLiz/photos/a.356148997800555/3549940058421417",
@@ -1695,8 +1628,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20210718091632/https://www.nytimes.com/2020/04/02/world/europe/coronavirus-us-russia-aid.html",
         "wordCount": 1568,
-        "sha256": "c832de6c2265a7c3a06760b3df45f3661d325135609a21a4ef414b1d055e05ba",
-        "annotatedEvidenceSha256": "583ea7ead8d4441a94483e77d80758ccec07bf86064a778554e44880afd5b362"
+        "sha256": "c832de6c2265a7c3a06760b3df45f3661d325135609a21a4ef414b1d055e05ba"
       },
       {
         "sourceUrl": "https://www.state.gov/u-s-purchase-of-needed-supplies-from-russia/",
@@ -1749,8 +1681,7 @@
         "accepted": true,
         "resolvedUrl": "https://www.buzzfeednews.com/article/christopherm51/fema-russia-ventilators-coronavirus?fbclid=IwAR0NDhdqILPthpTHGNnmK_-8yH7CjmyDtbo81pzlHEVVKI9loXMnfI9uVas",
         "wordCount": 602,
-        "sha256": "99cdd1cc3a2501a34a10d8bcb07c41349af82706c4981cad3d802eb1ef0f44a3",
-        "annotatedEvidenceSha256": "8fdd0f8508c54a81086bab5cbb927eaf284e50fe79fbfde815f6014c26c0b0e9"
+        "sha256": "99cdd1cc3a2501a34a10d8bcb07c41349af82706c4981cad3d802eb1ef0f44a3"
       }
     ],
     "accepted": true,
@@ -1775,8 +1706,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20211021070000/https://www.usatoday.com/story/news/politics/2020/10/15/amy-coney-barrett-senators-hear-experts-character-witnesses/3654473001/",
         "wordCount": 2666,
-        "sha256": "c6ceefd15724b51eadef32ae0f5d4e31f573c10e7e46862d3d0b81f56cea2ee5",
-        "annotatedEvidenceSha256": "f6279936741b7f9f51721ff04c25ab8ac8129a6058715f3b881f0ef07e3d84f2"
+        "sha256": "c6ceefd15724b51eadef32ae0f5d4e31f573c10e7e46862d3d0b81f56cea2ee5"
       },
       {
         "sourceUrl": "https://www.usatoday.com/story/news/2016/03/16/gop-senators-vow-not-consider-garland-fill-supreme-court-vacancy/81856428/",
@@ -1791,8 +1721,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20210615044526/https://www.usatoday.com/story/news/2016/03/16/gop-senators-vow-not-consider-garland-fill-supreme-court-vacancy/81856428/",
         "wordCount": 1012,
-        "sha256": "7ae87a4a28a7db8298bef220cefb32bed2a56af8b533a5040f676c2409678343",
-        "annotatedEvidenceSha256": "219448087b1a9bec151776fc104e1a66b0ef8cba1bc3d81642e0880332d8f4a4"
+        "sha256": "7ae87a4a28a7db8298bef220cefb32bed2a56af8b533a5040f676c2409678343"
       }
     ],
     "accepted": true,
@@ -1817,8 +1746,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230406164815/https://www.edchoice.org/school-choice/what-is-school-choice/",
         "wordCount": 247,
-        "sha256": "96f19a81719c4eb7a983569f4f8cc15561c8d6dc21258950bc4abaa5662c80b4",
-        "annotatedEvidenceSha256": "454aae36d63fd2ad54a7a11ea000d90f000e5f42f0b39cab3db3b82612b59df2"
+        "sha256": "96f19a81719c4eb7a983569f4f8cc15561c8d6dc21258950bc4abaa5662c80b4"
       },
       {
         "sourceUrl": "https://en.wikipedia.org/wiki/Charter_schools_in_the_United_States",
@@ -1833,8 +1761,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230402094402/https://en.wikipedia.org/wiki/Charter_schools_in_the_United_States",
         "wordCount": 12358,
-        "sha256": "92dd91c37ba9ef0d522e89812707295651185b8616dab69357b3391435d43e96",
-        "annotatedEvidenceSha256": "081847f57e873ba12d8f510f4bf5a142972cf555a02786f1a10f2d4a0a6514da"
+        "sha256": "92dd91c37ba9ef0d522e89812707295651185b8616dab69357b3391435d43e96"
       },
       {
         "sourceUrl": "https://www.edchoice.org/school-choice/types-of-school-choice/",
@@ -1849,8 +1776,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20210118102704/https://www.edchoice.org/school-choice/types-of-school-choice/",
         "wordCount": 899,
-        "sha256": "4986946d84da7f81ecb0f0b79b6a908b0f329877aa1de4840c9d9e5265b5f9df",
-        "annotatedEvidenceSha256": "a08a4c9f19f8aadb421c9707e042ca7ced1b03e1127ace5940d807b61c4f4c23"
+        "sha256": "4986946d84da7f81ecb0f0b79b6a908b0f329877aa1de4840c9d9e5265b5f9df"
       },
       {
         "sourceUrl": "https://www.edweek.org/policy-politics/federal-funding-and-charter-school-closures-what-the-latest-government-data-show/2022/10",
@@ -1865,8 +1791,7 @@
         "accepted": true,
         "resolvedUrl": "https://web.archive.org/web/20230129034019/https://www.edweek.org/policy-politics/federal-funding-and-charter-school-closures-what-the-latest-government-data-show/2022/10",
         "wordCount": 433,
-        "sha256": "637b7d67eee2ddac72786151f9dc3a37329d2497ebdfb93e5f4e51c24967d6de",
-        "annotatedEvidenceSha256": "4bb10e5796cbd44567388a0327d6089a376ffdd458b65be7b45085f329101d3c"
+        "sha256": "637b7d67eee2ddac72786151f9dc3a37329d2497ebdfb93e5f4e51c24967d6de"
       }
     ],
     "accepted": true,

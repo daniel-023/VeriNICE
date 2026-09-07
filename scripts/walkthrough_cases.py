@@ -1,30 +1,27 @@
-"""The approved AVeriTeC cases published in the static walkthrough."""
+"""Ordered source-grounded cases published in the static walkthrough.
+
+The full 32-case bundle remains available for internal auditing. These cases
+are selected for distinct, inspectable demo behaviours rather than to estimate
+accuracy or reproduce the reference-label distribution.
+"""
 
 CURATED_CASE_IDS = (
-    # Supported
-    "averitec-dev-0034",
+    "showcase-science-brain-10-percent",
+    "showcase-science-shaving",
+    "showcase-science-lightning",
+    "showcase-history-einstein",
+    "showcase-history-curie",
+    "showcase-history-viking-helmet",
+    "showcase-geography-canberra",
+    "showcase-geography-everest",
+    "showcase-geography-eiffel",
+    "showcase-technology-iphone",
+    "showcase-technology-web",
+    "showcase-technology-gps",
+    "showcase-current-nato",
+    "showcase-current-unsc",
+    "showcase-current-who",
     "averitec-dev-0146",
-    "averitec-dev-0158",
-    "averitec-dev-0125",
     "averitec-dev-0392",
-    "averitec-dev-0145",
-    # Refuted
-    "averitec-dev-0044",
-    "averitec-dev-0280",
-    "averitec-dev-0419",
-    "averitec-dev-0495",
-    "averitec-dev-0089",
-    # Not enough evidence
-    "averitec-dev-0015",
-    "averitec-dev-0413",
-    "averitec-dev-0026",
-    "averitec-dev-0208",
-    "averitec-dev-0435",
-    # Conflicting evidence
-    "averitec-dev-0060",
-    "averitec-dev-0100",
-    "averitec-dev-0423",
-    "averitec-dev-0010",
-    "averitec-dev-0018",
-    "averitec-dev-0058",
+    "averitec-dev-0142",
 )

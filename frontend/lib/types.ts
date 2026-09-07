@@ -25,10 +25,28 @@ export type DemoChallenge =
   | "CONFLICTING_SOURCES"
   | "SPARSE_EVIDENCE";
 
+export type DemoOrigin = "CONSTRUCTED" | "AVERITEC";
+export type DemoCategory = "SCIENCE" | "HISTORY" | "GEOGRAPHY" | "TECHNOLOGY" | "CURRENT_AFFAIRS";
+export type DemoFocus =
+  | "DECOMPOSITION"
+  | "DIRECT_EVIDENCE"
+  | "ATTRIBUTE_COMPARISON"
+  | "TEMPORAL_COMPARISON"
+  | "SET_MEMBERSHIP"
+  | "DISTINCT_VALUE_COUNT"
+  | "EXTREMUM"
+  | "INSUFFICIENT_EVIDENCE";
+
 export interface DemoDocumentSummary {
   id: string;
   title: string;
   url: string;
+  layout: "PROSE" | "STRUCTURED_LIST";
+  publisher?: string;
+  retrievedAt?: string | null;
+  sourceType?: "SOURCE_EXCERPT" | "FULL_SOURCE";
+  excerptSha256?: string | null;
+  sourceSha256?: string | null;
 }
 
 export interface DemoDocument extends DemoDocumentSummary {
@@ -44,6 +62,9 @@ export interface DemoCaseSummary {
   topics?: DemoTopic[];
   challenges?: DemoChallenge[];
   featured?: boolean;
+  origin?: DemoOrigin;
+  category?: DemoCategory | null;
+  demoFocus?: DemoFocus | null;
 }
 
 export interface DemoCase extends Omit<DemoCaseSummary, "documents"> {
@@ -91,8 +112,19 @@ export interface EvidenceSpan {
   text: string;
   start: number;
   end: number;
-  /** The sentence with its neighbours, used as the NLI premise. Not highlighted. */
+  /** Explicit source sentences used only to interpret the evidence anchor. */
+  contextSpans?: EvidenceContextSpan[];
+  /** Backward-compatible assembled premise for recorded runs. */
   context?: string;
+}
+
+export interface EvidenceContextSpan {
+  id: string;
+  documentId: string;
+  text: string;
+  start: number;
+  end: number;
+  direction: "PREVIOUS" | "NEXT";
 }
 
 export interface AtomEvidence {
@@ -102,21 +134,24 @@ export interface AtomEvidence {
 
 export interface EvidenceRetrievalResponse {
   evidence: AtomEvidence[];
-  provider: "sentence-transformers";
+  provider: "sentence-transformers" | "python";
   model: string;
+  retrievalMethod: RetrievalMethod;
 }
 
-export type NLIRelation = "ENTAILMENT" | "CONTRADICTION" | "NEUTRAL";
+export type RetrievalMethod = "HYBRID" | "SEMANTIC" | "LEXICAL";
+
+export type CandidateRelation = "SUPPORTS" | "REFUTES" | "CONTEXT" | "NOT_SELECTED";
 
 export interface EvidenceRelation {
   spanId: string;
   documentId: string;
-  relation: NLIRelation;
-  /** True when the deterministic topical-overlap gate kept the pair out of NLI. */
-  relevanceFiltered?: boolean;
+  relation: CandidateRelation;
+  decisive: boolean;
+  scopeCheck?: EvidenceScopeCheck;
 }
 
-export interface AtomSupportClassification {
+export interface AtomEvidenceAssessment {
   atomId: string;
   relations: EvidenceRelation[];
 }
@@ -124,6 +159,8 @@ export interface AtomSupportClassification {
 export type ArgumentationNodeType =
   | "CASE_CLAIM"
   | "VERIFICATION_OBLIGATION"
+  | "INFERENCE"
+  | "CONTEXT"
   | "EVIDENCE";
 
 export interface CaseClaimNode {
@@ -142,7 +179,6 @@ export interface VerificationObligationNode {
   sourceText: string;
   start: number;
   end: number;
-  linguistic?: ObligationLinguisticSummary;
 }
 
 export interface EvidenceNode {
@@ -156,31 +192,57 @@ export interface EvidenceNode {
   start: number;
   end: number;
   bestRank: number;
+  contextSpans?: EvidenceContextSpan[];
+}
+
+export interface ContextNode {
+  id: string;
+  type: "CONTEXT";
+  evidenceId: string;
+  documentId: string;
+  text: string;
+  start: number;
+  end: number;
+}
+
+export interface InferenceNode {
+  id: string;
+  type: "INFERENCE";
+  atomId: string;
+  inferenceKind: "EVIDENCE_BUNDLE" | SymbolicOperator;
+  expression: string;
+  conclusion: string;
+  explanation: string;
+  premiseIds: string[];
+  relation: "SUPPORTS" | "REFUTES" | null;
+  compiledBy?: string;
+  executedBy?: string;
+  status?: SymbolicStatus;
 }
 
 export type ArgumentationNode =
   | CaseClaimNode
   | VerificationObligationNode
+  | ContextNode
+  | InferenceNode
   | EvidenceNode;
 
-export type ArgumentationEdgeType = "DECOMPOSES_TO" | "SUPPORTS" | "ATTACKS";
+export type ArgumentationEdgeType = "DECOMPOSES_TO" | "CONTEXTUALIZES" | "REQUIRES" | "SUPPORTS" | "REFUTES";
 
 export interface ArgumentationEdge {
   id: string;
   source: string;
   target: string;
   type: ArgumentationEdgeType;
-  /** Present only on NLI-derived support and attack edges. */
-  nli?: { label: "ENTAILMENT" | "CONTRADICTION" };
+  assessed?: boolean;
 }
 
 export type GraphWarningCode =
-  | "MISSING_LINGUISTIC_SUMMARY"
   | "MISSING_EVIDENCE"
   | "MISSING_OBLIGATION"
   | "DUPLICATE_NODE_ID"
   | "DUPLICATE_EDGE_ID"
-  | "UNSUPPORTED_NLI_LABEL"
+  | "UNSUPPORTED_RELATION"
   | "INVALID_SOURCE_OFFSETS"
   | "EMPTY_OBLIGATION_TEXT"
   | "AGGREGATION_EDGE_MISMATCH";
@@ -193,14 +255,16 @@ export interface GraphWarning {
 export interface GraphStats {
   obligationCount: number;
   evidenceCount: number;
+  inferenceCount: number;
+  contextCount: number;
   supportEdgeCount: number;
-  attackEdgeCount: number;
-  omittedNeutralCount: number;
+  refuteEdgeCount: number;
+  unselectedCandidateCount: number;
   obligationsWithoutArgumentEdges: number;
 }
 
 export interface ArgumentationGraph {
-  schemaVersion: 2;
+  schemaVersion: 4;
   claimId: string;
   nodes: ArgumentationNode[];
   edges: ArgumentationEdge[];
@@ -214,22 +278,22 @@ export interface VerdictObligationSummary {
   obligationId: string;
   state: ObligationEvidenceState;
   supportEdgeIds: string[];
-  attackEdgeIds: string[];
-  neutralCandidateCount: number;
+  refuteEdgeIds: string[];
+  unselectedCandidateCount: number;
+  provisionalRelationCount: number;
 }
 
 export interface VerdictAggregationResult {
-  aggregationSchemaVersion: 1;
+  aggregationSchemaVersion: 3;
   claimId: string;
   composition: ClaimComposition;
   verdict: ReferenceLabel;
   positions: {
     supportPosition: boolean;
-    attackPosition: boolean;
+    refutePosition: boolean;
     materialOmissionPosition?: boolean;
-    groundedClaimPosition?: GroundedClaimPosition | null;
     supportObligationIds: string[];
-    attackObligationIds: string[];
+    refuteObligationIds: string[];
     unresolvedObligationIds: string[];
   };
   obligations: VerdictObligationSummary[];
@@ -237,19 +301,21 @@ export interface VerdictAggregationResult {
   ruleTrace: string[];
 }
 
-export interface SupportClassificationResponse {
-  classifications: AtomSupportClassification[];
-  evidenceAudit?: GroundedEvidenceAuditResult;
-  provider: "transformers" | "ollama";
+export interface EvidenceAssessmentResponse {
+  assessment: GroundedEvidenceAssessment;
+  provider: "ollama";
   model: string;
 }
 
 export interface GroundedObligationAudit {
   atomId: string;
-  state: "SUPPORTED" | "REFUTED" | "BOTH" | "UNRESOLVED";
   supportSpanIds: string[];
-  attackSpanIds: string[];
+  refuteSpanIds: string[];
+  contextSpanIds?: string[];
+  sufficiency: "SUFFICIENT" | "PARTIAL" | "INSUFFICIENT";
+  missingInformation: string;
   reason: string;
+  scopeChecks: EvidenceScopeCheck[];
 }
 
 export interface MaterialOmissionCertificate {
@@ -259,25 +325,64 @@ export interface MaterialOmissionCertificate {
   reason: string;
 }
 
-export type GroundedClaimPosition =
-  | "SUPPORT_ONLY"
-  | "ATTACK_ONLY"
-  | "MIXED_OR_MISLEADING"
-  | "INSUFFICIENT";
+export type EvidenceScopeStatus = "MATCH" | "MISMATCH" | "UNRESOLVED" | "NOT_APPLICABLE";
 
-export interface GroundedClaimAudit {
-  position: GroundedClaimPosition;
-  supportSpanIds: string[];
-  attackSpanIds: string[];
-  contextSpanIds: string[];
+export interface EvidenceScopeCheck {
+  spanId: string;
+  documentId: string;
+  status: EvidenceScopeStatus;
+  claimJurisdictions: string[];
+  evidenceJurisdictions: string[];
   reason: string;
 }
 
-export interface GroundedEvidenceAuditResult {
-  claimPosition: GroundedClaimAudit;
+export interface GroundedEvidenceAssessment {
   obligations: GroundedObligationAudit[];
   materialOmission: MaterialOmissionCertificate;
-  provider: "ollama";
+}
+
+export type SymbolicOperator = "SET_MEMBERSHIP" | "NUMERIC_COMPARE" | "TEMPORAL_COMPARE" | "ATTRIBUTE_COMPARE" | "COUNT_DISTINCT" | "EXTREMUM_COMPARE";
+export type SymbolicStatus = "PROVED" | "DISPROVED" | "UNRESOLVED" | "NOT_APPLICABLE";
+
+export interface SymbolicPremise {
+  id: string;
+  documentId: string;
+  text: string;
+  start: number;
+  end: number;
+  kind: "EVIDENCE" | "LIST_CERTIFICATE" | "LIST_ITEM" | "OPERAND";
+  contentHash?: string | null;
+  itemCount?: number | null;
+}
+
+export interface SymbolicExecution {
+  id: string;
+  atomId: string;
+  operator: SymbolicOperator;
+  status: SymbolicStatus;
+  relation: "SUPPORTS" | "REFUTES" | null;
+  premiseIds: string[];
+  premises: SymbolicPremise[];
+  expression: string;
+  conclusion: string;
+  explanation: string;
+  validationWarnings: string[];
+  program: {
+    version: 1;
+    steps: Array<{
+      id: string;
+      operation: "LOOKUP" | "EQUAL" | "NOT_EQUAL" | "NUMERIC_COMPARE" | "TEMPORAL_COMPARE" | "MEMBER" | "COUNT_DISTINCT" | "EXTREMUM_COUNTEREXAMPLE";
+      inputIds: string[];
+      outputType: "FACT" | "BOOLEAN" | "NUMBER" | "DATE" | "SET";
+      description: string;
+    }>;
+    outputStepId: string;
+  };
+}
+
+export interface ReasoningResponse {
+  executions: SymbolicExecution[];
+  provider: "ollama+python";
   model: string;
 }
 
@@ -399,21 +504,25 @@ export interface LinguisticAnalysisResponse {
 /** A complete, local pipeline run rendered by the static Vercel walkthrough. */
 export interface WalkthroughRun {
   caseId: string;
-  schemaVersion: 2;
+  schemaVersion: 6;
   composition: ClaimComposition;
   warnings: DecompositionWarning[];
   atoms: DecomposedAtom[];
   evidence: AtomEvidence[];
-  classifications: AtomSupportClassification[];
-  evidenceAudit?: GroundedEvidenceAuditResult;
+  assessment: GroundedEvidenceAssessment;
+  reasoning: SymbolicExecution[];
   /** Legacy recorded walkthroughs contain only atom analyses; new runs use v2. */
   linguistics: LinguisticAnalysisResponse | AtomLinguisticAnalysis[];
   /** Recorded aggregation result. Absent in walkthroughs recorded before stage 05. */
   verdict?: VerdictAggregationResult;
   recordedWith: {
+    pipelineRevision: "submission-ready-v2";
+    inputDigest: string;
     decompositionModel: string;
     retrievalModel: string;
-    nliModel: string;
+    retrievalMethod: RetrievalMethod;
+    assessmentModel: string;
+    reasoningModel: string;
     linguisticsModel: string;
   };
 }
@@ -423,11 +532,9 @@ export interface Health {
   decompositionConfigured: boolean;
   decompositionReady: boolean;
   retrievalConfigured: boolean;
-  nliConfigured: boolean;
   linguisticsConfigured: boolean;
   decompositionModel: string;
   retrievalModel: string;
-  nliModel: string;
   linguisticsModel: string;
 }
 

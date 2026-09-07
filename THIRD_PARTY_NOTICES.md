@@ -9,20 +9,21 @@ The bundled demo cases are derived from the AVeriTeC development set at commit
 > Schlichtkrull, Guo, and Vlachos. *AVeriTeC: A Dataset for Real-world Claim
 > Verification with Evidence from the Web.* NeurIPS Datasets and Benchmarks, 2023.
 
-The bundle includes source URLs, recovered source text, and human-written
-AVeriTeC question-answer evidence cards. The cards preserve benchmark evidence
-when archived pages drift and omit reference labels and gold justifications.
+The bundle includes source URLs and recovered source text. AVeriTeC's
+human-written question-answer annotations are not copied into runtime documents
+or model inputs; they remain available only from the pinned upstream dataset
+for optional offline evaluation.
 Bundled data is included only under the repository owner’s confirmed
 redistribution clearance; it is not relicensed by the MIT licence covering
-VeriGraph code.
+VeriTrace code.
 
 ## Local models
 
 - Qwen2.5 7B (the default; overridable via `VERIGRAPH_OLLAMA_MODEL`) is
-  obtained by Ollama during `./run-verigraph --prepare`.
+  obtained by Ollama during `./run-verigraph --prepare` and is used for claim
+  decomposition, evidence assessment, and constrained reasoning-program
+  compilation.
 - `BAAI/bge-small-en-v1.5` is used for semantic candidate matching.
-- `MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli` remains available for the
-  compatibility relation-only endpoint; the standard claim audit uses Qwen.
 - `en_core_web_sm` is used for local linguistic analysis.
 
 Model weights are not committed to this repository. Consult each upstream model

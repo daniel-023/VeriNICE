@@ -1,0 +1,760 @@
+{
+  "caseId": "showcase-technology-iphone",
+  "schemaVersion": 6,
+  "composition": "SINGLE",
+  "warnings": [],
+  "atoms": [
+    {
+      "id": "atom-1",
+      "text": "The first iPhone went on sale in the United States in 2005.",
+      "sourceText": "The first iPhone went on sale in the United States in 2005",
+      "start": 0,
+      "end": 58,
+      "role": "TEMPORAL_CONSTRAINT"
+    }
+  ],
+  "evidence": [
+    {
+      "atomId": "atom-1",
+      "spans": [
+        {
+          "id": "doc-cfa7e728af0f::sentence-5",
+          "documentId": "doc-cfa7e728af0f",
+          "text": "CUPERTINO, California—June 28, 2007—Apple’s revolutionary iPhone™ will go on sale this Friday, June 29 at 6:00 p.m. local time at Apple® retail stores nationwide. ",
+          "start": 154,
+          "end": 317,
+          "contextSpans": [
+            {
+              "id": "doc-cfa7e728af0f::sentence-4",
+              "documentId": "doc-cfa7e728af0f",
+              "text": "Free Workshops, Genius Bar Support and One to One Personal Training\n",
+              "start": 86,
+              "end": 154,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "Free Workshops, Genius Bar Support and One to One Personal Training CUPERTINO, California—June 28, 2007—Apple’s revolutionary iPhone™ will go on sale this Friday, June 29 at 6:00 p.m. local time at Apple® retail stores nationwide."
+        },
+        {
+          "id": "doc-6928c6b9dd12::sentence-3",
+          "documentId": "doc-6928c6b9dd12",
+          "text": "Apple Reinvents the Phone with iPhone\n",
+          "start": 30,
+          "end": 68,
+          "contextSpans": [],
+          "context": "Apple Reinvents the Phone with iPhone"
+        },
+        {
+          "id": "doc-6928c6b9dd12::sentence-4",
+          "documentId": "doc-6928c6b9dd12",
+          "text": "MACWORLD SAN FRANCISCO—January 9, 2007—Apple® today introduced iPhone, combining three products—a revolutionary mobile phone, a widescreen iPod® with touch controls, and a breakthrough Internet communications device with desktop-class email, web browsing, searching and maps—into one small and lightweight handheld device. ",
+          "start": 68,
+          "end": 391,
+          "contextSpans": [],
+          "context": "MACWORLD SAN FRANCISCO—January 9, 2007—Apple® today introduced iPhone, combining three products—a revolutionary mobile phone, a widescreen iPod® with touch controls, and a breakthrough Internet communications device with desktop-class email, web browsing, searching and maps—into one small and lightweight handheld device."
+        },
+        {
+          "id": "doc-cfa7e728af0f::sentence-6",
+          "documentId": "doc-cfa7e728af0f",
+          "text": "All 164 Apple retail stores in the US will stay open until midnight, and customers can purchase up to two iPhones on a first come, first served basis. ",
+          "start": 317,
+          "end": 468,
+          "contextSpans": [],
+          "context": "All 164 Apple retail stores in the US will stay open until midnight, and customers can purchase up to two iPhones on a first come, first served basis."
+        },
+        {
+          "id": "doc-cfa7e728af0f::sentence-12",
+          "documentId": "doc-cfa7e728af0f",
+          "text": "iPhone combines three products into one small and lightweight handheld device—a revolutionary mobile phone, a widescreen iPod®, and the Internet in your pocket with best-ever",
+          "start": 1325,
+          "end": 1499,
+          "contextSpans": [],
+          "context": "iPhone combines three products into one small and lightweight handheld device—a revolutionary mobile phone, a widescreen iPod®, and the Internet in your pocket with best-ever"
+        },
+        {
+          "id": "doc-6928c6b9dd12::sentence-10",
+          "documentId": "doc-6928c6b9dd12",
+          "text": "iPhone is a revolutionary new mobile phone that allows users to make calls by simply pointing at a name or number. ",
+          "start": 1062,
+          "end": 1177,
+          "contextSpans": [
+            {
+              "id": "doc-6928c6b9dd12::sentence-9",
+              "documentId": "doc-6928c6b9dd12",
+              "text": "iPhone is a Revolutionary Mobile Phone\n",
+              "start": 1023,
+              "end": 1062,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "iPhone is a Revolutionary Mobile Phone iPhone is a revolutionary new mobile phone that allows users to make calls by simply pointing at a name or number."
+        }
+      ]
+    }
+  ],
+  "assessment": {
+    "obligations": [
+      {
+        "atomId": "atom-1",
+        "supportSpanIds": [],
+        "refuteSpanIds": [
+          "doc-cfa7e728af0f::sentence-5",
+          "doc-cfa7e728af0f::sentence-6"
+        ],
+        "contextSpanIds": [
+          "doc-6928c6b9dd12::sentence-3",
+          "doc-6928c6b9dd12::sentence-4",
+          "doc-cfa7e728af0f::sentence-12"
+        ],
+        "sufficiency": "INSUFFICIENT",
+        "missingInformation": "The evidence does not provide a specific sale date for the first iPhone in 2005.",
+        "reason": "The evidence indicates the iPhone went on sale in 2007, not 2005.",
+        "scopeChecks": [
+          {
+            "spanId": "doc-cfa7e728af0f::sentence-5",
+            "documentId": "doc-cfa7e728af0f",
+            "status": "UNRESOLVED",
+            "claimJurisdictions": [
+              "US"
+            ],
+            "evidenceJurisdictions": [],
+            "reason": "No explicit source jurisdiction could be resolved."
+          },
+          {
+            "spanId": "doc-6928c6b9dd12::sentence-3",
+            "documentId": "doc-6928c6b9dd12",
+            "status": "UNRESOLVED",
+            "claimJurisdictions": [
+              "US"
+            ],
+            "evidenceJurisdictions": [],
+            "reason": "No explicit source jurisdiction could be resolved."
+          },
+          {
+            "spanId": "doc-6928c6b9dd12::sentence-4",
+            "documentId": "doc-6928c6b9dd12",
+            "status": "UNRESOLVED",
+            "claimJurisdictions": [
+              "US"
+            ],
+            "evidenceJurisdictions": [],
+            "reason": "No explicit source jurisdiction could be resolved."
+          },
+          {
+            "spanId": "doc-cfa7e728af0f::sentence-6",
+            "documentId": "doc-cfa7e728af0f",
+            "status": "UNRESOLVED",
+            "claimJurisdictions": [
+              "US"
+            ],
+            "evidenceJurisdictions": [],
+            "reason": "No explicit source jurisdiction could be resolved."
+          },
+          {
+            "spanId": "doc-cfa7e728af0f::sentence-12",
+            "documentId": "doc-cfa7e728af0f",
+            "status": "UNRESOLVED",
+            "claimJurisdictions": [
+              "US"
+            ],
+            "evidenceJurisdictions": [],
+            "reason": "No explicit source jurisdiction could be resolved."
+          },
+          {
+            "spanId": "doc-6928c6b9dd12::sentence-10",
+            "documentId": "doc-6928c6b9dd12",
+            "status": "UNRESOLVED",
+            "claimJurisdictions": [
+              "US"
+            ],
+            "evidenceJurisdictions": [],
+            "reason": "No explicit source jurisdiction could be resolved."
+          }
+        ]
+      }
+    ],
+    "materialOmission": {
+      "detected": false,
+      "supportSpanIds": [],
+      "contextSpanIds": [],
+      "reason": "No material omission was established."
+    }
+  },
+  "reasoning": [
+    {
+      "id": "proof:atom-1:temporal_compare:1",
+      "atomId": "atom-1",
+      "operator": "TEMPORAL_COMPARE",
+      "status": "DISPROVED",
+      "relation": "REFUTES",
+      "premiseIds": [
+        "evidence:atom-1:doc-cfa7e728af0f:doc-cfa7e728af0f::sentence-5"
+      ],
+      "premises": [
+        {
+          "id": "evidence:atom-1:doc-cfa7e728af0f:doc-cfa7e728af0f::sentence-5",
+          "documentId": "doc-cfa7e728af0f",
+          "text": "CUPERTINO, California—June 28, 2007—Apple’s revolutionary iPhone™ will go on sale this Friday, June 29 at 6:00 p.m. local time at Apple® retail stores nationwide. ",
+          "start": 154,
+          "end": 317,
+          "kind": "EVIDENCE",
+          "contentHash": null,
+          "itemCount": null
+        }
+      ],
+      "expression": "June 28, 2007 on 2005",
+      "conclusion": "The grounded temporal comparison is false.",
+      "explanation": "Python aligned the event wording and compared absolute date intervals.",
+      "validationWarnings": [],
+      "program": {
+        "version": 1,
+        "steps": [
+          {
+            "id": "input-1",
+            "operation": "LOOKUP",
+            "inputIds": [
+              "evidence:atom-1:doc-cfa7e728af0f:doc-cfa7e728af0f::sentence-5"
+            ],
+            "outputType": "FACT",
+            "description": "Read an unchanged server-owned premise."
+          },
+          {
+            "id": "result",
+            "operation": "TEMPORAL_COMPARE",
+            "inputIds": [
+              "input-1"
+            ],
+            "outputType": "BOOLEAN",
+            "description": "Validate operand alignment and execute the typed operation in Python."
+          }
+        ],
+        "outputStepId": "result"
+      }
+    }
+  ],
+  "linguistics": {
+    "schemaVersion": 2,
+    "claimAnalysis": {
+      "atomId": "claim",
+      "frames": [
+        {
+          "id": "claim-frame-1",
+          "predicate": {
+            "id": "claim-frame-1-predicate",
+            "text": "went",
+            "start": 17,
+            "end": 21
+          },
+          "subjects": [
+            {
+              "id": "claim-frame-1-subject-1",
+              "text": "The first iPhone",
+              "start": 0,
+              "end": 16
+            }
+          ],
+          "coreArguments": [],
+          "adjuncts": [
+            {
+              "id": "claim-frame-1-adjunct-1",
+              "text": "in 2005",
+              "start": 51,
+              "end": 58,
+              "kind": "temporal"
+            }
+          ],
+          "otherModifiers": [
+            {
+              "id": "claim-frame-1-other-modifier-1",
+              "text": "on sale",
+              "start": 22,
+              "end": 29
+            },
+            {
+              "id": "claim-frame-1-other-modifier-2",
+              "text": "in the United States",
+              "start": 30,
+              "end": 50
+            }
+          ]
+        }
+      ],
+      "cues": [
+        {
+          "id": "claim-cue-numeric-4-9",
+          "text": "first",
+          "start": 4,
+          "end": 9,
+          "kind": "numeric"
+        },
+        {
+          "id": "claim-cue-temporal-54-58",
+          "text": "2005",
+          "start": 54,
+          "end": 58,
+          "kind": "temporal"
+        }
+      ],
+      "entities": [
+        {
+          "id": "claim-entity-gpe-33-50",
+          "text": "the United States",
+          "start": 33,
+          "end": 50,
+          "label": "GPE"
+        }
+      ],
+      "tokens": [
+        {
+          "id": "claim-token-0",
+          "text": "The",
+          "start": 0,
+          "end": 3,
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "iPhone"
+        },
+        {
+          "id": "claim-token-1",
+          "text": "first",
+          "start": 4,
+          "end": 9,
+          "lemma": "first",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "iPhone"
+        },
+        {
+          "id": "claim-token-2",
+          "text": "iPhone",
+          "start": 10,
+          "end": 16,
+          "lemma": "iPhone",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "nsubj",
+          "head": "went"
+        },
+        {
+          "id": "claim-token-3",
+          "text": "went",
+          "start": 17,
+          "end": 21,
+          "lemma": "go",
+          "pos": "VERB",
+          "tag": "VBD",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "claim-token-4",
+          "text": "on",
+          "start": 22,
+          "end": 24,
+          "lemma": "on",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "went"
+        },
+        {
+          "id": "claim-token-5",
+          "text": "sale",
+          "start": 25,
+          "end": 29,
+          "lemma": "sale",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "pobj",
+          "head": "on"
+        },
+        {
+          "id": "claim-token-6",
+          "text": "in",
+          "start": 30,
+          "end": 32,
+          "lemma": "in",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "went"
+        },
+        {
+          "id": "claim-token-7",
+          "text": "the",
+          "start": 33,
+          "end": 36,
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "States"
+        },
+        {
+          "id": "claim-token-8",
+          "text": "United",
+          "start": 37,
+          "end": 43,
+          "lemma": "United",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "States"
+        },
+        {
+          "id": "claim-token-9",
+          "text": "States",
+          "start": 44,
+          "end": 50,
+          "lemma": "States",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "pobj",
+          "head": "in"
+        },
+        {
+          "id": "claim-token-10",
+          "text": "in",
+          "start": 51,
+          "end": 53,
+          "lemma": "in",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "went"
+        },
+        {
+          "id": "claim-token-11",
+          "text": "2005",
+          "start": 54,
+          "end": 58,
+          "lemma": "2005",
+          "pos": "NUM",
+          "tag": "CD",
+          "dependency": "pobj",
+          "head": "in"
+        },
+        {
+          "id": "claim-token-12",
+          "text": ".",
+          "start": 58,
+          "end": 59,
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "went"
+        }
+      ],
+      "status": "complete",
+      "unresolved": []
+    },
+    "analyses": [
+      {
+        "atomId": "atom-1",
+        "frames": [
+          {
+            "id": "atom-1-frame-1",
+            "predicate": {
+              "id": "atom-1-frame-1-predicate",
+              "text": "went",
+              "start": 17,
+              "end": 21
+            },
+            "subjects": [
+              {
+                "id": "atom-1-frame-1-subject-1",
+                "text": "The first iPhone",
+                "start": 0,
+                "end": 16
+              }
+            ],
+            "coreArguments": [],
+            "adjuncts": [
+              {
+                "id": "atom-1-frame-1-adjunct-1",
+                "text": "in 2005",
+                "start": 51,
+                "end": 58,
+                "kind": "temporal"
+              }
+            ],
+            "otherModifiers": [
+              {
+                "id": "atom-1-frame-1-other-modifier-1",
+                "text": "on sale",
+                "start": 22,
+                "end": 29
+              },
+              {
+                "id": "atom-1-frame-1-other-modifier-2",
+                "text": "in the United States",
+                "start": 30,
+                "end": 50
+              }
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "atom-1-cue-numeric-4-9",
+            "text": "first",
+            "start": 4,
+            "end": 9,
+            "kind": "numeric"
+          },
+          {
+            "id": "atom-1-cue-temporal-54-58",
+            "text": "2005",
+            "start": 54,
+            "end": 58,
+            "kind": "temporal"
+          }
+        ],
+        "entities": [
+          {
+            "id": "atom-1-entity-gpe-33-50",
+            "text": "the United States",
+            "start": 33,
+            "end": 50,
+            "label": "GPE"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-1-token-0",
+            "text": "The",
+            "start": 0,
+            "end": 3,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "iPhone"
+          },
+          {
+            "id": "atom-1-token-1",
+            "text": "first",
+            "start": 4,
+            "end": 9,
+            "lemma": "first",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "iPhone"
+          },
+          {
+            "id": "atom-1-token-2",
+            "text": "iPhone",
+            "start": 10,
+            "end": 16,
+            "lemma": "iPhone",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "nsubj",
+            "head": "went"
+          },
+          {
+            "id": "atom-1-token-3",
+            "text": "went",
+            "start": 17,
+            "end": 21,
+            "lemma": "go",
+            "pos": "VERB",
+            "tag": "VBD",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-1-token-4",
+            "text": "on",
+            "start": 22,
+            "end": 24,
+            "lemma": "on",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "went"
+          },
+          {
+            "id": "atom-1-token-5",
+            "text": "sale",
+            "start": 25,
+            "end": 29,
+            "lemma": "sale",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "pobj",
+            "head": "on"
+          },
+          {
+            "id": "atom-1-token-6",
+            "text": "in",
+            "start": 30,
+            "end": 32,
+            "lemma": "in",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "went"
+          },
+          {
+            "id": "atom-1-token-7",
+            "text": "the",
+            "start": 33,
+            "end": 36,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "States"
+          },
+          {
+            "id": "atom-1-token-8",
+            "text": "United",
+            "start": 37,
+            "end": 43,
+            "lemma": "United",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "States"
+          },
+          {
+            "id": "atom-1-token-9",
+            "text": "States",
+            "start": 44,
+            "end": 50,
+            "lemma": "States",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "pobj",
+            "head": "in"
+          },
+          {
+            "id": "atom-1-token-10",
+            "text": "in",
+            "start": 51,
+            "end": 53,
+            "lemma": "in",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "went"
+          },
+          {
+            "id": "atom-1-token-11",
+            "text": "2005",
+            "start": 54,
+            "end": 58,
+            "lemma": "2005",
+            "pos": "NUM",
+            "tag": "CD",
+            "dependency": "pobj",
+            "head": "in"
+          },
+          {
+            "id": "atom-1-token-12",
+            "text": ".",
+            "start": 58,
+            "end": 59,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "went"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      }
+    ],
+    "summaries": [
+      {
+        "atomId": "atom-1",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "The first iPhone"
+        ],
+        "predicates": [
+          "go"
+        ],
+        "cueKinds": [
+          "numeric",
+          "temporal"
+        ],
+        "modifierKinds": [
+          "temporal"
+        ],
+        "entityLabels": [
+          "GPE"
+        ],
+        "warnings": []
+      }
+    ],
+    "claimWarnings": [],
+    "provider": "spacy",
+    "model": "en_core_web_sm@3.8.0"
+  },
+  "verdict": {
+    "aggregationSchemaVersion": 3,
+    "claimId": "showcase-technology-iphone",
+    "composition": "SINGLE",
+    "verdict": "REFUTED",
+    "positions": {
+      "supportPosition": false,
+      "refutePosition": true,
+      "materialOmissionPosition": false,
+      "supportObligationIds": [],
+      "refuteObligationIds": [
+        "atom-1"
+      ],
+      "unresolvedObligationIds": []
+    },
+    "obligations": [
+      {
+        "obligationId": "atom-1",
+        "state": "REFUTED",
+        "supportEdgeIds": [],
+        "refuteEdgeIds": [
+          "edge:REFUTES:inference:proof:atom-1:temporal_compare:1:obligation:showcase-technology-iphone:atom-1"
+        ],
+        "unselectedCandidateCount": 1,
+        "provisionalRelationCount": 2
+      }
+    ],
+    "warnings": [
+      {
+        "code": "PROVISIONAL_EVIDENCE_EXCLUDED",
+        "message": "2 assessed relation(s) for obligation atom-1 are provisional because the evidence is not sufficient."
+      }
+    ],
+    "ruleTrace": [
+      "SINGLE maps its one obligation's validated relations directly.",
+      "Validated positions — support: no; refute: yes.",
+      "Verdict: REFUTED."
+    ]
+  },
+  "recordedWith": {
+    "pipelineRevision": "submission-ready-v2",
+    "inputDigest": "c1d8a76943f38b673f979cfc32428450bd0e1c210341f0e1d446342cdfc9fa77",
+    "decompositionModel": "qwen2.5:7b",
+    "retrievalModel": "BAAI/bge-small-en-v1.5",
+    "retrievalMethod": "HYBRID",
+    "assessmentModel": "qwen2.5:7b",
+    "reasoningModel": "qwen2.5:7b",
+    "linguisticsModel": "en_core_web_sm@3.8.0"
+  },
+  "timingsSeconds": {
+    "decomposition": 16.106,
+    "retrievalAndLinguistics": 0.425,
+    "evidenceAssessment": 17.886,
+    "symbolicReasoning": 11.795,
+    "aggregation": 0.002,
+    "total": 46.215
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "showcase-current-unsc",
+  "claim": "Australia is a permanent member of the UN Security Council.",
+  "documents": [
+    {
+      "id": "doc-4de8403c2f50",
+      "title": "Current Members",
+      "url": "https://main.un.org/securitycouncil/en/content/current-members",
+      "layout": "PROSE",
+      "publisher": "United Nations Security Council",
+      "retrievedAt": "2026-09-05",
+      "sourceType": "SOURCE_EXCERPT",
+      "excerptSha256": "6f89f1a824ec95799925071db774d817e7ae40ed23da5e7ab4029253b9fa4558",
+      "sourceSha256": "6f89f1a824ec95799925071db774d817e7ae40ed23da5e7ab4029253b9fa4558",
+      "text": "PERMANENT AND NON-PERMANENT MEMBERS\nThe Council is composed of 15 Members:\nFive permanent members: China, France, Russian Federation, the United Kingdom, and the United States, and ten non-permanent members elected for two-year terms by the General Assembly (with end of term year):\n- Bahrain (2027)\n- Colombia (2027)\n- Democratic Republic of the Congo (2027)\n- Denmark (2026)\n- Greece (2026)\n- Latvia (2027)\n- Liberia (2027)\n- Pakistan (2026)\n- Panama (2026)\n- Somalia (2026)\nNon-Council Member States\nMore than 50 United Nations Member States have never been Members of the Security Council.\nA State which is a Member of the United Nations but not of the Security Council may participate, without a vote, in its discussions when the Council considers that country's interests are affected. Both Members and non-members of the United Nations, if they are parties to a dispute being considered by the Council, may be invited to take part, without a vote, in the Council's discussions; the Council sets the conditions for participation by a non-member State."
+    },
+    {
+      "id": "doc-3a71d897be6a",
+      "title": "Countries Elected Members",
+      "url": "https://main.un.org/securitycouncil/en/content/countries-elected-members",
+      "layout": "PROSE",
+      "publisher": "United Nations Security Council",
+      "retrievedAt": "2026-09-05",
+      "sourceType": "SOURCE_EXCERPT",
+      "excerptSha256": "9c20a7ea98ef572e0d3440770014362b533cd90c7997ff3596a39d69ad52f829",
+      "sourceSha256": "d161422504d86e8ce5da7209850c5e4f80ea150defbfe954a2b9eeeb80398692",
+      "text": "Below you can see the list of all countries which have been elected as members of the Security Council at least once since 1946.\nAlbania\n2022-2023\nAlgeria\n1968-1969, 1988-1989, 2004-2005, 2024-2025\nAngola\n2003-2004, 2015-2016\nArgentina\n1948-1949, 1959-1960, 1966-1967, 1971-1972, 1987-1988, 1994-1995, 1999-2000, 2005-2006, 2013-2014\nAustralia\n1946-1947, 1956-1957, 1973-1974, 1985-1986, 2013-2014\nAustria\n1973-1974, 1991-1992, 2009-2010, 2027-2028\nAzerbaijan\n2012-2013\nBahrain\n1998-1999, 2026-2027\nBangladesh\n1979-1980, 2000-2001\nBelarus\n1974-1975\nBelgium\n1947-1948, 1955-1956, 1971-1972, 1991-1992, 2007-2008, 2019-2020\nBenin\n1976-1977, 2004-2005\nBolivia\n1964-1965, 1978-1979, 2017-2018\nBosnia and Herzegovina\n2010-2011\nBotswana\n1995-1996\nBrazil\n1946-1947, 1951-1952, 1954-1955, 1963-1964, 1967-1968, 1988-1989, 1993-1994, 1998-1999, 2004-2005, 2010-2011, 2022-2023\nBulgaria\n1966-1967, 1986-1987, 2002-2003\nBurkina Faso\n1984-1985, 2008-2009\nBurundi\n1970-1971\nCabo Verde\n1992-1993\nCameroon\n1974-1975, 2002-2003\nCanada\n1948-1949, 1958-1959, 1967-1968, 1977-1978, 1989-1990, 1999-2000\nCeylon (see Sri Lanka)\nChad\n2014-2015\nChile\n1952-1953, 1961-1962, 1996-1997, 2003-2004, 2014-2015\nChina – Permanent Member\nColombia\n1947-1948, 1953-1954, 1957-1958, 1969-1970, 1989-1990, 2001-2002, 2011-2012, 2026-2027\nCongo\n1986-1987, 2006-2007\nCosta Rica\n1974-1975, 1997-1998, 2008-2009\nCôte d'Ivoire\n1964-1965, 1990-1991, 2018-2019\nCroatia\n2008-2009\nCuba\n1949-1950, 1956-1957, 1990-1991\nCzech Republic\n1994-1995\nCzechoslovakia\n1964, 1978-1979\nDemocratic Republic of the Congo\n1982-1983, 1990-1991, 2026-2027\nDenmark\n1953-1954, 1967-1968, 1985-1986, 2005-2006, 2025-2026\nDjibouti\n1993-1994\nDominican Republic\n2019-2020\nEcuador\n1950-1951, 1960-1961, 1991-1992, 2023-2024\nEgypt\n1946, 1949-1950, 1984-1985, 1996-1997, 2016-2017\nEquatorial Guinea\n2018-2019\nEstonia\n2020-2021\nEthiopia\n1967-1968, 1989-1990, 2017-2018\nFinland\n1969-1970, 1989-1990\nFrance – Permanent Member\nGabon\n1978-1979, 1998-1999, 2010-2011, 2022-2023\nGambia\n1998-1999\nGerman Democratic Republic (see Germany)\nGermany\n1977-1978, 1987-1988, 1995-1996, 2003-2004, 2011-2012, 2019-2020\nGhana\n1962-1963, 1986-1987, 2006-2007, 2022-2023"
+    }
+  ],
+  "label": "REFUTED",
+  "displayTitle": "Australia and the UN Security Council",
+  "topics": [],
+  "challenges": [],
+  "featured": false,
+  "origin": "CONSTRUCTED",
+  "category": "CURRENT_AFFAIRS",
+  "demoFocus": "SET_MEMBERSHIP"
+}

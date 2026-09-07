@@ -87,7 +87,7 @@ def _load_model() -> Any:
             package = importlib.import_module(MODEL_PACKAGE)
             nlp = package.load()
             # Force the complete packaged pipeline to initialize while startup is controlled.
-            nlp("VeriGraph parser warm-up.")
+            nlp("VeriTrace parser warm-up.")
         except Exception as error:
             _load_error = str(error)
             raise LinguisticAnalysisConfigurationError(

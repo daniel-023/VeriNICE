@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Record the current local VeriGraph pipeline for the static walkthrough."""
+"""Record the current local VeriTrace pipeline for the static walkthrough."""
 from __future__ import annotations
 
 import argparse
 import asyncio
+import hashlib
 import json
 from pathlib import Path
 import time
@@ -18,7 +19,8 @@ from walkthrough_cases import CURATED_CASE_IDS
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT = ROOT / "data" / "walkthrough" / "runs"
 _AGGREGATION_SCHEMA = "VerdictAggregationRequest"
-_SUPPORT_RESPONSE_SCHEMA = "SupportClassificationResponse"
+_ASSESSMENT_RESPONSE_SCHEMA = "EvidenceAssessmentResponse"
+_ASSESSMENT_REQUEST_SCHEMA = "EvidenceAssessmentRequest"
 
 
 def validate_api_contract(openapi: dict[str, Any]) -> None:
@@ -34,7 +36,7 @@ def validate_api_contract(openapi: dict[str, Any]) -> None:
     if not isinstance(aggregation, dict):
         raise RuntimeError(
             "The running backend does not expose the current verdict aggregation API. "
-            "Stop the local VeriGraph process, run ./run-verigraph --start again, "
+            "Stop the local VeriTrace process, run ./run-verigraph --start again, "
             "then retry recording."
         )
 
@@ -44,8 +46,8 @@ def validate_api_contract(openapi: dict[str, Any]) -> None:
         "claim" in properties
         or "claim" in required
         or "claimId" not in properties
-        or "materialOmission" not in properties
-        or "claimAudit" not in properties
+        or "assessment" not in properties
+        or "reasoning" not in properties
     ):
         raise RuntimeError(
             "The running backend is stale: its verdict aggregation request schema "
@@ -53,17 +55,28 @@ def validate_api_contract(openapi: dict[str, Any]) -> None:
             "./run-verigraph --start again, then rerun ./run-verigraph "
             "--record-walkthrough."
         )
-    support_response = schemas.get(_SUPPORT_RESPONSE_SCHEMA)
-    support_properties = (
-        support_response.get("properties", {})
-        if isinstance(support_response, dict)
+    assessment_response = schemas.get(_ASSESSMENT_RESPONSE_SCHEMA)
+    assessment_properties = (
+        assessment_response.get("properties", {})
+        if isinstance(assessment_response, dict)
         else {}
     )
-    if "evidenceAudit" not in support_properties:
+    if "assessment" not in assessment_properties:
         raise RuntimeError(
             "The running backend is stale: grounded evidence auditing is not exposed. "
             "Stop it with Ctrl-C, run ./run-verigraph --start again, then rerun "
             "./run-verigraph --record-walkthrough."
+        )
+    assessment_request = schemas.get(_ASSESSMENT_REQUEST_SCHEMA, {})
+    assessment_request_properties = assessment_request.get("properties", {})
+    if (
+        "documentTitles" in assessment_request_properties
+        or "caseId" not in assessment_request_properties
+        or "documents" not in assessment_request_properties
+    ):
+        raise RuntimeError(
+            "The running backend predates server-side evidence scope validation. "
+            "Restart VeriTrace before recording."
         )
 
 
@@ -83,9 +96,28 @@ async def request(client: httpx.AsyncClient, method: str, path: str, **kwargs: A
     return response.json()
 
 
-async def record_case(client: httpx.AsyncClient, case_id: str) -> dict[str, Any]:
+async def request_with_retries(
+    client: httpx.AsyncClient, method: str, path: str, *, attempts: int = 3, **kwargs: Any
+) -> Any:
+    for attempt in range(1, attempts + 1):
+        try:
+            return await request(client, method, path, **kwargs)
+        except RuntimeError as error:
+            if "HTTP 502" not in str(error) or attempt == attempts:
+                raise
+            print(f"  Retry {attempt}/{attempts - 1} for {path}: {error}", flush=True)
+            await asyncio.sleep(float(attempt))
+    raise AssertionError("unreachable")
+
+
+def input_digest(case: dict[str, Any]) -> str:
+    serialized = json.dumps(case, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    return hashlib.sha256(serialized.encode("utf-8")).hexdigest()
+
+
+async def record_case(client: httpx.AsyncClient, case_id: str, case: dict[str, Any] | None = None) -> dict[str, Any]:
     case_started = time.perf_counter()
-    case = await request(client, "GET", f"/api/v1/demo-cases/{case_id}")
+    case = case or await request(client, "GET", f"/api/v1/demo-cases/{case_id}")
     decomposition_started = time.perf_counter()
     decomposition = None
     for attempt in range(1, 4):
@@ -112,7 +144,10 @@ async def record_case(client: httpx.AsyncClient, case_id: str) -> dict[str, Any]
         "atoms": decomposition["atoms"],
     }
     retrieval_task = request(
-        client, "POST", "/api/v1/retrieve", json={"caseId": case_id, "atoms": atoms}
+        client,
+        "POST",
+        "/api/v1/retrieve",
+        json={"caseId": case_id, "atoms": atoms, "retrievalMethod": "HYBRID"},
     )
     linguistics_task = request(
         client, "POST", "/api/v1/analyze-linguistics", json=linguistic_request
@@ -120,21 +155,33 @@ async def record_case(client: httpx.AsyncClient, case_id: str) -> dict[str, Any]
     retrieval_started = time.perf_counter()
     retrieval, linguistics = await asyncio.gather(retrieval_task, linguistics_task)
     retrieval_and_linguistics_seconds = time.perf_counter() - retrieval_started
-    audit_started = time.perf_counter()
-    nli = await request(
+    assessment_started = time.perf_counter()
+    assessment = await request_with_retries(
         client,
         "POST",
-        "/api/v1/classify-support",
+        "/api/v1/assess-evidence",
         json={
+            "claim": case["claim"],
+            "caseId": case_id,
+            "atoms": atoms,
+            "evidence": retrieval["evidence"],
+        },
+    )
+    assessment_seconds = time.perf_counter() - assessment_started
+    reasoning_started = time.perf_counter()
+    reasoning = await request_with_retries(
+        client,
+        "POST",
+        "/api/v1/reason",
+        json={
+            "caseId": case_id,
             "claim": case["claim"],
             "atoms": atoms,
             "evidence": retrieval["evidence"],
-            "documentTitles": {
-                document["id"]: document["title"] for document in case["documents"]
-            },
+            "assessment": assessment["assessment"],
         },
     )
-    audit_seconds = time.perf_counter() - audit_started
+    reasoning_seconds = time.perf_counter() - reasoning_started
     aggregation_started = time.perf_counter()
     verdict = await request(
         client,
@@ -145,34 +192,37 @@ async def record_case(client: httpx.AsyncClient, case_id: str) -> dict[str, Any]
             "composition": decomposition["composition"],
             "atoms": decomposition["atoms"],
             "evidence": retrieval["evidence"],
-            "classifications": nli["classifications"],
-            "materialOmission": nli["evidenceAudit"]["materialOmission"],
-            "claimAudit": nli["evidenceAudit"]["claimPosition"],
-            "linguisticSummaries": linguistics["summaries"],
+            "assessment": assessment["assessment"],
+            "reasoning": reasoning["executions"],
         },
     )
     aggregation_seconds = time.perf_counter() - aggregation_started
     return {
         "caseId": case_id,
-        "schemaVersion": decomposition["schemaVersion"],
+        "schemaVersion": 6,
         "composition": decomposition["composition"],
         "warnings": decomposition["warnings"],
         "atoms": decomposition["atoms"],
         "evidence": retrieval["evidence"],
-        "classifications": nli["classifications"],
-        "evidenceAudit": nli["evidenceAudit"],
+        "assessment": assessment["assessment"],
+        "reasoning": reasoning["executions"],
         "linguistics": linguistics,
         "verdict": verdict,
         "recordedWith": {
+            "pipelineRevision": "submission-ready-v2",
+            "inputDigest": input_digest(case),
             "decompositionModel": decomposition["model"],
             "retrievalModel": retrieval["model"],
-            "nliModel": nli["model"],
+            "retrievalMethod": retrieval["retrievalMethod"],
+            "assessmentModel": assessment["model"],
+            "reasoningModel": reasoning["model"],
             "linguisticsModel": linguistics["model"],
         },
         "timingsSeconds": {
             "decomposition": round(decomposition_seconds, 3),
             "retrievalAndLinguistics": round(retrieval_and_linguistics_seconds, 3),
-            "evidenceAudit": round(audit_seconds, 3),
+            "evidenceAssessment": round(assessment_seconds, 3),
+            "symbolicReasoning": round(reasoning_seconds, 3),
             "aggregation": round(aggregation_seconds, 3),
             "total": round(time.perf_counter() - case_started, 3),
         },
@@ -180,12 +230,13 @@ async def record_case(client: httpx.AsyncClient, case_id: str) -> dict[str, Any]
 
 
 async def main_async() -> int:
-    parser = argparse.ArgumentParser(description="Record local VeriGraph walkthrough runs")
+    parser = argparse.ArgumentParser(description="Record local VeriTrace walkthrough runs")
     parser.add_argument("--api", default="http://127.0.0.1:3000")
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--case", action="append", dest="case_ids")
     parser.add_argument("--all", action="store_true", help="Record every approved demo case.")
-    parser.add_argument("--timeout", type=float, default=240.0)
+    parser.add_argument("--resume", action="store_true", help="Skip already valid schema-v6 runs.")
+    parser.add_argument("--timeout", type=float, default=300.0)
     args = parser.parse_args()
 
     try:
@@ -208,9 +259,28 @@ async def main_async() -> int:
         if unknown:
             raise RuntimeError("Unknown demo case ids: " + ", ".join(unknown))
         for index, case_id in enumerate(selected, start=1):
+            output_path = args.output / f"{case_id}.json"
+            case = await request(client, "GET", f"/api/v1/demo-cases/{case_id}")
+            if args.resume and output_path.is_file():
+                try:
+                    existing = json.loads(output_path.read_text(encoding="utf-8"))
+                except (OSError, ValueError):
+                    existing = {}
+                if (
+                    existing.get("schemaVersion") == 6
+                    and existing.get("recordedWith", {}).get("pipelineRevision") == "submission-ready-v2"
+                    and existing.get("recordedWith", {}).get("inputDigest") == input_digest(case)
+                    and isinstance(existing.get("assessment"), dict)
+                    and isinstance(existing.get("reasoning"), list)
+                    and existing.get("verdict", {}).get("aggregationSchemaVersion") == 3
+                    and "claimPosition" not in existing.get("assessment", {})
+                    and "deberta" not in json.dumps(existing).casefold()
+                ):
+                    print(f"[{index}/{len(selected)}] Keeping {case_id} (schema v6)", flush=True)
+                    continue
             print(f"[{index}/{len(selected)}] Recording {case_id}", flush=True)
-            run = await record_case(client, case_id)
-            (args.output / f"{case_id}.json").write_text(
+            run = await record_case(client, case_id, case)
+            output_path.write_text(
                 json.dumps(run, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
             )
     return 0

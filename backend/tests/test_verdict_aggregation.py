@@ -4,107 +4,75 @@ from verigraph_backend.schemas import VerdictAggregationRequest
 from verigraph_backend.verdict_aggregation import aggregate_verdict
 
 
-def request(composition, relations, material_omission=None, claim_audit=None):
-    atoms = [
-        {"id": f"a{index}", "text": f"Atom {index}", "sourceText": "claim", "start": 0, "end": 5, "role": "CORE"}
-        for index in range(1, len(relations) + 1)
-    ]
+def request(composition, relations, proofs=None, omission=False, sufficiency="SUFFICIENT"):
+    for proof in proofs or []:
+        proof.setdefault("program", {
+            "version": 1,
+            "steps": [{"id": "result", "operation": "MEMBER", "inputIds": [proof["id"]], "outputType": "BOOLEAN", "description": "Test program."}],
+            "outputStepId": "result",
+        })
+    atoms = [{"id": f"a{i}", "text": f"Atom {i}", "sourceText": "claim", "start": 0, "end": 5, "role": "CORE"} for i in range(1, len(relations) + 1)]
+    evidence = [{"atomId": atom["id"], "spans": [{"id": f"s{i}", "documentId": "d", "text": "evidence", "start": 0, "end": 8}]} for i, atom in enumerate(atoms, 1)]
+    obligations = []
+    for i, (atom, relation_set) in enumerate(zip(atoms, relations), 1):
+        obligations.append({
+            "atomId": atom["id"],
+            "supportSpanIds": [f"s{i}"] if "SUPPORTS" in relation_set else [],
+            "refuteSpanIds": [f"s{i}"] if "REFUTES" in relation_set else [],
+            "contextSpanIds": [], "sufficiency": sufficiency,
+            "missingInformation": "", "reason": "Grounded.", "scopeChecks": [],
+        })
     payload = {
-        "claimId": "case",
-        "composition": composition, "atoms": atoms,
-        "evidence": [{"atomId": atom["id"], "spans": [{"id": "s", "documentId": "d", "text": "evidence", "start": 0, "end": 8}]} for atom in atoms],
-        "classifications": [{"atomId": atom["id"], "relations": [{"spanId": "s", "documentId": "d", "relation": relation} for relation in relation_set]} for atom, relation_set in zip(atoms, relations)],
+        "claimId": "case", "composition": composition, "atoms": atoms, "evidence": evidence,
+        "assessment": {
+            "obligations": obligations,
+            "materialOmission": {"detected": omission, "supportSpanIds": (["s1"] if omission else []), "contextSpanIds": (["s1"] if omission else []), "reason": "Omission." if omission else "None."},
+        },
+        "reasoning": proofs or [],
     }
-    if material_omission is not None:
-        payload["materialOmission"] = material_omission
-    if claim_audit is not None:
-        payload["claimAudit"] = claim_audit
     return VerdictAggregationRequest.model_validate(payload)
 
 
 @pytest.mark.parametrize(("composition", "relations", "verdict"), [
-    ("SINGLE", [["ENTAILMENT"]], "SUPPORTED"),
-    ("SINGLE", [["CONTRADICTION"]], "REFUTED"),
-    ("SINGLE", [["ENTAILMENT", "CONTRADICTION"]], "CONFLICTING_EVIDENCE"),
-    ("SINGLE", [["NEUTRAL"]], "NOT_ENOUGH_EVIDENCE"),
-    ("AND", [["ENTAILMENT"], ["CONTRADICTION"]], "REFUTED"),
-    ("AND", [["ENTAILMENT"], ["NEUTRAL"]], "NOT_ENOUGH_EVIDENCE"),
-    ("OR", [["ENTAILMENT"], ["CONTRADICTION"]], "SUPPORTED"),
-    ("OR", [["CONTRADICTION"], ["CONTRADICTION"]], "REFUTED"),
-    ("OR", [["CONTRADICTION"], ["NEUTRAL"]], "NOT_ENOUGH_EVIDENCE"),
+    ("SINGLE", [["SUPPORTS"]], "SUPPORTED"),
+    ("SINGLE", [["REFUTES"]], "REFUTED"),
+    ("SINGLE", [["SUPPORTS", "REFUTES"]], "CONFLICTING_EVIDENCE"),
+    ("SINGLE", [["NOT_SELECTED"]], "NOT_ENOUGH_EVIDENCE"),
+    ("AND", [["SUPPORTS", "REFUTES"], ["REFUTES"]], "REFUTED"),
+    ("AND", [["SUPPORTS", "REFUTES"], ["SUPPORTS"]], "CONFLICTING_EVIDENCE"),
+    ("AND", [["SUPPORTS"], ["NOT_SELECTED"]], "NOT_ENOUGH_EVIDENCE"),
+    ("OR", [["SUPPORTS"], ["REFUTES"]], "SUPPORTED"),
+    ("OR", [["SUPPORTS", "REFUTES"], ["REFUTES"]], "CONFLICTING_EVIDENCE"),
+    ("OR", [["REFUTES"], ["REFUTES"]], "REFUTED"),
 ])
-def test_aggregation_truth_table(composition, relations, verdict):
-    result = aggregate_verdict(request(composition, relations))
-    assert result.verdict.value == verdict
+def test_composition_first_truth_table(composition, relations, verdict):
+    assert aggregate_verdict(request(composition, relations)).verdict.value == verdict
 
 
-def test_reference_label_is_not_an_aggregation_input_and_relations_are_deduplicated():
-    result = aggregate_verdict(request("SINGLE", [["ENTAILMENT", "ENTAILMENT"]]))
+def test_insufficient_assessed_relation_is_provisional_and_verdict_neutral():
+    result = aggregate_verdict(request("SINGLE", [["SUPPORTS"]], sufficiency="INSUFFICIENT"))
+    assert result.verdict.value == "NOT_ENOUGH_EVIDENCE"
+    assert result.obligations[0].support_edge_ids == []
+    assert result.obligations[0].provisional_relation_count == 1
+
+
+def test_proved_symbolic_execution_adds_a_relation():
+    proof = {
+        "id": "p1", "atomId": "a1", "operator": "SET_MEMBERSHIP", "status": "PROVED", "relation": "SUPPORTS",
+        "premiseIds": [], "premises": [], "expression": "x ∉ S", "conclusion": "true", "explanation": "Validated.", "validationWarnings": [],
+    }
+    result = aggregate_verdict(request("SINGLE", [["NOT_SELECTED"]], proofs=[proof]))
     assert result.verdict.value == "SUPPORTED"
-    assert len(result.obligations[0].support_edge_ids) == 1
-    assert any(item.code == "DUPLICATE_ARGUMENT_RELATION" for item in result.warnings)
+    assert result.obligations[0].support_edge_ids == ["edge:SUPPORTS:inference:p1:obligation:case:a1"]
 
 
-def test_grounded_material_omission_produces_conflict_without_an_attack_edge():
-    result = aggregate_verdict(
-        request(
-            "SINGLE",
-            [["ENTAILMENT"]],
-            {
-                "detected": True,
-                "supportSpanIds": ["s"],
-                "contextSpanIds": ["s"],
-                "reason": "The source supplies a materially omitted eligibility condition.",
-            },
-        )
-    )
-
-    assert result.verdict.value == "CONFLICTING_EVIDENCE"
-    assert result.positions.material_omission_position is True
-    assert "Material-omission position: yes" in result.rule_trace[-2]
+def test_unresolved_symbolic_execution_does_not_change_status():
+    proof = {
+        "id": "p1", "atomId": "a1", "operator": "SET_MEMBERSHIP", "status": "UNRESOLVED", "relation": None,
+        "premiseIds": [], "premises": [], "expression": "x ∉ S", "conclusion": "unknown", "explanation": "Incomplete.", "validationWarnings": ["INCOMPLETE_LIST_EVIDENCE"],
+    }
+    assert aggregate_verdict(request("SINGLE", [["NOT_SELECTED"]], proofs=[proof])).verdict.value == "NOT_ENOUGH_EVIDENCE"
 
 
-def test_material_omission_certificate_must_reference_a_support_relation():
-    with pytest.raises(ValueError, match="support spans"):
-        aggregate_verdict(
-            request(
-                "SINGLE",
-                [["NEUTRAL"]],
-                {
-                    "detected": True,
-                    "supportSpanIds": ["s"],
-                    "contextSpanIds": ["s"],
-                    "reason": "Purported omission.",
-                },
-            )
-        )
-
-
-@pytest.mark.parametrize(
-    ("position", "support_ids", "attack_ids", "verdict"),
-    [
-        ("SUPPORT_ONLY", ["s"], [], "SUPPORTED"),
-        ("ATTACK_ONLY", [], ["s"], "REFUTED"),
-        ("MIXED_OR_MISLEADING", ["s"], ["s"], "CONFLICTING_EVIDENCE"),
-        ("INSUFFICIENT", [], [], "NOT_ENOUGH_EVIDENCE"),
-    ],
-)
-def test_grounded_claim_position_overrides_noisy_obligation_truth_table(
-    position, support_ids, attack_ids, verdict
-):
-    result = aggregate_verdict(
-        request(
-            "SINGLE",
-            [["NEUTRAL"]],
-            claim_audit={
-                "position": position,
-                "supportSpanIds": support_ids,
-                "attackSpanIds": attack_ids,
-                "contextSpanIds": [],
-                "reason": "Validated overall evidence position.",
-            },
-        )
-    )
-
-    assert result.verdict.value == verdict
-    assert result.positions.grounded_claim_position.value == position
+def test_material_omission_can_produce_conflicting_status():
+    assert aggregate_verdict(request("SINGLE", [["SUPPORTS"]], omission=True)).verdict.value == "CONFLICTING_EVIDENCE"

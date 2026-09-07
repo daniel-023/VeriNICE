@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "verigraph-backend"
 version = "0.7.0"
-description = "Claim decomposition, evidence retrieval, grounded evidence auditing, and linguistic inspection for VeriGraph"
+description = "Claim decomposition, evidence retrieval, evidence assessment, symbolic reasoning, and linguistic inspection for VeriTrace"
 requires-python = ">=3.10,<3.14"
 dependencies = [
   "annotated-doc==0.0.5",
@@ -34,6 +34,7 @@ dependencies = [
   "pydantic-core==2.27.2",
   "pygments==2.20.0",
   "pysbd==0.3.4",
+  "pycountry==24.6.1",
   "python-dotenv==1.0.1",
   "requests==2.32.5",
   "rich==15.0.0",

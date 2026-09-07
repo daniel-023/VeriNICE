@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render the VeriGraph AAAI-27 content draft as a three-page review PDF."""
+"""Render the VeriTrace AAAI-27 content draft as a three-page review PDF."""
 
 from __future__ import annotations
 
@@ -22,7 +22,7 @@ from reportlab.platypus import (
 
 
 ROOT = Path(__file__).resolve().parents[1]
-OUTPUT = ROOT / "output" / "pdf" / "verigraph-aaai27-demo-draft.pdf"
+OUTPUT = ROOT / "output" / "pdf" / "veritrace-aaai27-demo-draft.pdf"
 
 
 def footer(canvas, doc) -> None:
@@ -31,13 +31,13 @@ def footer(canvas, doc) -> None:
     canvas.line(0.7 * inch, 0.55 * inch, 7.8 * inch, 0.55 * inch)
     canvas.setFont("Helvetica", 7.5)
     canvas.setFillColor(colors.HexColor("#475569"))
-    canvas.drawString(0.7 * inch, 0.35 * inch, "VeriGraph · AAAI-27 demonstration content draft")
+    canvas.drawString(0.7 * inch, 0.35 * inch, "VeriTrace · AAAI-27 demonstration content draft")
     canvas.drawRightString(7.8 * inch, 0.35 * inch, f"{doc.page}")
     canvas.restoreState()
 
 
 def paragraph(text: str, style) -> Paragraph:
-    return Paragraph(text.replace("VeriGraph", "<b>VeriGraph</b>"), style)
+    return Paragraph(text.replace("VeriTrace", "<b>VeriTrace</b>"), style)
 
 
 def main() -> None:
@@ -57,7 +57,7 @@ def main() -> None:
         rightMargin=margin,
         topMargin=0.62 * inch,
         bottomMargin=0.68 * inch,
-        title="VeriGraph: Interactive Evidence Auditing",
+        title="VeriTrace: From Evidence to Logic",
         author="Anonymous AAAI-27 demonstration submission",
     )
     doc.addPageTemplates(PageTemplate(id="two-column", frames=frames, onPage=footer))
@@ -105,11 +105,11 @@ def main() -> None:
     small = ParagraphStyle("Small", parent=body, fontSize=8.1, leading=9.8)
 
     story = [
-        Paragraph("VeriGraph: Interactive Evidence Auditing<br/>with Editable Decision Traces", title),
+        Paragraph("From Evidence to Logic:<br/>An Interactive Neuro-Symbolic System for Fact Verification", title),
         Paragraph("Anonymous demonstration submission · content/layout draft", anonymous),
         Paragraph("Abstract", heading),
         paragraph(
-            "Fact-verification systems often return a label while hiding the intermediate decisions that made it possible. VeriGraph turns a complex claim into typed verification obligations, retrieves source-grounded evidence, assigns a provenance-constrained claim evidence position, and assembles the selected spans into an argument graph with a deterministic four-way draft status. Visitors can move from a status to its rule, an obligation, an audited relation, and the exact source passage. The system combines local language-model decomposition and evidence auditing, hybrid retrieval, linguistic auditing, and symbolic aggregation. Its contribution is an inspectable bridge between statistical components and human review, not another opaque factuality score.",
+            "Fact-verification systems often return a verdict without exposing the decisions behind it. VeriTrace decomposes a complex claim into atomic claims, retrieves source sentences, assesses evidence bundles, and applies supported symbolic rules. Qwen maps eligible source-linked inputs to typed rules; Python checks the cited premises and executes them. An evidence-inference graph links evidence, context, and rule results to a deterministic four-way verdict.",
             abstract,
         ),
         Paragraph("1. Motivation and significance", heading),
@@ -118,7 +118,7 @@ def main() -> None:
             body,
         ),
         paragraph(
-            "VeriGraph makes the chain itself the interface. Every obligation retains exact grounding in the original claim. Every evidence candidate retains document and sentence offsets. The local auditor can select only supplied span IDs. Its overall support-only, attack-only, mixed-or-misleading, or insufficient position maps deterministically to a four-way draft status and trace. Dataset reference labels are metadata and never enter inference.",
+            "VeriTrace makes the chain itself the interface. Every atomic claim retains exact offsets in the original claim, and every candidate sentence retains document offsets. Qwen can select only retrieved sentence IDs. The verdict is computed from assessed evidence relations, resolved rule results, and claim composition. Dataset reference labels never enter inference.",
             body,
         ),
         FrameBreak(),
@@ -132,35 +132,35 @@ def main() -> None:
             body,
         ),
         paragraph(
-            "A schema-constrained Qwen2.5 audit reads the claim, obligations, and retrieved candidates. It must cite supplied span IDs for every decisive position. Exact scope, comparison, time, quantity, preliminary-evidence, and omitted-context rules are part of the contract; unknown IDs and ungrounded decisive positions are rejected.",
+            "A schema-constrained Qwen2.5 assessment reads the claim, atomic claims, and retrieved candidates. It must cite retrieved sentence IDs for support, refutation, or context. It also records sufficiency, missing information, and material omission; unknown IDs and unsupported decisive positions are rejected.",
             body,
         ),
         paragraph(
-            "The frontend builds a typed argument graph from decomposition and audited evidence selections. A backend rule engine maps the validated overall position to a draft status. In live mode, visitors can relabel a cited span as support, attack, or neither; the graph and composition-aware status then recompute from the reviewed edges. A spaCy sidecar audits entities, qualifiers, negation, modality, and role preservation without changing the status.",
+            "For eligible set-membership, numeric, and temporal checks, Qwen maps locally extracted operands to typed rules but cannot return a calculated result. Python validates the cited premises and executes the rule. The frontend presents assessed evidence and resolved rule results in a reasoning graph. Visitors can revise an evidence relation; the graph and verdict then recompute from the displayed relations and composition rule. A spaCy sidecar describes entities, qualifiers, negation, modality, and roles without changing the verdict.",
             body,
         ),
         Paragraph("3. Interaction design", heading),
         paragraph(
-            "Human-titled cases can be searched and filtered by topic, verification challenge, and reference verdict. A visitor selects numerical conflict, cross-source disagreement, or insufficient evidence; opens one obligation; follows its highlighted passage into the full source; and traces that same obligation through the graph to the status rule. The visitor can then correct a support, attack, or neither relation and observe the deterministic graph and status update.",
+            "Human-titled cases can be searched and filtered by topic, verification challenge, and reference verdict. A visitor can open an atomic claim, follow its candidate evidence into the full source, inspect any applicable rule result, and trace the displayed relations through the reasoning graph to the verdict. Revising a support, refutation, or unselected relation recomputes the graph and verdict deterministically.",
             body,
         ),
         PageBreak(),
         Paragraph("4. Demonstration experience", heading),
         paragraph(
-            "The first minute shows the whole chain on one featured case. The presenter then asks the visitor to select a topic or challenge. Each of the five plain-language stages exposes its output and independent failure state. A three-minute path reaches the exact source and verdict trace; a five-minute research path adds decomposition auditing and a comparison between semantic retrieval and exact lexical anchors.",
+            "The first minute shows the whole chain on one curated case. The presenter then asks the visitor to select a category or case. Each of the five plain-language stages exposes its output and independent failure state. A three-minute path reaches the exact source and verdict trace; a five-minute research path adds decomposition auditing and a comparison between semantic retrieval and exact lexical anchors.",
             body,
         ),
         paragraph(
-            "Live inference runs locally to avoid conference connectivity. The backup is a static interactive walkthrough containing the same typed intermediates from recorded local runs. The current snapshot has 32 cases, balanced at eight cases per reference label.",
+            "Live inference runs locally to avoid conference connectivity. The backup is a static interactive walkthrough containing the same typed intermediates from six recorded feature demonstrations. The cases are selected for distinct, inspectable behaviours rather than benchmark coverage.",
             body,
         ),
-        Paragraph("5. Evaluation and limitations", heading),
+        Paragraph("5. Demonstration cases and limitations", heading),
         paragraph(
-            "Evaluation separates draft-status agreement from decomposition quality and error source. Deterministic diagnostics cover atomicity, coverage, sufficiency, non-fabrication, non-redundancy, readability, and linguistic warnings. They are engineering proxies, not human judgments or the FactLens evaluator. In the current 32-run snapshot, automatic draft status agrees with the reference label on 14/32 cases (43.8%): 5/8 supported, 1/8 refuted, 4/8 not-enough-evidence, and 4/8 conflicting-evidence cases. Median end-to-end latency on the recording laptop is 39.36 seconds. These results do not support an autonomous-verification claim, and accuracy is not presented as a contribution. Before final submission we will complete error attribution and conduct a small human study of decomposition quality, evidence correction, and trace usefulness.",
+            "The walkthrough covers six complementary paths: multi-atom support, jurisdiction filtering, conservative treatment of insufficient evidence, conjunctive aggregation with one unresolved atom, a numeric-operator boundary, and an explicit failure case. These examples are qualitative demonstrations, not an accuracy sample. The symbolic layer is presented as an inspectable reasoning mechanism rather than an established accuracy improvement.",
             body,
         ),
         paragraph(
-            "VeriGraph audits supplied documents; it does not establish source authority or perform open-web fact checking. Retrieval rank is not truth, an automatic evidence position is not a human verdict, and the graph does not infer new relations. These boundaries are stated in the interface and narration.",
+            "VeriTrace verifies claims against supplied documents; it does not establish source authority or perform open-web fact checking. Retrieval rank is not truth, an evidence assessment is not a professional fact-check, and a rule result is valid only for its displayed premises and supported operator.",
             body,
         ),
         FrameBreak(),
@@ -170,7 +170,7 @@ def main() -> None:
             body,
         ),
         paragraph(
-            "VeriGraph operationalizes these concerns in an interactive audit surface. Its novelty is the inspectable, editable connection from schema-grounded obligations through cited evidence positions to a deterministic argument and status trace. It does not claim novelty for the component models or linguistic parser.",
+            "ProgramFC motivates reasoning-program generation followed by execution with specialized functions. CHECKWHY motivates explicit structures connecting evidence to intermediate inferences. VeriTrace adopts these principles through a small typed program IR, a conservative Python operator registry, and an inspectable evidence-inference graph; it does not implement either system wholesale or claim formal argumentation semantics.",
             body,
         ),
         Paragraph("7. Audience relevance", heading),
@@ -180,7 +180,7 @@ def main() -> None:
         ),
         Paragraph("8. Readiness", heading),
         paragraph(
-            "The repository includes typed API contracts, deterministic fallbacks, automated backend and frontend tests, a preflight command, recorded walkthrough assets, and an offline runbook. The final submission gate requires three consecutive cold starts, three offline walkthrough rehearsals, and a manifest/evaluation audit before any 32-case claim is used.",
+            "The repository includes typed API contracts, deterministic fallbacks, automated backend and frontend tests, a preflight command, recorded walkthrough assets, and an offline runbook. The final submission gate requires three consecutive cold starts, three offline walkthrough rehearsals, and a manual audit of every relation and symbolic premise shown in the 18-case showcase.",
             body,
         ),
         PageBreak(),
@@ -190,6 +190,8 @@ def main() -> None:
         paragraph("[2] M. Wanner, S. Ebner, Z. Jiang, M. Dredze, and B. Van Durme. 2024. <i>A Closer Look at Claim Decomposition.</i> *SEM 2024, 153–175. doi:10.18653/v1/2024.starsem-1.13.", small),
         paragraph("[3] K. Mitra, D. Zhang, S. Rahman, and E. Hruschka. 2025. <i>FactLens: Benchmarking Fine-Grained Fact Verification.</i> Findings of ACL 2025, 18085–18096. doi:10.18653/v1/2025.findings-acl.929.", small),
         paragraph("[4] Q. Hu, Q. Long, and W. Wang. 2025. <i>Decomposition Dilemmas: Does Claim Decomposition Boost or Burden Fact-Checking Performance?</i> NAACL 2025, 6313–6336. doi:10.18653/v1/2025.naacl-long.320.", small),
+        paragraph("[5] L. Pan et al. 2023. <i>Fact-Checking Complex Claims with Program-Guided Reasoning.</i> ACL 2023. doi:10.18653/v1/2023.acl-long.386.", small),
+        paragraph("[6] J. Si et al. 2024. <i>CHECKWHY: Causal Fact Verification via Argument Structure.</i> ACL 2024. doi:10.18653/v1/2024.acl-long.835.", small),
         Spacer(1, 8),
         paragraph("This third page contains references only. The final manuscript must be transferred into the official AAAI-27 author kit and rechecked against the current call before submission.", small),
     ]

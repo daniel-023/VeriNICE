@@ -15,12 +15,13 @@ from verigraph_backend.evidence_retrieval import (
     MAX_CANDIDATE_CHARACTERS,
     MAX_CONTEXT_CHARACTERS,
     _eligible_sentences,
+    _reciprocal_rank_fusion,
     _rank_hybrid_sentences,
     _rank_sentences,
     _span,
     retrieve_evidence,
 )
-from verigraph_backend.schemas import RetrievalAtom, RetrievalDocument
+from verigraph_backend.schemas import RetrievalAtom, RetrievalDocument, RetrievalMethod
 from verigraph_backend.segmentation import SentenceSpan, segment_document, segment_documents
 
 
@@ -47,23 +48,6 @@ def test_segmentation_preserves_offsets_paragraphs_repetition_and_unicode() -> N
     assert all(document[sentence.start : sentence.end] == sentence.text for sentence in sentences)
     assert len({sentence.id for sentence in sentences}) == len(sentences)
     assert sentences[0].text.endswith("\n\n")
-
-
-def test_segmentation_keeps_annotated_question_with_its_short_answer() -> None:
-    document = (
-        "AVERITEC HUMAN-ANNOTATED EVIDENCE CARD\n"
-        "These statements were written by annotators.\n"
-        "Evidence 1: Did the official plan ban farming? No, it contains no such provision.\n\n"
-        "RECOVERED SOURCE TEXT\nThe plan sets emissions targets."
-    )
-    sentences = segment_document(document, "doc-card")
-    evidence_span = next(
-        sentence for sentence in sentences if "Evidence 1:" in sentence.text
-    )
-
-    assert "Did the official plan ban farming? No, it contains no such provision." in evidence_span.text
-    assert document[evidence_span.start : evidence_span.end] == evidence_span.text
-    assert "".join(sentence.text for sentence in sentences) == document
 
 
 def test_repeated_sentences_across_documents_keep_document_scoped_ids() -> None:
@@ -184,6 +168,26 @@ def test_two_sources_keep_the_previous_three_and_three_split() -> None:
     assert [picked.count("doc-a"), picked.count("doc-b")] == [3, 3]
 
 
+def test_hybrid_honours_budgets_above_six_across_two_sources() -> None:
+    sentences = [
+        SentenceSpan(
+            id=f"doc-{letter}::sentence-{index + 1}",
+            text=f"Evidence sentence {letter.upper()}{index}.",
+            start=index * 24,
+            end=index * 24 + 23,
+            document_id=f"doc-{letter}",
+            ordinal=index,
+        )
+        for letter in ("a", "b")
+        for index in range(6)
+    ]
+    dense_scores = [1.0 - index * 0.01 for index in range(len(sentences))]
+    selected = _rank_hybrid_sentences(sentences, dense_scores, "Evidence sentence", 8)
+    picked = [sentence.document_id for sentence in selected]
+    assert len(selected) == 8
+    assert [picked.count("doc-a"), picked.count("doc-b")] == [4, 4]
+
+
 def test_budget_is_honoured_and_bounds_the_selection() -> None:
     sentences = [
         SentenceSpan(
@@ -216,6 +220,11 @@ def test_hybrid_ranking_recovers_exact_number_from_weaker_dense_result() -> None
     assert selected == [sentences[1]]
 
 
+def test_reciprocal_rank_fusion_uses_equal_weights() -> None:
+    fused = _reciprocal_rank_fusion([0.9, 0.8], [0.8, 0.9])
+    assert fused[0] == pytest.approx(fused[1])
+
+
 def test_hybrid_diversity_is_soft_not_mandatory() -> None:
     sentences = [
         SentenceSpan("a1", "Aurora acquired Northstar.", 0, 27, "doc-a", 0),
@@ -231,8 +240,8 @@ def test_hybrid_diversity_is_soft_not_mandatory() -> None:
     assert selected == sentences[:2]
 
 
-def test_span_carries_its_neighbours_as_premise_context() -> None:
-    """An isolated sentence strands pronouns; NLI reads that as disagreement."""
+def test_span_carries_only_needed_previous_context() -> None:
+    """A pronoun needs its antecedent, not an unrelated following sentence."""
     document = "Orion hired Mara. She became its chief technology officer. The team grew."
     sentences = segment_document(document, "doc-a")
     middle = sentences[1]
@@ -244,7 +253,37 @@ def test_span_carries_its_neighbours_as_premise_context() -> None:
     # The premise gains the sentence that "She" refers back to.
     assert span.context is not None
     assert "Orion hired Mara." in span.context
-    assert "The team grew." in span.context
+    assert "The team grew." not in span.context
+    assert [(item.text, item.direction) for item in span.context_spans] == [
+        (sentences[0].text, "PREVIOUS")
+    ]
+
+
+def test_self_contained_anchor_does_not_add_adjacent_sentences() -> None:
+    document = "Orion hired Mara. Mara became chief technology officer. The team grew."
+    sentences = segment_document(document, "doc-a")
+    span = _span(sentences[1], {"doc-a": document}, sentences)
+
+    assert span.context == sentences[1].text.strip()
+    assert span.context_spans == []
+
+
+def test_explicit_forward_introduction_adds_only_next_sentence() -> None:
+    document = "The findings are listed below. Revenue rose by 8%. Costs were unchanged."
+    sentences = segment_document(document, "doc-a")
+    span = _span(sentences[0], {"doc-a": document}, sentences)
+
+    assert [(item.text, item.direction) for item in span.context_spans] == [
+        (sentences[1].text, "NEXT")
+    ]
+
+
+def test_adaptive_context_does_not_cross_paragraphs() -> None:
+    document = "Orion hired Mara.\n\nShe became chief technology officer."
+    sentences = segment_document(document, "doc-a")
+    span = _span(sentences[1], {"doc-a": document}, sentences)
+
+    assert span.context_spans == []
 
 
 def test_context_does_not_cross_into_another_document() -> None:
@@ -258,9 +297,9 @@ def test_context_does_not_cross_into_another_document() -> None:
 
 
 def test_context_is_bounded_without_dropping_the_selected_sentence() -> None:
-    before = "a" * 3500 + "."
+    before = "a" * 900 + "."
     target = "The decisive fact."
-    after = "b" * 3500 + "."
+    after = "b" * 900 + "."
     document = f"{before} {target} {after}"
     sentences = [
         SentenceSpan("before", before, 0, len(before), "doc-a", 0),
@@ -314,6 +353,11 @@ def test_short_headings_are_excluded_but_explicit_list_entries_remain() -> None:
     assert _eligible_sentences(sentences) == sentences[1:]
 
 
+def test_compact_dated_fact_rows_remain_eligible() -> None:
+    fact = SentenceSpan("fact", "Nobel Prize in Physics 1903", 0, 27, "doc-a", 0)
+    assert _eligible_sentences([fact]) == [fact]
+
+
 async def test_retrieval_batches_all_atoms_and_returns_exact_utf16_spans(
     monkeypatch, configured_retrieval
 ) -> None:
@@ -345,6 +389,39 @@ async def test_retrieval_batches_all_atoms_and_returns_exact_utf16_spans(
     assert first.start == 0
     assert first.end == len(first.text) + 1
     assert result.provider == "sentence-transformers"
+    assert result.retrieval_method == RetrievalMethod.hybrid
+
+
+@pytest.mark.asyncio
+async def test_retrieval_methods_select_distinct_rankers(monkeypatch, configured_retrieval) -> None:
+    documents = [
+        RetrievalDocument(
+            id="doc-a",
+            text="A semantically related passage mentions an award. The citation names relativity in 1921.",
+        )
+    ]
+    atoms = [RetrievalAtom(id="atom-1", text="The 1921 prize cited relativity.")]
+    calls = 0
+
+    async def similarity_matrix(queries, passages, *, cache_key=None):
+        nonlocal calls
+        calls += 1
+        return [[0.95, 0.10]]
+
+    monkeypatch.setattr(embeddings, "similarity_matrix", similarity_matrix)
+    semantic = await retrieve_evidence(
+        documents, atoms, evidence_per_atom=1, retrieval_method=RetrievalMethod.semantic
+    )
+    lexical = await retrieve_evidence(
+        documents, atoms, evidence_per_atom=1, retrieval_method=RetrievalMethod.lexical
+    )
+
+    assert semantic.evidence[0].spans[0].text.startswith("A semantically")
+    assert lexical.evidence[0].spans[0].text.startswith("The citation")
+    assert semantic.provider == "sentence-transformers"
+    assert lexical.provider == "python"
+    assert lexical.model == "lexical-overlap-v1"
+    assert calls == 1
 
 
 async def test_unrelated_negative_scores_still_return_nearest_candidates(

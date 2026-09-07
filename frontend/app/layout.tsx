@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "VeriGraph · Live Claim Decomposition",
+  title: "VeriTrace · Fact Verification",
   description:
     "Decompose factual claims into inspectable atomic facts before evidence retrieval and verification.",
 };

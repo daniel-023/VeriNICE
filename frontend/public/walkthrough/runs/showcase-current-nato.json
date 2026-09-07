@@ -1,0 +1,628 @@
+{
+  "caseId": "showcase-current-nato",
+  "schemaVersion": 6,
+  "composition": "SINGLE",
+  "warnings": [],
+  "atoms": [
+    {
+      "id": "atom-1",
+      "text": "Sweden joined NATO before Finland.",
+      "sourceText": "Sweden joined NATO before Finland",
+      "start": 0,
+      "end": 33,
+      "role": "TEMPORAL_CONSTRAINT"
+    }
+  ],
+  "evidence": [
+    {
+      "atomId": "atom-1",
+      "spans": [
+        {
+          "id": "doc-ca3c249b3f5f::sentence-22",
+          "documentId": "doc-ca3c249b3f5f",
+          "text": "- In light of Russia’s full-scale invasion of Ukraine, which began in February 2022, Finland (together with Sweden) submitted its official letter of application to become a NATO Ally on 18 May.\n",
+          "start": 1711,
+          "end": 1905,
+          "contextSpans": [],
+          "context": "- In light of Russia’s full-scale invasion of Ukraine, which began in February 2022, Finland (together with Sweden) submitted its official letter of application to become a NATO Ally on 18 May."
+        },
+        {
+          "id": "doc-ca3c249b3f5f::sentence-26",
+          "documentId": "doc-ca3c249b3f5f",
+          "text": "- On 4 April 2023, Finland became a full member of NATO, upon depositing its Instrument of Accession to the North Atlantic Treaty with the United States government during a ceremony at NATO Headquarters in Brussels.\n",
+          "start": 2258,
+          "end": 2474,
+          "contextSpans": [],
+          "context": "- On 4 April 2023, Finland became a full member of NATO, upon depositing its Instrument of Accession to the North Atlantic Treaty with the United States government during a ceremony at NATO Headquarters in Brussels."
+        },
+        {
+          "id": "doc-ca3c249b3f5f::sentence-17",
+          "documentId": "doc-ca3c249b3f5f",
+          "text": "After almost 30 years of close partnership with NATO, Finland joined the Alliance on 4 April 2023. ",
+          "start": 736,
+          "end": 835,
+          "contextSpans": [],
+          "context": "After almost 30 years of close partnership with NATO, Finland joined the Alliance on 4 April 2023."
+        },
+        {
+          "id": "doc-7a01f78ccd01::sentence-10",
+          "documentId": "doc-7a01f78ccd01",
+          "text": "Sweden became NATO’s newest member on Thursday (7 March 2024), upon depositing its instrument of accession to the North Atlantic Treaty with the Government of the United States in Washington DC. ",
+          "start": 369,
+          "end": 564,
+          "contextSpans": [],
+          "context": "Sweden became NATO’s newest member on Thursday (7 March 2024), upon depositing its instrument of accession to the North Atlantic Treaty with the Government of the United States in Washington DC."
+        },
+        {
+          "id": "doc-7a01f78ccd01::sentence-12",
+          "documentId": "doc-7a01f78ccd01",
+          "text": "NATO Secretary General Jens Stoltenberg said: “This is a historic day. Sweden will now take its rightful place at NATO’s table, with an equal say in shaping NATO policies and decisions. After over 200 years of non-alignment Sweden now enjoys the protection granted under Article 5, the ultimate guarantee of Allies’ freedom and security. Sweden brings with it capable armed forces and a first-class defence industry. Sweden’s accession makes NATO stronger, Sweden safer and the whole Alliance more secure. Today’s accession demonstrates that NATO’s door remains open and that every nation has the right to choose its own path.”\n",
+          "start": 637,
+          "end": 1265,
+          "contextSpans": [
+            {
+              "id": "doc-7a01f78ccd01::sentence-11",
+              "documentId": "doc-7a01f78ccd01",
+              "text": "With Sweden’s accession, NATO now counts 32 countries among its members.\n",
+              "start": 564,
+              "end": 637,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "With Sweden’s accession, NATO now counts 32 countries among its members. NATO Secretary General Jens Stoltenberg said: “This is a historic day. Sweden will now take its rightful place at NATO’s table, with an equal say in shaping NATO policies and decisions. After over 200 years of non-alignment Sweden now enjoys the protection granted under Article 5, the ultimate guarantee of Allies’ freedom and security. Sweden brings with it capable armed forces and a first-class defence industry. Sweden’s accession makes NATO stronger, Sweden safer and the whole Alliance more secure. Today’s accession demonstrates that NATO’s door remains open and that every nation has the right to choose its own path.”"
+        },
+        {
+          "id": "doc-7a01f78ccd01::sentence-11",
+          "documentId": "doc-7a01f78ccd01",
+          "text": "With Sweden’s accession, NATO now counts 32 countries among its members.\n",
+          "start": 564,
+          "end": 637,
+          "contextSpans": [],
+          "context": "With Sweden’s accession, NATO now counts 32 countries among its members."
+        }
+      ]
+    }
+  ],
+  "assessment": {
+    "obligations": [
+      {
+        "atomId": "atom-1",
+        "supportSpanIds": [],
+        "refuteSpanIds": [
+          "doc-7a01f78ccd01::sentence-10",
+          "doc-7a01f78ccd01::sentence-12"
+        ],
+        "contextSpanIds": [
+          "doc-ca3c249b3f5f::sentence-22",
+          "doc-ca3c249b3f5f::sentence-26",
+          "doc-ca3c249b3f5f::sentence-17"
+        ],
+        "sufficiency": "PARTIAL",
+        "missingInformation": "The exact date of Sweden's application to join NATO is not provided, which makes the comparison with Finland's application date uncertain.",
+        "reason": "Sweden joined NATO on 7 March 2024, while Finland joined on 4 April 2023, but the exact date of Sweden's application is not given.",
+        "scopeChecks": [
+          {
+            "spanId": "doc-ca3c249b3f5f::sentence-22",
+            "documentId": "doc-ca3c249b3f5f",
+            "status": "MATCH",
+            "claimJurisdictions": [
+              "FI",
+              "SE"
+            ],
+            "evidenceJurisdictions": [
+              "FI",
+              "SE",
+              "UA"
+            ],
+            "reason": "The candidate and atomic claim share a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-ca3c249b3f5f::sentence-26",
+            "documentId": "doc-ca3c249b3f5f",
+            "status": "MATCH",
+            "claimJurisdictions": [
+              "FI",
+              "SE"
+            ],
+            "evidenceJurisdictions": [
+              "FI",
+              "US"
+            ],
+            "reason": "The candidate and atomic claim share a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-ca3c249b3f5f::sentence-17",
+            "documentId": "doc-ca3c249b3f5f",
+            "status": "MATCH",
+            "claimJurisdictions": [
+              "FI",
+              "SE"
+            ],
+            "evidenceJurisdictions": [
+              "FI"
+            ],
+            "reason": "The candidate and atomic claim share a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-7a01f78ccd01::sentence-10",
+            "documentId": "doc-7a01f78ccd01",
+            "status": "MATCH",
+            "claimJurisdictions": [
+              "FI",
+              "SE"
+            ],
+            "evidenceJurisdictions": [
+              "SE",
+              "US"
+            ],
+            "reason": "The candidate and atomic claim share a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-7a01f78ccd01::sentence-12",
+            "documentId": "doc-7a01f78ccd01",
+            "status": "MATCH",
+            "claimJurisdictions": [
+              "FI",
+              "SE"
+            ],
+            "evidenceJurisdictions": [
+              "SE"
+            ],
+            "reason": "The candidate and atomic claim share a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-7a01f78ccd01::sentence-11",
+            "documentId": "doc-7a01f78ccd01",
+            "status": "MATCH",
+            "claimJurisdictions": [
+              "FI",
+              "SE"
+            ],
+            "evidenceJurisdictions": [
+              "SE"
+            ],
+            "reason": "The candidate and atomic claim share a recognized jurisdiction."
+          }
+        ]
+      }
+    ],
+    "materialOmission": {
+      "detected": false,
+      "supportSpanIds": [],
+      "contextSpanIds": [],
+      "reason": "No material omission was established."
+    }
+  },
+  "reasoning": [
+    {
+      "id": "proof:atom-1:temporal_compare:1",
+      "atomId": "atom-1",
+      "operator": "TEMPORAL_COMPARE",
+      "status": "DISPROVED",
+      "relation": "REFUTES",
+      "premiseIds": [
+        "evidence:atom-1:doc-7a01f78ccd01:doc-7a01f78ccd01::sentence-10",
+        "evidence:atom-1:doc-ca3c249b3f5f:doc-ca3c249b3f5f::sentence-26"
+      ],
+      "premises": [
+        {
+          "id": "evidence:atom-1:doc-7a01f78ccd01:doc-7a01f78ccd01::sentence-10",
+          "documentId": "doc-7a01f78ccd01",
+          "text": "Sweden became NATO’s newest member on Thursday (7 March 2024), upon depositing its instrument of accession to the North Atlantic Treaty with the Government of the United States in Washington DC. ",
+          "start": 369,
+          "end": 564,
+          "kind": "EVIDENCE",
+          "contentHash": null,
+          "itemCount": null
+        },
+        {
+          "id": "evidence:atom-1:doc-ca3c249b3f5f:doc-ca3c249b3f5f::sentence-26",
+          "documentId": "doc-ca3c249b3f5f",
+          "text": "- On 4 April 2023, Finland became a full member of NATO, upon depositing its Instrument of Accession to the North Atlantic Treaty with the United States government during a ceremony at NATO Headquarters in Brussels.\n",
+          "start": 2258,
+          "end": 2474,
+          "kind": "EVIDENCE",
+          "contentHash": null,
+          "itemCount": null
+        }
+      ],
+      "expression": "March 2024 before April 2023",
+      "conclusion": "The grounded temporal ordering is false.",
+      "explanation": "Python aligned each named event with one absolute date and compared their intervals.",
+      "validationWarnings": [],
+      "program": {
+        "version": 1,
+        "steps": [
+          {
+            "id": "input-1",
+            "operation": "LOOKUP",
+            "inputIds": [
+              "evidence:atom-1:doc-7a01f78ccd01:doc-7a01f78ccd01::sentence-10"
+            ],
+            "outputType": "FACT",
+            "description": "Read an unchanged server-owned premise."
+          },
+          {
+            "id": "input-2",
+            "operation": "LOOKUP",
+            "inputIds": [
+              "evidence:atom-1:doc-ca3c249b3f5f:doc-ca3c249b3f5f::sentence-26"
+            ],
+            "outputType": "FACT",
+            "description": "Read an unchanged server-owned premise."
+          },
+          {
+            "id": "result",
+            "operation": "TEMPORAL_COMPARE",
+            "inputIds": [
+              "input-1",
+              "input-2"
+            ],
+            "outputType": "BOOLEAN",
+            "description": "Validate operand alignment and execute the typed operation in Python."
+          }
+        ],
+        "outputStepId": "result"
+      }
+    }
+  ],
+  "linguistics": {
+    "schemaVersion": 2,
+    "claimAnalysis": {
+      "atomId": "claim",
+      "frames": [
+        {
+          "id": "claim-frame-1",
+          "predicate": {
+            "id": "claim-frame-1-predicate",
+            "text": "joined",
+            "start": 7,
+            "end": 13
+          },
+          "subjects": [
+            {
+              "id": "claim-frame-1-subject-1",
+              "text": "Sweden",
+              "start": 0,
+              "end": 6
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "claim-frame-1-argument-1",
+              "text": "NATO",
+              "start": 14,
+              "end": 18,
+              "role": "direct_object"
+            }
+          ],
+          "adjuncts": [
+            {
+              "id": "claim-frame-1-adjunct-1",
+              "text": "before Finland",
+              "start": 19,
+              "end": 33,
+              "kind": "temporal"
+            }
+          ],
+          "otherModifiers": []
+        }
+      ],
+      "cues": [],
+      "entities": [
+        {
+          "id": "claim-entity-gpe-0-6",
+          "text": "Sweden",
+          "start": 0,
+          "end": 6,
+          "label": "GPE"
+        },
+        {
+          "id": "claim-entity-org-14-18",
+          "text": "NATO",
+          "start": 14,
+          "end": 18,
+          "label": "ORG"
+        },
+        {
+          "id": "claim-entity-gpe-26-33",
+          "text": "Finland",
+          "start": 26,
+          "end": 33,
+          "label": "GPE"
+        }
+      ],
+      "tokens": [
+        {
+          "id": "claim-token-0",
+          "text": "Sweden",
+          "start": 0,
+          "end": 6,
+          "lemma": "Sweden",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "nsubj",
+          "head": "joined"
+        },
+        {
+          "id": "claim-token-1",
+          "text": "joined",
+          "start": 7,
+          "end": 13,
+          "lemma": "join",
+          "pos": "VERB",
+          "tag": "VBD",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "claim-token-2",
+          "text": "NATO",
+          "start": 14,
+          "end": 18,
+          "lemma": "NATO",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "dobj",
+          "head": "joined"
+        },
+        {
+          "id": "claim-token-3",
+          "text": "before",
+          "start": 19,
+          "end": 25,
+          "lemma": "before",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "joined"
+        },
+        {
+          "id": "claim-token-4",
+          "text": "Finland",
+          "start": 26,
+          "end": 33,
+          "lemma": "Finland",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "pobj",
+          "head": "before"
+        },
+        {
+          "id": "claim-token-5",
+          "text": ".",
+          "start": 33,
+          "end": 34,
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "joined"
+        }
+      ],
+      "status": "complete",
+      "unresolved": []
+    },
+    "analyses": [
+      {
+        "atomId": "atom-1",
+        "frames": [
+          {
+            "id": "atom-1-frame-1",
+            "predicate": {
+              "id": "atom-1-frame-1-predicate",
+              "text": "joined",
+              "start": 7,
+              "end": 13
+            },
+            "subjects": [
+              {
+                "id": "atom-1-frame-1-subject-1",
+                "text": "Sweden",
+                "start": 0,
+                "end": 6
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-1-frame-1-argument-1",
+                "text": "NATO",
+                "start": 14,
+                "end": 18,
+                "role": "direct_object"
+              }
+            ],
+            "adjuncts": [
+              {
+                "id": "atom-1-frame-1-adjunct-1",
+                "text": "before Finland",
+                "start": 19,
+                "end": 33,
+                "kind": "temporal"
+              }
+            ],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [],
+        "entities": [
+          {
+            "id": "atom-1-entity-gpe-0-6",
+            "text": "Sweden",
+            "start": 0,
+            "end": 6,
+            "label": "GPE"
+          },
+          {
+            "id": "atom-1-entity-org-14-18",
+            "text": "NATO",
+            "start": 14,
+            "end": 18,
+            "label": "ORG"
+          },
+          {
+            "id": "atom-1-entity-gpe-26-33",
+            "text": "Finland",
+            "start": 26,
+            "end": 33,
+            "label": "GPE"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-1-token-0",
+            "text": "Sweden",
+            "start": 0,
+            "end": 6,
+            "lemma": "Sweden",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "nsubj",
+            "head": "joined"
+          },
+          {
+            "id": "atom-1-token-1",
+            "text": "joined",
+            "start": 7,
+            "end": 13,
+            "lemma": "join",
+            "pos": "VERB",
+            "tag": "VBD",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-1-token-2",
+            "text": "NATO",
+            "start": 14,
+            "end": 18,
+            "lemma": "NATO",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "dobj",
+            "head": "joined"
+          },
+          {
+            "id": "atom-1-token-3",
+            "text": "before",
+            "start": 19,
+            "end": 25,
+            "lemma": "before",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "joined"
+          },
+          {
+            "id": "atom-1-token-4",
+            "text": "Finland",
+            "start": 26,
+            "end": 33,
+            "lemma": "Finland",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "pobj",
+            "head": "before"
+          },
+          {
+            "id": "atom-1-token-5",
+            "text": ".",
+            "start": 33,
+            "end": 34,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "joined"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      }
+    ],
+    "summaries": [
+      {
+        "atomId": "atom-1",
+        "analysisStatus": "complete",
+        "roleAudit": "MISMATCH",
+        "subjects": [
+          "Sweden"
+        ],
+        "predicates": [
+          "join"
+        ],
+        "cueKinds": [],
+        "modifierKinds": [
+          "temporal"
+        ],
+        "entityLabels": [
+          "GPE",
+          "ORG"
+        ],
+        "warnings": [
+          "ROLE_CUE_MISMATCH"
+        ]
+      }
+    ],
+    "claimWarnings": [],
+    "provider": "spacy",
+    "model": "en_core_web_sm@3.8.0"
+  },
+  "verdict": {
+    "aggregationSchemaVersion": 3,
+    "claimId": "showcase-current-nato",
+    "composition": "SINGLE",
+    "verdict": "REFUTED",
+    "positions": {
+      "supportPosition": false,
+      "refutePosition": true,
+      "materialOmissionPosition": false,
+      "supportObligationIds": [],
+      "refuteObligationIds": [
+        "atom-1"
+      ],
+      "unresolvedObligationIds": []
+    },
+    "obligations": [
+      {
+        "obligationId": "atom-1",
+        "state": "REFUTED",
+        "supportEdgeIds": [],
+        "refuteEdgeIds": [
+          "edge:REFUTES:inference:proof:atom-1:temporal_compare:1:obligation:showcase-current-nato:atom-1"
+        ],
+        "unselectedCandidateCount": 1,
+        "provisionalRelationCount": 2
+      }
+    ],
+    "warnings": [
+      {
+        "code": "PROVISIONAL_EVIDENCE_EXCLUDED",
+        "message": "2 assessed relation(s) for obligation atom-1 are provisional because the evidence is not sufficient."
+      }
+    ],
+    "ruleTrace": [
+      "SINGLE maps its one obligation's validated relations directly.",
+      "Validated positions — support: no; refute: yes.",
+      "Verdict: REFUTED."
+    ]
+  },
+  "recordedWith": {
+    "pipelineRevision": "submission-ready-v2",
+    "inputDigest": "6da6137cb4677b0ffef553c803dc4b63c593e2fd9eb26ad1be9956625539dfda",
+    "decompositionModel": "qwen2.5:7b",
+    "retrievalModel": "BAAI/bge-small-en-v1.5",
+    "retrievalMethod": "HYBRID",
+    "assessmentModel": "qwen2.5:7b",
+    "reasoningModel": "qwen2.5:7b",
+    "linguisticsModel": "en_core_web_sm@3.8.0"
+  },
+  "timingsSeconds": {
+    "decomposition": 13.852,
+    "retrievalAndLinguistics": 0.284,
+    "evidenceAssessment": 17.735,
+    "symbolicReasoning": 10.382,
+    "aggregation": 0.002,
+    "total": 42.255
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "showcase-technology-iphone",
+  "claim": "The first iPhone went on sale in the United States in 2005.",
+  "documents": [
+    {
+      "id": "doc-6928c6b9dd12",
+      "title": "Apple Reinvents the Phone with iPhone",
+      "url": "https://www.apple.com/newsroom/2007/01/09Apple-Reinvents-the-Phone-with-iPhone/",
+      "layout": "PROSE",
+      "publisher": "Apple",
+      "retrievedAt": "2026-09-05",
+      "sourceType": "SOURCE_EXCERPT",
+      "excerptSha256": "8ec45374557827c6d45a4d417534ba83afbc57c87c4f27cbfbddc6ec14508aef",
+      "sourceSha256": "056736b6c91313d981e66a73e69d51cd28c4ff5303a56a54d4003702096fb8a6",
+      "text": "PRESS RELEASE\nJanuary 9, 2007\nApple Reinvents the Phone with iPhone\nMACWORLD SAN FRANCISCO—January 9, 2007—Apple® today introduced iPhone, combining three products—a revolutionary mobile phone, a widescreen iPod® with touch controls, and a breakthrough Internet communications device with desktop-class email, web browsing, searching and maps—into one small and lightweight handheld device. iPhone introduces an entirely new user interface based on a large multi-touch display and pioneering new software, letting users control iPhone with just their fingers. iPhone also ushers in an era of software power and sophistication never before seen in a mobile device, which completely redefines what users can do on their mobile phones.\n“iPhone is a revolutionary and magical product that is literally five years ahead of any other mobile phone,” said Steve Jobs, Apple’s CEO. “We are all born with the ultimate pointing device—our fingers—and iPhone uses them to create the most revolutionary user interface since the mouse.”\niPhone is a Revolutionary Mobile Phone\niPhone is a revolutionary new mobile phone that allows users to make calls by simply pointing at a name or number. iPhone syncs all of your contacts from your PC, Mac® or Internet service such as Yahoo!, so that you always have your full list of up-to-date contacts with you. In addition, you can easily construct a favorites list for your most frequently made calls, and easily merge calls together to create conference calls.\niPhone is a revolutionary new mobile phone that allows"
+    },
+    {
+      "id": "doc-cfa7e728af0f",
+      "title": "iPhone Premieres This Friday Night at Apple Retail Stores",
+      "url": "https://www.apple.com/newsroom/2007/06/28iPhone-Premieres-This-Friday-Night-at-Apple-Retail-Stores/",
+      "layout": "PROSE",
+      "publisher": "Apple",
+      "retrievedAt": "2026-09-05",
+      "sourceType": "SOURCE_EXCERPT",
+      "excerptSha256": "239bd815c974c7c5e7065cacb691f99b4e533883270dd67557e0a1e23d57ba6f",
+      "sourceSha256": "3cc08aaa9d701ddac3825c137ece841e37f01d45bb511f029f8dddb78240290f",
+      "text": "PRESS RELEASE\nJune 28, 2007\niPhone Premieres This Friday Night at Apple Retail Stores\nFree Workshops, Genius Bar Support and One to One Personal Training\nCUPERTINO, California—June 28, 2007—Apple’s revolutionary iPhone™ will go on sale this Friday, June 29 at 6:00 p.m. local time at Apple® retail stores nationwide. All 164 Apple retail stores in the US will stay open until midnight, and customers can purchase up to two iPhones on a first come, first served basis. Beginning Saturday morning, iPhone customers can learn how to get the most out of the iPhone with free, in-depth workshops offered throughout the day at all Apple retail stores. Every Apple retail store will offer support for iPhone at the Genius Bar and personal training through Apple’s new One to One program.\n“Apple retail stores were created for this moment—to let customers touch and experience a revolutionary new product,” said Ron Johnson, Apple’s senior vice president of Retail. “With our legendary Genius Bar support, free workshops and our One to One personal training, we’re here to help customers get the most from their new iPhone.”\niPhone introduces an entirely new user interface based on a revolutionary multi-touch display and pioneering new software that allows users to control iPhone with just a tap, flick or pinch of their fingers. iPhone combines three products into one small and lightweight handheld device—a revolutionary mobile phone, a widescreen iPod®, and the Internet in your pocket with best-ever"
+    }
+  ],
+  "label": "REFUTED",
+  "displayTitle": "When the first iPhone went on sale",
+  "topics": [],
+  "challenges": [],
+  "featured": false,
+  "origin": "CONSTRUCTED",
+  "category": "TECHNOLOGY",
+  "demoFocus": "TEMPORAL_COMPARISON"
+}

@@ -1,31 +1,17 @@
 {
-  "schemaVersion": 1,
-  "modernbert": {
-    "repository": "tasksource/ModernBERT-base-nli",
-    "revision": "de4ab7e77845098b7fab7f6ab9d370ddff27b19c",
-    "purpose": "NLI edge scoring and retrieval reranking"
+  "schemaVersion": 2,
+  "bge": {
+    "repository": "BAAI/bge-small-en-v1.5",
+    "purpose": "Semantic evidence-candidate retrieval"
   },
   "ollama": {
     "model": "qwen2.5:7b",
     "manifestConfigDigest": "sha256:2f15b3218f0552c60647ce60ada83632d2c09755b16259b13e3e4458e9ae419d",
-    "purpose": "Strict-JSON atomization only"
-  },
-  "corenlp": {
-    "version": "4.5.10",
-    "annotators": [
-      "openie",
-      "natlog",
-      "coref"
-    ]
+    "purpose": "Claim decomposition, evidence assessment, and constrained symbolic rule mapping"
   },
   "dataset": {
-    "repository": "lytang/LLM-AggreFact",
-    "revision": "resolved-and-frozen-by-scripts/prepare.py",
-    "allowedUse": "evaluation-only",
-    "expectedCounts": {
-      "dev": 30420,
-      "test": 29320
-    }
+    "repository": "AVeriTeC",
+    "revision": "7c62d1ec8df3fb560d6efe2b85fa191135636f81",
+    "allowedUse": "CC BY-NC 4.0 demo subset"
   }
 }
-

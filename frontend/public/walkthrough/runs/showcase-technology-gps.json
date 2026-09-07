@@ -1,0 +1,571 @@
+{
+  "caseId": "showcase-technology-gps",
+  "schemaVersion": 6,
+  "composition": "SINGLE",
+  "warnings": [],
+  "atoms": [
+    {
+      "id": "atom-1",
+      "text": "GPS was developed exclusively for civilian navigation.",
+      "sourceText": "GPS was developed exclusively for civilian navigation",
+      "start": 0,
+      "end": 53,
+      "role": "CORE"
+    }
+  ],
+  "evidence": [
+    {
+      "atomId": "atom-1",
+      "spans": [
+        {
+          "id": "doc-9370f4fa5dd0::sentence-4",
+          "documentId": "doc-9370f4fa5dd0",
+          "text": "The Global Positioning System (GPS) is a constellation of orbiting satellites that provides position, navigation, and timing data to military and civilian users globally. ",
+          "start": 74,
+          "end": 245,
+          "contextSpans": [],
+          "context": "The Global Positioning System (GPS) is a constellation of orbiting satellites that provides position, navigation, and timing data to military and civilian users globally."
+        },
+        {
+          "id": "doc-063728f3d9ea::sentence-8",
+          "documentId": "doc-063728f3d9ea",
+          "text": "The U.S. government provides civilian access to GPS on a continuous, worldwide basis, free of direct user fees. ",
+          "start": 550,
+          "end": 662,
+          "contextSpans": [
+            {
+              "id": "doc-063728f3d9ea::sentence-9",
+              "documentId": "doc-063728f3d9ea",
+              "text": "It also provides open, free access to the information needed to develop GPS user equipment.\n",
+              "start": 662,
+              "end": 754,
+              "direction": "NEXT"
+            }
+          ],
+          "context": "The U.S. government provides civilian access to GPS on a continuous, worldwide basis, free of direct user fees. It also provides open, free access to the information needed to develop GPS user equipment."
+        },
+        {
+          "id": "doc-063728f3d9ea::sentence-7",
+          "documentId": "doc-063728f3d9ea",
+          "text": "Free Access for Civilian Use\n",
+          "start": 521,
+          "end": 550,
+          "contextSpans": [],
+          "context": "Free Access for Civilian Use"
+        },
+        {
+          "id": "doc-063728f3d9ea::sentence-15",
+          "documentId": "doc-063728f3d9ea",
+          "text": "The bulk of the GPS program is budgeted through the Department of Defense, but the Department of Transportation also contributes funding to support civilian GPS requirements.\n",
+          "start": 956,
+          "end": 1131,
+          "contextSpans": [],
+          "context": "The bulk of the GPS program is budgeted through the Department of Defense, but the Department of Transportation also contributes funding to support civilian GPS requirements."
+        },
+        {
+          "id": "doc-9370f4fa5dd0::sentence-11",
+          "documentId": "doc-9370f4fa5dd0",
+          "text": "GPS provides 24/7/365 navigation services including:\n\n ",
+          "start": 876,
+          "end": 931,
+          "contextSpans": [],
+          "context": "GPS provides 24/7/365 navigation services including:"
+        },
+        {
+          "id": "doc-9370f4fa5dd0::sentence-7",
+          "documentId": "doc-9370f4fa5dd0",
+          "text": "GPS satellites orbit the earth every 12 hours, emitting continuous navigation signals. ",
+          "start": 359,
+          "end": 446,
+          "contextSpans": [],
+          "context": "GPS satellites orbit the earth every 12 hours, emitting continuous navigation signals."
+        }
+      ]
+    }
+  ],
+  "assessment": {
+    "obligations": [
+      {
+        "atomId": "atom-1",
+        "supportSpanIds": [],
+        "refuteSpanIds": [
+          "doc-063728f3d9ea::sentence-15"
+        ],
+        "contextSpanIds": [
+          "doc-9370f4fa5dd0::sentence-4",
+          "doc-063728f3d9ea::sentence-8",
+          "doc-063728f3d9ea::sentence-7"
+        ],
+        "sufficiency": "PARTIAL",
+        "missingInformation": "The evidence does not specify the exclusivity of development for civilian navigation, only that the Department of Transportation contributes to civilian GPS requirements.",
+        "reason": "While the evidence indicates civilian access and funding, it does not explicitly state that GPS was developed exclusively for civilian navigation.",
+        "scopeChecks": [
+          {
+            "spanId": "doc-9370f4fa5dd0::sentence-4",
+            "documentId": "doc-9370f4fa5dd0",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-063728f3d9ea::sentence-8",
+            "documentId": "doc-063728f3d9ea",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "US"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-063728f3d9ea::sentence-7",
+            "documentId": "doc-063728f3d9ea",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "US"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-063728f3d9ea::sentence-15",
+            "documentId": "doc-063728f3d9ea",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "US"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-9370f4fa5dd0::sentence-11",
+            "documentId": "doc-9370f4fa5dd0",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-9370f4fa5dd0::sentence-7",
+            "documentId": "doc-9370f4fa5dd0",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          }
+        ]
+      }
+    ],
+    "materialOmission": {
+      "detected": false,
+      "supportSpanIds": [],
+      "contextSpanIds": [],
+      "reason": "No material omission was established."
+    }
+  },
+  "reasoning": [
+    {
+      "id": "proof:atom-1:attribute_compare:1",
+      "atomId": "atom-1",
+      "operator": "ATTRIBUTE_COMPARE",
+      "status": "DISPROVED",
+      "relation": "REFUTES",
+      "premiseIds": [
+        "evidence:atom-1:doc-9370f4fa5dd0:doc-9370f4fa5dd0::sentence-4"
+      ],
+      "premises": [
+        {
+          "id": "evidence:atom-1:doc-9370f4fa5dd0:doc-9370f4fa5dd0::sentence-4",
+          "documentId": "doc-9370f4fa5dd0",
+          "text": "The Global Positioning System (GPS) is a constellation of orbiting satellites that provides position, navigation, and timing data to military and civilian users globally. ",
+          "start": 74,
+          "end": 245,
+          "kind": "EVIDENCE",
+          "contentHash": null,
+          "itemCount": null
+        }
+      ],
+      "expression": "purposes = {military, civilian}",
+      "conclusion": "The source gives more than one purpose.",
+      "explanation": "Python found two explicit, incompatible values for an exclusive-purpose claim.",
+      "validationWarnings": [],
+      "program": {
+        "version": 1,
+        "steps": [
+          {
+            "id": "input-1",
+            "operation": "LOOKUP",
+            "inputIds": [
+              "evidence:atom-1:doc-9370f4fa5dd0:doc-9370f4fa5dd0::sentence-4"
+            ],
+            "outputType": "FACT",
+            "description": "Read an unchanged server-owned premise."
+          },
+          {
+            "id": "result",
+            "operation": "EQUAL",
+            "inputIds": [
+              "input-1"
+            ],
+            "outputType": "BOOLEAN",
+            "description": "Validate operand alignment and execute the typed operation in Python."
+          }
+        ],
+        "outputStepId": "result"
+      }
+    }
+  ],
+  "linguistics": {
+    "schemaVersion": 2,
+    "claimAnalysis": {
+      "atomId": "claim",
+      "frames": [
+        {
+          "id": "claim-frame-1",
+          "predicate": {
+            "id": "claim-frame-1-predicate",
+            "text": "developed",
+            "start": 8,
+            "end": 17
+          },
+          "subjects": [
+            {
+              "id": "claim-frame-1-subject-1",
+              "text": "GPS",
+              "start": 0,
+              "end": 3
+            }
+          ],
+          "coreArguments": [],
+          "adjuncts": [
+            {
+              "id": "claim-frame-1-adjunct-1",
+              "text": "exclusively",
+              "start": 18,
+              "end": 29,
+              "kind": "manner"
+            }
+          ],
+          "otherModifiers": [
+            {
+              "id": "claim-frame-1-other-modifier-1",
+              "text": "for civilian navigation",
+              "start": 30,
+              "end": 53
+            }
+          ]
+        }
+      ],
+      "cues": [],
+      "entities": [],
+      "tokens": [
+        {
+          "id": "claim-token-0",
+          "text": "GPS",
+          "start": 0,
+          "end": 3,
+          "lemma": "GPS",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "nsubjpass",
+          "head": "developed"
+        },
+        {
+          "id": "claim-token-1",
+          "text": "was",
+          "start": 4,
+          "end": 7,
+          "lemma": "be",
+          "pos": "AUX",
+          "tag": "VBD",
+          "dependency": "auxpass",
+          "head": "developed"
+        },
+        {
+          "id": "claim-token-2",
+          "text": "developed",
+          "start": 8,
+          "end": 17,
+          "lemma": "develop",
+          "pos": "VERB",
+          "tag": "VBN",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "claim-token-3",
+          "text": "exclusively",
+          "start": 18,
+          "end": 29,
+          "lemma": "exclusively",
+          "pos": "ADV",
+          "tag": "RB",
+          "dependency": "advmod",
+          "head": "developed"
+        },
+        {
+          "id": "claim-token-4",
+          "text": "for",
+          "start": 30,
+          "end": 33,
+          "lemma": "for",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "developed"
+        },
+        {
+          "id": "claim-token-5",
+          "text": "civilian",
+          "start": 34,
+          "end": 42,
+          "lemma": "civilian",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "navigation"
+        },
+        {
+          "id": "claim-token-6",
+          "text": "navigation",
+          "start": 43,
+          "end": 53,
+          "lemma": "navigation",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "pobj",
+          "head": "for"
+        },
+        {
+          "id": "claim-token-7",
+          "text": ".",
+          "start": 53,
+          "end": 54,
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "developed"
+        }
+      ],
+      "status": "complete",
+      "unresolved": []
+    },
+    "analyses": [
+      {
+        "atomId": "atom-1",
+        "frames": [
+          {
+            "id": "atom-1-frame-1",
+            "predicate": {
+              "id": "atom-1-frame-1-predicate",
+              "text": "developed",
+              "start": 8,
+              "end": 17
+            },
+            "subjects": [
+              {
+                "id": "atom-1-frame-1-subject-1",
+                "text": "GPS",
+                "start": 0,
+                "end": 3
+              }
+            ],
+            "coreArguments": [],
+            "adjuncts": [
+              {
+                "id": "atom-1-frame-1-adjunct-1",
+                "text": "exclusively",
+                "start": 18,
+                "end": 29,
+                "kind": "manner"
+              }
+            ],
+            "otherModifiers": [
+              {
+                "id": "atom-1-frame-1-other-modifier-1",
+                "text": "for civilian navigation",
+                "start": 30,
+                "end": 53
+              }
+            ]
+          }
+        ],
+        "cues": [],
+        "entities": [],
+        "tokens": [
+          {
+            "id": "atom-1-token-0",
+            "text": "GPS",
+            "start": 0,
+            "end": 3,
+            "lemma": "GPS",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "nsubjpass",
+            "head": "developed"
+          },
+          {
+            "id": "atom-1-token-1",
+            "text": "was",
+            "start": 4,
+            "end": 7,
+            "lemma": "be",
+            "pos": "AUX",
+            "tag": "VBD",
+            "dependency": "auxpass",
+            "head": "developed"
+          },
+          {
+            "id": "atom-1-token-2",
+            "text": "developed",
+            "start": 8,
+            "end": 17,
+            "lemma": "develop",
+            "pos": "VERB",
+            "tag": "VBN",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-1-token-3",
+            "text": "exclusively",
+            "start": 18,
+            "end": 29,
+            "lemma": "exclusively",
+            "pos": "ADV",
+            "tag": "RB",
+            "dependency": "advmod",
+            "head": "developed"
+          },
+          {
+            "id": "atom-1-token-4",
+            "text": "for",
+            "start": 30,
+            "end": 33,
+            "lemma": "for",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "developed"
+          },
+          {
+            "id": "atom-1-token-5",
+            "text": "civilian",
+            "start": 34,
+            "end": 42,
+            "lemma": "civilian",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "navigation"
+          },
+          {
+            "id": "atom-1-token-6",
+            "text": "navigation",
+            "start": 43,
+            "end": 53,
+            "lemma": "navigation",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "pobj",
+            "head": "for"
+          },
+          {
+            "id": "atom-1-token-7",
+            "text": ".",
+            "start": 53,
+            "end": 54,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "developed"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      }
+    ],
+    "summaries": [
+      {
+        "atomId": "atom-1",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "GPS"
+        ],
+        "predicates": [
+          "develop"
+        ],
+        "cueKinds": [],
+        "modifierKinds": [
+          "manner"
+        ],
+        "entityLabels": [],
+        "warnings": []
+      }
+    ],
+    "claimWarnings": [],
+    "provider": "spacy",
+    "model": "en_core_web_sm@3.8.0"
+  },
+  "verdict": {
+    "aggregationSchemaVersion": 3,
+    "claimId": "showcase-technology-gps",
+    "composition": "SINGLE",
+    "verdict": "REFUTED",
+    "positions": {
+      "supportPosition": false,
+      "refutePosition": true,
+      "materialOmissionPosition": false,
+      "supportObligationIds": [],
+      "refuteObligationIds": [
+        "atom-1"
+      ],
+      "unresolvedObligationIds": []
+    },
+    "obligations": [
+      {
+        "obligationId": "atom-1",
+        "state": "REFUTED",
+        "supportEdgeIds": [],
+        "refuteEdgeIds": [
+          "edge:REFUTES:inference:proof:atom-1:attribute_compare:1:obligation:showcase-technology-gps:atom-1"
+        ],
+        "unselectedCandidateCount": 2,
+        "provisionalRelationCount": 1
+      }
+    ],
+    "warnings": [
+      {
+        "code": "PROVISIONAL_EVIDENCE_EXCLUDED",
+        "message": "1 assessed relation(s) for obligation atom-1 are provisional because the evidence is not sufficient."
+      }
+    ],
+    "ruleTrace": [
+      "SINGLE maps its one obligation's validated relations directly.",
+      "Validated positions — support: no; refute: yes.",
+      "Verdict: REFUTED."
+    ]
+  },
+  "recordedWith": {
+    "pipelineRevision": "submission-ready-v2",
+    "inputDigest": "a42c8ffa34d2c1ca2c8e7bca5d32fe077bce35ba4380f6e9fe1ada86d939e66a",
+    "decompositionModel": "qwen2.5:7b",
+    "retrievalModel": "BAAI/bge-small-en-v1.5",
+    "retrievalMethod": "HYBRID",
+    "assessmentModel": "qwen2.5:7b",
+    "reasoningModel": "qwen2.5:7b",
+    "linguisticsModel": "en_core_web_sm@3.8.0"
+  },
+  "timingsSeconds": {
+    "decomposition": 14.358,
+    "retrievalAndLinguistics": 0.419,
+    "evidenceAssessment": 17.37,
+    "symbolicReasoning": 23.472,
+    "aggregation": 0.004,
+    "total": 55.623
+  }
+}

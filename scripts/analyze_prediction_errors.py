@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Produce an auditable error report from recorded VeriGraph demo runs."""
+"""Produce an auditable error report from recorded VeriTrace demo runs."""
 
 from __future__ import annotations
 
@@ -29,24 +29,27 @@ def compact(value: str, limit: int = 320) -> str:
 
 
 def relation_by_span(run: dict[str, Any]) -> dict[str, str]:
-    return {
-        relation["spanId"]: relation["relation"]
-        for classification in run.get("classifications", [])
-        for relation in classification.get("relations", [])
-    }
+    relations: dict[str, str] = {}
+    for obligation in run.get("assessment", {}).get("obligations", []):
+        decisive = obligation.get("sufficiency") == "SUFFICIENT"
+        for span_id in obligation.get("supportSpanIds", []):
+            relations[span_id] = "SUPPORTS" if decisive else "POTENTIAL_SUPPORT"
+        for span_id in obligation.get("refuteSpanIds", []):
+            relations[span_id] = "REFUTES" if decisive else "POTENTIAL_REFUTATION"
+        for span_id in obligation.get("contextSpanIds", []):
+            relations.setdefault(span_id, "CONTEXT")
+        for check in obligation.get("scopeChecks", []):
+            if check.get("status") == "MISMATCH":
+                relations[check["spanId"]] = "DIFFERENT_JURISDICTION"
+    return relations
 
 
 def render_case(case: dict[str, Any], run: dict[str, Any]) -> list[str]:
-    claim_position = run["evidenceAudit"]["claimPosition"]
     relation_map = relation_by_span(run)
     lines = [
         f"## `{case['id']}`: {case['label']} → {run['verdict']['verdict']}",
         "",
         f"**Claim:** {case['claim']}",
-        "",
-        f"**Audit position:** `{claim_position['position']}`",
-        "",
-        f"**Audit reason:** {claim_position['reason']}",
         "",
         "**Obligations:**",
         "",
@@ -80,7 +83,7 @@ def main() -> None:
     cases = catalog if isinstance(catalog, list) else catalog["cases"]
     mismatches: list[tuple[dict[str, Any], dict[str, Any]]] = []
     transitions: Counter[tuple[str, str]] = Counter()
-    positions: Counter[str] = Counter()
+    sufficiency: Counter[str] = Counter()
 
     for case in cases:
         run_path = args.runs / f"{case['id']}.json"
@@ -88,7 +91,7 @@ def main() -> None:
             continue
         run = load_json(run_path)
         predicted = run["verdict"]["verdict"]
-        positions[run["evidenceAudit"]["claimPosition"]["position"]] += 1
+        sufficiency.update(item.get("sufficiency", "UNKNOWN") for item in run["assessment"]["obligations"])
         if predicted != case["label"]:
             mismatches.append((case, run))
             transitions[(case["label"], predicted)] += 1
@@ -102,7 +105,7 @@ def main() -> None:
         "",
         "## Error transitions",
         "",
-        "| Reference | Draft status | Cases |",
+        "| Reference | Predicted verdict | Cases |",
         "| --- | --- | ---: |",
     ]
     for (reference, predicted), count in sorted(transitions.items()):
@@ -110,14 +113,14 @@ def main() -> None:
     lines.extend(
         [
             "",
-            "## Overall audit positions",
+            "## Evidence sufficiency",
             "",
-            "| Position | Cases |",
+            "| Sufficiency | Atomic claims |",
             "| --- | ---: |",
         ]
     )
-    for position, count in sorted(positions.items()):
-        lines.append(f"| `{position}` | {count} |")
+    for value, count in sorted(sufficiency.items()):
+        lines.append(f"| `{value}` | {count} |")
     lines.append("")
     for case, run in mismatches:
         lines.extend(render_case(case, run))

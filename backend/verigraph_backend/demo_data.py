@@ -7,16 +7,23 @@ from dataclasses import dataclass
 from functools import lru_cache
 from pathlib import Path
 from typing import Dict, Iterable, List, Optional
+from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 from pydantic import TypeAdapter, ValidationError
 
-from .schemas import DemoCase, DemoCaseSummary, ReferenceLabel
+from .schemas import DemoCase, DemoCaseSummary, DemoOrigin, DemoSourceType, ReferenceLabel
 from .settings import settings
 
 
 CASE_ADAPTER = TypeAdapter(DemoCase)
 CASES_ADAPTER = TypeAdapter(List[DemoCase])
 SUMMARIES_ADAPTER = TypeAdapter(List[DemoCaseSummary])
+
+_ANNOTATION_LEAK_MARKERS = (
+    "AVERITEC HUMAN-ANNOTATED EVIDENCE CARD",
+    "These question-answer statements were written by AVeriTeC annotators",
+    "RECOVERED SOURCE TEXT",
+)
 
 
 class DemoDataError(RuntimeError):
@@ -51,12 +58,39 @@ def _validate_unique_ids(cases: Iterable[DemoCase]) -> None:
         seen.add(case.id)
 
 
+def _validate_source_only_documents(cases: Iterable[DemoCase]) -> None:
+    for case in cases:
+        for document in case.documents:
+            if any(marker in document.text for marker in _ANNOTATION_LEAK_MARKERS):
+                raise DemoDataError(
+                    f"Prepared demo document {case.id}/{document.id} contains "
+                    "AVeriTeC annotation-card text"
+                )
+
+
+def canonical_source_identity(value: str) -> str:
+    parts = urlsplit(value.strip())
+    host = (parts.hostname or "").casefold()
+    netloc = host if parts.port is None else f"{host}:{parts.port}"
+    query = urlencode(sorted(parse_qsl(parts.query, keep_blank_values=True)), doseq=True)
+    return urlunsplit(("https", netloc, parts.path or "/", query, ""))
+
+
+def _validate_unique_sources(cases: Iterable[DemoCase]) -> None:
+    for case in cases:
+        identities = [canonical_source_identity(document.url) for document in case.documents]
+        if len(identities) != len(set(identities)):
+            raise DemoDataError(f"Prepared demo case {case.id} contains duplicate canonical sources")
+
+
 def load_demo_cases(path: Path) -> List[DemoCase]:
     try:
         cases = CASES_ADAPTER.validate_python(_read_json(path))
     except ValidationError as error:
         raise DemoDataError(f"Invalid demo data at {path}: {error}") from error
     _validate_unique_ids(cases)
+    _validate_source_only_documents(cases)
+    _validate_unique_sources(cases)
     if not cases:
         raise DemoDataError(f"Demo data at {path} contains no cases")
     return cases
@@ -69,6 +103,9 @@ def bundle_digest(bundle_path: Path) -> str:
     metadata_path = bundle_path / "metadata.json"
     if metadata_path.is_file():
         files.append(metadata_path)
+    profile_path = bundle_path / "bundle.json"
+    if profile_path.is_file():
+        files.append(profile_path)
     if not all(path.is_file() for path in files):
         raise DemoDataError(f"Demo bundle at {bundle_path} is incomplete")
     digest = hashlib.sha256()
@@ -105,7 +142,33 @@ def _apply_bundle_metadata(cases: List[DemoCase], bundle_path: Path) -> List[Dem
     return enriched
 
 
-def _validate_private_catalog(cases: List[DemoCase]) -> None:
+def _validate_private_catalog(cases: List[DemoCase], bundle_path: Path) -> None:
+    profile_path = bundle_path / "bundle.json"
+    profile = _read_json(profile_path) if profile_path.is_file() else {"kind": "AVERITEC"}
+    if profile.get("kind") == "SHOWCASE":
+        expected_ids = profile.get("caseIds")
+        if not isinstance(expected_ids, list) or [case.id for case in cases] != expected_ids:
+            raise DemoDataError("Showcase catalog does not match its ordered case allowlist")
+        if len(cases) != 18:
+            raise DemoDataError("Showcase catalog must contain exactly 18 cases")
+        constructed = [case for case in cases if case.origin == DemoOrigin.constructed]
+        if len(constructed) != 15:
+            raise DemoDataError("Showcase catalog must contain exactly 15 constructed cases")
+        if any(case.category is None for case in cases):
+            raise DemoDataError("Every showcase case requires a category")
+        for case in constructed:
+            if len(case.documents) != 2:
+                raise DemoDataError(f"Constructed case {case.id} must contain exactly two sources")
+            for document in case.documents:
+                if document.source_type != DemoSourceType.source_excerpt:
+                    raise DemoDataError(f"Constructed source {case.id}/{document.id} must be an excerpt")
+                if not document.publisher or not document.retrieved_at:
+                    raise DemoDataError(f"Constructed source {case.id}/{document.id} lacks provenance")
+                if len(document.text.split()) < 150 or len(document.text.split()) > 400:
+                    raise DemoDataError(f"Constructed source {case.id}/{document.id} must contain 150-400 words")
+                if hashlib.sha256(document.text.encode("utf-8")).hexdigest() != document.excerpt_sha256:
+                    raise DemoDataError(f"Constructed source {case.id}/{document.id} has an invalid excerpt hash")
+        return
     if not 20 <= len(cases) <= 32:
         raise DemoDataError("Prepared AVeriTeC catalog must contain 20 to 32 cases")
     counts = Counter(case.label for case in cases)
@@ -145,7 +208,9 @@ def load_private_bundle(bundle_path: Path) -> DemoStore:
     cases = _apply_bundle_metadata(cases, bundle_path)
     summaries = [case.summary() for case in cases]
     _validate_unique_ids(cases)
-    _validate_private_catalog(cases)
+    _validate_source_only_documents(cases)
+    _validate_unique_sources(cases)
+    _validate_private_catalog(cases, bundle_path)
 
     actual_digest = bundle_digest(bundle_path)
     digest_path = bundle_path / "bundle.sha256"

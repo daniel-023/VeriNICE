@@ -4,227 +4,124 @@ import json
 
 import pytest
 
-from verigraph_backend.grounded_evidence_audit import (
-    GroundedEvidenceAuditOutputError,
-    _audit_input,
-    _parse_audit,
-    classifications_from_grounded_audit,
-)
-from verigraph_backend.schemas import (
-    GroundedClaimPosition,
-    NLIAtomEvidence,
-    NLIInputSpan,
-    NLIRelation,
-    PipelineAtom,
-)
+from verigraph_backend.grounded_evidence_audit import GroundedEvidenceAuditOutputError, _audit_input, _parse_audit
+from verigraph_backend.schemas import AssessmentAtomEvidence, AssessmentInputSpan, DemoDocument, EvidenceContextSpan, EvidenceScopeCheck, PipelineAtom
 
 
-def inputs():
-    atoms = [PipelineAtom(id="a1", text="The archive opened in 2021.")]
-    evidence = [
-        NLIAtomEvidence(
-            atom_id="a1",
-            spans=[
-                NLIInputSpan(
-                    id="s1",
-                    document_id="d1",
-                    text="The archive opened in 2021.",
-                    context="Officials said the archive opened in 2021.",
-                ),
-                NLIInputSpan(
-                    id="s2",
-                    document_id="d1",
-                    text="Visitors were admitted only on weekends.",
-                ),
-            ],
-        )
+def fixtures():
+    atoms = [PipelineAtom(id="a1", text="The US archive opened in 2021.")]
+    evidence = [AssessmentAtomEvidence(atom_id="a1", spans=[
+        AssessmentInputSpan(id="s1", document_id="d1", text="The US archive opened in 2021.", start=0, end=30),
+        AssessmentInputSpan(id="s2", document_id="d2", text="The Australian archive opened in 2021.", start=0, end=39),
+    ])]
+    documents = [
+        DemoDocument(id="d1", title="US archive", url="https://state.gov/archive", text="The US archive opened in 2021."),
+        DemoDocument(id="d2", title="Australia archive", url="https://example.au/archive", text="The Australian archive opened in 2021."),
     ]
-    return atoms, evidence
+    checks = {"a1": [
+        EvidenceScopeCheck(spanId="s1", documentId="d1", status="MATCH", claimJurisdictions=["US"], evidenceJurisdictions=["US"], reason="Same jurisdiction."),
+        EvidenceScopeCheck(spanId="s2", documentId="d2", status="MISMATCH", claimJurisdictions=["US"], evidenceJurisdictions=["AU"], reason="Different jurisdiction."),
+    ]}
+    return atoms, evidence, documents, checks
 
 
-def envelope(content):
-    return {"done": True, "message": {"content": json.dumps(content)}}
+def envelope(obligations, omission=None):
+    return {"done": True, "message": {"content": json.dumps({
+        "obligations": obligations,
+        "materialOmission": omission or {"detected": False, "supportIds": [], "contextIds": [], "reason": "No material omission."},
+    })}}
 
 
-def test_input_uses_grounded_candidate_enums() -> None:
-    atoms, evidence = inputs()
-    prompt, mapped, schema = _audit_input(
-        "The archive opened in 2021.", atoms, evidence, {"d1": "Archive report"}
-    )
-
-    assert "O1-E1 | Archive report" in prompt
-    assert list(mapped) == ["O1"]
-    assert schema["properties"]["supportIds"]["items"]["enum"] == [
-        "O1-E1",
-        "O1-E2",
-    ]
+def assessment_item(**changes):
+    item = {"obligationId": "O1", "atomTrueIds": ["O1-E1"], "atomFalseIds": [], "contextIds": [], "sufficiency": "SUFFICIENT", "missingInformation": "", "reason": "The sentence establishes the atomic claim."}
+    item.update(changes)
+    return item
 
 
-def test_parse_maps_claim_position_and_selected_codes_to_real_span_ids() -> None:
-    atoms, evidence = inputs()
-    _prompt, mapped, _schema = _audit_input("claim", atoms, evidence, {})
-    result = _parse_audit(
-        envelope(
-            {
-                "position": "MIXED_OR_MISLEADING",
-                "supportIds": ["O1-E1"],
-                "attackIds": [],
-                "contextIds": ["O1-E2"],
-                "reason": "Weekend-only access materially qualifies opening.",
-            }
-        ),
-        mapped,
-    )
+def test_input_excludes_explicit_jurisdiction_mismatch_from_model_candidates() -> None:
+    atoms, evidence, documents, checks = fixtures()
+    prompt, mapped, schema = _audit_input("claim", atoms, evidence, documents, checks)
+    assert "O1-E1 | US archive" in prompt
+    assert "Australian archive" not in prompt
+    assert list(mapped["O1"][1]) == ["O1-E1"]
+    obligation_schema = schema["properties"]["obligations"]["properties"]["O1"]
+    assert obligation_schema["properties"]["atomTrueIds"]["items"]["enum"] == ["O1-E1"]
 
-    assert result.claim_position.position == GroundedClaimPosition.mixed_or_misleading
-    assert result.claim_position.support_span_ids == ["s1"]
-    assert result.claim_position.context_span_ids == ["s2"]
+
+def test_input_keeps_reading_context_separate() -> None:
+    atoms, evidence, documents, checks = fixtures()
+    evidence[0].spans[0].context_spans = [EvidenceContextSpan(id="c1", documentId="d1", text="Officials discussed the archive.", start=31, end=63, direction="PREVIOUS")]
+    prompt, _, _ = _audit_input("claim", atoms, evidence, documents, checks)
+    assert "READING CONTEXT (not independent evidence)" in prompt
+
+
+def test_parse_returns_atom_scoped_relations_sufficiency_and_scope_checks() -> None:
+    atoms, evidence, documents, checks = fixtures()
+    _, mapped, _ = _audit_input("claim", atoms, evidence, documents, checks)
+    result = _parse_audit(envelope([assessment_item()]), mapped, checks)
     assert result.obligations[0].support_span_ids == ["s1"]
+    assert result.obligations[0].sufficiency == "SUFFICIENT"
+    assert result.obligations[0].scope_checks[1].status == "MISMATCH"
+    assert not hasattr(result, "claim_position")
 
 
-def test_parse_rejects_invented_candidate_id() -> None:
-    atoms, evidence = inputs()
-    _prompt, mapped, _schema = _audit_input("claim", atoms, evidence, {})
-    with pytest.raises(GroundedEvidenceAuditOutputError, match="unknown evidence"):
-        _parse_audit(
-            envelope(
-                {
-                    "position": "SUPPORT_ONLY",
-                    "supportIds": ["INVENTED"],
-                    "attackIds": [],
-                    "contextIds": [],
-                    "reason": "Unsupported.",
-                }
-            ),
-            mapped,
-        )
+def test_parse_rejects_excluded_or_unknown_candidate_id() -> None:
+    atoms, evidence, documents, checks = fixtures()
+    _, mapped, _ = _audit_input("claim", atoms, evidence, documents, checks)
+    with pytest.raises(GroundedEvidenceAuditOutputError, match="unavailable evidence"):
+        _parse_audit(envelope([assessment_item(atomTrueIds=["O1-E2"])]), mapped, checks)
 
 
-def test_parse_rejects_decisive_position_without_grounding() -> None:
-    atoms, evidence = inputs()
-    _prompt, mapped, _schema = _audit_input("claim", atoms, evidence, {})
-    with pytest.raises(GroundedEvidenceAuditOutputError, match="ungrounded decisive"):
-        _parse_audit(
-            envelope(
-                {
-                    "position": "ATTACK_ONLY",
-                    "supportIds": [],
-                    "attackIds": [],
-                    "contextIds": ["O1-E2"],
-                    "reason": "No attack was actually selected.",
-                }
-            ),
-            mapped,
-        )
-
-
-def test_insufficient_position_discards_decisive_ids() -> None:
-    atoms, evidence = inputs()
-    _prompt, mapped, _schema = _audit_input("claim", atoms, evidence, {})
+def test_parse_demotes_support_refute_overlap_to_context() -> None:
+    atoms, evidence, documents, checks = fixtures()
+    _, mapped, _ = _audit_input("claim", atoms, evidence, documents, checks)
     result = _parse_audit(
-        envelope(
-            {
-                "position": "INSUFFICIENT",
-                "supportIds": ["O1-E1"],
-                "attackIds": ["O1-E2"],
-                "contextIds": ["O1-E2"],
-                "reason": "The available evidence is incomplete.",
-            }
-        ),
+        envelope([assessment_item(atomTrueIds=["O1-E1"], atomFalseIds=["O1-E1"])]),
         mapped,
+        checks,
     )
+    assert result.obligations[0].support_span_ids == []
+    assert result.obligations[0].refute_span_ids == []
+    assert result.obligations[0].context_span_ids == ["s1"]
 
-    assert result.claim_position.support_span_ids == []
-    assert result.claim_position.attack_span_ids == []
-    assert result.obligations[0].state == "UNRESOLVED"
 
-
-def test_classifications_use_only_validated_audit_selections() -> None:
-    atoms, evidence = inputs()
-    _prompt, mapped, _schema = _audit_input("claim", atoms, evidence, {})
-    audit = _parse_audit(
-        envelope(
-            {
-                "position": "MIXED_OR_MISLEADING",
-                "supportIds": ["O1-E1"],
-                "attackIds": ["O1-E2"],
-                "contextIds": [],
-                "reason": "Evidence exists on both sides.",
-            }
-        ),
-        mapped,
+def test_parse_demotes_identical_source_copies_with_opposing_relations() -> None:
+    atoms, evidence, documents, checks = fixtures()
+    evidence[0].spans[1].text = evidence[0].spans[0].text
+    checks["a1"][1] = EvidenceScopeCheck(
+        spanId="s2", documentId="d2", status="MATCH",
+        claimJurisdictions=["US"], evidenceJurisdictions=["US"], reason="Same jurisdiction.",
     )
-
-    response = classifications_from_grounded_audit(evidence, audit)
-
-    assert response.provider == "ollama"
-    assert [item.relation for item in response.classifications[0].relations] == [
-        NLIRelation.entailment,
-        NLIRelation.contradiction,
-    ]
-
-
-def test_support_only_requires_selected_support_for_every_obligation() -> None:
-    atoms = [
-        PipelineAtom(id="a1", text="The archive opened."),
-        PipelineAtom(id="a2", text="The archive opens daily."),
-    ]
-    evidence = [
-        NLIAtomEvidence(
-            atom_id=atom.id,
-            spans=[NLIInputSpan(id=f"s{index}", document_id="d1", text=atom.text)],
-        )
-        for index, atom in enumerate(atoms, start=1)
-    ]
-    _prompt, mapped, _schema = _audit_input("compound claim", atoms, evidence, {})
-
+    _, mapped, _ = _audit_input("claim", atoms, evidence, documents, checks)
     result = _parse_audit(
-        envelope(
-            {
-                "position": "SUPPORT_ONLY",
-                "supportIds": ["O1-E1"],
-                "attackIds": [],
-                "contextIds": [],
-                "reason": "Only the first obligation was established.",
-            }
-        ),
+        envelope([assessment_item(atomTrueIds=["O1-E1"], atomFalseIds=["O1-E2"])]),
         mapped,
+        checks,
     )
+    assert result.obligations[0].support_span_ids == []
+    assert result.obligations[0].refute_span_ids == []
+    assert set(result.obligations[0].context_span_ids) == {"s1", "s2"}
 
-    assert result.claim_position.position == GroundedClaimPosition.insufficient
-    assert result.claim_position.support_span_ids == []
-    assert all(item.state == "UNRESOLVED" for item in result.obligations)
+
+def test_insufficient_relations_are_retained_as_provisional_annotations() -> None:
+    atoms, evidence, documents, checks = fixtures()
+    _, mapped, _ = _audit_input("claim", atoms, evidence, documents, checks)
+    result = _parse_audit(envelope([assessment_item(sufficiency="INSUFFICIENT", missingInformation="An authoritative date is needed.")]), mapped, checks)
+    assert result.obligations[0].support_span_ids == ["s1"]
+    assert result.obligations[0].sufficiency == "INSUFFICIENT"
 
 
-def test_one_physical_span_can_support_multiple_obligations() -> None:
-    atoms = [
-        PipelineAtom(id="a1", text="The sky turned orange."),
-        PipelineAtom(id="a2", text="The sky turned red."),
-    ]
-    shared = NLIInputSpan(
-        id="shared",
-        document_id="d1",
-        text="Reports described the sky turning orange and red.",
-    )
-    evidence = [
-        NLIAtomEvidence(atom_id=atom.id, spans=[shared]) for atom in atoms
-    ]
-    _prompt, mapped, _schema = _audit_input("compound claim", atoms, evidence, {})
+@pytest.mark.parametrize("value", [False, None, "false", "null", "NONE"])
+def test_missing_information_normalizes_empty_model_values(value) -> None:
+    atoms, evidence, documents, checks = fixtures()
+    _, mapped, _ = _audit_input("claim", atoms, evidence, documents, checks)
+    result = _parse_audit(envelope([assessment_item(missingInformation=value)]), mapped, checks)
+    assert result.obligations[0].missing_information == ""
 
-    result = _parse_audit(
-        envelope(
-            {
-                "position": "SUPPORT_ONLY",
-                "supportIds": ["O1-E1"],
-                "attackIds": [],
-                "contextIds": [],
-                "reason": "One sentence establishes both color obligations.",
-            }
-        ),
-        mapped,
-    )
 
-    assert result.claim_position.position == GroundedClaimPosition.support_only
-    assert result.claim_position.support_span_ids == ["shared"]
-    assert [item.state for item in result.obligations] == ["SUPPORTED", "SUPPORTED"]
-    assert all(item.support_span_ids == ["shared"] for item in result.obligations)
+def test_material_omission_requires_sufficient_support() -> None:
+    atoms, evidence, documents, checks = fixtures()
+    _, mapped, _ = _audit_input("claim", atoms, evidence, documents, checks)
+    omission = {"detected": True, "supportIds": ["O1-E1"], "contextIds": ["O1-E1"], "reason": "A scope was omitted."}
+    with pytest.raises(GroundedEvidenceAuditOutputError, match="sufficient supporting"):
+        _parse_audit(envelope([assessment_item(sufficiency="PARTIAL")], omission), mapped, checks)

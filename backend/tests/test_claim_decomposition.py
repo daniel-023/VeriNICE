@@ -280,8 +280,6 @@ def test_claim_offsets_use_browser_utf16_code_units() -> None:
 @pytest.mark.parametrize(
     "draft",
     [
-        {"composition": "SINGLE", "obligations": [obligation("One.", "One."), obligation("Two.", "Two.")]},
-        {"composition": "AND", "obligations": [obligation("One.", "One.")]},
         {"composition": "SINGLE", "obligations": [obligation("One.", "Missing.")]},
         {"composition": "SINGLE", "obligations": [obligation("One.", "One.", "INVALID")]},
         {"composition": "SINGLE", "obligations": [obligation("One.", "One."), obligation("One.", "One.")]},
@@ -290,6 +288,29 @@ def test_claim_offsets_use_browser_utf16_code_units() -> None:
 def test_invalid_drafts_fail_hard_validation(draft: dict) -> None:
     with pytest.raises(DecompositionOutputError):
         parse_decomposition("One.", envelope(draft), "test-model")
+
+
+def test_composition_cardinality_is_normalized_without_changing_or_semantics() -> None:
+    multi = parse_decomposition(
+        "One. Two.",
+        envelope(
+            {
+                "composition": "SINGLE",
+                "obligations": [
+                    obligation("One.", "One."),
+                    obligation("Two.", "Two."),
+                ],
+            }
+        ),
+        "test-model",
+    )
+    single = parse_decomposition(
+        "One.",
+        envelope({"composition": "AND", "obligations": [obligation("One.", "One.")]}),
+        "test-model",
+    )
+    assert multi.composition == "AND"
+    assert single.composition == "SINGLE"
 
 
 @pytest.mark.asyncio

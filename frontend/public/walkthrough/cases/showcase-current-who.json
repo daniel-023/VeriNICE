@@ -1,0 +1,38 @@
+{
+  "id": "showcase-current-who",
+  "claim": "On 5 May 2023, WHO ended the COVID-19 public-health emergency but said COVID-19 remained a global health threat.",
+  "documents": [
+    {
+      "id": "doc-6824fb361fee",
+      "title": "WHO Director-General's opening remarks at the media briefing – 5 May 2023",
+      "url": "https://www.who.int/news-room/speeches/item/who-director-general-s-opening-remarks-at-the-media-briefing---5-may-2023",
+      "layout": "PROSE",
+      "publisher": "World Health Organization",
+      "retrievedAt": "2026-09-05",
+      "sourceType": "SOURCE_EXCERPT",
+      "excerptSha256": "0c5a389082b6e2a3901fe7626d0c18ae2fcae564c8db480d329407912a7670a2",
+      "sourceSha256": "0b9be040c4673b2999b785215bf16d2cf6736fb4c85725852d034b7d2dccaa96",
+      "text": "Wuhan, China.\nOn the 30th January 2020, on the advice of an Emergency Committee convened under the International Health Regulations, I declared a public health emergency of international concern over the global outbreak of COVID-19 – the highest level of alarm under international law.\nAt that time, outside China there were fewer than 100 reported cases, and no reported deaths.\nIn the three years since then, COVID-19 has turned our world upside down.\nAlmost 7 million deaths have been reported to WHO, but we know the toll is several times higher – at least 20 million.\nHealth systems have been severely disrupted, with millions of people missing out on essential health services, including lifesaving vaccinations for children.\nBut COVID-19 has been so much more than a health crisis.\nIt has caused severe economic upheaval, erasing trillions from GDP, disrupting travel and trade, shuttering businesses, and plunging millions into poverty.\nIt has caused severe social upheaval, with borders closed, movement restricted, schools shut and millions of people experiencing loneliness, isolation, anxiety and depression.\nCOVID-19 has exposed and exacerbated political fault lines, within and between nations. It has eroded trust between people, governments and institutions, fuelled by a torrent of mis- and disinformation.\nAnd it has laid bare the searing inequalities of our world, with the poorest and most vulnerable communities the hardest hit, and the last to receive access to vaccines and other tools.\nFor more than a year, the pandemic has been on a downward trend, with population immunity increasing from vaccination and infection, mortality decreasing and the pressure on health systems easing.\nThis trend has allowed most countries to return to life as we knew it before COVID-19.\nFor the past year, the Emergency Committee – and WHO – have been analysing the data carefully and considering when the time would be right to lower the level of alarm.\nYesterday, the Emergency Committee met for the 15th time and recommended to me that I declare an end to the public health emergency of international concern. I have accepted that advice.\nIt is therefore with great hope that I declare COVID-19 over as a global health emergency.\nHowever, that does not mean COVID-19 is over as a global health threat.\nLast week, COVID-19 claimed a life every three minutes – and that’s just the deaths we know about.\nAs we speak, thousands of people around the world are fighting for"
+    },
+    {
+      "id": "doc-391d646f37ef",
+      "title": "COVID-19",
+      "url": "https://www.who.int/europe/emergencies/situations/covid-19",
+      "layout": "PROSE",
+      "publisher": "World Health Organization Regional Office for Europe",
+      "retrievedAt": "2026-09-05",
+      "sourceType": "SOURCE_EXCERPT",
+      "excerptSha256": "119401f0c3400cf9b6fbca5673f585cc429b46129426d82b3ef749ed8eb4fb15",
+      "sourceSha256": "0046a9ff95b97585d561e0a5912e210f1e1d70bfbd6c6c8e27753dda4a71e841",
+      "text": "Media contacts\nFor COVID-19 enquiries, contact:\nWHO/Europe Press Office\nEmail address:\neupress@who.int\nEmergencies\nThe coronavirus disease 2019 (COVID-19) pandemic is a global outbreak of coronavirus – an infectious disease caused by the severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2).\nCases of novel coronavirus (nCoV) were first detected in China in December 2019, with the virus spreading rapidly to other countries across the world. This led WHO to declare a Public Health Emergency of International Concern (PHEIC) on 30 January 2020 and to characterize the outbreak as a pandemic on 11 March 2020.\nOn 5 May 2023, more than three years into the pandemic, the WHO Emergency Committee on COVID-19 recommended to the Director-General, who accepted the recommendation, that given the disease was by now well established and ongoing, it no longer fit the definition of a PHEIC. This does not mean the pandemic itself is over, but the global emergency it caused is – for now. A review committee will be established to develop long-term, standing recommendations for countries on how to manage COVID-19 on an ongoing basis.\nSince the COVID-19 pandemic started, over 2 million people in the European Region have died from the disease.\nOn 25 October 2023 WHO/Europe made several changes to its respiratory virus surveillance and data reporting systems. The COVID-19 Situation Dashboard played a pivotal role in providing essential information during the early stages of the pandemic. However, the landscape has now shifted, and so"
+    }
+  ],
+  "label": "SUPPORTED",
+  "displayTitle": "WHO ending the COVID-19 emergency",
+  "topics": [],
+  "challenges": [],
+  "featured": false,
+  "origin": "CONSTRUCTED",
+  "category": "CURRENT_AFFAIRS",
+  "demoFocus": "DECOMPOSITION"
+}

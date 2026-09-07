@@ -1,0 +1,1029 @@
+{
+  "caseId": "showcase-science-shaving",
+  "schemaVersion": 6,
+  "composition": "AND",
+  "warnings": [],
+  "atoms": [
+    {
+      "id": "atom-1",
+      "text": "Shaving makes hair grow back thicker.",
+      "sourceText": "Shaving makes hair grow back thicker",
+      "start": 0,
+      "end": 36,
+      "role": "CAUSAL_RELATION"
+    },
+    {
+      "id": "atom-2",
+      "text": "Shaving makes hair grow back faster.",
+      "sourceText": "faster",
+      "start": 41,
+      "end": 47,
+      "role": "CAUSAL_RELATION"
+    }
+  ],
+  "evidence": [
+    {
+      "atomId": "atom-1",
+      "spans": [
+        {
+          "id": "doc-071a33a71652::sentence-7",
+          "documentId": "doc-071a33a71652",
+          "text": "# Shaving hair: Does shaved hair grow back thicker?\n\n",
+          "start": 224,
+          "end": 277,
+          "contextSpans": [],
+          "context": "# Shaving hair: Does shaved hair grow back thicker?"
+        },
+        {
+          "id": "doc-071a33a71652::sentence-6",
+          "documentId": "doc-071a33a71652",
+          "text": "4. Shaving hair: Does shaved hair grow back thicker?\n\n",
+          "start": 170,
+          "end": 224,
+          "contextSpans": [],
+          "context": "4. Shaving hair: Does shaved hair grow back thicker?"
+        },
+        {
+          "id": "doc-071a33a71652::sentence-10",
+          "documentId": "doc-071a33a71652",
+          "text": "## Does shaving unwanted body hair makes it grow back thicker and darker?\n\n",
+          "start": 314,
+          "end": 389,
+          "contextSpans": [],
+          "context": "## Does shaving unwanted body hair makes it grow back thicker and darker?"
+        },
+        {
+          "id": "doc-813ee535443b::sentence-14",
+          "documentId": "doc-813ee535443b",
+          "text": "After all, you’ve always been told that shaving your hair will make it grow back thicker … in exactly the spots where you don’t want luscious locks to grow.\n",
+          "start": 820,
+          "end": 977,
+          "contextSpans": [
+            {
+              "id": "doc-813ee535443b::sentence-13",
+              "documentId": "doc-813ee535443b",
+              "text": "Policy\n",
+              "start": 813,
+              "end": 820,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "Policy After all, you’ve always been told that shaving your hair will make it grow back thicker … in exactly the spots where you don’t want luscious locks to grow."
+        },
+        {
+          "id": "doc-813ee535443b::sentence-15",
+          "documentId": "doc-813ee535443b",
+          "text": "As it turns out, this is a myth: Shaving won’t make your hair regrow any thicker or faster. ",
+          "start": 977,
+          "end": 1069,
+          "contextSpans": [
+            {
+              "id": "doc-813ee535443b::sentence-14",
+              "documentId": "doc-813ee535443b",
+              "text": "After all, you’ve always been told that shaving your hair will make it grow back thicker … in exactly the spots where you don’t want luscious locks to grow.\n",
+              "start": 820,
+              "end": 977,
+              "direction": "PREVIOUS"
+            },
+            {
+              "id": "doc-813ee535443b::sentence-16",
+              "documentId": "doc-813ee535443b",
+              "text": "But there’s some logic behind thinking it does.\n",
+              "start": 1069,
+              "end": 1117,
+              "direction": "NEXT"
+            }
+          ],
+          "context": "After all, you’ve always been told that shaving your hair will make it grow back thicker … in exactly the spots where you don’t want luscious locks to grow. As it turns out, this is a myth: Shaving won’t make your hair regrow any thicker or faster. But there’s some logic behind thinking it does."
+        },
+        {
+          "id": "doc-813ee535443b::sentence-5",
+          "documentId": "doc-813ee535443b",
+          "text": "View image online (https://assets.clevelandclinic.org/transform/ab64dc15-5594-467e-a161-610d596f36dd/shaving-hair-growth-1340752254-770x533-1_jpg)\n",
+          "start": 176,
+          "end": 323,
+          "contextSpans": [],
+          "context": "View image online (https://assets.clevelandclinic.org/transform/ab64dc15-5594-467e-a161-610d596f36dd/shaving-hair-growth-1340752254-770x533-1_jpg)"
+        }
+      ]
+    },
+    {
+      "atomId": "atom-2",
+      "spans": [
+        {
+          "id": "doc-071a33a71652::sentence-7",
+          "documentId": "doc-071a33a71652",
+          "text": "# Shaving hair: Does shaved hair grow back thicker?\n\n",
+          "start": 224,
+          "end": 277,
+          "contextSpans": [],
+          "context": "# Shaving hair: Does shaved hair grow back thicker?"
+        },
+        {
+          "id": "doc-071a33a71652::sentence-6",
+          "documentId": "doc-071a33a71652",
+          "text": "4. Shaving hair: Does shaved hair grow back thicker?\n\n",
+          "start": 170,
+          "end": 224,
+          "contextSpans": [],
+          "context": "4. Shaving hair: Does shaved hair grow back thicker?"
+        },
+        {
+          "id": "doc-071a33a71652::sentence-10",
+          "documentId": "doc-071a33a71652",
+          "text": "## Does shaving unwanted body hair makes it grow back thicker and darker?\n\n",
+          "start": 314,
+          "end": 389,
+          "contextSpans": [],
+          "context": "## Does shaving unwanted body hair makes it grow back thicker and darker?"
+        },
+        {
+          "id": "doc-813ee535443b::sentence-14",
+          "documentId": "doc-813ee535443b",
+          "text": "After all, you’ve always been told that shaving your hair will make it grow back thicker … in exactly the spots where you don’t want luscious locks to grow.\n",
+          "start": 820,
+          "end": 977,
+          "contextSpans": [
+            {
+              "id": "doc-813ee535443b::sentence-13",
+              "documentId": "doc-813ee535443b",
+              "text": "Policy\n",
+              "start": 813,
+              "end": 820,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "Policy After all, you’ve always been told that shaving your hair will make it grow back thicker … in exactly the spots where you don’t want luscious locks to grow."
+        },
+        {
+          "id": "doc-813ee535443b::sentence-15",
+          "documentId": "doc-813ee535443b",
+          "text": "As it turns out, this is a myth: Shaving won’t make your hair regrow any thicker or faster. ",
+          "start": 977,
+          "end": 1069,
+          "contextSpans": [
+            {
+              "id": "doc-813ee535443b::sentence-14",
+              "documentId": "doc-813ee535443b",
+              "text": "After all, you’ve always been told that shaving your hair will make it grow back thicker … in exactly the spots where you don’t want luscious locks to grow.\n",
+              "start": 820,
+              "end": 977,
+              "direction": "PREVIOUS"
+            },
+            {
+              "id": "doc-813ee535443b::sentence-16",
+              "documentId": "doc-813ee535443b",
+              "text": "But there’s some logic behind thinking it does.\n",
+              "start": 1069,
+              "end": 1117,
+              "direction": "NEXT"
+            }
+          ],
+          "context": "After all, you’ve always been told that shaving your hair will make it grow back thicker … in exactly the spots where you don’t want luscious locks to grow. As it turns out, this is a myth: Shaving won’t make your hair regrow any thicker or faster. But there’s some logic behind thinking it does."
+        },
+        {
+          "id": "doc-813ee535443b::sentence-5",
+          "documentId": "doc-813ee535443b",
+          "text": "View image online (https://assets.clevelandclinic.org/transform/ab64dc15-5594-467e-a161-610d596f36dd/shaving-hair-growth-1340752254-770x533-1_jpg)\n",
+          "start": 176,
+          "end": 323,
+          "contextSpans": [],
+          "context": "View image online (https://assets.clevelandclinic.org/transform/ab64dc15-5594-467e-a161-610d596f36dd/shaving-hair-growth-1340752254-770x533-1_jpg)"
+        }
+      ]
+    }
+  ],
+  "assessment": {
+    "obligations": [
+      {
+        "atomId": "atom-1",
+        "supportSpanIds": [],
+        "refuteSpanIds": [
+          "doc-813ee535443b::sentence-15"
+        ],
+        "contextSpanIds": [
+          "doc-071a33a71652::sentence-7",
+          "doc-071a33a71652::sentence-6",
+          "doc-071a33a71652::sentence-10"
+        ],
+        "sufficiency": "INSUFFICIENT",
+        "missingInformation": "The evidence does not provide a direct measurement or comparison of hair thickness before and after shaving to support or refute the claim.",
+        "reason": "The evidence suggests that shaving does not make hair grow back thicker, but it does not provide a direct measurement or comparison.",
+        "scopeChecks": [
+          {
+            "spanId": "doc-071a33a71652::sentence-7",
+            "documentId": "doc-071a33a71652",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-071a33a71652::sentence-6",
+            "documentId": "doc-071a33a71652",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-071a33a71652::sentence-10",
+            "documentId": "doc-071a33a71652",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-813ee535443b::sentence-14",
+            "documentId": "doc-813ee535443b",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-813ee535443b::sentence-15",
+            "documentId": "doc-813ee535443b",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-813ee535443b::sentence-5",
+            "documentId": "doc-813ee535443b",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          }
+        ]
+      },
+      {
+        "atomId": "atom-2",
+        "supportSpanIds": [],
+        "refuteSpanIds": [
+          "doc-813ee535443b::sentence-15"
+        ],
+        "contextSpanIds": [
+          "doc-071a33a71652::sentence-7",
+          "doc-071a33a71652::sentence-6",
+          "doc-071a33a71652::sentence-10"
+        ],
+        "sufficiency": "INSUFFICIENT",
+        "missingInformation": "The evidence does not provide a direct measurement or comparison of hair growth rate before and after shaving to support or refute the claim.",
+        "reason": "The evidence suggests that shaving does not make hair grow back faster, but it does not provide a direct measurement or comparison.",
+        "scopeChecks": [
+          {
+            "spanId": "doc-071a33a71652::sentence-7",
+            "documentId": "doc-071a33a71652",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-071a33a71652::sentence-6",
+            "documentId": "doc-071a33a71652",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-071a33a71652::sentence-10",
+            "documentId": "doc-071a33a71652",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-813ee535443b::sentence-14",
+            "documentId": "doc-813ee535443b",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-813ee535443b::sentence-15",
+            "documentId": "doc-813ee535443b",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-813ee535443b::sentence-5",
+            "documentId": "doc-813ee535443b",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          }
+        ]
+      }
+    ],
+    "materialOmission": {
+      "detected": false,
+      "supportSpanIds": [],
+      "contextSpanIds": [],
+      "reason": "No material omission was established."
+    }
+  },
+  "reasoning": [
+    {
+      "id": "proof:atom-1:attribute_compare:1",
+      "atomId": "atom-1",
+      "operator": "ATTRIBUTE_COMPARE",
+      "status": "DISPROVED",
+      "relation": "REFUTES",
+      "premiseIds": [
+        "evidence:atom-1:doc-813ee535443b:doc-813ee535443b::sentence-15"
+      ],
+      "premises": [
+        {
+          "id": "evidence:atom-1:doc-813ee535443b:doc-813ee535443b::sentence-15",
+          "documentId": "doc-813ee535443b",
+          "text": "As it turns out, this is a myth: Shaving won’t make your hair regrow any thicker or faster. ",
+          "start": 977,
+          "end": 1069,
+          "kind": "EVIDENCE",
+          "contentHash": null,
+          "itemCount": null
+        }
+      ],
+      "expression": "claimed attribute = source attribute",
+      "conclusion": "The source explicitly negates the claimed attribute.",
+      "explanation": "Python accepted an explicit source negation only after entity and property terms were aligned.",
+      "validationWarnings": [],
+      "program": {
+        "version": 1,
+        "steps": [
+          {
+            "id": "input-1",
+            "operation": "LOOKUP",
+            "inputIds": [
+              "evidence:atom-1:doc-813ee535443b:doc-813ee535443b::sentence-15"
+            ],
+            "outputType": "FACT",
+            "description": "Read an unchanged server-owned premise."
+          },
+          {
+            "id": "result",
+            "operation": "EQUAL",
+            "inputIds": [
+              "input-1"
+            ],
+            "outputType": "BOOLEAN",
+            "description": "Validate operand alignment and execute the typed operation in Python."
+          }
+        ],
+        "outputStepId": "result"
+      }
+    },
+    {
+      "id": "proof:atom-2:attribute_compare:2",
+      "atomId": "atom-2",
+      "operator": "ATTRIBUTE_COMPARE",
+      "status": "DISPROVED",
+      "relation": "REFUTES",
+      "premiseIds": [
+        "evidence:atom-2:doc-813ee535443b:doc-813ee535443b::sentence-15"
+      ],
+      "premises": [
+        {
+          "id": "evidence:atom-2:doc-813ee535443b:doc-813ee535443b::sentence-15",
+          "documentId": "doc-813ee535443b",
+          "text": "As it turns out, this is a myth: Shaving won’t make your hair regrow any thicker or faster. ",
+          "start": 977,
+          "end": 1069,
+          "kind": "EVIDENCE",
+          "contentHash": null,
+          "itemCount": null
+        }
+      ],
+      "expression": "claimed attribute = source attribute",
+      "conclusion": "The source explicitly negates the claimed attribute.",
+      "explanation": "Python accepted an explicit source negation only after entity and property terms were aligned.",
+      "validationWarnings": [],
+      "program": {
+        "version": 1,
+        "steps": [
+          {
+            "id": "input-1",
+            "operation": "LOOKUP",
+            "inputIds": [
+              "evidence:atom-2:doc-813ee535443b:doc-813ee535443b::sentence-15"
+            ],
+            "outputType": "FACT",
+            "description": "Read an unchanged server-owned premise."
+          },
+          {
+            "id": "result",
+            "operation": "EQUAL",
+            "inputIds": [
+              "input-1"
+            ],
+            "outputType": "BOOLEAN",
+            "description": "Validate operand alignment and execute the typed operation in Python."
+          }
+        ],
+        "outputStepId": "result"
+      }
+    }
+  ],
+  "linguistics": {
+    "schemaVersion": 2,
+    "claimAnalysis": {
+      "atomId": "claim",
+      "frames": [
+        {
+          "id": "claim-frame-1",
+          "predicate": {
+            "id": "claim-frame-1-predicate",
+            "text": "makes",
+            "start": 8,
+            "end": 13
+          },
+          "subjects": [
+            {
+              "id": "claim-frame-1-subject-1",
+              "text": "Shaving",
+              "start": 0,
+              "end": 7
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "claim-frame-1-argument-1",
+              "text": "hair grow back thicker and faster",
+              "start": 14,
+              "end": 47,
+              "role": "clausal_complement"
+            }
+          ],
+          "adjuncts": [],
+          "otherModifiers": []
+        },
+        {
+          "id": "claim-frame-2",
+          "predicate": {
+            "id": "claim-frame-2-predicate",
+            "text": "grow",
+            "start": 19,
+            "end": 23
+          },
+          "subjects": [
+            {
+              "id": "claim-frame-2-subject-1",
+              "text": "hair",
+              "start": 14,
+              "end": 18
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "claim-frame-2-argument-1",
+              "text": "thicker and faster",
+              "start": 29,
+              "end": 47,
+              "role": "subject_complement"
+            }
+          ],
+          "adjuncts": [
+            {
+              "id": "claim-frame-2-adjunct-1",
+              "text": "back",
+              "start": 24,
+              "end": 28,
+              "kind": "manner"
+            }
+          ],
+          "otherModifiers": []
+        }
+      ],
+      "cues": [],
+      "entities": [],
+      "tokens": [
+        {
+          "id": "claim-token-0",
+          "text": "Shaving",
+          "start": 0,
+          "end": 7,
+          "lemma": "shaving",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "nsubj",
+          "head": "makes"
+        },
+        {
+          "id": "claim-token-1",
+          "text": "makes",
+          "start": 8,
+          "end": 13,
+          "lemma": "make",
+          "pos": "VERB",
+          "tag": "VBZ",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "claim-token-2",
+          "text": "hair",
+          "start": 14,
+          "end": 18,
+          "lemma": "hair",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "nsubj",
+          "head": "grow"
+        },
+        {
+          "id": "claim-token-3",
+          "text": "grow",
+          "start": 19,
+          "end": 23,
+          "lemma": "grow",
+          "pos": "VERB",
+          "tag": "VB",
+          "dependency": "ccomp",
+          "head": "makes"
+        },
+        {
+          "id": "claim-token-4",
+          "text": "back",
+          "start": 24,
+          "end": 28,
+          "lemma": "back",
+          "pos": "ADV",
+          "tag": "RB",
+          "dependency": "advmod",
+          "head": "grow"
+        },
+        {
+          "id": "claim-token-5",
+          "text": "thicker",
+          "start": 29,
+          "end": 36,
+          "lemma": "thick",
+          "pos": "ADJ",
+          "tag": "JJR",
+          "dependency": "acomp",
+          "head": "grow"
+        },
+        {
+          "id": "claim-token-6",
+          "text": "and",
+          "start": 37,
+          "end": 40,
+          "lemma": "and",
+          "pos": "CCONJ",
+          "tag": "CC",
+          "dependency": "cc",
+          "head": "thicker"
+        },
+        {
+          "id": "claim-token-7",
+          "text": "faster",
+          "start": 41,
+          "end": 47,
+          "lemma": "fast",
+          "pos": "ADV",
+          "tag": "RBR",
+          "dependency": "conj",
+          "head": "thicker"
+        },
+        {
+          "id": "claim-token-8",
+          "text": ".",
+          "start": 47,
+          "end": 48,
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "makes"
+        }
+      ],
+      "status": "complete",
+      "unresolved": []
+    },
+    "analyses": [
+      {
+        "atomId": "atom-1",
+        "frames": [
+          {
+            "id": "atom-1-frame-1",
+            "predicate": {
+              "id": "atom-1-frame-1-predicate",
+              "text": "makes",
+              "start": 8,
+              "end": 13
+            },
+            "subjects": [
+              {
+                "id": "atom-1-frame-1-subject-1",
+                "text": "Shaving",
+                "start": 0,
+                "end": 7
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-1-frame-1-argument-1",
+                "text": "hair grow back thicker",
+                "start": 14,
+                "end": 36,
+                "role": "clausal_complement"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": []
+          },
+          {
+            "id": "atom-1-frame-2",
+            "predicate": {
+              "id": "atom-1-frame-2-predicate",
+              "text": "grow",
+              "start": 19,
+              "end": 23
+            },
+            "subjects": [
+              {
+                "id": "atom-1-frame-2-subject-1",
+                "text": "hair",
+                "start": 14,
+                "end": 18
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-1-frame-2-argument-1",
+                "text": "back thicker",
+                "start": 24,
+                "end": 36,
+                "role": "subject_complement"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [],
+        "entities": [],
+        "tokens": [
+          {
+            "id": "atom-1-token-0",
+            "text": "Shaving",
+            "start": 0,
+            "end": 7,
+            "lemma": "shaving",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "nsubj",
+            "head": "makes"
+          },
+          {
+            "id": "atom-1-token-1",
+            "text": "makes",
+            "start": 8,
+            "end": 13,
+            "lemma": "make",
+            "pos": "VERB",
+            "tag": "VBZ",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-1-token-2",
+            "text": "hair",
+            "start": 14,
+            "end": 18,
+            "lemma": "hair",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "nsubj",
+            "head": "grow"
+          },
+          {
+            "id": "atom-1-token-3",
+            "text": "grow",
+            "start": 19,
+            "end": 23,
+            "lemma": "grow",
+            "pos": "VERB",
+            "tag": "VB",
+            "dependency": "ccomp",
+            "head": "makes"
+          },
+          {
+            "id": "atom-1-token-4",
+            "text": "back",
+            "start": 24,
+            "end": 28,
+            "lemma": "back",
+            "pos": "ADV",
+            "tag": "RB",
+            "dependency": "advmod",
+            "head": "thicker"
+          },
+          {
+            "id": "atom-1-token-5",
+            "text": "thicker",
+            "start": 29,
+            "end": 36,
+            "lemma": "thick",
+            "pos": "ADJ",
+            "tag": "JJR",
+            "dependency": "acomp",
+            "head": "grow"
+          },
+          {
+            "id": "atom-1-token-6",
+            "text": ".",
+            "start": 36,
+            "end": 37,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "makes"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      },
+      {
+        "atomId": "atom-2",
+        "frames": [
+          {
+            "id": "atom-2-frame-1",
+            "predicate": {
+              "id": "atom-2-frame-1-predicate",
+              "text": "makes",
+              "start": 8,
+              "end": 13
+            },
+            "subjects": [
+              {
+                "id": "atom-2-frame-1-subject-1",
+                "text": "Shaving",
+                "start": 0,
+                "end": 7
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-2-frame-1-argument-1",
+                "text": "hair grow back faster",
+                "start": 14,
+                "end": 35,
+                "role": "clausal_complement"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": []
+          },
+          {
+            "id": "atom-2-frame-2",
+            "predicate": {
+              "id": "atom-2-frame-2-predicate",
+              "text": "grow",
+              "start": 19,
+              "end": 23
+            },
+            "subjects": [
+              {
+                "id": "atom-2-frame-2-subject-1",
+                "text": "hair",
+                "start": 14,
+                "end": 18
+              }
+            ],
+            "coreArguments": [],
+            "adjuncts": [
+              {
+                "id": "atom-2-frame-2-adjunct-1",
+                "text": "back",
+                "start": 24,
+                "end": 28,
+                "kind": "manner"
+              },
+              {
+                "id": "atom-2-frame-2-adjunct-2",
+                "text": "faster",
+                "start": 29,
+                "end": 35,
+                "kind": "manner"
+              }
+            ],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [],
+        "entities": [],
+        "tokens": [
+          {
+            "id": "atom-2-token-0",
+            "text": "Shaving",
+            "start": 0,
+            "end": 7,
+            "lemma": "shaving",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "nsubj",
+            "head": "makes"
+          },
+          {
+            "id": "atom-2-token-1",
+            "text": "makes",
+            "start": 8,
+            "end": 13,
+            "lemma": "make",
+            "pos": "VERB",
+            "tag": "VBZ",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-2-token-2",
+            "text": "hair",
+            "start": 14,
+            "end": 18,
+            "lemma": "hair",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "nsubj",
+            "head": "grow"
+          },
+          {
+            "id": "atom-2-token-3",
+            "text": "grow",
+            "start": 19,
+            "end": 23,
+            "lemma": "grow",
+            "pos": "VERB",
+            "tag": "VB",
+            "dependency": "ccomp",
+            "head": "makes"
+          },
+          {
+            "id": "atom-2-token-4",
+            "text": "back",
+            "start": 24,
+            "end": 28,
+            "lemma": "back",
+            "pos": "ADV",
+            "tag": "RB",
+            "dependency": "advmod",
+            "head": "grow"
+          },
+          {
+            "id": "atom-2-token-5",
+            "text": "faster",
+            "start": 29,
+            "end": 35,
+            "lemma": "fast",
+            "pos": "ADV",
+            "tag": "RBR",
+            "dependency": "advmod",
+            "head": "grow"
+          },
+          {
+            "id": "atom-2-token-6",
+            "text": ".",
+            "start": 35,
+            "end": 36,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "makes"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      }
+    ],
+    "summaries": [
+      {
+        "atomId": "atom-1",
+        "analysisStatus": "complete",
+        "roleAudit": "INCONCLUSIVE",
+        "subjects": [
+          "Shaving",
+          "hair"
+        ],
+        "predicates": [
+          "make",
+          "grow"
+        ],
+        "cueKinds": [],
+        "modifierKinds": [],
+        "entityLabels": [],
+        "warnings": [
+          "MULTIPLE_PROPOSITION_FRAMES"
+        ]
+      },
+      {
+        "atomId": "atom-2",
+        "analysisStatus": "complete",
+        "roleAudit": "INCONCLUSIVE",
+        "subjects": [
+          "Shaving",
+          "hair"
+        ],
+        "predicates": [
+          "make",
+          "grow"
+        ],
+        "cueKinds": [],
+        "modifierKinds": [
+          "manner"
+        ],
+        "entityLabels": [],
+        "warnings": [
+          "MULTIPLE_PROPOSITION_FRAMES"
+        ]
+      }
+    ],
+    "claimWarnings": [],
+    "provider": "spacy",
+    "model": "en_core_web_sm@3.8.0"
+  },
+  "verdict": {
+    "aggregationSchemaVersion": 3,
+    "claimId": "showcase-science-shaving",
+    "composition": "AND",
+    "verdict": "REFUTED",
+    "positions": {
+      "supportPosition": false,
+      "refutePosition": true,
+      "materialOmissionPosition": false,
+      "supportObligationIds": [],
+      "refuteObligationIds": [
+        "atom-1",
+        "atom-2"
+      ],
+      "unresolvedObligationIds": []
+    },
+    "obligations": [
+      {
+        "obligationId": "atom-1",
+        "state": "REFUTED",
+        "supportEdgeIds": [],
+        "refuteEdgeIds": [
+          "edge:REFUTES:inference:proof:atom-1:attribute_compare:1:obligation:showcase-science-shaving:atom-1"
+        ],
+        "unselectedCandidateCount": 2,
+        "provisionalRelationCount": 1
+      },
+      {
+        "obligationId": "atom-2",
+        "state": "REFUTED",
+        "supportEdgeIds": [],
+        "refuteEdgeIds": [
+          "edge:REFUTES:inference:proof:atom-2:attribute_compare:2:obligation:showcase-science-shaving:atom-2"
+        ],
+        "unselectedCandidateCount": 2,
+        "provisionalRelationCount": 1
+      }
+    ],
+    "warnings": [
+      {
+        "code": "PROVISIONAL_EVIDENCE_EXCLUDED",
+        "message": "1 assessed relation(s) for obligation atom-1 are provisional because the evidence is not sufficient."
+      },
+      {
+        "code": "PROVISIONAL_EVIDENCE_EXCLUDED",
+        "message": "1 assessed relation(s) for obligation atom-2 are provisional because the evidence is not sufficient."
+      }
+    ],
+    "ruleTrace": [
+      "AND is refuted when any obligation is refuted-only.",
+      "Validated positions — support: no; refute: yes.",
+      "Verdict: REFUTED."
+    ]
+  },
+  "recordedWith": {
+    "pipelineRevision": "submission-ready-v2",
+    "inputDigest": "1af953e558cacdf482d4b328f96269ba2a7a9b4e3f571c6030b3410a144965fa",
+    "decompositionModel": "qwen2.5:7b",
+    "retrievalModel": "BAAI/bge-small-en-v1.5",
+    "retrievalMethod": "HYBRID",
+    "assessmentModel": "qwen2.5:7b",
+    "reasoningModel": "qwen2.5:7b",
+    "linguisticsModel": "en_core_web_sm@3.8.0"
+  },
+  "timingsSeconds": {
+    "decomposition": 15.978,
+    "retrievalAndLinguistics": 0.214,
+    "evidenceAssessment": 25.596,
+    "symbolicReasoning": 16.234,
+    "aggregation": 0.002,
+    "total": 58.023
+  }
+}

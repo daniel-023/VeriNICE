@@ -1,7 +1,7 @@
 {
   "caseId": "averitec-dev-0146",
-  "schemaVersion": 2,
-  "composition": "AND",
+  "schemaVersion": 6,
+  "composition": "SINGLE",
   "warnings": [],
   "atoms": [
     {
@@ -11,22 +11,6 @@
       "start": 0,
       "end": 140,
       "role": "NUMERIC_CONSTRAINT"
-    },
-    {
-      "id": "atom-2",
-      "text": "The pandemic resulted in a loss of 22 million jobs.",
-      "sourceText": "a pandemic that lost 22 million jobs at the height",
-      "start": 45,
-      "end": 95,
-      "role": "NUMERIC_CONSTRAINT"
-    },
-    {
-      "id": "atom-3",
-      "text": "11.6 million jobs have been added back.",
-      "sourceText": "we've already added back 11.6 million jobs",
-      "start": 97,
-      "end": 139,
-      "role": "NUMERIC_CONSTRAINT"
     }
   ],
   "evidence": [
@@ -34,332 +18,162 @@
       "atomId": "atom-1",
       "spans": [
         {
-          "id": "doc-a46f0d421238::sentence-4",
-          "documentId": "doc-a46f0d421238",
-          "text": "Evidence 1: How many jobs were lost during to Covid pandemic in the U.S? ",
-          "start": 198,
-          "end": 271,
-          "context": "Source URL: https://fred.stlouisfed.org/series/payems\n Evidence 1: How many jobs were lost during to Covid pandemic in the U.S?  From March to April 2020, more than 22.7 million Americans lost their jobs,\n\n"
-        },
-        {
-          "id": "doc-12b587084e5a::sentence-117",
+          "id": "doc-12b587084e5a::sentence-111",
           "documentId": "doc-12b587084e5a",
           "text": "4. Information on the Pandemic Emergency Unemployment Compensation (PEUC) program can be found in Unemployment\n",
-          "start": 6748,
-          "end": 6859,
-          "context": "information\n 4. Information on the Pandemic Emergency Unemployment Compensation (PEUC) program can be found in Unemployment\n Insurance Program Letter (UIPL) 17-20: PEUC Program information\n"
+          "start": 6440,
+          "end": 6551,
+          "contextSpans": [],
+          "context": "4. Information on the Pandemic Emergency Unemployment Compensation (PEUC) program can be found in Unemployment"
         },
         {
-          "id": "doc-12b587084e5a::sentence-115",
+          "id": "doc-12b587084e5a::sentence-109",
           "documentId": "doc-12b587084e5a",
           "text": "3. Information on the Pandemic Unemployment Assistance (PUA) program can be found in UIPL 16 -20: PUA Program\n",
-          "start": 6626,
-          "end": 6736,
-          "context": "2. Most recent week used covered employment of 139,248,565 as denominator.\n 3. Information on the Pandemic Unemployment Assistance (PUA) program can be found in UIPL 16 -20: PUA Program\n information\n"
+          "start": 6318,
+          "end": 6428,
+          "contextSpans": [],
+          "context": "3. Information on the Pandemic Unemployment Assistance (PUA) program can be found in UIPL 16 -20: PUA Program"
         },
         {
-          "id": "doc-a46f0d421238::sentence-5",
-          "documentId": "doc-a46f0d421238",
-          "text": "From March to April 2020, more than 22.7 million Americans lost their jobs,\n\n",
-          "start": 271,
-          "end": 348,
-          "context": "Evidence 1: How many jobs were lost during to Covid pandemic in the U.S?  From March to April 2020, more than 22.7 million Americans lost their jobs,\n\n RECOVERED SOURCE TEXT\n"
-        },
-        {
-          "id": "doc-12b587084e5a::sentence-71",
+          "id": "doc-12b587084e5a::sentence-65",
           "documentId": "doc-12b587084e5a",
           "text": "During the week ending March 27, 51 states reported 7,053,575 continued weekly claims for Pandemic Unemployment\n",
-          "start": 3855,
-          "end": 3967,
-          "context": "from the prior week.\n During the week ending March 27, 51 states reported 7,053,575 continued weekly claims for Pandemic Unemployment\n Assistance benefits and 51 states reported 5,160,267 continued claims for Pandemic Emergency Unemployment\n"
-        },
-        {
-          "id": "doc-24baaeff66a9::sentence-4",
-          "documentId": "doc-24baaeff66a9",
-          "text": "Evidence 1: When did the U.S declare coronavirus a public health emergency (pandemic) January 2020\n\n",
-          "start": 270,
-          "end": 370,
-          "context": "Source URL: https://www.aha.org/news/headline/2020-01-31-us-declares-coronavirus-public-health-emergency-cdc-updates-guidance\n Evidence 1: When did the U.S declare coronavirus a public health emergency (pandemic) January 2020\n\n RECOVERED SOURCE TEXT\n"
-        }
-      ]
-    },
-    {
-      "atomId": "atom-2",
-      "spans": [
-        {
-          "id": "doc-a46f0d421238::sentence-4",
-          "documentId": "doc-a46f0d421238",
-          "text": "Evidence 1: How many jobs were lost during to Covid pandemic in the U.S? ",
-          "start": 198,
-          "end": 271,
-          "context": "Source URL: https://fred.stlouisfed.org/series/payems\n Evidence 1: How many jobs were lost during to Covid pandemic in the U.S?  From March to April 2020, more than 22.7 million Americans lost their jobs,\n\n"
-        },
-        {
-          "id": "doc-12b587084e5a::sentence-117",
-          "documentId": "doc-12b587084e5a",
-          "text": "4. Information on the Pandemic Emergency Unemployment Compensation (PEUC) program can be found in Unemployment\n",
-          "start": 6748,
-          "end": 6859,
-          "context": "information\n 4. Information on the Pandemic Emergency Unemployment Compensation (PEUC) program can be found in Unemployment\n Insurance Program Letter (UIPL) 17-20: PEUC Program information\n"
-        },
-        {
-          "id": "doc-a46f0d421238::sentence-5",
-          "documentId": "doc-a46f0d421238",
-          "text": "From March to April 2020, more than 22.7 million Americans lost their jobs,\n\n",
-          "start": 271,
-          "end": 348,
-          "context": "Evidence 1: How many jobs were lost during to Covid pandemic in the U.S?  From March to April 2020, more than 22.7 million Americans lost their jobs,\n\n RECOVERED SOURCE TEXT\n"
-        },
-        {
-          "id": "doc-12b587084e5a::sentence-115",
-          "documentId": "doc-12b587084e5a",
-          "text": "3. Information on the Pandemic Unemployment Assistance (PUA) program can be found in UIPL 16 -20: PUA Program\n",
-          "start": 6626,
-          "end": 6736,
-          "context": "2. Most recent week used covered employment of 139,248,565 as denominator.\n 3. Information on the Pandemic Unemployment Assistance (PUA) program can be found in UIPL 16 -20: PUA Program\n information\n"
-        },
-        {
-          "id": "doc-12b587084e5a::sentence-71",
-          "documentId": "doc-12b587084e5a",
-          "text": "During the week ending March 27, 51 states reported 7,053,575 continued weekly claims for Pandemic Unemployment\n",
-          "start": 3855,
-          "end": 3967,
-          "context": "from the prior week.\n During the week ending March 27, 51 states reported 7,053,575 continued weekly claims for Pandemic Unemployment\n Assistance benefits and 51 states reported 5,160,267 continued claims for Pandemic Emergency Unemployment\n"
-        },
-        {
-          "id": "doc-24baaeff66a9::sentence-4",
-          "documentId": "doc-24baaeff66a9",
-          "text": "Evidence 1: When did the U.S declare coronavirus a public health emergency (pandemic) January 2020\n\n",
-          "start": 270,
-          "end": 370,
-          "context": "Source URL: https://www.aha.org/news/headline/2020-01-31-us-declares-coronavirus-public-health-emergency-cdc-updates-guidance\n Evidence 1: When did the U.S declare coronavirus a public health emergency (pandemic) January 2020\n\n RECOVERED SOURCE TEXT\n"
-        }
-      ]
-    },
-    {
-      "atomId": "atom-3",
-      "spans": [
-        {
-          "id": "doc-a46f0d421238::sentence-61",
-          "documentId": "doc-a46f0d421238",
-          "text": "This measure provides useful insights into the current economic situation because it can represent the number of jobs added or lost in an economy. ",
-          "start": 2129,
-          "end": 2276,
-          "context": "This measure accounts for approximately 80 percent of the workers who contribute to Gross Domestic Product (GDP).\n This measure provides useful insights into the current economic situation because it can represent the number of jobs added or lost in an economy.  Increases in employment might indicate that businesses are hiring which might also suggest that businesses are growing. "
-        },
-        {
-          "id": "doc-a46f0d421238::sentence-4",
-          "documentId": "doc-a46f0d421238",
-          "text": "Evidence 1: How many jobs were lost during to Covid pandemic in the U.S? ",
-          "start": 198,
-          "end": 271,
-          "context": "Source URL: https://fred.stlouisfed.org/series/payems\n Evidence 1: How many jobs were lost during to Covid pandemic in the U.S?  From March to April 2020, more than 22.7 million Americans lost their jobs,\n\n"
-        },
-        {
-          "id": "doc-a46f0d421238::sentence-5",
-          "documentId": "doc-a46f0d421238",
-          "text": "From March to April 2020, more than 22.7 million Americans lost their jobs,\n\n",
-          "start": 271,
-          "end": 348,
-          "context": "Evidence 1: How many jobs were lost during to Covid pandemic in the U.S?  From March to April 2020, more than 22.7 million Americans lost their jobs,\n\n RECOVERED SOURCE TEXT\n"
-        },
-        {
-          "id": "doc-a46f0d421238::sentence-63",
-          "documentId": "doc-a46f0d421238",
-          "text": "Additionally, those who are newly employed have increased their personal incomes, which means (all else constant) their disposable incomes have also increased, thus fostering further economic expansion.\n",
-          "start": 2396,
-          "end": 2599,
-          "context": "Increases in employment might indicate that businesses are hiring which might also suggest that businesses are growing.  Additionally, those who are newly employed have increased their personal incomes, which means (all else constant) their disposable incomes have also increased, thus fostering further economic expansion.\n Generally, the U.S. labor force and levels of employment and unemployment are subject to fluctuations due to seasonal changes in weather, major holidays, and the opening and closing of schools. "
-        },
-        {
-          "id": "doc-a46f0d421238::sentence-62",
-          "documentId": "doc-a46f0d421238",
-          "text": "Increases in employment might indicate that businesses are hiring which might also suggest that businesses are growing. ",
-          "start": 2276,
-          "end": 2396,
-          "context": "This measure provides useful insights into the current economic situation because it can represent the number of jobs added or lost in an economy.  Increases in employment might indicate that businesses are hiring which might also suggest that businesses are growing.  Additionally, those who are newly employed have increased their personal incomes, which means (all else constant) their disposable incomes have also increased, thus fostering further economic expansion.\n"
+          "start": 3547,
+          "end": 3659,
+          "contextSpans": [],
+          "context": "During the week ending March 27, 51 states reported 7,053,575 continued weekly claims for Pandemic Unemployment"
         },
         {
           "id": "doc-a46f0d421238::sentence-55",
           "documentId": "doc-a46f0d421238",
-          "text": "Source: U.S. Bureau of Labor Statistics\n",
-          "start": 1619,
-          "end": 1659,
-          "context": "NOTES\n Source: U.S. Bureau of Labor Statistics\n Release: Employment Situation\n"
+          "text": "This measure provides useful insights into the current economic situation because it can represent the number of jobs added or lost in an economy. ",
+          "start": 1759,
+          "end": 1906,
+          "contextSpans": [
+            {
+              "id": "doc-a46f0d421238::sentence-54",
+              "documentId": "doc-a46f0d421238",
+              "text": "This measure accounts for approximately 80 percent of the workers who contribute to Gross Domestic Product (GDP).\n",
+              "start": 1645,
+              "end": 1759,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "This measure accounts for approximately 80 percent of the workers who contribute to Gross Domestic Product (GDP). This measure provides useful insights into the current economic situation because it can represent the number of jobs added or lost in an economy."
+        },
+        {
+          "id": "doc-24baaeff66a9::sentence-6",
+          "documentId": "doc-24baaeff66a9",
+          "text": "CDC also said it issued federal quarantine orders to the 195 U.S. citizens who repatriated to the U.S. from China on Jan. 29 because of the 2019-nCoV outbreak, the first mandatory quarantine in over 50 years. ",
+          "start": 818,
+          "end": 1027,
+          "contextSpans": [
+            {
+              "id": "doc-24baaeff66a9::sentence-5",
+              "documentId": "doc-24baaeff66a9",
+              "text": "In a CDC call with clinicians, the agency stressed that its guidance will continue to change over time as more is learned about the outbreak, and urged clinicians to continue to check CDC’s resources for updates.\n",
+              "start": 605,
+              "end": 818,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "In a CDC call with clinicians, the agency stressed that its guidance will continue to change over time as more is learned about the outbreak, and urged clinicians to continue to check CDC’s resources for updates. CDC also said it issued federal quarantine orders to the 195 U.S. citizens who repatriated to the U.S. from China on Jan. 29 because of the 2019-nCoV outbreak, the first mandatory quarantine in over 50 years."
+        },
+        {
+          "id": "doc-24baaeff66a9::sentence-9",
+          "documentId": "doc-24baaeff66a9",
+          "text": "“If we take strong measures now, we may be able to blunt the impact of the virus on the United States,” said Nancy Messonnier, M.D., director of CDC’s National Center for Immunization and Respiratory Diseases.\n",
+          "start": 1330,
+          "end": 1540,
+          "contextSpans": [
+            {
+              "id": "doc-24baaeff66a9::sentence-8",
+              "documentId": "doc-24baaeff66a9",
+              "text": "CDC said the decision comes after deliberating over data and new information, and because the passengers came from the epicenter of the outbreak in Wuhan. ",
+              "start": 1175,
+              "end": 1330,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "CDC said the decision comes after deliberating over data and new information, and because the passengers came from the epicenter of the outbreak in Wuhan. “If we take strong measures now, we may be able to blunt the impact of the virus on the United States,” said Nancy Messonnier, M.D., director of CDC’s National Center for Immunization and Respiratory Diseases."
         }
       ]
     }
   ],
-  "classifications": [
-    {
-      "atomId": "atom-1",
-      "relations": [
-        {
-          "spanId": "doc-a46f0d421238::sentence-4",
-          "documentId": "doc-a46f0d421238",
-          "relation": "ENTAILMENT",
-          "relevanceFiltered": false
-        },
-        {
-          "spanId": "doc-12b587084e5a::sentence-117",
-          "documentId": "doc-12b587084e5a",
-          "relation": "NEUTRAL",
-          "relevanceFiltered": false
-        },
-        {
-          "spanId": "doc-12b587084e5a::sentence-115",
-          "documentId": "doc-12b587084e5a",
-          "relation": "ENTAILMENT",
-          "relevanceFiltered": false
-        },
-        {
-          "spanId": "doc-a46f0d421238::sentence-5",
-          "documentId": "doc-a46f0d421238",
-          "relation": "ENTAILMENT",
-          "relevanceFiltered": false
-        },
-        {
-          "spanId": "doc-12b587084e5a::sentence-71",
-          "documentId": "doc-12b587084e5a",
-          "relation": "NEUTRAL",
-          "relevanceFiltered": false
-        },
-        {
-          "spanId": "doc-24baaeff66a9::sentence-4",
-          "documentId": "doc-24baaeff66a9",
-          "relation": "NEUTRAL",
-          "relevanceFiltered": false
-        }
-      ]
-    },
-    {
-      "atomId": "atom-2",
-      "relations": [
-        {
-          "spanId": "doc-a46f0d421238::sentence-4",
-          "documentId": "doc-a46f0d421238",
-          "relation": "ENTAILMENT",
-          "relevanceFiltered": false
-        },
-        {
-          "spanId": "doc-12b587084e5a::sentence-117",
-          "documentId": "doc-12b587084e5a",
-          "relation": "NEUTRAL",
-          "relevanceFiltered": false
-        },
-        {
-          "spanId": "doc-a46f0d421238::sentence-5",
-          "documentId": "doc-a46f0d421238",
-          "relation": "ENTAILMENT",
-          "relevanceFiltered": false
-        },
-        {
-          "spanId": "doc-12b587084e5a::sentence-115",
-          "documentId": "doc-12b587084e5a",
-          "relation": "ENTAILMENT",
-          "relevanceFiltered": false
-        },
-        {
-          "spanId": "doc-12b587084e5a::sentence-71",
-          "documentId": "doc-12b587084e5a",
-          "relation": "NEUTRAL",
-          "relevanceFiltered": false
-        },
-        {
-          "spanId": "doc-24baaeff66a9::sentence-4",
-          "documentId": "doc-24baaeff66a9",
-          "relation": "NEUTRAL",
-          "relevanceFiltered": false
-        }
-      ]
-    },
-    {
-      "atomId": "atom-3",
-      "relations": [
-        {
-          "spanId": "doc-a46f0d421238::sentence-61",
-          "documentId": "doc-a46f0d421238",
-          "relation": "ENTAILMENT",
-          "relevanceFiltered": false
-        },
-        {
-          "spanId": "doc-a46f0d421238::sentence-4",
-          "documentId": "doc-a46f0d421238",
-          "relation": "ENTAILMENT",
-          "relevanceFiltered": false
-        },
-        {
-          "spanId": "doc-a46f0d421238::sentence-5",
-          "documentId": "doc-a46f0d421238",
-          "relation": "ENTAILMENT",
-          "relevanceFiltered": false
-        },
-        {
-          "spanId": "doc-a46f0d421238::sentence-63",
-          "documentId": "doc-a46f0d421238",
-          "relation": "NEUTRAL",
-          "relevanceFiltered": false
-        },
-        {
-          "spanId": "doc-a46f0d421238::sentence-62",
-          "documentId": "doc-a46f0d421238",
-          "relation": "NEUTRAL",
-          "relevanceFiltered": false
-        },
-        {
-          "spanId": "doc-a46f0d421238::sentence-55",
-          "documentId": "doc-a46f0d421238",
-          "relation": "NEUTRAL",
-          "relevanceFiltered": false
-        }
-      ]
-    }
-  ],
-  "evidenceAudit": {
-    "claimPosition": {
-      "position": "SUPPORT_ONLY",
-      "supportSpanIds": [
-        "doc-a46f0d421238::sentence-4",
-        "doc-12b587084e5a::sentence-115",
-        "doc-a46f0d421238::sentence-4",
-        "doc-a46f0d421238::sentence-5",
-        "doc-a46f0d421238::sentence-61",
-        "doc-a46f0d421238::sentence-5"
-      ],
-      "attackSpanIds": [],
-      "contextSpanIds": [],
-      "reason": "The evidence supports the claim that 22 million jobs were lost and 11.6 million jobs were added back during the pandemic."
-    },
+  "assessment": {
     "obligations": [
       {
         "atomId": "atom-1",
-        "state": "SUPPORTED",
         "supportSpanIds": [
-          "doc-a46f0d421238::sentence-4",
-          "doc-12b587084e5a::sentence-115"
+          "doc-a46f0d421238::sentence-55"
         ],
-        "attackSpanIds": [],
-        "reason": "The evidence supports the claim that 22 million jobs were lost and 11.6 million jobs were added back during the pandemic."
-      },
-      {
-        "atomId": "atom-2",
-        "state": "SUPPORTED",
-        "supportSpanIds": [
-          "doc-a46f0d421238::sentence-4",
-          "doc-a46f0d421238::sentence-5"
+        "refuteSpanIds": [],
+        "contextSpanIds": [
+          "doc-12b587084e5a::sentence-111",
+          "doc-12b587084e5a::sentence-109",
+          "doc-12b587084e5a::sentence-65"
         ],
-        "attackSpanIds": [],
-        "reason": "The evidence supports the claim that 22 million jobs were lost and 11.6 million jobs were added back during the pandemic."
-      },
-      {
-        "atomId": "atom-3",
-        "state": "SUPPORTED",
-        "supportSpanIds": [
-          "doc-a46f0d421238::sentence-61",
-          "doc-a46f0d421238::sentence-5"
-        ],
-        "attackSpanIds": [],
-        "reason": "The evidence supports the claim that 22 million jobs were lost and 11.6 million jobs were added back during the pandemic."
+        "sufficiency": "SUFFICIENT",
+        "missingInformation": "",
+        "reason": "The FRED data (PAYEMS) shows the number of jobs added or lost, which directly supports the claim.",
+        "scopeChecks": [
+          {
+            "spanId": "doc-12b587084e5a::sentence-111",
+            "documentId": "doc-12b587084e5a",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-12b587084e5a::sentence-109",
+            "documentId": "doc-12b587084e5a",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-12b587084e5a::sentence-65",
+            "documentId": "doc-12b587084e5a",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-a46f0d421238::sentence-55",
+            "documentId": "doc-a46f0d421238",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "US"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-24baaeff66a9::sentence-6",
+            "documentId": "doc-24baaeff66a9",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "CN",
+              "US"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-24baaeff66a9::sentence-9",
+            "documentId": "doc-24baaeff66a9",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "US"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          }
+        ]
       }
     ],
     "materialOmission": {
@@ -367,10 +181,83 @@
       "supportSpanIds": [],
       "contextSpanIds": [],
       "reason": "No material omission was established."
-    },
-    "provider": "ollama",
-    "model": "qwen2.5:7b"
+    }
   },
+  "reasoning": [
+    {
+      "id": "proof:atom-1:temporal_compare:1",
+      "atomId": "atom-1",
+      "operator": "TEMPORAL_COMPARE",
+      "status": "UNRESOLVED",
+      "relation": null,
+      "premiseIds": [
+        "evidence:atom-1:doc-12b587084e5a:doc-12b587084e5a::sentence-65",
+        "evidence:atom-1:doc-a46f0d421238:doc-a46f0d421238::sentence-55"
+      ],
+      "premises": [
+        {
+          "id": "evidence:atom-1:doc-12b587084e5a:doc-12b587084e5a::sentence-65",
+          "documentId": "doc-12b587084e5a",
+          "text": "During the week ending March 27, 51 states reported 7,053,575 continued weekly claims for Pandemic Unemployment\n",
+          "start": 3547,
+          "end": 3659,
+          "kind": "EVIDENCE",
+          "contentHash": null,
+          "itemCount": null
+        },
+        {
+          "id": "evidence:atom-1:doc-a46f0d421238:doc-a46f0d421238::sentence-55",
+          "documentId": "doc-a46f0d421238",
+          "text": "This measure provides useful insights into the current economic situation because it can represent the number of jobs added or lost in an economy. ",
+          "start": 1759,
+          "end": 1906,
+          "kind": "EVIDENCE",
+          "contentHash": null,
+          "itemCount": null
+        }
+      ],
+      "expression": "after",
+      "conclusion": "Temporal relation is ambiguous",
+      "explanation": "The two compared events could not each be aligned to one absolute date.",
+      "validationWarnings": [
+        "AMBIGUOUS_TEMPORAL_MAPPING"
+      ],
+      "program": {
+        "version": 1,
+        "steps": [
+          {
+            "id": "input-1",
+            "operation": "LOOKUP",
+            "inputIds": [
+              "evidence:atom-1:doc-12b587084e5a:doc-12b587084e5a::sentence-65"
+            ],
+            "outputType": "FACT",
+            "description": "Read an unchanged server-owned premise."
+          },
+          {
+            "id": "input-2",
+            "operation": "LOOKUP",
+            "inputIds": [
+              "evidence:atom-1:doc-a46f0d421238:doc-a46f0d421238::sentence-55"
+            ],
+            "outputType": "FACT",
+            "description": "Read an unchanged server-owned premise."
+          },
+          {
+            "id": "result",
+            "operation": "TEMPORAL_COMPARE",
+            "inputIds": [
+              "input-1",
+              "input-2"
+            ],
+            "outputType": "BOOLEAN",
+            "description": "Validate operand alignment and execute the typed operation in Python."
+          }
+        ],
+        "outputStepId": "result"
+      }
+    }
+  ],
   "linguistics": {
     "schemaVersion": 2,
     "claimAnalysis": {
@@ -1163,300 +1050,6 @@
         ],
         "status": "complete",
         "unresolved": []
-      },
-      {
-        "atomId": "atom-2",
-        "frames": [
-          {
-            "id": "atom-2-frame-1",
-            "predicate": {
-              "id": "atom-2-frame-1-predicate",
-              "text": "resulted",
-              "start": 13,
-              "end": 21
-            },
-            "subjects": [
-              {
-                "id": "atom-2-frame-1-subject-1",
-                "text": "The pandemic",
-                "start": 0,
-                "end": 12
-              }
-            ],
-            "coreArguments": [],
-            "adjuncts": [],
-            "otherModifiers": [
-              {
-                "id": "atom-2-frame-1-other-modifier-1",
-                "text": "in a loss of 22 million jobs",
-                "start": 22,
-                "end": 50
-              }
-            ]
-          }
-        ],
-        "cues": [
-          {
-            "id": "atom-2-cue-numeric-35-45",
-            "text": "22 million",
-            "start": 35,
-            "end": 45,
-            "kind": "numeric"
-          }
-        ],
-        "entities": [],
-        "tokens": [
-          {
-            "id": "atom-2-token-0",
-            "text": "The",
-            "start": 0,
-            "end": 3,
-            "lemma": "the",
-            "pos": "DET",
-            "tag": "DT",
-            "dependency": "det",
-            "head": "pandemic"
-          },
-          {
-            "id": "atom-2-token-1",
-            "text": "pandemic",
-            "start": 4,
-            "end": 12,
-            "lemma": "pandemic",
-            "pos": "ADJ",
-            "tag": "JJ",
-            "dependency": "nsubj",
-            "head": "resulted"
-          },
-          {
-            "id": "atom-2-token-2",
-            "text": "resulted",
-            "start": 13,
-            "end": 21,
-            "lemma": "result",
-            "pos": "VERB",
-            "tag": "VBD",
-            "dependency": "ROOT",
-            "head": "ROOT"
-          },
-          {
-            "id": "atom-2-token-3",
-            "text": "in",
-            "start": 22,
-            "end": 24,
-            "lemma": "in",
-            "pos": "ADP",
-            "tag": "IN",
-            "dependency": "prep",
-            "head": "resulted"
-          },
-          {
-            "id": "atom-2-token-4",
-            "text": "a",
-            "start": 25,
-            "end": 26,
-            "lemma": "a",
-            "pos": "DET",
-            "tag": "DT",
-            "dependency": "det",
-            "head": "loss"
-          },
-          {
-            "id": "atom-2-token-5",
-            "text": "loss",
-            "start": 27,
-            "end": 31,
-            "lemma": "loss",
-            "pos": "NOUN",
-            "tag": "NN",
-            "dependency": "pobj",
-            "head": "in"
-          },
-          {
-            "id": "atom-2-token-6",
-            "text": "of",
-            "start": 32,
-            "end": 34,
-            "lemma": "of",
-            "pos": "ADP",
-            "tag": "IN",
-            "dependency": "prep",
-            "head": "loss"
-          },
-          {
-            "id": "atom-2-token-7",
-            "text": "22",
-            "start": 35,
-            "end": 37,
-            "lemma": "22",
-            "pos": "NUM",
-            "tag": "CD",
-            "dependency": "compound",
-            "head": "million"
-          },
-          {
-            "id": "atom-2-token-8",
-            "text": "million",
-            "start": 38,
-            "end": 45,
-            "lemma": "million",
-            "pos": "NUM",
-            "tag": "CD",
-            "dependency": "nummod",
-            "head": "jobs"
-          },
-          {
-            "id": "atom-2-token-9",
-            "text": "jobs",
-            "start": 46,
-            "end": 50,
-            "lemma": "job",
-            "pos": "NOUN",
-            "tag": "NNS",
-            "dependency": "pobj",
-            "head": "of"
-          },
-          {
-            "id": "atom-2-token-10",
-            "text": ".",
-            "start": 50,
-            "end": 51,
-            "lemma": ".",
-            "pos": "PUNCT",
-            "tag": ".",
-            "dependency": "punct",
-            "head": "resulted"
-          }
-        ],
-        "status": "complete",
-        "unresolved": []
-      },
-      {
-        "atomId": "atom-3",
-        "frames": [
-          {
-            "id": "atom-3-frame-1",
-            "predicate": {
-              "id": "atom-3-frame-1-predicate",
-              "text": "added",
-              "start": 28,
-              "end": 33
-            },
-            "subjects": [
-              {
-                "id": "atom-3-frame-1-subject-1",
-                "text": "11.6 million jobs",
-                "start": 0,
-                "end": 17
-              }
-            ],
-            "coreArguments": [],
-            "adjuncts": [],
-            "otherModifiers": []
-          }
-        ],
-        "cues": [
-          {
-            "id": "atom-3-cue-numeric-0-12",
-            "text": "11.6 million",
-            "start": 0,
-            "end": 12,
-            "kind": "numeric"
-          }
-        ],
-        "entities": [],
-        "tokens": [
-          {
-            "id": "atom-3-token-0",
-            "text": "11.6",
-            "start": 0,
-            "end": 4,
-            "lemma": "11.6",
-            "pos": "NUM",
-            "tag": "CD",
-            "dependency": "compound",
-            "head": "million"
-          },
-          {
-            "id": "atom-3-token-1",
-            "text": "million",
-            "start": 5,
-            "end": 12,
-            "lemma": "million",
-            "pos": "NUM",
-            "tag": "CD",
-            "dependency": "nummod",
-            "head": "jobs"
-          },
-          {
-            "id": "atom-3-token-2",
-            "text": "jobs",
-            "start": 13,
-            "end": 17,
-            "lemma": "job",
-            "pos": "NOUN",
-            "tag": "NNS",
-            "dependency": "nsubjpass",
-            "head": "added"
-          },
-          {
-            "id": "atom-3-token-3",
-            "text": "have",
-            "start": 18,
-            "end": 22,
-            "lemma": "have",
-            "pos": "AUX",
-            "tag": "VBP",
-            "dependency": "aux",
-            "head": "added"
-          },
-          {
-            "id": "atom-3-token-4",
-            "text": "been",
-            "start": 23,
-            "end": 27,
-            "lemma": "be",
-            "pos": "AUX",
-            "tag": "VBN",
-            "dependency": "auxpass",
-            "head": "added"
-          },
-          {
-            "id": "atom-3-token-5",
-            "text": "added",
-            "start": 28,
-            "end": 33,
-            "lemma": "add",
-            "pos": "VERB",
-            "tag": "VBN",
-            "dependency": "ROOT",
-            "head": "ROOT"
-          },
-          {
-            "id": "atom-3-token-6",
-            "text": "back",
-            "start": 34,
-            "end": 38,
-            "lemma": "back",
-            "pos": "ADP",
-            "tag": "RP",
-            "dependency": "prt",
-            "head": "added"
-          },
-          {
-            "id": "atom-3-token-7",
-            "text": ".",
-            "start": 38,
-            "end": 39,
-            "lemma": ".",
-            "pos": "PUNCT",
-            "tag": ".",
-            "dependency": "punct",
-            "head": "added"
-          }
-        ],
-        "status": "complete",
-        "unresolved": []
       }
     ],
     "summaries": [
@@ -1479,40 +1072,6 @@
         ],
         "entityLabels": [],
         "warnings": []
-      },
-      {
-        "atomId": "atom-2",
-        "analysisStatus": "complete",
-        "roleAudit": "MATCH",
-        "subjects": [
-          "The pandemic"
-        ],
-        "predicates": [
-          "result"
-        ],
-        "cueKinds": [
-          "numeric"
-        ],
-        "modifierKinds": [],
-        "entityLabels": [],
-        "warnings": []
-      },
-      {
-        "atomId": "atom-3",
-        "analysisStatus": "complete",
-        "roleAudit": "MATCH",
-        "subjects": [
-          "11.6 million jobs"
-        ],
-        "predicates": [
-          "add"
-        ],
-        "cueKinds": [
-          "numeric"
-        ],
-        "modifierKinds": [],
-        "entityLabels": [],
-        "warnings": []
       }
     ],
     "claimWarnings": [],
@@ -1520,77 +1079,55 @@
     "model": "en_core_web_sm@3.8.0"
   },
   "verdict": {
-    "aggregationSchemaVersion": 1,
+    "aggregationSchemaVersion": 3,
     "claimId": "averitec-dev-0146",
-    "composition": "AND",
+    "composition": "SINGLE",
     "verdict": "SUPPORTED",
     "positions": {
       "supportPosition": true,
-      "attackPosition": false,
+      "refutePosition": false,
       "materialOmissionPosition": false,
       "supportObligationIds": [
-        "atom-1",
-        "atom-2",
-        "atom-3"
+        "atom-1"
       ],
-      "attackObligationIds": [],
-      "unresolvedObligationIds": [],
-      "groundedClaimPosition": "SUPPORT_ONLY"
+      "refuteObligationIds": [],
+      "unresolvedObligationIds": []
     },
     "obligations": [
       {
         "obligationId": "atom-1",
         "state": "SUPPORTED",
         "supportEdgeIds": [
-          "edge:SUPPORTS:evidence:doc-a46f0d421238:doc-a46f0d421238::sentence-4:obligation:averitec-dev-0146:atom-1",
-          "edge:SUPPORTS:evidence:doc-12b587084e5a:doc-12b587084e5a::sentence-115:obligation:averitec-dev-0146:atom-1",
-          "edge:SUPPORTS:evidence:doc-a46f0d421238:doc-a46f0d421238::sentence-5:obligation:averitec-dev-0146:atom-1"
+          "edge:SUPPORTS:evidence:doc-a46f0d421238:doc-a46f0d421238::sentence-55:obligation:averitec-dev-0146:atom-1"
         ],
-        "attackEdgeIds": [],
-        "neutralCandidateCount": 3
-      },
-      {
-        "obligationId": "atom-2",
-        "state": "SUPPORTED",
-        "supportEdgeIds": [
-          "edge:SUPPORTS:evidence:doc-a46f0d421238:doc-a46f0d421238::sentence-4:obligation:averitec-dev-0146:atom-2",
-          "edge:SUPPORTS:evidence:doc-a46f0d421238:doc-a46f0d421238::sentence-5:obligation:averitec-dev-0146:atom-2",
-          "edge:SUPPORTS:evidence:doc-12b587084e5a:doc-12b587084e5a::sentence-115:obligation:averitec-dev-0146:atom-2"
-        ],
-        "attackEdgeIds": [],
-        "neutralCandidateCount": 3
-      },
-      {
-        "obligationId": "atom-3",
-        "state": "SUPPORTED",
-        "supportEdgeIds": [
-          "edge:SUPPORTS:evidence:doc-a46f0d421238:doc-a46f0d421238::sentence-61:obligation:averitec-dev-0146:atom-3",
-          "edge:SUPPORTS:evidence:doc-a46f0d421238:doc-a46f0d421238::sentence-4:obligation:averitec-dev-0146:atom-3",
-          "edge:SUPPORTS:evidence:doc-a46f0d421238:doc-a46f0d421238::sentence-5:obligation:averitec-dev-0146:atom-3"
-        ],
-        "attackEdgeIds": [],
-        "neutralCandidateCount": 3
+        "refuteEdgeIds": [],
+        "unselectedCandidateCount": 2,
+        "provisionalRelationCount": 0
       }
     ],
     "warnings": [],
     "ruleTrace": [
-      "The provenance-constrained claim audit sets the overall evidence position; deterministic aggregation maps that position to status.",
-      "Grounded claim position: SUPPORT_ONLY; The evidence supports the claim that 22 million jobs were lost and 11.6 million jobs were added back during the pandemic.",
-      "Support position: yes; attack position: no.",
-      "Final verdict: SUPPORTED."
+      "SINGLE maps its one obligation's validated relations directly.",
+      "Validated positions — support: yes; refute: no.",
+      "Verdict: SUPPORTED."
     ]
   },
   "recordedWith": {
+    "pipelineRevision": "submission-ready-v2",
+    "inputDigest": "a4f4b7610a34a8d6cf9cbd4b2afe1b7bb9350359d4a938a38461d1e45674087b",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
-    "nliModel": "qwen2.5:7b",
+    "retrievalMethod": "HYBRID",
+    "assessmentModel": "qwen2.5:7b",
+    "reasoningModel": "qwen2.5:7b",
     "linguisticsModel": "en_core_web_sm@3.8.0"
   },
   "timingsSeconds": {
-    "decomposition": 27.106,
-    "retrievalAndLinguistics": 1.524,
-    "evidenceAudit": 18.138,
-    "aggregation": 0.009,
-    "total": 46.784
+    "decomposition": 17.471,
+    "retrievalAndLinguistics": 1.229,
+    "evidenceAssessment": 15.991,
+    "symbolicReasoning": 16.579,
+    "aggregation": 0.002,
+    "total": 51.272
   }
 }

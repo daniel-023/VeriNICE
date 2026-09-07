@@ -1,0 +1,781 @@
+{
+  "caseId": "showcase-geography-canberra",
+  "schemaVersion": 6,
+  "composition": "SINGLE",
+  "warnings": [],
+  "atoms": [
+    {
+      "id": "atom-1",
+      "text": "Canberra was Australia's most populous capital city on 30 June 2024.",
+      "sourceText": "Canberra was Australia's most populous capital city on 30 June 2024",
+      "start": 0,
+      "end": 67,
+      "role": "TEMPORAL_CONSTRAINT"
+    }
+  ],
+  "evidence": [
+    {
+      "atomId": "atom-1",
+      "spans": [
+        {
+          "id": "doc-988b8061bae5::sentence-2",
+          "documentId": "doc-988b8061bae5",
+          "text": "The population of Australia’s capital cities grew by almost 430,000 people in the year ending June 2024, according to figures released today by the Australian Bureau of Statistics (ABS).\n",
+          "start": 38,
+          "end": 225,
+          "contextSpans": [],
+          "context": "The population of Australia’s capital cities grew by almost 430,000 people in the year ending June 2024, according to figures released today by the Australian Bureau of Statistics (ABS)."
+        },
+        {
+          "id": "doc-988b8061bae5::sentence-8",
+          "documentId": "doc-988b8061bae5",
+          "text": "Capital city | Population change 2023-24 | Population 30 June 2024 | |\n",
+          "start": 831,
+          "end": 902,
+          "contextSpans": [],
+          "context": "Capital city | Population change 2023-24 | Population 30 June 2024 | |"
+        },
+        {
+          "id": "doc-988b8061bae5::sentence-3",
+          "documentId": "doc-988b8061bae5",
+          "text": "Beidar Cho, ABS head of demography said: ‘Australia's capital cities grew by 427,800 people last financial year, down from a record growth of 520,900 the previous year. This was largely driven by net overseas migration.’\n",
+          "start": 225,
+          "end": 446,
+          "contextSpans": [
+            {
+              "id": "doc-988b8061bae5::sentence-2",
+              "documentId": "doc-988b8061bae5",
+              "text": "The population of Australia’s capital cities grew by almost 430,000 people in the year ending June 2024, according to figures released today by the Australian Bureau of Statistics (ABS).\n",
+              "start": 38,
+              "end": 225,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "The population of Australia’s capital cities grew by almost 430,000 people in the year ending June 2024, according to figures released today by the Australian Bureau of Statistics (ABS). Beidar Cho, ABS head of demography said: ‘Australia's capital cities grew by 427,800 people last financial year, down from a record growth of 520,900 the previous year. This was largely driven by net overseas migration.’"
+        },
+        {
+          "id": "doc-5cdeff0e8e07::sentence-19",
+          "documentId": "doc-5cdeff0e8e07",
+          "text": "- All capital cities experienced net overseas migration gain, which was largest in Melbourne followed by Sydney, Perth and Brisbane.\n",
+          "start": 1111,
+          "end": 1244,
+          "contextSpans": [],
+          "context": "- All capital cities experienced net overseas migration gain, which was largest in Melbourne followed by Sydney, Perth and Brisbane."
+        },
+        {
+          "id": "doc-5cdeff0e8e07::sentence-13",
+          "documentId": "doc-5cdeff0e8e07",
+          "text": "Canberra | 473,855 | 7,496 | 1.6 |\n",
+          "start": 670,
+          "end": 705,
+          "contextSpans": [],
+          "context": "Canberra | 473,855 | 7,496 | 1.6 |"
+        },
+        {
+          "id": "doc-5cdeff0e8e07::sentence-16",
+          "documentId": "doc-5cdeff0e8e07",
+          "text": "- Natural increase was highest in Melbourne followed by Sydney, Brisbane and Perth.\n",
+          "start": 880,
+          "end": 964,
+          "contextSpans": [],
+          "context": "- Natural increase was highest in Melbourne followed by Sydney, Brisbane and Perth."
+        }
+      ]
+    }
+  ],
+  "assessment": {
+    "obligations": [
+      {
+        "atomId": "atom-1",
+        "supportSpanIds": [],
+        "refuteSpanIds": [
+          "doc-5cdeff0e8e07::sentence-13"
+        ],
+        "contextSpanIds": [
+          "doc-988b8061bae5::sentence-2",
+          "doc-988b8061bae5::sentence-8",
+          "doc-988b8061bae5::sentence-3"
+        ],
+        "sufficiency": "PARTIAL",
+        "missingInformation": "The evidence does not provide the population of other capital cities for comparison on 30 June 2024.",
+        "reason": "While the evidence shows Canberra's population as 473,855 on 30 June 2024, it does not provide the population of other capital cities to determine if Canberra was the most populous.",
+        "scopeChecks": [
+          {
+            "spanId": "doc-988b8061bae5::sentence-2",
+            "documentId": "doc-988b8061bae5",
+            "status": "MATCH",
+            "claimJurisdictions": [
+              "AU"
+            ],
+            "evidenceJurisdictions": [
+              "AU"
+            ],
+            "reason": "The candidate and atomic claim share a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-988b8061bae5::sentence-8",
+            "documentId": "doc-988b8061bae5",
+            "status": "MATCH",
+            "claimJurisdictions": [
+              "AU"
+            ],
+            "evidenceJurisdictions": [
+              "AU"
+            ],
+            "reason": "The candidate and atomic claim share a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-988b8061bae5::sentence-3",
+            "documentId": "doc-988b8061bae5",
+            "status": "MATCH",
+            "claimJurisdictions": [
+              "AU"
+            ],
+            "evidenceJurisdictions": [
+              "AU"
+            ],
+            "reason": "The candidate and atomic claim share a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-5cdeff0e8e07::sentence-19",
+            "documentId": "doc-5cdeff0e8e07",
+            "status": "UNRESOLVED",
+            "claimJurisdictions": [
+              "AU"
+            ],
+            "evidenceJurisdictions": [],
+            "reason": "No explicit source jurisdiction could be resolved."
+          },
+          {
+            "spanId": "doc-5cdeff0e8e07::sentence-13",
+            "documentId": "doc-5cdeff0e8e07",
+            "status": "UNRESOLVED",
+            "claimJurisdictions": [
+              "AU"
+            ],
+            "evidenceJurisdictions": [],
+            "reason": "No explicit source jurisdiction could be resolved."
+          },
+          {
+            "spanId": "doc-5cdeff0e8e07::sentence-16",
+            "documentId": "doc-5cdeff0e8e07",
+            "status": "UNRESOLVED",
+            "claimJurisdictions": [
+              "AU"
+            ],
+            "evidenceJurisdictions": [],
+            "reason": "No explicit source jurisdiction could be resolved."
+          }
+        ]
+      }
+    ],
+    "materialOmission": {
+      "detected": false,
+      "supportSpanIds": [],
+      "contextSpanIds": [],
+      "reason": "No material omission was established."
+    }
+  },
+  "reasoning": [
+    {
+      "id": "proof:atom-1:extremum_compare:1",
+      "atomId": "atom-1",
+      "operator": "EXTREMUM_COMPARE",
+      "status": "DISPROVED",
+      "relation": "REFUTES",
+      "premiseIds": [
+        "operand:doc-5cdeff0e8e07:line:6",
+        "evidence:atom-1:doc-5cdeff0e8e07:doc-5cdeff0e8e07::sentence-13"
+      ],
+      "premises": [
+        {
+          "id": "operand:doc-5cdeff0e8e07:line:6",
+          "documentId": "doc-5cdeff0e8e07",
+          "text": "Sydney | 5,557,233 | 107,538 | 2.0 |",
+          "start": 418,
+          "end": 454,
+          "kind": "OPERAND",
+          "contentHash": null,
+          "itemCount": null
+        },
+        {
+          "id": "evidence:atom-1:doc-5cdeff0e8e07:doc-5cdeff0e8e07::sentence-13",
+          "documentId": "doc-5cdeff0e8e07",
+          "text": "Canberra | 473,855 | 7,496 | 1.6 |\n",
+          "start": 670,
+          "end": 705,
+          "kind": "EVIDENCE",
+          "contentHash": null,
+          "itemCount": null
+        }
+      ],
+      "expression": "5557233 > 473855",
+      "conclusion": "A grounded counterexample disproves the extremum claim.",
+      "explanation": "Python compared aligned measurements. One counterexample is sufficient to refute a superlative.",
+      "validationWarnings": [],
+      "program": {
+        "version": 1,
+        "steps": [
+          {
+            "id": "input-1",
+            "operation": "LOOKUP",
+            "inputIds": [
+              "operand:doc-5cdeff0e8e07:line:6"
+            ],
+            "outputType": "FACT",
+            "description": "Read an unchanged server-owned premise."
+          },
+          {
+            "id": "input-2",
+            "operation": "LOOKUP",
+            "inputIds": [
+              "evidence:atom-1:doc-5cdeff0e8e07:doc-5cdeff0e8e07::sentence-13"
+            ],
+            "outputType": "FACT",
+            "description": "Read an unchanged server-owned premise."
+          },
+          {
+            "id": "result",
+            "operation": "EXTREMUM_COUNTEREXAMPLE",
+            "inputIds": [
+              "input-1",
+              "input-2"
+            ],
+            "outputType": "BOOLEAN",
+            "description": "Validate operand alignment and execute the typed operation in Python."
+          }
+        ],
+        "outputStepId": "result"
+      }
+    }
+  ],
+  "linguistics": {
+    "schemaVersion": 2,
+    "claimAnalysis": {
+      "atomId": "claim",
+      "frames": [
+        {
+          "id": "claim-frame-1",
+          "predicate": {
+            "id": "claim-frame-1-predicate",
+            "text": "was",
+            "start": 9,
+            "end": 12
+          },
+          "subjects": [
+            {
+              "id": "claim-frame-1-subject-1",
+              "text": "Canberra",
+              "start": 0,
+              "end": 8
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "claim-frame-1-argument-1",
+              "text": "Australia's most populous capital city",
+              "start": 13,
+              "end": 51,
+              "role": "subject_complement"
+            }
+          ],
+          "adjuncts": [
+            {
+              "id": "claim-frame-1-adjunct-1",
+              "text": "on 30 June 2024",
+              "start": 52,
+              "end": 67,
+              "kind": "temporal"
+            }
+          ],
+          "otherModifiers": []
+        }
+      ],
+      "cues": [
+        {
+          "id": "claim-cue-quantifier-25-29",
+          "text": "most",
+          "start": 25,
+          "end": 29,
+          "kind": "quantifier"
+        },
+        {
+          "id": "claim-cue-temporal-55-67",
+          "text": "30 June 2024",
+          "start": 55,
+          "end": 67,
+          "kind": "temporal"
+        }
+      ],
+      "entities": [
+        {
+          "id": "claim-entity-gpe-0-8",
+          "text": "Canberra",
+          "start": 0,
+          "end": 8,
+          "label": "GPE"
+        },
+        {
+          "id": "claim-entity-gpe-13-22",
+          "text": "Australia",
+          "start": 13,
+          "end": 22,
+          "label": "GPE"
+        }
+      ],
+      "tokens": [
+        {
+          "id": "claim-token-0",
+          "text": "Canberra",
+          "start": 0,
+          "end": 8,
+          "lemma": "Canberra",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "nsubj",
+          "head": "was"
+        },
+        {
+          "id": "claim-token-1",
+          "text": "was",
+          "start": 9,
+          "end": 12,
+          "lemma": "be",
+          "pos": "AUX",
+          "tag": "VBD",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "claim-token-2",
+          "text": "Australia",
+          "start": 13,
+          "end": 22,
+          "lemma": "Australia",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "poss",
+          "head": "city"
+        },
+        {
+          "id": "claim-token-3",
+          "text": "'s",
+          "start": 22,
+          "end": 24,
+          "lemma": "'s",
+          "pos": "PART",
+          "tag": "POS",
+          "dependency": "case",
+          "head": "Australia"
+        },
+        {
+          "id": "claim-token-4",
+          "text": "most",
+          "start": 25,
+          "end": 29,
+          "lemma": "most",
+          "pos": "ADV",
+          "tag": "RBS",
+          "dependency": "advmod",
+          "head": "populous"
+        },
+        {
+          "id": "claim-token-5",
+          "text": "populous",
+          "start": 30,
+          "end": 38,
+          "lemma": "populous",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "city"
+        },
+        {
+          "id": "claim-token-6",
+          "text": "capital",
+          "start": 39,
+          "end": 46,
+          "lemma": "capital",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "compound",
+          "head": "city"
+        },
+        {
+          "id": "claim-token-7",
+          "text": "city",
+          "start": 47,
+          "end": 51,
+          "lemma": "city",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "attr",
+          "head": "was"
+        },
+        {
+          "id": "claim-token-8",
+          "text": "on",
+          "start": 52,
+          "end": 54,
+          "lemma": "on",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "was"
+        },
+        {
+          "id": "claim-token-9",
+          "text": "30",
+          "start": 55,
+          "end": 57,
+          "lemma": "30",
+          "pos": "NUM",
+          "tag": "CD",
+          "dependency": "nummod",
+          "head": "June"
+        },
+        {
+          "id": "claim-token-10",
+          "text": "June",
+          "start": 58,
+          "end": 62,
+          "lemma": "June",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "pobj",
+          "head": "on"
+        },
+        {
+          "id": "claim-token-11",
+          "text": "2024",
+          "start": 63,
+          "end": 67,
+          "lemma": "2024",
+          "pos": "NUM",
+          "tag": "CD",
+          "dependency": "nummod",
+          "head": "June"
+        },
+        {
+          "id": "claim-token-12",
+          "text": ".",
+          "start": 67,
+          "end": 68,
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "was"
+        }
+      ],
+      "status": "complete",
+      "unresolved": []
+    },
+    "analyses": [
+      {
+        "atomId": "atom-1",
+        "frames": [
+          {
+            "id": "atom-1-frame-1",
+            "predicate": {
+              "id": "atom-1-frame-1-predicate",
+              "text": "was",
+              "start": 9,
+              "end": 12
+            },
+            "subjects": [
+              {
+                "id": "atom-1-frame-1-subject-1",
+                "text": "Canberra",
+                "start": 0,
+                "end": 8
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-1-frame-1-argument-1",
+                "text": "Australia's most populous capital city",
+                "start": 13,
+                "end": 51,
+                "role": "subject_complement"
+              }
+            ],
+            "adjuncts": [
+              {
+                "id": "atom-1-frame-1-adjunct-1",
+                "text": "on 30 June 2024",
+                "start": 52,
+                "end": 67,
+                "kind": "temporal"
+              }
+            ],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [
+          {
+            "id": "atom-1-cue-quantifier-25-29",
+            "text": "most",
+            "start": 25,
+            "end": 29,
+            "kind": "quantifier"
+          },
+          {
+            "id": "atom-1-cue-temporal-55-67",
+            "text": "30 June 2024",
+            "start": 55,
+            "end": 67,
+            "kind": "temporal"
+          }
+        ],
+        "entities": [
+          {
+            "id": "atom-1-entity-gpe-0-8",
+            "text": "Canberra",
+            "start": 0,
+            "end": 8,
+            "label": "GPE"
+          },
+          {
+            "id": "atom-1-entity-gpe-13-22",
+            "text": "Australia",
+            "start": 13,
+            "end": 22,
+            "label": "GPE"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-1-token-0",
+            "text": "Canberra",
+            "start": 0,
+            "end": 8,
+            "lemma": "Canberra",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "nsubj",
+            "head": "was"
+          },
+          {
+            "id": "atom-1-token-1",
+            "text": "was",
+            "start": 9,
+            "end": 12,
+            "lemma": "be",
+            "pos": "AUX",
+            "tag": "VBD",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-1-token-2",
+            "text": "Australia",
+            "start": 13,
+            "end": 22,
+            "lemma": "Australia",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "poss",
+            "head": "city"
+          },
+          {
+            "id": "atom-1-token-3",
+            "text": "'s",
+            "start": 22,
+            "end": 24,
+            "lemma": "'s",
+            "pos": "PART",
+            "tag": "POS",
+            "dependency": "case",
+            "head": "Australia"
+          },
+          {
+            "id": "atom-1-token-4",
+            "text": "most",
+            "start": 25,
+            "end": 29,
+            "lemma": "most",
+            "pos": "ADV",
+            "tag": "RBS",
+            "dependency": "advmod",
+            "head": "populous"
+          },
+          {
+            "id": "atom-1-token-5",
+            "text": "populous",
+            "start": 30,
+            "end": 38,
+            "lemma": "populous",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "city"
+          },
+          {
+            "id": "atom-1-token-6",
+            "text": "capital",
+            "start": 39,
+            "end": 46,
+            "lemma": "capital",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "compound",
+            "head": "city"
+          },
+          {
+            "id": "atom-1-token-7",
+            "text": "city",
+            "start": 47,
+            "end": 51,
+            "lemma": "city",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "attr",
+            "head": "was"
+          },
+          {
+            "id": "atom-1-token-8",
+            "text": "on",
+            "start": 52,
+            "end": 54,
+            "lemma": "on",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "was"
+          },
+          {
+            "id": "atom-1-token-9",
+            "text": "30",
+            "start": 55,
+            "end": 57,
+            "lemma": "30",
+            "pos": "NUM",
+            "tag": "CD",
+            "dependency": "nummod",
+            "head": "June"
+          },
+          {
+            "id": "atom-1-token-10",
+            "text": "June",
+            "start": 58,
+            "end": 62,
+            "lemma": "June",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "pobj",
+            "head": "on"
+          },
+          {
+            "id": "atom-1-token-11",
+            "text": "2024",
+            "start": 63,
+            "end": 67,
+            "lemma": "2024",
+            "pos": "NUM",
+            "tag": "CD",
+            "dependency": "nummod",
+            "head": "June"
+          },
+          {
+            "id": "atom-1-token-12",
+            "text": ".",
+            "start": 67,
+            "end": 68,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "was"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      }
+    ],
+    "summaries": [
+      {
+        "atomId": "atom-1",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "Canberra"
+        ],
+        "predicates": [
+          "be"
+        ],
+        "cueKinds": [
+          "quantifier",
+          "temporal"
+        ],
+        "modifierKinds": [
+          "temporal"
+        ],
+        "entityLabels": [
+          "GPE"
+        ],
+        "warnings": []
+      }
+    ],
+    "claimWarnings": [],
+    "provider": "spacy",
+    "model": "en_core_web_sm@3.8.0"
+  },
+  "verdict": {
+    "aggregationSchemaVersion": 3,
+    "claimId": "showcase-geography-canberra",
+    "composition": "SINGLE",
+    "verdict": "REFUTED",
+    "positions": {
+      "supportPosition": false,
+      "refutePosition": true,
+      "materialOmissionPosition": false,
+      "supportObligationIds": [],
+      "refuteObligationIds": [
+        "atom-1"
+      ],
+      "unresolvedObligationIds": []
+    },
+    "obligations": [
+      {
+        "obligationId": "atom-1",
+        "state": "REFUTED",
+        "supportEdgeIds": [],
+        "refuteEdgeIds": [
+          "edge:REFUTES:inference:proof:atom-1:extremum_compare:1:obligation:showcase-geography-canberra:atom-1"
+        ],
+        "unselectedCandidateCount": 2,
+        "provisionalRelationCount": 1
+      }
+    ],
+    "warnings": [
+      {
+        "code": "PROVISIONAL_EVIDENCE_EXCLUDED",
+        "message": "1 assessed relation(s) for obligation atom-1 are provisional because the evidence is not sufficient."
+      }
+    ],
+    "ruleTrace": [
+      "SINGLE maps its one obligation's validated relations directly.",
+      "Validated positions — support: no; refute: yes.",
+      "Verdict: REFUTED."
+    ]
+  },
+  "recordedWith": {
+    "pipelineRevision": "submission-ready-v2",
+    "inputDigest": "afab6c6368d5d91b3f5e3db41ec793623e380550c9ed480d989f38b247ee6f1c",
+    "decompositionModel": "qwen2.5:7b",
+    "retrievalModel": "BAAI/bge-small-en-v1.5",
+    "retrievalMethod": "HYBRID",
+    "assessmentModel": "qwen2.5:7b",
+    "reasoningModel": "qwen2.5:7b",
+    "linguisticsModel": "en_core_web_sm@3.8.0"
+  },
+  "timingsSeconds": {
+    "decomposition": 15.441,
+    "retrievalAndLinguistics": 0.33,
+    "evidenceAssessment": 17.962,
+    "symbolicReasoning": 17.978,
+    "aggregation": 0.002,
+    "total": 51.714
+  }
+}

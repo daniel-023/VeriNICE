@@ -28,7 +28,7 @@ Each obligation must be one independently verifiable proposition. Preserve the
 claim's polarity, attribution, modality, quantities, dates, locations, and
 causal relations. Do not add facts. sourceText must be copied exactly from one
 contiguous span of the claim. Use the most specific role. Never create support
-or attack relations, entities, isolated dates, numbers, or tokens.
+or evidence relations, entities, isolated dates, numbers, or tokens.
 
 Do not split modifiers or constraints away from the proposition they qualify.
 A single event with a quantity, date, location, attribution, modality, or
@@ -47,7 +47,11 @@ Constraint obligations must remain self-contained and semantically complete.
 For comparisons, preserve both compared values or periods and the direction of
 comparison in the same obligation. Never emit a fragment such as "2020 is from
 2019" or split a comparison so that no obligation states what is greater,
-lower, earlier, or later.
+lower, earlier, or later. A comparison does not separately assert background
+facts about either participant: do not add obligations such as "Finland is a
+country" or "Sweden joined NATO" when the claim only asserts their ordering.
+Do not split a coordinated adjectival range that describes one event, such as
+"the sky turned orange to blood red"; its endpoints are not independent events.
 
 A claim of several sentences asserts several things. Every sentence that asserts
 a verifiable proposition contributes at least one obligation, and an obligation's
@@ -68,6 +72,10 @@ Claim: The city cut emissions by 20% in 2023.
 JSON: {"composition":"SINGLE","obligations":[{"text":"The city cut emissions by 20% in 2023.","sourceText":"The city cut emissions by 20% in 2023","role":"NUMERIC_CONSTRAINT"}]}
 Claim: ExampleCo's annual revenue for 2024 decreased from its revenue for 2023.
 JSON: {"composition":"SINGLE","obligations":[{"text":"ExampleCo's annual revenue for 2024 was lower than its annual revenue for 2023.","sourceText":"annual revenue for 2024 decreased from its revenue for 2023","role":"TEMPORAL_CONSTRAINT"}]}
+Claim: Sweden joined NATO before Finland.
+JSON: {"composition":"SINGLE","obligations":[{"text":"Sweden joined NATO before Finland.","sourceText":"Sweden joined NATO before Finland","role":"TEMPORAL_CONSTRAINT"}]}
+Claim: The sky turned orange to blood red across the region.
+JSON: {"composition":"SINGLE","obligations":[{"text":"The sky turned orange to blood red across the region.","sourceText":"The sky turned orange to blood red across the region","role":"CORE"}]}
 Claim: The mayor called the report a hoax. She later said the harbour project would finish in 2022. It opened in 2024.
 JSON: {"composition":"AND","obligations":[{"text":"The mayor called the report a hoax.","sourceText":"The mayor called the report a hoax","role":"ATTRIBUTION"},{"text":"The mayor said the harbour project would finish in 2022.","sourceText":"She later said the harbour project would finish in 2022","role":"ATTRIBUTION"},{"text":"The harbour project opened in 2024.","sourceText":"It opened in 2024","role":"TEMPORAL_CONSTRAINT"}]}
 Claim: If given power they would ban animal agriculture and eliminate petrol cars.
@@ -235,6 +243,15 @@ def _validate_and_normalize(
     source_texts: list[str] = []
     for index, obligation in enumerate(obligations, start=1):
         text = obligation.text.strip()
+        # A one-sentence SINGLE claim is already a self-contained proposition.
+        # Preserve it verbatim instead of allowing a rewrite to shed a reason,
+        # date, quantity, location, or other verification condition.
+        if (
+            draft.composition is ClaimComposition.single
+            and len(obligations) == 1
+            and len(segment_document(claim)) == 1
+        ):
+            text = claim.strip()
         source_text = obligation.source_text
         if not text or not source_text.strip():
             raise DecompositionOutputError("Decomposition obligations and sourceText values cannot be blank.")
@@ -332,6 +349,14 @@ def parse_decomposition(claim: str, payload: Any, model: str) -> DecompositionRe
         raise DecompositionOutputError(
             f"The model returned malformed decomposition data: {error}"
         ) from error
+    # Cardinality determines SINGLE versus a conjunction.  Small local models
+    # occasionally return several well-grounded obligations while leaving the
+    # composition field at SINGLE.  Correct that structural inconsistency
+    # server-side; OR remains model-explicit because it changes claim meaning.
+    if len(draft.obligations) > 1 and draft.composition is ClaimComposition.single:
+        draft = draft.model_copy(update={"composition": ClaimComposition.and_})
+    elif len(draft.obligations) == 1 and draft.composition is ClaimComposition.and_:
+        draft = draft.model_copy(update={"composition": ClaimComposition.single})
     return _validate_and_normalize(claim, draft, model)
 
 

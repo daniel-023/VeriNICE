@@ -1,0 +1,38 @@
+{
+  "id": "showcase-technology-gps",
+  "claim": "GPS was developed exclusively for civilian navigation.",
+  "documents": [
+    {
+      "id": "doc-063728f3d9ea",
+      "title": "Policies and Documentation",
+      "url": "https://www.gps.gov/policies-and-documentation",
+      "layout": "PROSE",
+      "publisher": "National Coordination Office for Space-Based Positioning, Navigation, and Timing",
+      "retrievedAt": "2026-09-05",
+      "sourceType": "SOURCE_EXCERPT",
+      "excerptSha256": "5c53a2810ce73a8de5580e085fc9429ab187100569f248a39ef8a05f506eb8d0",
+      "sourceSha256": "9660b66eeae188c74cb362ba1681597b4d4285e37e71a99d7351f04cd302c35d",
+      "text": "Since the 1980s, multiple U.S. presidents have issued consistent policies encouraging the worldwide use of GPS for peaceful purposes. Congress has enacted elements of these policies as permanent law.\nThe stability and transparency of U.S. policy, combined with a long track record of dependable GPS service, have laid a solid foundation for investment and innovation in GPS technology. As a result, the commercial use of GPS technology has flourished, transforming the way we live and work today.\nGPS Policy Highlights\n-\nFree Access for Civilian Use\nThe U.S. government provides civilian access to GPS on a continuous, worldwide basis, free of direct user fees. It also provides open, free access to the information needed to develop GPS user equipment.\n-\nManagement of GPS as a National Asset\nThe GPS program receives national-level attention and guidance through a joint civil/military body established by presidential directive.\n-\nJoint Program Funding\nThe bulk of the GPS program is budgeted through the Department of Defense, but the Department of Transportation also contributes funding to support civilian GPS requirements.\n-\nGPS Modernization\nTo meet growing demands and stay competitive internationally, the U.S. government is committed to a long-term modernization program that will improve GPS performance, including more robust resistance to interference.\n-\nInternational Cooperation\nThe United States engages with other global navigation satellite system providers to ensure compatibility, encourage interoperability with likeminded nations, promote transparency in civil service provision, and enable market access for U.S."
+    },
+    {
+      "id": "doc-9370f4fa5dd0",
+      "title": "Global Positioning System",
+      "url": "https://www.spaceforce.mil/About-Us/Fact-Sheets/Fact-Sheet-Display/Article/2197765/global-positioning-system/",
+      "layout": "PROSE",
+      "publisher": "U.S. Space Force",
+      "retrievedAt": "2026-09-05",
+      "sourceType": "SOURCE_EXCERPT",
+      "excerptSha256": "176b0ff88c19d18b524a944ff1bd9b63a2ee070879c8db57ec8df1073e5e8afd",
+      "sourceSha256": "9b334d0755752849a572aa34ddec5aa67732b6f860b42bd88c6663b23f1aefc1",
+      "text": "## Global Positioning System\n\n**GLOBAL POSITIONING SYSTEM**\n\n**Mission**\n\nThe Global Positioning System (GPS) is a constellation of orbiting satellites that provides position, navigation, and timing data to military and civilian users globally. The system is operated and controlled by Space Delta 8, located at Schriever Air Force Base, Colo.\n\n**Features**\n\nGPS satellites orbit the earth every 12 hours, emitting continuous navigation signals. With the proper equipment, users can receive at least four satellite signals to calculate time, location and velocity. The signals are so accurate, time can be figured to within a millionth of a second, velocity within a fraction of a mile per hour and location to within 100 feet. Receivers have been developed for use in spacecraft, aircraft, ships, land vehicles, and precision-guided munitions, as well as for hand carrying.\n\nGPS provides 24/7/365 navigation services including:\n\n · Extremely accurate, three-dimensional location information (latitude, longitude and altitude), velocity (speed and direction), and precise time\n\n · A worldwide common grid that is easily converted to any local grid system\n\n · Passive all-weather operations\n\n · Continuous real-time information\n\n · Support to an unlimited number of users and areas\n\nThe GPS constellation is nominally designed and operated, consists of six orbital planes, with a minimum of four satellites per plane.\n\nGPS satellites are launched from Cape Canaveral Air Force Station, Fla., into nearly circular 11,000-mile altitude orbits. While circling the earth, the systems transmit signals on two different L-band frequencies. The design"
+    }
+  ],
+  "label": "REFUTED",
+  "displayTitle": "The original purpose of GPS",
+  "topics": [],
+  "challenges": [],
+  "featured": false,
+  "origin": "CONSTRUCTED",
+  "category": "TECHNOLOGY",
+  "demoFocus": "ATTRIBUTE_COMPARISON"
+}

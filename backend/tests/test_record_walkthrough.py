@@ -26,9 +26,13 @@ def openapi_schema(*, properties: dict[str, object], required: list[str]) -> dic
                     "properties": properties,
                     "required": required,
                 },
-                "SupportClassificationResponse": {
+                "EvidenceAssessmentResponse": {
                     "type": "object",
-                    "properties": {"evidenceAudit": {}},
+                    "properties": {"assessment": {}},
+                },
+                "EvidenceAssessmentRequest": {
+                    "type": "object",
+                    "properties": {"caseId": {}, "documents": {}, "claim": {}, "atoms": {}, "evidence": {}},
                 },
             }
         }
@@ -38,7 +42,7 @@ def openapi_schema(*, properties: dict[str, object], required: list[str]) -> dic
 def test_current_aggregation_contract_is_accepted() -> None:
     record_walkthrough.validate_api_contract(
         openapi_schema(
-            properties={"claimId": {}, "materialOmission": {}, "claimAudit": {}},
+            properties={"claimId": {}, "assessment": {}, "reasoning": {}},
             required=["claimId"],
         )
     )

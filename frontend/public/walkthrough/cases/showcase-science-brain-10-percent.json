@@ -1,0 +1,38 @@
+{
+  "id": "showcase-science-brain-10-percent",
+  "claim": "Humans use only 10% of their brains.",
+  "documents": [
+    {
+      "id": "doc-704535b20e6b",
+      "title": "Do we only use 10 percent of our brain?",
+      "url": "https://mcgovern.mit.edu/2024/01/26/do-we-use-only-10-percent-of-our-brain/",
+      "layout": "PROSE",
+      "publisher": "MIT McGovern Institute",
+      "retrievedAt": "2026-09-05",
+      "sourceType": "SOURCE_EXCERPT",
+      "excerptSha256": "2fce3f23f274e4e321a75b304a03dabaafa36cff96ff20e89e683282284c799a",
+      "sourceSha256": "cc62eca1eec5c9fa5e525d2c910eed9f13ead2cf07f2c32e337095e58cb5d8f7",
+      "text": "Do we only use 10 percent of our brain?\nThe human brain houses incredibly complex and advanced functions—but do we only access a fraction of it?\nMovies like “Limitless” and “Lucy” play on the notion that humans use only 10 percent of their brains—and those who unlock a higher percentage wield powers like infinite memory or telekinesis. It’s enticing to think that so much of the brain remains untapped and is ripe for boosting human potential.\nBut the idea that we use 10 percent of our brain is 100 percent a myth.\nIn fact, scientists believe that we use our entire brain every day. Mila Halgren is a graduate student in the lab of Mark Harnett, an associate professor of brain and cognitive sciences and an investigator at the McGovern Institute. The Harnett lab studies the computational power of neurons, that is, how neural networks rapidly process massive amounts of information.\n“All of our brain is constantly in use and consumes a tremendous amount of energy,” Halgren says. “Despite making up only two percent of our body weight, it devours 20 percent of our calories.” This doesn’t appear to change significantly with different tasks, from typing on a computer to doing yoga. “Even while we sleep, our entire brain remains intensely active.”\nWhen did this myth take root?\nThe myth is thought to have gained traction when scientists first began exploring the brain’s abilities but lacked the tools to capture"
+    },
+    {
+      "id": "doc-bf1bf358b8bd",
+      "title": "Busting a brain myth: We really do use 100 percent of our brains",
+      "url": "https://hub.jhu.edu/2014/07/24/busting-a-brain-myth/",
+      "layout": "PROSE",
+      "publisher": "Johns Hopkins University",
+      "retrievedAt": "2026-09-05",
+      "sourceType": "SOURCE_EXCERPT",
+      "excerptSha256": "e3c2c7f6e087adf74404c3d36993d4cfd7a4d026f6c6a60bae733e1bb7b94c7e",
+      "sourceSha256": "c3c62a83244a4b1e61baf00c9dfb013ff6299570e23291b7e8541c5d7892d5ed",
+      "text": "in The Lego Movie, The Washington Post points out Freeman's latest character is once again doling out Hollywood falsehoods with authority in the summer thriller Lucy.\nThis time, the movie myth that needs busting is that human beings use only 10 percent of their brains—a \"fact\" Freeman cites while playing Professor Norman in the TV ads for Lucy, whose title character (played by Scarlett Johansson) \"is able to kick butt and take names … because some drug made her a super-powered brainiac.\"\nBut it's pure science fiction that it takes a chemical cocktail to make humans use their entire brains. It turns out that we are all already giving it everything we've got, according to Dr. Barry Gordon, a professor of neurology at the School of Medicine and professor of cognitive science at the Krieger School of Arts and Sciences.\nThe Post refers to an interview with Dr. Gordon, published by Scientific American in 2008.\nGordon, a behavioral neurologist and cognitive neuroscientist, told Scientific American that \"we use virtually every part of the brain, and that [most of] the brain is active almost all the time,\" he said. \"Let's put it this way: the brain represents three percent of the body's weight and uses 20 percent of the body's energy.\"\nSo that settles it, once and for all—with all due respect to Mr. Freeman, who shouldn't take this debunking personally. As the institution once falsely credited with declaring that bones"
+    }
+  ],
+  "label": "REFUTED",
+  "displayTitle": "The ten-percent brain myth",
+  "topics": [],
+  "challenges": [],
+  "featured": false,
+  "origin": "CONSTRUCTED",
+  "category": "SCIENCE",
+  "demoFocus": "DIRECT_EVIDENCE"
+}

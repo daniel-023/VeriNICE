@@ -1,0 +1,38 @@
+{
+  "id": "showcase-science-shaving",
+  "claim": "Shaving makes hair grow back thicker and faster.",
+  "documents": [
+    {
+      "id": "doc-071a33a71652",
+      "title": "Does shaving unwanted body hair make it grow back thicker and darker?",
+      "url": "https://www.mayoclinic.org/healthy-lifestyle/adult-health/expert-answers/hair-removal/faq-20058427",
+      "layout": "PROSE",
+      "publisher": "Mayo Clinic",
+      "retrievedAt": "2026-09-05",
+      "sourceType": "SOURCE_EXCERPT",
+      "excerptSha256": "31ea74920a4563be0f2ff1c2951008c4bfcd4d76d17710630d93896f943a38b1",
+      "sourceSha256": "63d14dd77023fdb09e2922d47ef859da1f4232bdf2f60cc9bea08343da484c16",
+      "text": "Mayo Clinic Give Now Giving to Mayo Clinic Frequently Asked Questions Contact Us to Give Make a Donation Image 12 \n\nHome\n\n1. Home \n2. Healthy Lifestyle \n3. Adult health \n4. Shaving hair: Does shaved hair grow back thicker?\n\n# Shaving hair: Does shaved hair grow back thicker?\n\nBy Mayo Clinic Staff\n\nJune 14, 2024\n\n## Does shaving unwanted body hair makes it grow back thicker and darker?\n\nNo — shaving hair doesn't change its thickness, color or rate of growth.\n\nShaving facial or body hair gives the hair a blunt tip. The tip might feel coarse or \"stubbly\" for a time as it grows out. During this phase, the hair might be more noticeable and perhaps appear darker or thicker.\n\nIf you notice a sudden increase in facial or body hair, talk to your doctor. This could be a medication side effect or a sign of an underlying medical condition. Your doctor might also provide advice about various hair-removal techniques.\n\nShow references\n\n1. Levinbook WS. Hirsutism and hypertrichosis. Merck Manual Professional Version. https://www.merckmanuals.com/professional/dermatologic-disorders/hair-disorders/hirsutism-and-hypertrichosis. Accessed Nov. 24, 2021.\n2. Lizneva D, et al. Androgen excess: Investigations and management. Best Practice & Research Clinical Obstetrics & Gynaecology. 2016; doi: https://doi.org/10/106/j.bpobgyn.2016.05.003.\n3. Shenenberger DW. Removal of unwanted hair. https://www.uptodate.com/contents/search. Accessed Nov. 24, 2021.\n\nPrint\n\n## From Mayo Clinic to your inbox\n\nSign up for free and stay up to date on research advancements, health tips, current health topics, and expertise on managing health."
+    },
+    {
+      "id": "doc-813ee535443b",
+      "title": "Does Shaving Make Hair Grow Back Thicker?",
+      "url": "https://health.clevelandclinic.org/does-shaving-make-hair-thicker",
+      "layout": "PROSE",
+      "publisher": "Cleveland Clinic",
+      "retrievedAt": "2026-09-05",
+      "sourceType": "SOURCE_EXCERPT",
+      "excerptSha256": "e907367d7245984989da0c9938317b16f88b826bc2a2f5b84b07a42d01c69038",
+      "sourceSha256": "e4500485e76d605ad09f233769cca55620b68e8413b064a8d9e149f024e2aae1",
+      "text": "Search\nAdvertisementAdvertisement\nThough this is a myth, the ‘stubble stage’ struggle is real, but moisturizing can help\nImage content: This image is available to view online.\nView image online (https://assets.clevelandclinic.org/transform/ab64dc15-5594-467e-a161-610d596f36dd/shaving-hair-growth-1340752254-770x533-1_jpg)\nPerson using electric razer to trim mustache and beard on face.\nIf you’ve ever wanted to get rid of errant hairs in a hurry — whether they’re on your face, arms or elsewhere on your body — you’ve probably hesitated before picking up a razor. Surely you should wax or use a depilatory cream instead, right?\nAdvertisement\nCleveland Clinic is a non-profit academic medical center. Advertising on our site helps support our mission. We do not endorse non-Cleveland Clinic products or services. Policy\nAfter all, you’ve always been told that shaving your hair will make it grow back thicker … in exactly the spots where you don’t want luscious locks to grow.\nAs it turns out, this is a myth: Shaving won’t make your hair regrow any thicker or faster. But there’s some logic behind thinking it does.\n“When hairs are cut short, they can feel stubbly or stiff because their shorter lengths have increased resistance to bending forces,” explains dermatology resident Taylor Bullock, MD. “They can also feel sharp and prickly due to uneven and sharp edges from being recently cut.”\nDr. Bullock delves deeper into what’s really happening when you shear off unwanted stragglers and what you can try instead if you don’t want to deal with stubbly"
+    }
+  ],
+  "label": "REFUTED",
+  "displayTitle": "Shaving and hair growth",
+  "topics": [],
+  "challenges": [],
+  "featured": false,
+  "origin": "CONSTRUCTED",
+  "category": "SCIENCE",
+  "demoFocus": "DECOMPOSITION"
+}

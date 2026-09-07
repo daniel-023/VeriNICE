@@ -1,0 +1,617 @@
+{
+  "caseId": "showcase-geography-eiffel",
+  "schemaVersion": 6,
+  "composition": "SINGLE",
+  "warnings": [],
+  "atoms": [
+    {
+      "id": "atom-1",
+      "text": "The Eiffel Tower is located in Germany.",
+      "sourceText": "The Eiffel Tower is located in Germany.",
+      "start": 0,
+      "end": 39,
+      "role": "LOCATION_CONSTRAINT"
+    }
+  ],
+  "evidence": [
+    {
+      "atomId": "atom-1",
+      "spans": [
+        {
+          "id": "doc-693f474b2011::sentence-2",
+          "documentId": "doc-693f474b2011",
+          "text": "The Eiffel Tower is located in the heart of Paris, in the 7th arrondissement, on the Champ de Mars, and is very easy to access. ",
+          "start": 31,
+          "end": 159,
+          "contextSpans": [
+            {
+              "id": "doc-693f474b2011::sentence-3",
+              "documentId": "doc-693f474b2011",
+              "text": "Its official address is: 5 avenue Anatole France, 75007 Paris, France. ",
+              "start": 159,
+              "end": 230,
+              "direction": "NEXT"
+            }
+          ],
+          "context": "The Eiffel Tower is located in the heart of Paris, in the 7th arrondissement, on the Champ de Mars, and is very easy to access. Its official address is: 5 avenue Anatole France, 75007 Paris, France."
+        },
+        {
+          "id": "doc-693f474b2011::sentence-1",
+          "documentId": "doc-693f474b2011",
+          "text": "How to get to the Eiffel Tower\n",
+          "start": 0,
+          "end": 31,
+          "contextSpans": [],
+          "context": "How to get to the Eiffel Tower"
+        },
+        {
+          "id": "doc-693f474b2011::sentence-5",
+          "documentId": "doc-693f474b2011",
+          "text": "The Eiffel Tower is very well-connected to the metro – there are three stations in the nearby area. ",
+          "start": 301,
+          "end": 401,
+          "contextSpans": [],
+          "context": "The Eiffel Tower is very well-connected to the metro – there are three stations in the nearby area."
+        },
+        {
+          "id": "doc-0f740f9000ac::sentence-1",
+          "documentId": "doc-0f740f9000ac",
+          "text": "The Eiffel Tower was built on the Champ de Mars, in Paris’ 7th arrondissement. ",
+          "start": 0,
+          "end": 79,
+          "contextSpans": [],
+          "context": "The Eiffel Tower was built on the Champ de Mars, in Paris’ 7th arrondissement."
+        },
+        {
+          "id": "doc-0f740f9000ac::sentence-7",
+          "documentId": "doc-0f740f9000ac",
+          "text": "The convention stated in Article 11 that Eiffel would build the Tower at his own expense, but benefit from a 1.5 million franc subvention to the total estimated cost of 6.5 million and could manage the tower for 20 years, starting on December 31, 1889. ",
+          "start": 750,
+          "end": 1003,
+          "contextSpans": [
+            {
+              "id": "doc-0f740f9000ac::sentence-6",
+              "documentId": "doc-0f740f9000ac",
+              "text": "A convention was signed on January 8, 1887 between Gustave Eiffel and the other stakeholders’ representatives, Édouard Lockroy, Minister of Commerce, on behalf of the national government, and Eugène Poubelle, prefect for the Seine, on behalf of the City. ",
+              "start": 495,
+              "end": 750,
+              "direction": "PREVIOUS"
+            },
+            {
+              "id": "doc-0f740f9000ac::sentence-8",
+              "documentId": "doc-0f740f9000ac",
+              "text": "Its ownership would then pass to the City of Paris on January 1, 1910.\n",
+              "start": 1003,
+              "end": 1074,
+              "direction": "NEXT"
+            }
+          ],
+          "context": "A convention was signed on January 8, 1887 between Gustave Eiffel and the other stakeholders’ representatives, Édouard Lockroy, Minister of Commerce, on behalf of the national government, and Eugène Poubelle, prefect for the Seine, on behalf of the City. The convention stated in Article 11 that Eiffel would build the Tower at his own expense, but benefit from a 1.5 million franc subvention to the total estimated cost of 6.5 million and could manage the tower for 20 years, starting on December 31, 1889. Its ownership would then pass to the City of Paris on January 1, 1910."
+        },
+        {
+          "id": "doc-0f740f9000ac::sentence-6",
+          "documentId": "doc-0f740f9000ac",
+          "text": "A convention was signed on January 8, 1887 between Gustave Eiffel and the other stakeholders’ representatives, Édouard Lockroy, Minister of Commerce, on behalf of the national government, and Eugène Poubelle, prefect for the Seine, on behalf of the City. ",
+          "start": 495,
+          "end": 750,
+          "contextSpans": [],
+          "context": "A convention was signed on January 8, 1887 between Gustave Eiffel and the other stakeholders’ representatives, Édouard Lockroy, Minister of Commerce, on behalf of the national government, and Eugène Poubelle, prefect for the Seine, on behalf of the City."
+        }
+      ]
+    }
+  ],
+  "assessment": {
+    "obligations": [
+      {
+        "atomId": "atom-1",
+        "supportSpanIds": [],
+        "refuteSpanIds": [
+          "doc-693f474b2011::sentence-2",
+          "doc-693f474b2011::sentence-1",
+          "doc-693f474b2011::sentence-5"
+        ],
+        "contextSpanIds": [
+          "doc-0f740f9000ac::sentence-1",
+          "doc-0f740f9000ac::sentence-7",
+          "doc-0f740f9000ac::sentence-6"
+        ],
+        "sufficiency": "INSUFFICIENT",
+        "missingInformation": "The evidence does not provide a direct refutation or support for the claim that the Eiffel Tower is located in Germany.",
+        "reason": "The evidence states that the Eiffel Tower is located in Paris, France, but does not directly address the claim that it is in Germany.",
+        "scopeChecks": [
+          {
+            "spanId": "doc-693f474b2011::sentence-2",
+            "documentId": "doc-693f474b2011",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [
+              "DE"
+            ],
+            "evidenceJurisdictions": [
+              "FR"
+            ],
+            "reason": "Jurisdiction is the claimed value being compared, not a source-scope constraint."
+          },
+          {
+            "spanId": "doc-693f474b2011::sentence-1",
+            "documentId": "doc-693f474b2011",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [
+              "DE"
+            ],
+            "evidenceJurisdictions": [
+              "FR"
+            ],
+            "reason": "Jurisdiction is the claimed value being compared, not a source-scope constraint."
+          },
+          {
+            "spanId": "doc-693f474b2011::sentence-5",
+            "documentId": "doc-693f474b2011",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [
+              "DE"
+            ],
+            "evidenceJurisdictions": [
+              "FR"
+            ],
+            "reason": "Jurisdiction is the claimed value being compared, not a source-scope constraint."
+          },
+          {
+            "spanId": "doc-0f740f9000ac::sentence-1",
+            "documentId": "doc-0f740f9000ac",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [
+              "DE"
+            ],
+            "evidenceJurisdictions": [],
+            "reason": "Jurisdiction is the claimed value being compared, not a source-scope constraint."
+          },
+          {
+            "spanId": "doc-0f740f9000ac::sentence-7",
+            "documentId": "doc-0f740f9000ac",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [
+              "DE"
+            ],
+            "evidenceJurisdictions": [],
+            "reason": "Jurisdiction is the claimed value being compared, not a source-scope constraint."
+          },
+          {
+            "spanId": "doc-0f740f9000ac::sentence-6",
+            "documentId": "doc-0f740f9000ac",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [
+              "DE"
+            ],
+            "evidenceJurisdictions": [],
+            "reason": "Jurisdiction is the claimed value being compared, not a source-scope constraint."
+          }
+        ]
+      }
+    ],
+    "materialOmission": {
+      "detected": false,
+      "supportSpanIds": [],
+      "contextSpanIds": [],
+      "reason": "No material omission was established."
+    }
+  },
+  "reasoning": [
+    {
+      "id": "proof:atom-1:attribute_compare:1",
+      "atomId": "atom-1",
+      "operator": "ATTRIBUTE_COMPARE",
+      "status": "DISPROVED",
+      "relation": "REFUTES",
+      "premiseIds": [
+        "context:atom-1:doc-693f474b2011:doc-693f474b2011::sentence-3"
+      ],
+      "premises": [
+        {
+          "id": "context:atom-1:doc-693f474b2011:doc-693f474b2011::sentence-3",
+          "documentId": "doc-693f474b2011",
+          "text": "Its official address is: 5 avenue Anatole France, 75007 Paris, France. ",
+          "start": 159,
+          "end": 230,
+          "kind": "OPERAND",
+          "contentHash": null,
+          "itemCount": null
+        }
+      ],
+      "expression": "claimed location = source location",
+      "conclusion": "The grounded locations are different.",
+      "explanation": "Python compared explicit normalized country names; it did not infer location from source identity.",
+      "validationWarnings": [],
+      "program": {
+        "version": 1,
+        "steps": [
+          {
+            "id": "input-1",
+            "operation": "LOOKUP",
+            "inputIds": [
+              "context:atom-1:doc-693f474b2011:doc-693f474b2011::sentence-3"
+            ],
+            "outputType": "FACT",
+            "description": "Read an unchanged server-owned premise."
+          },
+          {
+            "id": "result",
+            "operation": "EQUAL",
+            "inputIds": [
+              "input-1"
+            ],
+            "outputType": "BOOLEAN",
+            "description": "Validate operand alignment and execute the typed operation in Python."
+          }
+        ],
+        "outputStepId": "result"
+      }
+    }
+  ],
+  "linguistics": {
+    "schemaVersion": 2,
+    "claimAnalysis": {
+      "atomId": "claim",
+      "frames": [
+        {
+          "id": "claim-frame-1",
+          "predicate": {
+            "id": "claim-frame-1-predicate",
+            "text": "located",
+            "start": 20,
+            "end": 27
+          },
+          "subjects": [
+            {
+              "id": "claim-frame-1-subject-1",
+              "text": "The Eiffel Tower",
+              "start": 0,
+              "end": 16
+            }
+          ],
+          "coreArguments": [],
+          "adjuncts": [],
+          "otherModifiers": [
+            {
+              "id": "claim-frame-1-other-modifier-1",
+              "text": "in Germany",
+              "start": 28,
+              "end": 38
+            }
+          ]
+        }
+      ],
+      "cues": [],
+      "entities": [
+        {
+          "id": "claim-entity-loc-0-16",
+          "text": "The Eiffel Tower",
+          "start": 0,
+          "end": 16,
+          "label": "LOC"
+        },
+        {
+          "id": "claim-entity-gpe-31-38",
+          "text": "Germany",
+          "start": 31,
+          "end": 38,
+          "label": "GPE"
+        }
+      ],
+      "tokens": [
+        {
+          "id": "claim-token-0",
+          "text": "The",
+          "start": 0,
+          "end": 3,
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "Tower"
+        },
+        {
+          "id": "claim-token-1",
+          "text": "Eiffel",
+          "start": 4,
+          "end": 10,
+          "lemma": "Eiffel",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "Tower"
+        },
+        {
+          "id": "claim-token-2",
+          "text": "Tower",
+          "start": 11,
+          "end": 16,
+          "lemma": "Tower",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "nsubjpass",
+          "head": "located"
+        },
+        {
+          "id": "claim-token-3",
+          "text": "is",
+          "start": 17,
+          "end": 19,
+          "lemma": "be",
+          "pos": "AUX",
+          "tag": "VBZ",
+          "dependency": "auxpass",
+          "head": "located"
+        },
+        {
+          "id": "claim-token-4",
+          "text": "located",
+          "start": 20,
+          "end": 27,
+          "lemma": "locate",
+          "pos": "VERB",
+          "tag": "VBN",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "claim-token-5",
+          "text": "in",
+          "start": 28,
+          "end": 30,
+          "lemma": "in",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "located"
+        },
+        {
+          "id": "claim-token-6",
+          "text": "Germany",
+          "start": 31,
+          "end": 38,
+          "lemma": "Germany",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "pobj",
+          "head": "in"
+        },
+        {
+          "id": "claim-token-7",
+          "text": ".",
+          "start": 38,
+          "end": 39,
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "located"
+        }
+      ],
+      "status": "complete",
+      "unresolved": []
+    },
+    "analyses": [
+      {
+        "atomId": "atom-1",
+        "frames": [
+          {
+            "id": "atom-1-frame-1",
+            "predicate": {
+              "id": "atom-1-frame-1-predicate",
+              "text": "located",
+              "start": 20,
+              "end": 27
+            },
+            "subjects": [
+              {
+                "id": "atom-1-frame-1-subject-1",
+                "text": "The Eiffel Tower",
+                "start": 0,
+                "end": 16
+              }
+            ],
+            "coreArguments": [],
+            "adjuncts": [],
+            "otherModifiers": [
+              {
+                "id": "atom-1-frame-1-other-modifier-1",
+                "text": "in Germany",
+                "start": 28,
+                "end": 38
+              }
+            ]
+          }
+        ],
+        "cues": [],
+        "entities": [
+          {
+            "id": "atom-1-entity-loc-0-16",
+            "text": "The Eiffel Tower",
+            "start": 0,
+            "end": 16,
+            "label": "LOC"
+          },
+          {
+            "id": "atom-1-entity-gpe-31-38",
+            "text": "Germany",
+            "start": 31,
+            "end": 38,
+            "label": "GPE"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-1-token-0",
+            "text": "The",
+            "start": 0,
+            "end": 3,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "Tower"
+          },
+          {
+            "id": "atom-1-token-1",
+            "text": "Eiffel",
+            "start": 4,
+            "end": 10,
+            "lemma": "Eiffel",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Tower"
+          },
+          {
+            "id": "atom-1-token-2",
+            "text": "Tower",
+            "start": 11,
+            "end": 16,
+            "lemma": "Tower",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "nsubjpass",
+            "head": "located"
+          },
+          {
+            "id": "atom-1-token-3",
+            "text": "is",
+            "start": 17,
+            "end": 19,
+            "lemma": "be",
+            "pos": "AUX",
+            "tag": "VBZ",
+            "dependency": "auxpass",
+            "head": "located"
+          },
+          {
+            "id": "atom-1-token-4",
+            "text": "located",
+            "start": 20,
+            "end": 27,
+            "lemma": "locate",
+            "pos": "VERB",
+            "tag": "VBN",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-1-token-5",
+            "text": "in",
+            "start": 28,
+            "end": 30,
+            "lemma": "in",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "located"
+          },
+          {
+            "id": "atom-1-token-6",
+            "text": "Germany",
+            "start": 31,
+            "end": 38,
+            "lemma": "Germany",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "pobj",
+            "head": "in"
+          },
+          {
+            "id": "atom-1-token-7",
+            "text": ".",
+            "start": 38,
+            "end": 39,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "located"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      }
+    ],
+    "summaries": [
+      {
+        "atomId": "atom-1",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "The Eiffel Tower"
+        ],
+        "predicates": [
+          "locate"
+        ],
+        "cueKinds": [],
+        "modifierKinds": [],
+        "entityLabels": [
+          "LOC",
+          "GPE"
+        ],
+        "warnings": []
+      }
+    ],
+    "claimWarnings": [],
+    "provider": "spacy",
+    "model": "en_core_web_sm@3.8.0"
+  },
+  "verdict": {
+    "aggregationSchemaVersion": 3,
+    "claimId": "showcase-geography-eiffel",
+    "composition": "SINGLE",
+    "verdict": "REFUTED",
+    "positions": {
+      "supportPosition": false,
+      "refutePosition": true,
+      "materialOmissionPosition": false,
+      "supportObligationIds": [],
+      "refuteObligationIds": [
+        "atom-1"
+      ],
+      "unresolvedObligationIds": []
+    },
+    "obligations": [
+      {
+        "obligationId": "atom-1",
+        "state": "REFUTED",
+        "supportEdgeIds": [],
+        "refuteEdgeIds": [
+          "edge:REFUTES:inference:proof:atom-1:attribute_compare:1:obligation:showcase-geography-eiffel:atom-1"
+        ],
+        "unselectedCandidateCount": 0,
+        "provisionalRelationCount": 3
+      }
+    ],
+    "warnings": [
+      {
+        "code": "PROVISIONAL_EVIDENCE_EXCLUDED",
+        "message": "3 assessed relation(s) for obligation atom-1 are provisional because the evidence is not sufficient."
+      }
+    ],
+    "ruleTrace": [
+      "SINGLE maps its one obligation's validated relations directly.",
+      "Validated positions — support: no; refute: yes.",
+      "Verdict: REFUTED."
+    ]
+  },
+  "recordedWith": {
+    "pipelineRevision": "submission-ready-v2",
+    "inputDigest": "931214f188d752e36277e59acd6a818848d8f0c219a79b52031455d8fd5f1245",
+    "decompositionModel": "qwen2.5:7b",
+    "retrievalModel": "BAAI/bge-small-en-v1.5",
+    "retrievalMethod": "HYBRID",
+    "assessmentModel": "qwen2.5:7b",
+    "reasoningModel": "qwen2.5:7b",
+    "linguisticsModel": "en_core_web_sm@3.8.0"
+  },
+  "timingsSeconds": {
+    "decomposition": 14.569,
+    "retrievalAndLinguistics": 0.128,
+    "evidenceAssessment": 18.258,
+    "symbolicReasoning": 12.82,
+    "aggregation": 0.012,
+    "total": 45.787
+  }
+}

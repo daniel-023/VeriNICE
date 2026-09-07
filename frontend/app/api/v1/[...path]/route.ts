@@ -3,7 +3,7 @@ import type { NextRequest } from "next/server";
 export const dynamic = "force-dynamic";
 
 const MAX_REQUEST_BYTES = 1_500_000;
-const DEFAULT_BACKEND_TIMEOUT_MS = 110_000;
+const DEFAULT_BACKEND_TIMEOUT_MS = 250_000;
 
 type RouteContext = {
   params: Promise<{ path: string[] }>;
@@ -55,7 +55,7 @@ function backendTimeoutMs(): number {
 async function proxy(request: NextRequest, context: RouteContext) {
   if (process.env.NEXT_PUBLIC_VERIGRAPH_MODE === "walkthrough") {
     return Response.json(
-      { detail: "Live analysis is available only in the local VeriGraph demo." },
+      { detail: "Live analysis is available only in the local VeriTrace demo." },
       { status: 503 },
     );
   }
@@ -78,7 +78,7 @@ async function proxy(request: NextRequest, context: RouteContext) {
   const configuredBackend = process.env.VERIGRAPH_BACKEND_URL;
   if (!configuredBackend) {
     return Response.json(
-      { detail: "The live VeriGraph backend is not configured for this deployment." },
+      { detail: "The live VeriTrace backend is not configured for this deployment." },
       { status: 503 },
     );
   }
@@ -123,7 +123,7 @@ async function proxy(request: NextRequest, context: RouteContext) {
     });
   } catch {
     return Response.json(
-      { detail: "The VeriGraph backend is unavailable." },
+      { detail: "The VeriTrace backend is unavailable." },
       { status: 502 },
     );
   }

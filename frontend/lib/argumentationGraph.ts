@@ -1,24 +1,11 @@
 import type {
-  ArgumentationEdge,
-  ArgumentationGraph,
-  AtomEvidence,
-  AtomSupportClassification,
-  ClaimComposition,
-  DecomposedAtom,
-  DemoDocument,
-  EvidenceNode,
-  GraphWarning,
-  ObligationLinguisticSummary,
-  VerificationObligationNode,
+  ArgumentationEdge, ArgumentationGraph, AtomEvidence, AtomEvidenceAssessment,
+  ClaimComposition, DecomposedAtom, DemoDocument, EvidenceNode, GraphWarning,
+  SymbolicExecution, VerificationObligationNode,
 } from "./types";
 
-function warning(code: GraphWarning["code"], message: string): GraphWarning {
-  return { code, message };
-}
-
-function evidenceKey(documentId: string, spanId: string): string {
-  return `${documentId}:${spanId}`;
-}
+const warning = (code: GraphWarning["code"], message: string): GraphWarning => ({ code, message });
+const evidenceKey = (documentId: string, spanId: string) => `${documentId}:${spanId}`;
 
 export function buildArgumentationGraph(
   claimId: string,
@@ -26,178 +13,179 @@ export function buildArgumentationGraph(
   composition: ClaimComposition,
   atoms: DecomposedAtom[],
   evidence: AtomEvidence[],
-  classifications: AtomSupportClassification[],
+  assessments: AtomEvidenceAssessment[],
   documents: DemoDocument[],
-  summaries: ObligationLinguisticSummary[] = [],
+  reasoning: SymbolicExecution[] = [],
   authoritativeArgumentEdgeIds?: ReadonlySet<string>,
 ): ArgumentationGraph {
   const warnings: GraphWarning[] = [];
   const nodes: ArgumentationGraph["nodes"] = [];
   const edges: ArgumentationEdge[] = [];
-  const claimedNodeIds = new Set<string>();
-  const claimedEdgeIds = new Set<string>();
+  const nodeIds = new Set<string>();
+  const edgeIds = new Set<string>();
   const addNode = (node: ArgumentationGraph["nodes"][number]) => {
-    if (claimedNodeIds.has(node.id)) {
-      warnings.push(warning("DUPLICATE_NODE_ID", `Duplicate graph node ID: ${node.id}.`));
-      return false;
-    }
-    claimedNodeIds.add(node.id);
-    nodes.push(node);
-    return true;
+    if (nodeIds.has(node.id)) return false;
+    nodeIds.add(node.id); nodes.push(node); return true;
   };
   const addEdge = (edge: ArgumentationEdge) => {
-    if (claimedEdgeIds.has(edge.id)) {
-      warnings.push(warning("DUPLICATE_EDGE_ID", `Duplicate graph edge ID: ${edge.id}.`));
-      return;
-    }
-    claimedEdgeIds.add(edge.id);
-    edges.push(edge);
+    if (edgeIds.has(edge.id)) return;
+    edgeIds.add(edge.id); edges.push(edge);
   };
-
   const normalizedClaimId = claimId.trim() || "custom";
   const claimNodeId = `claim:${normalizedClaimId}`;
   addNode({ id: claimNodeId, type: "CASE_CLAIM", text: claim, composition });
-
-  const summariesByAtomId = new Map(summaries.map((summary) => [summary.atomId, summary]));
-  const obligationByAtomId = new Map<string, VerificationObligationNode>();
+  const obligations = new Map<string, VerificationObligationNode>();
   atoms.forEach((atom) => {
     const node: VerificationObligationNode = {
-      id: `obligation:${normalizedClaimId}:${atom.id}`,
-      type: "VERIFICATION_OBLIGATION",
-      atomId: atom.id,
-      text: atom.text,
-      role: atom.role,
-      sourceText: atom.sourceText,
-      start: atom.start,
-      end: atom.end,
-      linguistic: summariesByAtomId.get(atom.id),
+      id: `obligation:${normalizedClaimId}:${atom.id}`, type: "VERIFICATION_OBLIGATION",
+      atomId: atom.id, text: atom.text, role: atom.role, sourceText: atom.sourceText,
+      start: atom.start, end: atom.end,
     };
-    if (!atom.text.trim()) warnings.push(warning("EMPTY_OBLIGATION_TEXT", `Atom ${atom.id} has no display text.`));
-    if (atom.start < 0 || atom.end <= atom.start || claim.slice(atom.start, atom.end) !== atom.sourceText) {
-      warnings.push(warning("INVALID_SOURCE_OFFSETS", `Atom ${atom.id} has invalid source offsets.`));
-    }
-    if (!node.linguistic) warnings.push(warning("MISSING_LINGUISTIC_SUMMARY", `Atom ${atom.id} has no linguistic summary.`));
-    if (addNode(node)) {
-      obligationByAtomId.set(atom.id, node);
-      addEdge({
-        id: `edge:DECOMPOSES_TO:${claimNodeId}:${node.id}`,
-        source: claimNodeId,
-        target: node.id,
-        type: "DECOMPOSES_TO",
-      });
-    }
+    if (claim.slice(atom.start, atom.end) !== atom.sourceText) warnings.push(warning("INVALID_SOURCE_OFFSETS", `Atom ${atom.id} has invalid source offsets.`));
+    addNode(node); obligations.set(atom.id, node);
+    addEdge({ id: `edge:DECOMPOSES_TO:${claimNodeId}:${node.id}`, source: claimNodeId, target: node.id, type: "DECOMPOSES_TO" });
   });
 
-  const documentsById = new Map(documents.map((document, index) => [document.id, { document, index }]));
-  const spansByKey = new Map<string, { span: AtomEvidence["spans"][number]; rank: number }>();
-  evidence.forEach((group) => group.spans.forEach((span, index) => {
+  const docs = new Map(documents.map((item, index) => [item.id, { item, index }]));
+  const spans = new Map<string, { span: AtomEvidence["spans"][number]; rank: number }>();
+  evidence.forEach((group) => group.spans.forEach((span, rank) => {
     const key = evidenceKey(span.documentId, span.id);
-    const existing = spansByKey.get(key);
-    if (!existing || index + 1 < existing.rank) spansByKey.set(key, { span, rank: index + 1 });
+    const current = spans.get(key);
+    if (!current || rank + 1 < current.rank) spans.set(key, { span, rank: rank + 1 });
   }));
-
   const evidenceNodes = new Map<string, EvidenceNode>();
-  const observedArgumentEdgeIds = new Set<string>();
-  let omittedNeutralCount = 0;
-  classifications.forEach((classification) => {
-    const obligation = obligationByAtomId.get(classification.atomId);
-    classification.relations.forEach((relation) => {
-      if (relation.relation === "NEUTRAL") {
-        omittedNeutralCount += 1;
-        return;
-      }
-      if (relation.relation !== "ENTAILMENT" && relation.relation !== "CONTRADICTION") {
-        warnings.push(warning("UNSUPPORTED_NLI_LABEL", `Unsupported NLI label for ${classification.atomId}.`));
-        return;
-      }
-      if (!obligation) {
-        warnings.push(warning("MISSING_OBLIGATION", `NLI relation references unknown atom ${classification.atomId}.`));
-        return;
-      }
-      const key = evidenceKey(relation.documentId, relation.spanId);
-      const spanRecord = spansByKey.get(key);
-      if (!spanRecord) {
-        warnings.push(warning("MISSING_EVIDENCE", `NLI relation references unknown evidence ${key}.`));
-        return;
-      }
-      let evidenceNode = evidenceNodes.get(key);
-      if (!evidenceNode) {
-        const documentRecord = documentsById.get(spanRecord.span.documentId);
-        evidenceNode = {
-          id: `evidence:${spanRecord.span.documentId}:${spanRecord.span.id}`,
-          type: "EVIDENCE",
-          evidenceId: spanRecord.span.id,
-          documentId: spanRecord.span.documentId,
-          documentTitle: documentRecord?.document.title ?? spanRecord.span.documentId,
-          documentUrl: documentRecord?.document.url ?? "",
-          text: spanRecord.span.text,
-          start: spanRecord.span.start,
-          end: spanRecord.span.end,
-          bestRank: spanRecord.rank,
-        };
-        evidenceNodes.set(key, evidenceNode);
-      }
-      const edgeType = relation.relation === "ENTAILMENT" ? "SUPPORTS" : "ATTACKS";
-      const edgeId = `edge:${edgeType}:${evidenceNode.id}:${obligation.id}`;
-      observedArgumentEdgeIds.add(edgeId);
-      if (authoritativeArgumentEdgeIds && !authoritativeArgumentEdgeIds.has(edgeId)) {
-        warnings.push(warning("AGGREGATION_EDGE_MISMATCH", `The backend did not accept graph relation ${edgeId}.`));
-        return;
-      }
-      addEdge({
-        id: edgeId,
-        source: evidenceNode.id,
-        target: obligation.id,
-        type: edgeType,
-        nli: { label: relation.relation },
-      });
+  const ensureEvidence = (documentId: string, spanId: string): EvidenceNode | null => {
+    const key = evidenceKey(documentId, spanId);
+    const existing = evidenceNodes.get(key);
+    if (existing) return existing;
+    const record = spans.get(key);
+    if (!record) return null;
+    const document = docs.get(documentId)?.item;
+    const node: EvidenceNode = {
+      id: `evidence:${documentId}:${spanId}`, type: "EVIDENCE", evidenceId: spanId,
+      documentId, documentTitle: document?.title ?? documentId, documentUrl: document?.url ?? "",
+      text: record.span.text, start: record.span.start, end: record.span.end,
+      bestRank: record.rank, contextSpans: record.span.contextSpans,
+    };
+    evidenceNodes.set(key, node); addNode(node);
+    (record.span.contextSpans ?? []).forEach((context) => {
+      const contextId = `context:${documentId}:${context.id}`;
+      addNode({ id: contextId, type: "CONTEXT", evidenceId: context.id, documentId, text: context.text, start: context.start, end: context.end });
+      addEdge({ id: `edge:CONTEXTUALIZES:${contextId}:${node.id}`, source: contextId, target: node.id, type: "CONTEXTUALIZES" });
     });
+    return node;
+  };
+
+  let omittedCandidateCount = 0;
+  assessments.forEach((assessment) => {
+    const obligation = obligations.get(assessment.atomId);
+    if (!obligation) { warnings.push(warning("MISSING_OBLIGATION", `Assessment references unknown atom ${assessment.atomId}.`)); return; }
+    (["SUPPORTS", "REFUTES"] as const).forEach((relation) => {
+      const selected = assessment.relations.filter((item) => item.relation === relation && item.decisive);
+      if (selected.length >= 2) {
+        const inferenceId = `inference:bundle:${assessment.atomId}:${relation.toLowerCase()}`;
+        addNode({
+          id: inferenceId, type: "INFERENCE", atomId: assessment.atomId,
+          inferenceKind: "EVIDENCE_BUNDLE", expression: `${selected.length} source sentences considered jointly`,
+          conclusion: relation === "SUPPORTS" ? "The evidence bundle supports this atomic claim." : "The evidence bundle refutes this atomic claim.",
+          explanation: "These source sentences were assessed together as one evidence bundle.",
+          premiseIds: selected.map((item) => item.spanId), relation, compiledBy: "Qwen",
+        });
+        selected.forEach((item) => {
+          const node = ensureEvidence(item.documentId, item.spanId);
+          if (node) addEdge({ id: `edge:REQUIRES:${node.id}:${inferenceId}`, source: node.id, target: inferenceId, type: "REQUIRES" });
+        });
+        addEdge({ id: `edge:${relation}:${inferenceId}:${obligation.id}`, source: inferenceId, target: obligation.id, type: relation, assessed: true });
+      } else if (selected.length === 1) {
+        const item = selected[0];
+        const node = ensureEvidence(item.documentId, item.spanId);
+        if (node) addEdge({ id: `edge:${relation}:${node.id}:${obligation.id}`, source: node.id, target: obligation.id, type: relation, assessed: true });
+      }
+    });
+    const contextual = assessment.relations.filter((item) => item.relation === "CONTEXT");
+    const anchors = assessment.relations.filter((item) =>
+      (item.relation === "SUPPORTS" || item.relation === "REFUTES") && item.decisive
+    );
+    contextual.forEach((item) => {
+      const anchor = anchors.map((candidate) => ensureEvidence(candidate.documentId, candidate.spanId)).find(Boolean);
+      const record = spans.get(evidenceKey(item.documentId, item.spanId));
+      if (record && anchor) {
+        const contextId = `context:selected:${item.documentId}:${item.spanId}`;
+        addNode({
+          id: contextId, type: "CONTEXT", evidenceId: item.spanId,
+          documentId: item.documentId, text: record.span.text,
+          start: record.span.start, end: record.span.end,
+        });
+        addEdge({ id: `edge:CONTEXTUALIZES:${contextId}:${anchor.id}`, source: contextId, target: anchor.id, type: "CONTEXTUALIZES" });
+      }
+    });
+    omittedCandidateCount += assessment.relations.filter((item) => item.relation === "NOT_SELECTED").length;
   });
+
+  reasoning.forEach((proof) => {
+    const obligation = obligations.get(proof.atomId);
+    if (!obligation) return;
+    const nodeId = `inference:${proof.id}`;
+    addNode({
+      id: nodeId, type: "INFERENCE", atomId: proof.atomId, inferenceKind: proof.operator,
+      expression: proof.expression, conclusion: proof.conclusion, explanation: proof.explanation,
+      premiseIds: proof.premiseIds, relation: proof.relation,
+      compiledBy: "Qwen", executedBy: "Python",
+      status: proof.status,
+    });
+    proof.premises.forEach((premise) => {
+      let source = premise.kind === "EVIDENCE"
+        ? (() => {
+            const match = [...spans.values()].find(({ span }) =>
+              span.documentId === premise.documentId
+              && span.start === premise.start
+              && span.end === premise.end
+              && span.text === premise.text,
+            );
+            return match ? ensureEvidence(match.span.documentId, match.span.id) : null;
+          })()
+        : null;
+      if (!source) {
+        const document = docs.get(premise.documentId)?.item;
+        source = {
+          id: `evidence:premise:${premise.id}`, type: "EVIDENCE", evidenceId: premise.id,
+          documentId: premise.documentId, documentTitle: document?.title ?? premise.documentId,
+          documentUrl: document?.url ?? "", text: premise.text, start: premise.start,
+          end: premise.end, bestRank: Number.MAX_SAFE_INTEGER,
+        };
+        if (!nodeIds.has(source.id)) addNode(source);
+      }
+      addEdge({ id: `edge:REQUIRES:${source.id}:${nodeId}`, source: source.id, target: nodeId, type: "REQUIRES" });
+    });
+    if (proof.relation) {
+      addEdge({ id: `edge:${proof.relation}:${nodeId}:${obligation.id}`, source: nodeId, target: obligation.id, type: proof.relation });
+    }
+  });
+
+  const observedArgumentEdges = edges.filter((item) => item.type === "SUPPORTS" || item.type === "REFUTES");
+  const rejectedEdgeIds = new Set<string>();
   if (authoritativeArgumentEdgeIds) {
-    authoritativeArgumentEdgeIds.forEach((edgeId) => {
-      if (!observedArgumentEdgeIds.has(edgeId)) {
-        warnings.push(warning("AGGREGATION_EDGE_MISMATCH", `The backend accepted relation ${edgeId}, but it is absent from the graph inputs.`));
+    observedArgumentEdges.forEach((edge) => {
+      if (!authoritativeArgumentEdgeIds.has(edge.id)) {
+        rejectedEdgeIds.add(edge.id);
+        warnings.push(warning("AGGREGATION_EDGE_MISMATCH", `Backend aggregation did not accept ${edge.id}.`));
       }
     });
   }
-
-  const sortedEvidence = [...evidenceNodes.values()].sort((left, right) => {
-    const leftDocument = documentsById.get(left.documentId)?.index ?? Number.MAX_SAFE_INTEGER;
-    const rightDocument = documentsById.get(right.documentId)?.index ?? Number.MAX_SAFE_INTEGER;
-    return leftDocument - rightDocument || left.start - right.start || left.id.localeCompare(right.id);
-  });
-  sortedEvidence.forEach(addNode);
-
-  const atomOrder = new Map(atoms.map((atom, index) => [atom.id, index]));
-  const atomIdByObligationNodeId = new Map(
-    [...obligationByAtomId.values()].map((node) => [node.id, node.atomId]),
-  );
-  edges.sort((left, right) => {
-    const leftStructural = left.type === "DECOMPOSES_TO";
-    const rightStructural = right.type === "DECOMPOSES_TO";
-    if (leftStructural !== rightStructural) return leftStructural ? -1 : 1;
-    const leftAtomId = atomIdByObligationNodeId.get(left.target);
-    const rightAtomId = atomIdByObligationNodeId.get(right.target);
-    return (atomOrder.get(leftAtomId ?? "") ?? Number.MAX_SAFE_INTEGER)
-      - (atomOrder.get(rightAtomId ?? "") ?? Number.MAX_SAFE_INTEGER)
-      || left.type.localeCompare(right.type)
-      || left.id.localeCompare(right.id);
-  });
-  const argumentEdges = edges.filter((edge) => edge.type !== "DECOMPOSES_TO");
-  const connectedAtoms = new Set(argumentEdges.map((edge) => edge.target));
+  const renderedEdges = edges.filter((edge) => !rejectedEdgeIds.has(edge.id));
+  const argumentEdges = renderedEdges.filter((item) => item.type === "SUPPORTS" || item.type === "REFUTES");
+  const connected = new Set(argumentEdges.map((edge) => edge.target));
   return {
-    schemaVersion: 2,
-    claimId: normalizedClaimId,
-    nodes,
-    edges,
-    warnings,
+    schemaVersion: 4, claimId: normalizedClaimId, nodes, edges: renderedEdges, warnings,
     stats: {
-      obligationCount: obligationByAtomId.size,
-      evidenceCount: sortedEvidence.length,
-      supportEdgeCount: argumentEdges.filter((edge) => edge.type === "SUPPORTS").length,
-      attackEdgeCount: argumentEdges.filter((edge) => edge.type === "ATTACKS").length,
-      omittedNeutralCount,
-      obligationsWithoutArgumentEdges: [...obligationByAtomId.values()].filter((node) => !connectedAtoms.has(node.id)).length,
+      obligationCount: obligations.size,
+      evidenceCount: nodes.filter((item) => item.type === "EVIDENCE").length,
+      inferenceCount: nodes.filter((item) => item.type === "INFERENCE").length,
+      contextCount: nodes.filter((item) => item.type === "CONTEXT").length,
+      supportEdgeCount: argumentEdges.filter((item) => item.type === "SUPPORTS").length,
+      refuteEdgeCount: argumentEdges.filter((item) => item.type === "REFUTES").length,
+      unselectedCandidateCount: omittedCandidateCount,
+      obligationsWithoutArgumentEdges: [...obligations.values()].filter((item) => !connected.has(item.id)).length,
     },
   };
 }

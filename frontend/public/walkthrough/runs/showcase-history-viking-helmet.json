@@ -1,0 +1,694 @@
+{
+  "caseId": "showcase-history-viking-helmet",
+  "schemaVersion": 6,
+  "composition": "SINGLE",
+  "warnings": [],
+  "atoms": [
+    {
+      "id": "atom-1",
+      "text": "The only preserved complete Viking Age helmet has horns.",
+      "sourceText": "The only preserved complete Viking Age helmet has horns.",
+      "start": 0,
+      "end": 56,
+      "role": "CORE"
+    }
+  ],
+  "evidence": [
+    {
+      "atomId": "atom-1",
+      "spans": [
+        {
+          "id": "doc-4437a7e42d03::sentence-4",
+          "documentId": "doc-4437a7e42d03",
+          "text": "However, there is only one preserved helmet from the Viking Age and this does not have horns. ",
+          "start": 166,
+          "end": 260,
+          "contextSpans": [
+            {
+              "id": "doc-4437a7e42d03::sentence-3",
+              "documentId": "doc-4437a7e42d03",
+              "text": "Many depictions of the Vikings display this particular attribute. ",
+              "start": 100,
+              "end": 166,
+              "direction": "PREVIOUS"
+            },
+            {
+              "id": "doc-4437a7e42d03::sentence-5",
+              "documentId": "doc-4437a7e42d03",
+              "text": "It was found in the Norwegian warrior’s burial at Gjermundbu, north of Oslo, together with the only complete suit of chain mail from the period.\n",
+              "start": 260,
+              "end": 405,
+              "direction": "NEXT"
+            }
+          ],
+          "context": "Many depictions of the Vikings display this particular attribute. However, there is only one preserved helmet from the Viking Age and this does not have horns. It was found in the Norwegian warrior’s burial at Gjermundbu, north of Oslo, together with the only complete suit of chain mail from the period."
+        },
+        {
+          "id": "doc-4437a7e42d03::sentence-14",
+          "documentId": "doc-4437a7e42d03",
+          "text": "Does this prove that all Vikings wore the famous helmets with horns? ",
+          "start": 1191,
+          "end": 1260,
+          "contextSpans": [
+            {
+              "id": "doc-4437a7e42d03::sentence-13",
+              "documentId": "doc-4437a7e42d03",
+              "text": "In the Oseberg burial from Norway, which dates to the early Viking period, a tapestry was found on which horned helmets are also depicted. ",
+              "start": 1052,
+              "end": 1191,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "In the Oseberg burial from Norway, which dates to the early Viking period, a tapestry was found on which horned helmets are also depicted. Does this prove that all Vikings wore the famous helmets with horns?"
+        },
+        {
+          "id": "doc-4437a7e42d03::sentence-11",
+          "documentId": "doc-4437a7e42d03",
+          "text": "Depictions of an Iron Age date exist featuring people with horned helmets/heads, such as upon the Golden Horns. ",
+          "start": 879,
+          "end": 991,
+          "contextSpans": [],
+          "context": "Depictions of an Iron Age date exist featuring people with horned helmets/heads, such as upon the Golden Horns."
+        },
+        {
+          "id": "doc-231a5983562d::sentence-20",
+          "documentId": "doc-231a5983562d",
+          "text": "Did the Vikings have horns on their helmets?\n",
+          "start": 1116,
+          "end": 1161,
+          "contextSpans": [],
+          "context": "Did the Vikings have horns on their helmets?"
+        },
+        {
+          "id": "doc-231a5983562d::sentence-21",
+          "documentId": "doc-231a5983562d",
+          "text": "No, the Vikings did not have horns on their helmets. ",
+          "start": 1161,
+          "end": 1214,
+          "contextSpans": [
+            {
+              "id": "doc-231a5983562d::sentence-22",
+              "documentId": "doc-231a5983562d",
+              "text": "This is a myth that started in the 19th century, when Richard Wagner used horned helmets as costumes in his opera The Ring of the Nibelung.",
+              "start": 1214,
+              "end": 1353,
+              "direction": "NEXT"
+            }
+          ],
+          "context": "No, the Vikings did not have horns on their helmets. This is a myth that started in the 19th century, when Richard Wagner used horned helmets as costumes in his opera The Ring of the Nibelung."
+        },
+        {
+          "id": "doc-231a5983562d::sentence-9",
+          "documentId": "doc-231a5983562d",
+          "text": "Is it possible to get something to eat at The Viking Museum?\n",
+          "start": 436,
+          "end": 497,
+          "contextSpans": [
+            {
+              "id": "doc-231a5983562d::sentence-8",
+              "documentId": "doc-231a5983562d",
+              "text": "Food and Beverages\n",
+              "start": 417,
+              "end": 436,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "Food and Beverages Is it possible to get something to eat at The Viking Museum?"
+        }
+      ]
+    }
+  ],
+  "assessment": {
+    "obligations": [
+      {
+        "atomId": "atom-1",
+        "supportSpanIds": [],
+        "refuteSpanIds": [
+          "doc-4437a7e42d03::sentence-4",
+          "doc-231a5983562d::sentence-21"
+        ],
+        "contextSpanIds": [
+          "doc-4437a7e42d03::sentence-14",
+          "doc-4437a7e42d03::sentence-11",
+          "doc-231a5983562d::sentence-9"
+        ],
+        "sufficiency": "PARTIAL",
+        "missingInformation": "",
+        "reason": "O1-E1 and O1-E5 directly state that the only preserved complete Viking Age helmet does not have horns, while O1-E5 also refutes the myth.",
+        "scopeChecks": [
+          {
+            "spanId": "doc-4437a7e42d03::sentence-4",
+            "documentId": "doc-4437a7e42d03",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "DK",
+              "NO"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-4437a7e42d03::sentence-14",
+            "documentId": "doc-4437a7e42d03",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "NO"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-4437a7e42d03::sentence-11",
+            "documentId": "doc-4437a7e42d03",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "DK",
+              "NO"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-231a5983562d::sentence-20",
+            "documentId": "doc-231a5983562d",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-231a5983562d::sentence-21",
+            "documentId": "doc-231a5983562d",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-231a5983562d::sentence-9",
+            "documentId": "doc-231a5983562d",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          }
+        ]
+      }
+    ],
+    "materialOmission": {
+      "detected": false,
+      "supportSpanIds": [],
+      "contextSpanIds": [],
+      "reason": "No material omission was established."
+    }
+  },
+  "reasoning": [
+    {
+      "id": "proof:atom-1:attribute_compare:1",
+      "atomId": "atom-1",
+      "operator": "ATTRIBUTE_COMPARE",
+      "status": "DISPROVED",
+      "relation": "REFUTES",
+      "premiseIds": [
+        "evidence:atom-1:doc-231a5983562d:doc-231a5983562d::sentence-21",
+        "evidence:atom-1:doc-4437a7e42d03:doc-4437a7e42d03::sentence-4"
+      ],
+      "premises": [
+        {
+          "id": "evidence:atom-1:doc-231a5983562d:doc-231a5983562d::sentence-21",
+          "documentId": "doc-231a5983562d",
+          "text": "No, the Vikings did not have horns on their helmets. ",
+          "start": 1161,
+          "end": 1214,
+          "kind": "EVIDENCE",
+          "contentHash": null,
+          "itemCount": null
+        },
+        {
+          "id": "evidence:atom-1:doc-4437a7e42d03:doc-4437a7e42d03::sentence-4",
+          "documentId": "doc-4437a7e42d03",
+          "text": "However, there is only one preserved helmet from the Viking Age and this does not have horns. ",
+          "start": 166,
+          "end": 260,
+          "kind": "EVIDENCE",
+          "contentHash": null,
+          "itemCount": null
+        }
+      ],
+      "expression": "claimed attribute = source attribute",
+      "conclusion": "The source explicitly negates the claimed attribute.",
+      "explanation": "Python accepted an explicit source negation only after entity and property terms were aligned.",
+      "validationWarnings": [],
+      "program": {
+        "version": 1,
+        "steps": [
+          {
+            "id": "input-1",
+            "operation": "LOOKUP",
+            "inputIds": [
+              "evidence:atom-1:doc-231a5983562d:doc-231a5983562d::sentence-21"
+            ],
+            "outputType": "FACT",
+            "description": "Read an unchanged server-owned premise."
+          },
+          {
+            "id": "input-2",
+            "operation": "LOOKUP",
+            "inputIds": [
+              "evidence:atom-1:doc-4437a7e42d03:doc-4437a7e42d03::sentence-4"
+            ],
+            "outputType": "FACT",
+            "description": "Read an unchanged server-owned premise."
+          },
+          {
+            "id": "result",
+            "operation": "EQUAL",
+            "inputIds": [
+              "input-1",
+              "input-2"
+            ],
+            "outputType": "BOOLEAN",
+            "description": "Validate operand alignment and execute the typed operation in Python."
+          }
+        ],
+        "outputStepId": "result"
+      }
+    }
+  ],
+  "linguistics": {
+    "schemaVersion": 2,
+    "claimAnalysis": {
+      "atomId": "claim",
+      "frames": [
+        {
+          "id": "claim-frame-1",
+          "predicate": {
+            "id": "claim-frame-1-predicate",
+            "text": "has",
+            "start": 46,
+            "end": 49
+          },
+          "subjects": [
+            {
+              "id": "claim-frame-1-subject-1",
+              "text": "The only preserved complete Viking Age helmet",
+              "start": 0,
+              "end": 45
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "claim-frame-1-argument-1",
+              "text": "horns",
+              "start": 50,
+              "end": 55,
+              "role": "direct_object"
+            }
+          ],
+          "adjuncts": [],
+          "otherModifiers": []
+        }
+      ],
+      "cues": [
+        {
+          "id": "claim-cue-quantifier-4-8",
+          "text": "only",
+          "start": 4,
+          "end": 8,
+          "kind": "quantifier"
+        }
+      ],
+      "entities": [
+        {
+          "id": "claim-entity-person-28-38",
+          "text": "Viking Age",
+          "start": 28,
+          "end": 38,
+          "label": "PERSON"
+        }
+      ],
+      "tokens": [
+        {
+          "id": "claim-token-0",
+          "text": "The",
+          "start": 0,
+          "end": 3,
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "helmet"
+        },
+        {
+          "id": "claim-token-1",
+          "text": "only",
+          "start": 4,
+          "end": 8,
+          "lemma": "only",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "helmet"
+        },
+        {
+          "id": "claim-token-2",
+          "text": "preserved",
+          "start": 9,
+          "end": 18,
+          "lemma": "preserve",
+          "pos": "VERB",
+          "tag": "VBN",
+          "dependency": "amod",
+          "head": "helmet"
+        },
+        {
+          "id": "claim-token-3",
+          "text": "complete",
+          "start": 19,
+          "end": 27,
+          "lemma": "complete",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "helmet"
+        },
+        {
+          "id": "claim-token-4",
+          "text": "Viking",
+          "start": 28,
+          "end": 34,
+          "lemma": "Viking",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "amod",
+          "head": "helmet"
+        },
+        {
+          "id": "claim-token-5",
+          "text": "Age",
+          "start": 35,
+          "end": 38,
+          "lemma": "Age",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "helmet"
+        },
+        {
+          "id": "claim-token-6",
+          "text": "helmet",
+          "start": 39,
+          "end": 45,
+          "lemma": "helmet",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "nsubj",
+          "head": "has"
+        },
+        {
+          "id": "claim-token-7",
+          "text": "has",
+          "start": 46,
+          "end": 49,
+          "lemma": "have",
+          "pos": "VERB",
+          "tag": "VBZ",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "claim-token-8",
+          "text": "horns",
+          "start": 50,
+          "end": 55,
+          "lemma": "horn",
+          "pos": "NOUN",
+          "tag": "NNS",
+          "dependency": "dobj",
+          "head": "has"
+        },
+        {
+          "id": "claim-token-9",
+          "text": ".",
+          "start": 55,
+          "end": 56,
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "has"
+        }
+      ],
+      "status": "complete",
+      "unresolved": []
+    },
+    "analyses": [
+      {
+        "atomId": "atom-1",
+        "frames": [
+          {
+            "id": "atom-1-frame-1",
+            "predicate": {
+              "id": "atom-1-frame-1-predicate",
+              "text": "has",
+              "start": 46,
+              "end": 49
+            },
+            "subjects": [
+              {
+                "id": "atom-1-frame-1-subject-1",
+                "text": "The only preserved complete Viking Age helmet",
+                "start": 0,
+                "end": 45
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-1-frame-1-argument-1",
+                "text": "horns",
+                "start": 50,
+                "end": 55,
+                "role": "direct_object"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [
+          {
+            "id": "atom-1-cue-quantifier-4-8",
+            "text": "only",
+            "start": 4,
+            "end": 8,
+            "kind": "quantifier"
+          }
+        ],
+        "entities": [
+          {
+            "id": "atom-1-entity-person-28-38",
+            "text": "Viking Age",
+            "start": 28,
+            "end": 38,
+            "label": "PERSON"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-1-token-0",
+            "text": "The",
+            "start": 0,
+            "end": 3,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "helmet"
+          },
+          {
+            "id": "atom-1-token-1",
+            "text": "only",
+            "start": 4,
+            "end": 8,
+            "lemma": "only",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "helmet"
+          },
+          {
+            "id": "atom-1-token-2",
+            "text": "preserved",
+            "start": 9,
+            "end": 18,
+            "lemma": "preserve",
+            "pos": "VERB",
+            "tag": "VBN",
+            "dependency": "amod",
+            "head": "helmet"
+          },
+          {
+            "id": "atom-1-token-3",
+            "text": "complete",
+            "start": 19,
+            "end": 27,
+            "lemma": "complete",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "helmet"
+          },
+          {
+            "id": "atom-1-token-4",
+            "text": "Viking",
+            "start": 28,
+            "end": 34,
+            "lemma": "Viking",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "amod",
+            "head": "helmet"
+          },
+          {
+            "id": "atom-1-token-5",
+            "text": "Age",
+            "start": 35,
+            "end": 38,
+            "lemma": "Age",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "helmet"
+          },
+          {
+            "id": "atom-1-token-6",
+            "text": "helmet",
+            "start": 39,
+            "end": 45,
+            "lemma": "helmet",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "nsubj",
+            "head": "has"
+          },
+          {
+            "id": "atom-1-token-7",
+            "text": "has",
+            "start": 46,
+            "end": 49,
+            "lemma": "have",
+            "pos": "VERB",
+            "tag": "VBZ",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-1-token-8",
+            "text": "horns",
+            "start": 50,
+            "end": 55,
+            "lemma": "horn",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "dobj",
+            "head": "has"
+          },
+          {
+            "id": "atom-1-token-9",
+            "text": ".",
+            "start": 55,
+            "end": 56,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "has"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      }
+    ],
+    "summaries": [
+      {
+        "atomId": "atom-1",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "The only preserved complete Viking Age helmet"
+        ],
+        "predicates": [
+          "have"
+        ],
+        "cueKinds": [
+          "quantifier"
+        ],
+        "modifierKinds": [],
+        "entityLabels": [
+          "PERSON"
+        ],
+        "warnings": []
+      }
+    ],
+    "claimWarnings": [],
+    "provider": "spacy",
+    "model": "en_core_web_sm@3.8.0"
+  },
+  "verdict": {
+    "aggregationSchemaVersion": 3,
+    "claimId": "showcase-history-viking-helmet",
+    "composition": "SINGLE",
+    "verdict": "REFUTED",
+    "positions": {
+      "supportPosition": false,
+      "refutePosition": true,
+      "materialOmissionPosition": false,
+      "supportObligationIds": [],
+      "refuteObligationIds": [
+        "atom-1"
+      ],
+      "unresolvedObligationIds": []
+    },
+    "obligations": [
+      {
+        "obligationId": "atom-1",
+        "state": "REFUTED",
+        "supportEdgeIds": [],
+        "refuteEdgeIds": [
+          "edge:REFUTES:inference:proof:atom-1:attribute_compare:1:obligation:showcase-history-viking-helmet:atom-1"
+        ],
+        "unselectedCandidateCount": 1,
+        "provisionalRelationCount": 2
+      }
+    ],
+    "warnings": [
+      {
+        "code": "PROVISIONAL_EVIDENCE_EXCLUDED",
+        "message": "2 assessed relation(s) for obligation atom-1 are provisional because the evidence is not sufficient."
+      }
+    ],
+    "ruleTrace": [
+      "SINGLE maps its one obligation's validated relations directly.",
+      "Validated positions — support: no; refute: yes.",
+      "Verdict: REFUTED."
+    ]
+  },
+  "recordedWith": {
+    "pipelineRevision": "submission-ready-v2",
+    "inputDigest": "a62cf2bc3d17e61ccfd357ec16f9be9df355a8cb0aed923ad264b0252caec73d",
+    "decompositionModel": "qwen2.5:7b",
+    "retrievalModel": "BAAI/bge-small-en-v1.5",
+    "retrievalMethod": "HYBRID",
+    "assessmentModel": "qwen2.5:7b",
+    "reasoningModel": "qwen2.5:7b",
+    "linguisticsModel": "en_core_web_sm@3.8.0"
+  },
+  "timingsSeconds": {
+    "decomposition": 13.753,
+    "retrievalAndLinguistics": 0.336,
+    "evidenceAssessment": 17.413,
+    "symbolicReasoning": 13.158,
+    "aggregation": 0.002,
+    "total": 44.663
+  }
+}

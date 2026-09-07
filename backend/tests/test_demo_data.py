@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import importlib.util
 import json
 import sys
@@ -10,7 +11,7 @@ from pathlib import Path
 import pytest
 
 from verigraph_backend.demo_data import DemoDataError, load_demo_cases, load_private_bundle
-from verigraph_backend.schemas import ReferenceLabel
+from verigraph_backend.schemas import DemoCategory, DemoOrigin, ReferenceLabel
 from verigraph_backend.settings import ROOT
 
 
@@ -29,19 +30,72 @@ def test_public_fallback_uses_multidocument_four_way_schema() -> None:
     payload = json.loads(path.read_text(encoding="utf-8"))
     assert len(payload) == 12
     assert all(set(row) == {"id", "claim", "documents", "label"} for row in payload)
-    assert all(set(row["documents"][0]) == {"id", "title", "url", "text"} for row in payload)
+    assert all(set(row["documents"][0]) >= {"id", "title", "url", "text"} for row in payload)
     assert {row["label"] for row in payload} == {"SUPPORTED", "REFUTED"}
     assert len(load_demo_cases(path)) == 12
 
 
 def test_checked_in_private_bundle_is_balanced_and_fully_described() -> None:
-    store = load_private_bundle(ROOT / "data" / "demo" / "averitec")
+    bundle = ROOT / "data" / "demo" / "averitec"
+    store = load_private_bundle(bundle)
     assert len(store.summaries) == 32
     assert Counter(case.label for case in store.summaries) == {
         label: 8 for label in ReferenceLabel
     }
     assert all(case.display_title for case in store.summaries)
     assert all(case.topics for case in store.summaries)
+
+    audit_by_case = {
+        item["caseId"]: item
+        for item in json.loads((bundle / "fetch-audit.json").read_text(encoding="utf-8"))
+        if item.get("accepted")
+    }
+    documents = [document for case in store.cases_by_id.values() for document in case.documents]
+    assert len(documents) == 77
+    ndf = store.cases_by_id["averitec-dev-0034"]
+    assert len(ndf.documents) == 4
+    prepare = _prepare_module()
+    assert len({prepare._source_identity_url(document.url) for document in ndf.documents}) == 4
+    for case in store.cases_by_id.values():
+        source_by_url = {
+            source["sourceUrl"]: source
+            for source in audit_by_case[case.id]["sources"]
+            if source.get("accepted")
+        }
+        for document in case.documents:
+            assert len(document.text.split()) >= 175
+            assert (
+                hashlib.sha256(document.text.encode("utf-8")).hexdigest()
+                == source_by_url[document.url]["sha256"]
+            )
+            assert "AVERITEC HUMAN-ANNOTATED EVIDENCE CARD" not in document.text
+            assert "RECOVERED SOURCE TEXT" not in document.text
+
+
+def test_showcase_bundle_has_fifteen_constructed_and_three_averitec_cases() -> None:
+    bundle = ROOT / "data" / "demo" / "showcase"
+    store = load_private_bundle(bundle)
+    assert len(store.summaries) == 18
+    assert sum(case.origin == DemoOrigin.constructed for case in store.summaries) == 15
+    assert sum(case.origin == DemoOrigin.averitec for case in store.summaries) == 3
+    assert {case.category for case in store.summaries} == set(DemoCategory)
+    assert {case.id for case in store.summaries if case.origin == DemoOrigin.averitec} == {
+        "averitec-dev-0142", "averitec-dev-0146", "averitec-dev-0392",
+    }
+    assert all(case.demo_focus is not None for case in store.summaries)
+    assert not any(case.featured for case in store.summaries)
+    for case in store.cases_by_id.values():
+        if case.origin != DemoOrigin.constructed:
+            continue
+        assert len(case.documents) == 2
+        assert len({document.url for document in case.documents}) == 2
+        for document in case.documents:
+            assert 150 <= len(document.text.split()) <= 400
+            assert document.publisher and document.retrieved_at
+            assert hashlib.sha256(document.text.encode()).hexdigest() == document.excerpt_sha256
+    assert store.cases_by_id["showcase-history-curie"].claim == (
+        "Marie Curie won Nobel Prizes in two different scientific fields."
+    )
 
 
 def _synthetic_rows(prepare):
@@ -170,7 +224,18 @@ def test_source_groups_include_pdf_evidence_but_not_unextractable_media() -> Non
     ]
 
 
-def test_prepared_documents_preserve_human_evidence_without_label_leakage() -> None:
+def test_source_groups_deduplicate_percent_encoded_query_values() -> None:
+    prepare = _prepare_module()
+    row = {"questions": [{"question": "Listed?", "answers": [
+        {"answer": "Yes", "source_medium": "Web text", "source_url": "https://eur-lex.europa.eu/legal-content/en/TXT/?uri=CELEX:32020D1132"},
+        {"answer": "Yes", "source_medium": "Web text", "source_url": "https://EUR-LEX.EUROPA.EU/legal-content/en/TXT/?uri=CELEX%3A32020D1132"},
+    ]}]}
+    groups = prepare._source_groups(row)
+    assert len(groups) == 1
+    assert groups[0]["source_url"].endswith("uri=CELEX:32020D1132")
+
+
+def test_prepared_documents_use_source_text_without_annotation_leakage() -> None:
     prepare = _prepare_module()
     row = {
         "claim": "The program improved the measured outcome.",
@@ -207,12 +272,42 @@ def test_prepared_documents_preserve_human_evidence_without_label_leakage() -> N
 
     assert case is not None
     assert audit["accepted"] is True
-    assert all(prepare.EVIDENCE_CARD_HEADING in document.text for document in case.documents)
+    assert all(document.text == source_text for document in case.documents)
     combined = "\n".join(document.text for document in case.documents)
-    assert "Did the program improve" in combined
-    assert "The measured outcome improved" in combined
+    assert "Did the program improve" not in combined
+    assert "The measured outcome improved" not in combined
     assert "This gold explanation" not in combined
     assert "SUPPORTED" not in combined
+    assert all("annotatedEvidenceSha256" not in source for source in audit["sources"])
+
+
+def test_private_bundle_rejects_annotation_card_text(tmp_path: Path) -> None:
+    prepare = _prepare_module()
+    rows = _synthetic_rows(prepare)
+    source_text = " ".join(
+        ["Public policy change and measurable outcome are documented here."] * 35
+    )
+    cases, audits = prepare.prepare_catalog(
+        rows,
+        lambda _: prepare.FetchResult(status="ok", text=source_text, title="Source"),
+        lambda _: None,
+    )
+    prepare.write_bundle(cases, audits, tmp_path)
+    case_path = next((tmp_path / "cases").glob("*.json"))
+    payload = json.loads(case_path.read_text(encoding="utf-8"))
+    payload["documents"][0]["text"] = (
+        "AVERITEC HUMAN-ANNOTATED EVIDENCE CARD\n" + payload["documents"][0]["text"]
+    )
+    case_path.write_text(json.dumps(payload), encoding="utf-8")
+    prepare.write_bundle(
+        [prepare.DemoCase.model_validate(json.loads(path.read_text(encoding="utf-8")))
+         for path in sorted((tmp_path / "cases").glob("*.json"))],
+        audits,
+        tmp_path,
+    )
+
+    with pytest.raises(DemoDataError, match="annotation-card text"):
+        load_private_bundle(tmp_path)
 
 
 def test_pdf_extraction_uses_selectable_text_and_preserves_metadata_title(monkeypatch) -> None:
@@ -237,6 +332,32 @@ def test_pdf_extraction_uses_selectable_text_and_preserves_metadata_title(monkey
     assert result.title == "Official designated entities"
     assert "Entity One" in result.text
     assert "Entity Three" in result.text
+
+
+def test_pdf_extraction_reflows_unambiguous_word_per_line_text(monkeypatch) -> None:
+    prepare = _prepare_module()
+    extracted = "\n".join(f"word{index}" for index in range(120))
+
+    class FakeReader:
+        metadata = {"/Title": "Word-per-line PDF"}
+        pages = [SimpleNamespace(extract_text=lambda: extracted)]
+
+        def __init__(self, stream, strict=False):
+            pass
+
+    monkeypatch.setitem(sys.modules, "pypdf", SimpleNamespace(PdfReader=FakeReader))
+
+    result = prepare.extract_pdf(b"%PDF-word-lines", "https://authority.example/report.pdf")
+
+    assert result.status == "ok"
+    assert result.text == " ".join(f"word{index}" for index in range(120))
+
+
+def test_word_per_line_reflow_preserves_normal_lists() -> None:
+    prepare = _prepare_module()
+    source = "Complete list\n\nAlpha\nBeta\nGamma"
+
+    assert prepare._reflow_word_per_line_text(source) == source
 
 
 def test_pdf_extraction_rejects_image_only_documents(monkeypatch) -> None:

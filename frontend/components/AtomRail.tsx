@@ -34,8 +34,7 @@ export function AtomRail({
         <>
         {selectedAtomId === null ? (
           <p className="atom-rail-hint">
-            Select an atomic claim to inspect its language, candidate evidence, and sentence
-            relations.
+            Select an atomic claim to inspect its wording and evidence.
           </p>
         ) : null}
         <ol className="atom-list">
@@ -67,9 +66,15 @@ export function AtomRail({
         <div className="panel-empty">
           <Braces size={22} aria-hidden="true" />
           <strong>
-            {state === "running" ? "Decomposing claim…" : "No atoms yet"}
+            {state === "running"
+              ? "Decomposing claim…"
+              : "Atomic claims will appear here."}
           </strong>
-          <p>Choose a sample or enter your own text, then decompose the claim.</p>
+          <p>
+            {state === "running"
+              ? "Separating the claim into verifiable statements."
+              : "Select a sample or enter your own claim above."}
+          </p>
         </div>
       )}
     </section>

@@ -1,0 +1,688 @@
+{
+  "caseId": "showcase-geography-everest",
+  "schemaVersion": 6,
+  "composition": "SINGLE",
+  "warnings": [],
+  "atoms": [
+    {
+      "id": "atom-1",
+      "text": "Mount Everest is the tallest mountain on Earth.",
+      "sourceText": "Mount Everest is the tallest mountain on Earth",
+      "start": 0,
+      "end": 46,
+      "role": "CORE"
+    }
+  ],
+  "evidence": [
+    {
+      "atomId": "atom-1",
+      "spans": [
+        {
+          "id": "doc-f79bf0925486::sentence-3",
+          "documentId": "doc-f79bf0925486",
+          "text": "Mount Everest, located in Nepal and Tibet, is usually said to be the highest mountain on Earth. ",
+          "start": 227,
+          "end": 323,
+          "contextSpans": [],
+          "context": "Mount Everest, located in Nepal and Tibet, is usually said to be the highest mountain on Earth."
+        },
+        {
+          "id": "doc-f79bf0925486::sentence-11",
+          "documentId": "doc-f79bf0925486",
+          "text": "You may be surprised to learn that Everest is not the tallest mountain on Earth, either. ",
+          "start": 1153,
+          "end": 1242,
+          "contextSpans": [
+            {
+              "id": "doc-f79bf0925486::sentence-10",
+              "documentId": "doc-f79bf0925486",
+              "text": "That makes Chimborazo the closest point on Earth to the stars.\n",
+              "start": 1090,
+              "end": 1153,
+              "direction": "PREVIOUS"
+            },
+            {
+              "id": "doc-f79bf0925486::sentence-12",
+              "documentId": "doc-f79bf0925486",
+              "text": "That honor belongs to Mauna Kea, a volcano on the Big Island of Hawaii. ",
+              "start": 1242,
+              "end": 1314,
+              "direction": "NEXT"
+            }
+          ],
+          "context": "That makes Chimborazo the closest point on Earth to the stars. You may be surprised to learn that Everest is not the tallest mountain on Earth, either. That honor belongs to Mauna Kea, a volcano on the Big Island of Hawaii."
+        },
+        {
+          "id": "doc-f79bf0925486::sentence-4",
+          "documentId": "doc-f79bf0925486",
+          "text": "Reaching 8,848 meters at its summit, Everest is indeed the highest point above global mean sea level—the average level for the ocean surface from which elevations are measured. ",
+          "start": 323,
+          "end": 500,
+          "contextSpans": [
+            {
+              "id": "doc-f79bf0925486::sentence-3",
+              "documentId": "doc-f79bf0925486",
+              "text": "Mount Everest, located in Nepal and Tibet, is usually said to be the highest mountain on Earth. ",
+              "start": 227,
+              "end": 323,
+              "direction": "PREVIOUS"
+            },
+            {
+              "id": "doc-f79bf0925486::sentence-5",
+              "documentId": "doc-f79bf0925486",
+              "text": "But the summit of Mt. Everest is not the farthest point from Earth’s center.\n",
+              "start": 500,
+              "end": 577,
+              "direction": "NEXT"
+            }
+          ],
+          "context": "Mount Everest, located in Nepal and Tibet, is usually said to be the highest mountain on Earth. Reaching 8,848 meters at its summit, Everest is indeed the highest point above global mean sea level—the average level for the ocean surface from which elevations are measured. But the summit of Mt. Everest is not the farthest point from Earth’s center."
+        },
+        {
+          "id": "doc-e42dc78c7afa::sentence-1",
+          "documentId": "doc-e42dc78c7afa",
+          "text": "planet, growing to an elevation of 4,170 m (13,681 feet) above sea level with an additional depth of 9,144 m (30,000 feet) below sea level, which makes this shield volcano taller from base to top than Mount Everest. ",
+          "start": 0,
+          "end": 216,
+          "contextSpans": [],
+          "context": "planet, growing to an elevation of 4,170 m (13,681 feet) above sea level with an additional depth of 9,144 m (30,000 feet) below sea level, which makes this shield volcano taller from base to top than Mount Everest."
+        },
+        {
+          "id": "doc-e42dc78c7afa::sentence-6",
+          "documentId": "doc-e42dc78c7afa",
+          "text": "The accretion, or deposition, of highly fluid lava flows that we see on Mauna Loa can spread over great distances and eventually cool as thin, low-angle dipping layers away from the summit. ",
+          "start": 762,
+          "end": 952,
+          "contextSpans": [
+            {
+              "id": "doc-e42dc78c7afa::sentence-5",
+              "documentId": "doc-e42dc78c7afa",
+              "text": "There are two effusive eruption subcategories that geoscientists use to describe lava flow type, pāhoehoe and ‘A‘ā. ",
+              "start": 646,
+              "end": 762,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "There are two effusive eruption subcategories that geoscientists use to describe lava flow type, pāhoehoe and ‘A‘ā. The accretion, or deposition, of highly fluid lava flows that we see on Mauna Loa can spread over great distances and eventually cool as thin, low-angle dipping layers away from the summit."
+        },
+        {
+          "id": "doc-e42dc78c7afa::sentence-2",
+          "documentId": "doc-e42dc78c7afa",
+          "text": "Mauna Loa makes up roughly 51% of the land mass on the Big Island, with a weight so heavy that it physically depresses the ocean floor beneath it. ",
+          "start": 216,
+          "end": 363,
+          "contextSpans": [
+            {
+              "id": "doc-e42dc78c7afa::sentence-1",
+              "documentId": "doc-e42dc78c7afa",
+              "text": "planet, growing to an elevation of 4,170 m (13,681 feet) above sea level with an additional depth of 9,144 m (30,000 feet) below sea level, which makes this shield volcano taller from base to top than Mount Everest. ",
+              "start": 0,
+              "end": 216,
+              "direction": "PREVIOUS"
+            },
+            {
+              "id": "doc-e42dc78c7afa::sentence-3",
+              "documentId": "doc-e42dc78c7afa",
+              "text": "It is a shield volcano, which is a broad, gently sloping dome-like structure built almost entirely from fluid lava flows pouring out of a central vent(s). ",
+              "start": 363,
+              "end": 518,
+              "direction": "NEXT"
+            }
+          ],
+          "context": "planet, growing to an elevation of 4,170 m (13,681 feet) above sea level with an additional depth of 9,144 m (30,000 feet) below sea level, which makes this shield volcano taller from base to top than Mount Everest. Mauna Loa makes up roughly 51% of the land mass on the Big Island, with a weight so heavy that it physically depresses the ocean floor beneath it. It is a shield volcano, which is a broad, gently sloping dome-like structure built almost entirely from fluid lava flows pouring out of a central vent(s)."
+        }
+      ]
+    }
+  ],
+  "assessment": {
+    "obligations": [
+      {
+        "atomId": "atom-1",
+        "supportSpanIds": [
+          "doc-f79bf0925486::sentence-4"
+        ],
+        "refuteSpanIds": [
+          "doc-f79bf0925486::sentence-11"
+        ],
+        "contextSpanIds": [
+          "doc-f79bf0925486::sentence-3",
+          "doc-e42dc78c7afa::sentence-1",
+          "doc-e42dc78c7afa::sentence-6"
+        ],
+        "sufficiency": "PARTIAL",
+        "missingInformation": "The evidence does not provide a direct comparison of the summit of Mauna Kea to Mount Everest's summit, only the total height of Mauna Kea including its underwater base.",
+        "reason": "While O1-E3 supports the claim, O1-E2 directly refutes it.",
+        "scopeChecks": [
+          {
+            "spanId": "doc-f79bf0925486::sentence-3",
+            "documentId": "doc-f79bf0925486",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "NP"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-f79bf0925486::sentence-11",
+            "documentId": "doc-f79bf0925486",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "EC",
+              "NP"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-f79bf0925486::sentence-4",
+            "documentId": "doc-f79bf0925486",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "NP"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-e42dc78c7afa::sentence-1",
+            "documentId": "doc-e42dc78c7afa",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-e42dc78c7afa::sentence-6",
+            "documentId": "doc-e42dc78c7afa",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-e42dc78c7afa::sentence-2",
+            "documentId": "doc-e42dc78c7afa",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          }
+        ]
+      }
+    ],
+    "materialOmission": {
+      "detected": false,
+      "supportSpanIds": [],
+      "contextSpanIds": [],
+      "reason": "No material omission was established."
+    }
+  },
+  "reasoning": [
+    {
+      "id": "proof:atom-1:extremum_compare:1",
+      "atomId": "atom-1",
+      "operator": "EXTREMUM_COMPARE",
+      "status": "UNRESOLVED",
+      "relation": null,
+      "premiseIds": [
+        "evidence:atom-1:doc-f79bf0925486:doc-f79bf0925486::sentence-4",
+        "evidence:atom-1:doc-e42dc78c7afa:doc-e42dc78c7afa::sentence-1"
+      ],
+      "premises": [
+        {
+          "id": "evidence:atom-1:doc-f79bf0925486:doc-f79bf0925486::sentence-4",
+          "documentId": "doc-f79bf0925486",
+          "text": "Reaching 8,848 meters at its summit, Everest is indeed the highest point above global mean sea level—the average level for the ocean surface from which elevations are measured. ",
+          "start": 323,
+          "end": 500,
+          "kind": "EVIDENCE",
+          "contentHash": null,
+          "itemCount": null
+        },
+        {
+          "id": "evidence:atom-1:doc-e42dc78c7afa:doc-e42dc78c7afa::sentence-1",
+          "documentId": "doc-e42dc78c7afa",
+          "text": "planet, growing to an elevation of 4,170 m (13,681 feet) above sea level with an additional depth of 9,144 m (30,000 feet) below sea level, which makes this shield volcano taller from base to top than Mount Everest. ",
+          "start": 0,
+          "end": 216,
+          "kind": "EVIDENCE",
+          "contentHash": null,
+          "itemCount": null
+        }
+      ],
+      "expression": "tallest",
+      "conclusion": "Extremum is not proved",
+      "explanation": "No counterexample was selected, but the complete comparison universe is not certified.",
+      "validationWarnings": [
+        "INCOMPLETE_COMPARISON_UNIVERSE"
+      ],
+      "program": {
+        "version": 1,
+        "steps": [
+          {
+            "id": "input-1",
+            "operation": "LOOKUP",
+            "inputIds": [
+              "evidence:atom-1:doc-f79bf0925486:doc-f79bf0925486::sentence-4"
+            ],
+            "outputType": "FACT",
+            "description": "Read an unchanged server-owned premise."
+          },
+          {
+            "id": "input-2",
+            "operation": "LOOKUP",
+            "inputIds": [
+              "evidence:atom-1:doc-e42dc78c7afa:doc-e42dc78c7afa::sentence-1"
+            ],
+            "outputType": "FACT",
+            "description": "Read an unchanged server-owned premise."
+          },
+          {
+            "id": "result",
+            "operation": "EXTREMUM_COUNTEREXAMPLE",
+            "inputIds": [
+              "input-1",
+              "input-2"
+            ],
+            "outputType": "BOOLEAN",
+            "description": "Validate operand alignment and execute the typed operation in Python."
+          }
+        ],
+        "outputStepId": "result"
+      }
+    }
+  ],
+  "linguistics": {
+    "schemaVersion": 2,
+    "claimAnalysis": {
+      "atomId": "claim",
+      "frames": [
+        {
+          "id": "claim-frame-1",
+          "predicate": {
+            "id": "claim-frame-1-predicate",
+            "text": "is",
+            "start": 14,
+            "end": 16
+          },
+          "subjects": [
+            {
+              "id": "claim-frame-1-subject-1",
+              "text": "Mount Everest",
+              "start": 0,
+              "end": 13
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "claim-frame-1-argument-1",
+              "text": "the tallest mountain on Earth",
+              "start": 17,
+              "end": 46,
+              "role": "subject_complement"
+            }
+          ],
+          "adjuncts": [],
+          "otherModifiers": []
+        }
+      ],
+      "cues": [],
+      "entities": [
+        {
+          "id": "claim-entity-loc-0-13",
+          "text": "Mount Everest",
+          "start": 0,
+          "end": 13,
+          "label": "LOC"
+        },
+        {
+          "id": "claim-entity-loc-41-46",
+          "text": "Earth",
+          "start": 41,
+          "end": 46,
+          "label": "LOC"
+        }
+      ],
+      "tokens": [
+        {
+          "id": "claim-token-0",
+          "text": "Mount",
+          "start": 0,
+          "end": 5,
+          "lemma": "Mount",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "Everest"
+        },
+        {
+          "id": "claim-token-1",
+          "text": "Everest",
+          "start": 6,
+          "end": 13,
+          "lemma": "Everest",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "nsubj",
+          "head": "is"
+        },
+        {
+          "id": "claim-token-2",
+          "text": "is",
+          "start": 14,
+          "end": 16,
+          "lemma": "be",
+          "pos": "AUX",
+          "tag": "VBZ",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "claim-token-3",
+          "text": "the",
+          "start": 17,
+          "end": 20,
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "mountain"
+        },
+        {
+          "id": "claim-token-4",
+          "text": "tallest",
+          "start": 21,
+          "end": 28,
+          "lemma": "tall",
+          "pos": "ADJ",
+          "tag": "JJS",
+          "dependency": "amod",
+          "head": "mountain"
+        },
+        {
+          "id": "claim-token-5",
+          "text": "mountain",
+          "start": 29,
+          "end": 37,
+          "lemma": "mountain",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "attr",
+          "head": "is"
+        },
+        {
+          "id": "claim-token-6",
+          "text": "on",
+          "start": 38,
+          "end": 40,
+          "lemma": "on",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "mountain"
+        },
+        {
+          "id": "claim-token-7",
+          "text": "Earth",
+          "start": 41,
+          "end": 46,
+          "lemma": "Earth",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "pobj",
+          "head": "on"
+        },
+        {
+          "id": "claim-token-8",
+          "text": ".",
+          "start": 46,
+          "end": 47,
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "is"
+        }
+      ],
+      "status": "complete",
+      "unresolved": []
+    },
+    "analyses": [
+      {
+        "atomId": "atom-1",
+        "frames": [
+          {
+            "id": "atom-1-frame-1",
+            "predicate": {
+              "id": "atom-1-frame-1-predicate",
+              "text": "is",
+              "start": 14,
+              "end": 16
+            },
+            "subjects": [
+              {
+                "id": "atom-1-frame-1-subject-1",
+                "text": "Mount Everest",
+                "start": 0,
+                "end": 13
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-1-frame-1-argument-1",
+                "text": "the tallest mountain on Earth",
+                "start": 17,
+                "end": 46,
+                "role": "subject_complement"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [],
+        "entities": [
+          {
+            "id": "atom-1-entity-loc-0-13",
+            "text": "Mount Everest",
+            "start": 0,
+            "end": 13,
+            "label": "LOC"
+          },
+          {
+            "id": "atom-1-entity-loc-41-46",
+            "text": "Earth",
+            "start": 41,
+            "end": 46,
+            "label": "LOC"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-1-token-0",
+            "text": "Mount",
+            "start": 0,
+            "end": 5,
+            "lemma": "Mount",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Everest"
+          },
+          {
+            "id": "atom-1-token-1",
+            "text": "Everest",
+            "start": 6,
+            "end": 13,
+            "lemma": "Everest",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "nsubj",
+            "head": "is"
+          },
+          {
+            "id": "atom-1-token-2",
+            "text": "is",
+            "start": 14,
+            "end": 16,
+            "lemma": "be",
+            "pos": "AUX",
+            "tag": "VBZ",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-1-token-3",
+            "text": "the",
+            "start": 17,
+            "end": 20,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "mountain"
+          },
+          {
+            "id": "atom-1-token-4",
+            "text": "tallest",
+            "start": 21,
+            "end": 28,
+            "lemma": "tall",
+            "pos": "ADJ",
+            "tag": "JJS",
+            "dependency": "amod",
+            "head": "mountain"
+          },
+          {
+            "id": "atom-1-token-5",
+            "text": "mountain",
+            "start": 29,
+            "end": 37,
+            "lemma": "mountain",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "attr",
+            "head": "is"
+          },
+          {
+            "id": "atom-1-token-6",
+            "text": "on",
+            "start": 38,
+            "end": 40,
+            "lemma": "on",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "mountain"
+          },
+          {
+            "id": "atom-1-token-7",
+            "text": "Earth",
+            "start": 41,
+            "end": 46,
+            "lemma": "Earth",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "pobj",
+            "head": "on"
+          },
+          {
+            "id": "atom-1-token-8",
+            "text": ".",
+            "start": 46,
+            "end": 47,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "is"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      }
+    ],
+    "summaries": [
+      {
+        "atomId": "atom-1",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "Mount Everest"
+        ],
+        "predicates": [
+          "be"
+        ],
+        "cueKinds": [],
+        "modifierKinds": [],
+        "entityLabels": [
+          "LOC"
+        ],
+        "warnings": []
+      }
+    ],
+    "claimWarnings": [],
+    "provider": "spacy",
+    "model": "en_core_web_sm@3.8.0"
+  },
+  "verdict": {
+    "aggregationSchemaVersion": 3,
+    "claimId": "showcase-geography-everest",
+    "composition": "SINGLE",
+    "verdict": "NOT_ENOUGH_EVIDENCE",
+    "positions": {
+      "supportPosition": false,
+      "refutePosition": false,
+      "materialOmissionPosition": false,
+      "supportObligationIds": [],
+      "refuteObligationIds": [],
+      "unresolvedObligationIds": [
+        "atom-1"
+      ]
+    },
+    "obligations": [
+      {
+        "obligationId": "atom-1",
+        "state": "UNRESOLVED",
+        "supportEdgeIds": [],
+        "refuteEdgeIds": [],
+        "unselectedCandidateCount": 1,
+        "provisionalRelationCount": 2
+      }
+    ],
+    "warnings": [
+      {
+        "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
+        "message": "Obligation atom-1 has no validated supporting or refuting relation."
+      },
+      {
+        "code": "PROVISIONAL_EVIDENCE_EXCLUDED",
+        "message": "2 assessed relation(s) for obligation atom-1 are provisional because the evidence is not sufficient."
+      }
+    ],
+    "ruleTrace": [
+      "SINGLE maps its one obligation's validated relations directly.",
+      "Validated positions — support: no; refute: no.",
+      "Verdict: NOT_ENOUGH_EVIDENCE."
+    ]
+  },
+  "recordedWith": {
+    "pipelineRevision": "submission-ready-v2",
+    "inputDigest": "8917000845038d1b01072ee5e0bb1a3ca45722d8a8a48debb62d9b9dabde8744",
+    "decompositionModel": "qwen2.5:7b",
+    "retrievalModel": "BAAI/bge-small-en-v1.5",
+    "retrievalMethod": "HYBRID",
+    "assessmentModel": "qwen2.5:7b",
+    "reasoningModel": "qwen2.5:7b",
+    "linguisticsModel": "en_core_web_sm@3.8.0"
+  },
+  "timingsSeconds": {
+    "decomposition": 14.527,
+    "retrievalAndLinguistics": 0.399,
+    "evidenceAssessment": 20.956,
+    "symbolicReasoning": 18.554,
+    "aggregation": 0.006,
+    "total": 54.443
+  }
+}

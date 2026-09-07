@@ -1,21 +1,29 @@
 {
   "caseId": "averitec-dev-0142",
-  "schemaVersion": 2,
-  "composition": "SINGLE",
+  "schemaVersion": 6,
+  "composition": "AND",
   "warnings": [
     {
-      "code": "DECOMPOSITION_FALLBACK",
-      "message": "Structured decomposition failed; the original claim was retained as one obligation."
+      "code": "REUSED_SOURCE_TEXT",
+      "message": "One sourceText span grounds more than one obligation."
     }
   ],
   "atoms": [
     {
       "id": "atom-1",
-      "text": "The CDC has said over 98,000 people had non-COVID related deaths because of hospitals that were closed down for non-essential services",
+      "text": "The CDC has said over 98,000 people had non-COVID related deaths.",
       "sourceText": "The CDC has said over 98,000 people had non-COVID related deaths because of hospitals that were closed down for non-essential services",
       "start": 0,
       "end": 134,
-      "role": "CORE"
+      "role": "NUMERIC_CONSTRAINT"
+    },
+    {
+      "id": "atom-2",
+      "text": "The CDC has said hospitals that were closed down for non-essential services were the cause of these deaths.",
+      "sourceText": "The CDC has said over 98,000 people had non-COVID related deaths because of hospitals that were closed down for non-essential services",
+      "start": 0,
+      "end": 134,
+      "role": "CAUSAL_RELATION"
     }
   ],
   "evidence": [
@@ -23,121 +31,305 @@
       "atomId": "atom-1",
       "spans": [
         {
-          "id": "doc-3947a328a770::sentence-4",
-          "documentId": "doc-3947a328a770",
-          "text": "Evidence 1: Have 98,000 people had non-COVID related deaths because of hospitals that were closed down for non-essential services? ",
-          "start": 214,
-          "end": 345,
-          "context": "Source URL: https://jamanetwork.com/journals/jama/fullarticle/2768086\n Evidence 1: Have 98,000 people had non-COVID related deaths because of hospitals that were closed down for non-essential services?  A July report in the Journal of the American Medical Association found 87,000 excess deaths nationwide from March 1 to April 25, with 45 percent of those, or more than 30,000, not attributed to COVID-19.\n\n"
-        },
-        {
-          "id": "doc-c6bdf9df67b6::sentence-6",
-          "documentId": "doc-c6bdf9df67b6",
-          "text": "About 198,000, or two-thirds, were attributed to COVID-19, the CDC said. ",
-          "start": 418,
-          "end": 491,
-          "context": "A CDC report posted Tuesday said an estimated 299,028 excess deaths (above the expected baseline) occurred from late January through Oct. 3 in the United States.\n\n About 198,000, or two-thirds, were attributed to COVID-19, the CDC said.  This leaves about 100,000 excess deaths during that seven-month period that weren’t believed to be because of COVID-19.\n\n"
-        },
-        {
-          "id": "doc-c6bdf9df67b6::sentence-182",
-          "documentId": "doc-c6bdf9df67b6",
-          "text": "- Impact of Hospital Strain on Excess Deaths During the COVID-19 Pandemic — United States, July 2020–July 2021\n",
-          "start": 19650,
-          "end": 19761,
-          "context": "- Incidence of SARS-CoV-2 Infection, Emergency Department Visits, and Hospitalizations Because of COVID-19 Among Persons Aged ≥12 Years, by COVID-19 Vaccination Status — Oregon and Washington, July 4–September 25, 2021\n - Impact of Hospital Strain on Excess Deaths During the COVID-19 Pandemic — United States, July 2020–July 2021\n November 12, 2021\n"
-        },
-        {
-          "id": "doc-c6bdf9df67b6::sentence-318",
+          "id": "doc-c6bdf9df67b6::sentence-310",
           "documentId": "doc-c6bdf9df67b6",
           "text": "- Notes from the Field: Update on Excess Deaths Associated with the COVID-19 Pandemic — United States, January 26, 2020–February 27, 2021\n",
-          "start": 34912,
-          "end": 35050,
-          "context": "- Emergency Department Visits for COVID-19 by Race and Ethnicity — 13 States, October–December 2020\n - Notes from the Field: Update on Excess Deaths Associated with the COVID-19 Pandemic — United States, January 26, 2020–February 27, 2021\n - COVID-19 Stats: COVID-19 and Influenza Discharge Diagnoses as a Percentage of Emergency Department (ED) Visits, by Year — United States, June 2018–March 2021\n"
+          "start": 34278,
+          "end": 34416,
+          "contextSpans": [],
+          "context": "- Notes from the Field: Update on Excess Deaths Associated with the COVID-19 Pandemic — United States, January 26, 2020–February 27, 2021"
         },
         {
-          "id": "doc-c6bdf9df67b6::sentence-69",
+          "id": "doc-c6bdf9df67b6::sentence-174",
+          "documentId": "doc-c6bdf9df67b6",
+          "text": "- Impact of Hospital Strain on Excess Deaths During the COVID-19 Pandemic — United States, July 2020–July 2021\n",
+          "start": 19016,
+          "end": 19127,
+          "contextSpans": [],
+          "context": "- Impact of Hospital Strain on Excess Deaths During the COVID-19 Pandemic — United States, July 2020–July 2021"
+        },
+        {
+          "id": "doc-c6bdf9df67b6::sentence-25",
+          "documentId": "doc-c6bdf9df67b6",
+          "text": "- COVID-19 and Other Underlying Causes of Cancer Deaths — United States, January 2018–July 2022\n",
+          "start": 2472,
+          "end": 2568,
+          "contextSpans": [],
+          "context": "- COVID-19 and Other Underlying Causes of Cancer Deaths — United States, January 2018–July 2022"
+        },
+        {
+          "id": "doc-3947a328a770::sentence-231",
+          "documentId": "doc-3947a328a770",
+          "text": "I would also like to point out that there are many more what may be called 'secondary COVID-19 deaths' that are related to the conditions caused by the virus, but not directly due to infection from the virus. ",
+          "start": 8891,
+          "end": 9100,
+          "contextSpans": [
+            {
+              "id": "doc-3947a328a770::sentence-230",
+              "documentId": "doc-3947a328a770",
+              "text": "A major confounding variable in any current COVID-19 mortality study will be the change in definitions of the COVID-19 cause of death by the WHO and on death certifications midstream through this pandemic. ",
+              "start": 8685,
+              "end": 8891,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "A major confounding variable in any current COVID-19 mortality study will be the change in definitions of the COVID-19 cause of death by the WHO and on death certifications midstream through this pandemic. I would also like to point out that there are many more what may be called 'secondary COVID-19 deaths' that are related to the conditions caused by the virus, but not directly due to infection from the virus."
+        },
+        {
+          "id": "doc-3947a328a770::sentence-61",
+          "documentId": "doc-3947a328a770",
+          "text": "Excess Deaths From COVID-19, Community Bereavement, and Restorative Justice for Communities of ColorViewpointOctober 20, 2020This Viewpoint discusses ways the COVID-19 pandemic has compounded existing health, human rights, and economic disparities in communities of color and proposes a program of restorative justice in response, comprising investments in education and housing, reforms in lending practices and criminal justice, and more.Lisa A. Cooper, MD, MPH; David R. Williams, PhD, MPH\n",
+          "start": 2698,
+          "end": 3191,
+          "contextSpans": [],
+          "context": "Excess Deaths From COVID-19, Community Bereavement, and Restorative Justice for Communities of ColorViewpointOctober 20, 2020This Viewpoint discusses ways the COVID-19 pandemic has compounded existing health, human rights, and economic disparities in communities of color and proposes a program of restorative justice in response, comprising investments in education and housing, reforms in lending practices and criminal justice, and more.Lisa A. Cooper, MD, MPH; David R. Williams, PhD, MPH"
+        },
+        {
+          "id": "doc-3947a328a770::sentence-360",
+          "documentId": "doc-3947a328a770",
+          "text": "Between March 1, 2020, and April 25, 2020, a total of 505 059 deaths were reported in the US; 87 001 (95% CI, 86 578-87 423) were excess deaths, of which 56 246 (65%) were attributed to COVID-19. ",
+          "start": 18780,
+          "end": 18976,
+          "contextSpans": [],
+          "context": "Between March 1, 2020, and April 25, 2020, a total of 505 059 deaths were reported in the US; 87 001 (95% CI, 86 578-87 423) were excess deaths, of which 56 246 (65%) were attributed to COVID-19."
+        }
+      ]
+    },
+    {
+      "atomId": "atom-2",
+      "spans": [
+        {
+          "id": "doc-c6bdf9df67b6::sentence-174",
+          "documentId": "doc-c6bdf9df67b6",
+          "text": "- Impact of Hospital Strain on Excess Deaths During the COVID-19 Pandemic — United States, July 2020–July 2021\n",
+          "start": 19016,
+          "end": 19127,
+          "contextSpans": [],
+          "context": "- Impact of Hospital Strain on Excess Deaths During the COVID-19 Pandemic — United States, July 2020–July 2021"
+        },
+        {
+          "id": "doc-c6bdf9df67b6::sentence-61",
           "documentId": "doc-c6bdf9df67b6",
           "text": "- Notes from the Field: Increase in Pediatric Intracranial Infections During the COVID-19 Pandemic — Eight Pediatric Hospitals, United States, March 2020–March 2022\n",
-          "start": 6725,
-          "end": 6890,
-          "context": "- Post–COVID-19 Symptoms and Conditions Among Children and Adolescents — United States, March 1, 2020–January 31, 2022\n - Notes from the Field: Increase in Pediatric Intracranial Infections During the COVID-19 Pandemic — Eight Pediatric Hospitals, United States, March 2020–March 2022\n July 29, 2022\n"
+          "start": 6091,
+          "end": 6256,
+          "contextSpans": [],
+          "context": "- Notes from the Field: Increase in Pediatric Intracranial Infections During the COVID-19 Pandemic — Eight Pediatric Hospitals, United States, March 2020–March 2022"
         },
         {
-          "id": "doc-c6bdf9df67b6::sentence-7",
+          "id": "doc-c6bdf9df67b6::sentence-545",
           "documentId": "doc-c6bdf9df67b6",
-          "text": "This leaves about 100,000 excess deaths during that seven-month period that weren’t believed to be because of COVID-19.\n\n",
-          "start": 491,
-          "end": 612,
-          "context": "About 198,000, or two-thirds, were attributed to COVID-19, the CDC said.  This leaves about 100,000 excess deaths during that seven-month period that weren’t believed to be because of COVID-19.\n\n RECOVERED SOURCE TEXT\n"
-        }
-      ]
-    }
-  ],
-  "classifications": [
-    {
-      "atomId": "atom-1",
-      "relations": [
+          "text": "- Provision of Pediatric Immunization Services During the COVID-19 Pandemic: an Assessment of Capacity Among Pediatric Immunization Providers Participating in the Vaccines for Children Program — United States, May 2020\n",
+          "start": 61062,
+          "end": 61281,
+          "contextSpans": [],
+          "context": "- Provision of Pediatric Immunization Services During the COVID-19 Pandemic: an Assessment of Capacity Among Pediatric Immunization Providers Participating in the Vaccines for Children Program — United States, May 2020"
+        },
         {
-          "spanId": "doc-3947a328a770::sentence-4",
+          "id": "doc-3947a328a770::sentence-352",
           "documentId": "doc-3947a328a770",
-          "relation": "NEUTRAL",
-          "relevanceFiltered": false
+          "text": "Observed deaths for the 8 weeks between March 1, 2020, and April 25, 2020, were taken from provisional data released on June 10, 2020.2 Expected deaths (and 95% CIs) for these same weeks were estimated by fitting a hierarchical Poisson regression model to the weekly death counts for the period of December 29, 2013, through February 29, 2020 (assembled from final data for 2014-20181 and provisional data for January 1, 2019, through February 29, 20202). ",
+          "start": 17362,
+          "end": 17818,
+          "contextSpans": [
+            {
+              "id": "doc-3947a328a770::sentence-351",
+              "documentId": "doc-3947a328a770",
+              "text": "Population counts for calculating mortality rates were obtained from the US Census Bureau.3,4\n",
+              "start": 17268,
+              "end": 17362,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "Population counts for calculating mortality rates were obtained from the US Census Bureau.3,4 Observed deaths for the 8 weeks between March 1, 2020, and April 25, 2020, were taken from provisional data released on June 10, 2020.2 Expected deaths (and 95% CIs) for these same weeks were estimated by fitting a hierarchical Poisson regression model to the weekly death counts for the period of December 29, 2013, through February 29, 2020 (assembled from final data for 2014-20181 and provisional data for January 1, 2019, through February 29, 20202)."
         },
         {
-          "spanId": "doc-c6bdf9df67b6::sentence-6",
-          "documentId": "doc-c6bdf9df67b6",
-          "relation": "NEUTRAL",
-          "relevanceFiltered": false
+          "id": "doc-3947a328a770::sentence-365",
+          "documentId": "doc-3947a328a770",
+          "text": "These estimates suggest that the number of COVID-19 deaths reported in the first weeks of the pandemic captured only two-thirds of excess deaths in the US. ",
+          "start": 19571,
+          "end": 19727,
+          "contextSpans": [
+            {
+              "id": "doc-3947a328a770::sentence-364",
+              "documentId": "doc-3947a328a770",
+              "text": "Discussion\n",
+              "start": 19560,
+              "end": 19571,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "Discussion These estimates suggest that the number of COVID-19 deaths reported in the first weeks of the pandemic captured only two-thirds of excess deaths in the US."
         },
         {
-          "spanId": "doc-c6bdf9df67b6::sentence-182",
-          "documentId": "doc-c6bdf9df67b6",
-          "relation": "NEUTRAL",
-          "relevanceFiltered": false
-        },
-        {
-          "spanId": "doc-c6bdf9df67b6::sentence-318",
-          "documentId": "doc-c6bdf9df67b6",
-          "relation": "NEUTRAL",
-          "relevanceFiltered": false
-        },
-        {
-          "spanId": "doc-c6bdf9df67b6::sentence-69",
-          "documentId": "doc-c6bdf9df67b6",
-          "relation": "NEUTRAL",
-          "relevanceFiltered": false
-        },
-        {
-          "spanId": "doc-c6bdf9df67b6::sentence-7",
-          "documentId": "doc-c6bdf9df67b6",
-          "relation": "NEUTRAL",
-          "relevanceFiltered": false
+          "id": "doc-3947a328a770::sentence-350",
+          "documentId": "doc-3947a328a770",
+          "text": "Death data with any mention of COVID-19 on the death certificate (as an underlying or contributing cause) were used to capture all deaths attributed to the virus. ",
+          "start": 17105,
+          "end": 17268,
+          "contextSpans": [],
+          "context": "Death data with any mention of COVID-19 on the death certificate (as an underlying or contributing cause) were used to capture all deaths attributed to the virus."
         }
       ]
     }
   ],
-  "evidenceAudit": {
-    "claimPosition": {
-      "position": "INSUFFICIENT",
-      "supportSpanIds": [],
-      "attackSpanIds": [],
-      "contextSpanIds": [
-        "doc-3947a328a770::sentence-4",
-        "doc-c6bdf9df67b6::sentence-6",
-        "doc-c6bdf9df67b6::sentence-182",
-        "doc-c6bdf9df67b6::sentence-318",
-        "doc-c6bdf9df67b6::sentence-69",
-        "doc-c6bdf9df67b6::sentence-7"
-      ],
-      "reason": "The evidence discusses excess deaths in general and does not specifically attribute 98,000 non-COVID related deaths to hospitals being closed for non-essential services."
-    },
+  "assessment": {
     "obligations": [
       {
         "atomId": "atom-1",
-        "state": "UNRESOLVED",
-        "supportSpanIds": [],
-        "attackSpanIds": [],
-        "reason": "The evidence discusses excess deaths in general and does not specifically attribute 98,000 non-COVID related deaths to hospitals being closed for non-essential services."
+        "supportSpanIds": [
+          "doc-c6bdf9df67b6::sentence-310",
+          "doc-c6bdf9df67b6::sentence-174",
+          "doc-c6bdf9df67b6::sentence-25"
+        ],
+        "refuteSpanIds": [],
+        "contextSpanIds": [
+          "doc-3947a328a770::sentence-231",
+          "doc-3947a328a770::sentence-61",
+          "doc-3947a328a770::sentence-360"
+        ],
+        "sufficiency": "SUFFICIENT",
+        "missingInformation": "The evidence does not specify the exact number of non-COVID related deaths attributed to hospital closures, only that there were excess deaths attributed to the pandemic in general.",
+        "reason": "The evidence supports the CDC's statement of excess deaths, but does not specify the exact number of non-COVID related deaths attributed to hospital closures.",
+        "scopeChecks": [
+          {
+            "spanId": "doc-c6bdf9df67b6::sentence-310",
+            "documentId": "doc-c6bdf9df67b6",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "US"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-c6bdf9df67b6::sentence-174",
+            "documentId": "doc-c6bdf9df67b6",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "US"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-c6bdf9df67b6::sentence-25",
+            "documentId": "doc-c6bdf9df67b6",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "US"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-3947a328a770::sentence-231",
+            "documentId": "doc-3947a328a770",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "US"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-3947a328a770::sentence-61",
+            "documentId": "doc-3947a328a770",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "US"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-3947a328a770::sentence-360",
+            "documentId": "doc-3947a328a770",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "US"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          }
+        ]
+      },
+      {
+        "atomId": "atom-2",
+        "supportSpanIds": [
+          "doc-c6bdf9df67b6::sentence-174"
+        ],
+        "refuteSpanIds": [],
+        "contextSpanIds": [
+          "doc-c6bdf9df67b6::sentence-61",
+          "doc-c6bdf9df67b6::sentence-545",
+          "doc-3947a328a770::sentence-352"
+        ],
+        "sufficiency": "PARTIAL",
+        "missingInformation": "The evidence does not directly link the closure of hospitals to the non-COVID related deaths, only that there was an impact on excess deaths during the pandemic.",
+        "reason": "The evidence suggests an impact of hospital strain on excess deaths, but does not directly attribute non-COVID related deaths to hospital closures for non-essential services.",
+        "scopeChecks": [
+          {
+            "spanId": "doc-c6bdf9df67b6::sentence-174",
+            "documentId": "doc-c6bdf9df67b6",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "US"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-c6bdf9df67b6::sentence-61",
+            "documentId": "doc-c6bdf9df67b6",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "US"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-c6bdf9df67b6::sentence-545",
+            "documentId": "doc-c6bdf9df67b6",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "US"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-3947a328a770::sentence-352",
+            "documentId": "doc-3947a328a770",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "US"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-3947a328a770::sentence-365",
+            "documentId": "doc-3947a328a770",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "US"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-3947a328a770::sentence-350",
+            "documentId": "doc-3947a328a770",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "US"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          }
+        ]
       }
     ],
     "materialOmission": {
@@ -145,10 +337,216 @@
       "supportSpanIds": [],
       "contextSpanIds": [],
       "reason": "No material omission was established."
-    },
-    "provider": "ollama",
-    "model": "qwen2.5:7b"
+    }
   },
+  "reasoning": [
+    {
+      "id": "proof:atom-1:numeric_compare:2",
+      "atomId": "atom-1",
+      "operator": "NUMERIC_COMPARE",
+      "status": "UNRESOLVED",
+      "relation": null,
+      "premiseIds": [
+        "evidence:atom-1:doc-c6bdf9df67b6:doc-c6bdf9df67b6::sentence-310",
+        "evidence:atom-1:doc-c6bdf9df67b6:doc-c6bdf9df67b6::sentence-174",
+        "evidence:atom-1:doc-c6bdf9df67b6:doc-c6bdf9df67b6::sentence-25"
+      ],
+      "premises": [
+        {
+          "id": "evidence:atom-1:doc-c6bdf9df67b6:doc-c6bdf9df67b6::sentence-310",
+          "documentId": "doc-c6bdf9df67b6",
+          "text": "- Notes from the Field: Update on Excess Deaths Associated with the COVID-19 Pandemic — United States, January 26, 2020–February 27, 2021\n",
+          "start": 34278,
+          "end": 34416,
+          "kind": "EVIDENCE",
+          "contentHash": null,
+          "itemCount": null
+        },
+        {
+          "id": "evidence:atom-1:doc-c6bdf9df67b6:doc-c6bdf9df67b6::sentence-174",
+          "documentId": "doc-c6bdf9df67b6",
+          "text": "- Impact of Hospital Strain on Excess Deaths During the COVID-19 Pandemic — United States, July 2020–July 2021\n",
+          "start": 19016,
+          "end": 19127,
+          "kind": "EVIDENCE",
+          "contentHash": null,
+          "itemCount": null
+        },
+        {
+          "id": "evidence:atom-1:doc-c6bdf9df67b6:doc-c6bdf9df67b6::sentence-25",
+          "documentId": "doc-c6bdf9df67b6",
+          "text": "- COVID-19 and Other Underlying Causes of Cancer Deaths — United States, January 2018–July 2022\n",
+          "start": 2472,
+          "end": 2568,
+          "kind": "EVIDENCE",
+          "contentHash": null,
+          "itemCount": null
+        }
+      ],
+      "expression": "value > 98,000",
+      "conclusion": "Numeric relation is ambiguous",
+      "explanation": "Entity, measure, or time alignment was not unique.",
+      "validationWarnings": [
+        "AMBIGUOUS_NUMERIC_MAPPING"
+      ],
+      "program": {
+        "version": 1,
+        "steps": [
+          {
+            "id": "input-1",
+            "operation": "LOOKUP",
+            "inputIds": [
+              "evidence:atom-1:doc-c6bdf9df67b6:doc-c6bdf9df67b6::sentence-310"
+            ],
+            "outputType": "FACT",
+            "description": "Read an unchanged server-owned premise."
+          },
+          {
+            "id": "input-2",
+            "operation": "LOOKUP",
+            "inputIds": [
+              "evidence:atom-1:doc-c6bdf9df67b6:doc-c6bdf9df67b6::sentence-174"
+            ],
+            "outputType": "FACT",
+            "description": "Read an unchanged server-owned premise."
+          },
+          {
+            "id": "input-3",
+            "operation": "LOOKUP",
+            "inputIds": [
+              "evidence:atom-1:doc-c6bdf9df67b6:doc-c6bdf9df67b6::sentence-25"
+            ],
+            "outputType": "FACT",
+            "description": "Read an unchanged server-owned premise."
+          },
+          {
+            "id": "result",
+            "operation": "NUMERIC_COMPARE",
+            "inputIds": [
+              "input-1",
+              "input-2",
+              "input-3"
+            ],
+            "outputType": "BOOLEAN",
+            "description": "Validate operand alignment and execute the typed operation in Python."
+          }
+        ],
+        "outputStepId": "result"
+      }
+    },
+    {
+      "id": "proof:atom-1:attribute_compare:1",
+      "atomId": "atom-1",
+      "operator": "ATTRIBUTE_COMPARE",
+      "status": "UNRESOLVED",
+      "relation": null,
+      "premiseIds": [
+        "evidence:atom-1:doc-c6bdf9df67b6:doc-c6bdf9df67b6::sentence-310",
+        "evidence:atom-1:doc-c6bdf9df67b6:doc-c6bdf9df67b6::sentence-174"
+      ],
+      "premises": [
+        {
+          "id": "evidence:atom-1:doc-c6bdf9df67b6:doc-c6bdf9df67b6::sentence-310",
+          "documentId": "doc-c6bdf9df67b6",
+          "text": "- Notes from the Field: Update on Excess Deaths Associated with the COVID-19 Pandemic — United States, January 26, 2020–February 27, 2021\n",
+          "start": 34278,
+          "end": 34416,
+          "kind": "EVIDENCE",
+          "contentHash": null,
+          "itemCount": null
+        },
+        {
+          "id": "evidence:atom-1:doc-c6bdf9df67b6:doc-c6bdf9df67b6::sentence-174",
+          "documentId": "doc-c6bdf9df67b6",
+          "text": "- Impact of Hospital Strain on Excess Deaths During the COVID-19 Pandemic — United States, July 2020–July 2021\n",
+          "start": 19016,
+          "end": 19127,
+          "kind": "EVIDENCE",
+          "contentHash": null,
+          "itemCount": null
+        }
+      ],
+      "expression": "attribute comparison",
+      "conclusion": "Entity alignment is unresolved",
+      "explanation": "The selected premises do not explicitly identify the claim subject.",
+      "validationWarnings": [
+        "MISSING_ENTITY_ALIGNMENT"
+      ],
+      "program": {
+        "version": 1,
+        "steps": [
+          {
+            "id": "input-1",
+            "operation": "LOOKUP",
+            "inputIds": [
+              "evidence:atom-1:doc-c6bdf9df67b6:doc-c6bdf9df67b6::sentence-310"
+            ],
+            "outputType": "FACT",
+            "description": "Read an unchanged server-owned premise."
+          },
+          {
+            "id": "input-2",
+            "operation": "LOOKUP",
+            "inputIds": [
+              "evidence:atom-1:doc-c6bdf9df67b6:doc-c6bdf9df67b6::sentence-174"
+            ],
+            "outputType": "FACT",
+            "description": "Read an unchanged server-owned premise."
+          },
+          {
+            "id": "result",
+            "operation": "EQUAL",
+            "inputIds": [
+              "input-1",
+              "input-2"
+            ],
+            "outputType": "BOOLEAN",
+            "description": "Validate operand alignment and execute the typed operation in Python."
+          }
+        ],
+        "outputStepId": "result"
+      }
+    },
+    {
+      "id": "proof:atom-2:attribute_compare:unresolved",
+      "atomId": "atom-2",
+      "operator": "ATTRIBUTE_COMPARE",
+      "status": "UNRESOLVED",
+      "relation": null,
+      "premiseIds": [],
+      "premises": [],
+      "expression": "attribute compare",
+      "conclusion": "No grounded program was compiled.",
+      "explanation": "Qwen did not map the typed candidate to sufficient server-owned premises.",
+      "validationWarnings": [
+        "NO_GROUNDED_PROGRAM"
+      ],
+      "program": {
+        "version": 1,
+        "steps": [
+          {
+            "id": "input-1",
+            "operation": "LOOKUP",
+            "inputIds": [
+              "candidate:atom-2:attribute"
+            ],
+            "outputType": "FACT",
+            "description": "Read an unchanged server-owned premise."
+          },
+          {
+            "id": "result",
+            "operation": "EQUAL",
+            "inputIds": [
+              "input-1"
+            ],
+            "outputType": "BOOLEAN",
+            "description": "Validate operand alignment and execute the typed operation in Python."
+          }
+        ],
+        "outputStepId": "result"
+      }
+    }
+  ],
   "linguistics": {
     "schemaVersion": 2,
     "claimAnalysis": {
@@ -547,9 +945,9 @@
             "coreArguments": [
               {
                 "id": "atom-1-frame-1-argument-1",
-                "text": "over 98,000 people had non-COVID related deaths because of hospitals that were closed down for non-essential services",
+                "text": "over 98,000 people had non-COVID related deaths",
                 "start": 17,
-                "end": 134,
+                "end": 64,
                 "role": "clausal_complement"
               }
             ],
@@ -581,15 +979,7 @@
                 "role": "direct_object"
               }
             ],
-            "adjuncts": [
-              {
-                "id": "atom-1-frame-2-adjunct-1",
-                "text": "because of hospitals that were closed down for non-essential services",
-                "start": 65,
-                "end": 134,
-                "kind": "causal"
-              }
-            ],
+            "adjuncts": [],
             "otherModifiers": []
           }
         ],
@@ -764,42 +1154,158 @@
           },
           {
             "id": "atom-1-token-13",
-            "text": "because",
-            "start": 65,
-            "end": 72,
-            "lemma": "because",
-            "pos": "SCONJ",
-            "tag": "IN",
-            "dependency": "prep",
-            "head": "had"
+            "text": ".",
+            "start": 64,
+            "end": 65,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "said"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      },
+      {
+        "atomId": "atom-2",
+        "frames": [
+          {
+            "id": "atom-2-frame-1",
+            "predicate": {
+              "id": "atom-2-frame-1-predicate",
+              "text": "said",
+              "start": 12,
+              "end": 16
+            },
+            "subjects": [
+              {
+                "id": "atom-2-frame-1-subject-1",
+                "text": "The CDC",
+                "start": 0,
+                "end": 7
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-2-frame-1-argument-1",
+                "text": "hospitals that were closed down for non-essential services were the cause of these deaths",
+                "start": 17,
+                "end": 106,
+                "role": "clausal_complement"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": []
           },
           {
-            "id": "atom-1-token-14",
-            "text": "of",
-            "start": 73,
-            "end": 75,
-            "lemma": "of",
-            "pos": "ADP",
-            "tag": "IN",
-            "dependency": "pcomp",
-            "head": "because"
+            "id": "atom-2-frame-2",
+            "predicate": {
+              "id": "atom-2-frame-2-predicate",
+              "text": "were",
+              "start": 76,
+              "end": 80
+            },
+            "subjects": [
+              {
+                "id": "atom-2-frame-2-subject-1",
+                "text": "hospitals that were closed down for non-essential services",
+                "start": 17,
+                "end": 75
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-2-frame-2-argument-1",
+                "text": "the cause of these deaths",
+                "start": 81,
+                "end": 106,
+                "role": "subject_complement"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [
+          {
+            "id": "atom-2-cue-attribution-12-16",
+            "text": "said",
+            "start": 12,
+            "end": 16,
+            "kind": "attribution"
+          }
+        ],
+        "entities": [
+          {
+            "id": "atom-2-entity-org-4-7",
+            "text": "CDC",
+            "start": 4,
+            "end": 7,
+            "label": "ORG"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-2-token-0",
+            "text": "The",
+            "start": 0,
+            "end": 3,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "CDC"
           },
           {
-            "id": "atom-1-token-15",
+            "id": "atom-2-token-1",
+            "text": "CDC",
+            "start": 4,
+            "end": 7,
+            "lemma": "CDC",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "nsubj",
+            "head": "said"
+          },
+          {
+            "id": "atom-2-token-2",
+            "text": "has",
+            "start": 8,
+            "end": 11,
+            "lemma": "have",
+            "pos": "AUX",
+            "tag": "VBZ",
+            "dependency": "aux",
+            "head": "said"
+          },
+          {
+            "id": "atom-2-token-3",
+            "text": "said",
+            "start": 12,
+            "end": 16,
+            "lemma": "say",
+            "pos": "VERB",
+            "tag": "VBD",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-2-token-4",
             "text": "hospitals",
-            "start": 76,
-            "end": 85,
+            "start": 17,
+            "end": 26,
             "lemma": "hospital",
             "pos": "NOUN",
             "tag": "NNS",
-            "dependency": "pobj",
-            "head": "because"
+            "dependency": "nsubj",
+            "head": "were"
           },
           {
-            "id": "atom-1-token-16",
+            "id": "atom-2-token-5",
             "text": "that",
-            "start": 86,
-            "end": 90,
+            "start": 27,
+            "end": 31,
             "lemma": "that",
             "pos": "PRON",
             "tag": "WDT",
@@ -807,10 +1313,10 @@
             "head": "closed"
           },
           {
-            "id": "atom-1-token-17",
+            "id": "atom-2-token-6",
             "text": "were",
-            "start": 91,
-            "end": 95,
+            "start": 32,
+            "end": 36,
             "lemma": "be",
             "pos": "AUX",
             "tag": "VBD",
@@ -818,10 +1324,10 @@
             "head": "closed"
           },
           {
-            "id": "atom-1-token-18",
+            "id": "atom-2-token-7",
             "text": "closed",
-            "start": 96,
-            "end": 102,
+            "start": 37,
+            "end": 43,
             "lemma": "close",
             "pos": "VERB",
             "tag": "VBN",
@@ -829,10 +1335,10 @@
             "head": "hospitals"
           },
           {
-            "id": "atom-1-token-19",
+            "id": "atom-2-token-8",
             "text": "down",
-            "start": 103,
-            "end": 107,
+            "start": 44,
+            "end": 48,
             "lemma": "down",
             "pos": "ADP",
             "tag": "RP",
@@ -840,10 +1346,10 @@
             "head": "closed"
           },
           {
-            "id": "atom-1-token-20",
+            "id": "atom-2-token-9",
             "text": "for",
-            "start": 108,
-            "end": 111,
+            "start": 49,
+            "end": 52,
             "lemma": "for",
             "pos": "ADP",
             "tag": "IN",
@@ -851,10 +1357,10 @@
             "head": "closed"
           },
           {
-            "id": "atom-1-token-21",
+            "id": "atom-2-token-10",
             "text": "non",
-            "start": 112,
-            "end": 115,
+            "start": 53,
+            "end": 56,
             "lemma": "non",
             "pos": "ADJ",
             "tag": "JJ",
@@ -862,10 +1368,10 @@
             "head": "services"
           },
           {
-            "id": "atom-1-token-22",
+            "id": "atom-2-token-11",
             "text": "-",
-            "start": 115,
-            "end": 116,
+            "start": 56,
+            "end": 57,
             "lemma": "-",
             "pos": "ADJ",
             "tag": "JJ",
@@ -873,10 +1379,10 @@
             "head": "services"
           },
           {
-            "id": "atom-1-token-23",
+            "id": "atom-2-token-12",
             "text": "essential",
-            "start": 116,
-            "end": 125,
+            "start": 57,
+            "end": 66,
             "lemma": "essential",
             "pos": "ADJ",
             "tag": "JJ",
@@ -884,15 +1390,92 @@
             "head": "services"
           },
           {
-            "id": "atom-1-token-24",
+            "id": "atom-2-token-13",
             "text": "services",
-            "start": 126,
-            "end": 134,
+            "start": 67,
+            "end": 75,
             "lemma": "service",
             "pos": "NOUN",
             "tag": "NNS",
             "dependency": "pobj",
             "head": "for"
+          },
+          {
+            "id": "atom-2-token-14",
+            "text": "were",
+            "start": 76,
+            "end": 80,
+            "lemma": "be",
+            "pos": "AUX",
+            "tag": "VBD",
+            "dependency": "ccomp",
+            "head": "said"
+          },
+          {
+            "id": "atom-2-token-15",
+            "text": "the",
+            "start": 81,
+            "end": 84,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "cause"
+          },
+          {
+            "id": "atom-2-token-16",
+            "text": "cause",
+            "start": 85,
+            "end": 90,
+            "lemma": "cause",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "attr",
+            "head": "were"
+          },
+          {
+            "id": "atom-2-token-17",
+            "text": "of",
+            "start": 91,
+            "end": 93,
+            "lemma": "of",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "cause"
+          },
+          {
+            "id": "atom-2-token-18",
+            "text": "these",
+            "start": 94,
+            "end": 99,
+            "lemma": "these",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "deaths"
+          },
+          {
+            "id": "atom-2-token-19",
+            "text": "deaths",
+            "start": 100,
+            "end": 106,
+            "lemma": "death",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "pobj",
+            "head": "of"
+          },
+          {
+            "id": "atom-2-token-20",
+            "text": ".",
+            "start": 106,
+            "end": 107,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "said"
           }
         ],
         "status": "complete",
@@ -916,9 +1499,7 @@
           "attribution",
           "numeric"
         ],
-        "modifierKinds": [
-          "causal"
-        ],
+        "modifierKinds": [],
         "entityLabels": [
           "ORG"
         ],
@@ -927,6 +1508,31 @@
           "ATTRIBUTION_SCOPE_UNCLEAR",
           "QUALIFIER_ATTACHMENT_UNCLEAR"
         ]
+      },
+      {
+        "atomId": "atom-2",
+        "analysisStatus": "complete",
+        "roleAudit": "MISMATCH",
+        "subjects": [
+          "The CDC",
+          "hospitals that were closed down for non-essential services"
+        ],
+        "predicates": [
+          "say",
+          "be"
+        ],
+        "cueKinds": [
+          "attribution"
+        ],
+        "modifierKinds": [],
+        "entityLabels": [
+          "ORG"
+        ],
+        "warnings": [
+          "ROLE_CUE_MISMATCH",
+          "MULTIPLE_PROPOSITION_FRAMES",
+          "ATTRIBUTION_SCOPE_UNCLEAR"
+        ]
       }
     ],
     "claimWarnings": [],
@@ -934,62 +1540,74 @@
     "model": "en_core_web_sm@3.8.0"
   },
   "verdict": {
-    "aggregationSchemaVersion": 1,
+    "aggregationSchemaVersion": 3,
     "claimId": "averitec-dev-0142",
-    "composition": "SINGLE",
+    "composition": "AND",
     "verdict": "NOT_ENOUGH_EVIDENCE",
     "positions": {
       "supportPosition": false,
-      "attackPosition": false,
+      "refutePosition": false,
       "materialOmissionPosition": false,
-      "supportObligationIds": [],
-      "attackObligationIds": [],
-      "unresolvedObligationIds": [
+      "supportObligationIds": [
         "atom-1"
       ],
-      "groundedClaimPosition": "INSUFFICIENT"
+      "refuteObligationIds": [],
+      "unresolvedObligationIds": [
+        "atom-2"
+      ]
     },
     "obligations": [
       {
         "obligationId": "atom-1",
+        "state": "SUPPORTED",
+        "supportEdgeIds": [
+          "edge:SUPPORTS:inference:bundle:atom-1:supports:obligation:averitec-dev-0142:atom-1"
+        ],
+        "refuteEdgeIds": [],
+        "unselectedCandidateCount": 0,
+        "provisionalRelationCount": 0
+      },
+      {
+        "obligationId": "atom-2",
         "state": "UNRESOLVED",
         "supportEdgeIds": [],
-        "attackEdgeIds": [],
-        "neutralCandidateCount": 6
+        "refuteEdgeIds": [],
+        "unselectedCandidateCount": 2,
+        "provisionalRelationCount": 1
       }
     ],
     "warnings": [
       {
         "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
-        "message": "Obligation atom-1 has no supporting or attacking evidence."
+        "message": "Obligation atom-2 has no validated supporting or refuting relation."
       },
       {
-        "code": "ONLY_NEUTRAL_CANDIDATES",
-        "message": "Obligation atom-1 has only neutral retrieved candidates."
-      },
-      {
-        "code": "LINGUISTIC_AUDIT_WARNING",
-        "message": "Linguistic analysis for obligation atom-1 requires inspection; it does not change the verdict."
+        "code": "PROVISIONAL_EVIDENCE_EXCLUDED",
+        "message": "1 assessed relation(s) for obligation atom-2 are provisional because the evidence is not sufficient."
       }
     ],
     "ruleTrace": [
-      "The provenance-constrained claim audit sets the overall evidence position; deterministic aggregation maps that position to status.",
-      "Grounded claim position: INSUFFICIENT; The evidence discusses excess deaths in general and does not specifically attribute 98,000 non-COVID related deaths to hospitals being closed for non-essential services.",
-      "Support position: no; attack position: no.",
-      "Final verdict: NOT_ENOUGH_EVIDENCE."
+      "AND is insufficient while any obligation remains unresolved.",
+      "Validated positions — support: no; refute: no.",
+      "Verdict: NOT_ENOUGH_EVIDENCE."
     ]
   },
   "recordedWith": {
+    "pipelineRevision": "submission-ready-v2",
+    "inputDigest": "2f3d0a8a002904634f81a1877c03b8f390bffd89850e1b2578cc2a171f806af9",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
-    "nliModel": "qwen2.5:7b",
+    "retrievalMethod": "HYBRID",
+    "assessmentModel": "qwen2.5:7b",
+    "reasoningModel": "qwen2.5:7b",
     "linguisticsModel": "en_core_web_sm@3.8.0"
   },
   "timingsSeconds": {
-    "decomposition": 29.0,
-    "retrievalAndLinguistics": 2.616,
-    "evidenceAudit": 14.704,
-    "aggregation": 0.007,
-    "total": 46.329
+    "decomposition": 9.784,
+    "retrievalAndLinguistics": 2.185,
+    "evidenceAssessment": 29.332,
+    "symbolicReasoning": 36.727,
+    "aggregation": 0.016,
+    "total": 78.045
   }
 }
