@@ -1,13 +1,13 @@
 {
   "kind": "SHOWCASE",
-  "version": 1,
+  "version": 2,
   "caseIds": [
-    "showcase-science-brain-10-percent",
+    "showcase-science-egg-cvd",
     "showcase-science-shaving",
     "showcase-science-lightning",
     "showcase-history-einstein",
     "showcase-history-curie",
-    "showcase-history-viking-helmet",
+    "showcase-history-whitehead-flight",
     "showcase-geography-canberra",
     "showcase-geography-everest",
     "showcase-geography-eiffel",
@@ -20,5 +20,30 @@
     "averitec-dev-0146",
     "averitec-dev-0392",
     "averitec-dev-0142"
-  ]
+  ],
+  "policy": {
+    "caseCount": 18,
+    "constructedCount": 15,
+    "averitecCount": 3,
+    "constructedSourcesPerCase": 2,
+    "casesPerDisplayedCategory": 3,
+    "displayedCategories": [
+      "SCIENCE",
+      "HISTORY",
+      "GEOGRAPHY",
+      "TECHNOLOGY",
+      "CURRENT_AFFAIRS",
+      "AVERITEC"
+    ],
+    "verdictCounts": {
+      "SUPPORTED": 7,
+      "REFUTED": 7,
+      "NOT_ENOUGH_EVIDENCE": 2,
+      "CONFLICTING_EVIDENCE": 2
+    },
+    "excerptWords": {
+      "minimum": 150,
+      "maximum": 400
+    }
+  }
 }

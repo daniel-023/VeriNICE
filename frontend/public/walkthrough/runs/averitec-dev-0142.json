@@ -441,26 +441,15 @@
       "status": "UNRESOLVED",
       "relation": null,
       "premiseIds": [
-        "evidence:atom-1:doc-c6bdf9df67b6:doc-c6bdf9df67b6::sentence-310",
-        "evidence:atom-1:doc-c6bdf9df67b6:doc-c6bdf9df67b6::sentence-174"
+        "evidence:atom-1:doc-3947a328a770:doc-3947a328a770::sentence-231"
       ],
       "premises": [
         {
-          "id": "evidence:atom-1:doc-c6bdf9df67b6:doc-c6bdf9df67b6::sentence-310",
-          "documentId": "doc-c6bdf9df67b6",
-          "text": "- Notes from the Field: Update on Excess Deaths Associated with the COVID-19 Pandemic — United States, January 26, 2020–February 27, 2021\n",
-          "start": 34278,
-          "end": 34416,
-          "kind": "EVIDENCE",
-          "contentHash": null,
-          "itemCount": null
-        },
-        {
-          "id": "evidence:atom-1:doc-c6bdf9df67b6:doc-c6bdf9df67b6::sentence-174",
-          "documentId": "doc-c6bdf9df67b6",
-          "text": "- Impact of Hospital Strain on Excess Deaths During the COVID-19 Pandemic — United States, July 2020–July 2021\n",
-          "start": 19016,
-          "end": 19127,
+          "id": "evidence:atom-1:doc-3947a328a770:doc-3947a328a770::sentence-231",
+          "documentId": "doc-3947a328a770",
+          "text": "I would also like to point out that there are many more what may be called 'secondary COVID-19 deaths' that are related to the conditions caused by the virus, but not directly due to infection from the virus. ",
+          "start": 8891,
+          "end": 9100,
           "kind": "EVIDENCE",
           "contentHash": null,
           "itemCount": null
@@ -479,16 +468,7 @@
             "id": "input-1",
             "operation": "LOOKUP",
             "inputIds": [
-              "evidence:atom-1:doc-c6bdf9df67b6:doc-c6bdf9df67b6::sentence-310"
-            ],
-            "outputType": "FACT",
-            "description": "Read an unchanged server-owned premise."
-          },
-          {
-            "id": "input-2",
-            "operation": "LOOKUP",
-            "inputIds": [
-              "evidence:atom-1:doc-c6bdf9df67b6:doc-c6bdf9df67b6::sentence-174"
+              "evidence:atom-1:doc-3947a328a770:doc-3947a328a770::sentence-231"
             ],
             "outputType": "FACT",
             "description": "Read an unchanged server-owned premise."
@@ -497,8 +477,7 @@
             "id": "result",
             "operation": "EQUAL",
             "inputIds": [
-              "input-1",
-              "input-2"
+              "input-1"
             ],
             "outputType": "BOOLEAN",
             "description": "Validate operand alignment and execute the typed operation in Python."
@@ -1594,7 +1573,7 @@
   },
   "recordedWith": {
     "pipelineRevision": "submission-ready-v2",
-    "inputDigest": "2f3d0a8a002904634f81a1877c03b8f390bffd89850e1b2578cc2a171f806af9",
+    "inputDigest": "e4495240b982772b03b41990830400aa5aa82354cd9ee67e67ed667d5245391a",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
     "retrievalMethod": "HYBRID",
@@ -1603,11 +1582,11 @@
     "linguisticsModel": "en_core_web_sm@3.8.0"
   },
   "timingsSeconds": {
-    "decomposition": 9.784,
-    "retrievalAndLinguistics": 2.185,
-    "evidenceAssessment": 29.332,
-    "symbolicReasoning": 36.727,
-    "aggregation": 0.016,
-    "total": 78.045
+    "decomposition": 28.231,
+    "retrievalAndLinguistics": 2.968,
+    "evidenceAssessment": 43.67,
+    "symbolicReasoning": 53.217,
+    "aggregation": 0.003,
+    "total": 128.092
   }
 }

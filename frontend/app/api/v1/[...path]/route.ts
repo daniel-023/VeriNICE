@@ -55,7 +55,7 @@ function backendTimeoutMs(): number {
 async function proxy(request: NextRequest, context: RouteContext) {
   if (process.env.NEXT_PUBLIC_VERIGRAPH_MODE === "walkthrough") {
     return Response.json(
-      { detail: "Live analysis is available only in the local VeriTrace demo." },
+      { detail: "Live analysis is available only in the local VeriNICE demo." },
       { status: 503 },
     );
   }
@@ -78,7 +78,7 @@ async function proxy(request: NextRequest, context: RouteContext) {
   const configuredBackend = process.env.VERIGRAPH_BACKEND_URL;
   if (!configuredBackend) {
     return Response.json(
-      { detail: "The live VeriTrace backend is not configured for this deployment." },
+      { detail: "The live VeriNICE backend is not configured for this deployment." },
       { status: 503 },
     );
   }
@@ -123,7 +123,7 @@ async function proxy(request: NextRequest, context: RouteContext) {
     });
   } catch {
     return Response.json(
-      { detail: "The VeriTrace backend is unavailable." },
+      { detail: "The VeriNICE backend is unavailable." },
       { status: 502 },
     );
   }

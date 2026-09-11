@@ -74,28 +74,52 @@ def test_checked_in_private_bundle_is_balanced_and_fully_described() -> None:
 
 def test_showcase_bundle_has_fifteen_constructed_and_three_averitec_cases() -> None:
     bundle = ROOT / "data" / "demo" / "showcase"
+    source_manifest = json.loads(
+        (ROOT / "data" / "manifests" / "showcase-sources.json").read_text(encoding="utf-8")
+    )
+    policy = source_manifest["policy"]
     store = load_private_bundle(bundle)
-    assert len(store.summaries) == 18
-    assert sum(case.origin == DemoOrigin.constructed for case in store.summaries) == 15
-    assert sum(case.origin == DemoOrigin.averitec for case in store.summaries) == 3
+    assert len(store.summaries) == policy["caseCount"]
+    assert sum(case.origin == DemoOrigin.constructed for case in store.summaries) == policy[
+        "constructedCount"
+    ]
+    assert sum(case.origin == DemoOrigin.averitec for case in store.summaries) == policy[
+        "averitecCount"
+    ]
     assert {case.category for case in store.summaries} == set(DemoCategory)
     assert {case.id for case in store.summaries if case.origin == DemoOrigin.averitec} == {
-        "averitec-dev-0142", "averitec-dev-0146", "averitec-dev-0392",
+        item["id"] for item in source_manifest["averitecCases"]
     }
     assert all(case.demo_focus is not None for case in store.summaries)
     assert not any(case.featured for case in store.summaries)
+    constructed = [case for case in store.summaries if case.origin == DemoOrigin.constructed]
+    assert Counter(case.category for case in constructed) == {
+        category: policy["casesPerDisplayedCategory"] for category in DemoCategory
+    }
+    assert Counter(case.label for case in store.summaries) == {
+        ReferenceLabel(label): count for label, count in policy["verdictCounts"].items()
+    }
     for case in store.cases_by_id.values():
         if case.origin != DemoOrigin.constructed:
             continue
-        assert len(case.documents) == 2
-        assert len({document.url for document in case.documents}) == 2
+        assert len(case.documents) == policy["constructedSourcesPerCase"]
+        assert len({document.url for document in case.documents}) == policy[
+            "constructedSourcesPerCase"
+        ]
         for document in case.documents:
-            assert 150 <= len(document.text.split()) <= 400
+            assert (
+                policy["excerptWords"]["minimum"]
+                <= len(document.text.split())
+                <= policy["excerptWords"]["maximum"]
+            )
             assert document.publisher and document.retrieved_at
+            assert document.source_descriptor and document.excerpt_rationale
             assert hashlib.sha256(document.text.encode()).hexdigest() == document.excerpt_sha256
     assert store.cases_by_id["showcase-history-curie"].claim == (
         "Marie Curie won Nobel Prizes in two different scientific fields."
     )
+    assert store.cases_by_id["showcase-science-egg-cvd"].label == ReferenceLabel.conflicting_evidence
+    assert store.cases_by_id["showcase-history-whitehead-flight"].label == ReferenceLabel.conflicting_evidence
 
 
 def _synthetic_rows(prepare):

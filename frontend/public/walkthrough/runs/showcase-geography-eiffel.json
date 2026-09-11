@@ -65,9 +65,9 @@
         {
           "id": "doc-0f740f9000ac::sentence-7",
           "documentId": "doc-0f740f9000ac",
-          "text": "The convention stated in Article 11 that Eiffel would build the Tower at his own expense, but benefit from a 1.5 million franc subvention to the total estimated cost of 6.5 million and could manage the tower for 20 years, starting on December 31, 1889. ",
+          "text": "The convention stated in Article 11 that Eiffel would build the Tower at his own expense, but benefit from a 1.5 million franc subvention to the total estimated cost of 6.5 million and could manage the tower for 20 years, starting on December 31, 1889.",
           "start": 750,
-          "end": 1003,
+          "end": 1002,
           "contextSpans": [
             {
               "id": "doc-0f740f9000ac::sentence-6",
@@ -76,17 +76,9 @@
               "start": 495,
               "end": 750,
               "direction": "PREVIOUS"
-            },
-            {
-              "id": "doc-0f740f9000ac::sentence-8",
-              "documentId": "doc-0f740f9000ac",
-              "text": "Its ownership would then pass to the City of Paris on January 1, 1910.\n",
-              "start": 1003,
-              "end": 1074,
-              "direction": "NEXT"
             }
           ],
-          "context": "A convention was signed on January 8, 1887 between Gustave Eiffel and the other stakeholders’ representatives, Édouard Lockroy, Minister of Commerce, on behalf of the national government, and Eugène Poubelle, prefect for the Seine, on behalf of the City. The convention stated in Article 11 that Eiffel would build the Tower at his own expense, but benefit from a 1.5 million franc subvention to the total estimated cost of 6.5 million and could manage the tower for 20 years, starting on December 31, 1889. Its ownership would then pass to the City of Paris on January 1, 1910."
+          "context": "A convention was signed on January 8, 1887 between Gustave Eiffel and the other stakeholders’ representatives, Édouard Lockroy, Minister of Commerce, on behalf of the national government, and Eugène Poubelle, prefect for the Seine, on behalf of the City. The convention stated in Article 11 that Eiffel would build the Tower at his own expense, but benefit from a 1.5 million franc subvention to the total estimated cost of 6.5 million and could manage the tower for 20 years, starting on December 31, 1889."
         },
         {
           "id": "doc-0f740f9000ac::sentence-6",
@@ -117,7 +109,7 @@
         ],
         "sufficiency": "INSUFFICIENT",
         "missingInformation": "The evidence does not provide a direct refutation or support for the claim that the Eiffel Tower is located in Germany.",
-        "reason": "The evidence states that the Eiffel Tower is located in Paris, France, but does not directly address the claim that it is in Germany.",
+        "reason": "The evidence confirms the Eiffel Tower's location in Paris, France, but does not address the claim about Germany.",
         "scopeChecks": [
           {
             "spanId": "doc-693f474b2011::sentence-2",
@@ -598,7 +590,7 @@
   },
   "recordedWith": {
     "pipelineRevision": "submission-ready-v2",
-    "inputDigest": "931214f188d752e36277e59acd6a818848d8f0c219a79b52031455d8fd5f1245",
+    "inputDigest": "75854629997f231773cae2da6abc579d9fe7361201cfcd33c52d99cbbc6c95a1",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
     "retrievalMethod": "HYBRID",
@@ -607,11 +599,11 @@
     "linguisticsModel": "en_core_web_sm@3.8.0"
   },
   "timingsSeconds": {
-    "decomposition": 14.569,
-    "retrievalAndLinguistics": 0.128,
-    "evidenceAssessment": 18.258,
-    "symbolicReasoning": 12.82,
-    "aggregation": 0.012,
-    "total": 45.787
+    "decomposition": 18.166,
+    "retrievalAndLinguistics": 0.43,
+    "evidenceAssessment": 26.182,
+    "symbolicReasoning": 19.833,
+    "aggregation": 0.002,
+    "total": 64.614
   }
 }

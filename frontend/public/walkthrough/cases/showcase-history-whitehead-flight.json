@@ -1,0 +1,45 @@
+{
+  "id": "showcase-history-whitehead-flight",
+  "claim": "Gustave Whitehead made the first powered flight.",
+  "documents": [
+    {
+      "id": "doc-69ac016cf3c9",
+      "title": "State Pioneering Aircraft: Gustave Whitehead's No. 21",
+      "url": "https://portal.ct.gov/-/media/SOTS/REGISTER-MANUAL-_-BLUEBOOK/RM_Archive/BlueBook-digital.pdf",
+      "layout": "PROSE",
+      "publisher": "Connecticut Office of the Secretary of the State",
+      "retrievedAt": "2026-09-11",
+      "sourceType": "SOURCE_EXCERPT",
+      "sourceDescriptor": "State register citing legislative recognition",
+      "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+      "excerptSha256": "26b00f37cd8a6707aef42daf2c5d4a32cc7cceb1f76af7aaba15b71b13c451f8",
+      "sourceSha256": "44a84bc99da88c2bf3f3d428ec4fdff1c4c0da91de5326de30382b3f034b2167",
+      "text": "State Pioneering Aircraft Gustave Whitehead’s No. 21 In 2013, the General Assembly designated Powered Flight Day as a day to honor the first flight by aviation pioneer Gustave Whitehead, a Bavarian immigrant and Bridgeport resident, and to commemorate the Connecticut aviation and aerospace industry. In 2017, the General Assembly additionally recognized Whitehead’s contributions to the birth of aviation by designating his No. 21 flying machine as the State Pioneering Aircraft. The No. 21, also called “The Condor,” was designed and fully constructed by Whitehead himself. It was a 16 foot long monoplane with a boat-like body and bat-like wings made of silk attached to bamboo ribs. A mechanic by trade, Whitehead also engineered and built two innovative acetylcholine-fueled engines for the No. 21: one to power the aircraft’s propellors in flight; and the other to drive the wheels for ground running to takeoff speed. After several test flights made over the summer of 1901, Whitehead made the first successful powered flight in the No. 21, in Fairfield on August 14, 1901."
+    },
+    {
+      "id": "doc-3e6227a31d59",
+      "title": "Debunking Gustave Whitehead's Claim Of Flying First (Before The Wrights)",
+      "url": "https://airandspace.si.edu/stories/editorial/flight-claims-gustave-whitehead",
+      "layout": "PROSE",
+      "publisher": "Smithsonian National Air and Space Museum",
+      "retrievedAt": "2026-09-11",
+      "sourceType": "SOURCE_EXCERPT",
+      "sourceDescriptor": "Museum expert analysis",
+      "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+      "excerptSha256": "ba724edeec6312a3ce6bc25ab237cff4f3fade1881b0d140340d38bdd9a0c177",
+      "sourceSha256": "82dc4cab37de4637ced7e37d54c183059adbdf1f5e2761f715a25603e2fa9d8d",
+      "text": "- Why did Whitehead abandon a configuration that he claimed had enabled him to make flights of up to seven miles, in favor of returning to a design that was now eight years old and obsolete?\n- Why did Whitehead not call the attention of the readers of the Scientific American to his claim to have flown a very different powered machine over considerable distances less than two years before?\nOver the next decade, Whitehead would continue to build aircraft for other enthusiasts. Not one of those powered machines ever left the ground. My conclusion—either Whitehead had somehow forgotten the secrets of flight, or he had never flown a powered machine at all.\nIn its issue of December 26, 1903, just three months after Scientific American had reported Whitehead’s experiments with an obsolete hang glider, the journal noted that the brothers Wilbur and Orville Wright had made some “successful experiments” with a powered flying machine operating under the complete control of a pilot."
+    }
+  ],
+  "label": "CONFLICTING_EVIDENCE",
+  "displayTitle": "The disputed first powered flight",
+  "topics": [],
+  "challenges": [
+    "CONFLICTING_SOURCES",
+    "ATTRIBUTION"
+  ],
+  "featured": false,
+  "origin": "CONSTRUCTED",
+  "category": "HISTORY",
+  "demoFocus": "CONFLICTING_EVIDENCE"
+}

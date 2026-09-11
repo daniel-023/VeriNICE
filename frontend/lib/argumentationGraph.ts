@@ -147,11 +147,27 @@ export function buildArgumentationGraph(
         : null;
       if (!source) {
         const document = docs.get(premise.documentId)?.item;
+        const enclosingSpan = premise.kind === "LIST_CERTIFICATE"
+          ? [...spans.values()]
+              .filter(({ span }) => (
+                span.documentId === premise.documentId
+                && span.start <= premise.start
+                && span.end >= premise.end
+              ))
+              .sort((left, right) => (
+                (left.span.end - left.span.start) - (right.span.end - right.span.start)
+              ))[0]?.span
+          : undefined;
         source = {
           id: `evidence:premise:${premise.id}`, type: "EVIDENCE", evidenceId: premise.id,
           documentId: premise.documentId, documentTitle: document?.title ?? premise.documentId,
           documentUrl: document?.url ?? "", text: premise.text, start: premise.start,
           end: premise.end, bestRank: Number.MAX_SAFE_INTEGER,
+          listItems: premise.listItems,
+          // Older recorded walkthroughs predate structured list items. Their
+          // enclosing retrieved span is still exact source text and avoids a
+          // heading-only node without re-parsing source lists in the browser.
+          displayText: premise.listItems?.length ? undefined : enclosingSpan?.text,
         };
         if (!nodeIds.has(source.id)) addNode(source);
       }

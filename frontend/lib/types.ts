@@ -35,7 +35,8 @@ export type DemoFocus =
   | "SET_MEMBERSHIP"
   | "DISTINCT_VALUE_COUNT"
   | "EXTREMUM"
-  | "INSUFFICIENT_EVIDENCE";
+  | "INSUFFICIENT_EVIDENCE"
+  | "CONFLICTING_EVIDENCE";
 
 export interface DemoDocumentSummary {
   id: string;
@@ -45,6 +46,8 @@ export interface DemoDocumentSummary {
   publisher?: string;
   retrievedAt?: string | null;
   sourceType?: "SOURCE_EXCERPT" | "FULL_SOURCE";
+  sourceDescriptor?: string;
+  excerptRationale?: string;
   excerptSha256?: string | null;
   sourceSha256?: string | null;
 }
@@ -193,6 +196,8 @@ export interface EvidenceNode {
   end: number;
   bestRank: number;
   contextSpans?: EvidenceContextSpan[];
+  displayText?: string;
+  listItems?: SymbolicListItem[];
 }
 
 export interface ContextNode {
@@ -344,6 +349,15 @@ export interface GroundedEvidenceAssessment {
 export type SymbolicOperator = "SET_MEMBERSHIP" | "NUMERIC_COMPARE" | "TEMPORAL_COMPARE" | "ATTRIBUTE_COMPARE" | "COUNT_DISTINCT" | "EXTREMUM_COMPARE";
 export type SymbolicStatus = "PROVED" | "DISPROVED" | "UNRESOLVED" | "NOT_APPLICABLE";
 
+export interface SymbolicListItem {
+  id: string;
+  documentId: string;
+  text: string;
+  start: number;
+  end: number;
+  contentHash: string;
+}
+
 export interface SymbolicPremise {
   id: string;
   documentId: string;
@@ -353,6 +367,7 @@ export interface SymbolicPremise {
   kind: "EVIDENCE" | "LIST_CERTIFICATE" | "LIST_ITEM" | "OPERAND";
   contentHash?: string | null;
   itemCount?: number | null;
+  listItems?: SymbolicListItem[];
 }
 
 export interface SymbolicExecution {

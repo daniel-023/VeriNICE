@@ -1,0 +1,911 @@
+{
+  "caseId": "showcase-science-egg-cvd",
+  "schemaVersion": 6,
+  "composition": "SINGLE",
+  "warnings": [],
+  "atoms": [
+    {
+      "id": "atom-1",
+      "text": "Among US adults, each additional half egg consumed per day is associated with a higher risk of incident cardiovascular disease.",
+      "sourceText": "Among US adults, each additional half egg consumed per day is associated with a higher risk of incident cardiovascular disease.",
+      "start": 0,
+      "end": 127,
+      "role": "CAUSAL_RELATION"
+    }
+  ],
+  "evidence": [
+    {
+      "atomId": "atom-1",
+      "spans": [
+        {
+          "id": "doc-294213eca17a::sentence-2",
+          "documentId": "doc-294213eca17a",
+          "text": "Each additional half an egg consumed per day was significantly associated with higher risk of incident CVD (adjusted HR, 1.06 [95% CI, 1.03-1.10]; adjusted ARD, 1.11% [95% CI, 0.32%-1.89%]) and all-cause mortality (adjusted HR, 1.08 [95% CI, 1.04-1.11]; adjusted ARD, 1.93% [95% CI, 1.10%-2.76%]). ",
+          "start": 316,
+          "end": 614,
+          "contextSpans": [],
+          "context": "Each additional half an egg consumed per day was significantly associated with higher risk of incident CVD (adjusted HR, 1.06 [95% CI, 1.03-1.10]; adjusted ARD, 1.11% [95% CI, 0.32%-1.89%]) and all-cause mortality (adjusted HR, 1.08 [95% CI, 1.04-1.11]; adjusted ARD, 1.93% [95% CI, 1.10%-2.76%])."
+        },
+        {
+          "id": "doc-55ee6f649206::sentence-4",
+          "documentId": "doc-55ee6f649206",
+          "text": "**Conclusions:** Results from the three cohorts and from the updated meta-analysis show that moderate egg consumption (up to one egg per day) is not associated with cardiovascular disease risk overall, and is associated with potentially lower cardiovascular disease risk in Asian populations.\n\n",
+          "start": 919,
+          "end": 1213,
+          "contextSpans": [],
+          "context": "**Conclusions:** Results from the three cohorts and from the updated meta-analysis show that moderate egg consumption (up to one egg per day) is not associated with cardiovascular disease risk overall, and is associated with potentially lower cardiovascular disease risk in Asian populations."
+        },
+        {
+          "id": "doc-55ee6f649206::sentence-1",
+          "documentId": "doc-55ee6f649206",
+          "text": "In the updated meta-analysis of prospective cohort studies (33 risk estimates, 1 720 108 participants, 139 195 cardiovascular disease events), an increase of one egg per day was not associated with cardiovascular disease risk (pooled relative risk 0.98, 95% confidence interval 0.93 to 1.03, I 2=62.3%). ",
+          "start": 0,
+          "end": 304,
+          "contextSpans": [],
+          "context": "In the updated meta-analysis of prospective cohort studies (33 risk estimates, 1 720 108 participants, 139 195 cardiovascular disease events), an increase of one egg per day was not associated with cardiovascular disease risk (pooled relative risk 0.98, 95% confidence interval 0.93 to 1.03, I 2=62.3%)."
+        },
+        {
+          "id": "doc-294213eca17a::sentence-4",
+          "documentId": "doc-294213eca17a",
+          "text": "**Conclusions and relevance:** Among US adults, higher consumption of dietary cholesterol or eggs was significantly associated with higher risk of incident CVD and all-cause mortality in a dose-response manner. ",
+          "start": 952,
+          "end": 1163,
+          "contextSpans": [
+            {
+              "id": "doc-294213eca17a::sentence-5",
+              "documentId": "doc-294213eca17a",
+              "text": "These results should be considered in the development of dietary guidelines and updates.\n\n\n",
+              "start": 1163,
+              "end": 1254,
+              "direction": "NEXT"
+            }
+          ],
+          "context": "**Conclusions and relevance:** Among US adults, higher consumption of dietary cholesterol or eggs was significantly associated with higher risk of incident CVD and all-cause mortality in a dose-response manner. These results should be considered in the development of dietary guidelines and updates."
+        },
+        {
+          "id": "doc-294213eca17a::sentence-1",
+          "documentId": "doc-294213eca17a",
+          "text": "Each additional 300 mg of dietary cholesterol consumed per day was significantly associated with higher risk of incident CVD (adjusted HR, 1.17 [95% CI, 1.09-1.26]; adjusted ARD, 3.24% [95% CI, 1.39%-5.08%]) and all-cause mortality (adjusted HR, 1.18 [95% CI, 1.10-1.26]; adjusted ARD, 4.43% [95% CI, 2.51%-6.36%]). ",
+          "start": 0,
+          "end": 316,
+          "contextSpans": [],
+          "context": "Each additional 300 mg of dietary cholesterol consumed per day was significantly associated with higher risk of incident CVD (adjusted HR, 1.17 [95% CI, 1.09-1.26]; adjusted ARD, 3.24% [95% CI, 1.39%-5.08%]) and all-cause mortality (adjusted HR, 1.18 [95% CI, 1.10-1.26]; adjusted ARD, 4.43% [95% CI, 2.51%-6.36%])."
+        },
+        {
+          "id": "doc-55ee6f649206::sentence-3",
+          "documentId": "doc-55ee6f649206",
+          "text": "In analyses stratified by geographical location (P for interaction=0.07), no association was found between egg consumption and cardiovascular disease risk among US cohorts (1.01, 0.96 to 1.06, I 2=30.8%) or European cohorts (1.05, 0.92 to 1.19, I 2=64.7%), but an inverse association was seen in Asian cohorts (0.92, 0.85 to 0.99, I 2=44.8%).\n\n",
+          "start": 575,
+          "end": 919,
+          "contextSpans": [],
+          "context": "In analyses stratified by geographical location (P for interaction=0.07), no association was found between egg consumption and cardiovascular disease risk among US cohorts (1.01, 0.96 to 1.06, I 2=30.8%) or European cohorts (1.05, 0.92 to 1.19, I 2=64.7%), but an inverse association was seen in Asian cohorts (0.92, 0.85 to 0.99, I 2=44.8%)."
+        }
+      ]
+    }
+  ],
+  "assessment": {
+    "obligations": [
+      {
+        "atomId": "atom-1",
+        "supportSpanIds": [
+          "doc-294213eca17a::sentence-2",
+          "doc-294213eca17a::sentence-4"
+        ],
+        "refuteSpanIds": [
+          "doc-55ee6f649206::sentence-4",
+          "doc-55ee6f649206::sentence-1",
+          "doc-55ee6f649206::sentence-3"
+        ],
+        "contextSpanIds": [
+          "doc-294213eca17a::sentence-1"
+        ],
+        "sufficiency": "SUFFICIENT",
+        "missingInformation": "The evidence does not specify the exact half-egg increment or the population subset within US adults.",
+        "reason": "O1-E1 and O1-E4 provide direct support for the claim, while O1-E2, O1-E3, and O1-E6 provide conflicting evidence.",
+        "scopeChecks": [
+          {
+            "spanId": "doc-294213eca17a::sentence-2",
+            "documentId": "doc-294213eca17a",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-55ee6f649206::sentence-4",
+            "documentId": "doc-55ee6f649206",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-55ee6f649206::sentence-1",
+            "documentId": "doc-55ee6f649206",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-294213eca17a::sentence-4",
+            "documentId": "doc-294213eca17a",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-294213eca17a::sentence-1",
+            "documentId": "doc-294213eca17a",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-55ee6f649206::sentence-3",
+            "documentId": "doc-55ee6f649206",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          }
+        ]
+      }
+    ],
+    "materialOmission": {
+      "detected": false,
+      "supportSpanIds": [],
+      "contextSpanIds": [],
+      "reason": "No material omission was established."
+    }
+  },
+  "reasoning": [
+    {
+      "id": "proof:atom-1:set_membership:unresolved",
+      "atomId": "atom-1",
+      "operator": "SET_MEMBERSHIP",
+      "status": "UNRESOLVED",
+      "relation": null,
+      "premiseIds": [],
+      "premises": [],
+      "expression": "set membership",
+      "conclusion": "No grounded program was compiled.",
+      "explanation": "Qwen did not map the typed candidate to sufficient server-owned premises.",
+      "validationWarnings": [
+        "NO_GROUNDED_PROGRAM"
+      ],
+      "program": {
+        "version": 1,
+        "steps": [
+          {
+            "id": "input-1",
+            "operation": "LOOKUP",
+            "inputIds": [
+              "candidate:atom-1:set"
+            ],
+            "outputType": "FACT",
+            "description": "Read an unchanged server-owned premise."
+          },
+          {
+            "id": "result",
+            "operation": "MEMBER",
+            "inputIds": [
+              "input-1"
+            ],
+            "outputType": "BOOLEAN",
+            "description": "Validate operand alignment and execute the typed operation in Python."
+          }
+        ],
+        "outputStepId": "result"
+      }
+    }
+  ],
+  "linguistics": {
+    "schemaVersion": 2,
+    "claimAnalysis": {
+      "atomId": "claim",
+      "frames": [
+        {
+          "id": "claim-frame-1",
+          "predicate": {
+            "id": "claim-frame-1-predicate",
+            "text": "associated",
+            "start": 62,
+            "end": 72
+          },
+          "subjects": [
+            {
+              "id": "claim-frame-1-subject-1",
+              "text": "each additional half egg consumed per day",
+              "start": 17,
+              "end": 58
+            }
+          ],
+          "coreArguments": [],
+          "adjuncts": [],
+          "otherModifiers": [
+            {
+              "id": "claim-frame-1-other-modifier-1",
+              "text": "Among US adults",
+              "start": 0,
+              "end": 15
+            },
+            {
+              "id": "claim-frame-1-other-modifier-2",
+              "text": "with a higher risk of incident cardiovascular disease",
+              "start": 73,
+              "end": 126
+            }
+          ]
+        }
+      ],
+      "cues": [
+        {
+          "id": "claim-cue-quantifier-17-21",
+          "text": "each",
+          "start": 17,
+          "end": 21,
+          "kind": "quantifier"
+        },
+        {
+          "id": "claim-cue-numeric-33-37",
+          "text": "half",
+          "start": 33,
+          "end": 37,
+          "kind": "numeric"
+        }
+      ],
+      "entities": [
+        {
+          "id": "claim-entity-gpe-6-8",
+          "text": "US",
+          "start": 6,
+          "end": 8,
+          "label": "GPE"
+        }
+      ],
+      "tokens": [
+        {
+          "id": "claim-token-0",
+          "text": "Among",
+          "start": 0,
+          "end": 5,
+          "lemma": "among",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "associated"
+        },
+        {
+          "id": "claim-token-1",
+          "text": "US",
+          "start": 6,
+          "end": 8,
+          "lemma": "US",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "adults"
+        },
+        {
+          "id": "claim-token-2",
+          "text": "adults",
+          "start": 9,
+          "end": 15,
+          "lemma": "adult",
+          "pos": "NOUN",
+          "tag": "NNS",
+          "dependency": "pobj",
+          "head": "Among"
+        },
+        {
+          "id": "claim-token-3",
+          "text": ",",
+          "start": 15,
+          "end": 16,
+          "lemma": ",",
+          "pos": "PUNCT",
+          "tag": ",",
+          "dependency": "punct",
+          "head": "associated"
+        },
+        {
+          "id": "claim-token-4",
+          "text": "each",
+          "start": 17,
+          "end": 21,
+          "lemma": "each",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "egg"
+        },
+        {
+          "id": "claim-token-5",
+          "text": "additional",
+          "start": 22,
+          "end": 32,
+          "lemma": "additional",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "egg"
+        },
+        {
+          "id": "claim-token-6",
+          "text": "half",
+          "start": 33,
+          "end": 37,
+          "lemma": "half",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "amod",
+          "head": "egg"
+        },
+        {
+          "id": "claim-token-7",
+          "text": "egg",
+          "start": 38,
+          "end": 41,
+          "lemma": "egg",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "nsubjpass",
+          "head": "associated"
+        },
+        {
+          "id": "claim-token-8",
+          "text": "consumed",
+          "start": 42,
+          "end": 50,
+          "lemma": "consume",
+          "pos": "VERB",
+          "tag": "VBN",
+          "dependency": "acl",
+          "head": "egg"
+        },
+        {
+          "id": "claim-token-9",
+          "text": "per",
+          "start": 51,
+          "end": 54,
+          "lemma": "per",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "consumed"
+        },
+        {
+          "id": "claim-token-10",
+          "text": "day",
+          "start": 55,
+          "end": 58,
+          "lemma": "day",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "pobj",
+          "head": "per"
+        },
+        {
+          "id": "claim-token-11",
+          "text": "is",
+          "start": 59,
+          "end": 61,
+          "lemma": "be",
+          "pos": "AUX",
+          "tag": "VBZ",
+          "dependency": "auxpass",
+          "head": "associated"
+        },
+        {
+          "id": "claim-token-12",
+          "text": "associated",
+          "start": 62,
+          "end": 72,
+          "lemma": "associate",
+          "pos": "VERB",
+          "tag": "VBN",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "claim-token-13",
+          "text": "with",
+          "start": 73,
+          "end": 77,
+          "lemma": "with",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "associated"
+        },
+        {
+          "id": "claim-token-14",
+          "text": "a",
+          "start": 78,
+          "end": 79,
+          "lemma": "a",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "risk"
+        },
+        {
+          "id": "claim-token-15",
+          "text": "higher",
+          "start": 80,
+          "end": 86,
+          "lemma": "high",
+          "pos": "ADJ",
+          "tag": "JJR",
+          "dependency": "amod",
+          "head": "risk"
+        },
+        {
+          "id": "claim-token-16",
+          "text": "risk",
+          "start": 87,
+          "end": 91,
+          "lemma": "risk",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "pobj",
+          "head": "with"
+        },
+        {
+          "id": "claim-token-17",
+          "text": "of",
+          "start": 92,
+          "end": 94,
+          "lemma": "of",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "risk"
+        },
+        {
+          "id": "claim-token-18",
+          "text": "incident",
+          "start": 95,
+          "end": 103,
+          "lemma": "incident",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "nmod",
+          "head": "disease"
+        },
+        {
+          "id": "claim-token-19",
+          "text": "cardiovascular",
+          "start": 104,
+          "end": 118,
+          "lemma": "cardiovascular",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "disease"
+        },
+        {
+          "id": "claim-token-20",
+          "text": "disease",
+          "start": 119,
+          "end": 126,
+          "lemma": "disease",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "pobj",
+          "head": "of"
+        },
+        {
+          "id": "claim-token-21",
+          "text": ".",
+          "start": 126,
+          "end": 127,
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "associated"
+        }
+      ],
+      "status": "complete",
+      "unresolved": []
+    },
+    "analyses": [
+      {
+        "atomId": "atom-1",
+        "frames": [
+          {
+            "id": "atom-1-frame-1",
+            "predicate": {
+              "id": "atom-1-frame-1-predicate",
+              "text": "associated",
+              "start": 62,
+              "end": 72
+            },
+            "subjects": [
+              {
+                "id": "atom-1-frame-1-subject-1",
+                "text": "each additional half egg consumed per day",
+                "start": 17,
+                "end": 58
+              }
+            ],
+            "coreArguments": [],
+            "adjuncts": [],
+            "otherModifiers": [
+              {
+                "id": "atom-1-frame-1-other-modifier-1",
+                "text": "Among US adults",
+                "start": 0,
+                "end": 15
+              },
+              {
+                "id": "atom-1-frame-1-other-modifier-2",
+                "text": "with a higher risk of incident cardiovascular disease",
+                "start": 73,
+                "end": 126
+              }
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "atom-1-cue-quantifier-17-21",
+            "text": "each",
+            "start": 17,
+            "end": 21,
+            "kind": "quantifier"
+          },
+          {
+            "id": "atom-1-cue-numeric-33-37",
+            "text": "half",
+            "start": 33,
+            "end": 37,
+            "kind": "numeric"
+          }
+        ],
+        "entities": [
+          {
+            "id": "atom-1-entity-gpe-6-8",
+            "text": "US",
+            "start": 6,
+            "end": 8,
+            "label": "GPE"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-1-token-0",
+            "text": "Among",
+            "start": 0,
+            "end": 5,
+            "lemma": "among",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "associated"
+          },
+          {
+            "id": "atom-1-token-1",
+            "text": "US",
+            "start": 6,
+            "end": 8,
+            "lemma": "US",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "adults"
+          },
+          {
+            "id": "atom-1-token-2",
+            "text": "adults",
+            "start": 9,
+            "end": 15,
+            "lemma": "adult",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dependency": "pobj",
+            "head": "Among"
+          },
+          {
+            "id": "atom-1-token-3",
+            "text": ",",
+            "start": 15,
+            "end": 16,
+            "lemma": ",",
+            "pos": "PUNCT",
+            "tag": ",",
+            "dependency": "punct",
+            "head": "associated"
+          },
+          {
+            "id": "atom-1-token-4",
+            "text": "each",
+            "start": 17,
+            "end": 21,
+            "lemma": "each",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "egg"
+          },
+          {
+            "id": "atom-1-token-5",
+            "text": "additional",
+            "start": 22,
+            "end": 32,
+            "lemma": "additional",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "egg"
+          },
+          {
+            "id": "atom-1-token-6",
+            "text": "half",
+            "start": 33,
+            "end": 37,
+            "lemma": "half",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "amod",
+            "head": "egg"
+          },
+          {
+            "id": "atom-1-token-7",
+            "text": "egg",
+            "start": 38,
+            "end": 41,
+            "lemma": "egg",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "nsubjpass",
+            "head": "associated"
+          },
+          {
+            "id": "atom-1-token-8",
+            "text": "consumed",
+            "start": 42,
+            "end": 50,
+            "lemma": "consume",
+            "pos": "VERB",
+            "tag": "VBN",
+            "dependency": "acl",
+            "head": "egg"
+          },
+          {
+            "id": "atom-1-token-9",
+            "text": "per",
+            "start": 51,
+            "end": 54,
+            "lemma": "per",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "consumed"
+          },
+          {
+            "id": "atom-1-token-10",
+            "text": "day",
+            "start": 55,
+            "end": 58,
+            "lemma": "day",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "pobj",
+            "head": "per"
+          },
+          {
+            "id": "atom-1-token-11",
+            "text": "is",
+            "start": 59,
+            "end": 61,
+            "lemma": "be",
+            "pos": "AUX",
+            "tag": "VBZ",
+            "dependency": "auxpass",
+            "head": "associated"
+          },
+          {
+            "id": "atom-1-token-12",
+            "text": "associated",
+            "start": 62,
+            "end": 72,
+            "lemma": "associate",
+            "pos": "VERB",
+            "tag": "VBN",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-1-token-13",
+            "text": "with",
+            "start": 73,
+            "end": 77,
+            "lemma": "with",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "associated"
+          },
+          {
+            "id": "atom-1-token-14",
+            "text": "a",
+            "start": 78,
+            "end": 79,
+            "lemma": "a",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "risk"
+          },
+          {
+            "id": "atom-1-token-15",
+            "text": "higher",
+            "start": 80,
+            "end": 86,
+            "lemma": "high",
+            "pos": "ADJ",
+            "tag": "JJR",
+            "dependency": "amod",
+            "head": "risk"
+          },
+          {
+            "id": "atom-1-token-16",
+            "text": "risk",
+            "start": 87,
+            "end": 91,
+            "lemma": "risk",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "pobj",
+            "head": "with"
+          },
+          {
+            "id": "atom-1-token-17",
+            "text": "of",
+            "start": 92,
+            "end": 94,
+            "lemma": "of",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "risk"
+          },
+          {
+            "id": "atom-1-token-18",
+            "text": "incident",
+            "start": 95,
+            "end": 103,
+            "lemma": "incident",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "nmod",
+            "head": "disease"
+          },
+          {
+            "id": "atom-1-token-19",
+            "text": "cardiovascular",
+            "start": 104,
+            "end": 118,
+            "lemma": "cardiovascular",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "disease"
+          },
+          {
+            "id": "atom-1-token-20",
+            "text": "disease",
+            "start": 119,
+            "end": 126,
+            "lemma": "disease",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "pobj",
+            "head": "of"
+          },
+          {
+            "id": "atom-1-token-21",
+            "text": ".",
+            "start": 126,
+            "end": 127,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "associated"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      }
+    ],
+    "summaries": [
+      {
+        "atomId": "atom-1",
+        "analysisStatus": "complete",
+        "roleAudit": "MISMATCH",
+        "subjects": [
+          "each additional half egg consumed per day"
+        ],
+        "predicates": [
+          "associate"
+        ],
+        "cueKinds": [
+          "quantifier",
+          "numeric"
+        ],
+        "modifierKinds": [],
+        "entityLabels": [
+          "GPE"
+        ],
+        "warnings": [
+          "ROLE_CUE_MISMATCH"
+        ]
+      }
+    ],
+    "claimWarnings": [],
+    "provider": "spacy",
+    "model": "en_core_web_sm@3.8.0"
+  },
+  "verdict": {
+    "aggregationSchemaVersion": 3,
+    "claimId": "showcase-science-egg-cvd",
+    "composition": "SINGLE",
+    "verdict": "CONFLICTING_EVIDENCE",
+    "positions": {
+      "supportPosition": true,
+      "refutePosition": true,
+      "materialOmissionPosition": false,
+      "supportObligationIds": [
+        "atom-1"
+      ],
+      "refuteObligationIds": [
+        "atom-1"
+      ],
+      "unresolvedObligationIds": []
+    },
+    "obligations": [
+      {
+        "obligationId": "atom-1",
+        "state": "CONFLICTING",
+        "supportEdgeIds": [
+          "edge:SUPPORTS:inference:bundle:atom-1:supports:obligation:showcase-science-egg-cvd:atom-1"
+        ],
+        "refuteEdgeIds": [
+          "edge:REFUTES:inference:bundle:atom-1:refutes:obligation:showcase-science-egg-cvd:atom-1"
+        ],
+        "unselectedCandidateCount": 0,
+        "provisionalRelationCount": 0
+      }
+    ],
+    "warnings": [],
+    "ruleTrace": [
+      "SINGLE maps its one obligation's validated relations directly.",
+      "Validated positions — support: yes; refute: yes.",
+      "Verdict: CONFLICTING_EVIDENCE."
+    ]
+  },
+  "recordedWith": {
+    "pipelineRevision": "submission-ready-v2",
+    "inputDigest": "210d35420b065adc0e2f26fa2ca826b4dbc4ba0b6cca1ff9659a872dd04b9f71",
+    "decompositionModel": "qwen2.5:7b",
+    "retrievalModel": "BAAI/bge-small-en-v1.5",
+    "retrievalMethod": "HYBRID",
+    "assessmentModel": "qwen2.5:7b",
+    "reasoningModel": "qwen2.5:7b",
+    "linguisticsModel": "en_core_web_sm@3.8.0"
+  },
+  "timingsSeconds": {
+    "decomposition": 19.609,
+    "retrievalAndLinguistics": 0.315,
+    "evidenceAssessment": 29.302,
+    "symbolicReasoning": 0.011,
+    "aggregation": 0.009,
+    "total": 49.245
+  }
+}

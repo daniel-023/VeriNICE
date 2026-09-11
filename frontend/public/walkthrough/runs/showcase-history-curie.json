@@ -18,55 +18,11 @@
       "atomId": "atom-1",
       "spans": [
         {
-          "id": "doc-eef64596d10c::sentence-18",
-          "documentId": "doc-eef64596d10c",
-          "text": "The 1896 discovery of radioactivity by Henri Becquerel inspired Marie and Pierre Curie to further investigate this phenomenon. ",
-          "start": 1038,
-          "end": 1165,
-          "contextSpans": [
-            {
-              "id": "doc-eef64596d10c::sentence-17",
-              "documentId": "doc-eef64596d10c",
-              "text": "Work\n",
-              "start": 1033,
-              "end": 1038,
-              "direction": "PREVIOUS"
-            },
-            {
-              "id": "doc-eef64596d10c::sentence-19",
-              "documentId": "doc-eef64596d10c",
-              "text": "They examined many substances and minerals for signs of radioactivity. ",
-              "start": 1165,
-              "end": 1236,
-              "direction": "NEXT"
-            }
-          ],
-          "context": "Work The 1896 discovery of radioactivity by Henri Becquerel inspired Marie and Pierre Curie to further investigate this phenomenon. They examined many substances and minerals for signs of radioactivity."
-        },
-        {
-          "id": "doc-a0826bb5a83d::sentence-19",
-          "documentId": "doc-a0826bb5a83d",
-          "text": "After Marie Skłodowska Curie and Pierre Curie first discovered the radioactive elements polonium and radium, Marie continued to investigate their properties. ",
-          "start": 1167,
-          "end": 1325,
-          "contextSpans": [],
-          "context": "After Marie Skłodowska Curie and Pierre Curie first discovered the radioactive elements polonium and radium, Marie continued to investigate their properties."
-        },
-        {
           "id": "doc-eef64596d10c::sentence-14",
           "documentId": "doc-eef64596d10c",
           "text": "Marie was widowed in 1906, but continued the couple's work and went on to become the first person ever to be awarded two Nobel Prizes. ",
           "start": 720,
           "end": 855,
-          "contextSpans": [],
-          "context": "Marie was widowed in 1906, but continued the couple's work and went on to become the first person ever to be awarded two Nobel Prizes."
-        },
-        {
-          "id": "doc-a0826bb5a83d::sentence-15",
-          "documentId": "doc-a0826bb5a83d",
-          "text": "Marie was widowed in 1906, but continued the couple's work and went on to become the first person ever to be awarded two Nobel Prizes. ",
-          "start": 849,
-          "end": 984,
           "contextSpans": [],
           "context": "Marie was widowed in 1906, but continued the couple's work and went on to become the first person ever to be awarded two Nobel Prizes."
         },
@@ -89,6 +45,33 @@
           "context": "Marie Skłodowska was born in Warsaw, Poland, to a family of teachers who believed strongly in education. She moved to Paris to continue her studies and there met Pierre Curie, who became both her husband and colleague in the field of radioactivity."
         },
         {
+          "id": "doc-a0826bb5a83d::sentence-15",
+          "documentId": "doc-a0826bb5a83d",
+          "text": "Marie was widowed in 1906, but continued the couple's work and went on to become the first person ever to be awarded two Nobel Prizes.",
+          "start": 849,
+          "end": 983,
+          "contextSpans": [],
+          "context": "Marie was widowed in 1906, but continued the couple's work and went on to become the first person ever to be awarded two Nobel Prizes."
+        },
+        {
+          "id": "doc-eef64596d10c::sentence-9",
+          "documentId": "doc-eef64596d10c",
+          "text": "Also awarded: Nobel Prize in Chemistry 1911\n",
+          "start": 365,
+          "end": 409,
+          "contextSpans": [
+            {
+              "id": "doc-eef64596d10c::sentence-8",
+              "documentId": "doc-eef64596d10c",
+              "text": "Prize share: 1/4\n",
+              "start": 348,
+              "end": 365,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "Prize share: 1/4 Also awarded: Nobel Prize in Chemistry 1911"
+        },
+        {
           "id": "doc-a0826bb5a83d::sentence-13",
           "documentId": "doc-a0826bb5a83d",
           "text": "She moved to Paris to continue her studies and there met Pierre Curie, who became both her husband and colleague in the field of radioactivity. ",
@@ -105,6 +88,24 @@
             }
           ],
           "context": "Marie Skłodowska was born in Warsaw, Poland, to a family of teachers who believed strongly in education. She moved to Paris to continue her studies and there met Pierre Curie, who became both her husband and colleague in the field of radioactivity."
+        },
+        {
+          "id": "doc-a0826bb5a83d::sentence-10",
+          "documentId": "doc-a0826bb5a83d",
+          "text": "Also awarded: Nobel Prize in Physics 1903\n",
+          "start": 496,
+          "end": 538,
+          "contextSpans": [
+            {
+              "id": "doc-a0826bb5a83d::sentence-9",
+              "documentId": "doc-a0826bb5a83d",
+              "text": "Prize share: 1/1\n",
+              "start": 479,
+              "end": 496,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "Prize share: 1/1 Also awarded: Nobel Prize in Physics 1903"
         }
       ]
     }
@@ -114,55 +115,23 @@
       {
         "atomId": "atom-1",
         "supportSpanIds": [
-          "doc-a0826bb5a83d::sentence-19"
+          "doc-eef64596d10c::sentence-14",
+          "doc-a0826bb5a83d::sentence-15",
+          "doc-eef64596d10c::sentence-9"
         ],
-        "refuteSpanIds": [
-          "doc-eef64596d10c::sentence-18"
-        ],
+        "refuteSpanIds": [],
         "contextSpanIds": [
           "doc-eef64596d10c::sentence-12",
-          "doc-a0826bb5a83d::sentence-13"
+          "doc-a0826bb5a83d::sentence-13",
+          "doc-a0826bb5a83d::sentence-10"
         ],
-        "sufficiency": "PARTIAL",
-        "missingInformation": "The evidence does not specify the scientific fields for the Nobel Prizes in Physics 1903 and Chemistry 1911.",
-        "reason": "The evidence confirms Marie Curie won Nobel Prizes in both Physics and Chemistry, but does not specify the fields for each prize.",
+        "sufficiency": "SUFFICIENT",
+        "missingInformation": "",
+        "reason": "The evidence clearly states that Marie Curie won Nobel Prizes in both Physics (1903) and Chemistry (1911).",
         "scopeChecks": [
-          {
-            "spanId": "doc-eef64596d10c::sentence-18",
-            "documentId": "doc-eef64596d10c",
-            "status": "NOT_APPLICABLE",
-            "claimJurisdictions": [],
-            "evidenceJurisdictions": [
-              "FR",
-              "PL"
-            ],
-            "reason": "The atomic claim does not state a recognized jurisdiction."
-          },
-          {
-            "spanId": "doc-a0826bb5a83d::sentence-19",
-            "documentId": "doc-a0826bb5a83d",
-            "status": "NOT_APPLICABLE",
-            "claimJurisdictions": [],
-            "evidenceJurisdictions": [
-              "FR",
-              "PL"
-            ],
-            "reason": "The atomic claim does not state a recognized jurisdiction."
-          },
           {
             "spanId": "doc-eef64596d10c::sentence-14",
             "documentId": "doc-eef64596d10c",
-            "status": "NOT_APPLICABLE",
-            "claimJurisdictions": [],
-            "evidenceJurisdictions": [
-              "FR",
-              "PL"
-            ],
-            "reason": "The atomic claim does not state a recognized jurisdiction."
-          },
-          {
-            "spanId": "doc-a0826bb5a83d::sentence-15",
-            "documentId": "doc-a0826bb5a83d",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
             "evidenceJurisdictions": [
@@ -182,11 +151,44 @@
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
+            "spanId": "doc-a0826bb5a83d::sentence-15",
+            "documentId": "doc-a0826bb5a83d",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "FR",
+              "PL"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-eef64596d10c::sentence-9",
+            "documentId": "doc-eef64596d10c",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "FR",
+              "PL"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
             "spanId": "doc-a0826bb5a83d::sentence-13",
             "documentId": "doc-a0826bb5a83d",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
             "evidenceJurisdictions": [
+              "PL"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-a0826bb5a83d::sentence-10",
+            "documentId": "doc-a0826bb5a83d",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "FR",
               "PL"
             ],
             "reason": "The atomic claim does not state a recognized jurisdiction."
@@ -209,36 +211,36 @@
       "status": "UNRESOLVED",
       "relation": null,
       "premiseIds": [
-        "context:atom-1:doc-eef64596d10c:doc-eef64596d10c::sentence-11",
-        "context:atom-1:doc-a0826bb5a83d:doc-a0826bb5a83d::sentence-12"
+        "evidence:atom-1:doc-eef64596d10c:doc-eef64596d10c::sentence-9",
+        "evidence:atom-1:doc-a0826bb5a83d:doc-a0826bb5a83d::sentence-10"
       ],
       "premises": [
         {
-          "id": "context:atom-1:doc-eef64596d10c:doc-eef64596d10c::sentence-11",
+          "id": "evidence:atom-1:doc-eef64596d10c:doc-eef64596d10c::sentence-9",
           "documentId": "doc-eef64596d10c",
-          "text": "Marie Skłodowska was born in Warsaw, Poland, to a family of teachers who believed strongly in education. ",
-          "start": 414,
-          "end": 519,
-          "kind": "OPERAND",
+          "text": "Also awarded: Nobel Prize in Chemistry 1911\n",
+          "start": 365,
+          "end": 409,
+          "kind": "EVIDENCE",
           "contentHash": null,
           "itemCount": null
         },
         {
-          "id": "context:atom-1:doc-a0826bb5a83d:doc-a0826bb5a83d::sentence-12",
+          "id": "evidence:atom-1:doc-a0826bb5a83d:doc-a0826bb5a83d::sentence-10",
           "documentId": "doc-a0826bb5a83d",
-          "text": "Marie Skłodowska was born in Warsaw, Poland, to a family of teachers who believed strongly in education. ",
-          "start": 543,
-          "end": 648,
-          "kind": "OPERAND",
+          "text": "Also awarded: Nobel Prize in Physics 1903\n",
+          "start": 496,
+          "end": 538,
+          "kind": "EVIDENCE",
           "contentHash": null,
           "itemCount": null
         }
       ],
       "expression": "attribute comparison",
-      "conclusion": "Attribute relation is unresolved",
-      "explanation": "The premises do not provide one unambiguous attribute value for deterministic comparison.",
+      "conclusion": "Entity alignment is unresolved",
+      "explanation": "The selected premises do not explicitly identify the claim subject.",
       "validationWarnings": [
-        "AMBIGUOUS_ATTRIBUTE_MAPPING"
+        "MISSING_ENTITY_ALIGNMENT"
       ],
       "program": {
         "version": 1,
@@ -247,7 +249,7 @@
             "id": "input-1",
             "operation": "LOOKUP",
             "inputIds": [
-              "context:atom-1:doc-eef64596d10c:doc-eef64596d10c::sentence-11"
+              "evidence:atom-1:doc-eef64596d10c:doc-eef64596d10c::sentence-9"
             ],
             "outputType": "FACT",
             "description": "Read an unchanged server-owned premise."
@@ -256,7 +258,7 @@
             "id": "input-2",
             "operation": "LOOKUP",
             "inputIds": [
-              "context:atom-1:doc-a0826bb5a83d:doc-a0826bb5a83d::sentence-12"
+              "evidence:atom-1:doc-a0826bb5a83d:doc-a0826bb5a83d::sentence-10"
             ],
             "outputType": "FACT",
             "description": "Read an unchanged server-owned premise."
@@ -282,27 +284,27 @@
       "status": "PROVED",
       "relation": "SUPPORTS",
       "premiseIds": [
-        "operand:doc-eef64596d10c:line:4",
-        "operand:doc-eef64596d10c:line:9"
+        "evidence:atom-1:doc-eef64596d10c:doc-eef64596d10c::sentence-9",
+        "evidence:atom-1:doc-a0826bb5a83d:doc-a0826bb5a83d::sentence-10"
       ],
       "premises": [
         {
-          "id": "operand:doc-eef64596d10c:line:4",
+          "id": "evidence:atom-1:doc-eef64596d10c:doc-eef64596d10c::sentence-9",
           "documentId": "doc-eef64596d10c",
-          "text": "Nobel Prize in Physics 1903",
-          "start": 46,
-          "end": 73,
-          "kind": "OPERAND",
+          "text": "Also awarded: Nobel Prize in Chemistry 1911\n",
+          "start": 365,
+          "end": 409,
+          "kind": "EVIDENCE",
           "contentHash": null,
           "itemCount": null
         },
         {
-          "id": "operand:doc-eef64596d10c:line:9",
-          "documentId": "doc-eef64596d10c",
-          "text": "Also awarded: Nobel Prize in Chemistry 1911",
-          "start": 365,
-          "end": 408,
-          "kind": "OPERAND",
+          "id": "evidence:atom-1:doc-a0826bb5a83d:doc-a0826bb5a83d::sentence-10",
+          "documentId": "doc-a0826bb5a83d",
+          "text": "Also awarded: Nobel Prize in Physics 1903\n",
+          "start": 496,
+          "end": 538,
+          "kind": "EVIDENCE",
           "contentHash": null,
           "itemCount": null
         }
@@ -318,7 +320,7 @@
             "id": "input-1",
             "operation": "LOOKUP",
             "inputIds": [
-              "operand:doc-eef64596d10c:line:4"
+              "evidence:atom-1:doc-eef64596d10c:doc-eef64596d10c::sentence-9"
             ],
             "outputType": "FACT",
             "description": "Read an unchanged server-owned premise."
@@ -327,7 +329,7 @@
             "id": "input-2",
             "operation": "LOOKUP",
             "inputIds": [
-              "operand:doc-eef64596d10c:line:9"
+              "evidence:atom-1:doc-a0826bb5a83d:doc-a0826bb5a83d::sentence-10"
             ],
             "outputType": "FACT",
             "description": "Read an unchanged server-owned premise."
@@ -777,19 +779,15 @@
         "obligationId": "atom-1",
         "state": "SUPPORTED",
         "supportEdgeIds": [
+          "edge:SUPPORTS:inference:bundle:atom-1:supports:obligation:showcase-history-curie:atom-1",
           "edge:SUPPORTS:inference:proof:atom-1:count_distinct:1:obligation:showcase-history-curie:atom-1"
         ],
         "refuteEdgeIds": [],
-        "unselectedCandidateCount": 2,
-        "provisionalRelationCount": 2
+        "unselectedCandidateCount": 0,
+        "provisionalRelationCount": 0
       }
     ],
-    "warnings": [
-      {
-        "code": "PROVISIONAL_EVIDENCE_EXCLUDED",
-        "message": "2 assessed relation(s) for obligation atom-1 are provisional because the evidence is not sufficient."
-      }
-    ],
+    "warnings": [],
     "ruleTrace": [
       "SINGLE maps its one obligation's validated relations directly.",
       "Validated positions — support: yes; refute: no.",
@@ -798,7 +796,7 @@
   },
   "recordedWith": {
     "pipelineRevision": "submission-ready-v2",
-    "inputDigest": "79740dc831135eb454faec8c9ab29f68f422e7321197b1beeb830ba5145163f9",
+    "inputDigest": "51870a4f4c74519eb60e31b9a0dcfa8c0056771973f65b0644e2b34f466737df",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
     "retrievalMethod": "HYBRID",
@@ -807,11 +805,11 @@
     "linguisticsModel": "en_core_web_sm@3.8.0"
   },
   "timingsSeconds": {
-    "decomposition": 16.042,
-    "retrievalAndLinguistics": 0.145,
-    "evidenceAssessment": 18.987,
-    "symbolicReasoning": 26.652,
-    "aggregation": 0.016,
-    "total": 61.841
+    "decomposition": 18.59,
+    "retrievalAndLinguistics": 0.127,
+    "evidenceAssessment": 23.257,
+    "symbolicReasoning": 39.012,
+    "aggregation": 0.005,
+    "total": 80.992
   }
 }

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Record the current local VeriTrace pipeline for the static walkthrough."""
+"""Record the current local VeriNICE pipeline for the static walkthrough."""
 from __future__ import annotations
 
 import argparse
@@ -13,11 +13,9 @@ from typing import TYPE_CHECKING, Any
 if TYPE_CHECKING:
     import httpx
 
-from walkthrough_cases import CURATED_CASE_IDS
-
-
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT = ROOT / "data" / "walkthrough" / "runs"
+DEFAULT_BUNDLE_PROFILE = ROOT / "data" / "demo" / "showcase" / "bundle.json"
 _AGGREGATION_SCHEMA = "VerdictAggregationRequest"
 _ASSESSMENT_RESPONSE_SCHEMA = "EvidenceAssessmentResponse"
 _ASSESSMENT_REQUEST_SCHEMA = "EvidenceAssessmentRequest"
@@ -36,7 +34,7 @@ def validate_api_contract(openapi: dict[str, Any]) -> None:
     if not isinstance(aggregation, dict):
         raise RuntimeError(
             "The running backend does not expose the current verdict aggregation API. "
-            "Stop the local VeriTrace process, run ./run-verigraph --start again, "
+            "Stop the local VeriNICE process, run ./run-verigraph --start again, "
             "then retry recording."
         )
 
@@ -76,7 +74,7 @@ def validate_api_contract(openapi: dict[str, Any]) -> None:
     ):
         raise RuntimeError(
             "The running backend predates server-side evidence scope validation. "
-            "Restart VeriTrace before recording."
+            "Restart VeriNICE before recording."
         )
 
 
@@ -230,9 +228,10 @@ async def record_case(client: httpx.AsyncClient, case_id: str, case: dict[str, A
 
 
 async def main_async() -> int:
-    parser = argparse.ArgumentParser(description="Record local VeriTrace walkthrough runs")
+    parser = argparse.ArgumentParser(description="Record local VeriNICE walkthrough runs")
     parser.add_argument("--api", default="http://127.0.0.1:3000")
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument("--bundle-profile", type=Path, default=DEFAULT_BUNDLE_PROFILE)
     parser.add_argument("--case", action="append", dest="case_ids")
     parser.add_argument("--all", action="store_true", help="Record every approved demo case.")
     parser.add_argument("--resume", action="store_true", help="Skip already valid schema-v6 runs.")
@@ -251,8 +250,15 @@ async def main_async() -> int:
         openapi = await request(client, "GET", "/openapi.json")
         validate_api_contract(openapi)
         catalog = await request(client, "GET", "/api/v1/demo-cases")
+        try:
+            profile = json.loads(args.bundle_profile.read_text(encoding="utf-8"))
+        except (OSError, ValueError) as error:
+            raise RuntimeError(f"Could not read showcase bundle profile: {error}") from error
+        configured_case_ids = profile.get("caseIds")
+        if profile.get("kind") != "SHOWCASE" or not isinstance(configured_case_ids, list):
+            raise RuntimeError("Walkthrough bundle profile lacks its ordered showcase case list")
         selected = args.case_ids or (
-            [item["id"] for item in catalog] if args.all else list(CURATED_CASE_IDS)
+            [item["id"] for item in catalog] if args.all else configured_case_ids
         )
         valid = {item["id"] for item in catalog}
         unknown = [case_id for case_id in selected if case_id not in valid]

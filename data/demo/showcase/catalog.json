@@ -1,37 +1,43 @@
 [
   {
-    "id": "showcase-science-brain-10-percent",
-    "claim": "Humans use only 10% of their brains.",
-    "label": "REFUTED",
-    "displayTitle": "The ten-percent brain myth",
+    "id": "showcase-science-egg-cvd",
+    "claim": "Among US adults, each additional half egg consumed per day is associated with a higher risk of incident cardiovascular disease.",
+    "label": "CONFLICTING_EVIDENCE",
+    "displayTitle": "Egg consumption and cardiovascular risk",
     "topics": [],
-    "challenges": [],
+    "challenges": [
+      "CONFLICTING_SOURCES"
+    ],
     "featured": false,
     "origin": "CONSTRUCTED",
     "category": "SCIENCE",
-    "demoFocus": "DIRECT_EVIDENCE",
+    "demoFocus": "CONFLICTING_EVIDENCE",
     "documents": [
       {
-        "id": "doc-704535b20e6b",
-        "title": "Do we only use 10 percent of our brain?",
-        "url": "https://mcgovern.mit.edu/2024/01/26/do-we-use-only-10-percent-of-our-brain/",
+        "id": "doc-294213eca17a",
+        "title": "Associations of Dietary Cholesterol or Egg Consumption With Incident Cardiovascular Disease and Mortality",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30874756/",
         "layout": "PROSE",
-        "publisher": "MIT McGovern Institute",
-        "retrievedAt": "2026-09-05",
+        "publisher": "JAMA",
+        "retrievedAt": "2026-09-11",
         "sourceType": "SOURCE_EXCERPT",
-        "excerptSha256": "2fce3f23f274e4e321a75b304a03dabaafa36cff96ff20e89e683282284c799a",
-        "sourceSha256": "cc62eca1eec5c9fa5e525d2c910eed9f13ead2cf07f2c32e337095e58cb5d8f7"
+        "sourceDescriptor": "Peer-reviewed pooled-cohort study",
+        "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+        "excerptSha256": "58b667c010bf891922826dc0e248a41bd9dcb058501ee02fd55b8c8cc97fa484",
+        "sourceSha256": "cd94ca49cf191e4d27777e3d6e9a6c3f21a0784543504cb6cc75994da410da98"
       },
       {
-        "id": "doc-bf1bf358b8bd",
-        "title": "Busting a brain myth: We really do use 100 percent of our brains",
-        "url": "https://hub.jhu.edu/2014/07/24/busting-a-brain-myth/",
+        "id": "doc-55ee6f649206",
+        "title": "Egg consumption and risk of cardiovascular disease: three large prospective US cohort studies, systematic review, and updated meta-analysis",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32132002/",
         "layout": "PROSE",
-        "publisher": "Johns Hopkins University",
-        "retrievedAt": "2026-09-05",
+        "publisher": "BMJ",
+        "retrievedAt": "2026-09-11",
         "sourceType": "SOURCE_EXCERPT",
-        "excerptSha256": "e3c2c7f6e087adf74404c3d36993d4cfd7a4d026f6c6a60bae733e1bb7b94c7e",
-        "sourceSha256": "c3c62a83244a4b1e61baf00c9dfb013ff6299570e23291b7e8541c5d7892d5ed"
+        "sourceDescriptor": "Peer-reviewed cohort study and meta-analysis",
+        "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+        "excerptSha256": "f7bdffdc61ffbc6f571f1650ab53dfa3f26abf2721cb582bf4ddf39e0b42f1c4",
+        "sourceSha256": "6966fdafedb616575820f792ecdaa84b748c012141b8e40b63f83463a7b48555"
       }
     ]
   },
@@ -55,8 +61,10 @@
         "publisher": "Mayo Clinic",
         "retrievedAt": "2026-09-05",
         "sourceType": "SOURCE_EXCERPT",
-        "excerptSha256": "31ea74920a4563be0f2ff1c2951008c4bfcd4d76d17710630d93896f943a38b1",
-        "sourceSha256": "63d14dd77023fdb09e2922d47ef859da1f4232bdf2f60cc9bea08343da484c16"
+        "sourceDescriptor": "Institutional source",
+        "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+        "excerptSha256": "f539c84519ac88527c66e60d03318bff8df16fedb401c358a8d4c23845a4d88c",
+        "sourceSha256": "002ec7d6843fc5611b60760e5fa1838fc3603f4060a9d0bb41bcb30c9e68932b"
       },
       {
         "id": "doc-813ee535443b",
@@ -66,8 +74,10 @@
         "publisher": "Cleveland Clinic",
         "retrievedAt": "2026-09-05",
         "sourceType": "SOURCE_EXCERPT",
-        "excerptSha256": "e907367d7245984989da0c9938317b16f88b826bc2a2f5b84b07a42d01c69038",
-        "sourceSha256": "e4500485e76d605ad09f233769cca55620b68e8413b064a8d9e149f024e2aae1"
+        "sourceDescriptor": "Institutional source",
+        "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+        "excerptSha256": "c5ee654457d87a04699f8aa1fb3ded56df1b6dd53bcc2491eb8510861dccff9d",
+        "sourceSha256": "2a78b759e6d7eee7d790f79141f1993ac8747a6b26796bce10c4b9a53058cc1c"
       }
     ]
   },
@@ -91,7 +101,9 @@
         "publisher": "U.S. National Weather Service",
         "retrievedAt": "2026-09-05",
         "sourceType": "SOURCE_EXCERPT",
-        "excerptSha256": "f459cf60ee75ebb51e411acd15e440da4de9c8c5bac3596101573e8cae776d31",
+        "sourceDescriptor": "Institutional source",
+        "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+        "excerptSha256": "58984a1dee73f9b9b22416fb00b5af996f5de919430bcfc7482d5ef327ea6120",
         "sourceSha256": "8f640af8883cf0d5e20273fa4b0900c35d52583af27c1c71046703c9f1fbccce"
       },
       {
@@ -102,44 +114,53 @@
         "publisher": "U.S. National Weather Service",
         "retrievedAt": "2026-09-05",
         "sourceType": "SOURCE_EXCERPT",
-        "excerptSha256": "61953bb1cf805679caad02ceadce07d91de4f987666a7ab840891e3b152ebbb7",
+        "sourceDescriptor": "Institutional source",
+        "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+        "excerptSha256": "cace08c1224966761ae7052ab75c978f67027e0110b80ce541d2b57d76b686b9",
         "sourceSha256": "bd68a1643a783326642a13f878218fb06e6a5957c89a43301d56b21d2ac31a01"
       }
     ]
   },
   {
     "id": "showcase-history-einstein",
-    "claim": "Albert Einstein received the 1921 Nobel Prize in Physics for relativity.",
+    "claim": "The Nobel Prize in Physics for 1921 was awarded to Albert Einstein, and the prize was awarded for his theory of relativity.",
     "label": "REFUTED",
     "displayTitle": "Einstein's Nobel Prize citation",
     "topics": [],
-    "challenges": [],
+    "challenges": [
+      "MULTI_PART",
+      "ATTRIBUTION"
+    ],
     "featured": false,
     "origin": "CONSTRUCTED",
     "category": "HISTORY",
     "demoFocus": "ATTRIBUTE_COMPARISON",
     "documents": [
       {
-        "id": "doc-72849eeeae4d",
-        "title": "Award ceremony speech: The Nobel Prize in Physics 1921",
-        "url": "https://www.nobelprize.org/prizes/physics/1921/ceremony-speech/",
+        "id": "doc-24e395b9bb6e",
+        "title": "The Nobel Prize in Physics 2023: Scientific Background",
+        "url": "https://www.nobelprize.org/uploads/2023/10/advanced-physicsprize2023-2.pdf",
         "layout": "PROSE",
-        "publisher": "Nobel Prize Outreach",
-        "retrievedAt": "2026-09-05",
+        "publisher": "Royal Swedish Academy of Sciences",
+        "retrievedAt": "2026-09-11",
         "sourceType": "SOURCE_EXCERPT",
-        "excerptSha256": "6460d9e7937702250f2d71adbeaede053d4b94f8d9c194ba5a89827a0b2d6490",
-        "sourceSha256": "84ac55c8e8b56b2284d4c38fe8b54b33719379f05ae05268591dbd712c29b1b7"
+        "sourceDescriptor": "Official scientific background",
+        "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+        "excerptSha256": "a9d261cb3ec9300d76faf6f9f8d73cab2b3cd909fe2632d3e7e933f6d21d542b",
+        "sourceSha256": "0cfa622dc25f50dd1ef8e91a3d83962fd978f723015edcc9f02240860af863b3"
       },
       {
-        "id": "doc-6e38d4a58792",
-        "title": "Albert Einstein – Facts",
-        "url": "https://www.nobelprize.org/prizes/physics/1921/einstein/facts/",
+        "id": "doc-46199fd9f0db",
+        "title": "Albert Einstein – Questions and answers",
+        "url": "https://www.nobelprize.org/prizes/physics/1921/einstein/questions-and-answers/",
         "layout": "PROSE",
         "publisher": "Nobel Prize Outreach",
-        "retrievedAt": "2026-09-05",
+        "retrievedAt": "2026-09-11",
         "sourceType": "SOURCE_EXCERPT",
-        "excerptSha256": "40b0de68907db73d605f229e38504d407204ad948b8e8a9a0e4d7e0c0d8d6627",
-        "sourceSha256": "37a95aaeccefcdd9e4fdbeb7235338510f56814ab838f019984d72dcb5bebbae"
+        "sourceDescriptor": "Official laureate Q&A",
+        "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+        "excerptSha256": "7a0b67a0cad6f86e1bfdc6e54b25baf8be558ac7f4c0c2f7ee33f925944d5de7",
+        "sourceSha256": "576f85eb03d14ef0934a32cd952fdfeb47f6e93a6338ca7e20ec20c0f931ee40"
       }
     ]
   },
@@ -163,7 +184,9 @@
         "publisher": "Nobel Prize Outreach",
         "retrievedAt": "2026-09-05",
         "sourceType": "SOURCE_EXCERPT",
-        "excerptSha256": "8e03d6a777927767516b8b57be62db1f1d48ad6395b5c5d8beb7fc2eaca691df",
+        "sourceDescriptor": "Institutional source",
+        "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+        "excerptSha256": "2988ebbfb408ad6f5cd42361445399cc36fc61f1c76c1a13ba7a2039bfc9b39e",
         "sourceSha256": "8e03d6a777927767516b8b57be62db1f1d48ad6395b5c5d8beb7fc2eaca691df"
       },
       {
@@ -174,44 +197,53 @@
         "publisher": "Nobel Prize Outreach",
         "retrievedAt": "2026-09-05",
         "sourceType": "SOURCE_EXCERPT",
-        "excerptSha256": "7ea564b9eeabd2c4f7de54ad5e0b7f87e2faa8571665f33b059847eef73dfa36",
+        "sourceDescriptor": "Institutional source",
+        "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+        "excerptSha256": "71e2867d395eb3d029c0f24ec4f717e809ab7260b2261b2af52990e0457f415f",
         "sourceSha256": "ae0e6831f9221cb71f145796832c414bbe939ce3b971a2c41305896a23e34801"
       }
     ]
   },
   {
-    "id": "showcase-history-viking-helmet",
-    "claim": "The only preserved complete Viking Age helmet has horns.",
-    "label": "REFUTED",
-    "displayTitle": "The preserved Viking helmet",
+    "id": "showcase-history-whitehead-flight",
+    "claim": "Gustave Whitehead made the first powered flight.",
+    "label": "CONFLICTING_EVIDENCE",
+    "displayTitle": "The disputed first powered flight",
     "topics": [],
-    "challenges": [],
+    "challenges": [
+      "CONFLICTING_SOURCES",
+      "ATTRIBUTION"
+    ],
     "featured": false,
     "origin": "CONSTRUCTED",
     "category": "HISTORY",
-    "demoFocus": "ATTRIBUTE_COMPARISON",
+    "demoFocus": "CONFLICTING_EVIDENCE",
     "documents": [
       {
-        "id": "doc-4437a7e42d03",
-        "title": "Viking helmets",
-        "url": "https://en.natmus.dk/historical-knowledge/denmark/prehistoric-period-until-1050-ad/the-viking-age/weapons/helmets/",
+        "id": "doc-69ac016cf3c9",
+        "title": "State Pioneering Aircraft: Gustave Whitehead's No. 21",
+        "url": "https://portal.ct.gov/-/media/SOTS/REGISTER-MANUAL-_-BLUEBOOK/RM_Archive/BlueBook-digital.pdf",
         "layout": "PROSE",
-        "publisher": "National Museum of Denmark",
-        "retrievedAt": "2026-09-05",
+        "publisher": "Connecticut Office of the Secretary of the State",
+        "retrievedAt": "2026-09-11",
         "sourceType": "SOURCE_EXCERPT",
-        "excerptSha256": "9ed32d1a114773fff1d1c8a838052c65340209ef70701da3fbf963478681f9cd",
-        "sourceSha256": "9cc743473beeb75dc45512a94f640f4a9366772bb13ccb2318755601f0af427a"
+        "sourceDescriptor": "State register citing legislative recognition",
+        "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+        "excerptSha256": "26b00f37cd8a6707aef42daf2c5d4a32cc7cceb1f76af7aaba15b71b13c451f8",
+        "sourceSha256": "44a84bc99da88c2bf3f3d428ec4fdff1c4c0da91de5326de30382b3f034b2167"
       },
       {
-        "id": "doc-231a5983562d",
-        "title": "Frequently asked questions",
-        "url": "https://thevikingmuseum.com/en/faq/",
+        "id": "doc-3e6227a31d59",
+        "title": "Debunking Gustave Whitehead's Claim Of Flying First (Before The Wrights)",
+        "url": "https://airandspace.si.edu/stories/editorial/flight-claims-gustave-whitehead",
         "layout": "PROSE",
-        "publisher": "The Viking Museum",
-        "retrievedAt": "2026-09-05",
+        "publisher": "Smithsonian National Air and Space Museum",
+        "retrievedAt": "2026-09-11",
         "sourceType": "SOURCE_EXCERPT",
-        "excerptSha256": "39d1ed0e1daacf6edf149fa9d49e45757d2d335bdb39ab6b4e3f4272f53b70a9",
-        "sourceSha256": "61a6c2a0aea7bfb979f860b1ff2741d857dcaad45b08a8e90070a36ab0c493d1"
+        "sourceDescriptor": "Museum expert analysis",
+        "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+        "excerptSha256": "ba724edeec6312a3ce6bc25ab237cff4f3fade1881b0d140340d38bdd9a0c177",
+        "sourceSha256": "82dc4cab37de4637ced7e37d54c183059adbdf1f5e2761f715a25603e2fa9d8d"
       }
     ]
   },
@@ -235,7 +267,9 @@
         "publisher": "Australian Bureau of Statistics",
         "retrievedAt": "2026-09-05",
         "sourceType": "SOURCE_EXCERPT",
-        "excerptSha256": "04be4a5b9de8f371d1d11730232f2976a737353daad6093b0d55d80ef596671c",
+        "sourceDescriptor": "Institutional source",
+        "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+        "excerptSha256": "7e03614bbc097a1a734dea14cc37175c0c963209e8f518dc27522a87a7ceb316",
         "sourceSha256": "e2fdb4c156cefac0e526303f165f26b5dc266ae466b7322f50b57b9c570c9388"
       },
       {
@@ -246,7 +280,9 @@
         "publisher": "Australian Bureau of Statistics",
         "retrievedAt": "2026-09-05",
         "sourceType": "SOURCE_EXCERPT",
-        "excerptSha256": "814b6bd0fa592dde30bf4ae2bbe16dcbc12f64e5775a9d0b367fe4a1cc65fdda",
+        "sourceDescriptor": "Institutional source",
+        "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+        "excerptSha256": "70ca76deecb6d0e32c9b660feb293940dcd3782609344d8e0e6f5174d22a2ca7",
         "sourceSha256": "8cf7ec42abc54851e23aa45934c704f101a78c5a844a4ae3fa043ade4c66af3f"
       }
     ]
@@ -271,7 +307,9 @@
         "publisher": "U.S. Geological Survey",
         "retrievedAt": "2026-09-05",
         "sourceType": "SOURCE_EXCERPT",
-        "excerptSha256": "94f2f49fd95e4f96efbc850c8319ae6e4959b51a30a17fd8c91962085bef9a46",
+        "sourceDescriptor": "Institutional source",
+        "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+        "excerptSha256": "c9e00a0c81e6323d27e29aeedb672a214632b8cf64e4c3d9089ec254b9384e70",
         "sourceSha256": "4e0a15217cff8d1b684243e018f58a47036f7987876da7ecb6cdd5313b958500"
       },
       {
@@ -282,7 +320,9 @@
         "publisher": "NOAA National Ocean Service",
         "retrievedAt": "2026-09-05",
         "sourceType": "SOURCE_EXCERPT",
-        "excerptSha256": "1922ad865d941a1adee24acf7e85166344205bab88a73a912a69e0c437089dd7",
+        "sourceDescriptor": "Institutional source",
+        "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+        "excerptSha256": "61fb6643b368974998cfe830fe9af2d751993d445197d44c21f6c88c619c2a93",
         "sourceSha256": "a2fc6e303acedaf7805961ac5f5056bf37a3f54ed49e74693569267f6aa956cf"
       }
     ]
@@ -307,7 +347,9 @@
         "publisher": "Société d'Exploitation de la Tour Eiffel",
         "retrievedAt": "2026-09-05",
         "sourceType": "SOURCE_EXCERPT",
-        "excerptSha256": "ad51acd388ff77bea62cd59b249de3939fb2d87586f4b00b4bc17643c3eccc34",
+        "sourceDescriptor": "Institutional source",
+        "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+        "excerptSha256": "635d26ca47a2204eaf9ccf013e8b8aed9c7ed871ac6bcccaf312bfb476b11825",
         "sourceSha256": "a2ad428583737f461080f2251e5f9bf0f5a679b7a561c4f9d3bb9b5a0913926f"
       },
       {
@@ -318,18 +360,23 @@
         "publisher": "Société d'Exploitation de la Tour Eiffel",
         "retrievedAt": "2026-09-05",
         "sourceType": "SOURCE_EXCERPT",
-        "excerptSha256": "9e966418ded157bb3285c38173cfd729523b1face8069d1825413321eedf0444",
+        "sourceDescriptor": "Institutional source",
+        "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+        "excerptSha256": "57d99ef098794d44ff9a82c28ae48f422ee7f58414a612e3a64bfa634898cf51",
         "sourceSha256": "07cba63050ae63807e40d52bf472978d30f4093074429d51eb817304cc15aa31"
       }
     ]
   },
   {
     "id": "showcase-technology-iphone",
-    "claim": "The first iPhone went on sale in the United States in 2005.",
-    "label": "REFUTED",
-    "displayTitle": "When the first iPhone went on sale",
+    "claim": "Apple introduced the first iPhone on 9 January 2007, and it went on sale in the United States on 29 June 2007.",
+    "label": "SUPPORTED",
+    "displayTitle": "Introducing and releasing the first iPhone",
     "topics": [],
-    "challenges": [],
+    "challenges": [
+      "MULTI_PART",
+      "TIME"
+    ],
     "featured": false,
     "origin": "CONSTRUCTED",
     "category": "TECHNOLOGY",
@@ -343,7 +390,9 @@
         "publisher": "Apple",
         "retrievedAt": "2026-09-05",
         "sourceType": "SOURCE_EXCERPT",
-        "excerptSha256": "8ec45374557827c6d45a4d417534ba83afbc57c87c4f27cbfbddc6ec14508aef",
+        "sourceDescriptor": "Institutional source",
+        "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+        "excerptSha256": "d9e4bd0f45ac8f8f9f8f9e937a799dc7edeefa9bc833c565ccace55f80d200ba",
         "sourceSha256": "056736b6c91313d981e66a73e69d51cd28c4ff5303a56a54d4003702096fb8a6"
       },
       {
@@ -354,44 +403,53 @@
         "publisher": "Apple",
         "retrievedAt": "2026-09-05",
         "sourceType": "SOURCE_EXCERPT",
-        "excerptSha256": "239bd815c974c7c5e7065cacb691f99b4e533883270dd67557e0a1e23d57ba6f",
+        "sourceDescriptor": "Institutional source",
+        "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+        "excerptSha256": "07269442582c263e5c132327883190643fce09295c1250f4e715938ff7bb0773",
         "sourceSha256": "3cc08aaa9d701ddac3825c137ece841e37f01d45bb511f029f8dddb78240290f"
       }
     ]
   },
   {
     "id": "showcase-technology-web",
-    "claim": "Tim Berners-Lee invented the World Wide Web at CERN in 1989.",
+    "claim": "Tim Berners-Lee invented the World Wide Web at CERN in 1989 and created its first client and server in 1990.",
     "label": "SUPPORTED",
-    "displayTitle": "The invention of the World Wide Web",
+    "displayTitle": "The invention and implementation of the Web",
     "topics": [],
-    "challenges": [],
+    "challenges": [
+      "MULTI_PART",
+      "TIME"
+    ],
     "featured": false,
     "origin": "CONSTRUCTED",
     "category": "TECHNOLOGY",
     "demoFocus": "DIRECT_EVIDENCE",
     "documents": [
       {
-        "id": "doc-fddf62bfb7b8",
-        "title": "A Brief History of the Internet",
-        "url": "https://www.internetsociety.org/internet/history-internet/brief-history-internet/",
+        "id": "doc-5e89b4a67d9f",
+        "title": "World Wide Web at 35",
+        "url": "https://home.cern/world-wide-web-35/",
         "layout": "PROSE",
-        "publisher": "Internet Society",
-        "retrievedAt": "2026-09-05",
+        "publisher": "CERN",
+        "retrievedAt": "2026-09-11",
         "sourceType": "SOURCE_EXCERPT",
-        "excerptSha256": "5b8c6b25ec325067aefef09796c2213f5270a95dac0faa29b52aabae30410846",
-        "sourceSha256": "708c403b2a6e6fb4477e387187c1fadbb5821d48748650b4badbe216df621c3a"
+        "sourceDescriptor": "Institutional history",
+        "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+        "excerptSha256": "84a9fb6ff040c3ac64dc9f185389fce37f73f059f5efc4c214c357b1bbaa63c8",
+        "sourceSha256": "a598c38a01adf0019f31faced9bcee19edae337c1080eb15e119df2c8f62f6cd"
       },
       {
-        "id": "doc-2c20bee83e25",
-        "title": "Tim Berners-Lee",
-        "url": "https://www.w3.org/People/Berners-Lee/",
+        "id": "doc-cd904599bef7",
+        "title": "History",
+        "url": "https://www.w3.org/about/history/",
         "layout": "PROSE",
         "publisher": "World Wide Web Consortium",
-        "retrievedAt": "2026-09-05",
+        "retrievedAt": "2026-09-11",
         "sourceType": "SOURCE_EXCERPT",
-        "excerptSha256": "a9ae2fbfed5f4ad8af668639f4c9ecde89480052461fd1fd8aebc13611ec9e1b",
-        "sourceSha256": "e2d78f6b4c8fe858905e36b03465d30080158c1f9cef12f7ec5659ca43e5713e"
+        "sourceDescriptor": "Standards-body history",
+        "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+        "excerptSha256": "425126ecd7303b4719a09f4f8fb3b07c584d485d8a0573a0d678e9f27c4d1122",
+        "sourceSha256": "4e66dd34ced292f9b66d0cec3a084a646a515f40fdcd5e59dff88ced37a600dc"
       }
     ]
   },
@@ -415,7 +473,9 @@
         "publisher": "National Coordination Office for Space-Based Positioning, Navigation, and Timing",
         "retrievedAt": "2026-09-05",
         "sourceType": "SOURCE_EXCERPT",
-        "excerptSha256": "5c53a2810ce73a8de5580e085fc9429ab187100569f248a39ef8a05f506eb8d0",
+        "sourceDescriptor": "Institutional source",
+        "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+        "excerptSha256": "843aabbe1c05c3745709528729a81db65ac8814e057b82b00c988746ce6e0e5a",
         "sourceSha256": "9660b66eeae188c74cb362ba1681597b4d4285e37e71a99d7351f04cd302c35d"
       },
       {
@@ -426,7 +486,9 @@
         "publisher": "U.S. Space Force",
         "retrievedAt": "2026-09-05",
         "sourceType": "SOURCE_EXCERPT",
-        "excerptSha256": "176b0ff88c19d18b524a944ff1bd9b63a2ee070879c8db57ec8df1073e5e8afd",
+        "sourceDescriptor": "Institutional source",
+        "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+        "excerptSha256": "684745d11fa1b3d5b97e0598155ecfc0be45ac8e813481d6fde47f816393b99e",
         "sourceSha256": "9b334d0755752849a572aa34ddec5aa67732b6f860b42bd88c6663b23f1aefc1"
       }
     ]
@@ -444,17 +506,6 @@
     "demoFocus": "TEMPORAL_COMPARISON",
     "documents": [
       {
-        "id": "doc-ca3c249b3f5f",
-        "title": "Relations with Finland",
-        "url": "https://www.nato.int/en/what-we-do/partnerships-and-cooperation/relations-with-finland",
-        "layout": "PROSE",
-        "publisher": "NATO",
-        "retrievedAt": "2026-09-05",
-        "sourceType": "SOURCE_EXCERPT",
-        "excerptSha256": "cb428d2d46521991a173ba890f8a6316644e45c779b6c51a657a9bdcf2579f2c",
-        "sourceSha256": "28c64859b1150a66aa08d31d630d29c9a3212eee61148a186fcb43706e4bdea4"
-      },
-      {
         "id": "doc-7a01f78ccd01",
         "title": "Sweden officially joins NATO",
         "url": "https://www.nato.int/en/news-and-events/articles/news/2024/03/07/sweden-officially-joins-nato",
@@ -462,8 +513,23 @@
         "publisher": "NATO",
         "retrievedAt": "2026-09-05",
         "sourceType": "SOURCE_EXCERPT",
-        "excerptSha256": "a4e5abf41c7be0c1d679c6fa5f5ae836c0d06237b61dd7db818589c9ee404be3",
-        "sourceSha256": "ea4de030e5671727c44c497d097ca12d6b506f7261193c65f8ad67b42adf1d53"
+        "sourceDescriptor": "Institutional source",
+        "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+        "excerptSha256": "b52b4f3868e65dcc51026a5ef41e645aa1807ec7e0ccceb2195010f3c25bd24b",
+        "sourceSha256": "4c6b3eb4dd475533d49e2c993294d93a9a1c60954521169c79758b44477da64d"
+      },
+      {
+        "id": "doc-ca3c249b3f5f",
+        "title": "Relations with Finland",
+        "url": "https://www.nato.int/en/what-we-do/partnerships-and-cooperation/relations-with-finland",
+        "layout": "PROSE",
+        "publisher": "NATO",
+        "retrievedAt": "2026-09-05",
+        "sourceType": "SOURCE_EXCERPT",
+        "sourceDescriptor": "Official accession history",
+        "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+        "excerptSha256": "b096eb5ae6b6d3f6c33c5fcc8331aceb844015359d208cfb8ba4a5dfeb8c0d2b",
+        "sourceSha256": "cbaff72ff909f171c5315afaa26626c6e0f2f3d43f603fb0a276369ee23a37e3"
       }
     ]
   },
@@ -487,6 +553,8 @@
         "publisher": "United Nations Security Council",
         "retrievedAt": "2026-09-05",
         "sourceType": "SOURCE_EXCERPT",
+        "sourceDescriptor": "Institutional source",
+        "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
         "excerptSha256": "6f89f1a824ec95799925071db774d817e7ae40ed23da5e7ab4029253b9fa4558",
         "sourceSha256": "6f89f1a824ec95799925071db774d817e7ae40ed23da5e7ab4029253b9fa4558"
       },
@@ -498,7 +566,9 @@
         "publisher": "United Nations Security Council",
         "retrievedAt": "2026-09-05",
         "sourceType": "SOURCE_EXCERPT",
-        "excerptSha256": "9c20a7ea98ef572e0d3440770014362b533cd90c7997ff3596a39d69ad52f829",
+        "sourceDescriptor": "Institutional source",
+        "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+        "excerptSha256": "112a0bc39918c6475dd7ee43d0c8bd2cff0039c63175a63371959d92b1f2c213",
         "sourceSha256": "d161422504d86e8ce5da7209850c5e4f80ea150defbfe954a2b9eeeb80398692"
       }
     ]
@@ -523,7 +593,9 @@
         "publisher": "World Health Organization",
         "retrievedAt": "2026-09-05",
         "sourceType": "SOURCE_EXCERPT",
-        "excerptSha256": "0c5a389082b6e2a3901fe7626d0c18ae2fcae564c8db480d329407912a7670a2",
+        "sourceDescriptor": "Institutional source",
+        "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+        "excerptSha256": "0e643f1590e65a316cd29ece9449c8bd4f7c614bfc7d20f7dce4887f247a686c",
         "sourceSha256": "0b9be040c4673b2999b785215bf16d2cf6736fb4c85725852d034b7d2dccaa96"
       },
       {
@@ -534,7 +606,9 @@
         "publisher": "World Health Organization Regional Office for Europe",
         "retrievedAt": "2026-09-05",
         "sourceType": "SOURCE_EXCERPT",
-        "excerptSha256": "119401f0c3400cf9b6fbca5673f585cc429b46129426d82b3ef749ed8eb4fb15",
+        "sourceDescriptor": "Institutional source",
+        "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+        "excerptSha256": "e2b7789aff0c5510099547a1163161ace20e4de49720aad926f5eef2efd3633c",
         "sourceSha256": "0046a9ff95b97585d561e0a5912e210f1e1d70bfbd6c6c8e27753dda4a71e841"
       }
     ]
@@ -567,7 +641,9 @@
         "sourceType": "FULL_SOURCE",
         "sourceSha256": "dd7daf5bf36b7c773b98ceb3cbe648c7bb5f6a74b0cd70f5f3e1d149aed3037f",
         "retrievedAt": null,
-        "excerptSha256": null
+        "excerptSha256": null,
+        "sourceDescriptor": "",
+        "excerptRationale": ""
       },
       {
         "id": "doc-a46f0d421238",
@@ -578,7 +654,9 @@
         "sourceType": "FULL_SOURCE",
         "sourceSha256": "71d899b60dbd0e15ca03015588b6eee3cda0ebbe8febe7f34ec85cdd073ac48a",
         "retrievedAt": null,
-        "excerptSha256": null
+        "excerptSha256": null,
+        "sourceDescriptor": "",
+        "excerptRationale": ""
       },
       {
         "id": "doc-12b587084e5a",
@@ -589,7 +667,9 @@
         "sourceType": "FULL_SOURCE",
         "sourceSha256": "0ee9eb930e79c36eefd6c11b51c8855ba3c1bba2ba1fae1269f28031fda2d72b",
         "retrievedAt": null,
-        "excerptSha256": null
+        "excerptSha256": null,
+        "sourceDescriptor": "",
+        "excerptRationale": ""
       }
     ]
   },
@@ -616,7 +696,9 @@
         "sourceType": "FULL_SOURCE",
         "sourceSha256": "833dc48fa746fc8bfa220ccb9a01f3139945751916fcbbd16049850887eb0438",
         "retrievedAt": null,
-        "excerptSha256": null
+        "excerptSha256": null,
+        "sourceDescriptor": "",
+        "excerptRationale": ""
       },
       {
         "id": "doc-4cbdb3ff10fa",
@@ -627,7 +709,9 @@
         "sourceType": "FULL_SOURCE",
         "sourceSha256": "9763e79c748946442777a2397be688ec0e3cfb60305fd6868294fbe4e57cbfa1",
         "retrievedAt": null,
-        "excerptSha256": null
+        "excerptSha256": null,
+        "sourceDescriptor": "",
+        "excerptRationale": ""
       },
       {
         "id": "doc-7d4923c19c25",
@@ -638,7 +722,9 @@
         "sourceType": "FULL_SOURCE",
         "sourceSha256": "8092ea218e90bfb6ee042d8ce618c061be76006bc868e3cf60011e5cbe620cfb",
         "retrievedAt": null,
-        "excerptSha256": null
+        "excerptSha256": null,
+        "sourceDescriptor": "",
+        "excerptRationale": ""
       }
     ]
   },
@@ -670,7 +756,9 @@
         "sourceType": "FULL_SOURCE",
         "sourceSha256": "807a8d88c56c0ea9a1d81dcca09629b8ac9b5fb4587428b8c19c67e3378d9c0b",
         "retrievedAt": null,
-        "excerptSha256": null
+        "excerptSha256": null,
+        "sourceDescriptor": "",
+        "excerptRationale": ""
       },
       {
         "id": "doc-c6bdf9df67b6",
@@ -681,7 +769,9 @@
         "sourceType": "FULL_SOURCE",
         "sourceSha256": "80deaf27ea848f727b1ca2634b6408652048c3c42528b887e44c6e10e66994a0",
         "retrievedAt": null,
-        "excerptSha256": null
+        "excerptSha256": null,
+        "sourceDescriptor": "",
+        "excerptRationale": ""
       }
     ]
   }

@@ -63,22 +63,22 @@
           "context": "Below you can see the list of all countries which have been elected as members of the Security Council at least once since 1946."
         },
         {
-          "id": "doc-3a71d897be6a::sentence-68",
+          "id": "doc-3a71d897be6a::sentence-33",
           "documentId": "doc-3a71d897be6a",
-          "text": "Democratic Republic of the Congo\n",
-          "start": 1530,
-          "end": 1563,
+          "text": "1946-1947, 1951-1952, 1954-1955, 1963-1964, 1967-1968, 1988-1989, 1993-1994, 1998-1999, 2004-2005, 2010-2011, 2022-2023\n",
+          "start": 748,
+          "end": 868,
           "contextSpans": [],
-          "context": "Democratic Republic of the Congo"
+          "context": "1946-1947, 1951-1952, 1954-1955, 1963-1964, 1967-1968, 1988-1989, 1993-1994, 1998-1999, 2004-2005, 2010-2011, 2022-2023"
         },
         {
-          "id": "doc-3a71d897be6a::sentence-93",
+          "id": "doc-3a71d897be6a::sentence-11",
           "documentId": "doc-3a71d897be6a",
-          "text": "German Democratic Republic (see Germany)\n",
-          "start": 2019,
-          "end": 2060,
+          "text": "1946-1947, 1956-1957, 1973-1974, 1985-1986, 2013-2014\n",
+          "start": 344,
+          "end": 398,
           "contextSpans": [],
-          "context": "German Democratic Republic (see Germany)"
+          "context": "1946-1947, 1956-1957, 1973-1974, 1985-1986, 2013-2014"
         }
       ]
     }
@@ -97,8 +97,8 @@
           "doc-3a71d897be6a::sentence-1"
         ],
         "sufficiency": "PARTIAL",
-        "missingInformation": "The evidence does not explicitly state that Australia is not a permanent member of the UN Security Council, but it lists the permanent members and does not include Australia.",
-        "reason": "The list of permanent members does not include Australia, but it does not explicitly state that Australia is not a member.",
+        "missingInformation": "The evidence does not explicitly state that Australia is not a permanent member of the UN Security Council, but the list of permanent members does not include Australia.",
+        "reason": "The list of permanent members does not include Australia, but this is not definitive proof that Australia is not a permanent member.",
         "scopeChecks": [
           {
             "spanId": "doc-4de8403c2f50::sentence-15",
@@ -141,27 +141,23 @@
             "reason": "Jurisdiction is the claimed value being compared, not a source-scope constraint."
           },
           {
-            "spanId": "doc-3a71d897be6a::sentence-68",
+            "spanId": "doc-3a71d897be6a::sentence-33",
             "documentId": "doc-3a71d897be6a",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [
               "AU"
             ],
-            "evidenceJurisdictions": [
-              "CG"
-            ],
+            "evidenceJurisdictions": [],
             "reason": "Jurisdiction is the claimed value being compared, not a source-scope constraint."
           },
           {
-            "spanId": "doc-3a71d897be6a::sentence-93",
+            "spanId": "doc-3a71d897be6a::sentence-11",
             "documentId": "doc-3a71d897be6a",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [
               "AU"
             ],
-            "evidenceJurisdictions": [
-              "DE"
-            ],
+            "evidenceJurisdictions": [],
             "reason": "Jurisdiction is the claimed value being compared, not a source-scope constraint."
           }
         ]
@@ -645,7 +641,7 @@
   },
   "recordedWith": {
     "pipelineRevision": "submission-ready-v2",
-    "inputDigest": "a71a9eb3ecf3478f9a37c30cb4c7b31bd79494befc51522da939b6b8a6bf8a1b",
+    "inputDigest": "2ca59db3eba9bbe2a024cc4ed214908a8c367cddea6a7eb00e67f5aa9d5990df",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
     "retrievalMethod": "HYBRID",
@@ -654,11 +650,11 @@
     "linguisticsModel": "en_core_web_sm@3.8.0"
   },
   "timingsSeconds": {
-    "decomposition": 13.546,
-    "retrievalAndLinguistics": 0.271,
-    "evidenceAssessment": 15.895,
-    "symbolicReasoning": 4.856,
-    "aggregation": 0.002,
-    "total": 34.57
+    "decomposition": 18.166,
+    "retrievalAndLinguistics": 0.387,
+    "evidenceAssessment": 23.778,
+    "symbolicReasoning": 7.176,
+    "aggregation": 0.004,
+    "total": 49.511
   }
 }

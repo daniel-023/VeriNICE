@@ -103,6 +103,31 @@ def test_parse_demotes_identical_source_copies_with_opposing_relations() -> None
     assert set(result.obligations[0].context_span_ids) == {"s1", "s2"}
 
 
+def test_parse_demotes_one_sided_relations_for_cross_jurisdiction_comparison() -> None:
+    atom = PipelineAtom(id="a1", text="Sweden joined NATO before Finland.")
+    evidence = [AssessmentAtomEvidence(atom_id="a1", spans=[
+        AssessmentInputSpan(id="s1", document_id="d1", text="Sweden joined NATO in 2024.", start=0, end=28),
+        AssessmentInputSpan(id="s2", document_id="d2", text="Finland joined NATO in 2023.", start=0, end=29),
+    ])]
+    documents = [
+        DemoDocument(id="d1", title="Sweden", url="https://example.test/sweden", text="Sweden joined NATO in 2024."),
+        DemoDocument(id="d2", title="Finland", url="https://example.test/finland", text="Finland joined NATO in 2023."),
+    ]
+    checks = {"a1": [
+        EvidenceScopeCheck(spanId="s1", documentId="d1", status="MATCH", claimJurisdictions=["FI", "SE"], evidenceJurisdictions=["SE"], reason="One side."),
+        EvidenceScopeCheck(spanId="s2", documentId="d2", status="MATCH", claimJurisdictions=["FI", "SE"], evidenceJurisdictions=["FI"], reason="One side."),
+    ]}
+    _, mapped, _ = _audit_input("claim", [atom], evidence, documents, checks)
+    result = _parse_audit(
+        envelope([assessment_item(atomTrueIds=["O1-E1"], atomFalseIds=["O1-E2"])]),
+        mapped,
+        checks,
+    )
+    assert result.obligations[0].support_span_ids == []
+    assert result.obligations[0].refute_span_ids == []
+    assert set(result.obligations[0].context_span_ids) == {"s1", "s2"}
+
+
 def test_insufficient_relations_are_retained_as_provisional_annotations() -> None:
     atoms, evidence, documents, checks = fixtures()
     _, mapped, _ = _audit_input("claim", atoms, evidence, documents, checks)

@@ -131,6 +131,8 @@ async def test_certificate_selection_executes_against_every_server_owned_item(mo
     assert proof.status.value == "PROVED"
     assert proof.relation == "SUPPORTS"
     assert proof.premises[0].item_count == 3
+    assert [item.text for item in proof.premises[0].list_items] == ["Alpha", "Beta", "Gamma"]
+    assert all(item.content_hash == proof.premises[0].content_hash for item in proof.premises[0].list_items)
 
 
 @pytest.mark.parametrize(("claim", "evidence", "status"), [
@@ -182,6 +184,34 @@ def test_attribute_comparison_does_not_treat_generic_for_phrase_as_prize_reason(
     atom = PipelineAtom(id="a", text="Ivermectin is a treatment for coronavirus.")
     result = execute_attribute_compare(atom, [premise("Ivermectin is a treatment for parasitic worms.")])
     assert result["status"].value == "UNRESOLVED"
+
+
+def test_attribute_comparison_treats_nobel_prize_year_as_edition_not_reason():
+    atom = PipelineAtom(
+        id="a",
+        text="The Nobel Prize in Physics for 1921 was awarded to Albert Einstein.",
+    )
+    result = execute_attribute_compare(atom, [premise(
+        "Einstein was eventually awarded the 1921 Nobel Prize in Physics for his "
+        "discovery of the law of the photoelectric effect."
+    )])
+    assert result["status"].value == "PROVED"
+    assert result["relation"] == "SUPPORTS"
+    assert result["expression"] == "claimed recipient = source recipient"
+
+
+def test_attribute_comparison_ignores_pronoun_overlap_in_nobel_reason():
+    atom = PipelineAtom(
+        id="a",
+        text="The Nobel Prize in Physics for 1921 was awarded for his theory of relativity.",
+    )
+    result = execute_attribute_compare(atom, [premise(
+        "Einstein was awarded the 1921 Nobel Prize in Physics for his discovery of "
+        "the law of the photoelectric effect."
+    )])
+    assert result["status"].value == "DISPROVED"
+    assert result["relation"] == "REFUTES"
+    assert result["expression"] == "claimed reason ≠ source reason"
 
 
 def test_extremum_counterexample_refutes_largest_claim():

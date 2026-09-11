@@ -109,7 +109,7 @@ async def lifespan(_: FastAPI) -> AsyncIterator[None]:
 
 
 app = FastAPI(
-    title="VeriTrace API",
+    title="VeriNICE API",
     version="0.7.0",
     description="Claim decomposition, evidence retrieval, evidence assessment, symbolic reasoning, and linguistic inspection.",
     lifespan=lifespan,

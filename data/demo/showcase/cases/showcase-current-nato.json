@@ -3,18 +3,6 @@
   "claim": "Sweden joined NATO before Finland.",
   "documents": [
     {
-      "id": "doc-ca3c249b3f5f",
-      "title": "Relations with Finland",
-      "url": "https://www.nato.int/en/what-we-do/partnerships-and-cooperation/relations-with-finland",
-      "layout": "PROSE",
-      "publisher": "NATO",
-      "retrievedAt": "2026-09-05",
-      "sourceType": "SOURCE_EXCERPT",
-      "excerptSha256": "cb428d2d46521991a173ba890f8a6316644e45c779b6c51a657a9bdcf2579f2c",
-      "sourceSha256": "28c64859b1150a66aa08d31d630d29c9a3212eee61148a186fcb43706e4bdea4",
-      "text": "minutes.\nFrom now on you can download videos from our website\nIf you would also like to subscribe to the newsletter and receive our latest updates, click on the button below.\nReset password\nEnter the email address you registered with and we will send you a code to reset your password.\nReset password\nWe have sent a verification code to your email address.\nEnter the code to verify your account. This code will expire in 30 minutes.\nVerification code\nDidn't receive a code? Send new Code\nCreate a new password\nThe password must be at least 12 characters long, no spaces, include upper/lowercase letters, numbers and symbols.\nClick the button to return to the page you were on and log in with your new password.\nUpdated: 03 October 2024\nAfter almost 30 years of close partnership with NATO, Finland joined the Alliance on 4 April 2023. Finland’s partnership with NATO was historically based on its policy of military non-alignment, which changed following Russia’s full-scale invasion of Ukraine in February 2022.\n- Cooperation began when Finland joined the Partnership for Peace (PfP) programme in 1994 and the Euro-Atlantic Partnership Council (a multilateral forum for dialogue that brings together all Allies and partner countries in the Euro-Atlantic area) in 1997.\n- For many years prior to its accession, Finland had been one of NATO's most active partners and a valued contributor to NATO-led operations and missions in the Balkans, Afghanistan and Iraq.\n- As an 'Enhanced Opportunity Partner'1 (a partner country that makes particularly significant contributions to NATO operations and other Alliance objectives), Finland experienced enhanced opportunities for dialogue and cooperation with the Allies.\n- In light of Russia’s full-scale invasion of Ukraine, which began in February 2022, Finland (together with Sweden) submitted its official letter of application to become a NATO Ally on 18 May.\n- On 4 July 2022, following the Madrid Summit of NATO Leaders, Finland and Sweden completed accession talks at NATO Headquarters in Brussels. The then 30 Allies signed the Accession Protocols for Finland and Sweden the following day.\n- The Accession Protocol for Finland was subsequently ratified by each of the Allies according to national procedures.\n- On 4 April 2023, Finland became a full member of NATO, upon depositing its Instrument of Accession to the North Atlantic Treaty with the United States government during a ceremony at NATO Headquarters in Brussels.\nNATO and Finland have"
-    },
-    {
       "id": "doc-7a01f78ccd01",
       "title": "Sweden officially joins NATO",
       "url": "https://www.nato.int/en/news-and-events/articles/news/2024/03/07/sweden-officially-joins-nato",
@@ -22,9 +10,25 @@
       "publisher": "NATO",
       "retrievedAt": "2026-09-05",
       "sourceType": "SOURCE_EXCERPT",
-      "excerptSha256": "a4e5abf41c7be0c1d679c6fa5f5ae836c0d06237b61dd7db818589c9ee404be3",
-      "sourceSha256": "ea4de030e5671727c44c497d097ca12d6b506f7261193c65f8ad67b42adf1d53",
-      "text": "email address.\nEnter the code to verify your account. This code will expire in 30 minutes.\nVerification code\nDidn't receive a code? Send new Code\nCreate a new password\nThe password must be at least 12 characters long, no spaces, include upper/lowercase letters, numbers and symbols.\nClick the button to return to the page you were on and log in with your new password.\nSweden became NATO’s newest member on Thursday (7 March 2024), upon depositing its instrument of accession to the North Atlantic Treaty with the Government of the United States in Washington DC. With Sweden’s accession, NATO now counts 32 countries among its members.\nNATO Secretary General Jens Stoltenberg said: “This is a historic day. Sweden will now take its rightful place at NATO’s table, with an equal say in shaping NATO policies and decisions. After over 200 years of non-alignment Sweden now enjoys the protection granted under Article 5, the ultimate guarantee of Allies’ freedom and security. Sweden brings with it capable armed forces and a first-class defence industry. Sweden’s accession makes NATO stronger, Sweden safer and the whole Alliance more secure. Today’s accession demonstrates that NATO’s door remains open and that every nation has the right to choose its own path.”\nSweden’s flag will be raised alongside those of the other 31 Allies in a ceremony at NATO headquarters in Brussels on Monday (11 March 2024), and simultaneously at NATO commands across Europe and North America."
+      "sourceDescriptor": "Institutional source",
+      "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+      "excerptSha256": "b52b4f3868e65dcc51026a5ef41e645aa1807ec7e0ccceb2195010f3c25bd24b",
+      "sourceSha256": "4c6b3eb4dd475533d49e2c993294d93a9a1c60954521169c79758b44477da64d",
+      "text": ".\nEnter the email address you registered with and we will send you a code to reset your password.\nSweden became NATO’s newest member on Thursday (7 March 2024), upon depositing its instrument of accession to the North Atlantic Treaty with the Government of the United States in Washington DC. With Sweden’s accession, NATO now counts 32 countries among its members.\nNATO Secretary General Jens Stoltenberg said: “This is a historic day. Sweden will now take its rightful place at NATO’s table, with an equal say in shaping NATO policies and decisions. After over 200 years of non-alignment Sweden now enjoys the protection granted under Article 5, the ultimate guarantee of Allies’ freedom and security. Sweden brings with it capable armed forces and a first-class defence industry. Sweden’s accession makes NATO stronger, Sweden safer and the whole Alliance more secure. Today’s accession demonstrates that NATO’s door remains open and that every nation has the right to choose its own path.”"
+    },
+    {
+      "id": "doc-ca3c249b3f5f",
+      "title": "Relations with Finland",
+      "url": "https://www.nato.int/en/what-we-do/partnerships-and-cooperation/relations-with-finland",
+      "layout": "PROSE",
+      "publisher": "NATO",
+      "retrievedAt": "2026-09-05",
+      "sourceType": "SOURCE_EXCERPT",
+      "sourceDescriptor": "Official accession history",
+      "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+      "excerptSha256": "b096eb5ae6b6d3f6c33c5fcc8331aceb844015359d208cfb8ba4a5dfeb8c0d2b",
+      "sourceSha256": "cbaff72ff909f171c5315afaa26626c6e0f2f3d43f603fb0a276369ee23a37e3",
+      "text": "Following the signature of the Accession Protocols, each country had ‘Invitee’ status, allowing their representatives to participate as observers in Allied meetings.\nOver the following months, Finland’s Accession Protocol was ratified in the capitals of each of the then 30 Allies. Subsequently, Finland acceded to the Washington Treaty (or the North Atlantic Treaty) when the country (represented by the Finnish Foreign Minister) deposited its Instrument of Accession with the United States government (represented by the US Secretary of State) at NATO Headquarters, making Finland a full member of the Alliance on 4 April 2023.\nThereafter, Sweden joined the Alliance on 7 March 2024, after Sweden’s Accession Protocol was ratified by all NATO member countries according to their national procedures and its Instrument of Accession was deposited with the US State Department.\nFinland's cooperation with NATO as a partner was mutually beneficial and included the following activities, many of which it continues to participate in as an Ally:"
     }
   ],
   "label": "REFUTED",

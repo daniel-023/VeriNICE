@@ -277,6 +277,7 @@ export function DocumentPanel({
             <div className="source-provenance-row">
               <p className="source-provenance">
                 {activeDocument.publisher}
+                {activeDocument.sourceDescriptor ? ` · ${activeDocument.sourceDescriptor}` : ""}
                 {activeDocument.sourceType === "SOURCE_EXCERPT" ? " · Source excerpt" : " · Full recovered source"}
               </p>
               {readOnly && activeDocument.url.startsWith("http") ? (

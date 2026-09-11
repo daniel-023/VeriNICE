@@ -1,36 +1,43 @@
 {
   "id": "showcase-history-einstein",
-  "claim": "Albert Einstein received the 1921 Nobel Prize in Physics for relativity.",
+  "claim": "The Nobel Prize in Physics for 1921 was awarded to Albert Einstein, and the prize was awarded for his theory of relativity.",
   "documents": [
     {
-      "id": "doc-72849eeeae4d",
-      "title": "Award ceremony speech: The Nobel Prize in Physics 1921",
-      "url": "https://www.nobelprize.org/prizes/physics/1921/ceremony-speech/",
+      "id": "doc-24e395b9bb6e",
+      "title": "The Nobel Prize in Physics 2023: Scientific Background",
+      "url": "https://www.nobelprize.org/uploads/2023/10/advanced-physicsprize2023-2.pdf",
       "layout": "PROSE",
-      "publisher": "Nobel Prize Outreach",
-      "retrievedAt": "2026-09-05",
+      "publisher": "Royal Swedish Academy of Sciences",
+      "retrievedAt": "2026-09-11",
       "sourceType": "SOURCE_EXCERPT",
-      "excerptSha256": "6460d9e7937702250f2d71adbeaede053d4b94f8d9c194ba5a89827a0b2d6490",
-      "sourceSha256": "84ac55c8e8b56b2284d4c38fe8b54b33719379f05ae05268591dbd712c29b1b7",
-      "text": "Award ceremony speech\nPresentation Speech by Professor S. Arrhenius, Chairman of the Nobel Committee for Physics of the Royal Swedish Academy of Sciences, on December 10, 1922*\nYour Majesty, Your Royal Highnesses, Ladies and Gentlemen.\nThere is probably no physicist living today whose name has become so widely known as that of Albert Einstein. Most discussion centres on his theory of relativity. This pertains essentially to epistemology and has therefore been the subject of lively debate in philosophical circles. It will be no secret that the famous philosopher Bergson in Paris has challenged this theory, while other philosophers have acclaimed it wholeheartedly. The theory in question also has astrophysical implications which are being rigorously examined at the present time.\nThroughout the first decade of this century the so-called Brownian movement stimulated the keenest interest. In 1905 Einstein founded a kinetic theory to account for this movement by means of which he derived the chief properties of suspensions, i.e. liquids with solid particles suspended in them. This theory, based on classical mechanics, helps to explain the behaviour of what are known as colloidal solutions, a behaviour which has been studied by Svedberg, Perrin, Zsigmondy and countless other scientists within the context of what has grown into a large branch of science, colloid chemistry.\nA third group of studies, for which in particular Einstein has received the Nobel Prize, falls within the domain of the quantum theory founded by Planck in 1900. This theory asserts that radiant energy consists of individual particles, termed “quanta”, approximately in the same way as matter is made up of particles, i.e. atoms. This remarkable theory, for which Planck received the Nobel Prize for Physics in 1918, suffered from a variety of drawbacks and about the middle of the first decade of this century it reached a kind of impasse. Then Einstein came forward with his work on specific heat and the photoelectric effect. This latter had been discovered by the famous physicist Hertz in 1887. He found that an electrical spark passing between two spheres does so more readily if its path"
+      "sourceDescriptor": "Official scientific background",
+      "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+      "excerptSha256": "a9d261cb3ec9300d76faf6f9f8d73cab2b3cd909fe2632d3e7e933f6d21d542b",
+      "sourceSha256": "0cfa622dc25f50dd1ef8e91a3d83962fd978f723015edcc9f02240860af863b3",
+      "text": "In 1905, Albert Einstein published the first explanation of the photoelectric effect, but at the time, it was impossible to resolve the timescales that were relevant for this effect. For a long time, physicists assumed the effect was instantaneous. Einstein was eventually awarded the 1921 Nobel Prize in Physics “for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect”. Parenthetically, when he gave his Nobel lecture, it was not in Stockholm in December 1922 (Einstein was in Japan at that time), but in the middle of the summer of 1923, in Gothenburg – a unique event in the history of the Nobel Prize. His talk did not concern the photoelectric effect but the theory of relativity, the theory for which he was never awarded a Nobel Prize. The fundamental question that this year’s Laureates made it possible to pose was “what is the timescale for the photoelectric effect?”"
     },
     {
-      "id": "doc-6e38d4a58792",
-      "title": "Albert Einstein – Facts",
-      "url": "https://www.nobelprize.org/prizes/physics/1921/einstein/facts/",
+      "id": "doc-46199fd9f0db",
+      "title": "Albert Einstein – Questions and answers",
+      "url": "https://www.nobelprize.org/prizes/physics/1921/einstein/questions-and-answers/",
       "layout": "PROSE",
       "publisher": "Nobel Prize Outreach",
-      "retrievedAt": "2026-09-05",
+      "retrievedAt": "2026-09-11",
       "sourceType": "SOURCE_EXCERPT",
-      "excerptSha256": "40b0de68907db73d605f229e38504d407204ad948b8e8a9a0e4d7e0c0d8d6627",
-      "sourceSha256": "37a95aaeccefcdd9e4fdbeb7235338510f56814ab838f019984d72dcb5bebbae",
-      "text": "in Physics 1921\nBorn: 14 March 1879, Ulm, Germany\nDied: 18 April 1955, Princeton, NJ, USA\nAffiliation at the time of the award: Kaiser-Wilhelm-Institut (now Max-Planck-Institut) für Physik, Berlin, Germany\nPrize motivation: “for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect”\nAlbert Einstein received his Nobel Prize one year later, in 1922.\nPrize share: 1/1\nLife\nAlbert Einstein grew up in Munich, where his father founded an electrical engineering company. After studying at the ETH university in Zurich, Einstein worked at the patent office in Bern, during which time he produced several pioneering works in the field of physics. He was later employed at universities in Bern, Zurich, and Prague, and from 1914, in Berlin. After the Nazis seized power in Germany, Einstein immigrated to the US, where he worked at the Institute for Advanced Study in Princeton, New Jersey. Einstein married twice and had three children by his first marriage.\nWork\nIf metal electrodes are exposed to light, electrical sparks between them occur more readily. For this photoelectric effect to occur, the light waves must be above a certain frequency, however. According to physics theory, the light's intensity should be critical. In one of several epoch-making studies beginning in 1905, Albert Einstein explained that light consists of quanta—packets with fixed energies corresponding to certain frequencies. One such light quantum, a photon, must have a certain minimum frequency before it can"
+      "sourceDescriptor": "Official laureate Q&A",
+      "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+      "excerptSha256": "7a0b67a0cad6f86e1bfdc6e54b25baf8be558ac7f4c0c2f7ee33f925944d5de7",
+      "sourceSha256": "576f85eb03d14ef0934a32cd952fdfeb47f6e93a6338ca7e20ec20c0f931ee40",
+      "text": "**Question:**_When was Albert Einstein awarded the Nobel Prize in Physics?_\n\n**Answer:** The Nobel Prize Awarding Institution, the Royal Swedish Academy of Sciences, decided to reserve the Nobel Prize in Physics in 1921, and therefore no Physics Prize was awarded that year. According to the statutes, a reserved prize can be awarded the year after, and Albert Einstein was awarded the 1921 Nobel Prize in Physics in 1922.\n\n**Question:**_Did Albert Einstein attend the Nobel Prize Award Ceremony?_\n\n**Answer:** The Nobel Prize was announced on 9 November 1922. Being too remote from Sweden, Albert Einstein could not attend the Nobel Prize Award Ceremony in Stockholm on 10 December the same year.\n\n**Question:**_For what did he receive the Nobel Prize?_\n\n**Answer:** Einstein was rewarded for his many contributions to theoretical physics, and especially for his discovery of the law of the photoelectric effect.\n\n**Question:**_What is the photoelectric effect?_\n\n**Answer:** The photoelectric effect is a phenomenon in which electrons are emitted from the surface of matter (usually metals) when light shines upon it."
     }
   ],
   "label": "REFUTED",
   "displayTitle": "Einstein's Nobel Prize citation",
   "topics": [],
-  "challenges": [],
+  "challenges": [
+    "MULTI_PART",
+    "ATTRIBUTION"
+  ],
   "featured": false,
   "origin": "CONSTRUCTED",
   "category": "HISTORY",

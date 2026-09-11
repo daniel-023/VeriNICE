@@ -14,9 +14,6 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
-from walkthrough_cases import CURATED_CASE_IDS
-
-
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_BUNDLE = ROOT / "data" / "demo" / "showcase"
 DEFAULT_RUNS = ROOT / "data" / "walkthrough" / "runs"
@@ -108,6 +105,30 @@ def validate_presentation_run(case: dict[str, Any], run: dict[str, Any], audit: 
     expected_verdict = audit.get("referenceVerdict")
     if expected_verdict != case.get("label") or run["verdict"].get("verdict") != expected_verdict:
         raise RuntimeError(f"Recorded verdict does not match the approved reference verdict: {case_id}")
+    if audit.get("requireCrossDocumentConflict"):
+        support_documents: set[str] = set()
+        refute_documents: set[str] = set()
+        for obligation in run["assessment"]["obligations"]:
+            if obligation.get("sufficiency") != "SUFFICIENT":
+                continue
+            documents_by_span = {
+                item.get("spanId"): item.get("documentId")
+                for item in obligation.get("scopeChecks", [])
+            }
+            support_documents.update(
+                documents_by_span[span_id]
+                for span_id in obligation.get("supportSpanIds", [])
+                if documents_by_span.get(span_id)
+            )
+            refute_documents.update(
+                documents_by_span[span_id]
+                for span_id in obligation.get("refuteSpanIds", [])
+                if documents_by_span.get(span_id)
+            )
+        if not support_documents or not refute_documents or not support_documents.isdisjoint(refute_documents):
+            raise RuntimeError(
+                f"Conflicting evidence must be decisive and come from different documents: {case_id}"
+            )
     executions = run["reasoning"]
     for required in audit.get("requiredOperators", []):
         if not any(
@@ -129,6 +150,17 @@ def validate_presentation_run(case: dict[str, Any], run: dict[str, Any], audit: 
             document = documents.get(premise.get("documentId"))
             if document is None or grounded_text(document, premise["start"], premise["end"]) != premise.get("text"):
                 raise RuntimeError(f"Symbolic premise is not source-grounded: {case_id}/{premise.get('id')}")
+            list_items = premise.get("listItems", [])
+            if list_items:
+                if premise.get("kind") != "LIST_CERTIFICATE" or premise.get("itemCount") != len(list_items):
+                    raise RuntimeError(f"Invalid displayed list certificate: {case_id}/{premise.get('id')}")
+                for item in list_items:
+                    if (
+                        item.get("documentId") != premise.get("documentId")
+                        or item.get("contentHash") != premise.get("contentHash")
+                        or grounded_text(document, item["start"], item["end"]) != item.get("text")
+                    ):
+                        raise RuntimeError(f"Displayed list item is not source-grounded: {case_id}/{item.get('id')}")
     for obligation in run["assessment"]["obligations"]:
         missing = obligation.get("missingInformation", "")
         if isinstance(missing, bool) or str(missing).strip().casefold() in {"false", "null", "none"}:
@@ -143,7 +175,7 @@ def validate_presentation_run(case: dict[str, Any], run: dict[str, Any], audit: 
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Build static VeriTrace walkthrough assets")
+    parser = argparse.ArgumentParser(description="Build static VeriNICE walkthrough assets")
     parser.add_argument("--bundle", type=Path, default=DEFAULT_BUNDLE)
     parser.add_argument("--runs", type=Path, default=DEFAULT_RUNS)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
@@ -166,10 +198,18 @@ def main() -> int:
     }
 
     catalog_path = args.bundle / "catalog.json"
+    profile_path = args.bundle / "bundle.json"
     cases_dir = args.bundle / "cases"
     catalog = read_json(catalog_path)
+    profile = read_json(profile_path)
     if not isinstance(catalog, list) or not catalog:
         raise RuntimeError("Demo catalog must be a non-empty JSON array")
+    policy = profile.get("policy")
+    configured_case_ids = profile.get("caseIds")
+    if profile.get("kind") != "SHOWCASE" or profile.get("version") != 2:
+        raise RuntimeError("Walkthrough source must be a version 2 showcase bundle")
+    if not isinstance(policy, dict) or not isinstance(configured_case_ids, list):
+        raise RuntimeError("Showcase bundle lacks its ordered case list or policy")
 
     summaries_by_id = {
         summary.get("id"): summary
@@ -177,14 +217,14 @@ def main() -> int:
         if isinstance(summary, dict) and isinstance(summary.get("id"), str)
     }
     selected_ids = args.case_ids or (
-        list(summaries_by_id) if args.all else list(CURATED_CASE_IDS)
+        list(summaries_by_id) if args.all else configured_case_ids
     )
     unknown = [case_id for case_id in selected_ids if case_id not in summaries_by_id]
     if unknown:
         raise RuntimeError("Unknown demo case ids: " + ", ".join(unknown))
     selected_catalog = [summaries_by_id[case_id] for case_id in selected_ids]
-    if not args.case_ids and not args.all and len(selected_catalog) != 18:
-        raise RuntimeError("The public showcase must contain exactly 18 cases")
+    if not args.case_ids and not args.all and len(selected_catalog) != policy.get("caseCount"):
+        raise RuntimeError("The public showcase does not match policy.caseCount")
     if set(presentation_audits) != set(selected_ids):
         raise RuntimeError("Presentation audit must cover the exact published case set")
 
@@ -236,15 +276,24 @@ def main() -> int:
             raise RuntimeError(f"Case contains duplicate canonical sources: {case_id}")
         if case.get("origin") == "CONSTRUCTED":
             documents = case.get("documents", [])
-            if len(documents) != 2:
-                raise RuntimeError(f"Constructed case must contain exactly two sources: {case_id}")
+            if len(documents) != policy.get("constructedSourcesPerCase"):
+                raise RuntimeError(f"Constructed case source count does not match policy: {case_id}")
+            excerpt_policy = policy.get("excerptWords", {})
+            minimum_words = excerpt_policy.get("minimum")
+            maximum_words = excerpt_policy.get("maximum")
+            if not isinstance(minimum_words, int) or not isinstance(maximum_words, int):
+                raise RuntimeError("Showcase bundle has invalid excerpt limits")
             for document in documents:
                 if not all(document.get(field) for field in (
                     "publisher", "title", "url", "retrievedAt", "sourceType",
-                    "excerptSha256", "sourceSha256", "text",
+                    "sourceDescriptor", "excerptRationale", "excerptSha256",
+                    "sourceSha256", "text",
                 )):
                     raise RuntimeError(f"Constructed source lacks provenance: {case_id}")
-                if document["sourceType"] != "SOURCE_EXCERPT" or not 150 <= word_count(document["text"]) <= 400:
+                if (
+                    document["sourceType"] != "SOURCE_EXCERPT"
+                    or not minimum_words <= word_count(document["text"]) <= maximum_words
+                ):
                     raise RuntimeError(f"Constructed source has an invalid excerpt: {case_id}")
                 if hashlib.sha256(document["text"].encode("utf-8")).hexdigest() != document["excerptSha256"]:
                     raise RuntimeError(f"Constructed source excerpt hash is invalid: {case_id}")
@@ -370,7 +419,9 @@ def main() -> int:
 
     manifest = {
         "bundleDigest": (args.bundle / "bundle.sha256").read_text(encoding="utf-8").strip(),
+        "caseIds": selected_ids,
         "caseCount": len(selected_catalog),
+        "policy": policy,
         "recordedCaseCount": len(run_digests),
         "runDigests": run_digests,
         "missingRuns": missing_runs,

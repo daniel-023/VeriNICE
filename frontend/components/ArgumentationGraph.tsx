@@ -8,7 +8,6 @@ import type {
   EvidenceNode,
   GraphWarningCode,
   InferenceNode,
-  MaterialOmissionCertificate,
   ObligationEvidenceState,
   StageState,
   VerdictAggregationResult,
@@ -216,13 +215,14 @@ function hierarchicalPath(from: DOMRect, to: DOMRect, root: DOMRect) {
   const y1 = from.bottom - root.top;
   const x2 = to.left - root.left + to.width / 2;
   const y2 = to.top - root.top;
-  const middleY = y1 + (y2 - y1) / 2;
+  const terminalY = Math.max(y1, y2 - 12);
+  const middleY = y1 + (terminalY - y1) / 2;
 
   // The diagram has a strict top-to-bottom hierarchy. Keeping every edge on
   // the same bottom-to-top route prevents structural links from changing to
   // side-entry curves as node widths or lane counts change.
   return {
-    path: `M ${x1} ${y1} C ${x1} ${middleY}, ${x2} ${middleY}, ${x2} ${y2}`,
+    path: `M ${x1} ${y1} C ${x1} ${middleY}, ${x2} ${middleY}, ${x2} ${terminalY} L ${x2} ${y2}`,
     labelX: (x1 + x2) / 2,
     labelY: middleY - 4,
   };
@@ -233,6 +233,7 @@ function routedEdges(edges: DisplayEdge[], nodes: Map<string, DOMRect>, root: DO
   const contributionEdges = edges.filter((edge) => edge.id.startsWith("aggregate:") && edge.target === "composition");
   const evidenceSplits = new Map<string, DisplayEdge[]>();
   const relationMerges = new Map<string, DisplayEdge[]>();
+  const relationsByTarget = new Map<string, DisplayEdge[]>();
   edges.forEach((edge) => {
     if (edge.id.startsWith("evidence:")) {
       evidenceSplits.set(edge.source, [...(evidenceSplits.get(edge.source) ?? []), edge]);
@@ -240,8 +241,18 @@ function routedEdges(edges: DisplayEdge[], nodes: Map<string, DOMRect>, root: DO
     if (edge.id.startsWith("relation:")) {
       const key = `${edge.target}:${edge.relation ?? "NEUTRAL"}`;
       relationMerges.set(key, [...(relationMerges.get(key) ?? []), edge]);
+      relationsByTarget.set(edge.target, [...(relationsByTarget.get(edge.target) ?? []), edge]);
     }
   });
+
+  // When support and refutation converge on one result, join the coloured
+  // branches before a single neutral arrow. Two arrowheads at the same target
+  // overlap, while separate target anchors make the connecting curves look
+  // unrelated even though they jointly determine the conflicting state.
+  const mixedRelationFanIns = [...relationsByTarget.values()].filter((group) => (
+    group.length > 1 && new Set(group.map((edge) => edge.relation)).size > 1
+  ));
+  const mixedRelationIds = new Set(mixedRelationFanIns.flat().map((edge) => edge.id));
 
   const splitGroups = [
     ...(decompositionEdges.length > 1 ? [decompositionEdges] : []),
@@ -249,9 +260,14 @@ function routedEdges(edges: DisplayEdge[], nodes: Map<string, DOMRect>, root: DO
   ];
   const mergeGroups = [
     ...(contributionEdges.length > 1 ? [contributionEdges] : []),
-    ...[...relationMerges.values()].filter((group) => group.length > 1),
+    ...[...relationMerges.values()].filter((group) => (
+      group.length > 1 && group.every((edge) => !mixedRelationIds.has(edge.id))
+    )),
   ];
-  const groupedIds = new Set([...splitGroups.flat(), ...mergeGroups.flat()].map((edge) => edge.id));
+  const groupedIds = new Set(
+    [...splitGroups.flat(), ...mergeGroups.flat(), ...mixedRelationFanIns.flat()]
+      .map((edge) => edge.id),
+  );
   const routed = edges.flatMap((edge): DrawnEdge[] => {
     if (groupedIds.has(edge.id)) return [];
     const source = nodes.get(edge.source);
@@ -302,6 +318,39 @@ function routedEdges(edges: DisplayEdge[], nodes: Map<string, DOMRect>, root: DO
         });
       });
     }
+  });
+
+  mixedRelationFanIns.forEach((group) => {
+    const target = nodes.get(group[0].target);
+    const sources = group
+      .map((edge) => ({ edge, rect: nodes.get(edge.source) }))
+      .filter((item): item is { edge: DisplayEdge; rect: DOMRect } => Boolean(item.rect))
+      .sort((left, right) => left.rect.left - right.rect.left);
+    if (!target || !sources.length) return;
+    const targetCenterX = target.left - root.left + target.width / 2;
+    const targetY = target.top - root.top;
+    const junctionY = targetY - 14;
+    sources.forEach(({ edge, rect }) => {
+      const sourceX = rect.left - root.left + rect.width / 2;
+      const sourceY = rect.bottom - root.top;
+      const middleY = sourceY + (junctionY - sourceY) / 2;
+      routed.push({
+        ...edge,
+        path: `M ${sourceX} ${sourceY} C ${sourceX} ${middleY}, ${targetCenterX} ${middleY}, ${targetCenterX} ${junctionY}`,
+        labelX: (sourceX + targetCenterX) / 2,
+        labelY: middleY - 4,
+        markerEnd: false,
+      });
+    });
+    routed.push({
+      id: `mixed-relation:${group[0].target}:trunk`,
+      source: `mixed-relation:${group[0].target}:junction`,
+      target: group[0].target,
+      label: "",
+      path: `M ${targetCenterX} ${junctionY} L ${targetCenterX} ${targetY}`,
+      labelX: targetCenterX,
+      labelY: junctionY,
+    });
   });
 
   mergeGroups.forEach((group, groupIndex) => {
@@ -362,7 +411,6 @@ export function ArgumentationGraph({
   obligationStates = {},
   verdict = null,
   verdictState = "idle",
-  materialOmission = null,
 }: {
   graph: ArgumentationGraphModel;
   selectedAtomId: string | null;
@@ -372,7 +420,6 @@ export function ArgumentationGraph({
   obligationStates?: Record<string, ObligationEvidenceState>;
   verdict?: VerdictAggregationResult | null;
   verdictState?: StageState;
-  materialOmission?: MaterialOmissionCertificate | null;
 }) {
   const graphRef = useRef<HTMLDivElement>(null);
   const [drawnEdges, setDrawnEdges] = useState<DrawnEdge[]>([]);
@@ -381,10 +428,6 @@ export function ArgumentationGraph({
   const composition = claimNode?.composition ?? "SINGLE";
   const total = relationCounts(graph);
   const distinctWarnings = [...new Set(graph.warnings.map((item) => item.code))];
-  const verdictNotes = verdict?.warnings.filter(
-    (warning) => warning.code !== "PROVISIONAL_EVIDENCE_EXCLUDED",
-  ) ?? [];
-  const hasConflictingVerdict = verdict?.verdict === "CONFLICTING_EVIDENCE";
 
   useEffect(() => {
     const root = graphRef.current;
@@ -497,11 +540,20 @@ export function ArgumentationGraph({
                               className="logic-evidence-node logic-evidence-item"
                               key={node.id}
                               onClick={() => onSelectEvidence(node, obligation.atomId)}
-                              aria-label={`Open evidence from ${node.documentTitle}: ${node.text}`}
-                              title={node.text}
+                              aria-label={`Open evidence from ${node.documentTitle}: ${node.listItems?.length
+                                ? `${node.text}${node.listItems.map((item) => item.text).join(", ")}`
+                                : node.displayText ?? node.text}`}
+                              title={node.displayText ?? node.text}
                             >
                               <small>{node.documentTitle}</small>
-                              <span>{node.text}</span>
+                              {node.listItems?.length ? (
+                                <div className="logic-grounded-list">
+                                  <span>{node.text.trim()}</span>
+                                  <ul aria-label={`${node.listItems.length} grounded list items`}>
+                                    {node.listItems.map((item) => <li key={item.id}>{item.text}</li>)}
+                                  </ul>
+                                </div>
+                              ) : <span>{node.displayText ?? node.text}</span>}
                             </button>
                           )) : <span className="logic-empty-node">No grounded premise</span>}
                         </div>
@@ -557,14 +609,6 @@ export function ArgumentationGraph({
             </div>
           </div>
 
-          {verdict && (verdictNotes.length > 0 || hasConflictingVerdict || materialOmission?.detected) ? (
-            <details className="logic-verdict-details">
-              <summary>Verdict notes</summary>
-              {verdictNotes.length ? <p>{verdictNotes.map((warning) => warning.message || display(warning.code)).join(" ")}</p> : null}
-              {hasConflictingVerdict && !materialOmission?.detected ? <p>Both supporting and refuting relations remain after validation.</p> : null}
-              {materialOmission?.detected ? <p>Material omission: {materialOmission.reason}</p> : null}
-            </details>
-          ) : null}
         </div>
       ) : <p className="argumentation-empty">The reasoning graph will appear after decomposition.</p>}
 

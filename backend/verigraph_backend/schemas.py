@@ -68,6 +68,7 @@ class DemoFocus(str, Enum):
     distinct_value_count = "DISTINCT_VALUE_COUNT"
     extremum = "EXTREMUM"
     insufficient_evidence = "INSUFFICIENT_EVIDENCE"
+    conflicting_evidence = "CONFLICTING_EVIDENCE"
 
 
 class DemoSourceType(str, Enum):
@@ -119,6 +120,8 @@ class DemoDocumentSummary(APIModel):
     publisher: str = Field(default="", max_length=200)
     retrieved_at: Optional[str] = Field(default=None, max_length=40)
     source_type: DemoSourceType = DemoSourceType.full_source
+    source_descriptor: str = Field(default="", max_length=120)
+    excerpt_rationale: str = Field(default="", max_length=500)
     excerpt_sha256: Optional[str] = Field(default=None, pattern=r"^[0-9a-f]{64}$")
     source_sha256: Optional[str] = Field(default=None, pattern=r"^[0-9a-f]{64}$")
 
@@ -215,6 +218,8 @@ class DemoCase(APIModel):
                     publisher=document.publisher,
                     retrieved_at=document.retrieved_at,
                     source_type=document.source_type,
+                    source_descriptor=document.source_descriptor,
+                    excerpt_rationale=document.excerpt_rationale,
                     excerpt_sha256=document.excerpt_sha256,
                     source_sha256=document.source_sha256,
                 )
@@ -529,6 +534,15 @@ class SymbolicStatus(str, Enum):
     not_applicable = "NOT_APPLICABLE"
 
 
+class SymbolicListItem(APIModel):
+    id: str = Field(min_length=1, max_length=240)
+    document_id: str = Field(min_length=1, max_length=100)
+    text: str = Field(min_length=1, max_length=1000)
+    start: int = Field(ge=0)
+    end: int = Field(gt=0)
+    content_hash: str = Field(min_length=64, max_length=64)
+
+
 class SymbolicPremise(APIModel):
     id: str = Field(min_length=1, max_length=240)
     document_id: str = Field(min_length=1, max_length=100)
@@ -538,6 +552,22 @@ class SymbolicPremise(APIModel):
     kind: Literal["EVIDENCE", "LIST_CERTIFICATE", "LIST_ITEM", "OPERAND"]
     content_hash: Optional[str] = None
     item_count: Optional[int] = Field(default=None, ge=0)
+    list_items: List[SymbolicListItem] = Field(default_factory=list, max_length=100)
+
+    @model_validator(mode="after")
+    def validate_list_items(self) -> "SymbolicPremise":
+        if self.list_items and self.kind != "LIST_CERTIFICATE":
+            raise ValueError("only a list certificate may expose associated list items")
+        if self.list_items:
+            if self.item_count != len(self.list_items):
+                raise ValueError("list certificate itemCount must match its displayed items")
+            if any(item.document_id != self.document_id for item in self.list_items):
+                raise ValueError("displayed list items must come from the certificate document")
+            if any(item.content_hash != self.content_hash for item in self.list_items):
+                raise ValueError("displayed list items must match the certificate content hash")
+            if self.list_items != sorted(self.list_items, key=lambda item: (item.start, item.end, item.id)):
+                raise ValueError("displayed list items must retain source order")
+        return self
 
 
 class ProgramStep(APIModel):

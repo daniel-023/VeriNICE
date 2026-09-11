@@ -1,0 +1,44 @@
+{
+  "id": "showcase-science-egg-cvd",
+  "claim": "Among US adults, each additional half egg consumed per day is associated with a higher risk of incident cardiovascular disease.",
+  "documents": [
+    {
+      "id": "doc-294213eca17a",
+      "title": "Associations of Dietary Cholesterol or Egg Consumption With Incident Cardiovascular Disease and Mortality",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30874756/",
+      "layout": "PROSE",
+      "publisher": "JAMA",
+      "retrievedAt": "2026-09-11",
+      "sourceType": "SOURCE_EXCERPT",
+      "sourceDescriptor": "Peer-reviewed pooled-cohort study",
+      "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+      "excerptSha256": "58b667c010bf891922826dc0e248a41bd9dcb058501ee02fd55b8c8cc97fa484",
+      "sourceSha256": "cd94ca49cf191e4d27777e3d6e9a6c3f21a0784543504cb6cc75994da410da98",
+      "text": "Each additional 300 mg of dietary cholesterol consumed per day was significantly associated with higher risk of incident CVD (adjusted HR, 1.17 [95% CI, 1.09-1.26]; adjusted ARD, 3.24% [95% CI, 1.39%-5.08%]) and all-cause mortality (adjusted HR, 1.18 [95% CI, 1.10-1.26]; adjusted ARD, 4.43% [95% CI, 2.51%-6.36%]). Each additional half an egg consumed per day was significantly associated with higher risk of incident CVD (adjusted HR, 1.06 [95% CI, 1.03-1.10]; adjusted ARD, 1.11% [95% CI, 0.32%-1.89%]) and all-cause mortality (adjusted HR, 1.08 [95% CI, 1.04-1.11]; adjusted ARD, 1.93% [95% CI, 1.10%-2.76%]). The associations between egg consumption and incident CVD (adjusted HR, 0.99 [95% CI, 0.93-1.05]; adjusted ARD, -0.47% [95% CI, -1.83% to 0.88%]) and all-cause mortality (adjusted HR, 1.03 [95% CI, 0.97-1.09]; adjusted ARD, 0.71% [95% CI, -0.85% to 2.28%]) were no longer significant after adjusting for dietary cholesterol consumption.\n\n**Conclusions and relevance:** Among US adults, higher consumption of dietary cholesterol or eggs was significantly associated with higher risk of incident CVD and all-cause mortality in a dose-response manner. These results should be considered in the development of dietary guidelines and updates.\n\n\n## Conflict of interest statement"
+    },
+    {
+      "id": "doc-55ee6f649206",
+      "title": "Egg consumption and risk of cardiovascular disease: three large prospective US cohort studies, systematic review, and updated meta-analysis",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32132002/",
+      "layout": "PROSE",
+      "publisher": "BMJ",
+      "retrievedAt": "2026-09-11",
+      "sourceType": "SOURCE_EXCERPT",
+      "sourceDescriptor": "Peer-reviewed cohort study and meta-analysis",
+      "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+      "excerptSha256": "f7bdffdc61ffbc6f571f1650ab53dfa3f26abf2721cb582bf4ddf39e0b42f1c4",
+      "sourceSha256": "6966fdafedb616575820f792ecdaa84b748c012141b8e40b63f83463a7b48555",
+      "text": "In the updated meta-analysis of prospective cohort studies (33 risk estimates, 1 720 108 participants, 139 195 cardiovascular disease events), an increase of one egg per day was not associated with cardiovascular disease risk (pooled relative risk 0.98, 95% confidence interval 0.93 to 1.03, I 2=62.3%). Results were similar for coronary heart disease (21 risk estimates, 1 411 261 participants, 59 713 coronary heart disease events; 0.96, 0.91 to 1.03, I 2=38.2%), and stroke (22 risk estimates, 1 059 315 participants, 53 617 stroke events; 0.99, 0.91 to 1.07, I 2=71.5%). In analyses stratified by geographical location (P for interaction=0.07), no association was found between egg consumption and cardiovascular disease risk among US cohorts (1.01, 0.96 to 1.06, I 2=30.8%) or European cohorts (1.05, 0.92 to 1.19, I 2=64.7%), but an inverse association was seen in Asian cohorts (0.92, 0.85 to 0.99, I 2=44.8%).\n\n**Conclusions:** Results from the three cohorts and from the updated meta-analysis show that moderate egg consumption (up to one egg per day) is not associated with cardiovascular disease risk overall, and is associated with potentially lower cardiovascular disease risk in Asian populations.\n\n**Systematic review registration:** PROSPERO CRD42019129650."
+    }
+  ],
+  "label": "CONFLICTING_EVIDENCE",
+  "displayTitle": "Egg consumption and cardiovascular risk",
+  "topics": [],
+  "challenges": [
+    "CONFLICTING_SOURCES"
+  ],
+  "featured": false,
+  "origin": "CONSTRUCTED",
+  "category": "SCIENCE",
+  "demoFocus": "CONFLICTING_EVIDENCE"
+}

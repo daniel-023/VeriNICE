@@ -3,14 +3,11 @@ import { readFile, readdir } from "node:fs/promises";
 
 const manifestPath = new URL("../public/walkthrough/manifest.json", import.meta.url);
 const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
-const expectedCaseIds = [
-  "showcase-science-brain-10-percent", "showcase-science-shaving", "showcase-science-lightning",
-  "showcase-history-einstein", "showcase-history-curie", "showcase-history-viking-helmet",
-  "showcase-geography-canberra", "showcase-geography-everest", "showcase-geography-eiffel",
-  "showcase-technology-iphone", "showcase-technology-web", "showcase-technology-gps",
-  "showcase-current-nato", "showcase-current-unsc", "showcase-current-who",
-  "averitec-dev-0146", "averitec-dev-0392", "averitec-dev-0142",
-];
+const policy = manifest.policy;
+const caseIds = manifest.caseIds;
+if (!policy || !Array.isArray(caseIds) || new Set(caseIds).size !== caseIds.length) {
+  throw new Error("The walkthrough manifest lacks a valid ordered case list or showcase policy.");
+}
 for (const directory of [
   new URL("../public/walkthrough/", import.meta.url),
   new URL("../public/walkthrough/cases/", import.meta.url),
@@ -22,22 +19,26 @@ for (const directory of [
 
 if (
   !Number.isInteger(manifest.caseCount) ||
-  manifest.caseCount !== 18 ||
+  manifest.caseCount !== policy.caseCount ||
   manifest.recordedCaseCount !== manifest.caseCount
 ) {
   throw new Error(
     "The Vercel walkthrough is incomplete. Run ./run-verigraph --record-walkthrough " +
-      "from the VeriTrace project root before deploying.",
+      "from the VeriNICE project root before deploying.",
   );
 }
 
-const caseIds = Object.keys(manifest.runDigests ?? {});
-if (caseIds.length !== manifest.caseCount) {
+const recordedCaseIds = Object.keys(manifest.runDigests ?? {});
+if (recordedCaseIds.length !== manifest.caseCount) {
   throw new Error("The walkthrough manifest does not enumerate every recorded case.");
 }
-if (caseIds.length !== expectedCaseIds.length || expectedCaseIds.some((id) => !caseIds.includes(id))) {
-  throw new Error("The walkthrough case set does not match the approved 18-case showcase.");
+if (caseIds.length !== manifest.caseCount || caseIds.some((id) => !recordedCaseIds.includes(id))) {
+  throw new Error("The recorded walkthrough case set does not match the source manifest.");
 }
+
+const categoryCounts = new Map();
+const verdictCounts = new Map();
+let averitecCount = 0;
 
 for (const caseId of caseIds) {
   const caseUrl = new URL(`../public/walkthrough/cases/${caseId}.json`, import.meta.url);
@@ -45,19 +46,24 @@ for (const caseId of caseIds) {
   if (!demoCase.origin || !demoCase.category || !demoCase.demoFocus) {
     throw new Error(`Walkthrough ${caseId} lacks showcase origin or category metadata.`);
   }
+  if (demoCase.origin === "AVERITEC") averitecCount += 1;
+  else categoryCounts.set(demoCase.category, (categoryCounts.get(demoCase.category) ?? 0) + 1);
+  verdictCounts.set(demoCase.label, (verdictCounts.get(demoCase.label) ?? 0) + 1);
   if (demoCase.origin === "CONSTRUCTED") {
-    if (demoCase.documents.length !== 2) {
-      throw new Error(`Constructed walkthrough ${caseId} must contain exactly two sources.`);
+    if (demoCase.documents.length !== policy.constructedSourcesPerCase) {
+      throw new Error(`Constructed walkthrough ${caseId} source count does not match policy.`);
     }
     for (const document of demoCase.documents) {
       const excerptWords = document.text.trim().split(/\s+/).length;
       const excerptHash = createHash("sha256").update(document.text, "utf8").digest("hex");
       if (
         document.sourceType !== "SOURCE_EXCERPT"
-        || excerptWords < 150
-        || excerptWords > 400
+        || excerptWords < policy.excerptWords.minimum
+        || excerptWords > policy.excerptWords.maximum
         || !document.publisher
         || !document.retrievedAt
+        || !document.sourceDescriptor
+        || !document.excerptRationale
         || excerptHash !== document.excerptSha256
       ) {
         throw new Error(`Constructed walkthrough ${caseId} has invalid source provenance.`);
@@ -127,4 +133,24 @@ for (const caseId of caseIds) {
       .some((edge) => edge.includes(":evidence:") || edge.includes(":inference:bundle:"));
     if (decisive) throw new Error(`Walkthrough ${caseId} promotes insufficient assessed evidence.`);
   }
+}
+
+const displayedCounts = new Map(categoryCounts);
+displayedCounts.set("AVERITEC", averitecCount);
+if (
+  !Array.isArray(policy.displayedCategories)
+  || new Set(policy.displayedCategories).size !== policy.displayedCategories.length
+  || displayedCounts.size !== policy.displayedCategories.length
+  || policy.displayedCategories.some(
+    (category) => displayedCounts.get(category) !== policy.casesPerDisplayedCategory
+  )
+) {
+  throw new Error("Walkthrough displayed category counts do not match showcase policy.");
+}
+if (
+  !policy.verdictCounts
+  || Object.keys(policy.verdictCounts).length !== verdictCounts.size
+  || Object.entries(policy.verdictCounts).some(([label, count]) => verdictCounts.get(label) !== count)
+) {
+  throw new Error("Walkthrough verdict distribution does not match showcase policy.");
 }

@@ -2,7 +2,7 @@
 
 ## Station layout
 
-- Conference monitor: VeriTrace at 125–150% browser zoom.
+- Conference monitor: VeriNICE at 125–150% browser zoom.
 - Presenter laptop: power connected, sleep disabled, notifications and automatic
   updates disabled.
 - Poster board: one pipeline diagram, one QR code to recorded walkthrough, and
@@ -34,6 +34,8 @@ The audience question is the point: “Which step would you challenge?”
 | --- | --- | --- |
 | `showcase-history-einstein` | Attribute comparison | Contrast the awarded prize with its grounded citation. |
 | `showcase-history-curie` | Distinct-value counting | Combine two sources and inspect the counted scientific fields. |
+| `showcase-science-egg-cvd` | Conflicting scientific evidence | Compare two observational studies and inspect their opposing assessed relations. |
+| `showcase-history-whitehead-flight` | Conflicting historical evidence | Contrast the Connecticut state register's legislatively recognized position with the Smithsonian's expert analysis. |
 | `showcase-geography-canberra` | Extremum counterexample | Show why one larger aligned value can refute a superlative. |
 | `showcase-geography-everest` | Conservative abstention | Compare incompatible definitions without forcing a result. |
 | `showcase-current-nato` | Temporal ordering | Execute a before/after comparison over two accession dates. |

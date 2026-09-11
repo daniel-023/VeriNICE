@@ -18,67 +18,76 @@
       "atomId": "atom-1",
       "spans": [
         {
-          "id": "doc-ca3c249b3f5f::sentence-22",
+          "id": "doc-ca3c249b3f5f::sentence-4",
           "documentId": "doc-ca3c249b3f5f",
-          "text": "- In light of Russia’s full-scale invasion of Ukraine, which began in February 2022, Finland (together with Sweden) submitted its official letter of application to become a NATO Ally on 18 May.\n",
-          "start": 1711,
-          "end": 1905,
+          "text": "Thereafter, Sweden joined the Alliance on 7 March 2024, after Sweden’s Accession Protocol was ratified by all NATO member countries according to their national procedures and its Instrument of Accession was deposited with the US State Department.\n",
+          "start": 630,
+          "end": 877,
           "contextSpans": [],
-          "context": "- In light of Russia’s full-scale invasion of Ukraine, which began in February 2022, Finland (together with Sweden) submitted its official letter of application to become a NATO Ally on 18 May."
+          "context": "Thereafter, Sweden joined the Alliance on 7 March 2024, after Sweden’s Accession Protocol was ratified by all NATO member countries according to their national procedures and its Instrument of Accession was deposited with the US State Department."
         },
         {
-          "id": "doc-ca3c249b3f5f::sentence-26",
+          "id": "doc-ca3c249b3f5f::sentence-3",
           "documentId": "doc-ca3c249b3f5f",
-          "text": "- On 4 April 2023, Finland became a full member of NATO, upon depositing its Instrument of Accession to the North Atlantic Treaty with the United States government during a ceremony at NATO Headquarters in Brussels.\n",
-          "start": 2258,
-          "end": 2474,
+          "text": "Subsequently, Finland acceded to the Washington Treaty (or the North Atlantic Treaty) when the country (represented by the Finnish Foreign Minister) deposited its Instrument of Accession with the United States government (represented by the US Secretary of State) at NATO Headquarters, making Finland a full member of the Alliance on 4 April 2023.\n",
+          "start": 282,
+          "end": 630,
           "contextSpans": [],
-          "context": "- On 4 April 2023, Finland became a full member of NATO, upon depositing its Instrument of Accession to the North Atlantic Treaty with the United States government during a ceremony at NATO Headquarters in Brussels."
+          "context": "Subsequently, Finland acceded to the Washington Treaty (or the North Atlantic Treaty) when the country (represented by the Finnish Foreign Minister) deposited its Instrument of Accession with the United States government (represented by the US Secretary of State) at NATO Headquarters, making Finland a full member of the Alliance on 4 April 2023."
         },
         {
-          "id": "doc-ca3c249b3f5f::sentence-17",
-          "documentId": "doc-ca3c249b3f5f",
-          "text": "After almost 30 years of close partnership with NATO, Finland joined the Alliance on 4 April 2023. ",
-          "start": 736,
-          "end": 835,
-          "contextSpans": [],
-          "context": "After almost 30 years of close partnership with NATO, Finland joined the Alliance on 4 April 2023."
-        },
-        {
-          "id": "doc-7a01f78ccd01::sentence-10",
+          "id": "doc-7a01f78ccd01::sentence-5",
           "documentId": "doc-7a01f78ccd01",
-          "text": "Sweden became NATO’s newest member on Thursday (7 March 2024), upon depositing its instrument of accession to the North Atlantic Treaty with the Government of the United States in Washington DC. ",
-          "start": 369,
-          "end": 564,
-          "contextSpans": [],
-          "context": "Sweden became NATO’s newest member on Thursday (7 March 2024), upon depositing its instrument of accession to the North Atlantic Treaty with the Government of the United States in Washington DC."
-        },
-        {
-          "id": "doc-7a01f78ccd01::sentence-12",
-          "documentId": "doc-7a01f78ccd01",
-          "text": "NATO Secretary General Jens Stoltenberg said: “This is a historic day. Sweden will now take its rightful place at NATO’s table, with an equal say in shaping NATO policies and decisions. After over 200 years of non-alignment Sweden now enjoys the protection granted under Article 5, the ultimate guarantee of Allies’ freedom and security. Sweden brings with it capable armed forces and a first-class defence industry. Sweden’s accession makes NATO stronger, Sweden safer and the whole Alliance more secure. Today’s accession demonstrates that NATO’s door remains open and that every nation has the right to choose its own path.”\n",
-          "start": 637,
-          "end": 1265,
+          "text": "NATO Secretary General Jens Stoltenberg said: “This is a historic day. Sweden will now take its rightful place at NATO’s table, with an equal say in shaping NATO policies and decisions. After over 200 years of non-alignment Sweden now enjoys the protection granted under Article 5, the ultimate guarantee of Allies’ freedom and security. Sweden brings with it capable armed forces and a first-class defence industry. Sweden’s accession makes NATO stronger, Sweden safer and the whole Alliance more secure. Today’s accession demonstrates that NATO’s door remains open and that every nation has the right to choose its own path.”",
+          "start": 366,
+          "end": 993,
           "contextSpans": [
             {
-              "id": "doc-7a01f78ccd01::sentence-11",
+              "id": "doc-7a01f78ccd01::sentence-4",
               "documentId": "doc-7a01f78ccd01",
               "text": "With Sweden’s accession, NATO now counts 32 countries among its members.\n",
-              "start": 564,
-              "end": 637,
+              "start": 293,
+              "end": 366,
               "direction": "PREVIOUS"
             }
           ],
           "context": "With Sweden’s accession, NATO now counts 32 countries among its members. NATO Secretary General Jens Stoltenberg said: “This is a historic day. Sweden will now take its rightful place at NATO’s table, with an equal say in shaping NATO policies and decisions. After over 200 years of non-alignment Sweden now enjoys the protection granted under Article 5, the ultimate guarantee of Allies’ freedom and security. Sweden brings with it capable armed forces and a first-class defence industry. Sweden’s accession makes NATO stronger, Sweden safer and the whole Alliance more secure. Today’s accession demonstrates that NATO’s door remains open and that every nation has the right to choose its own path.”"
         },
         {
-          "id": "doc-7a01f78ccd01::sentence-11",
+          "id": "doc-7a01f78ccd01::sentence-3",
+          "documentId": "doc-7a01f78ccd01",
+          "text": "Sweden became NATO’s newest member on Thursday (7 March 2024), upon depositing its instrument of accession to the North Atlantic Treaty with the Government of the United States in Washington DC. ",
+          "start": 98,
+          "end": 293,
+          "contextSpans": [],
+          "context": "Sweden became NATO’s newest member on Thursday (7 March 2024), upon depositing its instrument of accession to the North Atlantic Treaty with the Government of the United States in Washington DC."
+        },
+        {
+          "id": "doc-7a01f78ccd01::sentence-4",
           "documentId": "doc-7a01f78ccd01",
           "text": "With Sweden’s accession, NATO now counts 32 countries among its members.\n",
-          "start": 564,
-          "end": 637,
+          "start": 293,
+          "end": 366,
           "contextSpans": [],
           "context": "With Sweden’s accession, NATO now counts 32 countries among its members."
+        },
+        {
+          "id": "doc-ca3c249b3f5f::sentence-5",
+          "documentId": "doc-ca3c249b3f5f",
+          "text": "Finland's cooperation with NATO as a partner was mutually beneficial and included the following activities, many of which it continues to participate in as an Ally:",
+          "start": 877,
+          "end": 1041,
+          "contextSpans": [
+            {
+              "id": "doc-ca3c249b3f5f::sentence-4",
+              "documentId": "doc-ca3c249b3f5f",
+              "text": "Thereafter, Sweden joined the Alliance on 7 March 2024, after Sweden’s Accession Protocol was ratified by all NATO member countries according to their national procedures and its Instrument of Accession was deposited with the US State Department.\n",
+              "start": 630,
+              "end": 877,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "Thereafter, Sweden joined the Alliance on 7 March 2024, after Sweden’s Accession Protocol was ratified by all NATO member countries according to their national procedures and its Instrument of Accession was deposited with the US State Department. Finland's cooperation with NATO as a partner was mutually beneficial and included the following activities, many of which it continues to participate in as an Ally:"
         }
       ]
     }
@@ -89,20 +98,20 @@
         "atomId": "atom-1",
         "supportSpanIds": [],
         "refuteSpanIds": [
-          "doc-7a01f78ccd01::sentence-10",
-          "doc-7a01f78ccd01::sentence-12"
+          "doc-ca3c249b3f5f::sentence-3",
+          "doc-ca3c249b3f5f::sentence-5"
         ],
         "contextSpanIds": [
-          "doc-ca3c249b3f5f::sentence-22",
-          "doc-ca3c249b3f5f::sentence-26",
-          "doc-ca3c249b3f5f::sentence-17"
+          "doc-7a01f78ccd01::sentence-5",
+          "doc-7a01f78ccd01::sentence-4",
+          "doc-ca3c249b3f5f::sentence-4"
         ],
-        "sufficiency": "PARTIAL",
-        "missingInformation": "The exact date of Sweden's application to join NATO is not provided, which makes the comparison with Finland's application date uncertain.",
-        "reason": "Sweden joined NATO on 7 March 2024, while Finland joined on 4 April 2023, but the exact date of Sweden's application is not given.",
+        "sufficiency": "SUFFICIENT",
+        "missingInformation": "",
+        "reason": "O1-E1 and O1-E4 explicitly state that Sweden joined NATO on 7 March 2024, while O1-E2 and O1-E6 state that Finland joined on 4 April 2023.",
         "scopeChecks": [
           {
-            "spanId": "doc-ca3c249b3f5f::sentence-22",
+            "spanId": "doc-ca3c249b3f5f::sentence-4",
             "documentId": "doc-ca3c249b3f5f",
             "status": "MATCH",
             "claimJurisdictions": [
@@ -110,14 +119,12 @@
               "SE"
             ],
             "evidenceJurisdictions": [
-              "FI",
-              "SE",
-              "UA"
+              "SE"
             ],
             "reason": "The candidate and atomic claim share a recognized jurisdiction."
           },
           {
-            "spanId": "doc-ca3c249b3f5f::sentence-26",
+            "spanId": "doc-ca3c249b3f5f::sentence-3",
             "documentId": "doc-ca3c249b3f5f",
             "status": "MATCH",
             "claimJurisdictions": [
@@ -131,20 +138,20 @@
             "reason": "The candidate and atomic claim share a recognized jurisdiction."
           },
           {
-            "spanId": "doc-ca3c249b3f5f::sentence-17",
-            "documentId": "doc-ca3c249b3f5f",
+            "spanId": "doc-7a01f78ccd01::sentence-5",
+            "documentId": "doc-7a01f78ccd01",
             "status": "MATCH",
             "claimJurisdictions": [
               "FI",
               "SE"
             ],
             "evidenceJurisdictions": [
-              "FI"
+              "SE"
             ],
             "reason": "The candidate and atomic claim share a recognized jurisdiction."
           },
           {
-            "spanId": "doc-7a01f78ccd01::sentence-10",
+            "spanId": "doc-7a01f78ccd01::sentence-3",
             "documentId": "doc-7a01f78ccd01",
             "status": "MATCH",
             "claimJurisdictions": [
@@ -158,7 +165,7 @@
             "reason": "The candidate and atomic claim share a recognized jurisdiction."
           },
           {
-            "spanId": "doc-7a01f78ccd01::sentence-12",
+            "spanId": "doc-7a01f78ccd01::sentence-4",
             "documentId": "doc-7a01f78ccd01",
             "status": "MATCH",
             "claimJurisdictions": [
@@ -171,14 +178,15 @@
             "reason": "The candidate and atomic claim share a recognized jurisdiction."
           },
           {
-            "spanId": "doc-7a01f78ccd01::sentence-11",
-            "documentId": "doc-7a01f78ccd01",
+            "spanId": "doc-ca3c249b3f5f::sentence-5",
+            "documentId": "doc-ca3c249b3f5f",
             "status": "MATCH",
             "claimJurisdictions": [
               "FI",
               "SE"
             ],
             "evidenceJurisdictions": [
+              "FI",
               "SE"
             ],
             "reason": "The candidate and atomic claim share a recognized jurisdiction."
@@ -201,26 +209,26 @@
       "status": "DISPROVED",
       "relation": "REFUTES",
       "premiseIds": [
-        "evidence:atom-1:doc-7a01f78ccd01:doc-7a01f78ccd01::sentence-10",
-        "evidence:atom-1:doc-ca3c249b3f5f:doc-ca3c249b3f5f::sentence-26"
+        "evidence:atom-1:doc-ca3c249b3f5f:doc-ca3c249b3f5f::sentence-4",
+        "evidence:atom-1:doc-ca3c249b3f5f:doc-ca3c249b3f5f::sentence-3"
       ],
       "premises": [
         {
-          "id": "evidence:atom-1:doc-7a01f78ccd01:doc-7a01f78ccd01::sentence-10",
-          "documentId": "doc-7a01f78ccd01",
-          "text": "Sweden became NATO’s newest member on Thursday (7 March 2024), upon depositing its instrument of accession to the North Atlantic Treaty with the Government of the United States in Washington DC. ",
-          "start": 369,
-          "end": 564,
+          "id": "evidence:atom-1:doc-ca3c249b3f5f:doc-ca3c249b3f5f::sentence-4",
+          "documentId": "doc-ca3c249b3f5f",
+          "text": "Thereafter, Sweden joined the Alliance on 7 March 2024, after Sweden’s Accession Protocol was ratified by all NATO member countries according to their national procedures and its Instrument of Accession was deposited with the US State Department.\n",
+          "start": 630,
+          "end": 877,
           "kind": "EVIDENCE",
           "contentHash": null,
           "itemCount": null
         },
         {
-          "id": "evidence:atom-1:doc-ca3c249b3f5f:doc-ca3c249b3f5f::sentence-26",
+          "id": "evidence:atom-1:doc-ca3c249b3f5f:doc-ca3c249b3f5f::sentence-3",
           "documentId": "doc-ca3c249b3f5f",
-          "text": "- On 4 April 2023, Finland became a full member of NATO, upon depositing its Instrument of Accession to the North Atlantic Treaty with the United States government during a ceremony at NATO Headquarters in Brussels.\n",
-          "start": 2258,
-          "end": 2474,
+          "text": "Subsequently, Finland acceded to the Washington Treaty (or the North Atlantic Treaty) when the country (represented by the Finnish Foreign Minister) deposited its Instrument of Accession with the United States government (represented by the US Secretary of State) at NATO Headquarters, making Finland a full member of the Alliance on 4 April 2023.\n",
+          "start": 282,
+          "end": 630,
           "kind": "EVIDENCE",
           "contentHash": null,
           "itemCount": null
@@ -237,7 +245,7 @@
             "id": "input-1",
             "operation": "LOOKUP",
             "inputIds": [
-              "evidence:atom-1:doc-7a01f78ccd01:doc-7a01f78ccd01::sentence-10"
+              "evidence:atom-1:doc-ca3c249b3f5f:doc-ca3c249b3f5f::sentence-4"
             ],
             "outputType": "FACT",
             "description": "Read an unchanged server-owned premise."
@@ -246,7 +254,7 @@
             "id": "input-2",
             "operation": "LOOKUP",
             "inputIds": [
-              "evidence:atom-1:doc-ca3c249b3f5f:doc-ca3c249b3f5f::sentence-26"
+              "evidence:atom-1:doc-ca3c249b3f5f:doc-ca3c249b3f5f::sentence-3"
             ],
             "outputType": "FACT",
             "description": "Read an unchanged server-owned premise."
@@ -589,18 +597,14 @@
         "state": "REFUTED",
         "supportEdgeIds": [],
         "refuteEdgeIds": [
+          "edge:REFUTES:inference:bundle:atom-1:refutes:obligation:showcase-current-nato:atom-1",
           "edge:REFUTES:inference:proof:atom-1:temporal_compare:1:obligation:showcase-current-nato:atom-1"
         ],
         "unselectedCandidateCount": 1,
-        "provisionalRelationCount": 2
+        "provisionalRelationCount": 0
       }
     ],
-    "warnings": [
-      {
-        "code": "PROVISIONAL_EVIDENCE_EXCLUDED",
-        "message": "2 assessed relation(s) for obligation atom-1 are provisional because the evidence is not sufficient."
-      }
-    ],
+    "warnings": [],
     "ruleTrace": [
       "SINGLE maps its one obligation's validated relations directly.",
       "Validated positions — support: no; refute: yes.",
@@ -609,7 +613,7 @@
   },
   "recordedWith": {
     "pipelineRevision": "submission-ready-v2",
-    "inputDigest": "6da6137cb4677b0ffef553c803dc4b63c593e2fd9eb26ad1be9956625539dfda",
+    "inputDigest": "8679e924aac4d11d8da15dd05d1d375ba179abc6560bd39879019e9653e0e76b",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
     "retrievalMethod": "HYBRID",
@@ -618,11 +622,11 @@
     "linguisticsModel": "en_core_web_sm@3.8.0"
   },
   "timingsSeconds": {
-    "decomposition": 13.852,
-    "retrievalAndLinguistics": 0.284,
-    "evidenceAssessment": 17.735,
-    "symbolicReasoning": 10.382,
-    "aggregation": 0.002,
-    "total": 42.255
+    "decomposition": 40.096,
+    "retrievalAndLinguistics": 0.942,
+    "evidenceAssessment": 57.382,
+    "symbolicReasoning": 50.697,
+    "aggregation": 0.061,
+    "total": 149.178
   }
 }

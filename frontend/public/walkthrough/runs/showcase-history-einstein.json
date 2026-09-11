@@ -1,16 +1,24 @@
 {
   "caseId": "showcase-history-einstein",
   "schemaVersion": 6,
-  "composition": "SINGLE",
+  "composition": "AND",
   "warnings": [],
   "atoms": [
     {
       "id": "atom-1",
-      "text": "Albert Einstein received the 1921 Nobel Prize in Physics for relativity.",
-      "sourceText": "Albert Einstein received the 1921 Nobel Prize in Physics for relativity.",
+      "text": "The Nobel Prize in Physics for 1921 was awarded to Albert Einstein.",
+      "sourceText": "The Nobel Prize in Physics for 1921 was awarded to Albert Einstein",
       "start": 0,
-      "end": 72,
+      "end": 66,
       "role": "ATTRIBUTION"
+    },
+    {
+      "id": "atom-2",
+      "text": "The Nobel Prize in Physics for 1921 was awarded for his theory of relativity.",
+      "sourceText": "and the prize was awarded for his theory of relativity",
+      "start": 68,
+      "end": 122,
+      "role": "CAUSAL_RELATION"
     }
   ],
   "evidence": [
@@ -18,84 +26,160 @@
       "atomId": "atom-1",
       "spans": [
         {
-          "id": "doc-72849eeeae4d::sentence-12",
-          "documentId": "doc-72849eeeae4d",
-          "text": "A third group of studies, for which in particular Einstein has received the Nobel Prize, falls within the domain of the quantum theory founded by Planck in 1900. ",
-          "start": 1388,
-          "end": 1550,
+          "id": "doc-24e395b9bb6e::sentence-3",
+          "documentId": "doc-24e395b9bb6e",
+          "text": "Einstein was eventually awarded the 1921 Nobel Prize in Physics “for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect”. ",
+          "start": 249,
+          "end": 429,
+          "contextSpans": [],
+          "context": "Einstein was eventually awarded the 1921 Nobel Prize in Physics “for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect”."
+        },
+        {
+          "id": "doc-46199fd9f0db::sentence-4",
+          "documentId": "doc-46199fd9f0db",
+          "text": "According to the statutes, a reserved prize can be awarded the year after, and Albert Einstein was awarded the 1921 Nobel Prize in Physics in 1922.\n\n",
+          "start": 275,
+          "end": 424,
+          "contextSpans": [],
+          "context": "According to the statutes, a reserved prize can be awarded the year after, and Albert Einstein was awarded the 1921 Nobel Prize in Physics in 1922."
+        },
+        {
+          "id": "doc-46199fd9f0db::sentence-1",
+          "documentId": "doc-46199fd9f0db",
+          "text": "**Question:**_When was Albert Einstein awarded the Nobel Prize in Physics?",
+          "start": 0,
+          "end": 74,
+          "contextSpans": [],
+          "context": "**Question:**_When was Albert Einstein awarded the Nobel Prize in Physics?"
+        },
+        {
+          "id": "doc-46199fd9f0db::sentence-3",
+          "documentId": "doc-46199fd9f0db",
+          "text": "**Answer:** The Nobel Prize Awarding Institution, the Royal Swedish Academy of Sciences, decided to reserve the Nobel Prize in Physics in 1921, and therefore no Physics Prize was awarded that year. ",
+          "start": 77,
+          "end": 275,
+          "contextSpans": [],
+          "context": "**Answer:** The Nobel Prize Awarding Institution, the Royal Swedish Academy of Sciences, decided to reserve the Nobel Prize in Physics in 1921, and therefore no Physics Prize was awarded that year."
+        },
+        {
+          "id": "doc-24e395b9bb6e::sentence-1",
+          "documentId": "doc-24e395b9bb6e",
+          "text": "In 1905, Albert Einstein published the first explanation of the photoelectric effect, but at the time, it was impossible to resolve the timescales that were relevant for this effect. ",
+          "start": 0,
+          "end": 183,
+          "contextSpans": [],
+          "context": "In 1905, Albert Einstein published the first explanation of the photoelectric effect, but at the time, it was impossible to resolve the timescales that were relevant for this effect."
+        },
+        {
+          "id": "doc-24e395b9bb6e::sentence-4",
+          "documentId": "doc-24e395b9bb6e",
+          "text": "Parenthetically, when he gave his Nobel lecture, it was not in Stockholm in December 1922 (Einstein was in Japan at that time), but in the middle of the summer of 1923, in Gothenburg – a unique event in the history of the Nobel Prize. ",
+          "start": 429,
+          "end": 664,
           "contextSpans": [
             {
-              "id": "doc-72849eeeae4d::sentence-13",
-              "documentId": "doc-72849eeeae4d",
-              "text": "This theory asserts that radiant energy consists of individual particles, termed “quanta”, approximately in the same way as matter is made up of particles, i.e. atoms. ",
-              "start": 1550,
-              "end": 1718,
-              "direction": "NEXT"
-            }
-          ],
-          "context": "A third group of studies, for which in particular Einstein has received the Nobel Prize, falls within the domain of the quantum theory founded by Planck in 1900. This theory asserts that radiant energy consists of individual particles, termed “quanta”, approximately in the same way as matter is made up of particles, i.e. atoms."
-        },
-        {
-          "id": "doc-6e38d4a58792::sentence-6",
-          "documentId": "doc-6e38d4a58792",
-          "text": "Albert Einstein received his Nobel Prize one year later, in 1922.\n",
-          "start": 339,
-          "end": 405,
-          "contextSpans": [],
-          "context": "Albert Einstein received his Nobel Prize one year later, in 1922."
-        },
-        {
-          "id": "doc-6e38d4a58792::sentence-5",
-          "documentId": "doc-6e38d4a58792",
-          "text": "Prize motivation: “for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect”\n",
-          "start": 206,
-          "end": 339,
-          "contextSpans": [],
-          "context": "Prize motivation: “for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect”"
-        },
-        {
-          "id": "doc-72849eeeae4d::sentence-10",
-          "documentId": "doc-72849eeeae4d",
-          "text": "In 1905 Einstein founded a kinetic theory to account for this movement by means of which he derived the chief properties of suspensions, i.e. liquids with solid particles suspended in them. ",
-          "start": 897,
-          "end": 1087,
-          "contextSpans": [
-            {
-              "id": "doc-72849eeeae4d::sentence-9",
-              "documentId": "doc-72849eeeae4d",
-              "text": "Throughout the first decade of this century the so-called Brownian movement stimulated the keenest interest. ",
-              "start": 788,
-              "end": 897,
+              "id": "doc-24e395b9bb6e::sentence-3",
+              "documentId": "doc-24e395b9bb6e",
+              "text": "Einstein was eventually awarded the 1921 Nobel Prize in Physics “for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect”. ",
+              "start": 249,
+              "end": 429,
               "direction": "PREVIOUS"
             },
             {
-              "id": "doc-72849eeeae4d::sentence-11",
-              "documentId": "doc-72849eeeae4d",
-              "text": "This theory, based on classical mechanics, helps to explain the behaviour of what are known as colloidal solutions, a behaviour which has been studied by Svedberg, Perrin, Zsigmondy and countless other scientists within the context of what has grown into a large branch of science, colloid chemistry.\n",
-              "start": 1087,
-              "end": 1388,
+              "id": "doc-24e395b9bb6e::sentence-5",
+              "documentId": "doc-24e395b9bb6e",
+              "text": "His talk did not concern the photoelectric effect but the theory of relativity, the theory for which he was never awarded a Nobel Prize. ",
+              "start": 664,
+              "end": 801,
               "direction": "NEXT"
             }
           ],
-          "context": "Throughout the first decade of this century the so-called Brownian movement stimulated the keenest interest. In 1905 Einstein founded a kinetic theory to account for this movement by means of which he derived the chief properties of suspensions, i.e. liquids with solid particles suspended in them. This theory, based on classical mechanics, helps to explain the behaviour of what are known as colloidal solutions, a behaviour which has been studied by Svedberg, Perrin, Zsigmondy and countless other scientists within the context of what has grown into a large branch of science, colloid chemistry."
+          "context": "Einstein was eventually awarded the 1921 Nobel Prize in Physics “for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect”. Parenthetically, when he gave his Nobel lecture, it was not in Stockholm in December 1922 (Einstein was in Japan at that time), but in the middle of the summer of 1923, in Gothenburg – a unique event in the history of the Nobel Prize. His talk did not concern the photoelectric effect but the theory of relativity, the theory for which he was never awarded a Nobel Prize."
+        }
+      ]
+    },
+    {
+      "atomId": "atom-2",
+      "spans": [
+        {
+          "id": "doc-24e395b9bb6e::sentence-3",
+          "documentId": "doc-24e395b9bb6e",
+          "text": "Einstein was eventually awarded the 1921 Nobel Prize in Physics “for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect”. ",
+          "start": 249,
+          "end": 429,
+          "contextSpans": [],
+          "context": "Einstein was eventually awarded the 1921 Nobel Prize in Physics “for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect”."
         },
         {
-          "id": "doc-72849eeeae4d::sentence-2",
-          "documentId": "doc-72849eeeae4d",
-          "text": "Presentation Speech by Professor S. Arrhenius, Chairman of the Nobel Committee for Physics of the Royal Swedish Academy of Sciences, on December 10, 1922*\n",
-          "start": 22,
-          "end": 177,
+          "id": "doc-46199fd9f0db::sentence-4",
+          "documentId": "doc-46199fd9f0db",
+          "text": "According to the statutes, a reserved prize can be awarded the year after, and Albert Einstein was awarded the 1921 Nobel Prize in Physics in 1922.\n\n",
+          "start": 275,
+          "end": 424,
           "contextSpans": [],
-          "context": "Presentation Speech by Professor S. Arrhenius, Chairman of the Nobel Committee for Physics of the Royal Swedish Academy of Sciences, on December 10, 1922*"
+          "context": "According to the statutes, a reserved prize can be awarded the year after, and Albert Einstein was awarded the 1921 Nobel Prize in Physics in 1922."
         },
         {
-          "id": "doc-6e38d4a58792::sentence-9",
-          "documentId": "doc-6e38d4a58792",
-          "text": "Albert Einstein grew up in Munich, where his father founded an electrical engineering company. ",
-          "start": 427,
-          "end": 522,
+          "id": "doc-46199fd9f0db::sentence-3",
+          "documentId": "doc-46199fd9f0db",
+          "text": "**Answer:** The Nobel Prize Awarding Institution, the Royal Swedish Academy of Sciences, decided to reserve the Nobel Prize in Physics in 1921, and therefore no Physics Prize was awarded that year. ",
+          "start": 77,
+          "end": 275,
           "contextSpans": [],
-          "context": "Albert Einstein grew up in Munich, where his father founded an electrical engineering company."
+          "context": "**Answer:** The Nobel Prize Awarding Institution, the Royal Swedish Academy of Sciences, decided to reserve the Nobel Prize in Physics in 1921, and therefore no Physics Prize was awarded that year."
+        },
+        {
+          "id": "doc-46199fd9f0db::sentence-11",
+          "documentId": "doc-46199fd9f0db",
+          "text": "**Answer:** Einstein was rewarded for his many contributions to theoretical physics, and especially for his discovery of the law of the photoelectric effect.\n\n",
+          "start": 756,
+          "end": 915,
+          "contextSpans": [],
+          "context": "**Answer:** Einstein was rewarded for his many contributions to theoretical physics, and especially for his discovery of the law of the photoelectric effect."
+        },
+        {
+          "id": "doc-24e395b9bb6e::sentence-5",
+          "documentId": "doc-24e395b9bb6e",
+          "text": "His talk did not concern the photoelectric effect but the theory of relativity, the theory for which he was never awarded a Nobel Prize. ",
+          "start": 664,
+          "end": 801,
+          "contextSpans": [
+            {
+              "id": "doc-24e395b9bb6e::sentence-4",
+              "documentId": "doc-24e395b9bb6e",
+              "text": "Parenthetically, when he gave his Nobel lecture, it was not in Stockholm in December 1922 (Einstein was in Japan at that time), but in the middle of the summer of 1923, in Gothenburg – a unique event in the history of the Nobel Prize. ",
+              "start": 429,
+              "end": 664,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "Parenthetically, when he gave his Nobel lecture, it was not in Stockholm in December 1922 (Einstein was in Japan at that time), but in the middle of the summer of 1923, in Gothenburg – a unique event in the history of the Nobel Prize. His talk did not concern the photoelectric effect but the theory of relativity, the theory for which he was never awarded a Nobel Prize."
+        },
+        {
+          "id": "doc-24e395b9bb6e::sentence-4",
+          "documentId": "doc-24e395b9bb6e",
+          "text": "Parenthetically, when he gave his Nobel lecture, it was not in Stockholm in December 1922 (Einstein was in Japan at that time), but in the middle of the summer of 1923, in Gothenburg – a unique event in the history of the Nobel Prize. ",
+          "start": 429,
+          "end": 664,
+          "contextSpans": [
+            {
+              "id": "doc-24e395b9bb6e::sentence-3",
+              "documentId": "doc-24e395b9bb6e",
+              "text": "Einstein was eventually awarded the 1921 Nobel Prize in Physics “for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect”. ",
+              "start": 249,
+              "end": 429,
+              "direction": "PREVIOUS"
+            },
+            {
+              "id": "doc-24e395b9bb6e::sentence-5",
+              "documentId": "doc-24e395b9bb6e",
+              "text": "His talk did not concern the photoelectric effect but the theory of relativity, the theory for which he was never awarded a Nobel Prize. ",
+              "start": 664,
+              "end": 801,
+              "direction": "NEXT"
+            }
+          ],
+          "context": "Einstein was eventually awarded the 1921 Nobel Prize in Physics “for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect”. Parenthetically, when he gave his Nobel lecture, it was not in Stockholm in December 1922 (Einstein was in Japan at that time), but in the middle of the summer of 1923, in Gothenburg – a unique event in the history of the Nobel Prize. His talk did not concern the photoelectric effect but the theory of relativity, the theory for which he was never awarded a Nobel Prize."
         }
       ]
     }
@@ -105,77 +189,157 @@
       {
         "atomId": "atom-1",
         "supportSpanIds": [
-          "doc-72849eeeae4d::sentence-12",
-          "doc-6e38d4a58792::sentence-5",
-          "doc-72849eeeae4d::sentence-2"
+          "doc-24e395b9bb6e::sentence-3",
+          "doc-46199fd9f0db::sentence-4"
         ],
-        "refuteSpanIds": [],
+        "refuteSpanIds": [
+          "doc-46199fd9f0db::sentence-1",
+          "doc-46199fd9f0db::sentence-3"
+        ],
         "contextSpanIds": [
-          "doc-6e38d4a58792::sentence-6",
-          "doc-72849eeeae4d::sentence-10",
-          "doc-6e38d4a58792::sentence-9"
+          "doc-24e395b9bb6e::sentence-1",
+          "doc-24e395b9bb6e::sentence-4"
         ],
         "sufficiency": "PARTIAL",
-        "missingInformation": "The evidence does not specify the exact reason for the Nobel Prize, though it mentions the photoelectric effect and relativity.",
-        "reason": "The evidence mentions the photoelectric effect as the primary reason for the Nobel Prize, but does not explicitly state that relativity was the reason.",
+        "missingInformation": "The evidence does not specify the exact year when Einstein was awarded the Nobel Prize, only that it was in 1922 after the 1921 prize was reserved.",
+        "reason": "The evidence supports that Einstein was awarded the 1921 Nobel Prize in 1922, but does not confirm the exact year of the award.",
         "scopeChecks": [
           {
-            "spanId": "doc-72849eeeae4d::sentence-12",
-            "documentId": "doc-72849eeeae4d",
-            "status": "NOT_APPLICABLE",
-            "claimJurisdictions": [],
-            "evidenceJurisdictions": [],
-            "reason": "The atomic claim does not state a recognized jurisdiction."
-          },
-          {
-            "spanId": "doc-6e38d4a58792::sentence-6",
-            "documentId": "doc-6e38d4a58792",
+            "spanId": "doc-24e395b9bb6e::sentence-3",
+            "documentId": "doc-24e395b9bb6e",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
             "evidenceJurisdictions": [
-              "DE",
-              "JE",
-              "US"
+              "JP"
             ],
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
-            "spanId": "doc-6e38d4a58792::sentence-5",
-            "documentId": "doc-6e38d4a58792",
+            "spanId": "doc-46199fd9f0db::sentence-4",
+            "documentId": "doc-46199fd9f0db",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
             "evidenceJurisdictions": [
-              "DE",
-              "JE",
-              "US"
+              "SE"
             ],
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
-            "spanId": "doc-72849eeeae4d::sentence-10",
-            "documentId": "doc-72849eeeae4d",
-            "status": "NOT_APPLICABLE",
-            "claimJurisdictions": [],
-            "evidenceJurisdictions": [],
-            "reason": "The atomic claim does not state a recognized jurisdiction."
-          },
-          {
-            "spanId": "doc-72849eeeae4d::sentence-2",
-            "documentId": "doc-72849eeeae4d",
-            "status": "NOT_APPLICABLE",
-            "claimJurisdictions": [],
-            "evidenceJurisdictions": [],
-            "reason": "The atomic claim does not state a recognized jurisdiction."
-          },
-          {
-            "spanId": "doc-6e38d4a58792::sentence-9",
-            "documentId": "doc-6e38d4a58792",
+            "spanId": "doc-46199fd9f0db::sentence-1",
+            "documentId": "doc-46199fd9f0db",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
             "evidenceJurisdictions": [
-              "DE",
-              "JE",
-              "US"
+              "SE"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-46199fd9f0db::sentence-3",
+            "documentId": "doc-46199fd9f0db",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "SE"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-24e395b9bb6e::sentence-1",
+            "documentId": "doc-24e395b9bb6e",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "JP"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-24e395b9bb6e::sentence-4",
+            "documentId": "doc-24e395b9bb6e",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "JP"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          }
+        ]
+      },
+      {
+        "atomId": "atom-2",
+        "supportSpanIds": [],
+        "refuteSpanIds": [
+          "doc-24e395b9bb6e::sentence-3",
+          "doc-46199fd9f0db::sentence-4",
+          "doc-46199fd9f0db::sentence-3"
+        ],
+        "contextSpanIds": [
+          "doc-46199fd9f0db::sentence-11",
+          "doc-24e395b9bb6e::sentence-5",
+          "doc-24e395b9bb6e::sentence-4"
+        ],
+        "sufficiency": "INSUFFICIENT",
+        "missingInformation": "The evidence does not provide a clear statement that the prize was awarded for the theory of relativity.",
+        "reason": "The evidence states that the prize was awarded for the photoelectric effect, not the theory of relativity, and that the theory of relativity was not the subject of his Nobel lecture.",
+        "scopeChecks": [
+          {
+            "spanId": "doc-24e395b9bb6e::sentence-3",
+            "documentId": "doc-24e395b9bb6e",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "JP"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-46199fd9f0db::sentence-4",
+            "documentId": "doc-46199fd9f0db",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "SE"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-46199fd9f0db::sentence-3",
+            "documentId": "doc-46199fd9f0db",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "SE"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-46199fd9f0db::sentence-11",
+            "documentId": "doc-46199fd9f0db",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "SE"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-24e395b9bb6e::sentence-5",
+            "documentId": "doc-24e395b9bb6e",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "JP"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-24e395b9bb6e::sentence-4",
+            "documentId": "doc-24e395b9bb6e",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "JP"
             ],
             "reason": "The atomic claim does not state a recognized jurisdiction."
           }
@@ -194,18 +358,89 @@
       "id": "proof:atom-1:attribute_compare:1",
       "atomId": "atom-1",
       "operator": "ATTRIBUTE_COMPARE",
-      "status": "DISPROVED",
-      "relation": "REFUTES",
+      "status": "PROVED",
+      "relation": "SUPPORTS",
       "premiseIds": [
-        "evidence:atom-1:doc-6e38d4a58792:doc-6e38d4a58792::sentence-5"
+        "evidence:atom-1:doc-24e395b9bb6e:doc-24e395b9bb6e::sentence-3",
+        "evidence:atom-1:doc-46199fd9f0db:doc-46199fd9f0db::sentence-4"
       ],
       "premises": [
         {
-          "id": "evidence:atom-1:doc-6e38d4a58792:doc-6e38d4a58792::sentence-5",
-          "documentId": "doc-6e38d4a58792",
-          "text": "Prize motivation: “for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect”\n",
-          "start": 206,
-          "end": 339,
+          "id": "evidence:atom-1:doc-24e395b9bb6e:doc-24e395b9bb6e::sentence-3",
+          "documentId": "doc-24e395b9bb6e",
+          "text": "Einstein was eventually awarded the 1921 Nobel Prize in Physics “for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect”. ",
+          "start": 249,
+          "end": 429,
+          "kind": "EVIDENCE",
+          "contentHash": null,
+          "itemCount": null
+        },
+        {
+          "id": "evidence:atom-1:doc-46199fd9f0db:doc-46199fd9f0db::sentence-4",
+          "documentId": "doc-46199fd9f0db",
+          "text": "According to the statutes, a reserved prize can be awarded the year after, and Albert Einstein was awarded the 1921 Nobel Prize in Physics in 1922.\n\n",
+          "start": 275,
+          "end": 424,
+          "kind": "EVIDENCE",
+          "contentHash": null,
+          "itemCount": null
+        }
+      ],
+      "expression": "claimed recipient = source recipient",
+      "conclusion": "The recipient and prize year match the grounded source.",
+      "explanation": "Python aligned the explicit Nobel recipient, prize year, and award statement.",
+      "validationWarnings": [],
+      "program": {
+        "version": 1,
+        "steps": [
+          {
+            "id": "input-1",
+            "operation": "LOOKUP",
+            "inputIds": [
+              "evidence:atom-1:doc-24e395b9bb6e:doc-24e395b9bb6e::sentence-3"
+            ],
+            "outputType": "FACT",
+            "description": "Read an unchanged server-owned premise."
+          },
+          {
+            "id": "input-2",
+            "operation": "LOOKUP",
+            "inputIds": [
+              "evidence:atom-1:doc-46199fd9f0db:doc-46199fd9f0db::sentence-4"
+            ],
+            "outputType": "FACT",
+            "description": "Read an unchanged server-owned premise."
+          },
+          {
+            "id": "result",
+            "operation": "EQUAL",
+            "inputIds": [
+              "input-1",
+              "input-2"
+            ],
+            "outputType": "BOOLEAN",
+            "description": "Validate operand alignment and execute the typed operation in Python."
+          }
+        ],
+        "outputStepId": "result"
+      }
+    },
+    {
+      "id": "proof:atom-2:attribute_compare:2",
+      "atomId": "atom-2",
+      "operator": "ATTRIBUTE_COMPARE",
+      "status": "DISPROVED",
+      "relation": "REFUTES",
+      "premiseIds": [
+        "evidence:atom-2:doc-24e395b9bb6e:doc-24e395b9bb6e::sentence-3"
+      ],
+      "premises": [
+        {
+          "id": "evidence:atom-2:doc-24e395b9bb6e:doc-24e395b9bb6e::sentence-3",
+          "documentId": "doc-24e395b9bb6e",
+          "text": "Einstein was eventually awarded the 1921 Nobel Prize in Physics “for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect”. ",
+          "start": 249,
+          "end": 429,
           "kind": "EVIDENCE",
           "contentHash": null,
           "itemCount": null
@@ -222,7 +457,7 @@
             "id": "input-1",
             "operation": "LOOKUP",
             "inputIds": [
-              "evidence:atom-1:doc-6e38d4a58792:doc-6e38d4a58792::sentence-5"
+              "evidence:atom-2:doc-24e395b9bb6e:doc-24e395b9bb6e::sentence-3"
             ],
             "outputType": "FACT",
             "description": "Read an unchanged server-owned premise."
@@ -250,102 +485,88 @@
           "id": "claim-frame-1",
           "predicate": {
             "id": "claim-frame-1-predicate",
-            "text": "received",
-            "start": 16,
-            "end": 24
+            "text": "awarded",
+            "start": 40,
+            "end": 47
           },
           "subjects": [
             {
               "id": "claim-frame-1-subject-1",
-              "text": "Albert Einstein",
+              "text": "The Nobel Prize in Physics for 1921",
               "start": 0,
-              "end": 15
+              "end": 35
             }
           ],
-          "coreArguments": [
-            {
-              "id": "claim-frame-1-argument-1",
-              "text": "the 1921 Nobel Prize in Physics",
-              "start": 25,
-              "end": 56,
-              "role": "direct_object"
-            }
-          ],
+          "coreArguments": [],
           "adjuncts": [],
           "otherModifiers": [
             {
               "id": "claim-frame-1-other-modifier-1",
-              "text": "for relativity",
-              "start": 57,
-              "end": 71
+              "text": "to Albert Einstein",
+              "start": 48,
+              "end": 66
+            }
+          ]
+        },
+        {
+          "id": "claim-frame-2",
+          "predicate": {
+            "id": "claim-frame-2-predicate",
+            "text": "awarded",
+            "start": 86,
+            "end": 93
+          },
+          "subjects": [
+            {
+              "id": "claim-frame-2-subject-1",
+              "text": "the prize",
+              "start": 72,
+              "end": 81
+            }
+          ],
+          "coreArguments": [],
+          "adjuncts": [],
+          "otherModifiers": [
+            {
+              "id": "claim-frame-2-other-modifier-1",
+              "text": "for his theory of relativity",
+              "start": 94,
+              "end": 122
             }
           ]
         }
       ],
       "cues": [
         {
-          "id": "claim-cue-temporal-29-33",
+          "id": "claim-cue-temporal-31-35",
           "text": "1921",
-          "start": 29,
-          "end": 33,
+          "start": 31,
+          "end": 35,
           "kind": "temporal"
         }
       ],
       "entities": [
         {
-          "id": "claim-entity-person-0-15",
-          "text": "Albert Einstein",
+          "id": "claim-entity-work_of_art-0-26",
+          "text": "The Nobel Prize in Physics",
           "start": 0,
-          "end": 15,
-          "label": "PERSON"
+          "end": 26,
+          "label": "WORK_OF_ART"
         },
         {
-          "id": "claim-entity-work_of_art-34-71",
-          "text": "Nobel Prize in Physics for relativity",
-          "start": 34,
-          "end": 71,
-          "label": "WORK_OF_ART"
+          "id": "claim-entity-person-51-66",
+          "text": "Albert Einstein",
+          "start": 51,
+          "end": 66,
+          "label": "PERSON"
         }
       ],
       "tokens": [
         {
           "id": "claim-token-0",
-          "text": "Albert",
+          "text": "The",
           "start": 0,
-          "end": 6,
-          "lemma": "Albert",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "compound",
-          "head": "Einstein"
-        },
-        {
-          "id": "claim-token-1",
-          "text": "Einstein",
-          "start": 7,
-          "end": 15,
-          "lemma": "Einstein",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "nsubj",
-          "head": "received"
-        },
-        {
-          "id": "claim-token-2",
-          "text": "received",
-          "start": 16,
-          "end": 24,
-          "lemma": "receive",
-          "pos": "VERB",
-          "tag": "VBD",
-          "dependency": "ROOT",
-          "head": "ROOT"
-        },
-        {
-          "id": "claim-token-3",
-          "text": "the",
-          "start": 25,
-          "end": 28,
+          "end": 3,
           "lemma": "the",
           "pos": "DET",
           "tag": "DT",
@@ -353,21 +574,10 @@
           "head": "Prize"
         },
         {
-          "id": "claim-token-4",
-          "text": "1921",
-          "start": 29,
-          "end": 33,
-          "lemma": "1921",
-          "pos": "NUM",
-          "tag": "CD",
-          "dependency": "nummod",
-          "head": "Prize"
-        },
-        {
-          "id": "claim-token-5",
+          "id": "claim-token-1",
           "text": "Nobel",
-          "start": 34,
-          "end": 39,
+          "start": 4,
+          "end": 9,
           "lemma": "Nobel",
           "pos": "PROPN",
           "tag": "NNP",
@@ -375,21 +585,21 @@
           "head": "Prize"
         },
         {
-          "id": "claim-token-6",
+          "id": "claim-token-2",
           "text": "Prize",
-          "start": 40,
-          "end": 45,
+          "start": 10,
+          "end": 15,
           "lemma": "Prize",
           "pos": "PROPN",
           "tag": "NNP",
-          "dependency": "dobj",
-          "head": "received"
+          "dependency": "nsubjpass",
+          "head": "awarded"
         },
         {
-          "id": "claim-token-7",
+          "id": "claim-token-3",
           "text": "in",
-          "start": 46,
-          "end": 48,
+          "start": 16,
+          "end": 18,
           "lemma": "in",
           "pos": "ADP",
           "tag": "IN",
@@ -397,10 +607,10 @@
           "head": "Prize"
         },
         {
-          "id": "claim-token-8",
+          "id": "claim-token-4",
           "text": "Physics",
-          "start": 49,
-          "end": 56,
+          "start": 19,
+          "end": 26,
           "lemma": "Physics",
           "pos": "PROPN",
           "tag": "NNP",
@@ -408,37 +618,213 @@
           "head": "in"
         },
         {
-          "id": "claim-token-9",
+          "id": "claim-token-5",
           "text": "for",
-          "start": 57,
-          "end": 60,
+          "start": 27,
+          "end": 30,
           "lemma": "for",
           "pos": "ADP",
           "tag": "IN",
           "dependency": "prep",
-          "head": "received"
+          "head": "Prize"
+        },
+        {
+          "id": "claim-token-6",
+          "text": "1921",
+          "start": 31,
+          "end": 35,
+          "lemma": "1921",
+          "pos": "NUM",
+          "tag": "CD",
+          "dependency": "pobj",
+          "head": "for"
+        },
+        {
+          "id": "claim-token-7",
+          "text": "was",
+          "start": 36,
+          "end": 39,
+          "lemma": "be",
+          "pos": "AUX",
+          "tag": "VBD",
+          "dependency": "auxpass",
+          "head": "awarded"
+        },
+        {
+          "id": "claim-token-8",
+          "text": "awarded",
+          "start": 40,
+          "end": 47,
+          "lemma": "award",
+          "pos": "VERB",
+          "tag": "VBN",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "claim-token-9",
+          "text": "to",
+          "start": 48,
+          "end": 50,
+          "lemma": "to",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "awarded"
         },
         {
           "id": "claim-token-10",
-          "text": "relativity",
-          "start": 61,
+          "text": "Albert",
+          "start": 51,
+          "end": 57,
+          "lemma": "Albert",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "Einstein"
+        },
+        {
+          "id": "claim-token-11",
+          "text": "Einstein",
+          "start": 58,
+          "end": 66,
+          "lemma": "Einstein",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "pobj",
+          "head": "to"
+        },
+        {
+          "id": "claim-token-12",
+          "text": ",",
+          "start": 66,
+          "end": 67,
+          "lemma": ",",
+          "pos": "PUNCT",
+          "tag": ",",
+          "dependency": "punct",
+          "head": "awarded"
+        },
+        {
+          "id": "claim-token-13",
+          "text": "and",
+          "start": 68,
           "end": 71,
-          "lemma": "relativity",
+          "lemma": "and",
+          "pos": "CCONJ",
+          "tag": "CC",
+          "dependency": "cc",
+          "head": "awarded"
+        },
+        {
+          "id": "claim-token-14",
+          "text": "the",
+          "start": 72,
+          "end": 75,
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "prize"
+        },
+        {
+          "id": "claim-token-15",
+          "text": "prize",
+          "start": 76,
+          "end": 81,
+          "lemma": "prize",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "nsubjpass",
+          "head": "awarded"
+        },
+        {
+          "id": "claim-token-16",
+          "text": "was",
+          "start": 82,
+          "end": 85,
+          "lemma": "be",
+          "pos": "AUX",
+          "tag": "VBD",
+          "dependency": "auxpass",
+          "head": "awarded"
+        },
+        {
+          "id": "claim-token-17",
+          "text": "awarded",
+          "start": 86,
+          "end": 93,
+          "lemma": "award",
+          "pos": "VERB",
+          "tag": "VBN",
+          "dependency": "conj",
+          "head": "awarded"
+        },
+        {
+          "id": "claim-token-18",
+          "text": "for",
+          "start": 94,
+          "end": 97,
+          "lemma": "for",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "awarded"
+        },
+        {
+          "id": "claim-token-19",
+          "text": "his",
+          "start": 98,
+          "end": 101,
+          "lemma": "his",
+          "pos": "PRON",
+          "tag": "PRP$",
+          "dependency": "poss",
+          "head": "theory"
+        },
+        {
+          "id": "claim-token-20",
+          "text": "theory",
+          "start": 102,
+          "end": 108,
+          "lemma": "theory",
           "pos": "NOUN",
           "tag": "NN",
           "dependency": "pobj",
           "head": "for"
         },
         {
-          "id": "claim-token-11",
+          "id": "claim-token-21",
+          "text": "of",
+          "start": 109,
+          "end": 111,
+          "lemma": "of",
+          "pos": "ADP",
+          "tag": "IN",
+          "dependency": "prep",
+          "head": "theory"
+        },
+        {
+          "id": "claim-token-22",
+          "text": "relativity",
+          "start": 112,
+          "end": 122,
+          "lemma": "relativity",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "pobj",
+          "head": "of"
+        },
+        {
+          "id": "claim-token-23",
           "text": ".",
-          "start": 71,
-          "end": 72,
+          "start": 122,
+          "end": 123,
           "lemma": ".",
           "pos": "PUNCT",
           "tag": ".",
           "dependency": "punct",
-          "head": "received"
+          "head": "awarded"
         }
       ],
       "status": "complete",
@@ -452,102 +838,61 @@
             "id": "atom-1-frame-1",
             "predicate": {
               "id": "atom-1-frame-1-predicate",
-              "text": "received",
-              "start": 16,
-              "end": 24
+              "text": "awarded",
+              "start": 40,
+              "end": 47
             },
             "subjects": [
               {
                 "id": "atom-1-frame-1-subject-1",
-                "text": "Albert Einstein",
+                "text": "The Nobel Prize in Physics for 1921",
                 "start": 0,
-                "end": 15
+                "end": 35
               }
             ],
-            "coreArguments": [
-              {
-                "id": "atom-1-frame-1-argument-1",
-                "text": "the 1921 Nobel Prize in Physics",
-                "start": 25,
-                "end": 56,
-                "role": "direct_object"
-              }
-            ],
+            "coreArguments": [],
             "adjuncts": [],
             "otherModifiers": [
               {
                 "id": "atom-1-frame-1-other-modifier-1",
-                "text": "for relativity",
-                "start": 57,
-                "end": 71
+                "text": "to Albert Einstein",
+                "start": 48,
+                "end": 66
               }
             ]
           }
         ],
         "cues": [
           {
-            "id": "atom-1-cue-temporal-29-33",
+            "id": "atom-1-cue-temporal-31-35",
             "text": "1921",
-            "start": 29,
-            "end": 33,
+            "start": 31,
+            "end": 35,
             "kind": "temporal"
           }
         ],
         "entities": [
           {
-            "id": "atom-1-entity-person-0-15",
-            "text": "Albert Einstein",
+            "id": "atom-1-entity-work_of_art-0-26",
+            "text": "The Nobel Prize in Physics",
             "start": 0,
-            "end": 15,
-            "label": "PERSON"
+            "end": 26,
+            "label": "WORK_OF_ART"
           },
           {
-            "id": "atom-1-entity-work_of_art-34-71",
-            "text": "Nobel Prize in Physics for relativity",
-            "start": 34,
-            "end": 71,
-            "label": "WORK_OF_ART"
+            "id": "atom-1-entity-person-51-66",
+            "text": "Albert Einstein",
+            "start": 51,
+            "end": 66,
+            "label": "PERSON"
           }
         ],
         "tokens": [
           {
             "id": "atom-1-token-0",
-            "text": "Albert",
+            "text": "The",
             "start": 0,
-            "end": 6,
-            "lemma": "Albert",
-            "pos": "PROPN",
-            "tag": "NNP",
-            "dependency": "compound",
-            "head": "Einstein"
-          },
-          {
-            "id": "atom-1-token-1",
-            "text": "Einstein",
-            "start": 7,
-            "end": 15,
-            "lemma": "Einstein",
-            "pos": "PROPN",
-            "tag": "NNP",
-            "dependency": "nsubj",
-            "head": "received"
-          },
-          {
-            "id": "atom-1-token-2",
-            "text": "received",
-            "start": 16,
-            "end": 24,
-            "lemma": "receive",
-            "pos": "VERB",
-            "tag": "VBD",
-            "dependency": "ROOT",
-            "head": "ROOT"
-          },
-          {
-            "id": "atom-1-token-3",
-            "text": "the",
-            "start": 25,
-            "end": 28,
+            "end": 3,
             "lemma": "the",
             "pos": "DET",
             "tag": "DT",
@@ -555,21 +900,10 @@
             "head": "Prize"
           },
           {
-            "id": "atom-1-token-4",
-            "text": "1921",
-            "start": 29,
-            "end": 33,
-            "lemma": "1921",
-            "pos": "NUM",
-            "tag": "CD",
-            "dependency": "nummod",
-            "head": "Prize"
-          },
-          {
-            "id": "atom-1-token-5",
+            "id": "atom-1-token-1",
             "text": "Nobel",
-            "start": 34,
-            "end": 39,
+            "start": 4,
+            "end": 9,
             "lemma": "Nobel",
             "pos": "PROPN",
             "tag": "NNP",
@@ -577,21 +911,21 @@
             "head": "Prize"
           },
           {
-            "id": "atom-1-token-6",
+            "id": "atom-1-token-2",
             "text": "Prize",
-            "start": 40,
-            "end": 45,
+            "start": 10,
+            "end": 15,
             "lemma": "Prize",
             "pos": "PROPN",
             "tag": "NNP",
-            "dependency": "dobj",
-            "head": "received"
+            "dependency": "nsubjpass",
+            "head": "awarded"
           },
           {
-            "id": "atom-1-token-7",
+            "id": "atom-1-token-3",
             "text": "in",
-            "start": 46,
-            "end": 48,
+            "start": 16,
+            "end": 18,
             "lemma": "in",
             "pos": "ADP",
             "tag": "IN",
@@ -599,10 +933,10 @@
             "head": "Prize"
           },
           {
-            "id": "atom-1-token-8",
+            "id": "atom-1-token-4",
             "text": "Physics",
-            "start": 49,
-            "end": 56,
+            "start": 19,
+            "end": 26,
             "lemma": "Physics",
             "pos": "PROPN",
             "tag": "NNP",
@@ -610,37 +944,311 @@
             "head": "in"
           },
           {
-            "id": "atom-1-token-9",
+            "id": "atom-1-token-5",
             "text": "for",
-            "start": 57,
-            "end": 60,
+            "start": 27,
+            "end": 30,
             "lemma": "for",
             "pos": "ADP",
             "tag": "IN",
             "dependency": "prep",
-            "head": "received"
+            "head": "Prize"
+          },
+          {
+            "id": "atom-1-token-6",
+            "text": "1921",
+            "start": 31,
+            "end": 35,
+            "lemma": "1921",
+            "pos": "NUM",
+            "tag": "CD",
+            "dependency": "pobj",
+            "head": "for"
+          },
+          {
+            "id": "atom-1-token-7",
+            "text": "was",
+            "start": 36,
+            "end": 39,
+            "lemma": "be",
+            "pos": "AUX",
+            "tag": "VBD",
+            "dependency": "auxpass",
+            "head": "awarded"
+          },
+          {
+            "id": "atom-1-token-8",
+            "text": "awarded",
+            "start": 40,
+            "end": 47,
+            "lemma": "award",
+            "pos": "VERB",
+            "tag": "VBN",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-1-token-9",
+            "text": "to",
+            "start": 48,
+            "end": 50,
+            "lemma": "to",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "awarded"
           },
           {
             "id": "atom-1-token-10",
-            "text": "relativity",
-            "start": 61,
-            "end": 71,
-            "lemma": "relativity",
+            "text": "Albert",
+            "start": 51,
+            "end": 57,
+            "lemma": "Albert",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Einstein"
+          },
+          {
+            "id": "atom-1-token-11",
+            "text": "Einstein",
+            "start": 58,
+            "end": 66,
+            "lemma": "Einstein",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "pobj",
+            "head": "to"
+          },
+          {
+            "id": "atom-1-token-12",
+            "text": ".",
+            "start": 66,
+            "end": 67,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "awarded"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      },
+      {
+        "atomId": "atom-2",
+        "frames": [
+          {
+            "id": "atom-2-frame-1",
+            "predicate": {
+              "id": "atom-2-frame-1-predicate",
+              "text": "awarded",
+              "start": 40,
+              "end": 47
+            },
+            "subjects": [
+              {
+                "id": "atom-2-frame-1-subject-1",
+                "text": "The Nobel Prize in Physics for 1921",
+                "start": 0,
+                "end": 35
+              }
+            ],
+            "coreArguments": [],
+            "adjuncts": [],
+            "otherModifiers": [
+              {
+                "id": "atom-2-frame-1-other-modifier-1",
+                "text": "for his theory of relativity",
+                "start": 48,
+                "end": 76
+              }
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "atom-2-cue-temporal-31-35",
+            "text": "1921",
+            "start": 31,
+            "end": 35,
+            "kind": "temporal"
+          }
+        ],
+        "entities": [
+          {
+            "id": "atom-2-entity-work_of_art-0-26",
+            "text": "The Nobel Prize in Physics",
+            "start": 0,
+            "end": 26,
+            "label": "WORK_OF_ART"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-2-token-0",
+            "text": "The",
+            "start": 0,
+            "end": 3,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "Prize"
+          },
+          {
+            "id": "atom-2-token-1",
+            "text": "Nobel",
+            "start": 4,
+            "end": 9,
+            "lemma": "Nobel",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Prize"
+          },
+          {
+            "id": "atom-2-token-2",
+            "text": "Prize",
+            "start": 10,
+            "end": 15,
+            "lemma": "Prize",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "nsubjpass",
+            "head": "awarded"
+          },
+          {
+            "id": "atom-2-token-3",
+            "text": "in",
+            "start": 16,
+            "end": 18,
+            "lemma": "in",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "Prize"
+          },
+          {
+            "id": "atom-2-token-4",
+            "text": "Physics",
+            "start": 19,
+            "end": 26,
+            "lemma": "Physics",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "pobj",
+            "head": "in"
+          },
+          {
+            "id": "atom-2-token-5",
+            "text": "for",
+            "start": 27,
+            "end": 30,
+            "lemma": "for",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "Prize"
+          },
+          {
+            "id": "atom-2-token-6",
+            "text": "1921",
+            "start": 31,
+            "end": 35,
+            "lemma": "1921",
+            "pos": "NUM",
+            "tag": "CD",
+            "dependency": "pobj",
+            "head": "for"
+          },
+          {
+            "id": "atom-2-token-7",
+            "text": "was",
+            "start": 36,
+            "end": 39,
+            "lemma": "be",
+            "pos": "AUX",
+            "tag": "VBD",
+            "dependency": "auxpass",
+            "head": "awarded"
+          },
+          {
+            "id": "atom-2-token-8",
+            "text": "awarded",
+            "start": 40,
+            "end": 47,
+            "lemma": "award",
+            "pos": "VERB",
+            "tag": "VBN",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-2-token-9",
+            "text": "for",
+            "start": 48,
+            "end": 51,
+            "lemma": "for",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "awarded"
+          },
+          {
+            "id": "atom-2-token-10",
+            "text": "his",
+            "start": 52,
+            "end": 55,
+            "lemma": "his",
+            "pos": "PRON",
+            "tag": "PRP$",
+            "dependency": "poss",
+            "head": "theory"
+          },
+          {
+            "id": "atom-2-token-11",
+            "text": "theory",
+            "start": 56,
+            "end": 62,
+            "lemma": "theory",
             "pos": "NOUN",
             "tag": "NN",
             "dependency": "pobj",
             "head": "for"
           },
           {
-            "id": "atom-1-token-11",
+            "id": "atom-2-token-12",
+            "text": "of",
+            "start": 63,
+            "end": 65,
+            "lemma": "of",
+            "pos": "ADP",
+            "tag": "IN",
+            "dependency": "prep",
+            "head": "theory"
+          },
+          {
+            "id": "atom-2-token-13",
+            "text": "relativity",
+            "start": 66,
+            "end": 76,
+            "lemma": "relativity",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "pobj",
+            "head": "of"
+          },
+          {
+            "id": "atom-2-token-14",
             "text": ".",
-            "start": 71,
-            "end": 72,
+            "start": 76,
+            "end": 77,
             "lemma": ".",
             "pos": "PUNCT",
             "tag": ".",
             "dependency": "punct",
-            "head": "received"
+            "head": "awarded"
           }
         ],
         "status": "complete",
@@ -653,17 +1261,38 @@
         "analysisStatus": "complete",
         "roleAudit": "MISMATCH",
         "subjects": [
-          "Albert Einstein"
+          "The Nobel Prize in Physics for 1921"
         ],
         "predicates": [
-          "receive"
+          "award"
         ],
         "cueKinds": [
           "temporal"
         ],
         "modifierKinds": [],
         "entityLabels": [
-          "PERSON",
+          "WORK_OF_ART",
+          "PERSON"
+        ],
+        "warnings": [
+          "ROLE_CUE_MISMATCH"
+        ]
+      },
+      {
+        "atomId": "atom-2",
+        "analysisStatus": "complete",
+        "roleAudit": "MISMATCH",
+        "subjects": [
+          "The Nobel Prize in Physics for 1921"
+        ],
+        "predicates": [
+          "award"
+        ],
+        "cueKinds": [
+          "temporal"
+        ],
+        "modifierKinds": [],
+        "entityLabels": [
           "WORK_OF_ART"
         ],
         "warnings": [
@@ -678,25 +1307,37 @@
   "verdict": {
     "aggregationSchemaVersion": 3,
     "claimId": "showcase-history-einstein",
-    "composition": "SINGLE",
+    "composition": "AND",
     "verdict": "REFUTED",
     "positions": {
       "supportPosition": false,
       "refutePosition": true,
       "materialOmissionPosition": false,
-      "supportObligationIds": [],
-      "refuteObligationIds": [
+      "supportObligationIds": [
         "atom-1"
+      ],
+      "refuteObligationIds": [
+        "atom-2"
       ],
       "unresolvedObligationIds": []
     },
     "obligations": [
       {
         "obligationId": "atom-1",
+        "state": "SUPPORTED",
+        "supportEdgeIds": [
+          "edge:SUPPORTS:inference:proof:atom-1:attribute_compare:1:obligation:showcase-history-einstein:atom-1"
+        ],
+        "refuteEdgeIds": [],
+        "unselectedCandidateCount": 0,
+        "provisionalRelationCount": 4
+      },
+      {
+        "obligationId": "atom-2",
         "state": "REFUTED",
         "supportEdgeIds": [],
         "refuteEdgeIds": [
-          "edge:REFUTES:inference:proof:atom-1:attribute_compare:1:obligation:showcase-history-einstein:atom-1"
+          "edge:REFUTES:inference:proof:atom-2:attribute_compare:2:obligation:showcase-history-einstein:atom-2"
         ],
         "unselectedCandidateCount": 0,
         "provisionalRelationCount": 3
@@ -705,18 +1346,22 @@
     "warnings": [
       {
         "code": "PROVISIONAL_EVIDENCE_EXCLUDED",
-        "message": "3 assessed relation(s) for obligation atom-1 are provisional because the evidence is not sufficient."
+        "message": "4 assessed relation(s) for obligation atom-1 are provisional because the evidence is not sufficient."
+      },
+      {
+        "code": "PROVISIONAL_EVIDENCE_EXCLUDED",
+        "message": "3 assessed relation(s) for obligation atom-2 are provisional because the evidence is not sufficient."
       }
     ],
     "ruleTrace": [
-      "SINGLE maps its one obligation's validated relations directly.",
+      "AND is refuted when any obligation is refuted-only.",
       "Validated positions — support: no; refute: yes.",
       "Verdict: REFUTED."
     ]
   },
   "recordedWith": {
     "pipelineRevision": "submission-ready-v2",
-    "inputDigest": "b409b79e9cd64233bb66ffa1a67b6b9aec78a7ace51186cf7654b8b47641aba4",
+    "inputDigest": "fb0defd5c858496db39dd1b06ac08debcafc705c87d0460cd87eabcadc6d7463",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
     "retrievalMethod": "HYBRID",
@@ -725,11 +1370,11 @@
     "linguisticsModel": "en_core_web_sm@3.8.0"
   },
   "timingsSeconds": {
-    "decomposition": 16.157,
-    "retrievalAndLinguistics": 0.185,
-    "evidenceAssessment": 19.571,
-    "symbolicReasoning": 11.996,
-    "aggregation": 0.011,
-    "total": 47.921
+    "decomposition": 16.783,
+    "retrievalAndLinguistics": 0.113,
+    "evidenceAssessment": 28.515,
+    "symbolicReasoning": 29.28,
+    "aggregation": 0.02,
+    "total": 74.712
   }
 }

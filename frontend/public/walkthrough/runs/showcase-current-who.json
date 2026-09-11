@@ -43,55 +43,55 @@
             {
               "id": "doc-391d646f37ef::sentence-11",
               "documentId": "doc-391d646f37ef",
-              "text": "This does not mean the pandemic itself is over, but the global emergency it caused is – for now. ",
+              "text": "This does not mean the pandemic itself is over, but the global emergency it caused is – for now.",
               "start": 892,
-              "end": 989,
+              "end": 988,
               "direction": "NEXT"
             }
           ],
           "context": "This led WHO to declare a Public Health Emergency of International Concern (PHEIC) on 30 January 2020 and to characterize the outbreak as a pandemic on 11 March 2020. On 5 May 2023, more than three years into the pandemic, the WHO Emergency Committee on COVID-19 recommended to the Director-General, who accepted the recommendation, that given the disease was by now well established and ongoing, it no longer fit the definition of a PHEIC. This does not mean the pandemic itself is over, but the global emergency it caused is – for now."
         },
         {
-          "id": "doc-6824fb361fee::sentence-2",
+          "id": "doc-6824fb361fee::sentence-1",
           "documentId": "doc-6824fb361fee",
           "text": "On the 30th January 2020, on the advice of an Emergency Committee convened under the International Health Regulations, I declared a public health emergency of international concern over the global outbreak of COVID-19 – the highest level of alarm under international law.\n",
-          "start": 14,
-          "end": 286,
+          "start": 0,
+          "end": 272,
           "contextSpans": [],
           "context": "On the 30th January 2020, on the advice of an Emergency Committee convened under the International Health Regulations, I declared a public health emergency of international concern over the global outbreak of COVID-19 – the highest level of alarm under international law."
         },
         {
-          "id": "doc-6824fb361fee::sentence-18",
+          "id": "doc-6824fb361fee::sentence-17",
           "documentId": "doc-6824fb361fee",
           "text": "It is therefore with great hope that I declare COVID-19 over as a global health emergency.\n",
-          "start": 2149,
-          "end": 2240,
+          "start": 2135,
+          "end": 2226,
           "contextSpans": [
             {
-              "id": "doc-6824fb361fee::sentence-17",
+              "id": "doc-6824fb361fee::sentence-16",
               "documentId": "doc-6824fb361fee",
               "text": "I have accepted that advice.\n",
-              "start": 2120,
-              "end": 2149,
+              "start": 2106,
+              "end": 2135,
               "direction": "PREVIOUS"
             },
             {
-              "id": "doc-6824fb361fee::sentence-19",
+              "id": "doc-6824fb361fee::sentence-18",
               "documentId": "doc-6824fb361fee",
-              "text": "However, that does not mean COVID-19 is over as a global health threat.\n",
-              "start": 2240,
-              "end": 2312,
+              "text": "However, that does not mean COVID-19 is over as a global health threat.",
+              "start": 2226,
+              "end": 2297,
               "direction": "NEXT"
             }
           ],
           "context": "I have accepted that advice. It is therefore with great hope that I declare COVID-19 over as a global health emergency. However, that does not mean COVID-19 is over as a global health threat."
         },
         {
-          "id": "doc-6824fb361fee::sentence-4",
+          "id": "doc-6824fb361fee::sentence-3",
           "documentId": "doc-6824fb361fee",
           "text": "In the three years since then, COVID-19 has turned our world upside down.\n",
-          "start": 380,
-          "end": 454,
+          "start": 366,
+          "end": 440,
           "contextSpans": [],
           "context": "In the three years since then, COVID-19 has turned our world upside down."
         },
@@ -114,13 +114,13 @@
           "context": "Cases of novel coronavirus (nCoV) were first detected in China in December 2019, with the virus spreading rapidly to other countries across the world. This led WHO to declare a Public Health Emergency of International Concern (PHEIC) on 30 January 2020 and to characterize the outbreak as a pandemic on 11 March 2020."
         },
         {
-          "id": "doc-391d646f37ef::sentence-13",
+          "id": "doc-391d646f37ef::sentence-7",
           "documentId": "doc-391d646f37ef",
-          "text": "Since the COVID-19 pandemic started, over 2 million people in the European Region have died from the disease.\n",
-          "start": 1136,
-          "end": 1246,
+          "text": "The coronavirus disease 2019 (COVID-19) pandemic is a global outbreak of coronavirus – an infectious disease caused by the severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2).\n",
+          "start": 115,
+          "end": 300,
           "contextSpans": [],
-          "context": "Since the COVID-19 pandemic started, over 2 million people in the European Region have died from the disease."
+          "context": "The coronavirus disease 2019 (COVID-19) pandemic is a global outbreak of coronavirus – an infectious disease caused by the severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2)."
         }
       ]
     },
@@ -128,53 +128,53 @@
       "atomId": "atom-2",
       "spans": [
         {
-          "id": "doc-6824fb361fee::sentence-19",
+          "id": "doc-6824fb361fee::sentence-18",
           "documentId": "doc-6824fb361fee",
-          "text": "However, that does not mean COVID-19 is over as a global health threat.\n",
-          "start": 2240,
-          "end": 2312,
+          "text": "However, that does not mean COVID-19 is over as a global health threat.",
+          "start": 2226,
+          "end": 2297,
           "contextSpans": [
             {
-              "id": "doc-6824fb361fee::sentence-18",
+              "id": "doc-6824fb361fee::sentence-17",
               "documentId": "doc-6824fb361fee",
               "text": "It is therefore with great hope that I declare COVID-19 over as a global health emergency.\n",
-              "start": 2149,
-              "end": 2240,
+              "start": 2135,
+              "end": 2226,
               "direction": "PREVIOUS"
             }
           ],
           "context": "It is therefore with great hope that I declare COVID-19 over as a global health emergency. However, that does not mean COVID-19 is over as a global health threat."
         },
         {
-          "id": "doc-6824fb361fee::sentence-2",
+          "id": "doc-6824fb361fee::sentence-1",
           "documentId": "doc-6824fb361fee",
           "text": "On the 30th January 2020, on the advice of an Emergency Committee convened under the International Health Regulations, I declared a public health emergency of international concern over the global outbreak of COVID-19 – the highest level of alarm under international law.\n",
-          "start": 14,
-          "end": 286,
+          "start": 0,
+          "end": 272,
           "contextSpans": [],
           "context": "On the 30th January 2020, on the advice of an Emergency Committee convened under the International Health Regulations, I declared a public health emergency of international concern over the global outbreak of COVID-19 – the highest level of alarm under international law."
         },
         {
-          "id": "doc-6824fb361fee::sentence-18",
+          "id": "doc-6824fb361fee::sentence-17",
           "documentId": "doc-6824fb361fee",
           "text": "It is therefore with great hope that I declare COVID-19 over as a global health emergency.\n",
-          "start": 2149,
-          "end": 2240,
+          "start": 2135,
+          "end": 2226,
           "contextSpans": [
             {
-              "id": "doc-6824fb361fee::sentence-17",
+              "id": "doc-6824fb361fee::sentence-16",
               "documentId": "doc-6824fb361fee",
               "text": "I have accepted that advice.\n",
-              "start": 2120,
-              "end": 2149,
+              "start": 2106,
+              "end": 2135,
               "direction": "PREVIOUS"
             },
             {
-              "id": "doc-6824fb361fee::sentence-19",
+              "id": "doc-6824fb361fee::sentence-18",
               "documentId": "doc-6824fb361fee",
-              "text": "However, that does not mean COVID-19 is over as a global health threat.\n",
-              "start": 2240,
-              "end": 2312,
+              "text": "However, that does not mean COVID-19 is over as a global health threat.",
+              "start": 2226,
+              "end": 2297,
               "direction": "NEXT"
             }
           ],
@@ -198,9 +198,9 @@
             {
               "id": "doc-391d646f37ef::sentence-11",
               "documentId": "doc-391d646f37ef",
-              "text": "This does not mean the pandemic itself is over, but the global emergency it caused is – for now. ",
+              "text": "This does not mean the pandemic itself is over, but the global emergency it caused is – for now.",
               "start": 892,
-              "end": 989,
+              "end": 988,
               "direction": "NEXT"
             }
           ],
@@ -216,13 +216,22 @@
           "context": "The coronavirus disease 2019 (COVID-19) pandemic is a global outbreak of coronavirus – an infectious disease caused by the severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2)."
         },
         {
-          "id": "doc-391d646f37ef::sentence-13",
+          "id": "doc-391d646f37ef::sentence-9",
           "documentId": "doc-391d646f37ef",
-          "text": "Since the COVID-19 pandemic started, over 2 million people in the European Region have died from the disease.\n",
-          "start": 1136,
-          "end": 1246,
-          "contextSpans": [],
-          "context": "Since the COVID-19 pandemic started, over 2 million people in the European Region have died from the disease."
+          "text": "This led WHO to declare a Public Health Emergency of International Concern (PHEIC) on 30 January 2020 and to characterize the outbreak as a pandemic on 11 March 2020.\n",
+          "start": 451,
+          "end": 618,
+          "contextSpans": [
+            {
+              "id": "doc-391d646f37ef::sentence-8",
+              "documentId": "doc-391d646f37ef",
+              "text": "Cases of novel coronavirus (nCoV) were first detected in China in December 2019, with the virus spreading rapidly to other countries across the world. ",
+              "start": 300,
+              "end": 451,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "Cases of novel coronavirus (nCoV) were first detected in China in December 2019, with the virus spreading rapidly to other countries across the world. This led WHO to declare a Public Health Emergency of International Concern (PHEIC) on 30 January 2020 and to characterize the outbreak as a pandemic on 11 March 2020."
         }
       ]
     }
@@ -233,17 +242,17 @@
         "atomId": "atom-1",
         "supportSpanIds": [
           "doc-391d646f37ef::sentence-10",
-          "doc-6824fb361fee::sentence-18"
+          "doc-6824fb361fee::sentence-17"
         ],
         "refuteSpanIds": [],
         "contextSpanIds": [
-          "doc-6824fb361fee::sentence-2",
-          "doc-6824fb361fee::sentence-4",
+          "doc-6824fb361fee::sentence-1",
+          "doc-6824fb361fee::sentence-3",
           "doc-391d646f37ef::sentence-9"
         ],
         "sufficiency": "SUFFICIENT",
         "missingInformation": "",
-        "reason": "The evidence explicitly states that the WHO ended the COVID-19 public-health emergency on 5 May 2023.",
+        "reason": "The evidence explicitly states that on 5 May 2023, WHO ended the COVID-19 public-health emergency.",
         "scopeChecks": [
           {
             "spanId": "doc-391d646f37ef::sentence-10",
@@ -256,7 +265,7 @@
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
-            "spanId": "doc-6824fb361fee::sentence-2",
+            "spanId": "doc-6824fb361fee::sentence-1",
             "documentId": "doc-6824fb361fee",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
@@ -266,7 +275,7 @@
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
-            "spanId": "doc-6824fb361fee::sentence-18",
+            "spanId": "doc-6824fb361fee::sentence-17",
             "documentId": "doc-6824fb361fee",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
@@ -276,7 +285,7 @@
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
-            "spanId": "doc-6824fb361fee::sentence-4",
+            "spanId": "doc-6824fb361fee::sentence-3",
             "documentId": "doc-6824fb361fee",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
@@ -296,7 +305,7 @@
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
-            "spanId": "doc-391d646f37ef::sentence-13",
+            "spanId": "doc-391d646f37ef::sentence-7",
             "documentId": "doc-391d646f37ef",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
@@ -310,41 +319,41 @@
       {
         "atomId": "atom-2",
         "supportSpanIds": [
-          "doc-6824fb361fee::sentence-19",
-          "doc-6824fb361fee::sentence-18"
+          "doc-6824fb361fee::sentence-18",
+          "doc-6824fb361fee::sentence-17"
         ],
         "refuteSpanIds": [],
         "contextSpanIds": [
-          "doc-6824fb361fee::sentence-2",
+          "doc-6824fb361fee::sentence-1",
           "doc-391d646f37ef::sentence-10",
           "doc-391d646f37ef::sentence-7"
         ],
         "sufficiency": "SUFFICIENT",
         "missingInformation": "",
-        "reason": "The evidence explicitly states that WHO said COVID-19 remained a global health threat after ending the public-health emergency.",
+        "reason": "The evidence explicitly states that WHO said COVID-19 remained a global health threat.",
         "scopeChecks": [
           {
-            "spanId": "doc-6824fb361fee::sentence-19",
-            "documentId": "doc-6824fb361fee",
-            "status": "NOT_APPLICABLE",
-            "claimJurisdictions": [],
-            "evidenceJurisdictions": [
-              "CN"
-            ],
-            "reason": "The atomic claim does not state a recognized jurisdiction."
-          },
-          {
-            "spanId": "doc-6824fb361fee::sentence-2",
-            "documentId": "doc-6824fb361fee",
-            "status": "NOT_APPLICABLE",
-            "claimJurisdictions": [],
-            "evidenceJurisdictions": [
-              "CN"
-            ],
-            "reason": "The atomic claim does not state a recognized jurisdiction."
-          },
-          {
             "spanId": "doc-6824fb361fee::sentence-18",
+            "documentId": "doc-6824fb361fee",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "CN"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-6824fb361fee::sentence-1",
+            "documentId": "doc-6824fb361fee",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "CN"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-6824fb361fee::sentence-17",
             "documentId": "doc-6824fb361fee",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
@@ -374,7 +383,7 @@
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
-            "spanId": "doc-391d646f37ef::sentence-13",
+            "spanId": "doc-391d646f37ef::sentence-9",
             "documentId": "doc-391d646f37ef",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
@@ -402,7 +411,7 @@
       "relation": null,
       "premiseIds": [
         "evidence:atom-1:doc-391d646f37ef:doc-391d646f37ef::sentence-10",
-        "evidence:atom-1:doc-6824fb361fee:doc-6824fb361fee::sentence-18"
+        "evidence:atom-1:doc-6824fb361fee:doc-6824fb361fee::sentence-17"
       ],
       "premises": [
         {
@@ -416,11 +425,11 @@
           "itemCount": null
         },
         {
-          "id": "evidence:atom-1:doc-6824fb361fee:doc-6824fb361fee::sentence-18",
+          "id": "evidence:atom-1:doc-6824fb361fee:doc-6824fb361fee::sentence-17",
           "documentId": "doc-6824fb361fee",
           "text": "It is therefore with great hope that I declare COVID-19 over as a global health emergency.\n",
-          "start": 2149,
-          "end": 2240,
+          "start": 2135,
+          "end": 2226,
           "kind": "EVIDENCE",
           "contentHash": null,
           "itemCount": null
@@ -446,7 +455,7 @@
             "id": "input-2",
             "operation": "LOOKUP",
             "inputIds": [
-              "evidence:atom-1:doc-6824fb361fee:doc-6824fb361fee::sentence-18"
+              "evidence:atom-1:doc-6824fb361fee:doc-6824fb361fee::sentence-17"
             ],
             "outputType": "FACT",
             "description": "Read an unchanged server-owned premise."
@@ -1357,7 +1366,7 @@
   },
   "recordedWith": {
     "pipelineRevision": "submission-ready-v2",
-    "inputDigest": "d5b769bd83b448d82ce4aa64270ff1cae5e250da02e420746129d0079f17d49a",
+    "inputDigest": "b45ec4a4d660628b40bf5445c157e6dd7754ea09d8a4d1191442c2ac55faed5f",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
     "retrievalMethod": "HYBRID",
@@ -1366,11 +1375,11 @@
     "linguisticsModel": "en_core_web_sm@3.8.0"
   },
   "timingsSeconds": {
-    "decomposition": 17.486,
-    "retrievalAndLinguistics": 0.171,
-    "evidenceAssessment": 24.971,
-    "symbolicReasoning": 22.365,
-    "aggregation": 0.004,
-    "total": 64.997
+    "decomposition": 24.031,
+    "retrievalAndLinguistics": 0.447,
+    "evidenceAssessment": 34.884,
+    "symbolicReasoning": 16.031,
+    "aggregation": 0.003,
+    "total": 75.397
   }
 }

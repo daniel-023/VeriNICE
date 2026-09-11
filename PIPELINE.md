@@ -1,4 +1,4 @@
-# VeriTrace pipeline reference
+# VeriNICE pipeline reference
 
 ## Current scope
 

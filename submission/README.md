@@ -22,6 +22,9 @@ files.
 The private 32-case AVeriTeC bundle remains available for internal auditing.
 The checked-in walkthrough publishes a separate 18-case qualitative showcase:
 15 constructed claims grounded in authentic source excerpts and three curated
-AVeriTeC cases. Walkthrough schema v6 includes the presentation audit metadata;
+AVeriTeC cases, with three entries in each displayed category and a 7/7/2/2
+supported/refuted/insufficient/conflicting verdict distribution. Source excerpts
+are contiguous, sentence-complete, and accompanied by a visible selection
+rationale. Walkthrough schema v6 includes the presentation audit metadata;
 graph schema v4 exposes resolved programs as inspectable inference nodes while
 keeping unresolved attempts in the Symbolic Checks panel.

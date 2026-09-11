@@ -1,6 +1,7 @@
-# VeriTrace
+# VeriNICE
 
-VeriTrace shows how a claim-verification result is produced. It decomposes a
+VeriNICE (Verification via Neuro-symbolic Inference with Compositional Evidence)
+shows how a claim-verification result is produced. It decomposes a
 complex claim, retrieves candidate evidence, assesses the evidence against each
 atomic claim, applies supported symbolic rules, and exposes the deterministic
 aggregation behind the verdict.
@@ -118,15 +119,26 @@ set.
 
 ## Demo data and licences
 
-The default showcase is a qualitative collection of 18 cases grouped under
-Science, History, Geography, Technology, and Current Affairs. Fifteen are
+The default showcase is a qualitative collection of 18 cases with three entries
+in each displayed category: Science, History, Geography, Technology, Current
+Affairs, and AVeriTeC. Fifteen are
 constructed claims paired with two 150--400-word excerpts from distinct
-authoritative sources; six are curated AVeriTeC cases retained for realism.
+authoritative sources; three are curated AVeriTeC cases retained for realism.
 The claim and intended interpretation may be authored, but quoted evidence is
 stored source text rather than an evidence card, paraphrase, or synthetic
 quotation. Publisher, canonical URL, retrieval date, extraction offsets, and
-content hashes are recorded by the offline preparation process. Maintainers
+content hashes are recorded by the offline preparation process. Excerpts are
+contiguous and sentence-complete, and the full publisher page remains linked.
+Maintainers
 must review redistribution permission before publishing an excerpt.
+
+`data/manifests/showcase-sources.json` is the single authored authority for
+showcase order, per-case demo focus, excerpt limits, displayed-category balance,
+and verdict distribution. Offline preparation validates that policy and copies it
+into `data/demo/showcase/bundle.json`; the backend and static walkthrough build
+consume the generated policy instead of maintaining parallel case lists or counts.
+The separate presentation audit remains independent so expected model outputs
+cannot become inference inputs.
 
 The approved 32-case AVeriTeC bundle is stored in `data/demo/averitec/` and
 contains claims, reference labels, recovered source documents, source metadata,
@@ -136,13 +148,13 @@ dataset for optional offline evaluation and are never copied into demo
 documents or model inputs. Reference labels remain dataset metadata and are
 never used as pipeline inputs.
 
-The interface offers five category buttons and one selector grouped into
+The interface offers five subject-category buttons plus AVeriTeC and one selector grouped into
 source-grounded examples and AVeriTeC cases. The separate 32-case AVeriTeC
 bundle remains available for internal regression and error analysis; it is not
 presented as the public showcase or as a benchmark result.
 
 See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for AVeriTeC attribution,
-source-text clearance, and model notices. VeriTrace code is released under the
+source-text clearance, and model notices. VeriNICE code is released under the
 [MIT License](LICENSE).
 
 See [PIPELINE.md](PIPELINE.md) for model and API detail, and

@@ -276,6 +276,37 @@ def _subject_before_copula(text: str) -> str:
     return normalize(match.group(1)) if match else ""
 
 
+def _nobel_recipient_claim(text: str) -> tuple[str, str] | None:
+    """Extract recipient and prize year without treating ``for 1921`` as a reason."""
+    prize_first = re.match(
+        r"(?i)^the nobel prize in .+? for (?P<year>\d{4}) was awarded to "
+        r"(?P<recipient>.+?)[.!?]?$",
+        text.strip(),
+    )
+    if prize_first:
+        return prize_first.group("recipient"), prize_first.group("year")
+    recipient_first = re.match(
+        r"(?i)^(?P<recipient>.+?) (?:received|was awarded) (?:the )?"
+        r"(?P<year>\d{4}) nobel prize(?: in .+?)?[.!?]?$",
+        text.strip(),
+    )
+    if recipient_first:
+        return recipient_first.group("recipient"), recipient_first.group("year")
+    return None
+
+
+def _nobel_reason(text: str) -> str | None:
+    """Extract an award motivation only from ``awarded/received ... for``."""
+    if not re.search(r"(?i)\b(?:nobel|prize|award|citation)\b", text):
+        return None
+    match = re.search(
+        r"(?i)\b(?:awarded|received|won|citation)\b[^.!?]{0,100}?\bfor\s+"
+        r"(?:his|her|their|its|the)?\s*(?P<reason>[^.!?]+)",
+        text,
+    )
+    return match.group("reason") if match else None
+
+
 def execute_attribute_compare(atom: PipelineAtom, premises: Sequence[SymbolicPremise]) -> dict:
     """Resolve only explicit, source-linked attribute agreements or conflicts."""
     claim = normalize(atom.text)
@@ -284,6 +315,25 @@ def execute_attribute_compare(atom: PipelineAtom, premises: Sequence[SymbolicPre
     subject = _subject_before_copula(atom.text)
     if subject and not any(token in lexical_tokens(normalized_evidence) for token in lexical_tokens(subject)):
         return _result(SymbolicStatus.unresolved, None, "attribute comparison", "Entity alignment is unresolved", "The selected premises do not explicitly identify the claim subject.", ["MISSING_ENTITY_ALIGNMENT"])
+
+    # Prize-year phrases such as "the Nobel Prize ... for 1921" identify the
+    # edition of the prize, not why it was awarded. Resolve the recipient only
+    # when the source explicitly aligns the person, year, award, and prize.
+    awardee = _nobel_recipient_claim(atom.text)
+    if awardee:
+        recipient, year = awardee
+        recipient_tokens = lexical_tokens(recipient)
+        surname = normalize(recipient).split()[-1] if normalize(recipient) else ""
+        aligned = (
+            surname in lexical_tokens(normalized_evidence)
+            and year in evidence
+            and "nobel prize" in normalized_evidence
+            and bool(re.search(r"(?i)\bawarded\b|\breceived\b", evidence))
+        )
+        if aligned:
+            return _result(SymbolicStatus.proved, "SUPPORTS", "claimed recipient = source recipient", "The recipient and prize year match the grounded source.", "Python aligned the explicit Nobel recipient, prize year, and award statement.")
+        if recipient_tokens & lexical_tokens(normalized_evidence):
+            return _result(SymbolicStatus.unresolved, None, "recipient comparison", "Prize-recipient relation is unresolved", "The source does not explicitly align the claimed recipient with the specified Nobel Prize year.", ["AMBIGUOUS_ATTRIBUTE_MAPPING"])
 
     # An explicit source negation of the claimed property is a conservative
     # refutation. This covers simple attributes without inventing a valency map.
@@ -320,15 +370,15 @@ def execute_attribute_compare(atom: PipelineAtom, premises: Sequence[SymbolicPre
         return _result(SymbolicStatus.disproved, "REFUTES", "purposes = {military, civilian}", "The source gives more than one purpose.", "Python found two explicit, incompatible values for an exclusive-purpose claim.")
 
     # Nobel-style prize citations are handled as grounded reason equality.
-    reason = (
-        re.search(r"(?i)\bfor\s+([^.!?]+)", atom.text)
-        if re.search(r"(?i)\b(?:nobel|prize|award|citation)\b", atom.text)
-        else None
-    )
+    reason = _nobel_reason(atom.text)
     source_reasons = re.findall(r"(?i)\bfor\s+(?:his|her|their)?\s*([^.!?;]+)", evidence)
     if reason and source_reasons:
-        claimed = lexical_tokens(reason.group(1))
-        matches = [value for value in source_reasons if claimed & lexical_tokens(value)]
+        relation_stopwords = {"his", "her", "their", "its"}
+        claimed = lexical_tokens(reason) - relation_stopwords
+        matches = [
+            value for value in source_reasons
+            if claimed & (lexical_tokens(value) - relation_stopwords)
+        ]
         if matches:
             return _result(SymbolicStatus.proved, "SUPPORTS", "claimed reason = source reason", "The stated reason matches a grounded source reason.", "Python compared normalized reason terms attached to the same grounded subject.")
         return _result(SymbolicStatus.disproved, "REFUTES", "claimed reason ≠ source reason", "The cited reason differs from the grounded source reason.", "Python compared explicit source and claim attributes after subject alignment.")

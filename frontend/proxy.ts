@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const BASIC_AUTH_REALM = "VeriTrace Demo";
+const BASIC_AUTH_REALM = "VeriNICE Demo";
 const noStoreHeaders = { "Cache-Control": "no-store" };
 
 function basicAuthHeader(username: string, password: string): string | null {
@@ -35,7 +35,7 @@ export function proxy(request: NextRequest) {
   );
 
   if (decision === "unconfigured") {
-    return new NextResponse("VeriTrace authentication is not configured.", {
+    return new NextResponse("VeriNICE authentication is not configured.", {
       status: 503,
       headers: noStoreHeaders,
     });

@@ -12,7 +12,9 @@
       "sourceType": "FULL_SOURCE",
       "sourceSha256": "807a8d88c56c0ea9a1d81dcca09629b8ac9b5fb4587428b8c19c67e3378d9c0b",
       "retrievedAt": null,
-      "excerptSha256": null
+      "excerptSha256": null,
+      "sourceDescriptor": "",
+      "excerptRationale": ""
     },
     {
       "id": "doc-c6bdf9df67b6",
@@ -24,7 +26,9 @@
       "sourceType": "FULL_SOURCE",
       "sourceSha256": "80deaf27ea848f727b1ca2634b6408652048c3c42528b887e44c6e10e66994a0",
       "retrievedAt": null,
-      "excerptSha256": null
+      "excerptSha256": null,
+      "sourceDescriptor": "",
+      "excerptRationale": ""
     }
   ],
   "label": "NOT_ENOUGH_EVIDENCE",

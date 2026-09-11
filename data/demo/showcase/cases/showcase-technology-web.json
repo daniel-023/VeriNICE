@@ -1,36 +1,43 @@
 {
   "id": "showcase-technology-web",
-  "claim": "Tim Berners-Lee invented the World Wide Web at CERN in 1989.",
+  "claim": "Tim Berners-Lee invented the World Wide Web at CERN in 1989 and created its first client and server in 1990.",
   "documents": [
     {
-      "id": "doc-fddf62bfb7b8",
-      "title": "A Brief History of the Internet",
-      "url": "https://www.internetsociety.org/internet/history-internet/brief-history-internet/",
+      "id": "doc-5e89b4a67d9f",
+      "title": "World Wide Web at 35",
+      "url": "https://home.cern/world-wide-web-35/",
       "layout": "PROSE",
-      "publisher": "Internet Society",
-      "retrievedAt": "2026-09-05",
+      "publisher": "CERN",
+      "retrievedAt": "2026-09-11",
       "sourceType": "SOURCE_EXCERPT",
-      "excerptSha256": "5b8c6b25ec325067aefef09796c2213f5270a95dac0faa29b52aabae30410846",
-      "sourceSha256": "708c403b2a6e6fb4477e387187c1fadbb5821d48748650b4badbe216df621c3a",
-      "text": "respond to messages. From there email took off as the largest network application for over a decade. This was a harbinger of the kind of activity we see on the World Wide Web today, namely, the enormous growth of all kinds of “people-to-people” traffic.\n\n## The Initial Internetting Concepts\n\nThe original ARPANET grew into the Internet. Internet was based on the idea that there would be multiple independent networks of rather arbitrary design, beginning with the ARPANET as the pioneering packet switching network, but soon to include packet satellite networks, ground-based packet radio networks and other networks. The Internet as we now know it embodies a key underlying technical idea, namely that of open architecture networking. In this approach, the choice of any individual network technology was not dictated by a particular network architecture but rather could be selected freely by a provider and made to interwork with the other networks through a meta-level “Internetworking Architecture”. Up until that time there was only one general method for federating networks. This was the traditional circuit switching method where networks would interconnect at the circuit level, passing individual bits on a synchronous basis along a portion of an end-to-end circuit between a pair of end locations. Recall that Kleinrock had shown in 1961 that packet switching was a more efficient switching method. Along with packet switching, special purpose interconnection arrangements between networks were another possibility. While there were other limited ways to"
+      "sourceDescriptor": "Institutional history",
+      "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+      "excerptSha256": "84a9fb6ff040c3ac64dc9f185389fce37f73f059f5efc4c214c357b1bbaa63c8",
+      "sourceSha256": "a598c38a01adf0019f31faced9bcee19edae337c1080eb15e119df2c8f62f6cd",
+      "text": "Thirty-five years ago, a young computer expert working at CERN wrote a proposal that combined accessing information with a desire for broad connectivity and openness. This proposal went on to become the World Wide Web (WWW), whose impact on society has been profound.\nSir Tim Berners-Lee’s first proposal in March 1989 was for an internet-based hypertext system to link and access information across different computers. In November 1990, this “web of information nodes in which the user can browse at will” was formalised as a proposal, “WorldWideWeb: Proposal for a HyperText Project”, by Berners-Lee, together with a CERN colleague, Robert Cailliau. By Christmas that year, Berners-Lee had implemented key components, namely html, http and URL, and created the first Web server, browser and editor (WorldWideWeb). This server is now exhibited in the Laboratory’s new visitor centre, CERN Science Gateway.\nCERN released the WWW software into the public domain on 30 April 1993, making it freely available for anyone to use and improve."
     },
     {
-      "id": "doc-2c20bee83e25",
-      "title": "Tim Berners-Lee",
-      "url": "https://www.w3.org/People/Berners-Lee/",
+      "id": "doc-cd904599bef7",
+      "title": "History",
+      "url": "https://www.w3.org/about/history/",
       "layout": "PROSE",
       "publisher": "World Wide Web Consortium",
-      "retrievedAt": "2026-09-05",
+      "retrievedAt": "2026-09-11",
       "sourceType": "SOURCE_EXCERPT",
-      "excerptSha256": "a9ae2fbfed5f4ad8af668639f4c9ecde89480052461fd1fd8aebc13611ec9e1b",
-      "sourceSha256": "e2d78f6b4c8fe858905e36b03465d30080158c1f9cef12f7ec5659ca43e5713e",
-      "text": "Sir Tim Berners-Lee invented the World Wide Web while at CERN, the European Particle Physics Laboratory, in 1989. He wrote the first web client and server in 1990. His specifications of URIs, HTTP and HTML were refined as Web technology spread.\nHe is the co-founder and CTO of Inrupt.com, a tech start-up that uses, promotes and helps develop the open source Solid platform. Solid aims to give people control and agency over their data, questioning many assumptions about how the web has to work. Solid technically is a new level of standard at the web layer, which adds features never put into the original spec, such as global single sign-on, universal access control, and a universal data API so that any app can store data in any storage place. Socially Solid is a movement away from much of the issues with the current WWW, and toward a world in which users are in control, and empowered by large amounts of data, private, shared, and public.\nSir Tim is the Founder, Emeritus Director, and an Honorary Member of the Board of Directors of the World Wide Web Consortium (W3C), a Web standards organization that he founded in 1994 which develops interoperable technologies (specifications, guidelines, software, and tools) to lead the Web to its full potential. He is a Director of the World Wide Web Foundation that was launched in 2009 to coordinate efforts to further the potential of the Web to"
+      "sourceDescriptor": "Standards-body history",
+      "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
+      "excerptSha256": "425126ecd7303b4719a09f4f8fb3b07c584d485d8a0573a0d678e9f27c4d1122",
+      "sourceSha256": "4e66dd34ced292f9b66d0cec3a084a646a515f40fdcd5e59dff88ced37a600dc",
+      "text": "History\nIn 1989, Sir Tim Berners-Lee invented the World Wide Web (see the original proposal). He coined the term \"World Wide Web,\" wrote the first World Wide Web server, \"httpd,\" and the first client program (a browser and editor), \"WorldWideWeb,\" in October 1990.\nHe wrote the first version of the \"HyperText Markup Language\" (HTML), the document formatting language with the capability for hypertext links that became the primary publishing format for the Web. His initial specifications for URIs, HTTP, and HTML were refined and discussed in larger circles as Web technology spread.\nW3C10 panel recounts early Web history.\nA Consortium for the World Wide Web\nIn 1994, the decision to form the World Wide Web Consortium came at the urging of many companies investing increasing resources into the web. Sir Tim Berners-Lee started leading the essential work of the Web Consortium team to foster a consistent architecture accommodating the rapid pace of progress in web standards for building websites, browsers, devices to experience all that the web has to offer."
     }
   ],
   "label": "SUPPORTED",
-  "displayTitle": "The invention of the World Wide Web",
+  "displayTitle": "The invention and implementation of the Web",
   "topics": [],
-  "challenges": [],
+  "challenges": [
+    "MULTI_PART",
+    "TIME"
+  ],
   "featured": false,
   "origin": "CONSTRUCTED",
   "category": "TECHNOLOGY",

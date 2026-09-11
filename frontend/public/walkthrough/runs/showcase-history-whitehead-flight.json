@@ -1,0 +1,551 @@
+{
+  "caseId": "showcase-history-whitehead-flight",
+  "schemaVersion": 6,
+  "composition": "SINGLE",
+  "warnings": [],
+  "atoms": [
+    {
+      "id": "atom-1",
+      "text": "Gustave Whitehead made the first powered flight.",
+      "sourceText": "Gustave Whitehead made the first powered flight.",
+      "start": 0,
+      "end": 48,
+      "role": "CORE"
+    }
+  ],
+  "evidence": [
+    {
+      "atomId": "atom-1",
+      "spans": [
+        {
+          "id": "doc-69ac016cf3c9::sentence-1",
+          "documentId": "doc-69ac016cf3c9",
+          "text": "State Pioneering Aircraft Gustave Whitehead’s No. 21 In 2013, the General Assembly designated Powered Flight Day as a day to honor the first flight by aviation pioneer Gustave Whitehead, a Bavarian immigrant and Bridgeport resident, and to commemorate the Connecticut aviation and aerospace industry. ",
+          "start": 0,
+          "end": 301,
+          "contextSpans": [],
+          "context": "State Pioneering Aircraft Gustave Whitehead’s No. 21 In 2013, the General Assembly designated Powered Flight Day as a day to honor the first flight by aviation pioneer Gustave Whitehead, a Bavarian immigrant and Bridgeport resident, and to commemorate the Connecticut aviation and aerospace industry."
+        },
+        {
+          "id": "doc-69ac016cf3c9::sentence-6",
+          "documentId": "doc-69ac016cf3c9",
+          "text": "After several test flights made over the summer of 1901, Whitehead made the first successful powered flight in the No. 21, in Fairfield on August 14, 1901.",
+          "start": 925,
+          "end": 1080,
+          "contextSpans": [],
+          "context": "After several test flights made over the summer of 1901, Whitehead made the first successful powered flight in the No. 21, in Fairfield on August 14, 1901."
+        },
+        {
+          "id": "doc-3e6227a31d59::sentence-2",
+          "documentId": "doc-3e6227a31d59",
+          "text": "- Why did Whitehead not call the attention of the readers of the Scientific American to his claim to have flown a very different powered machine over considerable distances less than two years before?\n",
+          "start": 191,
+          "end": 392,
+          "contextSpans": [],
+          "context": "- Why did Whitehead not call the attention of the readers of the Scientific American to his claim to have flown a very different powered machine over considerable distances less than two years before?"
+        },
+        {
+          "id": "doc-3e6227a31d59::sentence-6",
+          "documentId": "doc-3e6227a31d59",
+          "text": "In its issue of December 26, 1903, just three months after Scientific American had reported Whitehead’s experiments with an obsolete hang glider, the journal noted that the brothers Wilbur and Orville Wright had made some “successful experiments” with a powered flying machine operating under the complete control of a pilot.",
+          "start": 660,
+          "end": 985,
+          "contextSpans": [
+            {
+              "id": "doc-3e6227a31d59::sentence-5",
+              "documentId": "doc-3e6227a31d59",
+              "text": "My conclusion—either Whitehead had somehow forgotten the secrets of flight, or he had never flown a powered machine at all.\n",
+              "start": 536,
+              "end": 660,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "My conclusion—either Whitehead had somehow forgotten the secrets of flight, or he had never flown a powered machine at all. In its issue of December 26, 1903, just three months after Scientific American had reported Whitehead’s experiments with an obsolete hang glider, the journal noted that the brothers Wilbur and Orville Wright had made some “successful experiments” with a powered flying machine operating under the complete control of a pilot."
+        },
+        {
+          "id": "doc-69ac016cf3c9::sentence-5",
+          "documentId": "doc-69ac016cf3c9",
+          "text": "A mechanic by trade, Whitehead also engineered and built two innovative acetylcholine-fueled engines for the No. 21: one to power the aircraft’s propellors in flight; and the other to drive the wheels for ground running to takeoff speed. ",
+          "start": 687,
+          "end": 925,
+          "contextSpans": [],
+          "context": "A mechanic by trade, Whitehead also engineered and built two innovative acetylcholine-fueled engines for the No. 21: one to power the aircraft’s propellors in flight; and the other to drive the wheels for ground running to takeoff speed."
+        },
+        {
+          "id": "doc-3e6227a31d59::sentence-5",
+          "documentId": "doc-3e6227a31d59",
+          "text": "My conclusion—either Whitehead had somehow forgotten the secrets of flight, or he had never flown a powered machine at all.\n",
+          "start": 536,
+          "end": 660,
+          "contextSpans": [
+            {
+              "id": "doc-3e6227a31d59::sentence-4",
+              "documentId": "doc-3e6227a31d59",
+              "text": "Not one of those powered machines ever left the ground. ",
+              "start": 480,
+              "end": 536,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "Not one of those powered machines ever left the ground. My conclusion—either Whitehead had somehow forgotten the secrets of flight, or he had never flown a powered machine at all."
+        }
+      ]
+    }
+  ],
+  "assessment": {
+    "obligations": [
+      {
+        "atomId": "atom-1",
+        "supportSpanIds": [
+          "doc-69ac016cf3c9::sentence-6"
+        ],
+        "refuteSpanIds": [
+          "doc-3e6227a31d59::sentence-6",
+          "doc-3e6227a31d59::sentence-5"
+        ],
+        "contextSpanIds": [
+          "doc-69ac016cf3c9::sentence-1",
+          "doc-3e6227a31d59::sentence-2",
+          "doc-69ac016cf3c9::sentence-5"
+        ],
+        "sufficiency": "SUFFICIENT",
+        "missingInformation": "",
+        "reason": "O1-E2 directly states that Whitehead made the first successful powered flight in 1901, while O1-E4 and O1-E6 provide refutations by questioning the validity of his claim.",
+        "scopeChecks": [
+          {
+            "spanId": "doc-69ac016cf3c9::sentence-1",
+            "documentId": "doc-69ac016cf3c9",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "BF"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-69ac016cf3c9::sentence-6",
+            "documentId": "doc-69ac016cf3c9",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "BF"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-3e6227a31d59::sentence-2",
+            "documentId": "doc-3e6227a31d59",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-3e6227a31d59::sentence-6",
+            "documentId": "doc-3e6227a31d59",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-69ac016cf3c9::sentence-5",
+            "documentId": "doc-69ac016cf3c9",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "BF"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-3e6227a31d59::sentence-5",
+            "documentId": "doc-3e6227a31d59",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          }
+        ]
+      }
+    ],
+    "materialOmission": {
+      "detected": false,
+      "supportSpanIds": [],
+      "contextSpanIds": [],
+      "reason": "No material omission was established."
+    }
+  },
+  "reasoning": [],
+  "linguistics": {
+    "schemaVersion": 2,
+    "claimAnalysis": {
+      "atomId": "claim",
+      "frames": [
+        {
+          "id": "claim-frame-1",
+          "predicate": {
+            "id": "claim-frame-1-predicate",
+            "text": "made",
+            "start": 18,
+            "end": 22
+          },
+          "subjects": [
+            {
+              "id": "claim-frame-1-subject-1",
+              "text": "Gustave Whitehead",
+              "start": 0,
+              "end": 17
+            }
+          ],
+          "coreArguments": [
+            {
+              "id": "claim-frame-1-argument-1",
+              "text": "the first powered flight",
+              "start": 23,
+              "end": 47,
+              "role": "direct_object"
+            }
+          ],
+          "adjuncts": [],
+          "otherModifiers": []
+        }
+      ],
+      "cues": [
+        {
+          "id": "claim-cue-numeric-27-32",
+          "text": "first",
+          "start": 27,
+          "end": 32,
+          "kind": "numeric"
+        }
+      ],
+      "entities": [
+        {
+          "id": "claim-entity-person-0-17",
+          "text": "Gustave Whitehead",
+          "start": 0,
+          "end": 17,
+          "label": "PERSON"
+        }
+      ],
+      "tokens": [
+        {
+          "id": "claim-token-0",
+          "text": "Gustave",
+          "start": 0,
+          "end": 7,
+          "lemma": "Gustave",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "compound",
+          "head": "Whitehead"
+        },
+        {
+          "id": "claim-token-1",
+          "text": "Whitehead",
+          "start": 8,
+          "end": 17,
+          "lemma": "Whitehead",
+          "pos": "PROPN",
+          "tag": "NNP",
+          "dependency": "nsubj",
+          "head": "made"
+        },
+        {
+          "id": "claim-token-2",
+          "text": "made",
+          "start": 18,
+          "end": 22,
+          "lemma": "make",
+          "pos": "VERB",
+          "tag": "VBD",
+          "dependency": "ROOT",
+          "head": "ROOT"
+        },
+        {
+          "id": "claim-token-3",
+          "text": "the",
+          "start": 23,
+          "end": 26,
+          "lemma": "the",
+          "pos": "DET",
+          "tag": "DT",
+          "dependency": "det",
+          "head": "flight"
+        },
+        {
+          "id": "claim-token-4",
+          "text": "first",
+          "start": 27,
+          "end": 32,
+          "lemma": "first",
+          "pos": "ADJ",
+          "tag": "JJ",
+          "dependency": "amod",
+          "head": "flight"
+        },
+        {
+          "id": "claim-token-5",
+          "text": "powered",
+          "start": 33,
+          "end": 40,
+          "lemma": "power",
+          "pos": "VERB",
+          "tag": "VBN",
+          "dependency": "amod",
+          "head": "flight"
+        },
+        {
+          "id": "claim-token-6",
+          "text": "flight",
+          "start": 41,
+          "end": 47,
+          "lemma": "flight",
+          "pos": "NOUN",
+          "tag": "NN",
+          "dependency": "dobj",
+          "head": "made"
+        },
+        {
+          "id": "claim-token-7",
+          "text": ".",
+          "start": 47,
+          "end": 48,
+          "lemma": ".",
+          "pos": "PUNCT",
+          "tag": ".",
+          "dependency": "punct",
+          "head": "made"
+        }
+      ],
+      "status": "complete",
+      "unresolved": []
+    },
+    "analyses": [
+      {
+        "atomId": "atom-1",
+        "frames": [
+          {
+            "id": "atom-1-frame-1",
+            "predicate": {
+              "id": "atom-1-frame-1-predicate",
+              "text": "made",
+              "start": 18,
+              "end": 22
+            },
+            "subjects": [
+              {
+                "id": "atom-1-frame-1-subject-1",
+                "text": "Gustave Whitehead",
+                "start": 0,
+                "end": 17
+              }
+            ],
+            "coreArguments": [
+              {
+                "id": "atom-1-frame-1-argument-1",
+                "text": "the first powered flight",
+                "start": 23,
+                "end": 47,
+                "role": "direct_object"
+              }
+            ],
+            "adjuncts": [],
+            "otherModifiers": []
+          }
+        ],
+        "cues": [
+          {
+            "id": "atom-1-cue-numeric-27-32",
+            "text": "first",
+            "start": 27,
+            "end": 32,
+            "kind": "numeric"
+          }
+        ],
+        "entities": [
+          {
+            "id": "atom-1-entity-person-0-17",
+            "text": "Gustave Whitehead",
+            "start": 0,
+            "end": 17,
+            "label": "PERSON"
+          }
+        ],
+        "tokens": [
+          {
+            "id": "atom-1-token-0",
+            "text": "Gustave",
+            "start": 0,
+            "end": 7,
+            "lemma": "Gustave",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "compound",
+            "head": "Whitehead"
+          },
+          {
+            "id": "atom-1-token-1",
+            "text": "Whitehead",
+            "start": 8,
+            "end": 17,
+            "lemma": "Whitehead",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dependency": "nsubj",
+            "head": "made"
+          },
+          {
+            "id": "atom-1-token-2",
+            "text": "made",
+            "start": 18,
+            "end": 22,
+            "lemma": "make",
+            "pos": "VERB",
+            "tag": "VBD",
+            "dependency": "ROOT",
+            "head": "ROOT"
+          },
+          {
+            "id": "atom-1-token-3",
+            "text": "the",
+            "start": 23,
+            "end": 26,
+            "lemma": "the",
+            "pos": "DET",
+            "tag": "DT",
+            "dependency": "det",
+            "head": "flight"
+          },
+          {
+            "id": "atom-1-token-4",
+            "text": "first",
+            "start": 27,
+            "end": 32,
+            "lemma": "first",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dependency": "amod",
+            "head": "flight"
+          },
+          {
+            "id": "atom-1-token-5",
+            "text": "powered",
+            "start": 33,
+            "end": 40,
+            "lemma": "power",
+            "pos": "VERB",
+            "tag": "VBN",
+            "dependency": "amod",
+            "head": "flight"
+          },
+          {
+            "id": "atom-1-token-6",
+            "text": "flight",
+            "start": 41,
+            "end": 47,
+            "lemma": "flight",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dependency": "dobj",
+            "head": "made"
+          },
+          {
+            "id": "atom-1-token-7",
+            "text": ".",
+            "start": 47,
+            "end": 48,
+            "lemma": ".",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dependency": "punct",
+            "head": "made"
+          }
+        ],
+        "status": "complete",
+        "unresolved": []
+      }
+    ],
+    "summaries": [
+      {
+        "atomId": "atom-1",
+        "analysisStatus": "complete",
+        "roleAudit": "MATCH",
+        "subjects": [
+          "Gustave Whitehead"
+        ],
+        "predicates": [
+          "make"
+        ],
+        "cueKinds": [
+          "numeric"
+        ],
+        "modifierKinds": [],
+        "entityLabels": [
+          "PERSON"
+        ],
+        "warnings": []
+      }
+    ],
+    "claimWarnings": [],
+    "provider": "spacy",
+    "model": "en_core_web_sm@3.8.0"
+  },
+  "verdict": {
+    "aggregationSchemaVersion": 3,
+    "claimId": "showcase-history-whitehead-flight",
+    "composition": "SINGLE",
+    "verdict": "CONFLICTING_EVIDENCE",
+    "positions": {
+      "supportPosition": true,
+      "refutePosition": true,
+      "materialOmissionPosition": false,
+      "supportObligationIds": [
+        "atom-1"
+      ],
+      "refuteObligationIds": [
+        "atom-1"
+      ],
+      "unresolvedObligationIds": []
+    },
+    "obligations": [
+      {
+        "obligationId": "atom-1",
+        "state": "CONFLICTING",
+        "supportEdgeIds": [
+          "edge:SUPPORTS:evidence:doc-69ac016cf3c9:doc-69ac016cf3c9::sentence-6:obligation:showcase-history-whitehead-flight:atom-1"
+        ],
+        "refuteEdgeIds": [
+          "edge:REFUTES:inference:bundle:atom-1:refutes:obligation:showcase-history-whitehead-flight:atom-1"
+        ],
+        "unselectedCandidateCount": 0,
+        "provisionalRelationCount": 0
+      }
+    ],
+    "warnings": [],
+    "ruleTrace": [
+      "SINGLE maps its one obligation's validated relations directly.",
+      "Validated positions — support: yes; refute: yes.",
+      "Verdict: CONFLICTING_EVIDENCE."
+    ]
+  },
+  "recordedWith": {
+    "pipelineRevision": "submission-ready-v2",
+    "inputDigest": "25d0dc757b690bae40de7b65878ed9005949eca006911524c7d370f6a5e8d69b",
+    "decompositionModel": "qwen2.5:7b",
+    "retrievalModel": "BAAI/bge-small-en-v1.5",
+    "retrievalMethod": "HYBRID",
+    "assessmentModel": "qwen2.5:7b",
+    "reasoningModel": "qwen2.5:7b",
+    "linguisticsModel": "en_core_web_sm@3.8.0"
+  },
+  "timingsSeconds": {
+    "decomposition": 15.057,
+    "retrievalAndLinguistics": 0.103,
+    "evidenceAssessment": 17.955,
+    "symbolicReasoning": 0.01,
+    "aggregation": 0.01,
+    "total": 33.135
+  }
+}

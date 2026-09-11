@@ -61,7 +61,9 @@ function ProofCard({
             <button type="button" key={premise.id} onClick={() => onSelectPremise(premise)}>
               <span>{titles.get(premise.documentId) ?? premise.documentId}</span>
               <small>{premise.kind === "LIST_CERTIFICATE" && premise.itemCount != null
-                ? `Complete list · ${premise.itemCount} items`
+                ? `Complete list · ${premise.itemCount} items${premise.listItems?.length
+                  ? `: ${premise.listItems.map((item) => item.text).join(", ")}`
+                  : ""}`
                 : premise.text}</small>
             </button>
           ))}

@@ -29,8 +29,8 @@
           "id": "doc-071a33a71652::sentence-7",
           "documentId": "doc-071a33a71652",
           "text": "# Shaving hair: Does shaved hair grow back thicker?\n\n",
-          "start": 224,
-          "end": 277,
+          "start": 232,
+          "end": 285,
           "contextSpans": [],
           "context": "# Shaving hair: Does shaved hair grow back thicker?"
         },
@@ -38,8 +38,8 @@
           "id": "doc-071a33a71652::sentence-6",
           "documentId": "doc-071a33a71652",
           "text": "4. Shaving hair: Does shaved hair grow back thicker?\n\n",
-          "start": 170,
-          "end": 224,
+          "start": 178,
+          "end": 232,
           "contextSpans": [],
           "context": "4. Shaving hair: Does shaved hair grow back thicker?"
         },
@@ -47,61 +47,53 @@
           "id": "doc-071a33a71652::sentence-10",
           "documentId": "doc-071a33a71652",
           "text": "## Does shaving unwanted body hair makes it grow back thicker and darker?\n\n",
-          "start": 314,
-          "end": 389,
+          "start": 322,
+          "end": 397,
           "contextSpans": [],
           "context": "## Does shaving unwanted body hair makes it grow back thicker and darker?"
         },
         {
-          "id": "doc-813ee535443b::sentence-14",
+          "id": "doc-813ee535443b::sentence-12",
           "documentId": "doc-813ee535443b",
           "text": "After all, you’ve always been told that shaving your hair will make it grow back thicker … in exactly the spots where you don’t want luscious locks to grow.\n",
-          "start": 820,
-          "end": 977,
+          "start": 786,
+          "end": 943,
           "contextSpans": [
             {
-              "id": "doc-813ee535443b::sentence-13",
+              "id": "doc-813ee535443b::sentence-11",
               "documentId": "doc-813ee535443b",
               "text": "Policy\n",
-              "start": 813,
-              "end": 820,
+              "start": 779,
+              "end": 786,
               "direction": "PREVIOUS"
             }
           ],
           "context": "Policy After all, you’ve always been told that shaving your hair will make it grow back thicker … in exactly the spots where you don’t want luscious locks to grow."
         },
         {
-          "id": "doc-813ee535443b::sentence-15",
+          "id": "doc-813ee535443b::sentence-13",
           "documentId": "doc-813ee535443b",
-          "text": "As it turns out, this is a myth: Shaving won’t make your hair regrow any thicker or faster. ",
-          "start": 977,
-          "end": 1069,
+          "text": "As it turns out, this is a myth: Shaving won’t make your hair regrow any thicker or faster.",
+          "start": 943,
+          "end": 1034,
           "contextSpans": [
             {
-              "id": "doc-813ee535443b::sentence-14",
+              "id": "doc-813ee535443b::sentence-12",
               "documentId": "doc-813ee535443b",
               "text": "After all, you’ve always been told that shaving your hair will make it grow back thicker … in exactly the spots where you don’t want luscious locks to grow.\n",
-              "start": 820,
-              "end": 977,
+              "start": 786,
+              "end": 943,
               "direction": "PREVIOUS"
-            },
-            {
-              "id": "doc-813ee535443b::sentence-16",
-              "documentId": "doc-813ee535443b",
-              "text": "But there’s some logic behind thinking it does.\n",
-              "start": 1069,
-              "end": 1117,
-              "direction": "NEXT"
             }
           ],
-          "context": "After all, you’ve always been told that shaving your hair will make it grow back thicker … in exactly the spots where you don’t want luscious locks to grow. As it turns out, this is a myth: Shaving won’t make your hair regrow any thicker or faster. But there’s some logic behind thinking it does."
+          "context": "After all, you’ve always been told that shaving your hair will make it grow back thicker … in exactly the spots where you don’t want luscious locks to grow. As it turns out, this is a myth: Shaving won’t make your hair regrow any thicker or faster."
         },
         {
-          "id": "doc-813ee535443b::sentence-5",
+          "id": "doc-813ee535443b::sentence-3",
           "documentId": "doc-813ee535443b",
           "text": "View image online (https://assets.clevelandclinic.org/transform/ab64dc15-5594-467e-a161-610d596f36dd/shaving-hair-growth-1340752254-770x533-1_jpg)\n",
-          "start": 176,
-          "end": 323,
+          "start": 142,
+          "end": 289,
           "contextSpans": [],
           "context": "View image online (https://assets.clevelandclinic.org/transform/ab64dc15-5594-467e-a161-610d596f36dd/shaving-hair-growth-1340752254-770x533-1_jpg)"
         }
@@ -114,8 +106,8 @@
           "id": "doc-071a33a71652::sentence-7",
           "documentId": "doc-071a33a71652",
           "text": "# Shaving hair: Does shaved hair grow back thicker?\n\n",
-          "start": 224,
-          "end": 277,
+          "start": 232,
+          "end": 285,
           "contextSpans": [],
           "context": "# Shaving hair: Does shaved hair grow back thicker?"
         },
@@ -123,8 +115,8 @@
           "id": "doc-071a33a71652::sentence-6",
           "documentId": "doc-071a33a71652",
           "text": "4. Shaving hair: Does shaved hair grow back thicker?\n\n",
-          "start": 170,
-          "end": 224,
+          "start": 178,
+          "end": 232,
           "contextSpans": [],
           "context": "4. Shaving hair: Does shaved hair grow back thicker?"
         },
@@ -132,61 +124,53 @@
           "id": "doc-071a33a71652::sentence-10",
           "documentId": "doc-071a33a71652",
           "text": "## Does shaving unwanted body hair makes it grow back thicker and darker?\n\n",
-          "start": 314,
-          "end": 389,
+          "start": 322,
+          "end": 397,
           "contextSpans": [],
           "context": "## Does shaving unwanted body hair makes it grow back thicker and darker?"
         },
         {
-          "id": "doc-813ee535443b::sentence-14",
+          "id": "doc-813ee535443b::sentence-12",
           "documentId": "doc-813ee535443b",
           "text": "After all, you’ve always been told that shaving your hair will make it grow back thicker … in exactly the spots where you don’t want luscious locks to grow.\n",
-          "start": 820,
-          "end": 977,
+          "start": 786,
+          "end": 943,
           "contextSpans": [
             {
-              "id": "doc-813ee535443b::sentence-13",
+              "id": "doc-813ee535443b::sentence-11",
               "documentId": "doc-813ee535443b",
               "text": "Policy\n",
-              "start": 813,
-              "end": 820,
+              "start": 779,
+              "end": 786,
               "direction": "PREVIOUS"
             }
           ],
           "context": "Policy After all, you’ve always been told that shaving your hair will make it grow back thicker … in exactly the spots where you don’t want luscious locks to grow."
         },
         {
-          "id": "doc-813ee535443b::sentence-15",
+          "id": "doc-813ee535443b::sentence-13",
           "documentId": "doc-813ee535443b",
-          "text": "As it turns out, this is a myth: Shaving won’t make your hair regrow any thicker or faster. ",
-          "start": 977,
-          "end": 1069,
+          "text": "As it turns out, this is a myth: Shaving won’t make your hair regrow any thicker or faster.",
+          "start": 943,
+          "end": 1034,
           "contextSpans": [
             {
-              "id": "doc-813ee535443b::sentence-14",
+              "id": "doc-813ee535443b::sentence-12",
               "documentId": "doc-813ee535443b",
               "text": "After all, you’ve always been told that shaving your hair will make it grow back thicker … in exactly the spots where you don’t want luscious locks to grow.\n",
-              "start": 820,
-              "end": 977,
+              "start": 786,
+              "end": 943,
               "direction": "PREVIOUS"
-            },
-            {
-              "id": "doc-813ee535443b::sentence-16",
-              "documentId": "doc-813ee535443b",
-              "text": "But there’s some logic behind thinking it does.\n",
-              "start": 1069,
-              "end": 1117,
-              "direction": "NEXT"
             }
           ],
-          "context": "After all, you’ve always been told that shaving your hair will make it grow back thicker … in exactly the spots where you don’t want luscious locks to grow. As it turns out, this is a myth: Shaving won’t make your hair regrow any thicker or faster. But there’s some logic behind thinking it does."
+          "context": "After all, you’ve always been told that shaving your hair will make it grow back thicker … in exactly the spots where you don’t want luscious locks to grow. As it turns out, this is a myth: Shaving won’t make your hair regrow any thicker or faster."
         },
         {
-          "id": "doc-813ee535443b::sentence-5",
+          "id": "doc-813ee535443b::sentence-3",
           "documentId": "doc-813ee535443b",
           "text": "View image online (https://assets.clevelandclinic.org/transform/ab64dc15-5594-467e-a161-610d596f36dd/shaving-hair-growth-1340752254-770x533-1_jpg)\n",
-          "start": 176,
-          "end": 323,
+          "start": 142,
+          "end": 289,
           "contextSpans": [],
           "context": "View image online (https://assets.clevelandclinic.org/transform/ab64dc15-5594-467e-a161-610d596f36dd/shaving-hair-growth-1340752254-770x533-1_jpg)"
         }
@@ -199,7 +183,7 @@
         "atomId": "atom-1",
         "supportSpanIds": [],
         "refuteSpanIds": [
-          "doc-813ee535443b::sentence-15"
+          "doc-813ee535443b::sentence-13"
         ],
         "contextSpanIds": [
           "doc-071a33a71652::sentence-7",
@@ -235,7 +219,7 @@
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
-            "spanId": "doc-813ee535443b::sentence-14",
+            "spanId": "doc-813ee535443b::sentence-12",
             "documentId": "doc-813ee535443b",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
@@ -243,7 +227,7 @@
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
-            "spanId": "doc-813ee535443b::sentence-15",
+            "spanId": "doc-813ee535443b::sentence-13",
             "documentId": "doc-813ee535443b",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
@@ -251,7 +235,7 @@
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
-            "spanId": "doc-813ee535443b::sentence-5",
+            "spanId": "doc-813ee535443b::sentence-3",
             "documentId": "doc-813ee535443b",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
@@ -264,7 +248,7 @@
         "atomId": "atom-2",
         "supportSpanIds": [],
         "refuteSpanIds": [
-          "doc-813ee535443b::sentence-15"
+          "doc-813ee535443b::sentence-13"
         ],
         "contextSpanIds": [
           "doc-071a33a71652::sentence-7",
@@ -300,7 +284,7 @@
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
-            "spanId": "doc-813ee535443b::sentence-14",
+            "spanId": "doc-813ee535443b::sentence-12",
             "documentId": "doc-813ee535443b",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
@@ -308,7 +292,7 @@
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
-            "spanId": "doc-813ee535443b::sentence-15",
+            "spanId": "doc-813ee535443b::sentence-13",
             "documentId": "doc-813ee535443b",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
@@ -316,7 +300,7 @@
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
-            "spanId": "doc-813ee535443b::sentence-5",
+            "spanId": "doc-813ee535443b::sentence-3",
             "documentId": "doc-813ee535443b",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
@@ -341,15 +325,15 @@
       "status": "DISPROVED",
       "relation": "REFUTES",
       "premiseIds": [
-        "evidence:atom-1:doc-813ee535443b:doc-813ee535443b::sentence-15"
+        "evidence:atom-1:doc-813ee535443b:doc-813ee535443b::sentence-13"
       ],
       "premises": [
         {
-          "id": "evidence:atom-1:doc-813ee535443b:doc-813ee535443b::sentence-15",
+          "id": "evidence:atom-1:doc-813ee535443b:doc-813ee535443b::sentence-13",
           "documentId": "doc-813ee535443b",
-          "text": "As it turns out, this is a myth: Shaving won’t make your hair regrow any thicker or faster. ",
-          "start": 977,
-          "end": 1069,
+          "text": "As it turns out, this is a myth: Shaving won’t make your hair regrow any thicker or faster.",
+          "start": 943,
+          "end": 1034,
           "kind": "EVIDENCE",
           "contentHash": null,
           "itemCount": null
@@ -366,7 +350,7 @@
             "id": "input-1",
             "operation": "LOOKUP",
             "inputIds": [
-              "evidence:atom-1:doc-813ee535443b:doc-813ee535443b::sentence-15"
+              "evidence:atom-1:doc-813ee535443b:doc-813ee535443b::sentence-13"
             ],
             "outputType": "FACT",
             "description": "Read an unchanged server-owned premise."
@@ -391,15 +375,15 @@
       "status": "DISPROVED",
       "relation": "REFUTES",
       "premiseIds": [
-        "evidence:atom-2:doc-813ee535443b:doc-813ee535443b::sentence-15"
+        "evidence:atom-2:doc-813ee535443b:doc-813ee535443b::sentence-13"
       ],
       "premises": [
         {
-          "id": "evidence:atom-2:doc-813ee535443b:doc-813ee535443b::sentence-15",
+          "id": "evidence:atom-2:doc-813ee535443b:doc-813ee535443b::sentence-13",
           "documentId": "doc-813ee535443b",
-          "text": "As it turns out, this is a myth: Shaving won’t make your hair regrow any thicker or faster. ",
-          "start": 977,
-          "end": 1069,
+          "text": "As it turns out, this is a myth: Shaving won’t make your hair regrow any thicker or faster.",
+          "start": 943,
+          "end": 1034,
           "kind": "EVIDENCE",
           "contentHash": null,
           "itemCount": null
@@ -416,7 +400,7 @@
             "id": "input-1",
             "operation": "LOOKUP",
             "inputIds": [
-              "evidence:atom-2:doc-813ee535443b:doc-813ee535443b::sentence-15"
+              "evidence:atom-2:doc-813ee535443b:doc-813ee535443b::sentence-13"
             ],
             "outputType": "FACT",
             "description": "Read an unchanged server-owned premise."
@@ -1010,7 +994,7 @@
   },
   "recordedWith": {
     "pipelineRevision": "submission-ready-v2",
-    "inputDigest": "1af953e558cacdf482d4b328f96269ba2a7a9b4e3f571c6030b3410a144965fa",
+    "inputDigest": "40b4586a5bece55e81562b8eab9b6c799eb2a20b8a4523ce4e7cbc11fb9daec1",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
     "retrievalMethod": "HYBRID",
@@ -1019,11 +1003,11 @@
     "linguisticsModel": "en_core_web_sm@3.8.0"
   },
   "timingsSeconds": {
-    "decomposition": 15.978,
-    "retrievalAndLinguistics": 0.214,
-    "evidenceAssessment": 25.596,
-    "symbolicReasoning": 16.234,
-    "aggregation": 0.002,
-    "total": 58.023
+    "decomposition": 21.715,
+    "retrievalAndLinguistics": 0.361,
+    "evidenceAssessment": 37.502,
+    "symbolicReasoning": 21.365,
+    "aggregation": 0.004,
+    "total": 80.952
   }
 }

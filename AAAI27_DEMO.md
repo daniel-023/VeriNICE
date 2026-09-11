@@ -1,4 +1,4 @@
-# VeriTrace at the AAAI-27 Demonstrations Program
+# VeriNICE at the AAAI-27 Demonstrations Program
 
 This is the working submission brief for the September 18, 2026 deadline. It
 separates what is implemented from what still needs evidence, so paper and
@@ -6,7 +6,7 @@ video claims stay defensible.
 
 ## The one-sentence pitch
 
-VeriTrace turns a fact-verification prediction into an inspectable, editable
+VeriNICE turns a fact-verification prediction into an inspectable, editable
 chain of atomic claims, cited evidence, rule results, and a deterministic
 verdict that an audience can challenge in real time.
 
@@ -32,25 +32,25 @@ the system easier to inspect without overstating what a parser can prove.
 ## Research positioning
 
 - WiCE (Kamoi et al., 2023) remains related work for real-world entailment and
-  subclaim verification. VeriTrace no longer describes its decomposition as
+  subclaim verification. VeriNICE no longer describes its decomposition as
   “WiCE-style.”
 - Wanner et al. (2024) show that downstream factuality results are sensitive
   to the decomposition method and frame decomposition quality through coverage,
   coherence, and atomicity.
 - FactLens (Mitra et al., 2025) is the primary contemporary reference for
-  fine-grained verification and subclaim quality. VeriTrace's diagnostic report
+  fine-grained verification and subclaim quality. VeriNICE's diagnostic report
   follows its concerns—atomicity, coverage, sufficiency, non-fabrication,
   non-redundancy, and readability—but clearly labels the implemented checks as
   deterministic proxies rather than the FactLens evaluator.
 - Hu et al. (2025) show that decomposition can introduce noise as well as
-  improve verification. VeriTrace responds by exposing decomposition warnings,
+  improve verification. VeriNICE responds by exposing decomposition warnings,
   retaining exact source grounding, and measuring downstream verdict behavior.
 - ProgramFC (Pan et al., 2023) motivates generating reasoning programs that
-  invoke specialized functions. VeriTrace adopts that design principle through
+  invoke specialized functions. VeriNICE adopts that design principle through
   a small typed IR and a conservative operator registry; it does not implement
   ProgramFC wholesale.
 - CHECKWHY (Si et al., 2024) motivates explicit evidence-to-inference argument
-  structure. VeriTrace does not perform its causal verification task or claim
+  structure. VeriNICE does not perform its causal verification task or claim
   formal argumentation semantics.
 
 References:
@@ -65,7 +65,7 @@ References:
 ## Acceptance criteria translated into work
 
 The AAAI call emphasizes clarity, significance, relevance, audience engagement,
-new ideas, and a convincing live demonstration. VeriTrace addresses those
+new ideas, and a convincing live demonstration. VeriNICE addresses those
 criteria as follows:
 
 | Criterion | Evidence in the demo | Remaining proof before submission |
@@ -82,7 +82,7 @@ criteria as follows:
 - Added category controls and one selector grouped into source-grounded examples
   and AVeriTeC cases.
 - Added an 18-case qualitative showcase: 15 constructed claims with two
-  authentic authoritative-source excerpts each, plus six curated AVeriTeC cases.
+  authentic authoritative-source excerpts each, plus three curated AVeriTeC cases.
 - Built and validated a balanced 32-case private bundle: eight cases per
   reference verdict, preserving all 22 cases from the earlier release.
 - Added hybrid retrieval so exact numbers and other lexical anchors can recover

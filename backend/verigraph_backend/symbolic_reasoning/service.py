@@ -11,6 +11,7 @@ from ..schemas import (
     ReasoningResponse,
     RetrievalDocument,
     SymbolicExecution,
+    SymbolicListItem,
     SymbolicOperator,
     SymbolicProgram,
     SymbolicStatus,
@@ -229,6 +230,38 @@ def _presentation_premise_ids(
     return ordered[:3]
 
 
+def _presentation_premise(premise, premises):
+    """Attach exact list rows to a displayed completeness certificate."""
+    if premise.kind != "LIST_CERTIFICATE":
+        return premise
+    items = sorted(
+        (
+            item for item in premises.values()
+            if item.kind == "LIST_ITEM"
+            and item.document_id == premise.document_id
+            and item.content_hash == premise.content_hash
+        ),
+        key=lambda item: (item.start, item.end, item.id),
+    )
+    if premise.item_count != len(items):
+        raise SymbolicReasoningOutputError(
+            f"List certificate {premise.id} covers {premise.item_count} items but {len(items)} were grounded"
+        )
+    return premise.model_copy(update={
+        "list_items": [
+            SymbolicListItem(
+                id=item.id,
+                document_id=item.document_id,
+                text=item.text,
+                start=item.start,
+                end=item.end,
+                content_hash=item.content_hash,
+            )
+            for item in items
+        ]
+    })
+
+
 async def reason_symbolically(
     atoms: Sequence[PipelineAtom],
     evidence: Sequence[AssessmentAtomEvidence],
@@ -294,7 +327,10 @@ async def reason_symbolically(
             outcome["status"],
             outcome["expression"],
         )
-        selected_premises = [premises[premise_id] for premise_id in public_ids]
+        selected_premises = [
+            _presentation_premise(premises[premise_id], premises)
+            for premise_id in public_ids
+        ]
         executions.append(SymbolicExecution(
             id=f"proof:{candidate.atom_id}:{operator.value.lower()}:{index}",
             atom_id=candidate.atom_id,

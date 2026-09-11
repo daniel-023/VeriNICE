@@ -18,118 +18,118 @@
       "atomId": "atom-1",
       "spans": [
         {
-          "id": "doc-f79bf0925486::sentence-3",
+          "id": "doc-f79bf0925486::sentence-1",
           "documentId": "doc-f79bf0925486",
           "text": "Mount Everest, located in Nepal and Tibet, is usually said to be the highest mountain on Earth. ",
-          "start": 227,
-          "end": 323,
+          "start": 0,
+          "end": 96,
           "contextSpans": [],
           "context": "Mount Everest, located in Nepal and Tibet, is usually said to be the highest mountain on Earth."
         },
         {
-          "id": "doc-f79bf0925486::sentence-11",
+          "id": "doc-f79bf0925486::sentence-9",
           "documentId": "doc-f79bf0925486",
           "text": "You may be surprised to learn that Everest is not the tallest mountain on Earth, either. ",
-          "start": 1153,
-          "end": 1242,
+          "start": 926,
+          "end": 1015,
           "contextSpans": [
             {
-              "id": "doc-f79bf0925486::sentence-10",
+              "id": "doc-f79bf0925486::sentence-8",
               "documentId": "doc-f79bf0925486",
               "text": "That makes Chimborazo the closest point on Earth to the stars.\n",
-              "start": 1090,
-              "end": 1153,
+              "start": 863,
+              "end": 926,
               "direction": "PREVIOUS"
             },
             {
-              "id": "doc-f79bf0925486::sentence-12",
+              "id": "doc-f79bf0925486::sentence-10",
               "documentId": "doc-f79bf0925486",
               "text": "That honor belongs to Mauna Kea, a volcano on the Big Island of Hawaii. ",
-              "start": 1242,
-              "end": 1314,
+              "start": 1015,
+              "end": 1087,
               "direction": "NEXT"
             }
           ],
           "context": "That makes Chimborazo the closest point on Earth to the stars. You may be surprised to learn that Everest is not the tallest mountain on Earth, either. That honor belongs to Mauna Kea, a volcano on the Big Island of Hawaii."
         },
         {
-          "id": "doc-f79bf0925486::sentence-4",
+          "id": "doc-f79bf0925486::sentence-2",
           "documentId": "doc-f79bf0925486",
           "text": "Reaching 8,848 meters at its summit, Everest is indeed the highest point above global mean sea level—the average level for the ocean surface from which elevations are measured. ",
-          "start": 323,
-          "end": 500,
+          "start": 96,
+          "end": 273,
           "contextSpans": [
             {
-              "id": "doc-f79bf0925486::sentence-3",
+              "id": "doc-f79bf0925486::sentence-1",
               "documentId": "doc-f79bf0925486",
               "text": "Mount Everest, located in Nepal and Tibet, is usually said to be the highest mountain on Earth. ",
-              "start": 227,
-              "end": 323,
+              "start": 0,
+              "end": 96,
               "direction": "PREVIOUS"
             },
             {
-              "id": "doc-f79bf0925486::sentence-5",
+              "id": "doc-f79bf0925486::sentence-3",
               "documentId": "doc-f79bf0925486",
               "text": "But the summit of Mt. Everest is not the farthest point from Earth’s center.\n",
-              "start": 500,
-              "end": 577,
+              "start": 273,
+              "end": 350,
               "direction": "NEXT"
             }
           ],
           "context": "Mount Everest, located in Nepal and Tibet, is usually said to be the highest mountain on Earth. Reaching 8,848 meters at its summit, Everest is indeed the highest point above global mean sea level—the average level for the ocean surface from which elevations are measured. But the summit of Mt. Everest is not the farthest point from Earth’s center."
         },
         {
+          "id": "doc-e42dc78c7afa::sentence-4",
+          "documentId": "doc-e42dc78c7afa",
+          "text": "**Mauna Loa:** Mauna Loa is the largest active volcano on our planet, growing to an elevation of 4,170 m (13,681 feet) above sea level with an additional depth of 9,144 m (30,000 feet) below sea level, which makes this shield volcano taller from base to top than Mount Everest. ",
+          "start": 310,
+          "end": 588,
+          "contextSpans": [],
+          "context": "**Mauna Loa:** Mauna Loa is the largest active volcano on our planet, growing to an elevation of 4,170 m (13,681 feet) above sea level with an additional depth of 9,144 m (30,000 feet) below sea level, which makes this shield volcano taller from base to top than Mount Everest."
+        },
+        {
           "id": "doc-e42dc78c7afa::sentence-1",
           "documentId": "doc-e42dc78c7afa",
-          "text": "planet, growing to an elevation of 4,170 m (13,681 feet) above sea level with an additional depth of 9,144 m (30,000 feet) below sea level, which makes this shield volcano taller from base to top than Mount Everest. ",
+          "text": "There are also three other volcanoes outside of the national park boundary: Mauna Kea, Hualālai, and Kohala. ",
           "start": 0,
-          "end": 216,
-          "contextSpans": [],
-          "context": "planet, growing to an elevation of 4,170 m (13,681 feet) above sea level with an additional depth of 9,144 m (30,000 feet) below sea level, which makes this shield volcano taller from base to top than Mount Everest."
-        },
-        {
-          "id": "doc-e42dc78c7afa::sentence-6",
-          "documentId": "doc-e42dc78c7afa",
-          "text": "The accretion, or deposition, of highly fluid lava flows that we see on Mauna Loa can spread over great distances and eventually cool as thin, low-angle dipping layers away from the summit. ",
-          "start": 762,
-          "end": 952,
+          "end": 109,
           "contextSpans": [
             {
-              "id": "doc-e42dc78c7afa::sentence-5",
+              "id": "doc-e42dc78c7afa::sentence-2",
               "documentId": "doc-e42dc78c7afa",
-              "text": "There are two effusive eruption subcategories that geoscientists use to describe lava flow type, pāhoehoe and ‘A‘ā. ",
-              "start": 646,
-              "end": 762,
-              "direction": "PREVIOUS"
-            }
-          ],
-          "context": "There are two effusive eruption subcategories that geoscientists use to describe lava flow type, pāhoehoe and ‘A‘ā. The accretion, or deposition, of highly fluid lava flows that we see on Mauna Loa can spread over great distances and eventually cool as thin, low-angle dipping layers away from the summit."
-        },
-        {
-          "id": "doc-e42dc78c7afa::sentence-2",
-          "documentId": "doc-e42dc78c7afa",
-          "text": "Mauna Loa makes up roughly 51% of the land mass on the Big Island, with a weight so heavy that it physically depresses the ocean floor beneath it. ",
-          "start": 216,
-          "end": 363,
-          "contextSpans": [
-            {
-              "id": "doc-e42dc78c7afa::sentence-1",
-              "documentId": "doc-e42dc78c7afa",
-              "text": "planet, growing to an elevation of 4,170 m (13,681 feet) above sea level with an additional depth of 9,144 m (30,000 feet) below sea level, which makes this shield volcano taller from base to top than Mount Everest. ",
-              "start": 0,
-              "end": 216,
-              "direction": "PREVIOUS"
-            },
-            {
-              "id": "doc-e42dc78c7afa::sentence-3",
-              "documentId": "doc-e42dc78c7afa",
-              "text": "It is a shield volcano, which is a broad, gently sloping dome-like structure built almost entirely from fluid lava flows pouring out of a central vent(s). ",
-              "start": 363,
-              "end": 518,
+              "text": "These volcanoes are older and much less active than the larger volcanoes. ",
+              "start": 109,
+              "end": 183,
               "direction": "NEXT"
             }
           ],
-          "context": "planet, growing to an elevation of 4,170 m (13,681 feet) above sea level with an additional depth of 9,144 m (30,000 feet) below sea level, which makes this shield volcano taller from base to top than Mount Everest. Mauna Loa makes up roughly 51% of the land mass on the Big Island, with a weight so heavy that it physically depresses the ocean floor beneath it. It is a shield volcano, which is a broad, gently sloping dome-like structure built almost entirely from fluid lava flows pouring out of a central vent(s)."
+          "context": "There are also three other volcanoes outside of the national park boundary: Mauna Kea, Hualālai, and Kohala. These volcanoes are older and much less active than the larger volcanoes."
+        },
+        {
+          "id": "doc-e42dc78c7afa::sentence-5",
+          "documentId": "doc-e42dc78c7afa",
+          "text": "Mauna Loa makes up roughly 51% of the land mass on the Big Island, with a weight so heavy that it physically depresses the ocean floor beneath it. ",
+          "start": 588,
+          "end": 735,
+          "contextSpans": [
+            {
+              "id": "doc-e42dc78c7afa::sentence-4",
+              "documentId": "doc-e42dc78c7afa",
+              "text": "**Mauna Loa:** Mauna Loa is the largest active volcano on our planet, growing to an elevation of 4,170 m (13,681 feet) above sea level with an additional depth of 9,144 m (30,000 feet) below sea level, which makes this shield volcano taller from base to top than Mount Everest. ",
+              "start": 310,
+              "end": 588,
+              "direction": "PREVIOUS"
+            },
+            {
+              "id": "doc-e42dc78c7afa::sentence-6",
+              "documentId": "doc-e42dc78c7afa",
+              "text": "It is a shield volcano, which is a broad, gently sloping dome-like structure built almost entirely from fluid lava flows pouring out of a central vent(s).",
+              "start": 735,
+              "end": 889,
+              "direction": "NEXT"
+            }
+          ],
+          "context": "**Mauna Loa:** Mauna Loa is the largest active volcano on our planet, growing to an elevation of 4,170 m (13,681 feet) above sea level with an additional depth of 9,144 m (30,000 feet) below sea level, which makes this shield volcano taller from base to top than Mount Everest. Mauna Loa makes up roughly 51% of the land mass on the Big Island, with a weight so heavy that it physically depresses the ocean floor beneath it. It is a shield volcano, which is a broad, gently sloping dome-like structure built almost entirely from fluid lava flows pouring out of a central vent(s)."
         }
       ]
     }
@@ -139,22 +139,23 @@
       {
         "atomId": "atom-1",
         "supportSpanIds": [
-          "doc-f79bf0925486::sentence-4"
+          "doc-f79bf0925486::sentence-2"
         ],
         "refuteSpanIds": [
-          "doc-f79bf0925486::sentence-11"
+          "doc-f79bf0925486::sentence-9",
+          "doc-e42dc78c7afa::sentence-4",
+          "doc-e42dc78c7afa::sentence-5"
         ],
         "contextSpanIds": [
-          "doc-f79bf0925486::sentence-3",
-          "doc-e42dc78c7afa::sentence-1",
-          "doc-e42dc78c7afa::sentence-6"
+          "doc-f79bf0925486::sentence-1",
+          "doc-e42dc78c7afa::sentence-1"
         ],
         "sufficiency": "PARTIAL",
-        "missingInformation": "The evidence does not provide a direct comparison of the summit of Mauna Kea to Mount Everest's summit, only the total height of Mauna Kea including its underwater base.",
-        "reason": "While O1-E3 supports the claim, O1-E2 directly refutes it.",
+        "missingInformation": "The evidence does not provide a clear comparison of the summit elevation of Mount Everest to other mountains, nor does it clarify the definition of 'tallest mountain.'.",
+        "reason": "The evidence supports Mount Everest as the highest point above sea level but contradicts this by mentioning other mountains that are taller from base to top.",
         "scopeChecks": [
           {
-            "spanId": "doc-f79bf0925486::sentence-3",
+            "spanId": "doc-f79bf0925486::sentence-1",
             "documentId": "doc-f79bf0925486",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
@@ -164,7 +165,7 @@
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
-            "spanId": "doc-f79bf0925486::sentence-11",
+            "spanId": "doc-f79bf0925486::sentence-9",
             "documentId": "doc-f79bf0925486",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
@@ -175,13 +176,21 @@
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
-            "spanId": "doc-f79bf0925486::sentence-4",
+            "spanId": "doc-f79bf0925486::sentence-2",
             "documentId": "doc-f79bf0925486",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
             "evidenceJurisdictions": [
               "NP"
             ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-e42dc78c7afa::sentence-4",
+            "documentId": "doc-e42dc78c7afa",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
@@ -193,15 +202,7 @@
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
-            "spanId": "doc-e42dc78c7afa::sentence-6",
-            "documentId": "doc-e42dc78c7afa",
-            "status": "NOT_APPLICABLE",
-            "claimJurisdictions": [],
-            "evidenceJurisdictions": [],
-            "reason": "The atomic claim does not state a recognized jurisdiction."
-          },
-          {
-            "spanId": "doc-e42dc78c7afa::sentence-2",
+            "spanId": "doc-e42dc78c7afa::sentence-5",
             "documentId": "doc-e42dc78c7afa",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
@@ -226,26 +227,26 @@
       "status": "UNRESOLVED",
       "relation": null,
       "premiseIds": [
-        "evidence:atom-1:doc-f79bf0925486:doc-f79bf0925486::sentence-4",
-        "evidence:atom-1:doc-e42dc78c7afa:doc-e42dc78c7afa::sentence-1"
+        "evidence:atom-1:doc-f79bf0925486:doc-f79bf0925486::sentence-2",
+        "evidence:atom-1:doc-e42dc78c7afa:doc-e42dc78c7afa::sentence-4"
       ],
       "premises": [
         {
-          "id": "evidence:atom-1:doc-f79bf0925486:doc-f79bf0925486::sentence-4",
+          "id": "evidence:atom-1:doc-f79bf0925486:doc-f79bf0925486::sentence-2",
           "documentId": "doc-f79bf0925486",
           "text": "Reaching 8,848 meters at its summit, Everest is indeed the highest point above global mean sea level—the average level for the ocean surface from which elevations are measured. ",
-          "start": 323,
-          "end": 500,
+          "start": 96,
+          "end": 273,
           "kind": "EVIDENCE",
           "contentHash": null,
           "itemCount": null
         },
         {
-          "id": "evidence:atom-1:doc-e42dc78c7afa:doc-e42dc78c7afa::sentence-1",
+          "id": "evidence:atom-1:doc-e42dc78c7afa:doc-e42dc78c7afa::sentence-4",
           "documentId": "doc-e42dc78c7afa",
-          "text": "planet, growing to an elevation of 4,170 m (13,681 feet) above sea level with an additional depth of 9,144 m (30,000 feet) below sea level, which makes this shield volcano taller from base to top than Mount Everest. ",
-          "start": 0,
-          "end": 216,
+          "text": "**Mauna Loa:** Mauna Loa is the largest active volcano on our planet, growing to an elevation of 4,170 m (13,681 feet) above sea level with an additional depth of 9,144 m (30,000 feet) below sea level, which makes this shield volcano taller from base to top than Mount Everest. ",
+          "start": 310,
+          "end": 588,
           "kind": "EVIDENCE",
           "contentHash": null,
           "itemCount": null
@@ -264,7 +265,7 @@
             "id": "input-1",
             "operation": "LOOKUP",
             "inputIds": [
-              "evidence:atom-1:doc-f79bf0925486:doc-f79bf0925486::sentence-4"
+              "evidence:atom-1:doc-f79bf0925486:doc-f79bf0925486::sentence-2"
             ],
             "outputType": "FACT",
             "description": "Read an unchanged server-owned premise."
@@ -273,7 +274,7 @@
             "id": "input-2",
             "operation": "LOOKUP",
             "inputIds": [
-              "evidence:atom-1:doc-e42dc78c7afa:doc-e42dc78c7afa::sentence-1"
+              "evidence:atom-1:doc-e42dc78c7afa:doc-e42dc78c7afa::sentence-4"
             ],
             "outputType": "FACT",
             "description": "Read an unchanged server-owned premise."
@@ -647,8 +648,8 @@
         "state": "UNRESOLVED",
         "supportEdgeIds": [],
         "refuteEdgeIds": [],
-        "unselectedCandidateCount": 1,
-        "provisionalRelationCount": 2
+        "unselectedCandidateCount": 0,
+        "provisionalRelationCount": 4
       }
     ],
     "warnings": [
@@ -658,7 +659,7 @@
       },
       {
         "code": "PROVISIONAL_EVIDENCE_EXCLUDED",
-        "message": "2 assessed relation(s) for obligation atom-1 are provisional because the evidence is not sufficient."
+        "message": "4 assessed relation(s) for obligation atom-1 are provisional because the evidence is not sufficient."
       }
     ],
     "ruleTrace": [
@@ -669,7 +670,7 @@
   },
   "recordedWith": {
     "pipelineRevision": "submission-ready-v2",
-    "inputDigest": "8917000845038d1b01072ee5e0bb1a3ca45722d8a8a48debb62d9b9dabde8744",
+    "inputDigest": "1e9ec9d788a825641465707d093388d8d62e3a6380fd793b91d8a8a8bddb0dcc",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
     "retrievalMethod": "HYBRID",
@@ -678,11 +679,11 @@
     "linguisticsModel": "en_core_web_sm@3.8.0"
   },
   "timingsSeconds": {
-    "decomposition": 14.527,
-    "retrievalAndLinguistics": 0.399,
-    "evidenceAssessment": 20.956,
-    "symbolicReasoning": 18.554,
+    "decomposition": 17.991,
+    "retrievalAndLinguistics": 0.312,
+    "evidenceAssessment": 25.975,
+    "symbolicReasoning": 26.811,
     "aggregation": 0.006,
-    "total": 54.443
+    "total": 71.097
   }
 }

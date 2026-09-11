@@ -628,6 +628,12 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
   const selectGraphEvidence = (node: EvidenceNode, atomId: string) => {
     const ownerAtom = atoms.find((atom) => atom.id === atomId);
     if (ownerAtom) selectAtom(ownerAtom, false);
+    if (node.listItems?.length) {
+      setFocusedInferenceSpans(new Set([
+        `${node.documentId}:${node.start}:${node.end}`,
+        ...node.listItems.map((item) => `${item.documentId}:${item.start}:${item.end}`),
+      ]));
+    }
     setActiveDocumentId(node.documentId);
     setParams({ panel: "document" });
     window.requestAnimationFrame(() => {
@@ -638,7 +644,10 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
   const selectGraphInference = (node: import("@/lib/types").InferenceNode, premises: EvidenceNode[]) => {
     const ownerAtom = atoms.find((atom) => atom.id === node.atomId);
     if (ownerAtom) selectAtom(ownerAtom, false, true);
-    setFocusedInferenceSpans(new Set(premises.map((premise) => `${premise.documentId}:${premise.start}:${premise.end}`)));
+    setFocusedInferenceSpans(new Set(premises.flatMap((premise) => [
+      `${premise.documentId}:${premise.start}:${premise.end}`,
+      ...(premise.listItems ?? []).map((item) => `${item.documentId}:${item.start}:${item.end}`),
+    ])));
     if (premises[0]) setActiveDocumentId(premises[0].documentId);
     setParams({ panel: "document" });
     window.requestAnimationFrame(() => {
@@ -647,7 +656,10 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
   };
 
   const selectSymbolicPremise = (premise: SymbolicPremise) => {
-    setFocusedInferenceSpans(new Set([`${premise.documentId}:${premise.start}:${premise.end}`]));
+    setFocusedInferenceSpans(new Set([
+      `${premise.documentId}:${premise.start}:${premise.end}`,
+      ...(premise.listItems ?? []).map((item) => `${item.documentId}:${item.start}:${item.end}`),
+    ]));
     setActiveDocumentId(premise.documentId);
     setParams({ panel: "document" });
     window.requestAnimationFrame(() => {
@@ -658,14 +670,21 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
   const selectedAtom = atoms.find((atom) => atom.id === selectedAtomId) ?? null;
   const selectedEvidenceForAtom = evidence.find((item) => item.atomId === selectedAtomId)?.spans ?? [];
   const selectedProofs = reasoning.filter((item) => item.atomId === selectedAtomId);
-  const selectedPremiseSpans: EvidenceSpan[] = selectedProofs.flatMap((proof) => proof.premises.map((premise) => ({
-    id: premise.id,
-    documentId: premise.documentId,
-    text: premise.text,
-    start: premise.start,
-    end: premise.end,
-    contextSpans: [],
-  })));
+  const selectedPremiseSpans: EvidenceSpan[] = selectedProofs.flatMap((proof) => proof.premises.flatMap((premise) => ([{
+      id: premise.id,
+      documentId: premise.documentId,
+      text: premise.text,
+      start: premise.start,
+      end: premise.end,
+      contextSpans: [],
+    }, ...(premise.listItems ?? []).map((item) => ({
+      id: item.id,
+      documentId: item.documentId,
+      text: item.text,
+      start: item.start,
+      end: item.end,
+      contextSpans: [],
+    }))])));
   const inspectableSpans = [...selectedEvidenceForAtom, ...selectedPremiseSpans].filter((span, index, items) => (
     items.findIndex((candidate) => (
       candidate.documentId === span.documentId && candidate.start === span.start && candidate.end === span.end
@@ -795,9 +814,12 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
       <header className="site-header">
         <div className="brand" translate="no">
           <VeriGraphLogo />
-          <span>
-            VeriTrace
-            <small>FACT VERIFICATION WORKBENCH</small>
+          <span className="brand-copy">
+            <span className="brand-name" aria-label="VeriNICE">
+              <span className="brand-name-veri">Veri</span>
+              <span className="brand-name-nice">NICE</span>
+            </span>
+            <small>Verification via Neuro-symbolic Inference with Compositional Evidence</small>
           </span>
         </div>
         <span className="header-context">Claim + Sources → Verdict</span>
@@ -1067,7 +1089,6 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
             obligationStates={obligationStates}
             verdict={verdict}
             verdictState={verdictState}
-            materialOmission={assessment?.materialOmission}
           />
         </>
       ) : null}

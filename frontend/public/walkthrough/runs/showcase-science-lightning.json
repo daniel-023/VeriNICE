@@ -18,31 +18,22 @@
       "atomId": "atom-1",
       "spans": [
         {
-          "id": "doc-7cb444a67bc0::sentence-5",
+          "id": "doc-7cb444a67bc0::sentence-8",
           "documentId": "doc-7cb444a67bc0",
           "text": "Fact: Lightning often strikes the same place repeatedly, especially if it's a tall, pointy, isolated object. ",
-          "start": 214,
-          "end": 323,
+          "start": 461,
+          "end": 570,
           "contextSpans": [
             {
-              "id": "doc-7cb444a67bc0::sentence-4",
+              "id": "doc-7cb444a67bc0::sentence-7",
               "documentId": "doc-7cb444a67bc0",
               "text": "Myth: Lightning never strikes the same place twice.\n",
-              "start": 162,
-              "end": 214,
+              "start": 409,
+              "end": 461,
               "direction": "PREVIOUS"
             }
           ],
           "context": "Myth: Lightning never strikes the same place twice. Fact: Lightning often strikes the same place repeatedly, especially if it's a tall, pointy, isolated object."
-        },
-        {
-          "id": "doc-7cb444a67bc0::sentence-8",
-          "documentId": "doc-7cb444a67bc0",
-          "text": "Fact: Lightning often strikes more than three miles from the center of the thunderstorm, far outside the rain or thunderstorm cloud. ",
-          "start": 473,
-          "end": 606,
-          "contextSpans": [],
-          "context": "Fact: Lightning often strikes more than three miles from the center of the thunderstorm, far outside the rain or thunderstorm cloud."
         },
         {
           "id": "doc-a82c0e708ef3::sentence-6",
@@ -63,6 +54,15 @@
           "context": "In addition, lightning injures many more people than it kills and leaves some victims with life-long health problems. Understanding the dangers of lightning is important so that you can get to a safe place when thunderstorms threaten."
         },
         {
+          "id": "doc-7cb444a67bc0::sentence-11",
+          "documentId": "doc-7cb444a67bc0",
+          "text": "Fact: Lightning often strikes more than three miles from the center of the thunderstorm, far outside the rain or thunderstorm cloud. ",
+          "start": 720,
+          "end": 853,
+          "contextSpans": [],
+          "context": "Fact: Lightning often strikes more than three miles from the center of the thunderstorm, far outside the rain or thunderstorm cloud."
+        },
+        {
           "id": "doc-a82c0e708ef3::sentence-5",
           "documentId": "doc-a82c0e708ef3",
           "text": "In addition, lightning injures many more people than it kills and leaves some victims with life-long health problems.\n",
@@ -81,15 +81,6 @@
           "context": "While lightning fatalities have decreased over the past 30 years, lightning continues to be one of the top weather killers in the United States. In addition, lightning injures many more people than it kills and leaves some victims with life-long health problems."
         },
         {
-          "id": "doc-7cb444a67bc0::sentence-18",
-          "documentId": "doc-7cb444a67bc0",
-          "text": "Fact: Being underneath a tree is the second leading cause of lightning casualties. ",
-          "start": 1239,
-          "end": 1322,
-          "contextSpans": [],
-          "context": "Fact: Being underneath a tree is the second leading cause of lightning casualties."
-        },
-        {
           "id": "doc-a82c0e708ef3::sentence-2",
           "documentId": "doc-a82c0e708ef3",
           "text": "In the United States, there are about 25 million lightning flashes every year. ",
@@ -97,6 +88,24 @@
           "end": 143,
           "contextSpans": [],
           "context": "In the United States, there are about 25 million lightning flashes every year."
+        },
+        {
+          "id": "doc-7cb444a67bc0::sentence-12",
+          "documentId": "doc-7cb444a67bc0",
+          "text": "“Bolts from the blue” can strike 10-15 miles from the thunderstorm.\n",
+          "start": 853,
+          "end": 921,
+          "contextSpans": [
+            {
+              "id": "doc-7cb444a67bc0::sentence-11",
+              "documentId": "doc-7cb444a67bc0",
+              "text": "Fact: Lightning often strikes more than three miles from the center of the thunderstorm, far outside the rain or thunderstorm cloud. ",
+              "start": 720,
+              "end": 853,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "Fact: Lightning often strikes more than three miles from the center of the thunderstorm, far outside the rain or thunderstorm cloud. “Bolts from the blue” can strike 10-15 miles from the thunderstorm."
         }
       ]
     }
@@ -106,26 +115,18 @@
       {
         "atomId": "atom-1",
         "supportSpanIds": [
-          "doc-7cb444a67bc0::sentence-5"
+          "doc-7cb444a67bc0::sentence-8"
         ],
         "refuteSpanIds": [],
         "contextSpanIds": [
-          "doc-7cb444a67bc0::sentence-8",
           "doc-a82c0e708ef3::sentence-6",
+          "doc-7cb444a67bc0::sentence-11",
           "doc-a82c0e708ef3::sentence-5"
         ],
         "sufficiency": "SUFFICIENT",
         "missingInformation": "",
-        "reason": "O1-E1 directly supports the claim that lightning can strike the same place more than once.",
+        "reason": "The evidence directly states that lightning often strikes the same place repeatedly.",
         "scopeChecks": [
-          {
-            "spanId": "doc-7cb444a67bc0::sentence-5",
-            "documentId": "doc-7cb444a67bc0",
-            "status": "NOT_APPLICABLE",
-            "claimJurisdictions": [],
-            "evidenceJurisdictions": [],
-            "reason": "The atomic claim does not state a recognized jurisdiction."
-          },
           {
             "spanId": "doc-7cb444a67bc0::sentence-8",
             "documentId": "doc-7cb444a67bc0",
@@ -145,6 +146,14 @@
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
+            "spanId": "doc-7cb444a67bc0::sentence-11",
+            "documentId": "doc-7cb444a67bc0",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
             "spanId": "doc-a82c0e708ef3::sentence-5",
             "documentId": "doc-a82c0e708ef3",
             "status": "NOT_APPLICABLE",
@@ -155,14 +164,6 @@
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
-            "spanId": "doc-7cb444a67bc0::sentence-18",
-            "documentId": "doc-7cb444a67bc0",
-            "status": "NOT_APPLICABLE",
-            "claimJurisdictions": [],
-            "evidenceJurisdictions": [],
-            "reason": "The atomic claim does not state a recognized jurisdiction."
-          },
-          {
             "spanId": "doc-a82c0e708ef3::sentence-2",
             "documentId": "doc-a82c0e708ef3",
             "status": "NOT_APPLICABLE",
@@ -170,6 +171,14 @@
             "evidenceJurisdictions": [
               "US"
             ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-7cb444a67bc0::sentence-12",
+            "documentId": "doc-7cb444a67bc0",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
             "reason": "The atomic claim does not state a recognized jurisdiction."
           }
         ]
@@ -573,7 +582,7 @@
         "obligationId": "atom-1",
         "state": "SUPPORTED",
         "supportEdgeIds": [
-          "edge:SUPPORTS:evidence:doc-7cb444a67bc0:doc-7cb444a67bc0::sentence-5:obligation:showcase-science-lightning:atom-1"
+          "edge:SUPPORTS:evidence:doc-7cb444a67bc0:doc-7cb444a67bc0::sentence-8:obligation:showcase-science-lightning:atom-1"
         ],
         "refuteEdgeIds": [],
         "unselectedCandidateCount": 2,
@@ -589,7 +598,7 @@
   },
   "recordedWith": {
     "pipelineRevision": "submission-ready-v2",
-    "inputDigest": "1bbd25d3aeed915cb358bdc078e9aabc1dcbae5403252ebb740dbd0c9b7d74e7",
+    "inputDigest": "e17d69ba375031deaf081e3a7756ebb7f6b6f118f8cb5f8c5e0e6c37d4508bac",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
     "retrievalMethod": "HYBRID",
@@ -598,11 +607,11 @@
     "linguisticsModel": "en_core_web_sm@3.8.0"
   },
   "timingsSeconds": {
-    "decomposition": 14.062,
-    "retrievalAndLinguistics": 0.132,
-    "evidenceAssessment": 14.746,
-    "symbolicReasoning": 0.002,
-    "aggregation": 0.001,
-    "total": 28.944
+    "decomposition": 18.075,
+    "retrievalAndLinguistics": 0.388,
+    "evidenceAssessment": 20.562,
+    "symbolicReasoning": 0.006,
+    "aggregation": 0.002,
+    "total": 39.035
   }
 }

@@ -11,7 +11,7 @@ from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 from pydantic import TypeAdapter, ValidationError
 
-from .schemas import DemoCase, DemoCaseSummary, DemoOrigin, DemoSourceType, ReferenceLabel
+from .schemas import DemoCase, DemoCaseSummary, DemoCategory, DemoOrigin, DemoSourceType, ReferenceLabel
 from .settings import settings
 
 
@@ -146,26 +146,84 @@ def _validate_private_catalog(cases: List[DemoCase], bundle_path: Path) -> None:
     profile_path = bundle_path / "bundle.json"
     profile = _read_json(profile_path) if profile_path.is_file() else {"kind": "AVERITEC"}
     if profile.get("kind") == "SHOWCASE":
+        policy = profile.get("policy")
+        if profile.get("version") != 2 or not isinstance(policy, dict):
+            raise DemoDataError("Showcase bundle must use schema version 2 and include its policy")
+
+        def policy_count(name: str) -> int:
+            value = policy.get(name)
+            if not isinstance(value, int) or value < 1:
+                raise DemoDataError(f"Showcase policy {name} must be a positive integer")
+            return value
+
         expected_ids = profile.get("caseIds")
         if not isinstance(expected_ids, list) or [case.id for case in cases] != expected_ids:
             raise DemoDataError("Showcase catalog does not match its ordered case allowlist")
-        if len(cases) != 18:
-            raise DemoDataError("Showcase catalog must contain exactly 18 cases")
+        if len(cases) != policy_count("caseCount"):
+            raise DemoDataError("Showcase catalog does not match policy.caseCount")
         constructed = [case for case in cases if case.origin == DemoOrigin.constructed]
-        if len(constructed) != 15:
-            raise DemoDataError("Showcase catalog must contain exactly 15 constructed cases")
+        if len(constructed) != policy_count("constructedCount"):
+            raise DemoDataError("Showcase constructed count does not match policy")
         if any(case.category is None for case in cases):
             raise DemoDataError("Every showcase case requires a category")
+        if len(cases) - len(constructed) != policy_count("averitecCount"):
+            raise DemoDataError("Showcase AVeriTeC count does not match policy")
+        displayed_categories = policy.get("displayedCategories")
+        if not isinstance(displayed_categories, list) or len(displayed_categories) != len(set(displayed_categories)):
+            raise DemoDataError("Showcase displayedCategories must be a unique list")
+        valid_displayed_categories = {category.value for category in DemoCategory} | {"AVERITEC"}
+        if set(displayed_categories) != valid_displayed_categories:
+            raise DemoDataError("Showcase displayedCategories do not match the supported UI categories")
+        displayed_counts = Counter(
+            "AVERITEC" if case.origin == DemoOrigin.averitec else case.category.value
+            for case in cases
+        )
+        expected_displayed_counts = {
+            category: policy_count("casesPerDisplayedCategory")
+            for category in displayed_categories
+        }
+        if displayed_counts != expected_displayed_counts:
+            raise DemoDataError("Showcase displayed category counts do not match policy")
+        raw_expected_labels = policy.get("verdictCounts")
+        try:
+            expected_labels = {
+                ReferenceLabel(label): count for label, count in raw_expected_labels.items()
+            }
+        except (AttributeError, TypeError, ValueError) as error:
+            raise DemoDataError("Showcase verdictCounts policy is invalid") from error
+        if set(expected_labels) != set(ReferenceLabel):
+            raise DemoDataError("Showcase verdictCounts must cover every reference label")
+        if any(not isinstance(count, int) or count < 0 for count in expected_labels.values()):
+            raise DemoDataError("Showcase verdictCounts values must be non-negative integers")
+        if Counter(case.label for case in cases) != expected_labels:
+            raise DemoDataError("Showcase verdict distribution does not match policy")
+        source_count = policy_count("constructedSourcesPerCase")
+        excerpt_policy = policy.get("excerptWords", {})
+        minimum_words, maximum_words = excerpt_policy.get("minimum"), excerpt_policy.get("maximum")
+        if (
+            not isinstance(minimum_words, int)
+            or not isinstance(maximum_words, int)
+            or minimum_words < 1
+            or maximum_words < minimum_words
+        ):
+            raise DemoDataError("Showcase excerptWords policy is invalid")
         for case in constructed:
-            if len(case.documents) != 2:
-                raise DemoDataError(f"Constructed case {case.id} must contain exactly two sources")
+            if len(case.documents) != source_count:
+                raise DemoDataError(f"Constructed case {case.id} source count does not match policy")
             for document in case.documents:
                 if document.source_type != DemoSourceType.source_excerpt:
                     raise DemoDataError(f"Constructed source {case.id}/{document.id} must be an excerpt")
-                if not document.publisher or not document.retrieved_at:
+                if (
+                    not document.publisher
+                    or not document.retrieved_at
+                    or not document.source_descriptor
+                    or not document.excerpt_rationale
+                ):
                     raise DemoDataError(f"Constructed source {case.id}/{document.id} lacks provenance")
-                if len(document.text.split()) < 150 or len(document.text.split()) > 400:
-                    raise DemoDataError(f"Constructed source {case.id}/{document.id} must contain 150-400 words")
+                if not minimum_words <= len(document.text.split()) <= maximum_words:
+                    raise DemoDataError(
+                        f"Constructed source {case.id}/{document.id} does not satisfy excerpt policy"
+                    )
                 if hashlib.sha256(document.text.encode("utf-8")).hexdigest() != document.excerpt_sha256:
                     raise DemoDataError(f"Constructed source {case.id}/{document.id} has an invalid excerpt hash")
         return

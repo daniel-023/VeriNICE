@@ -12,7 +12,9 @@
       "sourceType": "FULL_SOURCE",
       "sourceSha256": "833dc48fa746fc8bfa220ccb9a01f3139945751916fcbbd16049850887eb0438",
       "retrievedAt": null,
-      "excerptSha256": null
+      "excerptSha256": null,
+      "sourceDescriptor": "",
+      "excerptRationale": ""
     },
     {
       "id": "doc-4cbdb3ff10fa",
@@ -24,7 +26,9 @@
       "sourceType": "FULL_SOURCE",
       "sourceSha256": "9763e79c748946442777a2397be688ec0e3cfb60305fd6868294fbe4e57cbfa1",
       "retrievedAt": null,
-      "excerptSha256": null
+      "excerptSha256": null,
+      "sourceDescriptor": "",
+      "excerptRationale": ""
     },
     {
       "id": "doc-7d4923c19c25",
@@ -36,7 +40,9 @@
       "sourceType": "FULL_SOURCE",
       "sourceSha256": "8092ea218e90bfb6ee042d8ce618c061be76006bc868e3cf60011e5cbe620cfb",
       "retrievedAt": null,
-      "excerptSha256": null
+      "excerptSha256": null,
+      "sourceDescriptor": "",
+      "excerptRationale": ""
     }
   ],
   "label": "SUPPORTED",

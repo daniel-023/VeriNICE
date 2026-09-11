@@ -54,31 +54,31 @@
           "context": "The population of Australia’s capital cities grew by almost 430,000 people in the year ending June 2024, according to figures released today by the Australian Bureau of Statistics (ABS). Beidar Cho, ABS head of demography said: ‘Australia's capital cities grew by 427,800 people last financial year, down from a record growth of 520,900 the previous year. This was largely driven by net overseas migration.’"
         },
         {
-          "id": "doc-5cdeff0e8e07::sentence-19",
-          "documentId": "doc-5cdeff0e8e07",
-          "text": "- All capital cities experienced net overseas migration gain, which was largest in Melbourne followed by Sydney, Perth and Brisbane.\n",
-          "start": 1111,
-          "end": 1244,
-          "contextSpans": [],
-          "context": "- All capital cities experienced net overseas migration gain, which was largest in Melbourne followed by Sydney, Perth and Brisbane."
-        },
-        {
-          "id": "doc-5cdeff0e8e07::sentence-13",
+          "id": "doc-5cdeff0e8e07::sentence-14",
           "documentId": "doc-5cdeff0e8e07",
           "text": "Canberra | 473,855 | 7,496 | 1.6 |\n",
-          "start": 670,
-          "end": 705,
+          "start": 785,
+          "end": 820,
           "contextSpans": [],
           "context": "Canberra | 473,855 | 7,496 | 1.6 |"
         },
         {
-          "id": "doc-5cdeff0e8e07::sentence-16",
+          "id": "doc-5cdeff0e8e07::sentence-5",
           "documentId": "doc-5cdeff0e8e07",
-          "text": "- Natural increase was highest in Melbourne followed by Sydney, Brisbane and Perth.\n",
-          "start": 880,
-          "end": 964,
+          "text": "Capital city | ERP at 30 June 2024 | 2023-24 (no.) | 2023-24 (%) |\n",
+          "start": 449,
+          "end": 516,
           "contextSpans": [],
-          "context": "- Natural increase was highest in Melbourne followed by Sydney, Brisbane and Perth."
+          "context": "Capital city | ERP at 30 June 2024 | 2023-24 (no.) | 2023-24 (%) |"
+        },
+        {
+          "id": "doc-5cdeff0e8e07::sentence-3",
+          "documentId": "doc-5cdeff0e8e07",
+          "text": "- Melbourne had the largest growth (up by 142,600 people), followed by Sydney (107,500), Brisbane (72,900) and Perth (72,700).\n",
+          "start": 230,
+          "end": 357,
+          "contextSpans": [],
+          "context": "- Melbourne had the largest growth (up by 142,600 people), followed by Sydney (107,500), Brisbane (72,900) and Perth (72,700)."
         }
       ]
     }
@@ -89,7 +89,8 @@
         "atomId": "atom-1",
         "supportSpanIds": [],
         "refuteSpanIds": [
-          "doc-5cdeff0e8e07::sentence-13"
+          "doc-5cdeff0e8e07::sentence-14",
+          "doc-5cdeff0e8e07::sentence-3"
         ],
         "contextSpanIds": [
           "doc-988b8061bae5::sentence-2",
@@ -97,8 +98,8 @@
           "doc-988b8061bae5::sentence-3"
         ],
         "sufficiency": "PARTIAL",
-        "missingInformation": "The evidence does not provide the population of other capital cities for comparison on 30 June 2024.",
-        "reason": "While the evidence shows Canberra's population as 473,855 on 30 June 2024, it does not provide the population of other capital cities to determine if Canberra was the most populous.",
+        "missingInformation": "The evidence does not provide the population of Canberra on 30 June 2024 or the population of other capital cities on the same date to compare with Canberra.",
+        "reason": "The evidence shows growth in capital cities but does not provide the specific population of Canberra or other capital cities on 30 June 2024.",
         "scopeChecks": [
           {
             "spanId": "doc-988b8061bae5::sentence-2",
@@ -137,7 +138,7 @@
             "reason": "The candidate and atomic claim share a recognized jurisdiction."
           },
           {
-            "spanId": "doc-5cdeff0e8e07::sentence-19",
+            "spanId": "doc-5cdeff0e8e07::sentence-14",
             "documentId": "doc-5cdeff0e8e07",
             "status": "UNRESOLVED",
             "claimJurisdictions": [
@@ -147,7 +148,7 @@
             "reason": "No explicit source jurisdiction could be resolved."
           },
           {
-            "spanId": "doc-5cdeff0e8e07::sentence-13",
+            "spanId": "doc-5cdeff0e8e07::sentence-5",
             "documentId": "doc-5cdeff0e8e07",
             "status": "UNRESOLVED",
             "claimJurisdictions": [
@@ -157,7 +158,7 @@
             "reason": "No explicit source jurisdiction could be resolved."
           },
           {
-            "spanId": "doc-5cdeff0e8e07::sentence-16",
+            "spanId": "doc-5cdeff0e8e07::sentence-3",
             "documentId": "doc-5cdeff0e8e07",
             "status": "UNRESOLVED",
             "claimJurisdictions": [
@@ -184,26 +185,26 @@
       "status": "DISPROVED",
       "relation": "REFUTES",
       "premiseIds": [
-        "operand:doc-5cdeff0e8e07:line:6",
-        "evidence:atom-1:doc-5cdeff0e8e07:doc-5cdeff0e8e07::sentence-13"
+        "operand:doc-5cdeff0e8e07:line:7",
+        "evidence:atom-1:doc-5cdeff0e8e07:doc-5cdeff0e8e07::sentence-14"
       ],
       "premises": [
         {
-          "id": "operand:doc-5cdeff0e8e07:line:6",
+          "id": "operand:doc-5cdeff0e8e07:line:7",
           "documentId": "doc-5cdeff0e8e07",
           "text": "Sydney | 5,557,233 | 107,538 | 2.0 |",
-          "start": 418,
-          "end": 454,
+          "start": 533,
+          "end": 569,
           "kind": "OPERAND",
           "contentHash": null,
           "itemCount": null
         },
         {
-          "id": "evidence:atom-1:doc-5cdeff0e8e07:doc-5cdeff0e8e07::sentence-13",
+          "id": "evidence:atom-1:doc-5cdeff0e8e07:doc-5cdeff0e8e07::sentence-14",
           "documentId": "doc-5cdeff0e8e07",
           "text": "Canberra | 473,855 | 7,496 | 1.6 |\n",
-          "start": 670,
-          "end": 705,
+          "start": 785,
+          "end": 820,
           "kind": "EVIDENCE",
           "contentHash": null,
           "itemCount": null
@@ -220,7 +221,7 @@
             "id": "input-1",
             "operation": "LOOKUP",
             "inputIds": [
-              "operand:doc-5cdeff0e8e07:line:6"
+              "operand:doc-5cdeff0e8e07:line:7"
             ],
             "outputType": "FACT",
             "description": "Read an unchanged server-owned premise."
@@ -229,7 +230,7 @@
             "id": "input-2",
             "operation": "LOOKUP",
             "inputIds": [
-              "evidence:atom-1:doc-5cdeff0e8e07:doc-5cdeff0e8e07::sentence-13"
+              "evidence:atom-1:doc-5cdeff0e8e07:doc-5cdeff0e8e07::sentence-14"
             ],
             "outputType": "FACT",
             "description": "Read an unchanged server-owned premise."
@@ -744,14 +745,14 @@
         "refuteEdgeIds": [
           "edge:REFUTES:inference:proof:atom-1:extremum_compare:1:obligation:showcase-geography-canberra:atom-1"
         ],
-        "unselectedCandidateCount": 2,
-        "provisionalRelationCount": 1
+        "unselectedCandidateCount": 1,
+        "provisionalRelationCount": 2
       }
     ],
     "warnings": [
       {
         "code": "PROVISIONAL_EVIDENCE_EXCLUDED",
-        "message": "1 assessed relation(s) for obligation atom-1 are provisional because the evidence is not sufficient."
+        "message": "2 assessed relation(s) for obligation atom-1 are provisional because the evidence is not sufficient."
       }
     ],
     "ruleTrace": [
@@ -762,7 +763,7 @@
   },
   "recordedWith": {
     "pipelineRevision": "submission-ready-v2",
-    "inputDigest": "afab6c6368d5d91b3f5e3db41ec793623e380550c9ed480d989f38b247ee6f1c",
+    "inputDigest": "a3d67ee2f9092180531f018d04543148331a9a11b5573b5fa95468c0ea54e72d",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
     "retrievalMethod": "HYBRID",
@@ -771,11 +772,11 @@
     "linguisticsModel": "en_core_web_sm@3.8.0"
   },
   "timingsSeconds": {
-    "decomposition": 15.441,
-    "retrievalAndLinguistics": 0.33,
-    "evidenceAssessment": 17.962,
-    "symbolicReasoning": 17.978,
-    "aggregation": 0.002,
-    "total": 51.714
+    "decomposition": 20.347,
+    "retrievalAndLinguistics": 0.359,
+    "evidenceAssessment": 25.764,
+    "symbolicReasoning": 26.905,
+    "aggregation": 0.004,
+    "total": 73.379
   }
 }

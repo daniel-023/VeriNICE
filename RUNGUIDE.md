@@ -1,4 +1,4 @@
-# VeriTrace run guide
+# VeriNICE run guide
 
 Run every command from the `verigraph/` directory.
 

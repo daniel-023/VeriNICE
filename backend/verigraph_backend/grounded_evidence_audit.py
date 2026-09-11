@@ -290,6 +290,32 @@ def _parse_audit(
             support = [code for code in support if code not in contradictory]
             refute = [code for code in refute if code not in contradictory]
             context = list(dict.fromkeys([*context, *sorted(contradictory)]))[:3]
+        # A one-sided sentence cannot establish a relation between two named
+        # jurisdictions. The model may correctly extract each date yet assign
+        # the Sweden-only sentence as support for "Sweden before Finland".
+        # Require each decisive bundle for an explicit before/after comparison
+        # to cover every compared jurisdiction; incomplete bundles remain
+        # available as context and to the grounded symbolic stage.
+        atom, _ = mapped[atom_code]
+        if re.search(r"\b(?:before|after)\b", atom.text, re.IGNORECASE):
+            checks_by_span = {
+                check.span_id: check for check in scope_checks[atom.id]
+            }
+            claim_jurisdictions = {
+                jurisdiction
+                for check in checks_by_span.values()
+                for jurisdiction in check.claim_jurisdictions
+            }
+            if len(claim_jurisdictions) >= 2:
+                for relation_codes in (support, refute):
+                    covered = {
+                        jurisdiction
+                        for code in relation_codes
+                        for jurisdiction in checks_by_span[candidates[code].id].evidence_jurisdictions
+                    }
+                    if not claim_jurisdictions.issubset(covered):
+                        context = list(dict.fromkeys([*context, *relation_codes]))[:3]
+                        relation_codes.clear()
         decisive = set(support) | set(refute)
         selections[atom_code]["support"] = support
         selections[atom_code]["refute"] = refute
