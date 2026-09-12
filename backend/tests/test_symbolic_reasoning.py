@@ -7,7 +7,13 @@ from verigraph_backend.schemas import (
     GroundedObligationAudit, MaterialOmissionCertificate, PipelineAtom,
     RetrievalDocument, SymbolicPremise,
 )
-from verigraph_backend.symbolic_reasoning.grounding import identity_tokens, lexical_tokens, list_premises, normalize
+from verigraph_backend.symbolic_reasoning.grounding import (
+    build_candidates,
+    identity_tokens,
+    lexical_tokens,
+    list_premises,
+    normalize,
+)
 from verigraph_backend.symbolic_reasoning.operators import (
     execute_attribute_compare, execute_count_distinct, execute_extremum_compare,
     execute_numeric_compare, execute_set_membership, execute_temporal_compare,
@@ -101,6 +107,22 @@ def test_counted_member_list_is_an_exhaustive_certificate():
         list(found.values()),
     )
     assert result["status"].value == "DISPROVED"
+
+
+def test_population_intro_does_not_create_set_membership_candidate():
+    atom = PipelineAtom(
+        id="a",
+        text=(
+            "Among US adults, each additional half egg consumed per day is "
+            "associated with a higher risk of incident cardiovascular disease."
+        ),
+    )
+    candidates, _ = build_candidates(
+        [atom],
+        [AssessmentAtomEvidence(atom_id="a", spans=[])],
+        [],
+    )
+    assert candidates == []
 
 
 @pytest.mark.asyncio

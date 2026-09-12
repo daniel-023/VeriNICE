@@ -100,7 +100,7 @@
           "doc-294213eca17a::sentence-1"
         ],
         "sufficiency": "SUFFICIENT",
-        "missingInformation": "The evidence does not specify the exact half-egg increment or the population subset within US adults.",
+        "missingInformation": "",
         "reason": "O1-E1 and O1-E4 provide direct support for the claim, while O1-E2, O1-E3, and O1-E6 provide conflicting evidence.",
         "scopeChecks": [
           {
@@ -161,47 +161,7 @@
       "reason": "No material omission was established."
     }
   },
-  "reasoning": [
-    {
-      "id": "proof:atom-1:set_membership:unresolved",
-      "atomId": "atom-1",
-      "operator": "SET_MEMBERSHIP",
-      "status": "UNRESOLVED",
-      "relation": null,
-      "premiseIds": [],
-      "premises": [],
-      "expression": "set membership",
-      "conclusion": "No grounded program was compiled.",
-      "explanation": "Qwen did not map the typed candidate to sufficient server-owned premises.",
-      "validationWarnings": [
-        "NO_GROUNDED_PROGRAM"
-      ],
-      "program": {
-        "version": 1,
-        "steps": [
-          {
-            "id": "input-1",
-            "operation": "LOOKUP",
-            "inputIds": [
-              "candidate:atom-1:set"
-            ],
-            "outputType": "FACT",
-            "description": "Read an unchanged server-owned premise."
-          },
-          {
-            "id": "result",
-            "operation": "MEMBER",
-            "inputIds": [
-              "input-1"
-            ],
-            "outputType": "BOOLEAN",
-            "description": "Validate operand alignment and execute the typed operation in Python."
-          }
-        ],
-        "outputStepId": "result"
-      }
-    }
-  ],
+  "reasoning": [],
   "linguistics": {
     "schemaVersion": 2,
     "claimAnalysis": {
@@ -901,11 +861,11 @@
     "linguisticsModel": "en_core_web_sm@3.8.0"
   },
   "timingsSeconds": {
-    "decomposition": 19.609,
-    "retrievalAndLinguistics": 0.315,
-    "evidenceAssessment": 29.302,
-    "symbolicReasoning": 0.011,
-    "aggregation": 0.009,
-    "total": 49.245
+    "decomposition": 20.873,
+    "retrievalAndLinguistics": 0.38,
+    "evidenceAssessment": 27.767,
+    "symbolicReasoning": 0.016,
+    "aggregation": 0.016,
+    "total": 49.054
   }
 }

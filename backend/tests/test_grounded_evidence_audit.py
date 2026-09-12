@@ -144,6 +144,22 @@ def test_missing_information_normalizes_empty_model_values(value) -> None:
     assert result.obligations[0].missing_information == ""
 
 
+def test_sufficient_assessment_clears_model_missing_information() -> None:
+    atoms, evidence, documents, checks = fixtures()
+    _, mapped, _ = _audit_input("claim", atoms, evidence, documents, checks)
+    result = _parse_audit(
+        envelope([
+            assessment_item(
+                sufficiency="SUFFICIENT",
+                missingInformation="A non-decisive detail was not reported.",
+            )
+        ]),
+        mapped,
+        checks,
+    )
+    assert result.obligations[0].missing_information == ""
+
+
 def test_material_omission_requires_sufficient_support() -> None:
     atoms, evidence, documents, checks = fixtures()
     _, mapped, _ = _audit_input("claim", atoms, evidence, documents, checks)

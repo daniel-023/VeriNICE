@@ -257,12 +257,18 @@ def _parse_audit(
         sufficiency = str(item.get("sufficiency", ""))
         if sufficiency not in {"SUFFICIENT", "PARTIAL", "INSUFFICIENT"}:
             raise GroundedEvidenceAuditOutputError("The model returned an unknown evidence sufficiency value.")
+        missing = _clean_model_sentence(item.get("missingInformation"), limit=220)
+        # A sufficient bundle resolves the obligation by definition. Model
+        # commentary about absent but non-decisive detail must not be exposed
+        # as required missing information.
+        if sufficiency == "SUFFICIENT":
+            missing = ""
         selections[atom_code] = {
             "support": _unique_valid_codes(item.get("atomTrueIds"), candidates),
             "refute": _unique_valid_codes(item.get("atomFalseIds"), candidates),
             "context": _unique_valid_codes(item.get("contextIds"), candidates),
             "sufficiency": sufficiency,
-            "missing": _clean_model_sentence(item.get("missingInformation"), limit=220),
+            "missing": missing,
             "reason": _clean_model_sentence(
                 item.get("reason"), fallback="No rationale was returned.", limit=300
             ),

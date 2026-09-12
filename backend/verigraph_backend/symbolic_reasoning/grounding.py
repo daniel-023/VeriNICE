@@ -282,7 +282,11 @@ def build_candidates(
             for span in atom_evidence for context in span.context_spans
         )
         atom_text = normalize(atom.text)
-        if re.search(r"\b(?:list|listed|member|included|designated|among)\b", atom_text):
+        # "Among" commonly introduces a study population (for example,
+        # "Among US adults") and is not evidence that the claim asks whether
+        # an entity belongs to a bounded set. Restrict set-membership
+        # candidates to explicit membership/list language.
+        if re.search(r"\b(?:list|listed|member|included|designated)\b", atom_text):
             atom_tokens = lexical_tokens(atom.text)
             atom_identities = identity_tokens(atom.text)
             certificates = [

@@ -130,6 +130,11 @@ def validate_presentation_run(case: dict[str, Any], run: dict[str, Any], audit: 
                 f"Conflicting evidence must be decisive and come from different documents: {case_id}"
             )
     executions = run["reasoning"]
+    allowed_operators = audit.get("allowedOperators")
+    if isinstance(allowed_operators, list):
+        allowed = set(allowed_operators)
+        if any(item.get("operator") not in allowed for item in executions):
+            raise RuntimeError(f"An unaudited symbolic operator is present: {case_id}")
     for required in audit.get("requiredOperators", []):
         if not any(
             item.get("operator") == required.get("operator")
