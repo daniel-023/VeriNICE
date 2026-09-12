@@ -169,17 +169,18 @@ export function PipelinePanel({
             <small>02 · {recorded ? "RECORDED" : "LIVE"}</small>
             <strong>Retrieve Evidence</strong>
             {retrievalCopy ? <p>{retrievalCopy}</p> : null}
-            {recorded ? (
-              <div className="stage-recorded-retrieval">
-                <small>
-                  Recorded retrieval · {retrievalMethodLabel}
-                  {evidencePerAtom !== undefined ? ` · ${evidencePerAtom} candidates per atomic claim` : ""}
-                </small>
-              </div>
-            ) : (
-              <details className="stage-retrieval-options">
-                <summary>Evidence Matching: {retrievalMethodLabel}</summary>
-                <div className="stage-retrieval-controls">
+            <details
+              className="stage-retrieval-options"
+              open={recorded ? true : undefined}
+            >
+              <summary
+                onClick={
+                  recorded ? (event) => event.preventDefault() : undefined
+                }
+              >
+                Evidence Matching: {retrievalMethodLabel}
+              </summary>
+              <div className="stage-retrieval-controls">
                   <label className="stage-budget">
                     <span>Matching method</span>
                     <select
@@ -217,11 +218,12 @@ export function PipelinePanel({
                     {RETRIEVAL_METHOD_HELP[retrievalMethod]}
                   </p>
                   <p className="stage-retrieval-help" id="retrieval-rerun-help">
-                    Changing either setting reruns evidence retrieval and all later stages.
+                    {recorded
+                      ? "These recorded values are fixed here. In a live run, changing either setting reruns evidence retrieval and all later stages."
+                      : "Changing either setting reruns evidence retrieval and all later stages."}
                   </p>
-                </div>
-              </details>
-            )}
+              </div>
+            </details>
           </span>
           <span className="stage-actions">
             <span className="stage-state">{stateLabel(retrievalState)}</span>

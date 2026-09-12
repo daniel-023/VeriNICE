@@ -30,6 +30,42 @@ describe("Milestone 5 accessibility", () => {
     await expectAccessible(container);
   });
 
+  it("keeps recorded retrieval settings expanded and read-only", async () => {
+    const { container } = render(
+      <PipelinePanel
+        decompositionState="complete"
+        retrievalState="complete"
+        assessmentState="complete"
+        reasoningState="complete"
+        graphLinkCount={1}
+        atomCount={1}
+        evidenceCount={6}
+        relationCount={1}
+        onRetryEvidence={vi.fn()}
+        onRetryAssessment={vi.fn()}
+        onRetryReasoning={vi.fn()}
+        verdictState="complete"
+        verdict="SUPPORTED"
+        evidencePerAtom={6}
+        retrievalMethod="HYBRID"
+        recorded
+      />,
+    );
+
+    const summary = screen.getByText("Evidence Matching: Hybrid");
+    expect(summary.closest("details")).toHaveAttribute("open");
+    expect(screen.getByRole("combobox", { name: "Matching method" })).toBeDisabled();
+    expect(
+      screen.getByRole("combobox", {
+        name: "Candidate sentences per atomic claim",
+      }),
+    ).toBeDisabled();
+    expect(
+      screen.getByText(/In a live run, changing either setting reruns/i),
+    ).toBeVisible();
+    await expectAccessible(container);
+  });
+
   it("renders source tabs, highlights and four reviewer relations accessibly", async () => {
     const { container } = render(<DocumentPanel
       documents={[document]} activeDocumentId="d1" onActivate={vi.fn()} onTextChange={vi.fn()}
