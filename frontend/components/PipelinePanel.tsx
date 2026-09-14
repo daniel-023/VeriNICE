@@ -35,11 +35,11 @@ const SYMBOLIC_RULES: Array<{
   label: string;
   description: string;
 }> = [
-  { operator: "SET_MEMBERSHIP", label: "Set membership", description: "Checks presence or certified absence in a grounded set." },
-  { operator: "NUMERIC_COMPARE", label: "Numeric comparison", description: "Compares aligned numbers with matching parsed units and scope." },
-  { operator: "TEMPORAL_COMPARE", label: "Temporal comparison", description: "Compares aligned absolute dates or date intervals." },
-  { operator: "ATTRIBUTE_COMPARE", label: "Attribute comparison", description: "Applies a registered source-grounded attribute pattern." },
-  { operator: "COUNT_DISTINCT", label: "Distinct-value count", description: "Counts grounded values; exact equality requires a complete value set." },
+  { operator: "SET_MEMBERSHIP", label: "Set membership", description: "Checks whether an item appears in a source list; absence counts only when the list is complete." },
+  { operator: "NUMERIC_COMPARE", label: "Numeric comparison", description: "Compares numbers when they refer to the same quantity, unit, entity, and time." },
+  { operator: "TEMPORAL_COMPARE", label: "Temporal comparison", description: "Compares absolute dates or date ranges tied to the same event." },
+  { operator: "ATTRIBUTE_COMPARE", label: "Attribute comparison", description: "Compares a claimed attribute with an explicitly stated source attribute using a supported pattern." },
+  { operator: "COUNT_DISTINCT", label: "Distinct-value count", description: "Counts distinct source values; an exact total requires a complete list." },
   { operator: "EXTREMUM_COMPARE", label: "Largest/smallest comparison", description: "Finds a comparable counterexample that can refute a largest or smallest claim." },
 ];
 const SYMBOLIC_RULES_BY_OPERATOR = new Map(
