@@ -25,18 +25,15 @@ flowchart TB
     sources[/Source documents/] --> retrieve["Stage 02 · Rank candidate sentences"]
     split --> retrieve
 
-    retrieve --> scope{"Explicit country or region mismatch?"}
-    scope -->|Yes| excluded["Retain for inspection only"]
-    scope -->|No| assess["Stage 03 · Classify evidence and sufficiency"]
-
-    assess --> relations["Decisive support or refute relations"]
+    retrieve --> assess["Stage 03 · Assess evidence relations and sufficiency"]
+    assess --> relations["Verdict-bearing support or refutation"]
     assess -.->|When applicable| select
 
-    select["Stage 04 · Map evidence to an eligible rule"]
-    execute["Validate and execute the rule"]
+    select["Stage 04 · Select symbolic operator and premises"]
+    execute["Validate and execute typed program"]
     select --> execute
 
-    relations --> compose["Stage 05 · Combine atomic results"]
+    relations --> compose["Stage 05 · Compose atomic states"]
     execute --> compose
     compose --> verdict(["Four-way verdict"])
 
