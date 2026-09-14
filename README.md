@@ -17,14 +17,16 @@ display-only and never enter the inference pipeline.
 ## Pipeline
 
 ```mermaid
-flowchart TD
-    A[Claim and source documents] --> B[Claim decomposition<br/>Qwen2.5 via Ollama]
-    B --> C[Candidate evidence retrieval<br/>Hybrid, Semantic, or Lexical]
-    C --> D[Jurisdiction scope check<br/>Offline ISO data and deterministic Python]
-    D --> E[Evidence assessment<br/>Qwen2.5 selects retrieved sentence IDs]
-    E --> F[Symbolic rule mapping<br/>Qwen2.5]
-    F --> G[Rule execution<br/>Deterministic Python]
-    G --> H[Inspectable reasoning graph<br/>and deterministic verdict]
+flowchart LR
+    claim[/Claim/] --> split[Split into atomic claims]
+    sources[/Source documents/] --> rank[Rank relevant sentences]
+    split --> rank
+    rank --> scope[Validate country or region]
+    scope --> assess[Assess support and refutation]
+    assess --> combine[Combine atomic outcomes]
+    assess -.->|When applicable| rules[Execute typed comparisons]
+    rules --> combine
+    combine --> verdict([Four-way verdict])
 ```
 
 Hybrid retrieval is the default. It combines semantic BGE similarity with
