@@ -6,40 +6,68 @@
 
 VeriNICE (**Verification via Neuro-symbolic Inference with Compositional
 Evidence**) is an inspectable claim-verification demonstrator. Given a claim
-and supplied source documents, it decomposes the claim, retrieves candidate
-evidence, assesses that evidence, executes supported symbolic checks, and
-exposes the deterministic composition behind a four-way verdict:
-`SUPPORTED`, `REFUTED`, `NOT_ENOUGH_EVIDENCE`, or `CONFLICTING_EVIDENCE`.
+and supplied source documents, it decomposes the claim into atomic claims,
+ranks candidate evidence, assesses evidence relations and sufficiency, performs
+symbolic reasoning, and deterministically
+composes a four-way verdict: `SUPPORTED`, `REFUTED`,
+`NOT_ENOUGH_EVIDENCE`, or `CONFLICTING_EVIDENCE`.
 
-Every decisive relation remains traceable to source text. Reference labels are
-display-only and never enter the inference pipeline.
+Every verdict-bearing support or refutation is traceable either to an exact
+source span or to a symbolic program executed over source-linked premises.
+Dataset reference verdicts are displayed only for comparison and never enter
+the inference pipeline.
 
 ## Pipeline
 
 ```mermaid
-flowchart LR
-    claim[/Claim/] --> split[Split into atomic claims]
-    sources[/Source documents/] --> rank[Rank relevant sentences]
-    split --> rank
-    rank --> scope[Validate country or region]
-    scope --> assess[Assess support and refutation]
-    assess --> combine[Combine atomic outcomes]
-    assess -.->|When applicable| rules[Execute typed comparisons]
-    rules --> combine
-    combine --> verdict([Four-way verdict])
+flowchart TB
+    claim[/Claim/] --> split["Stage 01 · Split into atomic claims"]
+    sources[/Source documents/] --> retrieve["Stage 02 · Rank candidate sentences"]
+    split --> retrieve
+
+    retrieve --> scope{"Explicit country or region mismatch?"}
+    scope -->|Yes| excluded["Retain for inspection only"]
+    scope -->|No| assess["Stage 03 · Classify evidence and sufficiency"]
+
+    assess --> relations["Decisive support or refute relations"]
+    assess -.->|When applicable| select
+
+    select["Stage 04 · Map evidence to an eligible rule"]
+    execute["Validate and execute the rule"]
+    select --> execute
+
+    relations --> compose["Stage 05 · Combine atomic results"]
+    execute --> compose
+    compose --> verdict(["Four-way verdict"])
+
+    classDef input fill:#F1F5F9,stroke:#64748B,color:#0F172A;
+    classDef stage fill:#DBEAFE,stroke:#2563EB,color:#172554;
+    classDef symbolicNode fill:#EDE9FE,stroke:#7C3AED,color:#2E1065;
+    classDef output fill:#D1FAE5,stroke:#059669,color:#064E3B;
+    classDef excludedStyle fill:#FEF3C7,stroke:#D97706,color:#78350F,stroke-dasharray:4 3;
+
+    class claim,sources input;
+    class split,retrieve,scope,assess,relations,compose stage;
+    class select,execute symbolicNode;
+    class verdict output;
+    class excluded excludedStyle;
 ```
 
 Hybrid retrieval is the default. It combines semantic BGE similarity with
-exact terms, names, dates, and numbers. Explicit jurisdiction mismatches remain
-visible for inspection but are excluded from assessment, reasoning, and the
-verdict.
+lexical matching of terms, names, dates, and numbers using reciprocal rank
+fusion. Explicit jurisdiction mismatches remain visible for inspection but are
+excluded from evidence assessment, symbolic reasoning, and verdict
+composition.
+
+The symbolic-reasoning stage uses a small operator library. Qwen2.5 maps source evidence to a predefined comparison rule. Python then checks that the required values and evidence references are present before executing the rule. If the evidence cannot support a valid comparison, the check remains unresolved and does not affect the verdict.
 
 ## Demonstration modes
 
-| Mode | Description |
-| --- | --- |
-| **Local live demo** | Runs the complete verification pipeline locally using Ollama, BGE, and Python. |
-| **Recorded walkthrough** | Replays the 18 showcase runs without live inference; available at `/walkthrough`. |
+
+| Mode                     | Description                                                                      |
+| -------------------------- | ---------------------------------------------------------------------------------- |
+| **Local live demo**      | Runs the complete verification pipeline locally using Ollama, BGE, and Python.   |
+| **Recorded walkthrough** | Replays the 18 showcase runs without live inference; available at`/walkthrough`. |
 
 ## Run locally
 
