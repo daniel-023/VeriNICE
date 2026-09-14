@@ -1,163 +1,109 @@
+<p align="center">
+  <img src="verinice-readme-banner.jpg" alt="VeriNICE — Verification via Neuro-symbolic Inference with Compositional Evidence" width="100%">
+</p>
+
 # VeriNICE
 
-VeriNICE (Verification via Neuro-symbolic Inference with Compositional Evidence)
-shows how a claim-verification result is produced. It decomposes a
-complex claim, retrieves candidate evidence, assesses the evidence against each
-atomic claim, applies supported symbolic rules, and exposes the deterministic
-aggregation behind the verdict.
+VeriNICE (**Verification via Neuro-symbolic Inference with Compositional
+Evidence**) is an inspectable claim-verification demonstrator. Given a claim
+and supplied source documents, it decomposes the claim, retrieves candidate
+evidence, assesses that evidence, executes supported symbolic checks, and
+exposes the deterministic composition behind a four-way verdict:
+`SUPPORTED`, `REFUTED`, `NOT_ENOUGH_EVIDENCE`, or `CONFLICTING_EVIDENCE`.
 
-The reasoning graph links atomic claims to assessed evidence, reading context,
-and resolved rule results. Linguistic analysis flags entities, qualifiers, and
-role changes, but it does not supply evidence or affect the verdict.
+Every decisive relation remains traceable to source text. Reference labels are
+display-only and never enter the inference pipeline.
 
-The current live pipeline is:
+## Pipeline
 
-```text
-Claim + source documents
-        ↓
-Claim decomposition (Qwen2.5 via Ollama)
-        ↓
-Candidate evidence retrieval (user-selectable Hybrid, Semantic, or Lexical ranking)
-        ↓
-Jurisdiction scope check (offline ISO data + deterministic Python)
-        ↓
-Evidence assessment (Qwen2.5 selects only retrieved sentence IDs)
-        ↓
-Symbolic rule mapping (Qwen2.5) and deterministic execution (Python)
-        ↓
-Version-4 reasoning graph and deterministic four-way verdict (SUPPORTED / REFUTED / NOT_ENOUGH_EVIDENCE /
-CONFLICTING_EVIDENCE)
+```mermaid
+flowchart TD
+    A[Claim and source documents] --> B[Claim decomposition<br/>Qwen2.5 via Ollama]
+    B --> C[Candidate evidence retrieval<br/>Hybrid, Semantic, or Lexical]
+    C --> D[Jurisdiction scope check<br/>Offline ISO data and deterministic Python]
+    D --> E[Evidence assessment<br/>Qwen2.5 selects retrieved sentence IDs]
+    E --> F[Symbolic rule mapping<br/>Qwen2.5]
+    F --> G[Rule execution<br/>Deterministic Python]
+    G --> H[Inspectable reasoning graph<br/>and deterministic verdict]
 ```
 
-Claim Structure is an optional local spaCy sidecar. It heuristically describes
-atom syntax and cues; it is not evidence or a verdict input. Explicit
-jurisdiction mismatches remain visible but are excluded from assessment,
-symbolic reasoning, the graph, and the verdict. Relations from insufficient
-evidence remain visible as provisional annotations.
+Hybrid retrieval is the default. It combines semantic BGE similarity with
+exact terms, names, dates, and numbers. Explicit jurisdiction mismatches remain
+visible for inspection but are excluded from assessment, reasoning, and the
+verdict.
 
-The retrieval stage defaults to **Hybrid**, which combines normalized BGE
-similarity with exact terms, names, dates, and numbers using equal-weight
-reciprocal rank fusion. Its collapsed settings
-control also supports **Semantic** (BGE only) and **Lexical** (exact-anchor
-ranking only); changing the method reruns retrieval and the dependent stages.
+## Demonstration modes
 
-## Two intentional modes
+| Mode | Description |
+| --- | --- |
+| **Local live demo** | Runs the complete verification pipeline locally using Ollama, BGE, and Python. |
+| **Recorded walkthrough** | Replays the 18 showcase runs without live inference; available at `/walkthrough`. |
 
+## Run locally
 
-| Mode        | Where                           | What is live                                                               |
-| ------------- | --------------------------------- | ---------------------------------------------------------------------------- |
-| Walkthrough | Vercel                          | Nothing. It presents 18 recorded local runs: 15 source-grounded constructed examples and three AVeriTeC cases. |
-| Live demo   | Native processes on your laptop | Qwen/Ollama decomposition, evidence assessment, and rule mapping; BGE retrieval; Python rule execution; spaCy analysis. |
-
-The Vercel UI always states: **“Illustrative recorded run — no live inference
-on this website.”** It never attempts to connect to a laptop or
-to a public inference service.
-
-## Local live demo
-
-Requirements: Python 3, Node.js/npm, and Ollama Desktop. Native execution keeps
-the backend and model files on the host instead of in a container. Docker
-Desktop on macOS shares files into containers through a slow virtualized
-layer, which stalls model loads and file-watching; running natively avoids
-that entirely. Decomposition uses `qwen2.5:7b`, the model the published
-walkthrough was recorded with; `VERIGRAPH_OLLAMA_MODEL` overrides it, at the
-cost of no longer reproducing those runs.
-
-Optional local overrides can be placed in `.env.local`:
-
-```bash
-cp .env.example .env.local
-```
-
-```bash
-cd verigraph
-./run-verigraph --prepare  # one-time dependency/model setup
-./run-verigraph --start
-```
-
-Open [http://localhost:3000](http://localhost:3000). The browser talks to the local Next.js process,
-which proxies to FastAPI on port 8001. BGE is stored in the gitignored
-`data/models/` directory; Ollama stores Qwen in its normal host
-installation. After preparation, inference is local and does not fetch source
-documents or model files.
-
-If the live stack is unavailable, open the local `/walkthrough` route for the
-same recorded fallback used by Vercel.
-
-Useful commands:
+Requirements: Python 3, Node.js/npm, and Ollama Desktop. Run commands from the
+`verigraph/` directory.
 
 ```bash
 ./run-verigraph --check
+./run-verigraph --prepare  # one-time dependencies and model downloads
+./run-verigraph --start
+```
+
+Open [http://localhost:3000](http://localhost:3000). The Next.js frontend
+proxies requests to FastAPI on port 8001. Preparation installs the pinned
+Python and Node dependencies, downloads `BAAI/bge-small-en-v1.5` into the
+gitignored `data/models/` directory, and pulls `qwen2.5:7b` through Ollama.
+After preparation, live inference runs locally without fetching documents or
+models.
+
+To use a different Ollama model:
+
+```bash
+VERIGRAPH_OLLAMA_MODEL=qwen2.5:3b ./run-verigraph --start
+```
+
+Changing the model may change decomposition and will not reproduce the
+recorded walkthrough. Additional maintenance commands are:
+
+```bash
 ./run-verigraph --test
 ./run-verigraph --record-walkthrough
 ```
 
-`--record-walkthrough` uses the already-running native services to record all
-18 showcase cases and writes the static assets consumed by Vercel.
-The full 32-case bundle remains available locally for internal audits. Recording
-must complete successfully before deploying a new walkthrough.
+The recorder requires a healthy local stack and updates the recorded assets
+for all 18 showcase cases.
 
-## Vercel deployment
+## Demo data
 
-1. Create a Git repository with **`verigraph/` as its root**.
-2. Import it into Vercel and set the project root directory to `frontend`.
-3. Vercel reads `frontend/vercel.json`, which builds walkthrough mode with no
-   backend URL.
-4. Commit `frontend/public/walkthrough/` only after
-   `./run-verigraph --record-walkthrough` has generated a complete snapshot.
+The showcase contains **18 qualitative examples**:
 
-Vercel does not host FastAPI, Ollama, or BGE in this design. This
-keeps the permanent public site inexpensive and the in-person demonstration
-independent of a fragile remote GPU arrangement.
+- **15 authored, source-grounded cases** across Science, History, Geography,
+  Technology, and Current Affairs. They cover familiar facts and myths,
+  multi-part claims, numeric and temporal comparisons, conflicting sources,
+  and cases where the system should abstain. Each case contains two contiguous,
+  sentence-complete excerpts of 150–400 words from linked authoritative
+  sources.
+- **3 AVeriTeC cases.** [AVeriTeC](https://github.com/MichSchli/AVeriTeC) is a
+  dataset for verifying real-world claims using evidence from the open web.
+  The selected cases illustrate direct numeric and temporal evidence (pandemic
+  job recovery), jurisdiction filtering (wildfire smoke and orange skies), and
+  insufficient evidence for an attributed causal claim (non-COVID deaths and
+  hospital closures).
 
-Every Vercel deployment is Basic Auth-gated by default via
-`frontend/proxy.ts`, which protects the app, API proxy, walkthrough JSON,
-and generated assets. You must set `BASIC_AUTH_USER` and `BASIC_AUTH_PASSWORD`
-in the Vercel project environment, or the deployment serves a 503 to every
-visitor. Native local runs remain open unless `VERIGRAPH_AUTH_REQUIRED=1` is
-set.
+The showcase is designed to demonstrate inspectability and failure handling;
+it is not presented as a benchmark result. Publisher, source URL, retrieval
+date, extraction offsets, and content hashes are retained for traceability.
 
-## Demo data and licences
+## Licences
 
-The default showcase is a qualitative collection of 18 cases with three entries
-in each displayed category: Science, History, Geography, Technology, Current
-Affairs, and AVeriTeC. Fifteen are
-constructed claims paired with two 150--400-word excerpts from distinct
-authoritative sources; three are curated AVeriTeC cases retained for realism.
-The claim and intended interpretation may be authored, but quoted evidence is
-stored source text rather than an evidence card, paraphrase, or synthetic
-quotation. Publisher, canonical URL, retrieval date, extraction offsets, and
-content hashes are recorded by the offline preparation process. Excerpts are
-contiguous and sentence-complete, and the full publisher page remains linked.
-Maintainers
-must review redistribution permission before publishing an excerpt.
+VeriNICE code is released under the [MIT License](LICENSE). AVeriTeC is
+licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
+Source excerpts remain subject to their publishers' rights and are accompanied
+by links to the original pages and traceability information.
 
-`data/manifests/showcase-sources.json` is the single authored authority for
-showcase order, per-case demo focus, excerpt limits, displayed-category balance,
-and verdict distribution. Offline preparation validates that policy and copies it
-into `data/demo/showcase/bundle.json`; the backend and static walkthrough build
-consume the generated policy instead of maintaining parallel case lists or counts.
-The separate presentation audit remains independent so expected model outputs
-cannot become inference inputs.
+## Documentation
 
-The approved 32-case AVeriTeC bundle is stored in `data/demo/averitec/` and
-contains claims, reference labels, recovered source documents, source metadata,
-audit metadata, and a digest. Inference uses only extracted source text.
-AVeriTeC's human question-answer annotations remain in the pinned upstream
-dataset for optional offline evaluation and are never copied into demo
-documents or model inputs. Reference labels remain dataset metadata and are
-never used as pipeline inputs.
-
-The interface offers five subject-category buttons plus AVeriTeC and one selector grouped into
-source-grounded examples and AVeriTeC cases. The separate 32-case AVeriTeC
-bundle remains available for internal regression and error analysis; it is not
-presented as the public showcase or as a benchmark result.
-
-See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for AVeriTeC attribution,
-source-text clearance, and model notices. VeriNICE code is released under the
-[MIT License](LICENSE).
-
-See [PIPELINE.md](PIPELINE.md) for model and API detail, and
-[RUNGUIDE.md](RUNGUIDE.md) for operational checks. The AAAI-27 positioning,
-submission checklist, and acceptance-focused revisions are in
-[AAAI27_DEMO.md](AAAI27_DEMO.md).
+- [Pipeline and API reference](PIPELINE.md)
+- [Local operation and demonstration guide](RUNGUIDE.md)
+- [AAAI Demonstrations Program positioning](AAAI27_DEMO.md)

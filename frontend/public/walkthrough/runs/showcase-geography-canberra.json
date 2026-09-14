@@ -1,6 +1,6 @@
 {
   "caseId": "showcase-geography-canberra",
-  "schemaVersion": 6,
+  "schemaVersion": 7,
   "composition": "SINGLE",
   "warnings": [],
   "atoms": [
@@ -182,22 +182,24 @@
       "id": "proof:atom-1:extremum_compare:1",
       "atomId": "atom-1",
       "operator": "EXTREMUM_COMPARE",
+      "profile": "GENERIC_EXTREMUM_COUNTEREXAMPLE",
       "status": "DISPROVED",
       "relation": "REFUTES",
       "premiseIds": [
-        "operand:doc-5cdeff0e8e07:line:7",
+        "operand:doc-5cdeff0e8e07:line:8",
         "evidence:atom-1:doc-5cdeff0e8e07:doc-5cdeff0e8e07::sentence-14"
       ],
       "premises": [
         {
-          "id": "operand:doc-5cdeff0e8e07:line:7",
+          "id": "operand:doc-5cdeff0e8e07:line:8",
           "documentId": "doc-5cdeff0e8e07",
-          "text": "Sydney | 5,557,233 | 107,538 | 2.0 |",
-          "start": 533,
-          "end": 569,
+          "text": "Melbourne | 5,350,705 | 142,637 | 2.7 |",
+          "start": 570,
+          "end": 609,
           "kind": "OPERAND",
           "contentHash": null,
-          "itemCount": null
+          "itemCount": null,
+          "listItems": []
         },
         {
           "id": "evidence:atom-1:doc-5cdeff0e8e07:doc-5cdeff0e8e07::sentence-14",
@@ -207,13 +209,31 @@
           "end": 820,
           "kind": "EVIDENCE",
           "contentHash": null,
-          "itemCount": null
+          "itemCount": null,
+          "listItems": []
         }
       ],
-      "expression": "5557233 > 473855",
+      "expression": "5350705 > 473855",
       "conclusion": "A grounded counterexample disproves the extremum claim.",
       "explanation": "Python compared aligned measurements. One counterexample is sufficient to refute a superlative.",
       "validationWarnings": [],
+      "preconditions": [
+        {
+          "name": "Source grounding",
+          "status": "PASSED",
+          "detail": "9 selected premise(s) retain exact source offsets."
+        },
+        {
+          "name": "Registered profile",
+          "status": "PASSED",
+          "detail": "generic extremum counterexample"
+        },
+        {
+          "name": "Operand alignment",
+          "status": "PASSED",
+          "detail": "Python compared aligned measurements. One counterexample is sufficient to refute a superlative."
+        }
+      ],
       "program": {
         "version": 1,
         "steps": [
@@ -221,7 +241,7 @@
             "id": "input-1",
             "operation": "LOOKUP",
             "inputIds": [
-              "operand:doc-5cdeff0e8e07:line:7"
+              "operand:doc-5cdeff0e8e07:line:8"
             ],
             "outputType": "FACT",
             "description": "Read an unchanged server-owned premise."
@@ -250,478 +270,6 @@
       }
     }
   ],
-  "linguistics": {
-    "schemaVersion": 2,
-    "claimAnalysis": {
-      "atomId": "claim",
-      "frames": [
-        {
-          "id": "claim-frame-1",
-          "predicate": {
-            "id": "claim-frame-1-predicate",
-            "text": "was",
-            "start": 9,
-            "end": 12
-          },
-          "subjects": [
-            {
-              "id": "claim-frame-1-subject-1",
-              "text": "Canberra",
-              "start": 0,
-              "end": 8
-            }
-          ],
-          "coreArguments": [
-            {
-              "id": "claim-frame-1-argument-1",
-              "text": "Australia's most populous capital city",
-              "start": 13,
-              "end": 51,
-              "role": "subject_complement"
-            }
-          ],
-          "adjuncts": [
-            {
-              "id": "claim-frame-1-adjunct-1",
-              "text": "on 30 June 2024",
-              "start": 52,
-              "end": 67,
-              "kind": "temporal"
-            }
-          ],
-          "otherModifiers": []
-        }
-      ],
-      "cues": [
-        {
-          "id": "claim-cue-quantifier-25-29",
-          "text": "most",
-          "start": 25,
-          "end": 29,
-          "kind": "quantifier"
-        },
-        {
-          "id": "claim-cue-temporal-55-67",
-          "text": "30 June 2024",
-          "start": 55,
-          "end": 67,
-          "kind": "temporal"
-        }
-      ],
-      "entities": [
-        {
-          "id": "claim-entity-gpe-0-8",
-          "text": "Canberra",
-          "start": 0,
-          "end": 8,
-          "label": "GPE"
-        },
-        {
-          "id": "claim-entity-gpe-13-22",
-          "text": "Australia",
-          "start": 13,
-          "end": 22,
-          "label": "GPE"
-        }
-      ],
-      "tokens": [
-        {
-          "id": "claim-token-0",
-          "text": "Canberra",
-          "start": 0,
-          "end": 8,
-          "lemma": "Canberra",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "nsubj",
-          "head": "was"
-        },
-        {
-          "id": "claim-token-1",
-          "text": "was",
-          "start": 9,
-          "end": 12,
-          "lemma": "be",
-          "pos": "AUX",
-          "tag": "VBD",
-          "dependency": "ROOT",
-          "head": "ROOT"
-        },
-        {
-          "id": "claim-token-2",
-          "text": "Australia",
-          "start": 13,
-          "end": 22,
-          "lemma": "Australia",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "poss",
-          "head": "city"
-        },
-        {
-          "id": "claim-token-3",
-          "text": "'s",
-          "start": 22,
-          "end": 24,
-          "lemma": "'s",
-          "pos": "PART",
-          "tag": "POS",
-          "dependency": "case",
-          "head": "Australia"
-        },
-        {
-          "id": "claim-token-4",
-          "text": "most",
-          "start": 25,
-          "end": 29,
-          "lemma": "most",
-          "pos": "ADV",
-          "tag": "RBS",
-          "dependency": "advmod",
-          "head": "populous"
-        },
-        {
-          "id": "claim-token-5",
-          "text": "populous",
-          "start": 30,
-          "end": 38,
-          "lemma": "populous",
-          "pos": "ADJ",
-          "tag": "JJ",
-          "dependency": "amod",
-          "head": "city"
-        },
-        {
-          "id": "claim-token-6",
-          "text": "capital",
-          "start": 39,
-          "end": 46,
-          "lemma": "capital",
-          "pos": "NOUN",
-          "tag": "NN",
-          "dependency": "compound",
-          "head": "city"
-        },
-        {
-          "id": "claim-token-7",
-          "text": "city",
-          "start": 47,
-          "end": 51,
-          "lemma": "city",
-          "pos": "NOUN",
-          "tag": "NN",
-          "dependency": "attr",
-          "head": "was"
-        },
-        {
-          "id": "claim-token-8",
-          "text": "on",
-          "start": 52,
-          "end": 54,
-          "lemma": "on",
-          "pos": "ADP",
-          "tag": "IN",
-          "dependency": "prep",
-          "head": "was"
-        },
-        {
-          "id": "claim-token-9",
-          "text": "30",
-          "start": 55,
-          "end": 57,
-          "lemma": "30",
-          "pos": "NUM",
-          "tag": "CD",
-          "dependency": "nummod",
-          "head": "June"
-        },
-        {
-          "id": "claim-token-10",
-          "text": "June",
-          "start": 58,
-          "end": 62,
-          "lemma": "June",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "pobj",
-          "head": "on"
-        },
-        {
-          "id": "claim-token-11",
-          "text": "2024",
-          "start": 63,
-          "end": 67,
-          "lemma": "2024",
-          "pos": "NUM",
-          "tag": "CD",
-          "dependency": "nummod",
-          "head": "June"
-        },
-        {
-          "id": "claim-token-12",
-          "text": ".",
-          "start": 67,
-          "end": 68,
-          "lemma": ".",
-          "pos": "PUNCT",
-          "tag": ".",
-          "dependency": "punct",
-          "head": "was"
-        }
-      ],
-      "status": "complete",
-      "unresolved": []
-    },
-    "analyses": [
-      {
-        "atomId": "atom-1",
-        "frames": [
-          {
-            "id": "atom-1-frame-1",
-            "predicate": {
-              "id": "atom-1-frame-1-predicate",
-              "text": "was",
-              "start": 9,
-              "end": 12
-            },
-            "subjects": [
-              {
-                "id": "atom-1-frame-1-subject-1",
-                "text": "Canberra",
-                "start": 0,
-                "end": 8
-              }
-            ],
-            "coreArguments": [
-              {
-                "id": "atom-1-frame-1-argument-1",
-                "text": "Australia's most populous capital city",
-                "start": 13,
-                "end": 51,
-                "role": "subject_complement"
-              }
-            ],
-            "adjuncts": [
-              {
-                "id": "atom-1-frame-1-adjunct-1",
-                "text": "on 30 June 2024",
-                "start": 52,
-                "end": 67,
-                "kind": "temporal"
-              }
-            ],
-            "otherModifiers": []
-          }
-        ],
-        "cues": [
-          {
-            "id": "atom-1-cue-quantifier-25-29",
-            "text": "most",
-            "start": 25,
-            "end": 29,
-            "kind": "quantifier"
-          },
-          {
-            "id": "atom-1-cue-temporal-55-67",
-            "text": "30 June 2024",
-            "start": 55,
-            "end": 67,
-            "kind": "temporal"
-          }
-        ],
-        "entities": [
-          {
-            "id": "atom-1-entity-gpe-0-8",
-            "text": "Canberra",
-            "start": 0,
-            "end": 8,
-            "label": "GPE"
-          },
-          {
-            "id": "atom-1-entity-gpe-13-22",
-            "text": "Australia",
-            "start": 13,
-            "end": 22,
-            "label": "GPE"
-          }
-        ],
-        "tokens": [
-          {
-            "id": "atom-1-token-0",
-            "text": "Canberra",
-            "start": 0,
-            "end": 8,
-            "lemma": "Canberra",
-            "pos": "PROPN",
-            "tag": "NNP",
-            "dependency": "nsubj",
-            "head": "was"
-          },
-          {
-            "id": "atom-1-token-1",
-            "text": "was",
-            "start": 9,
-            "end": 12,
-            "lemma": "be",
-            "pos": "AUX",
-            "tag": "VBD",
-            "dependency": "ROOT",
-            "head": "ROOT"
-          },
-          {
-            "id": "atom-1-token-2",
-            "text": "Australia",
-            "start": 13,
-            "end": 22,
-            "lemma": "Australia",
-            "pos": "PROPN",
-            "tag": "NNP",
-            "dependency": "poss",
-            "head": "city"
-          },
-          {
-            "id": "atom-1-token-3",
-            "text": "'s",
-            "start": 22,
-            "end": 24,
-            "lemma": "'s",
-            "pos": "PART",
-            "tag": "POS",
-            "dependency": "case",
-            "head": "Australia"
-          },
-          {
-            "id": "atom-1-token-4",
-            "text": "most",
-            "start": 25,
-            "end": 29,
-            "lemma": "most",
-            "pos": "ADV",
-            "tag": "RBS",
-            "dependency": "advmod",
-            "head": "populous"
-          },
-          {
-            "id": "atom-1-token-5",
-            "text": "populous",
-            "start": 30,
-            "end": 38,
-            "lemma": "populous",
-            "pos": "ADJ",
-            "tag": "JJ",
-            "dependency": "amod",
-            "head": "city"
-          },
-          {
-            "id": "atom-1-token-6",
-            "text": "capital",
-            "start": 39,
-            "end": 46,
-            "lemma": "capital",
-            "pos": "NOUN",
-            "tag": "NN",
-            "dependency": "compound",
-            "head": "city"
-          },
-          {
-            "id": "atom-1-token-7",
-            "text": "city",
-            "start": 47,
-            "end": 51,
-            "lemma": "city",
-            "pos": "NOUN",
-            "tag": "NN",
-            "dependency": "attr",
-            "head": "was"
-          },
-          {
-            "id": "atom-1-token-8",
-            "text": "on",
-            "start": 52,
-            "end": 54,
-            "lemma": "on",
-            "pos": "ADP",
-            "tag": "IN",
-            "dependency": "prep",
-            "head": "was"
-          },
-          {
-            "id": "atom-1-token-9",
-            "text": "30",
-            "start": 55,
-            "end": 57,
-            "lemma": "30",
-            "pos": "NUM",
-            "tag": "CD",
-            "dependency": "nummod",
-            "head": "June"
-          },
-          {
-            "id": "atom-1-token-10",
-            "text": "June",
-            "start": 58,
-            "end": 62,
-            "lemma": "June",
-            "pos": "PROPN",
-            "tag": "NNP",
-            "dependency": "pobj",
-            "head": "on"
-          },
-          {
-            "id": "atom-1-token-11",
-            "text": "2024",
-            "start": 63,
-            "end": 67,
-            "lemma": "2024",
-            "pos": "NUM",
-            "tag": "CD",
-            "dependency": "nummod",
-            "head": "June"
-          },
-          {
-            "id": "atom-1-token-12",
-            "text": ".",
-            "start": 67,
-            "end": 68,
-            "lemma": ".",
-            "pos": "PUNCT",
-            "tag": ".",
-            "dependency": "punct",
-            "head": "was"
-          }
-        ],
-        "status": "complete",
-        "unresolved": []
-      }
-    ],
-    "summaries": [
-      {
-        "atomId": "atom-1",
-        "analysisStatus": "complete",
-        "roleAudit": "MATCH",
-        "subjects": [
-          "Canberra"
-        ],
-        "predicates": [
-          "be"
-        ],
-        "cueKinds": [
-          "quantifier",
-          "temporal"
-        ],
-        "modifierKinds": [
-          "temporal"
-        ],
-        "entityLabels": [
-          "GPE"
-        ],
-        "warnings": []
-      }
-    ],
-    "claimWarnings": [],
-    "provider": "spacy",
-    "model": "en_core_web_sm@3.8.0"
-  },
   "verdict": {
     "aggregationSchemaVersion": 3,
     "claimId": "showcase-geography-canberra",
@@ -762,21 +310,20 @@
     ]
   },
   "recordedWith": {
-    "pipelineRevision": "submission-ready-v2",
+    "pipelineRevision": "submission-ready-v3",
     "inputDigest": "a3d67ee2f9092180531f018d04543148331a9a11b5573b5fa95468c0ea54e72d",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
     "retrievalMethod": "HYBRID",
     "assessmentModel": "qwen2.5:7b",
-    "reasoningModel": "qwen2.5:7b",
-    "linguisticsModel": "en_core_web_sm@3.8.0"
+    "reasoningModel": "qwen2.5:7b"
   },
   "timingsSeconds": {
-    "decomposition": 20.347,
-    "retrievalAndLinguistics": 0.359,
-    "evidenceAssessment": 25.764,
-    "symbolicReasoning": 26.905,
+    "decomposition": 15.403,
+    "retrieval": 0.249,
+    "evidenceAssessment": 20.07,
+    "symbolicReasoning": 13.091,
     "aggregation": 0.004,
-    "total": 73.379
+    "total": 48.817
   }
 }

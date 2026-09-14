@@ -147,6 +147,10 @@ def validate_presentation_run(case: dict[str, Any], run: dict[str, Any], audit: 
         raise RuntimeError(f"An unexpected symbolic operator became decisive: {case_id}")
     documents = {item["id"]: item["text"] for item in case["documents"]}
     for execution in executions:
+        if not execution.get("profile"):
+            raise RuntimeError(f"Symbolic execution lacks an explicit profile: {case_id}/{execution.get('id')}")
+        if not isinstance(execution.get("preconditions"), list) or not execution["preconditions"]:
+            raise RuntimeError(f"Symbolic execution lacks validation preconditions: {case_id}/{execution.get('id')}")
         if execution.get("premiseIds") != [item.get("id") for item in execution.get("premises", [])]:
             raise RuntimeError(f"Symbolic premise identifiers were altered: {case_id}")
         if len(execution.get("premises", [])) > 3:
@@ -323,13 +327,12 @@ def main() -> int:
                 "evidence",
                 "assessment",
                 "reasoning",
-                "linguistics",
                 "verdict",
                 "timingsSeconds",
             )
         ):
             raise RuntimeError(f"Recorded run is incomplete: {case_id}")
-        if run["schemaVersion"] != 6:
+        if run["schemaVersion"] != 7:
             raise RuntimeError(f"Recorded run uses an unsupported schema version: {case_id}")
         if run["composition"] not in {"SINGLE", "AND", "OR"}:
             raise RuntimeError(f"Recorded run has an invalid composition: {case_id}")
@@ -356,8 +359,10 @@ def main() -> int:
         recorded_with.setdefault("retrievalMethod", "HYBRID")
         if recorded_with["retrievalMethod"] not in {"HYBRID", "SEMANTIC", "LEXICAL"}:
             raise RuntimeError(f"Recorded run has an invalid retrieval method: {case_id}")
-        if recorded_with.get("pipelineRevision") != "submission-ready-v2":
+        if recorded_with.get("pipelineRevision") != "submission-ready-v3":
             raise RuntimeError(f"Recorded run predates the evidence-integrity pipeline: {case_id}")
+        if "linguistics" in run or "linguisticsModel" in recorded_with:
+            raise RuntimeError(f"Recorded run contains removed claim-structure data: {case_id}")
         if not isinstance(recorded_with.get("inputDigest"), str) or len(recorded_with["inputDigest"]) != 64:
             raise RuntimeError(f"Recorded run lacks a source-input digest: {case_id}")
         if recorded_with["inputDigest"] != input_digest(case):
@@ -370,13 +375,6 @@ def main() -> int:
             raise RuntimeError(f"Recorded run is missing typed symbolic programs: {case_id}")
         if any("role" not in atom for atom in run["atoms"]):
             raise RuntimeError(f"Recorded run has atoms without roles: {case_id}")
-        linguistics = run["linguistics"]
-        if not isinstance(linguistics, dict) or linguistics.get("schemaVersion") != 2:
-            raise RuntimeError(f"Recorded run has an unsupported linguistic schema: {case_id}")
-        if not all(key in linguistics for key in ("claimAnalysis", "analyses", "summaries", "claimWarnings")):
-            raise RuntimeError(f"Recorded run is missing linguistic audit data: {case_id}")
-        if len(linguistics["analyses"]) != len(run["atoms"]) or len(linguistics["summaries"]) != len(run["atoms"]):
-            raise RuntimeError(f"Recorded run has incomplete linguistic atom data: {case_id}")
         verdict = run["verdict"]
         if not isinstance(verdict, dict) or verdict.get("aggregationSchemaVersion") != 3:
             raise RuntimeError(f"Recorded run has an unsupported verdict schema: {case_id}")
@@ -400,11 +398,13 @@ def main() -> int:
             if assessed_edges:
                 raise RuntimeError(f"Insufficient evidence produced decisive graph edges: {case_id}")
         timings = run["timingsSeconds"]
+        if "retrievalAndLinguistics" in timings:
+            raise RuntimeError(f"Recorded run contains removed claim-structure timing data: {case_id}")
         if not isinstance(timings, dict) or any(
             not isinstance(timings.get(key), (int, float)) or timings[key] < 0
             for key in (
                 "decomposition",
-                "retrievalAndLinguistics",
+                "retrieval",
                 "evidenceAssessment",
                 "symbolicReasoning",
                 "aggregation",

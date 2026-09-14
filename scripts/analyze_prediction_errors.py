@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Produce an auditable error report from recorded VeriTrace demo runs."""
+"""Produce an auditable error report from recorded VeriNICE demo runs."""
 
 from __future__ import annotations
 

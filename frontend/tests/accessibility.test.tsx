@@ -8,12 +8,20 @@ import { PipelinePanel } from "@/components/PipelinePanel";
 import { SymbolicProofPanel } from "@/components/SymbolicProofPanel";
 import { SupportSummary } from "@/components/SupportSummary";
 import { buildArgumentationGraph } from "@/lib/argumentationGraph";
-import type { DecomposedAtom } from "@/lib/types";
+import type { DecomposedAtom, SymbolicExecution } from "@/lib/types";
 
 afterEach(cleanup);
 const atom: DecomposedAtom = { id: "a1", text: "NDF is not listed.", sourceText: "NDF is not listed", start: 0, end: 17, role: "CORE" };
 const document = { id: "d1", title: "Official list", url: "https://example.test", text: "The complete list is Alpha and Beta.", layout: "PROSE" as const };
 const span = { id: "s1", documentId: "d1", text: document.text, start: 0, end: document.text.length };
+const SYMBOLIC_RULE_LABELS = [
+  "Set membership",
+  "Numeric comparison",
+  "Temporal comparison",
+  "Attribute comparison",
+  "Distinct-value count",
+  "Largest/smallest comparison",
+];
 
 async function expectAccessible(container: HTMLElement) {
   expect((await axe.run(container)).violations).toEqual([]);
@@ -23,8 +31,9 @@ describe("Milestone 5 accessibility", () => {
   it("keeps all five pipeline stages and retry controls accessible", async () => {
     const { container } = render(<PipelinePanel
       decompositionState="complete" retrievalState="complete" assessmentState="complete"
-      reasoningState="error" graphLinkCount={0} atomCount={1} evidenceCount={1}
-      relationCount={1} onRetryEvidence={vi.fn()} onRetryAssessment={vi.fn()}
+      reasoningState="error" atomCount={1} evidenceCount={1}
+      relationCounts={{ SUPPORTS: 1, REFUTES: 0, CONTEXT: 0, NOT_SELECTED: 0 }}
+      symbolicExecutions={[]} onRetryEvidence={vi.fn()} onRetryAssessment={vi.fn()}
       onRetryReasoning={vi.fn()} verdictState="idle"
     />);
     await expectAccessible(container);
@@ -37,10 +46,10 @@ describe("Milestone 5 accessibility", () => {
         retrievalState="complete"
         assessmentState="complete"
         reasoningState="complete"
-        graphLinkCount={1}
         atomCount={1}
         evidenceCount={6}
-        relationCount={1}
+        relationCounts={{ SUPPORTS: 1, REFUTES: 0, CONTEXT: 0, NOT_SELECTED: 5 }}
+        symbolicExecutions={[]}
         onRetryEvidence={vi.fn()}
         onRetryAssessment={vi.fn()}
         onRetryReasoning={vi.fn()}
@@ -66,6 +75,81 @@ describe("Milestone 5 accessibility", () => {
     await expectAccessible(container);
   });
 
+  it("explains claim-wide evidence relations and all six symbolic rule types", async () => {
+    const program: SymbolicExecution["program"] = {
+      version: 1,
+      steps: [],
+      outputStepId: "result",
+    };
+    const executions: SymbolicExecution[] = [
+      {
+        id: "supports", atomId: "a1", operator: "ATTRIBUTE_COMPARE", status: "PROVED", relation: "SUPPORTS",
+        profile: "EXPLICIT_NEGATION", preconditions: [], premiseIds: [], premises: [], expression: "A = A", conclusion: "The attribute matches.", explanation: "Compared attributes.", validationWarnings: [], program,
+      },
+      {
+        id: "refutes", atomId: "a2", operator: "ATTRIBUTE_COMPARE", status: "DISPROVED", relation: "REFUTES",
+        profile: "COUNTRY_LOCATION", preconditions: [], premiseIds: [], premises: [], expression: "B ≠ C", conclusion: "The attribute differs.", explanation: "Compared attributes.", validationWarnings: [], program,
+      },
+      {
+        id: "unresolved", atomId: "a2", operator: "EXTREMUM_COMPARE", status: "UNRESOLVED", relation: null,
+        profile: "GENERIC_EXTREMUM_COUNTEREXAMPLE", preconditions: [], premiseIds: [], premises: [], expression: "maximum", conclusion: "No complete universe.", explanation: "Could not resolve.", validationWarnings: [], program,
+      },
+      {
+        id: "not-applicable", atomId: "a2", operator: "TEMPORAL_COMPARE", status: "NOT_APPLICABLE", relation: null,
+        profile: "GENERIC_ABSOLUTE_DATE", preconditions: [], premiseIds: [], premises: [], expression: "date", conclusion: "No date relation.", explanation: "Not applicable.", validationWarnings: [], program,
+      },
+      {
+        id: "unresolved-duplicate", atomId: "a1", operator: "EXTREMUM_COMPARE", status: "UNRESOLVED", relation: null,
+        profile: "GENERIC_EXTREMUM_COUNTEREXAMPLE", preconditions: [], premiseIds: [], premises: [], expression: "maximum", conclusion: "No complete universe.", explanation: "Could not resolve.", validationWarnings: [], program,
+      },
+    ];
+    const { container } = render(
+      <PipelinePanel
+        decompositionState="complete" retrievalState="complete" assessmentState="complete"
+        reasoningState="complete" atomCount={2} evidenceCount={8}
+        relationCounts={{ SUPPORTS: 2, REFUTES: 1, CONTEXT: 1, NOT_SELECTED: 4 }}
+        symbolicExecutions={executions} onRetryEvidence={vi.fn()} onRetryAssessment={vi.fn()}
+        onRetryReasoning={vi.fn()} verdictState="complete" verdict="REFUTED"
+      />,
+    );
+
+    const relationList = screen.getByRole("list", { name: "Claim-wide evidence relation counts" });
+    expect(relationList).toHaveTextContent(/2\s*Supports/);
+    expect(relationList).toHaveTextContent(/1\s*Refutes/);
+    expect(relationList).toHaveTextContent(/1\s*Context/);
+    expect(relationList).toHaveTextContent(/4\s*Not used/);
+    expect(screen.getByText("How Evidence Relations Work")).toBeInTheDocument();
+    expect(screen.getByText("View 6 Rule Types")).toBeInTheDocument();
+    const ruleSummary = screen.getByRole("group", { name: "Symbolic checks in this run" });
+    expect(ruleSummary).toHaveTextContent("Supports");
+    expect(ruleSummary).toHaveTextContent("Refutes");
+    expect(ruleSummary).toHaveTextContent("Unresolved");
+    expect(ruleSummary).toHaveTextContent("Not applicable");
+    expect(ruleSummary).toHaveTextContent(/Largest\/smallest comparison\s*×2/);
+    SYMBOLIC_RULE_LABELS.forEach((label) => expect(screen.getAllByText(label).length).toBeGreaterThan(0));
+    expect(container.querySelectorAll(".stage-rule-catalog > .is-active")).toHaveLength(3);
+    expect(screen.getAllByText("Available")).toHaveLength(3);
+    await expectAccessible(container);
+  });
+
+  it("identifies a completed run that uses direct evidence only", () => {
+    render(
+      <PipelinePanel
+        decompositionState="complete" retrievalState="complete" assessmentState="complete"
+        reasoningState="complete" atomCount={1} evidenceCount={0}
+        relationCounts={{ SUPPORTS: 0, REFUTES: 0, CONTEXT: 0, NOT_SELECTED: 0 }}
+        symbolicExecutions={[]} onRetryEvidence={vi.fn()} onRetryAssessment={vi.fn()}
+        onRetryReasoning={vi.fn()} verdictState="complete" verdict="NOT_ENOUGH_EVIDENCE"
+      />,
+    );
+    const relationList = screen.getByRole("list", { name: "Claim-wide evidence relation counts" });
+    expect(relationList).toHaveTextContent(/0\s*Supports/);
+    expect(relationList).toHaveTextContent(/0\s*Refutes/);
+    expect(relationList).toHaveTextContent(/0\s*Context/);
+    expect(relationList).toHaveTextContent(/0\s*Not used/);
+    expect(screen.getByText("Direct evidence only · no symbolic rule applied.")).toBeVisible();
+  });
+
   it("renders source tabs, highlights and four reviewer relations accessibly", async () => {
     const { container } = render(<DocumentPanel
       documents={[document]} activeDocumentId="d1" onActivate={vi.fn()} onTextChange={vi.fn()}
@@ -80,6 +164,61 @@ describe("Milestone 5 accessibility", () => {
     expect(container.querySelector('option[value="SUPPORTS"]')).toBeDisabled();
     expect(container.querySelector('option[value="REFUTES"]')).toBeDisabled();
     await expectAccessible(container);
+  });
+
+  it("keeps curated source metadata compact and leaves match counts in the tabs", () => {
+    const curatedDocument = {
+      ...document,
+      publisher: "U.S. Geological Survey",
+      sourceDescriptor: "Institutional source",
+      sourceType: "SOURCE_EXCERPT" as const,
+    };
+
+    render(<DocumentPanel
+      documents={[curatedDocument]} activeDocumentId="d1" onActivate={vi.fn()}
+      onTextChange={vi.fn()} onTitleChange={vi.fn()} onAdd={vi.fn()} onRemove={vi.fn()}
+      spans={[span]} relations={[]} selectedAtomText={atom.text} retrievalState="complete"
+      readOnly
+    />);
+
+    expect(screen.getByText("U.S. Geological Survey")).toBeVisible();
+    expect(screen.getByRole("link", { name: /view source/i })).toBeVisible();
+    expect(screen.queryByText(/Institutional source|Source excerpt/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/matches? in this source|elsewhere/)).not.toBeInTheDocument();
+    expect(screen.getByLabelText("1 evidence spans")).toBeVisible();
+  });
+
+  it("shows source matching status only when it needs attention", () => {
+    const baseProps = {
+      documents: [document],
+      activeDocumentId: "d1",
+      onActivate: vi.fn(),
+      onTextChange: vi.fn(),
+      onTitleChange: vi.fn(),
+      onAdd: vi.fn(),
+      onRemove: vi.fn(),
+      relations: [],
+      selectedAtomText: atom.text,
+    };
+    const { container, rerender } = render(
+      <DocumentPanel {...baseProps} spans={[span]} retrievalState="complete" />,
+    );
+
+    expect(container.querySelector(".document-match-status")).not.toBeInTheDocument();
+    expect(container.querySelector("textarea")).not.toHaveAttribute("aria-describedby");
+
+    rerender(<DocumentPanel {...baseProps} spans={[]} retrievalState="running" />);
+    expect(screen.getByText("Matching sentences…")).toBeVisible();
+
+    rerender(<DocumentPanel {...baseProps} spans={[]} retrievalState="error" />);
+    expect(screen.getByText("Sentence matching unavailable.")).toBeVisible();
+
+    rerender(<DocumentPanel {...baseProps} spans={[]} retrievalState="complete" />);
+    expect(screen.getByText("No matching sentences in this source.")).toBeVisible();
+    expect(container.querySelector("textarea")).toHaveAttribute(
+      "aria-describedby",
+      "document-candidate-status",
+    );
   });
 
   it("renders a compact evidence-to-verdict graph without accessibility violations", async () => {
@@ -177,7 +316,7 @@ describe("Milestone 5 accessibility", () => {
       [{ atomId: "a1", spans: [locationSpan] }], [{ atomId: "a1", relations: [] }],
       [locationDocument], [{
         id: "proof-1", atomId: "a1", operator: "ATTRIBUTE_COMPARE", status: "DISPROVED",
-        relation: "REFUTES", premiseIds: ["p1"], premises: [{
+        profile: "COUNTRY_LOCATION", preconditions: [], relation: "REFUTES", premiseIds: ["p1"], premises: [{
           id: "p1", documentId: "d1", text: locationDocument.text, start: 0,
           end: locationDocument.text.length, kind: "EVIDENCE",
         }], expression: "France ≠ Germany", conclusion: "The locations differ.",
@@ -202,7 +341,7 @@ describe("Milestone 5 accessibility", () => {
   it("shows the verdict contribution and keeps rule mechanics in details", async () => {
     const { container } = render(<SymbolicProofPanel atomId="a1" documents={[]} onSelectPremise={vi.fn()} state="complete" proofs={[{
       id: "p1", atomId: "a1", operator: "SET_MEMBERSHIP", status: "PROVED", relation: "SUPPORTS",
-      premiseIds: [], premises: [], expression: "ndf ∉ S", conclusion: "NDF is absent.", explanation: "Validated.", validationWarnings: [],
+      profile: "GENERIC_SET_MEMBERSHIP", preconditions: [], premiseIds: [], premises: [], expression: "ndf ∉ S", conclusion: "NDF is absent.", explanation: "Validated.", validationWarnings: [],
       program: {
         version: 1,
         steps: [{ id: "step-1", operation: "MEMBER", inputIds: [], outputType: "BOOLEAN", description: "Check membership." }],

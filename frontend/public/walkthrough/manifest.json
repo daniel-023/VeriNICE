@@ -1,5 +1,5 @@
 {
-  "bundleDigest": "e22eafa64cefa6df441aa2d0aaf263d0585bc60b37e7410abdbfaa8f8e821576",
+  "bundleDigest": "280d04dbce9d850a38547ec297e06c09f8c36726a9524712c77441a491e2d5fe",
   "caseCount": 18,
   "caseIds": [
     "showcase-science-egg-cvd",
@@ -49,23 +49,23 @@
   },
   "recordedCaseCount": 18,
   "runDigests": {
-    "averitec-dev-0142": "d4043e7a1c5001e3749ebfb486043632bd9ffa3581c5049301d0f1aad8f5466e",
-    "averitec-dev-0146": "838213a904e2192ac295641446e2731cafe4ef3c693da67265a0661d2a72e677",
-    "averitec-dev-0392": "e00b3156b2d649670845544080ea5aedc3d1e024ac69f3aa7c075accf9886dfc",
-    "showcase-current-nato": "6c3c85a9ef38a9ee78eab183f550c1c38eb153bdb96e4ba197eb7932abf5d911",
-    "showcase-current-unsc": "a1666fac35ad108a227ad8870e67a6daba9c1a71159d4e763bb4019c0b1108a6",
-    "showcase-current-who": "43f85e93bcfcb27ac5a6a5888bd0158b312a502f82b61413512e2004cbe1d2af",
-    "showcase-geography-canberra": "c3dcc5dcd6d224bf60fb3521d75e8025213f414bb582fe7f79cb972f392e0150",
-    "showcase-geography-eiffel": "5d3e103064a8701a516c531d94fe4f0d3b2060c6445971941c74e5e8596232d8",
-    "showcase-geography-everest": "ba8d397012b7cf55f942531ac034c163288c199c7014f0b147573e2ffc39f7c4",
-    "showcase-history-curie": "d621ef4e41ce236f5f3777ae7d1a49ad13e24f608dfe8aadf8f3921e05469085",
-    "showcase-history-einstein": "319c2f570f1f311a555fc9f01bb66d2edeca5955d9d3ef6da31a4b8d549bdcce",
-    "showcase-history-whitehead-flight": "6d888ccc380829066b598667cdd85140f56f09da9bded1377e908df54d45c721",
-    "showcase-science-egg-cvd": "83782cbccff117df50f6a493a30d4a9a58cc215d1edc2ce6cffc8c1fe0452eb6",
-    "showcase-science-lightning": "091c658d5d5c139c367b1f54fce7f538debde0e4a49113623c6d0f44e3418a29",
-    "showcase-science-shaving": "f663ca87fb3ccb9b79421a6be8f8e942e4280fdf53316be308123ef278ab2efa",
-    "showcase-technology-gps": "81da5bce39b1ec5524b8f1ddd0aac5e90f4869aadfc565fbb88cb794c816bf54",
-    "showcase-technology-iphone": "3ac049fb30ec9e58fe4f304e7dff69bfd387eb778a11d7ad785f873ec14dbdf4",
-    "showcase-technology-web": "ccc992c9c133f5a7f0c639e255f81d5109e80bbcdf376b03fc0fa67ee150f728"
+    "averitec-dev-0142": "876612125b22004844350c492c68c6bf5a53ba29954000d508c40329863fb4c1",
+    "averitec-dev-0146": "6ba73b65aa7abe1d441a48f7dba5d8dc953820c3ac5473737171948f6042c5e2",
+    "averitec-dev-0392": "66299079c3de53fe66d1ffec237c820dffbac66027e0d93e979bf266a0e8e667",
+    "showcase-current-nato": "e356a0dc7cdfe9ab8cdbbf535d9c45ff25e0a8a9db2dcb509bdfcae166266316",
+    "showcase-current-unsc": "ec6b17cb56f839f787cdcaec35f5b70e18657c93901b27d46b362ea47cefdb6b",
+    "showcase-current-who": "6beaf36f26878ea74b465fbb6ac74487a6808dfdbe1d55b6e314b536d987fe4c",
+    "showcase-geography-canberra": "e70ff1f829d7264c668aa96cc4746b4b86dd8dccfd5b8e006dfadb61716a1090",
+    "showcase-geography-eiffel": "fecc6c479e662332cbaf0a9327f69e54e31029588418fa0608e2b8ad767c2f4b",
+    "showcase-geography-everest": "dd27f699b2a9b3437ee854df5bafb33514f1b6aa5b61f19e0cd3f85cf3963795",
+    "showcase-history-curie": "eceea2a3308d72bb3cf1597d20df7c721764b0c76757bd81c624134a342de6e7",
+    "showcase-history-einstein": "52ba223de3a1a8d52e8d1c5aa07315c0318fd44e349f2f94e6b3c548384d115a",
+    "showcase-history-whitehead-flight": "6d8f96c584be3791fdd2cb89df611a1c73644fb3ebee17f67a0c3c92be20ed30",
+    "showcase-science-egg-cvd": "bd7e01555175992102a141416b0c35e0bf9763235f5a119f72eea5f89fdcbf82",
+    "showcase-science-lightning": "679022813c471fc6a068ac2bb402ea2f8b8c320fbfef6213907cd4cc502b673a",
+    "showcase-science-shaving": "fb87432c2a6575aac3fb1c386058d7689da7cc60a79cbf61dc2e1c9edbc9b863",
+    "showcase-technology-gps": "5112c8293f81c0197a04bc4dbffb92efbcd2f644c5a6c9714979ecb47867fd64",
+    "showcase-technology-iphone": "048974d94000fe45890e5d3998d2acd6b09e85e6dc463c633581b3ce9a41406c",
+    "showcase-technology-web": "6f46a8c0d13f4dfaa53a048e480cb9c10df7ea370dad6bb495a1b7e0ab8a7dda"
   }
 }

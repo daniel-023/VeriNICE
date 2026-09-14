@@ -46,7 +46,7 @@ MAX_PDF_PAGES = 300
 MAX_DOCUMENT_CHARACTERS = 250_000
 MIN_CASES_PER_LABEL = 8
 MAX_CASES_PER_LABEL = 8
-USER_AGENT = "VeriTrace-demo/0.4 (offline research dataset preparation)"
+USER_AGENT = "VeriNICE-demo/0.4 (offline research dataset preparation)"
 PUBLISHED_CASES: Dict[ReferenceLabel, Sequence[int]] = {
     ReferenceLabel.supported: (34, 146, 158, 125, 319, 392, 145, 323),
     ReferenceLabel.refuted: (44, 280, 419, 495, 89, 3, 4, 8),

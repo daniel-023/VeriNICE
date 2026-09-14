@@ -6,7 +6,7 @@ const jsonCache = new Map<string, Promise<unknown>>();
 async function loadJson<T>(path: string): Promise<T> {
   let pending = jsonCache.get(path);
   if (!pending) {
-    pending = fetch(path, { cache: "force-cache" }).then(async (response) => {
+    pending = fetch(path, { cache: "no-cache" }).then(async (response) => {
       if (!response.ok) {
         throw new Error(
           "This recorded sample is not available yet. Regenerate the walkthrough snapshot locally.",
@@ -24,10 +24,8 @@ const walkthroughHealth: Health = {
   decompositionConfigured: true,
   decompositionReady: true,
   retrievalConfigured: true,
-  linguisticsConfigured: true,
   decompositionModel: "Qwen2.5 via Ollama (recorded)",
   retrievalModel: "BAAI/bge-small-en-v1.5 + lexical anchors (recorded)",
-  linguisticsModel: "en_core_web_sm@3.8.0 (recorded)",
 };
 
 export const walkthroughApi = {

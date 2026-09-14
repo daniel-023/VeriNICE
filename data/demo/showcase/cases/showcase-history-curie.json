@@ -1,6 +1,6 @@
 {
   "id": "showcase-history-curie",
-  "claim": "Marie Curie won Nobel Prizes in two different scientific fields.",
+  "claim": "Marie Curie won Nobel Prizes in at least two different scientific fields.",
   "documents": [
     {
       "id": "doc-eef64596d10c",
@@ -8,7 +8,7 @@
       "url": "https://www.nobelprize.org/prizes/physics/1903/marie-curie/facts/",
       "layout": "PROSE",
       "publisher": "Nobel Prize Outreach",
-      "retrievedAt": "2026-09-05",
+      "retrievedAt": "2026-09-14",
       "sourceType": "SOURCE_EXCERPT",
       "sourceDescriptor": "Institutional source",
       "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
@@ -22,7 +22,7 @@
       "url": "https://www.nobelprize.org/prizes/chemistry/1911/marie-curie/facts/",
       "layout": "PROSE",
       "publisher": "Nobel Prize Outreach",
-      "retrievedAt": "2026-09-05",
+      "retrievedAt": "2026-09-14",
       "sourceType": "SOURCE_EXCERPT",
       "sourceDescriptor": "Institutional source",
       "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
@@ -32,7 +32,7 @@
     }
   ],
   "label": "SUPPORTED",
-  "displayTitle": "Marie Curie's two Nobel fields",
+  "displayTitle": "Marie Curie's Nobel fields",
   "topics": [],
   "challenges": [],
   "featured": false,

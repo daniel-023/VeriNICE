@@ -406,10 +406,60 @@ def main() -> int:
     parser.add_argument("--averitec", type=Path, default=DEFAULT_AVERITEC)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--cache", type=Path, default=DEFAULT_CACHE)
+    parser.add_argument(
+        "--case",
+        action="append",
+        dest="case_ids",
+        help="Refresh one constructed case while preserving the other prepared cases.",
+    )
     parser.add_argument("--refresh", action="store_true")
     args = parser.parse_args()
     config = read_json(args.config)
-    constructed, audit = prepare_constructed(config, args.cache, args.refresh)
+    configured_constructed_ids = [item["id"] for item in config["cases"]]
+    selected_ids = set(args.case_ids or configured_constructed_ids)
+    unknown = selected_ids - set(configured_constructed_ids)
+    if unknown:
+        raise RuntimeError(
+            "--case accepts constructed showcase ids only: " + ", ".join(sorted(unknown))
+        )
+    selected_config = dict(config)
+    selected_config["cases"] = [
+        item for item in config["cases"] if item["id"] in selected_ids
+    ]
+    refreshed_constructed, refreshed_audit = prepare_constructed(
+        selected_config, args.cache, args.refresh
+    )
+    constructed_by_id = {case["id"]: case for case in refreshed_constructed}
+    if args.case_ids:
+        for case_id in configured_constructed_ids:
+            if case_id in constructed_by_id:
+                continue
+            existing_path = args.output / "cases" / f"{case_id}.json"
+            existing = read_json(existing_path)
+            if existing.get("id") != case_id or existing.get("origin") != "CONSTRUCTED":
+                raise RuntimeError(f"existing prepared case is invalid: {case_id}")
+            constructed_by_id[case_id] = existing
+        existing_audit_path = args.output / "fetch-audit.json"
+        existing_audit = read_json(existing_audit_path)
+        audit = [
+            item for item in existing_audit
+            if item.get("caseId") not in selected_ids
+        ] + refreshed_audit
+    else:
+        audit = refreshed_audit
+    case_order = {
+        item["id"]: index for index, item in enumerate(config["cases"])
+    }
+    source_order = {
+        (case["id"], source["url"]): index
+        for case in config["cases"]
+        for index, source in enumerate(case["sources"])
+    }
+    audit.sort(key=lambda item: (
+        case_order[item["caseId"]],
+        source_order[(item["caseId"], item["url"])],
+    ))
+    constructed = [constructed_by_id[case_id] for case_id in configured_constructed_ids]
     cases = [*constructed, *curated_averitec(args.averitec, config["averitecCases"])]
     policy = validate_showcase_policy(config, cases)
     args.output.mkdir(parents=True, exist_ok=True)

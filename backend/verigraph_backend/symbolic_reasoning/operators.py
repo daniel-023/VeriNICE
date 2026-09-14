@@ -8,6 +8,20 @@ from typing import Sequence
 
 from ..schemas import PipelineAtom, SymbolicOperator, SymbolicPremise, SymbolicStatus
 from .grounding import lexical_tokens, normalize
+from .profiles import (
+    COUNTRY_LOCATION,
+    EXCLUSIVE_PURPOSE,
+    EXPLICIT_NEGATION,
+    NOBEL_FIELD_COUNT,
+    NOBEL_MOTIVATION,
+    NOBEL_RECIPIENT,
+    attribute_profile,
+    distinct_profile,
+    extract_distinct_values,
+    nobel_reason,
+    nobel_recipient_claim,
+    scoped_negative_clause,
+)
 
 
 _SUPERLATIVE = re.compile(r"(?i)\b(largest|smallest|highest|lowest|tallest|shortest|most|least)\b")
@@ -99,29 +113,76 @@ def execute_set_membership(atom: PipelineAtom, premises: Sequence[SymbolicPremis
 _NUMBER = re.compile(
     r"(?P<currency>[$£€¥])?\s*"
     r"(?P<number>(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)\s*"
-    r"(?P<scale>billion|million|thousand|bn|mn|m|k)?\s*"
-    r"(?P<percent>%|percent(?:age points?)?)?",
+    r"(?P<scale>billion|million|thousand|bn|mn|m|k)?(?![A-Za-z])\s*"
+    r"(?:(?P<percentage_points>percentage\s+points?)|"
+    r"(?P<percent>%|percent)|"
+    r"(?P<temperature>°\s*[FC]|degrees?\s+(?:Fahrenheit|Celsius)))?",
     re.I,
 )
 _SCALES = {"": Decimal(1), "k": Decimal(1000), "thousand": Decimal(1000), "m": Decimal(1_000_000), "mn": Decimal(1_000_000), "million": Decimal(1_000_000), "bn": Decimal(1_000_000_000), "billion": Decimal(1_000_000_000)}
+_UNSUPPORTED_UNIT = re.compile(
+    r"^\s*(?P<unit>"
+    r"°\s*[A-Z]+|degrees?\s+[A-Za-z]+|"
+    r"(?:kilo|centi|milli)?met(?:re|er)s?|kilomet(?:re|er)s?|miles?|feet|foot|inches?|"
+    r"kilograms?|grams?|pounds?|ounces?|"
+    r"seconds?|minutes?|hours?|days?|weeks?|"
+    r"(?:km|mi|ft|in|kg|g|lb|lbs|oz|mph|kph|km/h|m/s|volts?|amps?|watts?)\b"
+    r")",
+    re.I,
+)
+_MONTH_NAME = (
+    r"january|february|march|april|may|june|july|august|"
+    r"september|october|november|december"
+)
+_ABSOLUTE_DATE_TEXT = re.compile(
+    rf"(?i)\b(?:{_MONTH_NAME})\s+(?:\d{{1,2}}(?:,\s*|\s+))?\d{{4}}\b|"
+    rf"\b(?:{_MONTH_NAME})\s+\d{{4}}\b|\b(?:19|20)\d{{2}}\b"
+)
+
+
+def _numeric_unit(match: re.Match[str], text: str) -> str:
+    if match.group("currency"):
+        return f"currency:{match.group('currency')}"
+    if match.group("percentage_points"):
+        return "percentage_point"
+    if match.group("percent"):
+        return "percent"
+    temperature = re.sub(r"\s+", "", (match.group("temperature") or "").casefold())
+    if temperature in {"°f", "degreefahrenheit", "degreesfahrenheit"}:
+        return "temperature_fahrenheit"
+    if temperature in {"°c", "degreecelsius", "degreescelsius"}:
+        return "temperature_celsius"
+    unsupported = _UNSUPPORTED_UNIT.match(text[match.end():])
+    if unsupported:
+        return f"unsupported:{normalize(unsupported.group('unit'))}"
+    return "count"
 
 
 def _numbers(text: str) -> list[tuple[Decimal, str, str]]:
     values = []
+    date_spans = [match.span() for match in _ABSOLUTE_DATE_TEXT.finditer(text)]
     for match in _NUMBER.finditer(text):
+        number_start, number_end = match.span("number")
+        if any(number_start < end and number_end > start for start, end in date_spans):
+            continue
+        # Version names and identifiers such as COVID-19 and SARS-CoV-2 are
+        # not measurements. Hyphenated numeric modifiers are also left
+        # unresolved rather than silently treated as counts.
+        if re.search(r"[A-Za-z][A-Za-z0-9]*-$", text[:number_start]) or re.match(
+            r"-[A-Za-z]", text[number_end:]
+        ):
+            continue
         try:
             value = Decimal(match.group("number").replace(",", "")) * _SCALES[(match.group("scale") or "").casefold()]
         except (InvalidOperation, KeyError):
             continue
-        unit = match.group("currency") or ("percent" if match.group("percent") else "count")
+        unit = _numeric_unit(match, text)
         values.append((value, unit, match.group(0).strip()))
     return values
 
 
 def _measurements(text: str) -> list[tuple[Decimal, str, str]]:
-    values = _numbers(text)
-    without_years = [item for item in values if not (item[1] == "count" and Decimal(1900) <= item[0] <= Decimal(2100) and len(item[2]) == 4)]
-    return without_years or values
+    return _numbers(text)
 
 
 def _years(text: str) -> set[str]:
@@ -136,28 +197,88 @@ def _comparator(text: str) -> str | None:
     return next((item for item in (">=", "<=", "≥", "≤", ">", "<", "=") if item in text), None)
 
 
+def _explicit_entity_tokens(text: str) -> set[str]:
+    """Return an explicit proper-name/acronym anchor when the claim supplies one."""
+    matches = re.findall(
+        r"\b(?:[A-Z]{2,}|[A-Z][a-z]+)(?:\s+(?:[A-Z]{2,}|[A-Z][a-z]+))*\b",
+        text,
+    )
+    ignored = {
+        "among", "after", "before", "during", "from", "in", "on", "the",
+        *(_MONTH_NAME.split("|")),
+    }
+    for match in matches:
+        tokens = lexical_tokens(match) - ignored
+        if tokens:
+            return tokens
+    return set()
+
+
 def execute_numeric_compare(atom: PipelineAtom, premises: Sequence[SymbolicPremise]) -> dict:
     comparator = _comparator(atom.text)
     claim_numbers = _measurements(atom.text)
     if comparator is None or not claim_numbers:
         return _result(SymbolicStatus.not_applicable, None, "numeric comparison", "No executable comparison", "The atom lacks an explicit supported comparator and value.")
     threshold, unit, raw_threshold = claim_numbers[-1]
+    if unit.startswith("unsupported:"):
+        return _result(
+            SymbolicStatus.unresolved,
+            None,
+            f"value {comparator} {raw_threshold}",
+            "Numeric relation is unresolved",
+            "The claim uses a numeric unit that this operator does not support.",
+            ["UNSUPPORTED_NUMERIC_UNIT"],
+        )
     evidence_values = [(value, evidence_unit, raw, premise) for premise in premises for value, evidence_unit, raw in _measurements(premise.text)]
     claim_years = _years(atom.text)
+    entity_tokens = _explicit_entity_tokens(atom.text)
     compatible = [
         item for item in evidence_values
-        if item[1] == unit and (not claim_years or _years(item[3].text) == claim_years)
+        if item[1] == unit
+        and (not claim_years or _years(item[3].text) == claim_years)
+        and (not entity_tokens or bool(entity_tokens & lexical_tokens(item[3].text)))
     ]
     if not compatible:
         return _result(SymbolicStatus.unresolved, None, f"value {comparator} {raw_threshold}", "Numeric relation is unresolved", "No grounded value with a compatible unit was mapped.", ["MISSING_COMPATIBLE_UNIT"])
     atom_terms = lexical_tokens(_NUMBER.sub(" ", atom.text))
     matched = [item for item in compatible if atom_terms & lexical_tokens(_NUMBER.sub(" ", item[3].text))]
-    if len(matched) != 1:
+    if not matched:
         return _result(SymbolicStatus.unresolved, None, f"value {comparator} {raw_threshold}", "Numeric relation is ambiguous", "Entity, measure, or time alignment was not unique.", ["AMBIGUOUS_NUMERIC_MAPPING"])
-    value, _unit, raw_value, _premise = matched[0]
-    operations = {">": value > threshold, "<": value < threshold, ">=": value >= threshold, "≥": value >= threshold, "<=": value <= threshold, "≤": value <= threshold, "=": value == threshold, "==": value == threshold}
-    truth = operations[comparator]
-    return _result(SymbolicStatus.proved if truth else SymbolicStatus.disproved, "SUPPORTS" if truth else "REFUTES", f"{raw_value} {comparator} {raw_threshold}", f"The grounded comparison is {'true' if truth else 'false'}.", "Python compared normalized Decimal values with compatible units; no conversion or unstated arithmetic was used.")
+    if unit == "count" and len(matched) != 1:
+        return _result(
+            SymbolicStatus.unresolved,
+            None,
+            f"values {comparator} {raw_threshold}",
+            "Numeric relation is ambiguous",
+            "More than one count was mapped to the claimed measure.",
+            ["AMBIGUOUS_NUMERIC_MAPPING"],
+        )
+    def compare(value: Decimal) -> bool:
+        return {
+            ">": value > threshold,
+            "<": value < threshold,
+            ">=": value >= threshold,
+            "≥": value >= threshold,
+            "<=": value <= threshold,
+            "≤": value <= threshold,
+            "=": value == threshold,
+            "==": value == threshold,
+        }[comparator]
+
+    outcomes = {compare(item[0]) for item in matched}
+    if len(outcomes) != 1:
+        return _result(
+            SymbolicStatus.unresolved,
+            None,
+            f"values {comparator} {raw_threshold}",
+            "Numeric relation is unresolved",
+            "The aligned grounded values fall on different sides of the claimed threshold.",
+            ["CONFLICTING_NUMERIC_EVIDENCE"],
+        )
+    truth = outcomes.pop()
+    raw_values = list(dict.fromkeys(item[2] for item in matched))
+    expression = f"{'; '.join(raw_values)} {comparator} {raw_threshold}"
+    return _result(SymbolicStatus.proved if truth else SymbolicStatus.disproved, "SUPPORTS" if truth else "REFUTES", expression, f"Every aligned grounded comparison is {'true' if truth else 'false'}.", "Python compared normalized Decimal values with matching supported units; no conversion or unstated arithmetic was used.")
 
 
 _MONTHS = {name.casefold(): index for index, name in enumerate(calendar.month_name) if name}
@@ -205,11 +326,13 @@ def execute_temporal_compare(atom: PipelineAtom, premises: Sequence[SymbolicPrem
             right_names = re.findall(r"\b[A-Z][A-Za-z'-]*(?:\s+[A-Z][A-Za-z'-]*)*", comparison.group(2))
             if left_names and right_names:
                 left, right = normalize(left_names[0]), normalize(right_names[0])
+                event_terms = lexical_tokens(comparison.group(1)) - lexical_tokens(left_names[0])
 
                 def dates_for(entity: str) -> list[tuple[date, date, str]]:
                     values = {
                         interval for interval, premise in evidence_dates
                         if re.search(rf"\b{re.escape(entity)}\b", normalize(premise.text))
+                        and (not event_terms or bool(event_terms & lexical_tokens(premise.text)))
                     }
                     return sorted(values)
 
@@ -276,38 +399,11 @@ def _subject_before_copula(text: str) -> str:
     return normalize(match.group(1)) if match else ""
 
 
-def _nobel_recipient_claim(text: str) -> tuple[str, str] | None:
-    """Extract recipient and prize year without treating ``for 1921`` as a reason."""
-    prize_first = re.match(
-        r"(?i)^the nobel prize in .+? for (?P<year>\d{4}) was awarded to "
-        r"(?P<recipient>.+?)[.!?]?$",
-        text.strip(),
-    )
-    if prize_first:
-        return prize_first.group("recipient"), prize_first.group("year")
-    recipient_first = re.match(
-        r"(?i)^(?P<recipient>.+?) (?:received|was awarded) (?:the )?"
-        r"(?P<year>\d{4}) nobel prize(?: in .+?)?[.!?]?$",
-        text.strip(),
-    )
-    if recipient_first:
-        return recipient_first.group("recipient"), recipient_first.group("year")
-    return None
-
-
-def _nobel_reason(text: str) -> str | None:
-    """Extract an award motivation only from ``awarded/received ... for``."""
-    if not re.search(r"(?i)\b(?:nobel|prize|award|citation)\b", text):
-        return None
-    match = re.search(
-        r"(?i)\b(?:awarded|received|won|citation)\b[^.!?]{0,100}?\bfor\s+"
-        r"(?:his|her|their|its|the)?\s*(?P<reason>[^.!?]+)",
-        text,
-    )
-    return match.group("reason") if match else None
-
-
-def execute_attribute_compare(atom: PipelineAtom, premises: Sequence[SymbolicPremise]) -> dict:
+def execute_attribute_compare(
+    atom: PipelineAtom,
+    premises: Sequence[SymbolicPremise],
+    profile: str | None = None,
+) -> dict:
     """Resolve only explicit, source-linked attribute agreements or conflicts."""
     claim = normalize(atom.text)
     evidence = "\n".join(premise.text for premise in premises)
@@ -319,8 +415,9 @@ def execute_attribute_compare(atom: PipelineAtom, premises: Sequence[SymbolicPre
     # Prize-year phrases such as "the Nobel Prize ... for 1921" identify the
     # edition of the prize, not why it was awarded. Resolve the recipient only
     # when the source explicitly aligns the person, year, award, and prize.
-    awardee = _nobel_recipient_claim(atom.text)
-    if awardee:
+    profile = profile or attribute_profile(atom)
+    awardee = nobel_recipient_claim(atom.text)
+    if profile == NOBEL_RECIPIENT and awardee:
         recipient, year = awardee
         recipient_tokens = lexical_tokens(recipient)
         surname = normalize(recipient).split()[-1] if normalize(recipient) else ""
@@ -338,14 +435,8 @@ def execute_attribute_compare(atom: PipelineAtom, premises: Sequence[SymbolicPre
     # An explicit source negation of the claimed property is a conservative
     # refutation. This covers simple attributes without inventing a valency map.
     property_terms = lexical_tokens(re.sub(r"(?i)^.+?\b(?:is|was|has|have|for|in)\b", "", atom.text))
-    aligned_negative = any(
-        subject
-        and lexical_tokens(subject) & lexical_tokens(premise.text)
-        and property_terms & lexical_tokens(premise.text)
-        and re.search(
-            r"(?i)\b(?:no|not|never|without|did not|does not|will not|won['’]t|cannot|can['’]t|false|myth)\b",
-            premise.text,
-        )
+    aligned_negative = profile == EXPLICIT_NEGATION and any(
+        subject and scoped_negative_clause(subject, property_terms, premise)
         for premise in premises
     )
     if aligned_negative:
@@ -359,18 +450,18 @@ def execute_attribute_compare(atom: PipelineAtom, premises: Sequence[SymbolicPre
         aliases.update({"usa": "United States", "u.s.": "United States", "us": "United States", "uk": "United Kingdom"})
         claim_countries = {canonical for alias, canonical in aliases.items() if re.search(rf"\b{re.escape(alias)}\b", claim)}
         evidence_countries = {canonical for alias, canonical in aliases.items() if re.search(rf"\b{re.escape(alias)}\b", normalized_evidence)}
-        if claim_countries and evidence_countries:
+        if profile == COUNTRY_LOCATION and claim_countries and evidence_countries:
             truth = bool(claim_countries & evidence_countries)
             return _result(SymbolicStatus.proved if truth else SymbolicStatus.disproved, "SUPPORTS" if truth else "REFUTES", "claimed location = source location", "The grounded locations match." if truth else "The grounded locations are different.", "Python compared explicit normalized country names; it did not infer location from source identity.")
     except ImportError:
         pass
 
     # Exclusivity is disproved by an explicit second purpose.
-    if "exclusively" in claim and re.search(r"(?i)\bmilitary\b", evidence) and re.search(r"(?i)\bcivil(?:ian)?\b", evidence):
+    if profile == EXCLUSIVE_PURPOSE and "exclusively" in claim and re.search(r"(?i)\bmilitary\b", evidence) and re.search(r"(?i)\bcivil(?:ian)?\b", evidence):
         return _result(SymbolicStatus.disproved, "REFUTES", "purposes = {military, civilian}", "The source gives more than one purpose.", "Python found two explicit, incompatible values for an exclusive-purpose claim.")
 
     # Nobel-style prize citations are handled as grounded reason equality.
-    reason = _nobel_reason(atom.text)
+    reason = nobel_reason(atom.text) if profile == NOBEL_MOTIVATION else None
     source_reasons = re.findall(r"(?i)\bfor\s+(?:his|her|their)?\s*([^.!?;]+)", evidence)
     if reason and source_reasons:
         relation_stopwords = {"his", "her", "their", "its"}
@@ -385,17 +476,24 @@ def execute_attribute_compare(atom: PipelineAtom, premises: Sequence[SymbolicPre
     return _result(SymbolicStatus.unresolved, None, "attribute comparison", "Attribute relation is unresolved", "The premises do not provide one unambiguous attribute value for deterministic comparison.", ["AMBIGUOUS_ATTRIBUTE_MAPPING"])
 
 
-def execute_count_distinct(atom: PipelineAtom, premises: Sequence[SymbolicPremise]) -> dict:
+def execute_count_distinct(
+    atom: PipelineAtom,
+    premises: Sequence[SymbolicPremise],
+    profile: str | None = None,
+) -> dict:
     claim = normalize(atom.text)
-    expected = 2 if re.search(r"\b(?:two|both)\b", claim) or " and " in claim else None
+    profile = profile or distinct_profile(atom)
+    if profile != NOBEL_FIELD_COUNT:
+        return _result(SymbolicStatus.not_applicable, None, "count distinct", "No registered distinct-value profile", "The claim does not match a registered source-grounded value extractor.")
+    expected = 2 if re.search(r"\b(?:two|both)\b", claim) else None
     if expected is None:
         return _result(SymbolicStatus.not_applicable, None, "count distinct", "No explicit distinct-count claim", "The atom does not state a supported distinct-value count.")
-    vocabulary = ("physics", "chemistry", "medicine", "literature", "peace", "economics")
-    values = {value for premise in premises for value in vocabulary if re.search(rf"\b{value}\b", normalize(premise.text))}
+    values = extract_distinct_values(profile, premises)
     if len(values) < expected:
-        return _result(SymbolicStatus.unresolved, None, f"count(distinct fields) = {expected}", "Distinct values are unresolved", "The selected premises do not ground enough distinct values.", ["MISSING_DISTINCT_VALUES"])
-    truth = len(values) == expected
-    return _result(SymbolicStatus.proved if truth else SymbolicStatus.disproved, "SUPPORTS" if truth else "REFUTES", f"count({{{', '.join(sorted(values))}}}) = {expected}", f"The sources ground {len(values)} distinct values.", "Python normalized and counted explicit source values; it did not infer field equivalence.")
+        return _result(SymbolicStatus.unresolved, None, f"count(distinct fields) ≥ {expected}", "Distinct values are unresolved", "The selected premises do not ground enough distinct values.", ["MISSING_DISTINCT_VALUES"])
+    if not re.search(r"\b(?:at least|no fewer than)\b", claim):
+        return _result(SymbolicStatus.unresolved, None, f"count(distinct fields) = {expected}", "Exact count is unresolved", "The sources establish a lower bound but do not certify a complete value set.", ["INCOMPLETE_VALUE_SET"])
+    return _result(SymbolicStatus.proved, "SUPPORTS", f"count({{{', '.join(sorted(values))}}}) ≥ {expected}", f"The sources ground at least {expected} distinct values.", "Python normalized and counted explicit source values from the registered profile; it did not infer field equivalence or exact completeness.")
 
 
 def _measure_kinds(text: str) -> set[str]:

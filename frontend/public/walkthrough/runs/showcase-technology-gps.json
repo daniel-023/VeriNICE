@@ -1,6 +1,6 @@
 {
   "caseId": "showcase-technology-gps",
-  "schemaVersion": 6,
+  "schemaVersion": 7,
   "composition": "SINGLE",
   "warnings": [],
   "atoms": [
@@ -169,6 +169,7 @@
       "id": "proof:atom-1:attribute_compare:1",
       "atomId": "atom-1",
       "operator": "ATTRIBUTE_COMPARE",
+      "profile": "EXCLUSIVE_PURPOSE",
       "status": "DISPROVED",
       "relation": "REFUTES",
       "premiseIds": [
@@ -183,13 +184,31 @@
           "end": 245,
           "kind": "EVIDENCE",
           "contentHash": null,
-          "itemCount": null
+          "itemCount": null,
+          "listItems": []
         }
       ],
       "expression": "purposes = {military, civilian}",
       "conclusion": "The source gives more than one purpose.",
       "explanation": "Python found two explicit, incompatible values for an exclusive-purpose claim.",
       "validationWarnings": [],
+      "preconditions": [
+        {
+          "name": "Source grounding",
+          "status": "PASSED",
+          "detail": "7 selected premise(s) retain exact source offsets."
+        },
+        {
+          "name": "Registered profile",
+          "status": "PASSED",
+          "detail": "exclusive purpose"
+        },
+        {
+          "name": "Operand alignment",
+          "status": "PASSED",
+          "detail": "Python found two explicit, incompatible values for an exclusive-purpose claim."
+        }
+      ],
       "program": {
         "version": 1,
         "steps": [
@@ -216,301 +235,6 @@
       }
     }
   ],
-  "linguistics": {
-    "schemaVersion": 2,
-    "claimAnalysis": {
-      "atomId": "claim",
-      "frames": [
-        {
-          "id": "claim-frame-1",
-          "predicate": {
-            "id": "claim-frame-1-predicate",
-            "text": "developed",
-            "start": 8,
-            "end": 17
-          },
-          "subjects": [
-            {
-              "id": "claim-frame-1-subject-1",
-              "text": "GPS",
-              "start": 0,
-              "end": 3
-            }
-          ],
-          "coreArguments": [],
-          "adjuncts": [
-            {
-              "id": "claim-frame-1-adjunct-1",
-              "text": "exclusively",
-              "start": 18,
-              "end": 29,
-              "kind": "manner"
-            }
-          ],
-          "otherModifiers": [
-            {
-              "id": "claim-frame-1-other-modifier-1",
-              "text": "for civilian navigation",
-              "start": 30,
-              "end": 53
-            }
-          ]
-        }
-      ],
-      "cues": [],
-      "entities": [],
-      "tokens": [
-        {
-          "id": "claim-token-0",
-          "text": "GPS",
-          "start": 0,
-          "end": 3,
-          "lemma": "GPS",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "nsubjpass",
-          "head": "developed"
-        },
-        {
-          "id": "claim-token-1",
-          "text": "was",
-          "start": 4,
-          "end": 7,
-          "lemma": "be",
-          "pos": "AUX",
-          "tag": "VBD",
-          "dependency": "auxpass",
-          "head": "developed"
-        },
-        {
-          "id": "claim-token-2",
-          "text": "developed",
-          "start": 8,
-          "end": 17,
-          "lemma": "develop",
-          "pos": "VERB",
-          "tag": "VBN",
-          "dependency": "ROOT",
-          "head": "ROOT"
-        },
-        {
-          "id": "claim-token-3",
-          "text": "exclusively",
-          "start": 18,
-          "end": 29,
-          "lemma": "exclusively",
-          "pos": "ADV",
-          "tag": "RB",
-          "dependency": "advmod",
-          "head": "developed"
-        },
-        {
-          "id": "claim-token-4",
-          "text": "for",
-          "start": 30,
-          "end": 33,
-          "lemma": "for",
-          "pos": "ADP",
-          "tag": "IN",
-          "dependency": "prep",
-          "head": "developed"
-        },
-        {
-          "id": "claim-token-5",
-          "text": "civilian",
-          "start": 34,
-          "end": 42,
-          "lemma": "civilian",
-          "pos": "ADJ",
-          "tag": "JJ",
-          "dependency": "amod",
-          "head": "navigation"
-        },
-        {
-          "id": "claim-token-6",
-          "text": "navigation",
-          "start": 43,
-          "end": 53,
-          "lemma": "navigation",
-          "pos": "NOUN",
-          "tag": "NN",
-          "dependency": "pobj",
-          "head": "for"
-        },
-        {
-          "id": "claim-token-7",
-          "text": ".",
-          "start": 53,
-          "end": 54,
-          "lemma": ".",
-          "pos": "PUNCT",
-          "tag": ".",
-          "dependency": "punct",
-          "head": "developed"
-        }
-      ],
-      "status": "complete",
-      "unresolved": []
-    },
-    "analyses": [
-      {
-        "atomId": "atom-1",
-        "frames": [
-          {
-            "id": "atom-1-frame-1",
-            "predicate": {
-              "id": "atom-1-frame-1-predicate",
-              "text": "developed",
-              "start": 8,
-              "end": 17
-            },
-            "subjects": [
-              {
-                "id": "atom-1-frame-1-subject-1",
-                "text": "GPS",
-                "start": 0,
-                "end": 3
-              }
-            ],
-            "coreArguments": [],
-            "adjuncts": [
-              {
-                "id": "atom-1-frame-1-adjunct-1",
-                "text": "exclusively",
-                "start": 18,
-                "end": 29,
-                "kind": "manner"
-              }
-            ],
-            "otherModifiers": [
-              {
-                "id": "atom-1-frame-1-other-modifier-1",
-                "text": "for civilian navigation",
-                "start": 30,
-                "end": 53
-              }
-            ]
-          }
-        ],
-        "cues": [],
-        "entities": [],
-        "tokens": [
-          {
-            "id": "atom-1-token-0",
-            "text": "GPS",
-            "start": 0,
-            "end": 3,
-            "lemma": "GPS",
-            "pos": "PROPN",
-            "tag": "NNP",
-            "dependency": "nsubjpass",
-            "head": "developed"
-          },
-          {
-            "id": "atom-1-token-1",
-            "text": "was",
-            "start": 4,
-            "end": 7,
-            "lemma": "be",
-            "pos": "AUX",
-            "tag": "VBD",
-            "dependency": "auxpass",
-            "head": "developed"
-          },
-          {
-            "id": "atom-1-token-2",
-            "text": "developed",
-            "start": 8,
-            "end": 17,
-            "lemma": "develop",
-            "pos": "VERB",
-            "tag": "VBN",
-            "dependency": "ROOT",
-            "head": "ROOT"
-          },
-          {
-            "id": "atom-1-token-3",
-            "text": "exclusively",
-            "start": 18,
-            "end": 29,
-            "lemma": "exclusively",
-            "pos": "ADV",
-            "tag": "RB",
-            "dependency": "advmod",
-            "head": "developed"
-          },
-          {
-            "id": "atom-1-token-4",
-            "text": "for",
-            "start": 30,
-            "end": 33,
-            "lemma": "for",
-            "pos": "ADP",
-            "tag": "IN",
-            "dependency": "prep",
-            "head": "developed"
-          },
-          {
-            "id": "atom-1-token-5",
-            "text": "civilian",
-            "start": 34,
-            "end": 42,
-            "lemma": "civilian",
-            "pos": "ADJ",
-            "tag": "JJ",
-            "dependency": "amod",
-            "head": "navigation"
-          },
-          {
-            "id": "atom-1-token-6",
-            "text": "navigation",
-            "start": 43,
-            "end": 53,
-            "lemma": "navigation",
-            "pos": "NOUN",
-            "tag": "NN",
-            "dependency": "pobj",
-            "head": "for"
-          },
-          {
-            "id": "atom-1-token-7",
-            "text": ".",
-            "start": 53,
-            "end": 54,
-            "lemma": ".",
-            "pos": "PUNCT",
-            "tag": ".",
-            "dependency": "punct",
-            "head": "developed"
-          }
-        ],
-        "status": "complete",
-        "unresolved": []
-      }
-    ],
-    "summaries": [
-      {
-        "atomId": "atom-1",
-        "analysisStatus": "complete",
-        "roleAudit": "MATCH",
-        "subjects": [
-          "GPS"
-        ],
-        "predicates": [
-          "develop"
-        ],
-        "cueKinds": [],
-        "modifierKinds": [
-          "manner"
-        ],
-        "entityLabels": [],
-        "warnings": []
-      }
-    ],
-    "claimWarnings": [],
-    "provider": "spacy",
-    "model": "en_core_web_sm@3.8.0"
-  },
   "verdict": {
     "aggregationSchemaVersion": 3,
     "claimId": "showcase-technology-gps",
@@ -551,21 +275,20 @@
     ]
   },
   "recordedWith": {
-    "pipelineRevision": "submission-ready-v2",
+    "pipelineRevision": "submission-ready-v3",
     "inputDigest": "76ac1816b20a95337fe5b95e99efcaa632eb1e7127912bd6a16914fc136ccde9",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
     "retrievalMethod": "HYBRID",
     "assessmentModel": "qwen2.5:7b",
-    "reasoningModel": "qwen2.5:7b",
-    "linguisticsModel": "en_core_web_sm@3.8.0"
+    "reasoningModel": "qwen2.5:7b"
   },
   "timingsSeconds": {
-    "decomposition": 17.781,
-    "retrievalAndLinguistics": 0.338,
-    "evidenceAssessment": 22.475,
-    "symbolicReasoning": 25.914,
-    "aggregation": 0.002,
-    "total": 66.512
+    "decomposition": 12.231,
+    "retrieval": 0.305,
+    "evidenceAssessment": 14.709,
+    "symbolicReasoning": 27.338,
+    "aggregation": 0.004,
+    "total": 54.586
   }
 }

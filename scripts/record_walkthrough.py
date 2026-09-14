@@ -135,24 +135,14 @@ async def record_case(client: httpx.AsyncClient, case_id: str, case: dict[str, A
     assert decomposition is not None
     decomposition_seconds = time.perf_counter() - decomposition_started
     atoms = [{"id": atom["id"], "text": atom["text"]} for atom in decomposition["atoms"]]
-    linguistic_request = {
-        "schemaVersion": decomposition["schemaVersion"],
-        "claimText": case["claim"],
-        "composition": decomposition["composition"],
-        "atoms": decomposition["atoms"],
-    }
-    retrieval_task = request(
+    retrieval_started = time.perf_counter()
+    retrieval = await request(
         client,
         "POST",
         "/api/v1/retrieve",
         json={"caseId": case_id, "atoms": atoms, "retrievalMethod": "HYBRID"},
     )
-    linguistics_task = request(
-        client, "POST", "/api/v1/analyze-linguistics", json=linguistic_request
-    )
-    retrieval_started = time.perf_counter()
-    retrieval, linguistics = await asyncio.gather(retrieval_task, linguistics_task)
-    retrieval_and_linguistics_seconds = time.perf_counter() - retrieval_started
+    retrieval_seconds = time.perf_counter() - retrieval_started
     assessment_started = time.perf_counter()
     assessment = await request_with_retries(
         client,
@@ -197,28 +187,26 @@ async def record_case(client: httpx.AsyncClient, case_id: str, case: dict[str, A
     aggregation_seconds = time.perf_counter() - aggregation_started
     return {
         "caseId": case_id,
-        "schemaVersion": 6,
+        "schemaVersion": 7,
         "composition": decomposition["composition"],
         "warnings": decomposition["warnings"],
         "atoms": decomposition["atoms"],
         "evidence": retrieval["evidence"],
         "assessment": assessment["assessment"],
         "reasoning": reasoning["executions"],
-        "linguistics": linguistics,
         "verdict": verdict,
         "recordedWith": {
-            "pipelineRevision": "submission-ready-v2",
+            "pipelineRevision": "submission-ready-v3",
             "inputDigest": input_digest(case),
             "decompositionModel": decomposition["model"],
             "retrievalModel": retrieval["model"],
             "retrievalMethod": retrieval["retrievalMethod"],
             "assessmentModel": assessment["model"],
             "reasoningModel": reasoning["model"],
-            "linguisticsModel": linguistics["model"],
         },
         "timingsSeconds": {
             "decomposition": round(decomposition_seconds, 3),
-            "retrievalAndLinguistics": round(retrieval_and_linguistics_seconds, 3),
+            "retrieval": round(retrieval_seconds, 3),
             "evidenceAssessment": round(assessment_seconds, 3),
             "symbolicReasoning": round(reasoning_seconds, 3),
             "aggregation": round(aggregation_seconds, 3),
@@ -234,7 +222,7 @@ async def main_async() -> int:
     parser.add_argument("--bundle-profile", type=Path, default=DEFAULT_BUNDLE_PROFILE)
     parser.add_argument("--case", action="append", dest="case_ids")
     parser.add_argument("--all", action="store_true", help="Record every approved demo case.")
-    parser.add_argument("--resume", action="store_true", help="Skip already valid schema-v6 runs.")
+    parser.add_argument("--resume", action="store_true", help="Skip already valid schema-v7 runs.")
     parser.add_argument("--timeout", type=float, default=300.0)
     args = parser.parse_args()
 
@@ -273,16 +261,19 @@ async def main_async() -> int:
                 except (OSError, ValueError):
                     existing = {}
                 if (
-                    existing.get("schemaVersion") == 6
-                    and existing.get("recordedWith", {}).get("pipelineRevision") == "submission-ready-v2"
+                    existing.get("schemaVersion") == 7
+                    and existing.get("recordedWith", {}).get("pipelineRevision") == "submission-ready-v3"
                     and existing.get("recordedWith", {}).get("inputDigest") == input_digest(case)
                     and isinstance(existing.get("assessment"), dict)
                     and isinstance(existing.get("reasoning"), list)
                     and existing.get("verdict", {}).get("aggregationSchemaVersion") == 3
                     and "claimPosition" not in existing.get("assessment", {})
+                    and "linguistics" not in existing
+                    and "linguisticsModel" not in existing.get("recordedWith", {})
+                    and isinstance(existing.get("timingsSeconds", {}).get("retrieval"), (int, float))
                     and "deberta" not in json.dumps(existing).casefold()
                 ):
-                    print(f"[{index}/{len(selected)}] Keeping {case_id} (schema v6)", flush=True)
+                    print(f"[{index}/{len(selected)}] Keeping {case_id} (schema v7)", flush=True)
                     continue
             print(f"[{index}/{len(selected)}] Recording {case_id}", flush=True)
             run = await record_case(client, case_id, case)

@@ -1,6 +1,6 @@
 {
   "caseId": "showcase-science-shaving",
-  "schemaVersion": 6,
+  "schemaVersion": 7,
   "composition": "AND",
   "warnings": [],
   "atoms": [
@@ -322,6 +322,7 @@
       "id": "proof:atom-1:attribute_compare:1",
       "atomId": "atom-1",
       "operator": "ATTRIBUTE_COMPARE",
+      "profile": "EXPLICIT_NEGATION",
       "status": "DISPROVED",
       "relation": "REFUTES",
       "premiseIds": [
@@ -336,13 +337,31 @@
           "end": 1034,
           "kind": "EVIDENCE",
           "contentHash": null,
-          "itemCount": null
+          "itemCount": null,
+          "listItems": []
         }
       ],
       "expression": "claimed attribute = source attribute",
       "conclusion": "The source explicitly negates the claimed attribute.",
       "explanation": "Python accepted an explicit source negation only after entity and property terms were aligned.",
       "validationWarnings": [],
+      "preconditions": [
+        {
+          "name": "Source grounding",
+          "status": "PASSED",
+          "detail": "1 selected premise(s) retain exact source offsets."
+        },
+        {
+          "name": "Registered profile",
+          "status": "PASSED",
+          "detail": "explicit negation"
+        },
+        {
+          "name": "Operand alignment",
+          "status": "PASSED",
+          "detail": "Python accepted an explicit source negation only after entity and property terms were aligned."
+        }
+      ],
       "program": {
         "version": 1,
         "steps": [
@@ -372,6 +391,7 @@
       "id": "proof:atom-2:attribute_compare:2",
       "atomId": "atom-2",
       "operator": "ATTRIBUTE_COMPARE",
+      "profile": "EXPLICIT_NEGATION",
       "status": "DISPROVED",
       "relation": "REFUTES",
       "premiseIds": [
@@ -386,13 +406,31 @@
           "end": 1034,
           "kind": "EVIDENCE",
           "contentHash": null,
-          "itemCount": null
+          "itemCount": null,
+          "listItems": []
         }
       ],
       "expression": "claimed attribute = source attribute",
       "conclusion": "The source explicitly negates the claimed attribute.",
       "explanation": "Python accepted an explicit source negation only after entity and property terms were aligned.",
       "validationWarnings": [],
+      "preconditions": [
+        {
+          "name": "Source grounding",
+          "status": "PASSED",
+          "detail": "1 selected premise(s) retain exact source offsets."
+        },
+        {
+          "name": "Registered profile",
+          "status": "PASSED",
+          "detail": "explicit negation"
+        },
+        {
+          "name": "Operand alignment",
+          "status": "PASSED",
+          "detail": "Python accepted an explicit source negation only after entity and property terms were aligned."
+        }
+      ],
       "program": {
         "version": 1,
         "steps": [
@@ -419,525 +457,6 @@
       }
     }
   ],
-  "linguistics": {
-    "schemaVersion": 2,
-    "claimAnalysis": {
-      "atomId": "claim",
-      "frames": [
-        {
-          "id": "claim-frame-1",
-          "predicate": {
-            "id": "claim-frame-1-predicate",
-            "text": "makes",
-            "start": 8,
-            "end": 13
-          },
-          "subjects": [
-            {
-              "id": "claim-frame-1-subject-1",
-              "text": "Shaving",
-              "start": 0,
-              "end": 7
-            }
-          ],
-          "coreArguments": [
-            {
-              "id": "claim-frame-1-argument-1",
-              "text": "hair grow back thicker and faster",
-              "start": 14,
-              "end": 47,
-              "role": "clausal_complement"
-            }
-          ],
-          "adjuncts": [],
-          "otherModifiers": []
-        },
-        {
-          "id": "claim-frame-2",
-          "predicate": {
-            "id": "claim-frame-2-predicate",
-            "text": "grow",
-            "start": 19,
-            "end": 23
-          },
-          "subjects": [
-            {
-              "id": "claim-frame-2-subject-1",
-              "text": "hair",
-              "start": 14,
-              "end": 18
-            }
-          ],
-          "coreArguments": [
-            {
-              "id": "claim-frame-2-argument-1",
-              "text": "thicker and faster",
-              "start": 29,
-              "end": 47,
-              "role": "subject_complement"
-            }
-          ],
-          "adjuncts": [
-            {
-              "id": "claim-frame-2-adjunct-1",
-              "text": "back",
-              "start": 24,
-              "end": 28,
-              "kind": "manner"
-            }
-          ],
-          "otherModifiers": []
-        }
-      ],
-      "cues": [],
-      "entities": [],
-      "tokens": [
-        {
-          "id": "claim-token-0",
-          "text": "Shaving",
-          "start": 0,
-          "end": 7,
-          "lemma": "shaving",
-          "pos": "NOUN",
-          "tag": "NN",
-          "dependency": "nsubj",
-          "head": "makes"
-        },
-        {
-          "id": "claim-token-1",
-          "text": "makes",
-          "start": 8,
-          "end": 13,
-          "lemma": "make",
-          "pos": "VERB",
-          "tag": "VBZ",
-          "dependency": "ROOT",
-          "head": "ROOT"
-        },
-        {
-          "id": "claim-token-2",
-          "text": "hair",
-          "start": 14,
-          "end": 18,
-          "lemma": "hair",
-          "pos": "NOUN",
-          "tag": "NN",
-          "dependency": "nsubj",
-          "head": "grow"
-        },
-        {
-          "id": "claim-token-3",
-          "text": "grow",
-          "start": 19,
-          "end": 23,
-          "lemma": "grow",
-          "pos": "VERB",
-          "tag": "VB",
-          "dependency": "ccomp",
-          "head": "makes"
-        },
-        {
-          "id": "claim-token-4",
-          "text": "back",
-          "start": 24,
-          "end": 28,
-          "lemma": "back",
-          "pos": "ADV",
-          "tag": "RB",
-          "dependency": "advmod",
-          "head": "grow"
-        },
-        {
-          "id": "claim-token-5",
-          "text": "thicker",
-          "start": 29,
-          "end": 36,
-          "lemma": "thick",
-          "pos": "ADJ",
-          "tag": "JJR",
-          "dependency": "acomp",
-          "head": "grow"
-        },
-        {
-          "id": "claim-token-6",
-          "text": "and",
-          "start": 37,
-          "end": 40,
-          "lemma": "and",
-          "pos": "CCONJ",
-          "tag": "CC",
-          "dependency": "cc",
-          "head": "thicker"
-        },
-        {
-          "id": "claim-token-7",
-          "text": "faster",
-          "start": 41,
-          "end": 47,
-          "lemma": "fast",
-          "pos": "ADV",
-          "tag": "RBR",
-          "dependency": "conj",
-          "head": "thicker"
-        },
-        {
-          "id": "claim-token-8",
-          "text": ".",
-          "start": 47,
-          "end": 48,
-          "lemma": ".",
-          "pos": "PUNCT",
-          "tag": ".",
-          "dependency": "punct",
-          "head": "makes"
-        }
-      ],
-      "status": "complete",
-      "unresolved": []
-    },
-    "analyses": [
-      {
-        "atomId": "atom-1",
-        "frames": [
-          {
-            "id": "atom-1-frame-1",
-            "predicate": {
-              "id": "atom-1-frame-1-predicate",
-              "text": "makes",
-              "start": 8,
-              "end": 13
-            },
-            "subjects": [
-              {
-                "id": "atom-1-frame-1-subject-1",
-                "text": "Shaving",
-                "start": 0,
-                "end": 7
-              }
-            ],
-            "coreArguments": [
-              {
-                "id": "atom-1-frame-1-argument-1",
-                "text": "hair grow back thicker",
-                "start": 14,
-                "end": 36,
-                "role": "clausal_complement"
-              }
-            ],
-            "adjuncts": [],
-            "otherModifiers": []
-          },
-          {
-            "id": "atom-1-frame-2",
-            "predicate": {
-              "id": "atom-1-frame-2-predicate",
-              "text": "grow",
-              "start": 19,
-              "end": 23
-            },
-            "subjects": [
-              {
-                "id": "atom-1-frame-2-subject-1",
-                "text": "hair",
-                "start": 14,
-                "end": 18
-              }
-            ],
-            "coreArguments": [
-              {
-                "id": "atom-1-frame-2-argument-1",
-                "text": "back thicker",
-                "start": 24,
-                "end": 36,
-                "role": "subject_complement"
-              }
-            ],
-            "adjuncts": [],
-            "otherModifiers": []
-          }
-        ],
-        "cues": [],
-        "entities": [],
-        "tokens": [
-          {
-            "id": "atom-1-token-0",
-            "text": "Shaving",
-            "start": 0,
-            "end": 7,
-            "lemma": "shaving",
-            "pos": "NOUN",
-            "tag": "NN",
-            "dependency": "nsubj",
-            "head": "makes"
-          },
-          {
-            "id": "atom-1-token-1",
-            "text": "makes",
-            "start": 8,
-            "end": 13,
-            "lemma": "make",
-            "pos": "VERB",
-            "tag": "VBZ",
-            "dependency": "ROOT",
-            "head": "ROOT"
-          },
-          {
-            "id": "atom-1-token-2",
-            "text": "hair",
-            "start": 14,
-            "end": 18,
-            "lemma": "hair",
-            "pos": "NOUN",
-            "tag": "NN",
-            "dependency": "nsubj",
-            "head": "grow"
-          },
-          {
-            "id": "atom-1-token-3",
-            "text": "grow",
-            "start": 19,
-            "end": 23,
-            "lemma": "grow",
-            "pos": "VERB",
-            "tag": "VB",
-            "dependency": "ccomp",
-            "head": "makes"
-          },
-          {
-            "id": "atom-1-token-4",
-            "text": "back",
-            "start": 24,
-            "end": 28,
-            "lemma": "back",
-            "pos": "ADV",
-            "tag": "RB",
-            "dependency": "advmod",
-            "head": "thicker"
-          },
-          {
-            "id": "atom-1-token-5",
-            "text": "thicker",
-            "start": 29,
-            "end": 36,
-            "lemma": "thick",
-            "pos": "ADJ",
-            "tag": "JJR",
-            "dependency": "acomp",
-            "head": "grow"
-          },
-          {
-            "id": "atom-1-token-6",
-            "text": ".",
-            "start": 36,
-            "end": 37,
-            "lemma": ".",
-            "pos": "PUNCT",
-            "tag": ".",
-            "dependency": "punct",
-            "head": "makes"
-          }
-        ],
-        "status": "complete",
-        "unresolved": []
-      },
-      {
-        "atomId": "atom-2",
-        "frames": [
-          {
-            "id": "atom-2-frame-1",
-            "predicate": {
-              "id": "atom-2-frame-1-predicate",
-              "text": "makes",
-              "start": 8,
-              "end": 13
-            },
-            "subjects": [
-              {
-                "id": "atom-2-frame-1-subject-1",
-                "text": "Shaving",
-                "start": 0,
-                "end": 7
-              }
-            ],
-            "coreArguments": [
-              {
-                "id": "atom-2-frame-1-argument-1",
-                "text": "hair grow back faster",
-                "start": 14,
-                "end": 35,
-                "role": "clausal_complement"
-              }
-            ],
-            "adjuncts": [],
-            "otherModifiers": []
-          },
-          {
-            "id": "atom-2-frame-2",
-            "predicate": {
-              "id": "atom-2-frame-2-predicate",
-              "text": "grow",
-              "start": 19,
-              "end": 23
-            },
-            "subjects": [
-              {
-                "id": "atom-2-frame-2-subject-1",
-                "text": "hair",
-                "start": 14,
-                "end": 18
-              }
-            ],
-            "coreArguments": [],
-            "adjuncts": [
-              {
-                "id": "atom-2-frame-2-adjunct-1",
-                "text": "back",
-                "start": 24,
-                "end": 28,
-                "kind": "manner"
-              },
-              {
-                "id": "atom-2-frame-2-adjunct-2",
-                "text": "faster",
-                "start": 29,
-                "end": 35,
-                "kind": "manner"
-              }
-            ],
-            "otherModifiers": []
-          }
-        ],
-        "cues": [],
-        "entities": [],
-        "tokens": [
-          {
-            "id": "atom-2-token-0",
-            "text": "Shaving",
-            "start": 0,
-            "end": 7,
-            "lemma": "shaving",
-            "pos": "NOUN",
-            "tag": "NN",
-            "dependency": "nsubj",
-            "head": "makes"
-          },
-          {
-            "id": "atom-2-token-1",
-            "text": "makes",
-            "start": 8,
-            "end": 13,
-            "lemma": "make",
-            "pos": "VERB",
-            "tag": "VBZ",
-            "dependency": "ROOT",
-            "head": "ROOT"
-          },
-          {
-            "id": "atom-2-token-2",
-            "text": "hair",
-            "start": 14,
-            "end": 18,
-            "lemma": "hair",
-            "pos": "NOUN",
-            "tag": "NN",
-            "dependency": "nsubj",
-            "head": "grow"
-          },
-          {
-            "id": "atom-2-token-3",
-            "text": "grow",
-            "start": 19,
-            "end": 23,
-            "lemma": "grow",
-            "pos": "VERB",
-            "tag": "VB",
-            "dependency": "ccomp",
-            "head": "makes"
-          },
-          {
-            "id": "atom-2-token-4",
-            "text": "back",
-            "start": 24,
-            "end": 28,
-            "lemma": "back",
-            "pos": "ADV",
-            "tag": "RB",
-            "dependency": "advmod",
-            "head": "grow"
-          },
-          {
-            "id": "atom-2-token-5",
-            "text": "faster",
-            "start": 29,
-            "end": 35,
-            "lemma": "fast",
-            "pos": "ADV",
-            "tag": "RBR",
-            "dependency": "advmod",
-            "head": "grow"
-          },
-          {
-            "id": "atom-2-token-6",
-            "text": ".",
-            "start": 35,
-            "end": 36,
-            "lemma": ".",
-            "pos": "PUNCT",
-            "tag": ".",
-            "dependency": "punct",
-            "head": "makes"
-          }
-        ],
-        "status": "complete",
-        "unresolved": []
-      }
-    ],
-    "summaries": [
-      {
-        "atomId": "atom-1",
-        "analysisStatus": "complete",
-        "roleAudit": "INCONCLUSIVE",
-        "subjects": [
-          "Shaving",
-          "hair"
-        ],
-        "predicates": [
-          "make",
-          "grow"
-        ],
-        "cueKinds": [],
-        "modifierKinds": [],
-        "entityLabels": [],
-        "warnings": [
-          "MULTIPLE_PROPOSITION_FRAMES"
-        ]
-      },
-      {
-        "atomId": "atom-2",
-        "analysisStatus": "complete",
-        "roleAudit": "INCONCLUSIVE",
-        "subjects": [
-          "Shaving",
-          "hair"
-        ],
-        "predicates": [
-          "make",
-          "grow"
-        ],
-        "cueKinds": [],
-        "modifierKinds": [
-          "manner"
-        ],
-        "entityLabels": [],
-        "warnings": [
-          "MULTIPLE_PROPOSITION_FRAMES"
-        ]
-      }
-    ],
-    "claimWarnings": [],
-    "provider": "spacy",
-    "model": "en_core_web_sm@3.8.0"
-  },
   "verdict": {
     "aggregationSchemaVersion": 3,
     "claimId": "showcase-science-shaving",
@@ -993,21 +512,20 @@
     ]
   },
   "recordedWith": {
-    "pipelineRevision": "submission-ready-v2",
+    "pipelineRevision": "submission-ready-v3",
     "inputDigest": "40b4586a5bece55e81562b8eab9b6c799eb2a20b8a4523ce4e7cbc11fb9daec1",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
     "retrievalMethod": "HYBRID",
     "assessmentModel": "qwen2.5:7b",
-    "reasoningModel": "qwen2.5:7b",
-    "linguisticsModel": "en_core_web_sm@3.8.0"
+    "reasoningModel": "qwen2.5:7b"
   },
   "timingsSeconds": {
-    "decomposition": 21.715,
-    "retrievalAndLinguistics": 0.361,
-    "evidenceAssessment": 37.502,
-    "symbolicReasoning": 21.365,
-    "aggregation": 0.004,
-    "total": 80.952
+    "decomposition": 14.052,
+    "retrieval": 0.252,
+    "evidenceAssessment": 27.003,
+    "symbolicReasoning": 19.197,
+    "aggregation": 0.005,
+    "total": 60.51
   }
 }

@@ -19,7 +19,8 @@ from ..schemas import (
 from ..settings import settings
 from .compiler import CompilerConfigurationError, CompilerOutputError, CompilerProviderError, compile_programs
 from .grounding import build_candidates, lexical_tokens, normalize, validate_grounding
-from .operators import REGISTRY
+from .operators import REGISTRY, _subject_before_copula
+from .profiles import NOBEL_FIELDS
 
 
 class SymbolicReasoningError(RuntimeError):
@@ -146,7 +147,7 @@ def _presentation_premise_ids(
         ]
         return matching[:1]
     if operator == SymbolicOperator.count_distinct:
-        fields = ("physics", "chemistry", "medicine", "literature", "peace", "economics")
+        fields = NOBEL_FIELDS
         selected: list[str] = []
         seen: set[str] = set()
         for item in ordered:
@@ -192,7 +193,20 @@ def _presentation_premise_ids(
         if re.search(r"\b(?:located|location)\b", normalize(atom.text)) and _explicit_countries(atom.text):
             located = [item for item in ordered if _explicit_countries(premises[item].text)]
             located.sort(key=lambda item: (-len(subject_terms & lexical_tokens(premises[item].text)), item))
-            return located[:1]
+            if not located:
+                return ordered[:2]
+            selected = located[:1]
+            subject = _subject_before_copula(atom.text)
+            if subject and subject not in normalize(premises[selected[0]].text):
+                subject_premises = [
+                    item for item in ordered
+                    if subject in normalize(premises[item].text) and item not in selected
+                ]
+                subject_premises.sort(
+                    key=lambda item: (-len(subject_terms & lexical_tokens(premises[item].text)), item)
+                )
+                selected = subject_premises[:1] + selected
+            return selected[:2]
         # An exclusivity result consumes the statement that explicitly names
         # the competing values. A heading or one-sided purpose statement is
         # background rather than a decisive premise.
@@ -262,6 +276,41 @@ def _presentation_premise(premise, premises):
     })
 
 
+def _execution_preconditions(candidate, execution_premises, outcome) -> list[dict]:
+    resolved = outcome["status"] in {SymbolicStatus.proved, SymbolicStatus.disproved}
+    checks = [
+        {
+            "name": "Source grounding",
+            "status": "PASSED",
+            "detail": f"{len(execution_premises)} selected premise(s) retain exact source offsets.",
+        },
+        {
+            "name": "Registered profile",
+            "status": "PASSED" if candidate.profile else "UNRESOLVED",
+            "detail": candidate.profile.replace("_", " ").lower() if candidate.profile else "No registered extraction profile was available.",
+        },
+        {
+            "name": "Operand alignment",
+            "status": "PASSED" if resolved else "UNRESOLVED",
+            "detail": outcome["explanation"],
+        },
+    ]
+    if candidate.operator == "SET_MEMBERSHIP":
+        complete = any(premise.kind == "LIST_CERTIFICATE" for premise in execution_premises)
+        checks.append({
+            "name": "Closed-set evidence",
+            "status": "PASSED" if complete else "UNRESOLVED",
+            "detail": "A validated complete-list certificate is present." if complete else "No complete-list certificate was selected; only explicit presence can resolve membership.",
+        })
+    if candidate.operator == "COUNT_DISTINCT":
+        checks.append({
+            "name": "Count semantics",
+            "status": "PASSED" if "≥" in outcome["expression"] else "UNRESOLVED",
+            "detail": "The claim requests a lower bound; exact completeness is not assumed." if "≥" in outcome["expression"] else "An exact count requires a complete-value-set certificate.",
+        })
+    return checks
+
+
 async def reason_symbolically(
     atoms: Sequence[PipelineAtom],
     evidence: Sequence[AssessmentAtomEvidence],
@@ -318,7 +367,12 @@ async def reason_symbolically(
                 expanded_ids.append(premise_id)
         execution_premises = [premises[premise_id] for premise_id in expanded_ids]
         operator = SymbolicOperator(candidate.operator)
-        outcome = REGISTRY[operator](atoms_by_id[candidate.atom_id], execution_premises)
+        if operator in {SymbolicOperator.attribute_compare, SymbolicOperator.count_distinct}:
+            outcome = REGISTRY[operator](
+                atoms_by_id[candidate.atom_id], execution_premises, candidate.profile
+            )
+        else:
+            outcome = REGISTRY[operator](atoms_by_id[candidate.atom_id], execution_premises)
         public_ids = _presentation_premise_ids(
             operator,
             atoms_by_id[candidate.atom_id],
@@ -335,6 +389,7 @@ async def reason_symbolically(
             id=f"proof:{candidate.atom_id}:{operator.value.lower()}:{index}",
             atom_id=candidate.atom_id,
             operator=operator,
+            profile=candidate.profile,
             status=outcome["status"],
             relation=outcome["relation"],
             premise_ids=public_ids,
@@ -343,6 +398,7 @@ async def reason_symbolically(
             conclusion=outcome["conclusion"],
             explanation=outcome["explanation"],
             validation_warnings=outcome["validation_warnings"],
+            preconditions=_execution_preconditions(candidate, execution_premises, outcome),
             program=_program(operator, public_ids, candidate_id),
         ))
     # Applicable candidates deliberately omitted by the compiler remain visible
@@ -355,6 +411,7 @@ async def reason_symbolically(
             id=f"proof:{candidate.atom_id}:{candidate.operator.lower()}:unresolved",
             atom_id=candidate.atom_id,
             operator=SymbolicOperator(candidate.operator),
+            profile=candidate.profile,
             status=SymbolicStatus.unresolved,
             relation=None,
             premise_ids=[],
@@ -363,6 +420,18 @@ async def reason_symbolically(
             conclusion="No grounded program was compiled.",
             explanation="Qwen did not map the typed candidate to sufficient server-owned premises.",
             validation_warnings=["NO_GROUNDED_PROGRAM"],
+            preconditions=[
+                {
+                    "name": "Registered profile",
+                    "status": "PASSED" if candidate.profile else "UNRESOLVED",
+                    "detail": candidate.profile.replace("_", " ").lower() if candidate.profile else "No registered extraction profile was available.",
+                },
+                {
+                    "name": "Operand alignment",
+                    "status": "UNRESOLVED",
+                    "detail": "The model did not map the candidate to sufficient server-owned premises.",
+                },
+            ],
             program=_program(SymbolicOperator(candidate.operator), [], candidate.id),
         ))
     operator_order = {operator: index for index, operator in enumerate(SymbolicOperator)}

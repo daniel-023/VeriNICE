@@ -14,6 +14,7 @@ data/walkthrough/runs/
 data/corenlp/
 data/llm-aggrefact/
 artifacts/
+output/
 *.log
 *.pid
 .env.local
@@ -26,3 +27,13 @@ artifacts/
 __pycache__/
 .pytest_cache/
 .DS_Store
+
+# Submission builds are generated deliverables, not repository source.
+submission/*.aux
+submission/*.bbl
+submission/*.blg
+submission/*.fdb_latexmk
+submission/*.fls
+submission/*.out
+submission/*.pdf
+submission/*.zip

@@ -30,6 +30,7 @@ export type DemoCategory = "SCIENCE" | "HISTORY" | "GEOGRAPHY" | "TECHNOLOGY" | 
 export type DemoFocus =
   | "DECOMPOSITION"
   | "DIRECT_EVIDENCE"
+  | "NUMERIC_COMPARISON"
   | "ATTRIBUTE_COMPARISON"
   | "TEMPORAL_COMPARISON"
   | "SET_MEMBERSHIP"
@@ -348,6 +349,13 @@ export interface GroundedEvidenceAssessment {
 
 export type SymbolicOperator = "SET_MEMBERSHIP" | "NUMERIC_COMPARE" | "TEMPORAL_COMPARE" | "ATTRIBUTE_COMPARE" | "COUNT_DISTINCT" | "EXTREMUM_COMPARE";
 export type SymbolicStatus = "PROVED" | "DISPROVED" | "UNRESOLVED" | "NOT_APPLICABLE";
+export type SymbolicPreconditionStatus = "PASSED" | "FAILED" | "UNRESOLVED";
+
+export interface SymbolicPrecondition {
+  name: string;
+  status: SymbolicPreconditionStatus;
+  detail: string;
+}
 
 export interface SymbolicListItem {
   id: string;
@@ -374,6 +382,7 @@ export interface SymbolicExecution {
   id: string;
   atomId: string;
   operator: SymbolicOperator;
+  profile: string;
   status: SymbolicStatus;
   relation: "SUPPORTS" | "REFUTES" | null;
   premiseIds: string[];
@@ -382,6 +391,7 @@ export interface SymbolicExecution {
   conclusion: string;
   explanation: string;
   validationWarnings: string[];
+  preconditions: SymbolicPrecondition[];
   program: {
     version: 1;
     steps: Array<{
@@ -401,144 +411,26 @@ export interface ReasoningResponse {
   model: string;
 }
 
-export interface LinguisticSpan {
-  id: string;
-  text: string;
-  start: number;
-  end: number;
-}
-
-export type LinguisticArgumentRole =
-  | "direct_object"
-  | "indirect_object"
-  | "passive_agent"
-  | "subject_complement"
-  | "object_complement"
-  | "clausal_complement";
-
-export interface LinguisticArgument extends LinguisticSpan {
-  role: LinguisticArgumentRole;
-}
-
-export type LinguisticModifierKind =
-  | "temporal"
-  | "locative"
-  | "manner"
-  | "causal"
-  | "conditional"
-  | "purpose";
-
-export interface LinguisticModifier extends LinguisticSpan {
-  kind: LinguisticModifierKind;
-}
-
-export interface PropositionFrame {
-  id: string;
-  predicate: LinguisticSpan | null;
-  subjects: LinguisticSpan[];
-  coreArguments: LinguisticArgument[];
-  adjuncts: LinguisticModifier[];
-  otherModifiers: LinguisticSpan[];
-}
-
-export type LinguisticCueKind =
-  | "negation"
-  | "quantifier"
-  | "modality"
-  | "attribution"
-  | "temporal"
-  | "numeric";
-
-export interface LinguisticCue extends LinguisticSpan {
-  kind: LinguisticCueKind;
-}
-
-export interface LinguisticEntity extends LinguisticSpan {
-  label: string;
-}
-
-export interface LinguisticToken extends LinguisticSpan {
-  lemma: string;
-  pos: string;
-  tag: string;
-  dependency: string;
-  head: string;
-}
-
-export interface AtomLinguisticAnalysis {
-  atomId: string;
-  frames: PropositionFrame[];
-  cues: LinguisticCue[];
-  entities: LinguisticEntity[];
-  tokens: LinguisticToken[];
-  status: "complete" | "partial";
-  unresolved: Array<"subject" | "predicate">;
-}
-
-export type RoleAuditStatus = "MATCH" | "MISMATCH" | "INCONCLUSIVE";
-
-export type LinguisticWarningCode =
-  | "ROLE_CUE_MISMATCH"
-  | "MULTIPLE_PROPOSITION_FRAMES"
-  | "UNRESOLVED_SUBJECT"
-  | "UNRESOLVED_PREDICATE"
-  | "PARTIAL_LINGUISTIC_ANALYSIS"
-  | "NEGATION_SCOPE_UNCLEAR"
-  | "ATTRIBUTION_SCOPE_UNCLEAR"
-  | "QUALIFIER_ATTACHMENT_UNCLEAR"
-  | "NEGATION_NOT_PRESERVED"
-  | "NUMERIC_INFORMATION_NOT_PRESERVED"
-  | "TEMPORAL_INFORMATION_NOT_PRESERVED"
-  | "ATTRIBUTION_NOT_PRESERVED"
-  | "MODALITY_NOT_PRESERVED"
-  | "LOCATION_NOT_PRESERVED"
-  | "CLAIM_FRAME_NOT_COVERED";
-
-export interface ObligationLinguisticSummary {
-  atomId: string;
-  analysisStatus: "complete" | "partial";
-  roleAudit: RoleAuditStatus;
-  subjects: string[];
-  predicates: string[];
-  cueKinds: LinguisticCueKind[];
-  modifierKinds: LinguisticModifierKind[];
-  entityLabels: string[];
-  warnings: LinguisticWarningCode[];
-}
-
-export interface LinguisticAnalysisResponse {
-  schemaVersion: 2;
-  claimAnalysis: AtomLinguisticAnalysis;
-  analyses: AtomLinguisticAnalysis[];
-  summaries: ObligationLinguisticSummary[];
-  claimWarnings: LinguisticWarningCode[];
-  provider: "spacy";
-  model: string;
-}
-
 /** A complete, local pipeline run rendered by the static Vercel walkthrough. */
 export interface WalkthroughRun {
   caseId: string;
-  schemaVersion: 6;
+  schemaVersion: 7;
   composition: ClaimComposition;
   warnings: DecompositionWarning[];
   atoms: DecomposedAtom[];
   evidence: AtomEvidence[];
   assessment: GroundedEvidenceAssessment;
   reasoning: SymbolicExecution[];
-  /** Legacy recorded walkthroughs contain only atom analyses; new runs use v2. */
-  linguistics: LinguisticAnalysisResponse | AtomLinguisticAnalysis[];
   /** Recorded aggregation result. Absent in walkthroughs recorded before stage 05. */
   verdict?: VerdictAggregationResult;
   recordedWith: {
-    pipelineRevision: "submission-ready-v2";
+    pipelineRevision: "submission-ready-v3";
     inputDigest: string;
     decompositionModel: string;
     retrievalModel: string;
     retrievalMethod: RetrievalMethod;
     assessmentModel: string;
     reasoningModel: string;
-    linguisticsModel: string;
   };
 }
 
@@ -547,10 +439,8 @@ export interface Health {
   decompositionConfigured: boolean;
   decompositionReady: boolean;
   retrievalConfigured: boolean;
-  linguisticsConfigured: boolean;
   decompositionModel: string;
   retrievalModel: string;
-  linguisticsModel: string;
 }
 
 export type StageState = "idle" | "running" | "complete" | "error";

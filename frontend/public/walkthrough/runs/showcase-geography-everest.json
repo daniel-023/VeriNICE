@@ -1,6 +1,6 @@
 {
   "caseId": "showcase-geography-everest",
-  "schemaVersion": 6,
+  "schemaVersion": 7,
   "composition": "SINGLE",
   "warnings": [],
   "atoms": [
@@ -224,32 +224,35 @@
       "id": "proof:atom-1:extremum_compare:1",
       "atomId": "atom-1",
       "operator": "EXTREMUM_COMPARE",
+      "profile": "GENERIC_EXTREMUM_COUNTEREXAMPLE",
       "status": "UNRESOLVED",
       "relation": null,
       "premiseIds": [
-        "evidence:atom-1:doc-f79bf0925486:doc-f79bf0925486::sentence-2",
-        "evidence:atom-1:doc-e42dc78c7afa:doc-e42dc78c7afa::sentence-4"
+        "evidence:atom-1:doc-f79bf0925486:doc-f79bf0925486::sentence-9",
+        "operand:doc-f79bf0925486:line:2"
       ],
       "premises": [
         {
-          "id": "evidence:atom-1:doc-f79bf0925486:doc-f79bf0925486::sentence-2",
+          "id": "evidence:atom-1:doc-f79bf0925486:doc-f79bf0925486::sentence-9",
           "documentId": "doc-f79bf0925486",
-          "text": "Reaching 8,848 meters at its summit, Everest is indeed the highest point above global mean sea level—the average level for the ocean surface from which elevations are measured. ",
-          "start": 96,
-          "end": 273,
+          "text": "You may be surprised to learn that Everest is not the tallest mountain on Earth, either. ",
+          "start": 926,
+          "end": 1015,
           "kind": "EVIDENCE",
           "contentHash": null,
-          "itemCount": null
+          "itemCount": null,
+          "listItems": []
         },
         {
-          "id": "evidence:atom-1:doc-e42dc78c7afa:doc-e42dc78c7afa::sentence-4",
-          "documentId": "doc-e42dc78c7afa",
-          "text": "**Mauna Loa:** Mauna Loa is the largest active volcano on our planet, growing to an elevation of 4,170 m (13,681 feet) above sea level with an additional depth of 9,144 m (30,000 feet) below sea level, which makes this shield volcano taller from base to top than Mount Everest. ",
-          "start": 310,
-          "end": 588,
-          "kind": "EVIDENCE",
+          "id": "operand:doc-f79bf0925486:line:2",
+          "documentId": "doc-f79bf0925486",
+          "text": "You may be surprised to learn that Everest is not the tallest mountain on Earth, either. That honor belongs to Mauna Kea, a volcano on the Big Island of Hawaii. Mauna Kea originates deep beneath the Pacific Ocean, and rises more than 10,210 meters from base to peak.",
+          "start": 926,
+          "end": 1192,
+          "kind": "OPERAND",
           "contentHash": null,
-          "itemCount": null
+          "itemCount": null,
+          "listItems": []
         }
       ],
       "expression": "tallest",
@@ -258,6 +261,23 @@
       "validationWarnings": [
         "INCOMPLETE_COMPARISON_UNIVERSE"
       ],
+      "preconditions": [
+        {
+          "name": "Source grounding",
+          "status": "PASSED",
+          "detail": "5 selected premise(s) retain exact source offsets."
+        },
+        {
+          "name": "Registered profile",
+          "status": "PASSED",
+          "detail": "generic extremum counterexample"
+        },
+        {
+          "name": "Operand alignment",
+          "status": "UNRESOLVED",
+          "detail": "No counterexample was selected, but the complete comparison universe is not certified."
+        }
+      ],
       "program": {
         "version": 1,
         "steps": [
@@ -265,7 +285,7 @@
             "id": "input-1",
             "operation": "LOOKUP",
             "inputIds": [
-              "evidence:atom-1:doc-f79bf0925486:doc-f79bf0925486::sentence-2"
+              "evidence:atom-1:doc-f79bf0925486:doc-f79bf0925486::sentence-9"
             ],
             "outputType": "FACT",
             "description": "Read an unchanged server-owned premise."
@@ -274,7 +294,7 @@
             "id": "input-2",
             "operation": "LOOKUP",
             "inputIds": [
-              "evidence:atom-1:doc-e42dc78c7afa:doc-e42dc78c7afa::sentence-4"
+              "operand:doc-f79bf0925486:line:2"
             ],
             "outputType": "FACT",
             "description": "Read an unchanged server-owned premise."
@@ -294,339 +314,6 @@
       }
     }
   ],
-  "linguistics": {
-    "schemaVersion": 2,
-    "claimAnalysis": {
-      "atomId": "claim",
-      "frames": [
-        {
-          "id": "claim-frame-1",
-          "predicate": {
-            "id": "claim-frame-1-predicate",
-            "text": "is",
-            "start": 14,
-            "end": 16
-          },
-          "subjects": [
-            {
-              "id": "claim-frame-1-subject-1",
-              "text": "Mount Everest",
-              "start": 0,
-              "end": 13
-            }
-          ],
-          "coreArguments": [
-            {
-              "id": "claim-frame-1-argument-1",
-              "text": "the tallest mountain on Earth",
-              "start": 17,
-              "end": 46,
-              "role": "subject_complement"
-            }
-          ],
-          "adjuncts": [],
-          "otherModifiers": []
-        }
-      ],
-      "cues": [],
-      "entities": [
-        {
-          "id": "claim-entity-loc-0-13",
-          "text": "Mount Everest",
-          "start": 0,
-          "end": 13,
-          "label": "LOC"
-        },
-        {
-          "id": "claim-entity-loc-41-46",
-          "text": "Earth",
-          "start": 41,
-          "end": 46,
-          "label": "LOC"
-        }
-      ],
-      "tokens": [
-        {
-          "id": "claim-token-0",
-          "text": "Mount",
-          "start": 0,
-          "end": 5,
-          "lemma": "Mount",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "compound",
-          "head": "Everest"
-        },
-        {
-          "id": "claim-token-1",
-          "text": "Everest",
-          "start": 6,
-          "end": 13,
-          "lemma": "Everest",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "nsubj",
-          "head": "is"
-        },
-        {
-          "id": "claim-token-2",
-          "text": "is",
-          "start": 14,
-          "end": 16,
-          "lemma": "be",
-          "pos": "AUX",
-          "tag": "VBZ",
-          "dependency": "ROOT",
-          "head": "ROOT"
-        },
-        {
-          "id": "claim-token-3",
-          "text": "the",
-          "start": 17,
-          "end": 20,
-          "lemma": "the",
-          "pos": "DET",
-          "tag": "DT",
-          "dependency": "det",
-          "head": "mountain"
-        },
-        {
-          "id": "claim-token-4",
-          "text": "tallest",
-          "start": 21,
-          "end": 28,
-          "lemma": "tall",
-          "pos": "ADJ",
-          "tag": "JJS",
-          "dependency": "amod",
-          "head": "mountain"
-        },
-        {
-          "id": "claim-token-5",
-          "text": "mountain",
-          "start": 29,
-          "end": 37,
-          "lemma": "mountain",
-          "pos": "NOUN",
-          "tag": "NN",
-          "dependency": "attr",
-          "head": "is"
-        },
-        {
-          "id": "claim-token-6",
-          "text": "on",
-          "start": 38,
-          "end": 40,
-          "lemma": "on",
-          "pos": "ADP",
-          "tag": "IN",
-          "dependency": "prep",
-          "head": "mountain"
-        },
-        {
-          "id": "claim-token-7",
-          "text": "Earth",
-          "start": 41,
-          "end": 46,
-          "lemma": "Earth",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "pobj",
-          "head": "on"
-        },
-        {
-          "id": "claim-token-8",
-          "text": ".",
-          "start": 46,
-          "end": 47,
-          "lemma": ".",
-          "pos": "PUNCT",
-          "tag": ".",
-          "dependency": "punct",
-          "head": "is"
-        }
-      ],
-      "status": "complete",
-      "unresolved": []
-    },
-    "analyses": [
-      {
-        "atomId": "atom-1",
-        "frames": [
-          {
-            "id": "atom-1-frame-1",
-            "predicate": {
-              "id": "atom-1-frame-1-predicate",
-              "text": "is",
-              "start": 14,
-              "end": 16
-            },
-            "subjects": [
-              {
-                "id": "atom-1-frame-1-subject-1",
-                "text": "Mount Everest",
-                "start": 0,
-                "end": 13
-              }
-            ],
-            "coreArguments": [
-              {
-                "id": "atom-1-frame-1-argument-1",
-                "text": "the tallest mountain on Earth",
-                "start": 17,
-                "end": 46,
-                "role": "subject_complement"
-              }
-            ],
-            "adjuncts": [],
-            "otherModifiers": []
-          }
-        ],
-        "cues": [],
-        "entities": [
-          {
-            "id": "atom-1-entity-loc-0-13",
-            "text": "Mount Everest",
-            "start": 0,
-            "end": 13,
-            "label": "LOC"
-          },
-          {
-            "id": "atom-1-entity-loc-41-46",
-            "text": "Earth",
-            "start": 41,
-            "end": 46,
-            "label": "LOC"
-          }
-        ],
-        "tokens": [
-          {
-            "id": "atom-1-token-0",
-            "text": "Mount",
-            "start": 0,
-            "end": 5,
-            "lemma": "Mount",
-            "pos": "PROPN",
-            "tag": "NNP",
-            "dependency": "compound",
-            "head": "Everest"
-          },
-          {
-            "id": "atom-1-token-1",
-            "text": "Everest",
-            "start": 6,
-            "end": 13,
-            "lemma": "Everest",
-            "pos": "PROPN",
-            "tag": "NNP",
-            "dependency": "nsubj",
-            "head": "is"
-          },
-          {
-            "id": "atom-1-token-2",
-            "text": "is",
-            "start": 14,
-            "end": 16,
-            "lemma": "be",
-            "pos": "AUX",
-            "tag": "VBZ",
-            "dependency": "ROOT",
-            "head": "ROOT"
-          },
-          {
-            "id": "atom-1-token-3",
-            "text": "the",
-            "start": 17,
-            "end": 20,
-            "lemma": "the",
-            "pos": "DET",
-            "tag": "DT",
-            "dependency": "det",
-            "head": "mountain"
-          },
-          {
-            "id": "atom-1-token-4",
-            "text": "tallest",
-            "start": 21,
-            "end": 28,
-            "lemma": "tall",
-            "pos": "ADJ",
-            "tag": "JJS",
-            "dependency": "amod",
-            "head": "mountain"
-          },
-          {
-            "id": "atom-1-token-5",
-            "text": "mountain",
-            "start": 29,
-            "end": 37,
-            "lemma": "mountain",
-            "pos": "NOUN",
-            "tag": "NN",
-            "dependency": "attr",
-            "head": "is"
-          },
-          {
-            "id": "atom-1-token-6",
-            "text": "on",
-            "start": 38,
-            "end": 40,
-            "lemma": "on",
-            "pos": "ADP",
-            "tag": "IN",
-            "dependency": "prep",
-            "head": "mountain"
-          },
-          {
-            "id": "atom-1-token-7",
-            "text": "Earth",
-            "start": 41,
-            "end": 46,
-            "lemma": "Earth",
-            "pos": "PROPN",
-            "tag": "NNP",
-            "dependency": "pobj",
-            "head": "on"
-          },
-          {
-            "id": "atom-1-token-8",
-            "text": ".",
-            "start": 46,
-            "end": 47,
-            "lemma": ".",
-            "pos": "PUNCT",
-            "tag": ".",
-            "dependency": "punct",
-            "head": "is"
-          }
-        ],
-        "status": "complete",
-        "unresolved": []
-      }
-    ],
-    "summaries": [
-      {
-        "atomId": "atom-1",
-        "analysisStatus": "complete",
-        "roleAudit": "MATCH",
-        "subjects": [
-          "Mount Everest"
-        ],
-        "predicates": [
-          "be"
-        ],
-        "cueKinds": [],
-        "modifierKinds": [],
-        "entityLabels": [
-          "LOC"
-        ],
-        "warnings": []
-      }
-    ],
-    "claimWarnings": [],
-    "provider": "spacy",
-    "model": "en_core_web_sm@3.8.0"
-  },
   "verdict": {
     "aggregationSchemaVersion": 3,
     "claimId": "showcase-geography-everest",
@@ -669,21 +356,20 @@
     ]
   },
   "recordedWith": {
-    "pipelineRevision": "submission-ready-v2",
+    "pipelineRevision": "submission-ready-v3",
     "inputDigest": "1e9ec9d788a825641465707d093388d8d62e3a6380fd793b91d8a8a8bddb0dcc",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
     "retrievalMethod": "HYBRID",
     "assessmentModel": "qwen2.5:7b",
-    "reasoningModel": "qwen2.5:7b",
-    "linguisticsModel": "en_core_web_sm@3.8.0"
+    "reasoningModel": "qwen2.5:7b"
   },
   "timingsSeconds": {
-    "decomposition": 17.991,
-    "retrievalAndLinguistics": 0.312,
-    "evidenceAssessment": 25.975,
-    "symbolicReasoning": 26.811,
-    "aggregation": 0.006,
-    "total": 71.097
+    "decomposition": 15.284,
+    "retrieval": 0.249,
+    "evidenceAssessment": 22.595,
+    "symbolicReasoning": 20.246,
+    "aggregation": 0.005,
+    "total": 58.379
   }
 }

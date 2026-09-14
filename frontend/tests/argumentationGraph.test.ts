@@ -62,7 +62,7 @@ describe("buildArgumentationGraph", () => {
       "list-case", claim, "SINGLE", atoms.slice(0, 1), listEvidence,
       [{ atomId: "atom-1", relations: [] }], [listDocument], [{
         id: "proof-list", atomId: "atom-1", operator: "SET_MEMBERSHIP", status: "DISPROVED",
-        relation: "REFUTES", premiseIds: ["certificate"], premises: [{
+        profile: "GENERIC_SET_MEMBERSHIP", preconditions: [], relation: "REFUTES", premiseIds: ["certificate"], premises: [{
           id: "certificate", documentId: "doc-1", text: "Three members: ", start: 0, end: 15,
           kind: "LIST_CERTIFICATE", contentHash: "hash", itemCount: 3,
           listItems: [

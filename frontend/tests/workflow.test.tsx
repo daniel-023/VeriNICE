@@ -6,7 +6,6 @@ const apiMock = vi.hoisted(() => ({
   cases: vi.fn(), case: vi.fn(), health: vi.fn(), decompose: vi.fn(),
   retrieveCase: vi.fn(), retrieveDocuments: vi.fn(), assessCaseEvidence: vi.fn(), assessDocumentEvidence: vi.fn(),
   reasonCase: vi.fn(), reasonDocuments: vi.fn(), aggregateVerdict: vi.fn(),
-  analyzeLinguistics: vi.fn(),
 }));
 vi.mock("@/lib/api", () => ({ api: apiMock }));
 vi.mock("next/navigation", () => ({
@@ -27,13 +26,13 @@ const assessment = {
 };
 const proof = {
   id: "p1", atomId: atom.id, operator: "SET_MEMBERSHIP" as const, status: "PROVED" as const, relation: "SUPPORTS" as const,
-  premiseIds: [], premises: [], expression: "ndf ∉ source list", conclusion: "NDF is absent.", explanation: "Validated exhaustive list.", validationWarnings: [],
+  profile: "GENERIC_SET_MEMBERSHIP", preconditions: [], premiseIds: [], premises: [], expression: "ndf ∉ source list", conclusion: "NDF is absent.", explanation: "Validated exhaustive list.", validationWarnings: [],
 };
 
 beforeEach(() => {
   apiMock.cases.mockResolvedValue([{ ...detail, documents: detail.documents.map(({ text: _text, ...item }) => item) }]);
   apiMock.case.mockResolvedValue(detail);
-  apiMock.health.mockResolvedValue({ status: "ready", decompositionConfigured: true, decompositionReady: true, retrievalConfigured: true, linguisticsConfigured: true, decompositionModel: "qwen", retrievalModel: "bge", linguisticsModel: "spacy" });
+  apiMock.health.mockResolvedValue({ status: "ready", decompositionConfigured: true, decompositionReady: true, retrievalConfigured: true, decompositionModel: "qwen", retrievalModel: "bge" });
   apiMock.decompose.mockResolvedValue({ schemaVersion: 2, composition: "SINGLE", atoms: [atom], warnings: [], provider: "ollama", model: "qwen" });
   apiMock.retrieveCase.mockResolvedValue({ evidence, provider: "sentence-transformers", model: "bge", retrievalMethod: "HYBRID" });
   apiMock.retrieveDocuments.mockResolvedValue({ evidence, provider: "sentence-transformers", model: "bge", retrievalMethod: "HYBRID" });
@@ -46,7 +45,6 @@ beforeEach(() => {
     positions: { supportPosition: true, refutePosition: false, supportObligationIds: [atom.id], refuteObligationIds: [], unresolvedObligationIds: [] },
     obligations: [{ obligationId: atom.id, state: "SUPPORTED", supportEdgeIds: [], refuteEdgeIds: [], unselectedCandidateCount: 1, provisionalRelationCount: 0 }], warnings: [], ruleTrace: ["Resolved symbolic rule."],
   });
-  apiMock.analyzeLinguistics.mockResolvedValue({ schemaVersion: 2, claimAnalysis: { atomId: "claim", frames: [], cues: [], entities: [], tokens: [], status: "partial", unresolved: ["subject", "predicate"] }, analyses: [], summaries: [], claimWarnings: [], provider: "spacy", model: "spacy" });
 });
 
 afterEach(() => { cleanup(); vi.clearAllMocks(); });
@@ -71,10 +69,51 @@ describe("live program-guided workflow", () => {
     expect(screen.queryByText(/confidence/i)).not.toBeInTheDocument();
     const evidenceHeading = screen.getByRole("heading", { name: "Evidence Assessment" });
     const symbolicHeading = screen.getByRole("heading", { name: "Symbolic Checks" });
-    const structureHeading = screen.getByRole("heading", { name: "Claim Structure" });
     expect(evidenceHeading.compareDocumentPosition(symbolicHeading) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
-    expect(symbolicHeading.compareDocumentPosition(structureHeading) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
-    expect(screen.getByRole("button", { name: /open claim structure/i })).toHaveAttribute("aria-expanded", "false");
+  });
+
+  it("keeps Stage 03 relation totals claim-wide when the selected atom changes", async () => {
+    const secondAtom = {
+      ...atom,
+      id: "atom-2",
+      text: "Beta is excluded from the complete list.",
+      sourceText: "Beta is excluded from the complete list.",
+    };
+    const secondSpan = { ...evidence[0].spans[0], id: "s2" };
+    const multiEvidence = [
+      evidence[0],
+      { atomId: secondAtom.id, spans: [secondSpan] },
+    ];
+    const multiAssessment = {
+      obligations: [
+        { ...assessment.obligations[0], atomId: atom.id, supportSpanIds: ["s1"], missingInformation: "" },
+        { ...assessment.obligations[0], atomId: secondAtom.id, refuteSpanIds: ["s2"], missingInformation: "" },
+      ],
+      materialOmission: assessment.materialOmission,
+    };
+    apiMock.decompose.mockResolvedValueOnce({
+      schemaVersion: 2,
+      composition: "AND",
+      atoms: [atom, secondAtom],
+      warnings: [],
+      provider: "ollama",
+      model: "qwen",
+    });
+    apiMock.retrieveCase.mockResolvedValueOnce({ evidence: multiEvidence, provider: "sentence-transformers", model: "bge", retrievalMethod: "HYBRID" });
+    apiMock.assessCaseEvidence.mockResolvedValueOnce({ assessment: multiAssessment, provider: "ollama", model: "qwen" });
+    apiMock.reasonCase.mockResolvedValueOnce({ executions: [], provider: "ollama+python", model: "qwen" });
+
+    render(<VeriGraphApp mode="live" />);
+    await userEvent.click(await screen.findByRole("button", { name: /decompose claim/i }));
+    const relationList = await screen.findByRole("list", { name: "Claim-wide evidence relation counts" });
+    expect(relationList).toHaveTextContent(/1\s*Supports/);
+    expect(relationList).toHaveTextContent(/1\s*Refutes/);
+
+    await userEvent.click(screen.getByRole("button", {
+      name: `Select atomic claim 2: ${secondAtom.text}`,
+    }));
+    expect(relationList).toHaveTextContent(/1\s*Supports/);
+    expect(relationList).toHaveTextContent(/1\s*Refutes/);
   });
 
   it("retains decomposition but clears evidence, assessment, and reasoning after a document edit", async () => {
@@ -131,13 +170,26 @@ describe("live program-guided workflow", () => {
   });
 
   it("keeps AVeriTeC cases in their own category", async () => {
+    const constructedCases = Array.from({ length: 15 }, (_, index) => ({
+      ...detail,
+      id: `constructed-${index + 1}`,
+      displayTitle: `Constructed sample ${index + 1}`,
+      origin: "CONSTRUCTED" as const,
+      category: "SCIENCE" as const,
+      documents: detail.documents.map(({ text: _text, ...item }) => item),
+    }));
     apiMock.cases.mockResolvedValue([
-      { ...detail, origin: "CONSTRUCTED", category: "SCIENCE", documents: detail.documents.map(({ text: _text, ...item }) => item) },
+      ...constructedCases,
       { id: "averitec-dev-0001", claim: "A separate dataset claim.", label: "REFUTED", origin: "AVERITEC", category: "SCIENCE", documents: [] },
+      { id: "averitec-dev-0002", claim: "A second dataset claim.", label: "SUPPORTED", origin: "AVERITEC", category: "HISTORY", documents: [] },
+      { id: "averitec-dev-0003", claim: "A third dataset claim.", label: "NOT_ENOUGH_EVIDENCE", origin: "AVERITEC", category: "GEOGRAPHY", documents: [] },
     ]);
     render(<VeriGraphApp mode="live" />);
     await userEvent.click(await screen.findByRole("button", { name: "AVeriTeC" }));
-    expect(screen.getByRole("option", { name: /A separate dataset claim/i })).toBeInTheDocument();
-    expect(screen.queryByRole("option", { name: /NDF is not included/i })).not.toBeInTheDocument();
+    expect(screen.getByRole("option", { name: "16 — A separate dataset claim." })).toBeInTheDocument();
+    expect(screen.getByRole("option", { name: "17 — A second dataset claim." })).toBeInTheDocument();
+    expect(screen.getByRole("option", { name: "18 — A third dataset claim." })).toBeInTheDocument();
+    expect(screen.queryByRole("group", { name: "AVeriTeC" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("option", { name: /Constructed sample/i })).not.toBeInTheDocument();
   });
 });

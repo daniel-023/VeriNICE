@@ -62,6 +62,7 @@ class DemoCategory(str, Enum):
 class DemoFocus(str, Enum):
     decomposition = "DECOMPOSITION"
     direct_evidence = "DIRECT_EVIDENCE"
+    numeric_comparison = "NUMERIC_COMPARISON"
     attribute_comparison = "ATTRIBUTE_COMPARISON"
     temporal_comparison = "TEMPORAL_COMPARISON"
     set_membership = "SET_MEMBERSHIP"
@@ -534,6 +535,12 @@ class SymbolicStatus(str, Enum):
     not_applicable = "NOT_APPLICABLE"
 
 
+class SymbolicPrecondition(APIModel):
+    name: str = Field(min_length=1, max_length=120)
+    status: Literal["PASSED", "FAILED", "UNRESOLVED"]
+    detail: str = Field(min_length=1, max_length=500)
+
+
 class SymbolicListItem(APIModel):
     id: str = Field(min_length=1, max_length=240)
     document_id: str = Field(min_length=1, max_length=100)
@@ -606,6 +613,7 @@ class SymbolicExecution(APIModel):
     id: str = Field(min_length=1, max_length=200)
     atom_id: str = Field(min_length=1, max_length=100)
     operator: SymbolicOperator
+    profile: str = Field(min_length=1, max_length=120)
     status: SymbolicStatus
     relation: Optional[Literal["SUPPORTS", "REFUTES"]] = None
     premise_ids: List[str] = Field(default_factory=list, max_length=20)
@@ -614,6 +622,7 @@ class SymbolicExecution(APIModel):
     conclusion: str = Field(min_length=1, max_length=1000)
     explanation: str = Field(min_length=1, max_length=1200)
     validation_warnings: List[str] = Field(default_factory=list, max_length=12)
+    preconditions: List[SymbolicPrecondition] = Field(default_factory=list, max_length=12)
     program: SymbolicProgram
 
     @model_validator(mode="after")
@@ -659,159 +668,13 @@ class ReasoningResponse(APIModel):
     model: str
 
 
-class LinguisticAnalysisRequest(APIModel):
-    model_config = ConfigDict(alias_generator=to_camel, populate_by_name=True, extra="forbid")
-
-    schema_version: Literal[2]
-    claim_text: str = Field(min_length=1, max_length=5000)
-    composition: ClaimComposition
-    atoms: List[DecomposedAtom] = Field(min_length=1, max_length=12)
-
-    @field_validator("claim_text")
-    @classmethod
-    def reject_blank_claim_text(cls, value: str) -> str:
-        if not value.strip():
-            raise ValueError("claimText cannot be blank")
-        return value
-
-    @model_validator(mode="after")
-    def reject_duplicate_atom_ids(self) -> "LinguisticAnalysisRequest":
-        atom_ids = [atom.id for atom in self.atoms]
-        if len(atom_ids) != len(set(atom_ids)):
-            raise ValueError("atom IDs must be unique")
-        return self
-
-
-class LinguisticSpan(APIModel):
-    id: str = Field(min_length=1)
-    text: str = Field(min_length=1)
-    start: int = Field(ge=0)
-    end: int = Field(gt=0)
-
-
-class LinguisticArgument(LinguisticSpan):
-    role: Literal[
-        "direct_object",
-        "indirect_object",
-        "passive_agent",
-        "subject_complement",
-        "object_complement",
-        "clausal_complement",
-    ]
-
-
-class LinguisticModifier(LinguisticSpan):
-    kind: Literal[
-        "temporal",
-        "locative",
-        "manner",
-        "causal",
-        "conditional",
-        "purpose",
-    ]
-
-
-class PropositionFrame(APIModel):
-    id: str = Field(min_length=1)
-    predicate: Optional[LinguisticSpan] = None
-    subjects: List[LinguisticSpan] = Field(default_factory=list)
-    core_arguments: List[LinguisticArgument] = Field(default_factory=list)
-    adjuncts: List[LinguisticModifier] = Field(default_factory=list)
-    other_modifiers: List[LinguisticSpan] = Field(default_factory=list)
-
-
-class LinguisticCue(LinguisticSpan):
-    kind: Literal[
-        "negation",
-        "quantifier",
-        "modality",
-        "attribution",
-        "temporal",
-        "numeric",
-    ]
-
-
-class LinguisticEntity(LinguisticSpan):
-    label: str = Field(min_length=1)
-
-
-class LinguisticToken(LinguisticSpan):
-    lemma: str
-    pos: str
-    tag: str
-    dependency: str
-    head: str
-
-
-class AtomLinguisticAnalysis(APIModel):
-    atom_id: str = Field(min_length=1)
-    frames: List[PropositionFrame]
-    cues: List[LinguisticCue]
-    entities: List[LinguisticEntity]
-    tokens: List[LinguisticToken]
-    status: Literal["complete", "partial"]
-    unresolved: List[Literal["subject", "predicate"]]
-
-
-class RoleAuditStatus(str, Enum):
-    match = "MATCH"
-    mismatch = "MISMATCH"
-    inconclusive = "INCONCLUSIVE"
-
-
-class LinguisticWarningCode(str, Enum):
-    role_cue_mismatch = "ROLE_CUE_MISMATCH"
-    multiple_proposition_frames = "MULTIPLE_PROPOSITION_FRAMES"
-    unresolved_subject = "UNRESOLVED_SUBJECT"
-    unresolved_predicate = "UNRESOLVED_PREDICATE"
-    partial_linguistic_analysis = "PARTIAL_LINGUISTIC_ANALYSIS"
-    negation_scope_unclear = "NEGATION_SCOPE_UNCLEAR"
-    attribution_scope_unclear = "ATTRIBUTION_SCOPE_UNCLEAR"
-    qualifier_attachment_unclear = "QUALIFIER_ATTACHMENT_UNCLEAR"
-    negation_not_preserved = "NEGATION_NOT_PRESERVED"
-    numeric_information_not_preserved = "NUMERIC_INFORMATION_NOT_PRESERVED"
-    temporal_information_not_preserved = "TEMPORAL_INFORMATION_NOT_PRESERVED"
-    attribution_not_preserved = "ATTRIBUTION_NOT_PRESERVED"
-    modality_not_preserved = "MODALITY_NOT_PRESERVED"
-    location_not_preserved = "LOCATION_NOT_PRESERVED"
-    claim_frame_not_covered = "CLAIM_FRAME_NOT_COVERED"
-
-
-class ObligationLinguisticSummary(APIModel):
-    atom_id: str = Field(min_length=1)
-    analysis_status: Literal["complete", "partial"]
-    role_audit: RoleAuditStatus
-    subjects: List[str] = Field(default_factory=list)
-    predicates: List[str] = Field(default_factory=list)
-    cue_kinds: List[
-        Literal["negation", "quantifier", "modality", "attribution", "temporal", "numeric"]
-    ] = Field(default_factory=list)
-    modifier_kinds: List[
-        Literal["temporal", "locative", "manner", "causal", "conditional", "purpose"]
-    ] = Field(default_factory=list)
-    entity_labels: List[str] = Field(default_factory=list)
-    warnings: List[LinguisticWarningCode] = Field(default_factory=list)
-
-
-class LinguisticAnalysisResponse(APIModel):
-    schema_version: Literal[2] = 2
-    claim_analysis: AtomLinguisticAnalysis
-    analyses: List[AtomLinguisticAnalysis]
-    summaries: List[ObligationLinguisticSummary]
-    claim_warnings: List[LinguisticWarningCode] = Field(default_factory=list)
-    provider: Literal["spacy"] = "spacy"
-    model: str
-
-
 class HealthResponse(APIModel):
     status: Literal["ready", "degraded", "unconfigured"]
     decomposition_configured: bool
     decomposition_ready: bool
     retrieval_configured: bool
-    linguistics_configured: bool
     decomposition_model: str
     retrieval_model: str
-    linguistics_model: str
     model_config = ConfigDict(extra="forbid")
 
 

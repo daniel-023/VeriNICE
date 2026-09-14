@@ -4,11 +4,97 @@ import {
   FileSearch,
   Gavel,
   GitBranch,
+  Info,
   LoaderCircle,
   Scale,
 } from "lucide-react";
-import type { ReferenceLabel, RetrievalMethod, StageState } from "@/lib/types";
+import type {
+  CandidateRelation,
+  ReferenceLabel,
+  RetrievalMethod,
+  StageState,
+  SymbolicExecution,
+} from "@/lib/types";
 import { MAX_EVIDENCE_PER_ATOM, MIN_EVIDENCE_PER_ATOM } from "@/lib/retrieval";
+
+type EvidenceRelationCounts = Record<CandidateRelation, number>;
+
+const EVIDENCE_RELATIONS: Array<{
+  relation: CandidateRelation;
+  label: string;
+  description: string;
+}> = [
+  { relation: "SUPPORTS", label: "Supports", description: "Directly establishes the atomic claim." },
+  { relation: "REFUTES", label: "Refutes", description: "Directly contradicts the atomic claim." },
+  { relation: "CONTEXT", label: "Context", description: "Helps interpret evidence but establishes neither truth value." },
+  { relation: "NOT_SELECTED", label: "Not used", description: "Was retrieved but not selected for assessment." },
+];
+
+const SYMBOLIC_RULES: Array<{
+  operator: SymbolicExecution["operator"];
+  label: string;
+  description: string;
+}> = [
+  { operator: "SET_MEMBERSHIP", label: "Set membership", description: "Checks presence or certified absence in a grounded set." },
+  { operator: "NUMERIC_COMPARE", label: "Numeric comparison", description: "Compares aligned numbers with matching parsed units and scope." },
+  { operator: "TEMPORAL_COMPARE", label: "Temporal comparison", description: "Compares aligned absolute dates or date intervals." },
+  { operator: "ATTRIBUTE_COMPARE", label: "Attribute comparison", description: "Applies a registered source-grounded attribute pattern." },
+  { operator: "COUNT_DISTINCT", label: "Distinct-value count", description: "Counts grounded values; exact equality requires a complete value set." },
+  { operator: "EXTREMUM_COMPARE", label: "Largest/smallest comparison", description: "Uses an aligned counterexample to refute a largest or smallest claim." },
+];
+const SYMBOLIC_RULES_BY_OPERATOR = new Map(
+  SYMBOLIC_RULES.map((rule) => [rule.operator, rule]),
+);
+
+function ruleOutcome(proof: SymbolicExecution): {
+  label: "Supports" | "Refutes" | "Unresolved" | "Not applicable";
+  className: "supports" | "refutes" | "unresolved" | "not-applicable";
+} {
+  if (proof.relation === "SUPPORTS") return { label: "Supports", className: "supports" };
+  if (proof.relation === "REFUTES") return { label: "Refutes", className: "refutes" };
+  if (proof.status === "UNRESOLVED") return { label: "Unresolved", className: "unresolved" };
+  return { label: "Not applicable", className: "not-applicable" };
+}
+
+type RuleResultGroup = {
+  key: string;
+  label: string;
+  count: number;
+  outcome: ReturnType<typeof ruleOutcome>;
+};
+
+const PROFILE_LABELS: Record<string, string> = {
+  COUNTRY_LOCATION: "Country location",
+  EXCLUSIVE_PURPOSE: "Exclusive purpose",
+  EXPLICIT_NEGATION: "Explicit negation",
+  NOBEL_RECIPIENT: "Nobel recipient",
+  NOBEL_MOTIVATION: "Nobel motivation",
+  NOBEL_FIELD_COUNT: "Nobel field count",
+};
+
+function groupRuleResults(executions: SymbolicExecution[]): RuleResultGroup[] {
+  const groups = new Map<string, RuleResultGroup>();
+  executions.forEach((proof) => {
+    const outcome = ruleOutcome(proof);
+    const key = `${proof.operator}:${proof.profile}:${outcome.className}`;
+    const existing = groups.get(key);
+    if (existing) {
+      existing.count += 1;
+      return;
+    }
+    groups.set(key, {
+      key,
+      label: [
+        SYMBOLIC_RULES_BY_OPERATOR.get(proof.operator)?.label
+          ?? proof.operator.replaceAll("_", " ").toLowerCase(),
+        PROFILE_LABELS[proof.profile],
+      ].filter(Boolean).join(" · "),
+      count: 1,
+      outcome,
+    });
+  });
+  return [...groups.values()];
+}
 
 function verdictWord(verdict: ReferenceLabel): string {
   return verdict.replaceAll("_", " ").toLowerCase();
@@ -33,10 +119,10 @@ export function PipelinePanel({
   reasoningState,
   verdictState = "idle",
   verdict = null,
-  graphLinkCount,
   atomCount,
   evidenceCount,
-  relationCount,
+  relationCounts,
+  symbolicExecutions,
   onRetryEvidence,
   onRetryAssessment,
   onRetryReasoning,
@@ -52,10 +138,10 @@ export function PipelinePanel({
   reasoningState: StageState;
   verdictState?: StageState;
   verdict?: ReferenceLabel | null;
-  graphLinkCount: number;
   atomCount: number;
   evidenceCount: number;
-  relationCount: number;
+  relationCounts: EvidenceRelationCounts;
+  symbolicExecutions: SymbolicExecution[];
   onRetryEvidence: () => void;
   onRetryAssessment: () => void;
   onRetryReasoning: () => void;
@@ -90,16 +176,14 @@ export function PipelinePanel({
     assessmentState === "running"
       ? "Assessing matched sentences."
       : assessmentState === "complete"
-        ? `${relationCount} assessed relation${relationCount === 1 ? "" : "s"}.`
+        ? "Claim-wide relation assessment."
         : assessmentState === "error"
           ? "Assessment failed."
           : retrievalState === "complete"
             ? "Ready."
             : "";
   const reasoningCopy =
-    reasoningState === "complete"
-      ? `${graphLinkCount} graph relation${graphLinkCount === 1 ? "" : "s"}.`
-      : reasoningState === "running"
+    reasoningState === "running"
         ? "Checking applicable rules."
         : reasoningState === "error"
           ? "Rule check failed."
@@ -114,6 +198,37 @@ export function PipelinePanel({
           : reasoningState === "complete"
             ? "Ready."
             : "";
+  const executionsByOperator = new Map<SymbolicExecution["operator"], SymbolicExecution[]>();
+  symbolicExecutions.forEach((execution) => {
+    const current = executionsByOperator.get(execution.operator);
+    if (current) current.push(execution);
+    else executionsByOperator.set(execution.operator, [execution]);
+  });
+  const groupedRuleResults = groupRuleResults(symbolicExecutions);
+  const decisiveRuleResults = groupedRuleResults.filter(
+    ({ outcome }) => outcome.className === "supports" || outcome.className === "refutes",
+  );
+  const otherRuleResults = groupedRuleResults.filter(
+    ({ outcome }) => outcome.className !== "supports" && outcome.className !== "refutes",
+  );
+
+  const renderRuleResults = (groups: RuleResultGroup[], label: string) => (
+    <div className="stage-rule-group">
+      <p className="stage-rule-group-label">{label}</p>
+      <ul className="stage-rule-results" aria-label={label}>
+        {groups.map((group) => (
+          <li className={`stage-rule-${group.outcome.className}`} key={group.key}>
+            <span className="stage-rule-marker" aria-hidden="true" />
+            <span className="stage-rule-name">
+              {group.label}
+              {group.count > 1 ? <small aria-label={`${group.count} executions`}> ×{group.count}</small> : null}
+            </span>
+            <strong>{group.outcome.label}</strong>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 
   const stateLabel = (state: StageState) =>
     state === "complete"
@@ -249,6 +364,36 @@ export function PipelinePanel({
             <small>03 · {recorded ? "RECORDED" : "LIVE"}</small>
             <strong>Assess Evidence</strong>
             {assessmentCopy ? <p>{assessmentCopy}</p> : null}
+            {assessmentState === "complete" ? (
+              <>
+                <p className="stage-summary-label">Claim-Wide Relations</p>
+                <ul className="stage-result-chips" aria-label="Claim-wide evidence relation counts">
+                  {EVIDENCE_RELATIONS.map(({ relation, label }) => (
+                    <li
+                      className={`stage-result-${relation.toLowerCase().replaceAll("_", "-")}${relationCounts[relation] === 0 ? " is-zero" : ""}`}
+                      key={relation}
+                    >
+                      <strong>{relationCounts[relation]}</strong>
+                      <span>{label}</span>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
+            <details className="stage-explainer">
+              <summary><Info size={13} aria-hidden="true" />How Evidence Relations Work</summary>
+              <div className="stage-explainer-content">
+                <dl>
+                  {EVIDENCE_RELATIONS.map(({ relation, label, description }) => (
+                    <div key={relation}>
+                      <dt>{label}</dt>
+                      <dd>{description}</dd>
+                    </div>
+                  ))}
+                </dl>
+                <p>Support and refutation affect the verdict only when the evidence bundle for that atomic claim is sufficient.</p>
+              </div>
+            </details>
           </span>
           <span className="stage-actions">
             <span className="stage-state">{stateLabel(assessmentState)}</span>
@@ -268,6 +413,45 @@ export function PipelinePanel({
             <small>04 · {recorded ? "RECORDED" : "LIVE"}</small>
             <strong>Apply Symbolic Rules</strong>
             {reasoningCopy ? <p>{reasoningCopy}</p> : null}
+            {reasoningState === "complete" ? (
+              symbolicExecutions.length ? (
+                <>
+                  <p className="stage-summary-label">Checks in This Run</p>
+                  <div className="stage-rule-groups" role="group" aria-label="Symbolic checks in this run">
+                    {decisiveRuleResults.length
+                      ? renderRuleResults(decisiveRuleResults, "Decisive")
+                      : null}
+                    {otherRuleResults.length
+                      ? renderRuleResults(
+                          otherRuleResults,
+                          decisiveRuleResults.length ? "Other Attempted Checks" : "Attempted Checks",
+                        )
+                      : null}
+                  </div>
+                </>
+              ) : <p className="stage-direct-evidence">Direct evidence only · no symbolic rule applied.</p>
+            ) : null}
+            <details className="stage-explainer">
+              <summary><Info size={13} aria-hidden="true" />View 6 Rule Types</summary>
+              <div className="stage-explainer-content">
+                <dl className="stage-rule-catalog">
+                  {SYMBOLIC_RULES.map(({ operator, label, description }) => {
+                    const executions = executionsByOperator.get(operator) ?? [];
+                    const outcomes = [...new Set(executions.map((proof) => ruleOutcome(proof).label))];
+                    return (
+                      <div className={executions.length ? "is-active" : undefined} key={operator}>
+                        <dt>
+                          <span>{label}</span>
+                          <small>{outcomes.length ? outcomes.join(" · ") : "Available"}</small>
+                        </dt>
+                        <dd>{description}</dd>
+                      </div>
+                    );
+                  })}
+                </dl>
+                <p>Python creates eligible rules and grounded premise candidates. The model selects only from those candidates. Python validates and executes the rule; unsupported or ambiguous cases remain unresolved.</p>
+              </div>
+            </details>
             {reasoningState === "complete" ? (
               <a className="stage-link" href="#reasoning-graph">View Reasoning Graph</a>
             ) : null}

@@ -167,21 +167,15 @@ export function DocumentPanel({
     tabRefs.current.get(next.id)?.focus();
   };
 
-  const elsewhere = spans.length - activeSpans.length;
-  const highlightCount = `${highlights.length} match${highlights.length === 1 ? "" : "es"} in this source`;
   const candidateStatus = !selectedAtomText
-    ? "Select an atomic claim."
+    ? null
     : retrievalState === "running"
       ? "Matching sentences…"
-      : retrievalState === "complete" && spans.length
-        ? elsewhere
-          ? `${highlightCount} · ${elsewhere} elsewhere`
-          : highlightCount
-        : retrievalState === "complete"
-          ? "No matching sentences."
-        : retrievalState === "error"
-            ? "Sentence matching unavailable."
-            : "Not yet matched.";
+      : retrievalState === "error"
+        ? "Sentence matching unavailable."
+        : retrievalState === "complete" && highlights.length === 0
+          ? "No matching sentences in this source."
+          : null;
 
   return (
     <section className="document-panel" aria-labelledby="document-heading">
@@ -275,11 +269,7 @@ export function DocumentPanel({
           ) : null}
           {activeDocument.publisher ? (
             <div className="source-provenance-row">
-              <p className="source-provenance">
-                {activeDocument.publisher}
-                {activeDocument.sourceDescriptor ? ` · ${activeDocument.sourceDescriptor}` : ""}
-                {activeDocument.sourceType === "SOURCE_EXCERPT" ? " · Source excerpt" : " · Full recovered source"}
-              </p>
+              <p className="source-provenance">{activeDocument.publisher}</p>
               {readOnly && activeDocument.url.startsWith("http") ? (
                 <a className="source-link" href={activeDocument.url} target="_blank" rel="noreferrer">
                   View source <ExternalLink size={12} aria-hidden="true" />
@@ -287,9 +277,11 @@ export function DocumentPanel({
               ) : null}
             </div>
           ) : null}
-          <p className="document-match-status" id="document-candidate-status" aria-live="polite">
-            {candidateStatus}
-          </p>
+          {candidateStatus ? (
+            <p className="document-match-status" id="document-candidate-status" aria-live="polite">
+              {candidateStatus}
+            </p>
+          ) : null}
           {selectedAtomText && spans.length ? (
             <details className="evidence-list-panel">
               <summary>Matched sentences <span>{spans.length}</span></summary>
@@ -378,7 +370,7 @@ export function DocumentPanel({
               maxLength={250000}
               value={value}
               readOnly={readOnly}
-              aria-describedby="document-candidate-status"
+              aria-describedby={candidateStatus ? "document-candidate-status" : undefined}
               onChange={(event) => onTextChange(activeDocument.id, event.target.value)}
               onScroll={syncScroll}
               placeholder="Paste the full evidence document…"

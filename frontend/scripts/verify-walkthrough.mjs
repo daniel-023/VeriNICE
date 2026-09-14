@@ -86,11 +86,11 @@ for (const caseId of caseIds) {
   const run = JSON.parse(await readFile(runUrl, "utf8"));
   const serialized = JSON.stringify(run).toLowerCase();
   if (
-    run.schemaVersion !== 6
+    run.schemaVersion !== 7
     || !run.assessment
     || !run.reasoning
     || run.verdict?.aggregationSchemaVersion !== 3
-    || run.recordedWith?.pipelineRevision !== "submission-ready-v2"
+    || run.recordedWith?.pipelineRevision !== "submission-ready-v3"
     || !["HYBRID", "SEMANTIC", "LEXICAL"].includes(run.recordedWith?.retrievalMethod)
     || !/^[a-f0-9]{64}$/.test(run.recordedWith?.inputDigest ?? "")
     || "claimPosition" in run.assessment
@@ -98,6 +98,9 @@ for (const caseId of caseIds) {
     || run.classifications
     || run.evidenceAudit
     || run.recordedWith?.nliModel
+    || run.recordedWith?.linguisticsModel
+    || run.linguistics
+    || serialized.includes("spacy")
     || serialized.includes("deberta")
   ) {
     throw new Error(

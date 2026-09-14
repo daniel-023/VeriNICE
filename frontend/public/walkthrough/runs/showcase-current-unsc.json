@@ -1,6 +1,6 @@
 {
   "caseId": "showcase-current-unsc",
-  "schemaVersion": 6,
+  "schemaVersion": 7,
   "composition": "SINGLE",
   "warnings": [],
   "atoms": [
@@ -175,6 +175,7 @@
       "id": "proof:atom-1:set_membership:1",
       "atomId": "atom-1",
       "operator": "SET_MEMBERSHIP",
+      "profile": "GENERIC_SET_MEMBERSHIP",
       "status": "DISPROVED",
       "relation": "REFUTES",
       "premiseIds": [
@@ -189,13 +190,77 @@
           "end": 99,
           "kind": "LIST_CERTIFICATE",
           "contentHash": "b32b4734528d854cab6161340ca9c16d30f2b0e5c87fe61a2f84e824bad8322e",
-          "itemCount": 5
+          "itemCount": 5,
+          "listItems": [
+            {
+              "id": "list:doc-4de8403c2f50:counted-1:item:1",
+              "documentId": "doc-4de8403c2f50",
+              "text": "China",
+              "start": 99,
+              "end": 104,
+              "contentHash": "b32b4734528d854cab6161340ca9c16d30f2b0e5c87fe61a2f84e824bad8322e"
+            },
+            {
+              "id": "list:doc-4de8403c2f50:counted-1:item:2",
+              "documentId": "doc-4de8403c2f50",
+              "text": "France",
+              "start": 106,
+              "end": 112,
+              "contentHash": "b32b4734528d854cab6161340ca9c16d30f2b0e5c87fe61a2f84e824bad8322e"
+            },
+            {
+              "id": "list:doc-4de8403c2f50:counted-1:item:3",
+              "documentId": "doc-4de8403c2f50",
+              "text": "Russian Federation",
+              "start": 114,
+              "end": 132,
+              "contentHash": "b32b4734528d854cab6161340ca9c16d30f2b0e5c87fe61a2f84e824bad8322e"
+            },
+            {
+              "id": "list:doc-4de8403c2f50:counted-1:item:4",
+              "documentId": "doc-4de8403c2f50",
+              "text": "the United Kingdom",
+              "start": 134,
+              "end": 152,
+              "contentHash": "b32b4734528d854cab6161340ca9c16d30f2b0e5c87fe61a2f84e824bad8322e"
+            },
+            {
+              "id": "list:doc-4de8403c2f50:counted-1:item:5",
+              "documentId": "doc-4de8403c2f50",
+              "text": "the United States",
+              "start": 158,
+              "end": 175,
+              "contentHash": "b32b4734528d854cab6161340ca9c16d30f2b0e5c87fe61a2f84e824bad8322e"
+            }
+          ]
         }
       ],
       "expression": "australia ∈ source list",
       "conclusion": "australia is absent from the validated exhaustive list.",
       "explanation": "Absence is conclusive only because the source explicitly certifies the list as complete.",
       "validationWarnings": [],
+      "preconditions": [
+        {
+          "name": "Source grounding",
+          "status": "PASSED",
+          "detail": "6 selected premise(s) retain exact source offsets."
+        },
+        {
+          "name": "Registered profile",
+          "status": "PASSED",
+          "detail": "generic set membership"
+        },
+        {
+          "name": "Operand alignment",
+          "status": "PASSED",
+          "detail": "Absence is conclusive only because the source explicitly certifies the list as complete."
+        },
+        {
+          "name": "Closed-set evidence",
+          "status": "PASSED",
+          "detail": "A validated complete-list certificate is present."
+        }
+      ],
       "program": {
         "version": 1,
         "steps": [
@@ -222,384 +287,6 @@
       }
     }
   ],
-  "linguistics": {
-    "schemaVersion": 2,
-    "claimAnalysis": {
-      "atomId": "claim",
-      "frames": [
-        {
-          "id": "claim-frame-1",
-          "predicate": {
-            "id": "claim-frame-1-predicate",
-            "text": "is",
-            "start": 10,
-            "end": 12
-          },
-          "subjects": [
-            {
-              "id": "claim-frame-1-subject-1",
-              "text": "Australia",
-              "start": 0,
-              "end": 9
-            }
-          ],
-          "coreArguments": [
-            {
-              "id": "claim-frame-1-argument-1",
-              "text": "a permanent member of the UN Security Council",
-              "start": 13,
-              "end": 58,
-              "role": "subject_complement"
-            }
-          ],
-          "adjuncts": [],
-          "otherModifiers": []
-        }
-      ],
-      "cues": [],
-      "entities": [
-        {
-          "id": "claim-entity-gpe-0-9",
-          "text": "Australia",
-          "start": 0,
-          "end": 9,
-          "label": "GPE"
-        },
-        {
-          "id": "claim-entity-org-35-58",
-          "text": "the UN Security Council",
-          "start": 35,
-          "end": 58,
-          "label": "ORG"
-        }
-      ],
-      "tokens": [
-        {
-          "id": "claim-token-0",
-          "text": "Australia",
-          "start": 0,
-          "end": 9,
-          "lemma": "Australia",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "nsubj",
-          "head": "is"
-        },
-        {
-          "id": "claim-token-1",
-          "text": "is",
-          "start": 10,
-          "end": 12,
-          "lemma": "be",
-          "pos": "AUX",
-          "tag": "VBZ",
-          "dependency": "ROOT",
-          "head": "ROOT"
-        },
-        {
-          "id": "claim-token-2",
-          "text": "a",
-          "start": 13,
-          "end": 14,
-          "lemma": "a",
-          "pos": "DET",
-          "tag": "DT",
-          "dependency": "det",
-          "head": "member"
-        },
-        {
-          "id": "claim-token-3",
-          "text": "permanent",
-          "start": 15,
-          "end": 24,
-          "lemma": "permanent",
-          "pos": "ADJ",
-          "tag": "JJ",
-          "dependency": "amod",
-          "head": "member"
-        },
-        {
-          "id": "claim-token-4",
-          "text": "member",
-          "start": 25,
-          "end": 31,
-          "lemma": "member",
-          "pos": "NOUN",
-          "tag": "NN",
-          "dependency": "attr",
-          "head": "is"
-        },
-        {
-          "id": "claim-token-5",
-          "text": "of",
-          "start": 32,
-          "end": 34,
-          "lemma": "of",
-          "pos": "ADP",
-          "tag": "IN",
-          "dependency": "prep",
-          "head": "member"
-        },
-        {
-          "id": "claim-token-6",
-          "text": "the",
-          "start": 35,
-          "end": 38,
-          "lemma": "the",
-          "pos": "DET",
-          "tag": "DT",
-          "dependency": "det",
-          "head": "Council"
-        },
-        {
-          "id": "claim-token-7",
-          "text": "UN",
-          "start": 39,
-          "end": 41,
-          "lemma": "UN",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "compound",
-          "head": "Council"
-        },
-        {
-          "id": "claim-token-8",
-          "text": "Security",
-          "start": 42,
-          "end": 50,
-          "lemma": "Security",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "compound",
-          "head": "Council"
-        },
-        {
-          "id": "claim-token-9",
-          "text": "Council",
-          "start": 51,
-          "end": 58,
-          "lemma": "Council",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "pobj",
-          "head": "of"
-        },
-        {
-          "id": "claim-token-10",
-          "text": ".",
-          "start": 58,
-          "end": 59,
-          "lemma": ".",
-          "pos": "PUNCT",
-          "tag": ".",
-          "dependency": "punct",
-          "head": "is"
-        }
-      ],
-      "status": "complete",
-      "unresolved": []
-    },
-    "analyses": [
-      {
-        "atomId": "atom-1",
-        "frames": [
-          {
-            "id": "atom-1-frame-1",
-            "predicate": {
-              "id": "atom-1-frame-1-predicate",
-              "text": "is",
-              "start": 10,
-              "end": 12
-            },
-            "subjects": [
-              {
-                "id": "atom-1-frame-1-subject-1",
-                "text": "Australia",
-                "start": 0,
-                "end": 9
-              }
-            ],
-            "coreArguments": [
-              {
-                "id": "atom-1-frame-1-argument-1",
-                "text": "a permanent member of the UN Security Council",
-                "start": 13,
-                "end": 58,
-                "role": "subject_complement"
-              }
-            ],
-            "adjuncts": [],
-            "otherModifiers": []
-          }
-        ],
-        "cues": [],
-        "entities": [
-          {
-            "id": "atom-1-entity-gpe-0-9",
-            "text": "Australia",
-            "start": 0,
-            "end": 9,
-            "label": "GPE"
-          },
-          {
-            "id": "atom-1-entity-org-35-58",
-            "text": "the UN Security Council",
-            "start": 35,
-            "end": 58,
-            "label": "ORG"
-          }
-        ],
-        "tokens": [
-          {
-            "id": "atom-1-token-0",
-            "text": "Australia",
-            "start": 0,
-            "end": 9,
-            "lemma": "Australia",
-            "pos": "PROPN",
-            "tag": "NNP",
-            "dependency": "nsubj",
-            "head": "is"
-          },
-          {
-            "id": "atom-1-token-1",
-            "text": "is",
-            "start": 10,
-            "end": 12,
-            "lemma": "be",
-            "pos": "AUX",
-            "tag": "VBZ",
-            "dependency": "ROOT",
-            "head": "ROOT"
-          },
-          {
-            "id": "atom-1-token-2",
-            "text": "a",
-            "start": 13,
-            "end": 14,
-            "lemma": "a",
-            "pos": "DET",
-            "tag": "DT",
-            "dependency": "det",
-            "head": "member"
-          },
-          {
-            "id": "atom-1-token-3",
-            "text": "permanent",
-            "start": 15,
-            "end": 24,
-            "lemma": "permanent",
-            "pos": "ADJ",
-            "tag": "JJ",
-            "dependency": "amod",
-            "head": "member"
-          },
-          {
-            "id": "atom-1-token-4",
-            "text": "member",
-            "start": 25,
-            "end": 31,
-            "lemma": "member",
-            "pos": "NOUN",
-            "tag": "NN",
-            "dependency": "attr",
-            "head": "is"
-          },
-          {
-            "id": "atom-1-token-5",
-            "text": "of",
-            "start": 32,
-            "end": 34,
-            "lemma": "of",
-            "pos": "ADP",
-            "tag": "IN",
-            "dependency": "prep",
-            "head": "member"
-          },
-          {
-            "id": "atom-1-token-6",
-            "text": "the",
-            "start": 35,
-            "end": 38,
-            "lemma": "the",
-            "pos": "DET",
-            "tag": "DT",
-            "dependency": "det",
-            "head": "Council"
-          },
-          {
-            "id": "atom-1-token-7",
-            "text": "UN",
-            "start": 39,
-            "end": 41,
-            "lemma": "UN",
-            "pos": "PROPN",
-            "tag": "NNP",
-            "dependency": "compound",
-            "head": "Council"
-          },
-          {
-            "id": "atom-1-token-8",
-            "text": "Security",
-            "start": 42,
-            "end": 50,
-            "lemma": "Security",
-            "pos": "PROPN",
-            "tag": "NNP",
-            "dependency": "compound",
-            "head": "Council"
-          },
-          {
-            "id": "atom-1-token-9",
-            "text": "Council",
-            "start": 51,
-            "end": 58,
-            "lemma": "Council",
-            "pos": "PROPN",
-            "tag": "NNP",
-            "dependency": "pobj",
-            "head": "of"
-          },
-          {
-            "id": "atom-1-token-10",
-            "text": ".",
-            "start": 58,
-            "end": 59,
-            "lemma": ".",
-            "pos": "PUNCT",
-            "tag": ".",
-            "dependency": "punct",
-            "head": "is"
-          }
-        ],
-        "status": "complete",
-        "unresolved": []
-      }
-    ],
-    "summaries": [
-      {
-        "atomId": "atom-1",
-        "analysisStatus": "complete",
-        "roleAudit": "MATCH",
-        "subjects": [
-          "Australia"
-        ],
-        "predicates": [
-          "be"
-        ],
-        "cueKinds": [],
-        "modifierKinds": [],
-        "entityLabels": [
-          "GPE",
-          "ORG"
-        ],
-        "warnings": []
-      }
-    ],
-    "claimWarnings": [],
-    "provider": "spacy",
-    "model": "en_core_web_sm@3.8.0"
-  },
   "verdict": {
     "aggregationSchemaVersion": 3,
     "claimId": "showcase-current-unsc",
@@ -640,21 +327,20 @@
     ]
   },
   "recordedWith": {
-    "pipelineRevision": "submission-ready-v2",
+    "pipelineRevision": "submission-ready-v3",
     "inputDigest": "2ca59db3eba9bbe2a024cc4ed214908a8c367cddea6a7eb00e67f5aa9d5990df",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
     "retrievalMethod": "HYBRID",
     "assessmentModel": "qwen2.5:7b",
-    "reasoningModel": "qwen2.5:7b",
-    "linguisticsModel": "en_core_web_sm@3.8.0"
+    "reasoningModel": "qwen2.5:7b"
   },
   "timingsSeconds": {
-    "decomposition": 18.166,
-    "retrievalAndLinguistics": 0.387,
-    "evidenceAssessment": 23.778,
-    "symbolicReasoning": 7.176,
-    "aggregation": 0.004,
-    "total": 49.511
+    "decomposition": 12.249,
+    "retrieval": 0.235,
+    "evidenceAssessment": 15.015,
+    "symbolicReasoning": 4.28,
+    "aggregation": 0.007,
+    "total": 31.787
   }
 }

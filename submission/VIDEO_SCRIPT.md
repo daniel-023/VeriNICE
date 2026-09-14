@@ -1,4 +1,4 @@
-# VeriTrace demonstration video — 4:35 target
+# VeriNICE demonstration video — 4:35 target
 
 Keep the cursor movements slow and the narration conversational. Record at
 1080p with interface zoomed so evidence spans are readable.
@@ -6,7 +6,7 @@ Keep the cursor movements slow and the narration conversational. Record at
 ## 0:00–0:45 — the whole idea
 
 “A fact-checking label tells us almost nothing about how the system reached its
-answer. VeriTrace lets us inspect that path. It breaks a claim into atomic claims,
+answer. VeriNICE lets us inspect that path. It breaks a claim into atomic claims,
 finds the passages most relevant to each one, distinguishes support from
 refutation, and then shows the exact rule behind the verdict. The
 language model proposes structure; it never gets the last word.”
@@ -34,23 +34,18 @@ retrieved sentence IDs, that insufficient selections remain provisional, and
 that every decisive relation has a visible source anchor. Open the graph and
 follow one atomic claim to its evidence.
 
-## 3:05–3:45 — review a relation and inspect the rule
+## 3:05–4:05 — review a relation and inspect the rule
 
-Open a symbolic result and point to its two steps: “Qwen maps grounded inputs
-to a typed rule. Python validates the premises and executes the rule.” Select a
+Open a symbolic result and point to its two steps: “The model selects from
+server-issued rule/profile candidates and grounded inputs. Python validates the
+profile preconditions and executes the rule.” Select a
 premise to jump to the exact source span. Then change one evidence relation and
 show the graph and verdict recompute from the visible atomic-claim states. The
 verdict is not another model response.
 
-## 3:45–4:15 — linguistic audit, correctly scoped
+## 4:05–4:35 — close
 
-Open the linguistic panel briefly. “This view checks whether the decomposition
-lost an entity, qualifier, or negation. It is an audit tool only; it cannot
-create evidence or change the verdict.”
-
-## 4:15–4:35 — close
-
-“VeriTrace is useful precisely when the pipeline is imperfect: it gives a
+“VeriNICE is useful precisely when the pipeline is imperfect: it gives a
 researcher or practitioner somewhere concrete to look, disagree, and improve.
 At the live demonstration, visitors can choose a topic, inspect a recorded case,
 or supply a claim and documents to run locally.”

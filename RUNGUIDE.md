@@ -14,7 +14,6 @@ Run every command from the `verigraph/` directory.
 
 - `qwen2.5:7b` in the host Ollama installation (about 4.7 GB)
 - `BAAI/bge-small-en-v1.5` in `data/models/bge-small-en-v1.5`
-- the pinned spaCy parser in `backend/.venv`
 
 Those generated assets are ignored by Git. Once preparation finishes, the
 live pipeline needs no external document or model request.
@@ -49,7 +48,7 @@ Start from a healthy prepared stack, then run:
 The recorder calls the local FastAPI backend directly for all 18 showcase
 cases. It saves the resulting typed
 atomic claims, candidate evidence, evidence assessments, symbolic results,
-linguistic analyses, and the deterministic verdict under
+and the deterministic verdict under
 `frontend/public/walkthrough/`. The launcher requires a complete run for every
 curated case before succeeding.
 
@@ -58,9 +57,8 @@ question-answer annotations are read solely during offline dataset preparation
 and evaluation; they are never serialized into runtime or walkthrough inputs.
 
 Walkthrough mode computes nothing in the browser, so the verdict has to travel
-with the run. A recording made before stage 05 existed will build, but it
-renders no current reasoning graph — check that
-`frontend/public/walkthrough/runs/*.json` carry `"schemaVersion": 5`, an
+with the run. Check that `frontend/public/walkthrough/runs/*.json` carry
+`"schemaVersion": 7`, an
 `assessment`, `reasoning`, `composition`, a `role` on every atom, and an
 aggregation-schema-v3 `verdict`.
 
@@ -93,7 +91,6 @@ website.”
 - `POST /api/v1/assess-evidence`
 - `POST /api/v1/reason`
 - `POST /api/v1/aggregate-verdict`
-- `POST /api/v1/analyze-linguistics`
 
 The browser reaches these endpoints only through the same-origin Next proxy.
 The Vercel walkthrough neither requests nor exposes them.

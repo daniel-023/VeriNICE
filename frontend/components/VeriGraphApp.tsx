@@ -8,7 +8,6 @@ import { candidateAssessments, reviseAssessment } from "@/lib/assessment";
 import { buildArgumentationGraph } from "@/lib/argumentationGraph";
 import { deploymentMode, type DeploymentMode } from "@/lib/deployment";
 import { DEFAULT_EVIDENCE_PER_ATOM } from "@/lib/retrieval";
-import { useLinguisticAnalysis } from "@/lib/useLinguisticAnalysis";
 import { walkthroughApi } from "@/lib/walkthrough";
 import type {
   AtomEvidence,
@@ -35,7 +34,6 @@ import type {
 import { AtomRail } from "./AtomRail";
 import { ArgumentationGraph } from "./ArgumentationGraph";
 import { DocumentPanel } from "./DocumentPanel";
-import { LinguisticPanel } from "./LinguisticPanel";
 import { PipelinePanel } from "./PipelinePanel";
 import { SupportSummary } from "./SupportSummary";
 import { SymbolicProofPanel } from "./SymbolicProofPanel";
@@ -137,12 +135,10 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
   const [verdict, setVerdict] = useState<VerdictAggregationResult | null>(null);
   const [verdictState, setVerdictState] = useState<StageState>("idle");
   const [recordedVerdict, setRecordedVerdict] = useState<VerdictAggregationResult | null>(null);
-  const [linguisticsOpen, setLinguisticsOpen] = useState(false);
   const [evidencePerAtom, setEvidencePerAtom] = useState(DEFAULT_EVIDENCE_PER_ATOM);
   const [retrievalMethod, setRetrievalMethod] = useState<RetrievalMethod>("HYBRID");
   const [loading, setLoading] = useState(true);
   const [caseLoading, setCaseLoading] = useState(false);
-  const linguistics = useLinguisticAnalysis();
   const claimRef = useRef<HTMLTextAreaElement>(null);
   const errorRef = useRef<HTMLDivElement>(null);
   const requestVersionRef = useRef(0);
@@ -154,6 +150,10 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
     () => new Map(catalog.map((item) => [item.id, item])),
     [catalog],
   );
+  const catalogIndexById = useMemo(
+    () => new Map(catalog.map((item, index) => [item.id, index])),
+    [catalog],
+  );
   const filteredCatalog = useMemo(() => {
     if (!categoryFilter) return catalog;
     if (categoryFilter === "AVERITEC") {
@@ -163,8 +163,6 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
       (item) => item.origin === "CONSTRUCTED" && item.category === categoryFilter,
     );
   }, [catalog, categoryFilter]);
-  const constructedCatalog = filteredCatalog.filter((item) => item.origin === "CONSTRUCTED");
-  const averitecCatalog = filteredCatalog.filter((item) => item.origin !== "CONSTRUCTED");
   const rawPanel = searchParams.get("panel");
   const mobilePanel: MobilePanel =
     rawPanel === "atoms" || rawPanel === "document" || rawPanel === "pipeline"
@@ -250,7 +248,6 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
     setRetrievalError(null);
     setAssessmentError(null);
     setReasoningError(null);
-    linguistics.clear();
   };
 
   const resetRetrieval = () => {
@@ -452,8 +449,6 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
     setReasoning([]);
     setSelectedAtomId(null);
     setFocusedInferenceSpans(null);
-    linguistics.clear();
-
     if (walkthrough) {
       if (!referenceCase || !referenceMatches) {
         setDecompositionState("error");
@@ -473,7 +468,6 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
         setAssessments(candidateAssessments(recorded.evidence, recorded.assessment));
         setReasoning(recorded.reasoning);
         setRetrievalMethod(recorded.recordedWith.retrievalMethod ?? "HYBRID");
-        linguistics.loadRecorded(recorded.linguistics);
         setRecordedVerdict(recorded.verdict ?? null);
         setDecompositionState("complete");
         setRetrievalState("complete");
@@ -501,12 +495,6 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
       setDecompositionState("complete");
       setRetrievalState("running");
       const atomInputs = result.atoms.map(({ id, text }) => ({ id, text }));
-      void linguistics.run({
-        schemaVersion: result.schemaVersion,
-        claimText: claim,
-        composition: result.composition,
-        atoms: result.atoms,
-      });
       try {
         const retrieval = await retrieveAtoms(atomInputs, evidencePerAtom, retrievalMethod);
         if (requestVersionRef.current !== requestVersion) return;
@@ -693,10 +681,6 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
   const selectedEvidence = focusedInferenceSpans
     ? inspectableSpans.filter((span) => focusedInferenceSpans.has(`${span.documentId}:${span.start}:${span.end}`))
     : selectedEvidenceForAtom;
-  const selectedLinguisticAnalysis =
-    linguistics.analyses.find((item) => item.atomId === selectedAtomId) ?? null;
-  const selectedLinguisticSummary =
-    linguistics.summaries.find((item) => item.atomId === selectedAtomId) ?? null;
   const selectedClassification =
     assessments.find((item) => item.atomId === selectedAtomId) ?? null;
   const selectedEvidenceAudit =
@@ -766,8 +750,7 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
       setVerdictState("error");
     });
     return () => { cancelled = true; };
-  }, [selectedCaseId, claim, composition, atoms, evidence, assessments, assessment, reasoning, linguistics.summaries, assessmentState, reasoningState, walkthrough, recordedVerdict]);
-  const graphLinkCount = argumentationGraph.stats.supportEdgeCount + argumentationGraph.stats.refuteEdgeCount;
+  }, [selectedCaseId, claim, composition, atoms, evidence, assessments, assessment, reasoning, assessmentState, reasoningState, walkthrough, recordedVerdict]);
   const relationsByAtomId = useMemo(
     () => new Map(assessments.map((item) => [item.atomId, item.relations])),
     [assessments],
@@ -791,9 +774,15 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
     [verdict],
   );
   const evidenceCount = evidence.reduce((count, item) => count + item.spans.length, 0);
-  const relationCount = assessments.reduce(
-    (count, item) => count + item.relations.length,
-    0,
+  const relationCounts = useMemo(
+    () => assessments.reduce<Record<CandidateRelation, number>>(
+      (counts, item) => {
+        item.relations.forEach(({ relation }) => { counts[relation] += 1; });
+        return counts;
+      },
+      { SUPPORTS: 0, REFUTES: 0, CONTEXT: 0, NOT_SELECTED: 0 },
+    ),
+    [assessments],
   );
   const activeError = decompositionError ?? retrievalError ?? assessmentError ?? reasoningError;
   const workflowRunning =
@@ -828,7 +817,7 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
             className={`health-chip ${pipelineConfigured ? "health-ready" : "health-unconfigured"}`}
             title={
               health
-                ? `Decomposition: ${health.decompositionReady ? "ready" : "unavailable"}; retrieval: ${health.retrievalConfigured ? "ready" : "unavailable"}; claim structure: ${health.linguisticsConfigured ? "ready" : "unavailable"}; symbolic checks: local`
+                ? `Decomposition: ${health.decompositionReady ? "ready" : "unavailable"}; retrieval: ${health.retrievalConfigured ? "ready" : "unavailable"}; symbolic checks: local`
                 : undefined
             }
             aria-live="polite"
@@ -873,12 +862,11 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
           >
             <option value="" disabled>Select a sample</option>
             {!walkthrough ? <option value={CUSTOM_CASE}>Custom Input</option> : null}
-            {constructedCatalog.map((item, index) => (
-              <option value={item.id} key={item.id}>{optionLabel(item, index)}</option>
+            {filteredCatalog.map((item) => (
+              <option value={item.id} key={item.id}>
+                {optionLabel(item, catalogIndexById.get(item.id) ?? 0)}
+              </option>
             ))}
-            {averitecCatalog.length ? <optgroup label="AVeriTeC">
-              {averitecCatalog.map((item, index) => <option value={item.id} key={item.id}>{optionLabel(item, index)}</option>)}
-            </optgroup> : null}
           </select>
           </label>
         </div>
@@ -1023,16 +1011,6 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
                   documents={documents}
                   onSelectPremise={selectSymbolicPremise}
                 />
-                <LinguisticPanel
-                  atom={selectedAtom}
-                  analysis={selectedLinguisticAnalysis}
-                  summary={selectedLinguisticSummary}
-                  state={linguistics.state}
-                  error={linguistics.error}
-                  onRetry={() => void linguistics.retry()}
-                  open={linguisticsOpen}
-                  onToggle={() => setLinguisticsOpen((current) => !current)}
-                />
               </div>
             ) : undefined}
           />
@@ -1045,10 +1023,10 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
             reasoningState={reasoningState}
             verdictState={verdictState}
             verdict={verdict?.verdict ?? null}
-            graphLinkCount={graphLinkCount}
             atomCount={atoms.length}
             evidenceCount={evidenceCount}
-            relationCount={relationCount}
+            relationCounts={relationCounts}
+            symbolicExecutions={reasoning}
             onRetryEvidence={retryEvidence}
             evidencePerAtom={evidencePerAtom}
             onEvidencePerAtomChange={walkthrough ? undefined : changeEvidencePerAtom}

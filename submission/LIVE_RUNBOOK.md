@@ -5,8 +5,7 @@
 - Conference monitor: VeriNICE at 125–150% browser zoom.
 - Presenter laptop: power connected, sleep disabled, notifications and automatic
   updates disabled.
-- Poster board: one pipeline diagram, one QR code to recorded walkthrough, and
-  one sentence explaining that linguistic analysis is verdict-neutral.
+- Poster board: one pipeline diagram and one QR code to the recorded walkthrough.
 - Keep the laptop's local recording available even if conference Wi-Fi works.
 
 ## Before the session

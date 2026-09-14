@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Summarise recorded VeriTrace runs against the AVeriTeC reference labels.
+"""Summarise recorded VeriNICE runs against the AVeriTeC reference labels.
 
 This is a descriptive summary of the demonstration set, not a benchmark
 evaluation. Reference labels are dataset metadata: they never enter the
@@ -82,7 +82,6 @@ def render(runs_dir: Path, catalog_path: Path) -> str:
     confusion: Counter[tuple[str, str]] = Counter()
     schema_versions = Counter()
     typed_roles = Counter()
-    decomposition_quality = Counter()
     timings: dict[str, list[float]] = {}
 
     for path in run_paths:
@@ -92,42 +91,6 @@ def render(runs_dir: Path, catalog_path: Path) -> str:
         atom_counts[len(run["atoms"])] += 1
         for atom in run["atoms"]:
             typed_roles[atom.get("role", "untyped")] += 1
-        linguistics = run.get("linguistics", {})
-        summaries = linguistics.get("summaries", []) if isinstance(linguistics, dict) else []
-        claim_warnings = set(linguistics.get("claimWarnings", [])) if isinstance(linguistics, dict) else set()
-        decomposition_warnings = {item.get("code") for item in run.get("warnings", []) if isinstance(item, dict)}
-        atom_warnings = {
-            warning
-            for summary in summaries
-            if isinstance(summary, dict)
-            for warning in summary.get("warnings", [])
-        }
-        decomposition_quality["claims"] += 1
-        decomposition_quality["obligations"] += len(run["atoms"])
-        decomposition_quality["atomicity_pass"] += sum(
-            1 for summary in summaries
-            if "MULTIPLE_PROPOSITION_FRAMES" not in set(summary.get("warnings", []))
-        )
-        decomposition_quality["sufficiency_pass"] += sum(
-            1 for summary in summaries
-            if summary.get("analysisStatus") == "complete"
-            and not ({"UNRESOLVED_SUBJECT", "UNRESOLVED_PREDICATE"} & set(summary.get("warnings", [])))
-        )
-        decomposition_quality["coverage_pass"] += not bool(
-            {"UNDER_DECOMPOSED"} & decomposition_warnings
-            or {"CLAIM_FRAME_NOT_COVERED"} & claim_warnings
-        )
-        decomposition_quality["fabrication_pass"] += not bool(
-            {"SOURCE_TEXT_NOT_FOUND", "SOURCE_TEXT_AMBIGUOUS"} & decomposition_warnings
-        )
-        normalized_atoms = [" ".join(atom.get("text", "").casefold().split()) for atom in run["atoms"]]
-        decomposition_quality["redundancy_pass"] += len(normalized_atoms) == len(set(normalized_atoms))
-        decomposition_quality["readability_pass"] += sum(
-            1 for atom in run["atoms"]
-            if atom.get("text", "").strip().endswith((".", "?", "!"))
-            and len(atom.get("text", "").split()) >= 3
-        )
-        decomposition_quality["audit_warning_count"] += len(claim_warnings | atom_warnings)
         for stage, seconds in run.get("timingsSeconds", {}).items():
             if isinstance(seconds, (int, float)) and seconds >= 0:
                 timings.setdefault(stage, []).append(float(seconds))
@@ -188,24 +151,6 @@ def render(runs_dir: Path, catalog_path: Path) -> str:
         add(f"| `{role}` | {count} |")
     add("")
 
-    add("## Decomposition quality diagnostics")
-    add("")
-    add("These deterministic diagnostics use FactLens-aligned dimensions. They are")
-    add("auditable proxies, not human ratings or the FactLens model evaluator.")
-    add("")
-    obligations = decomposition_quality["obligations"] or 1
-    claims = decomposition_quality["claims"] or 1
-    add("| Dimension | Passing | Unit |")
-    add("| --- | ---: | --- |")
-    add(f"| Atomicity | {decomposition_quality['atomicity_pass']}/{obligations} | obligations |")
-    add(f"| Sufficiency | {decomposition_quality['sufficiency_pass']}/{obligations} | obligations |")
-    add(f"| Coverage | {decomposition_quality['coverage_pass']}/{claims} | claims |")
-    add(f"| Fabrication guard | {decomposition_quality['fabrication_pass']}/{claims} | claims |")
-    add(f"| Non-redundancy | {decomposition_quality['redundancy_pass']}/{claims} | claims |")
-    add(f"| Readability | {decomposition_quality['readability_pass']}/{obligations} | obligations |")
-    add(f"| Linguistic audit warnings | {decomposition_quality['audit_warning_count']} | warnings |")
-    add("")
-
     add("## Assessed evidence relations")
     add("")
     total_relations = sum(relations.values()) or 1
@@ -236,7 +181,7 @@ def render(runs_dir: Path, catalog_path: Path) -> str:
         add("")
         add("| Stage | Median | Mean | Maximum | Cases |")
         add("| --- | ---: | ---: | ---: | ---: |")
-        for stage in ("decomposition", "retrievalAndLinguistics", "evidenceAssessment", "symbolicReasoning", "aggregation", "total"):
+        for stage in ("decomposition", "retrieval", "evidenceAssessment", "symbolicReasoning", "aggregation", "total"):
             values = timings.get(stage, [])
             if values:
                 add(

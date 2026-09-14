@@ -1,6 +1,6 @@
 {
   "caseId": "averitec-dev-0392",
-  "schemaVersion": 6,
+  "schemaVersion": 7,
   "composition": "SINGLE",
   "warnings": [],
   "atoms": [
@@ -206,6 +206,7 @@
       "id": "proof:atom-1:attribute_compare:1",
       "atomId": "atom-1",
       "operator": "ATTRIBUTE_COMPARE",
+      "profile": "EXPLICIT_NEGATION",
       "status": "UNRESOLVED",
       "relation": null,
       "premiseIds": [
@@ -221,7 +222,8 @@
           "end": 557,
           "kind": "EVIDENCE",
           "contentHash": null,
-          "itemCount": null
+          "itemCount": null,
+          "listItems": []
         },
         {
           "id": "evidence:atom-1:doc-4cbdb3ff10fa:doc-4cbdb3ff10fa::sentence-16",
@@ -231,7 +233,8 @@
           "end": 1829,
           "kind": "EVIDENCE",
           "contentHash": null,
-          "itemCount": null
+          "itemCount": null,
+          "listItems": []
         }
       ],
       "expression": "attribute comparison",
@@ -239,6 +242,23 @@
       "explanation": "The premises do not provide one unambiguous attribute value for deterministic comparison.",
       "validationWarnings": [
         "AMBIGUOUS_ATTRIBUTE_MAPPING"
+      ],
+      "preconditions": [
+        {
+          "name": "Source grounding",
+          "status": "PASSED",
+          "detail": "5 selected premise(s) retain exact source offsets."
+        },
+        {
+          "name": "Registered profile",
+          "status": "PASSED",
+          "detail": "explicit negation"
+        },
+        {
+          "name": "Operand alignment",
+          "status": "UNRESOLVED",
+          "detail": "The premises do not provide one unambiguous attribute value for deterministic comparison."
+        }
       ],
       "program": {
         "version": 1,
@@ -276,511 +296,6 @@
       }
     }
   ],
-  "linguistics": {
-    "schemaVersion": 2,
-    "claimAnalysis": {
-      "atomId": "claim",
-      "frames": [
-        {
-          "id": "claim-frame-1",
-          "predicate": {
-            "id": "claim-frame-1-predicate",
-            "text": "turned",
-            "start": 12,
-            "end": 18
-          },
-          "subjects": [
-            {
-              "id": "claim-frame-1-subject-1",
-              "text": "The sky",
-              "start": 0,
-              "end": 7
-            }
-          ],
-          "coreArguments": [
-            {
-              "id": "claim-frame-1-argument-1",
-              "text": "orange to blood",
-              "start": 19,
-              "end": 34,
-              "role": "object_complement"
-            },
-            {
-              "id": "claim-frame-1-argument-2",
-              "text": "red in several parts of the United States",
-              "start": 35,
-              "end": 76,
-              "role": "object_complement"
-            }
-          ],
-          "adjuncts": [],
-          "otherModifiers": []
-        }
-      ],
-      "cues": [
-        {
-          "id": "claim-cue-quantifier-42-49",
-          "text": "several",
-          "start": 42,
-          "end": 49,
-          "kind": "quantifier"
-        }
-      ],
-      "entities": [
-        {
-          "id": "claim-entity-gpe-59-76",
-          "text": "the United States",
-          "start": 59,
-          "end": 76,
-          "label": "GPE"
-        }
-      ],
-      "tokens": [
-        {
-          "id": "claim-token-0",
-          "text": "The",
-          "start": 0,
-          "end": 3,
-          "lemma": "the",
-          "pos": "DET",
-          "tag": "DT",
-          "dependency": "det",
-          "head": "sky"
-        },
-        {
-          "id": "claim-token-1",
-          "text": "sky",
-          "start": 4,
-          "end": 7,
-          "lemma": "sky",
-          "pos": "NOUN",
-          "tag": "NN",
-          "dependency": "nsubj",
-          "head": "turned"
-        },
-        {
-          "id": "claim-token-2",
-          "text": "has",
-          "start": 8,
-          "end": 11,
-          "lemma": "have",
-          "pos": "AUX",
-          "tag": "VBZ",
-          "dependency": "aux",
-          "head": "turned"
-        },
-        {
-          "id": "claim-token-3",
-          "text": "turned",
-          "start": 12,
-          "end": 18,
-          "lemma": "turn",
-          "pos": "VERB",
-          "tag": "VBN",
-          "dependency": "ROOT",
-          "head": "ROOT"
-        },
-        {
-          "id": "claim-token-4",
-          "text": "orange",
-          "start": 19,
-          "end": 25,
-          "lemma": "orange",
-          "pos": "ADJ",
-          "tag": "JJ",
-          "dependency": "oprd",
-          "head": "turned"
-        },
-        {
-          "id": "claim-token-5",
-          "text": "to",
-          "start": 26,
-          "end": 28,
-          "lemma": "to",
-          "pos": "ADP",
-          "tag": "IN",
-          "dependency": "prep",
-          "head": "orange"
-        },
-        {
-          "id": "claim-token-6",
-          "text": "blood",
-          "start": 29,
-          "end": 34,
-          "lemma": "blood",
-          "pos": "NOUN",
-          "tag": "NN",
-          "dependency": "pobj",
-          "head": "to"
-        },
-        {
-          "id": "claim-token-7",
-          "text": "red",
-          "start": 35,
-          "end": 38,
-          "lemma": "red",
-          "pos": "ADJ",
-          "tag": "JJ",
-          "dependency": "oprd",
-          "head": "turned"
-        },
-        {
-          "id": "claim-token-8",
-          "text": "in",
-          "start": 39,
-          "end": 41,
-          "lemma": "in",
-          "pos": "ADP",
-          "tag": "IN",
-          "dependency": "prep",
-          "head": "red"
-        },
-        {
-          "id": "claim-token-9",
-          "text": "several",
-          "start": 42,
-          "end": 49,
-          "lemma": "several",
-          "pos": "ADJ",
-          "tag": "JJ",
-          "dependency": "amod",
-          "head": "parts"
-        },
-        {
-          "id": "claim-token-10",
-          "text": "parts",
-          "start": 50,
-          "end": 55,
-          "lemma": "part",
-          "pos": "NOUN",
-          "tag": "NNS",
-          "dependency": "pobj",
-          "head": "in"
-        },
-        {
-          "id": "claim-token-11",
-          "text": "of",
-          "start": 56,
-          "end": 58,
-          "lemma": "of",
-          "pos": "ADP",
-          "tag": "IN",
-          "dependency": "prep",
-          "head": "parts"
-        },
-        {
-          "id": "claim-token-12",
-          "text": "the",
-          "start": 59,
-          "end": 62,
-          "lemma": "the",
-          "pos": "DET",
-          "tag": "DT",
-          "dependency": "det",
-          "head": "States"
-        },
-        {
-          "id": "claim-token-13",
-          "text": "United",
-          "start": 63,
-          "end": 69,
-          "lemma": "United",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "compound",
-          "head": "States"
-        },
-        {
-          "id": "claim-token-14",
-          "text": "States",
-          "start": 70,
-          "end": 76,
-          "lemma": "States",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "pobj",
-          "head": "of"
-        },
-        {
-          "id": "claim-token-15",
-          "text": ".",
-          "start": 76,
-          "end": 77,
-          "lemma": ".",
-          "pos": "PUNCT",
-          "tag": ".",
-          "dependency": "punct",
-          "head": "turned"
-        }
-      ],
-      "status": "complete",
-      "unresolved": []
-    },
-    "analyses": [
-      {
-        "atomId": "atom-1",
-        "frames": [
-          {
-            "id": "atom-1-frame-1",
-            "predicate": {
-              "id": "atom-1-frame-1-predicate",
-              "text": "turned",
-              "start": 12,
-              "end": 18
-            },
-            "subjects": [
-              {
-                "id": "atom-1-frame-1-subject-1",
-                "text": "The sky",
-                "start": 0,
-                "end": 7
-              }
-            ],
-            "coreArguments": [
-              {
-                "id": "atom-1-frame-1-argument-1",
-                "text": "orange to blood",
-                "start": 19,
-                "end": 34,
-                "role": "object_complement"
-              },
-              {
-                "id": "atom-1-frame-1-argument-2",
-                "text": "red in several parts of the United States",
-                "start": 35,
-                "end": 76,
-                "role": "object_complement"
-              }
-            ],
-            "adjuncts": [],
-            "otherModifiers": []
-          }
-        ],
-        "cues": [
-          {
-            "id": "atom-1-cue-quantifier-42-49",
-            "text": "several",
-            "start": 42,
-            "end": 49,
-            "kind": "quantifier"
-          }
-        ],
-        "entities": [
-          {
-            "id": "atom-1-entity-gpe-59-76",
-            "text": "the United States",
-            "start": 59,
-            "end": 76,
-            "label": "GPE"
-          }
-        ],
-        "tokens": [
-          {
-            "id": "atom-1-token-0",
-            "text": "The",
-            "start": 0,
-            "end": 3,
-            "lemma": "the",
-            "pos": "DET",
-            "tag": "DT",
-            "dependency": "det",
-            "head": "sky"
-          },
-          {
-            "id": "atom-1-token-1",
-            "text": "sky",
-            "start": 4,
-            "end": 7,
-            "lemma": "sky",
-            "pos": "NOUN",
-            "tag": "NN",
-            "dependency": "nsubj",
-            "head": "turned"
-          },
-          {
-            "id": "atom-1-token-2",
-            "text": "has",
-            "start": 8,
-            "end": 11,
-            "lemma": "have",
-            "pos": "AUX",
-            "tag": "VBZ",
-            "dependency": "aux",
-            "head": "turned"
-          },
-          {
-            "id": "atom-1-token-3",
-            "text": "turned",
-            "start": 12,
-            "end": 18,
-            "lemma": "turn",
-            "pos": "VERB",
-            "tag": "VBN",
-            "dependency": "ROOT",
-            "head": "ROOT"
-          },
-          {
-            "id": "atom-1-token-4",
-            "text": "orange",
-            "start": 19,
-            "end": 25,
-            "lemma": "orange",
-            "pos": "ADJ",
-            "tag": "JJ",
-            "dependency": "oprd",
-            "head": "turned"
-          },
-          {
-            "id": "atom-1-token-5",
-            "text": "to",
-            "start": 26,
-            "end": 28,
-            "lemma": "to",
-            "pos": "ADP",
-            "tag": "IN",
-            "dependency": "prep",
-            "head": "orange"
-          },
-          {
-            "id": "atom-1-token-6",
-            "text": "blood",
-            "start": 29,
-            "end": 34,
-            "lemma": "blood",
-            "pos": "NOUN",
-            "tag": "NN",
-            "dependency": "pobj",
-            "head": "to"
-          },
-          {
-            "id": "atom-1-token-7",
-            "text": "red",
-            "start": 35,
-            "end": 38,
-            "lemma": "red",
-            "pos": "ADJ",
-            "tag": "JJ",
-            "dependency": "oprd",
-            "head": "turned"
-          },
-          {
-            "id": "atom-1-token-8",
-            "text": "in",
-            "start": 39,
-            "end": 41,
-            "lemma": "in",
-            "pos": "ADP",
-            "tag": "IN",
-            "dependency": "prep",
-            "head": "red"
-          },
-          {
-            "id": "atom-1-token-9",
-            "text": "several",
-            "start": 42,
-            "end": 49,
-            "lemma": "several",
-            "pos": "ADJ",
-            "tag": "JJ",
-            "dependency": "amod",
-            "head": "parts"
-          },
-          {
-            "id": "atom-1-token-10",
-            "text": "parts",
-            "start": 50,
-            "end": 55,
-            "lemma": "part",
-            "pos": "NOUN",
-            "tag": "NNS",
-            "dependency": "pobj",
-            "head": "in"
-          },
-          {
-            "id": "atom-1-token-11",
-            "text": "of",
-            "start": 56,
-            "end": 58,
-            "lemma": "of",
-            "pos": "ADP",
-            "tag": "IN",
-            "dependency": "prep",
-            "head": "parts"
-          },
-          {
-            "id": "atom-1-token-12",
-            "text": "the",
-            "start": 59,
-            "end": 62,
-            "lemma": "the",
-            "pos": "DET",
-            "tag": "DT",
-            "dependency": "det",
-            "head": "States"
-          },
-          {
-            "id": "atom-1-token-13",
-            "text": "United",
-            "start": 63,
-            "end": 69,
-            "lemma": "United",
-            "pos": "PROPN",
-            "tag": "NNP",
-            "dependency": "compound",
-            "head": "States"
-          },
-          {
-            "id": "atom-1-token-14",
-            "text": "States",
-            "start": 70,
-            "end": 76,
-            "lemma": "States",
-            "pos": "PROPN",
-            "tag": "NNP",
-            "dependency": "pobj",
-            "head": "of"
-          },
-          {
-            "id": "atom-1-token-15",
-            "text": ".",
-            "start": 76,
-            "end": 77,
-            "lemma": ".",
-            "pos": "PUNCT",
-            "tag": ".",
-            "dependency": "punct",
-            "head": "turned"
-          }
-        ],
-        "status": "complete",
-        "unresolved": []
-      }
-    ],
-    "summaries": [
-      {
-        "atomId": "atom-1",
-        "analysisStatus": "complete",
-        "roleAudit": "MATCH",
-        "subjects": [
-          "The sky"
-        ],
-        "predicates": [
-          "turn"
-        ],
-        "cueKinds": [
-          "quantifier"
-        ],
-        "modifierKinds": [],
-        "entityLabels": [
-          "GPE"
-        ],
-        "warnings": []
-      }
-    ],
-    "claimWarnings": [],
-    "provider": "spacy",
-    "model": "en_core_web_sm@3.8.0"
-  },
   "verdict": {
     "aggregationSchemaVersion": 3,
     "claimId": "averitec-dev-0392",
@@ -816,21 +331,20 @@
     ]
   },
   "recordedWith": {
-    "pipelineRevision": "submission-ready-v2",
+    "pipelineRevision": "submission-ready-v3",
     "inputDigest": "e71a6345f4391822ad0937e67b2f43ec15f1784ccbb8c2f78e401590d052f17b",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
     "retrievalMethod": "HYBRID",
     "assessmentModel": "qwen2.5:7b",
-    "reasoningModel": "qwen2.5:7b",
-    "linguisticsModel": "en_core_web_sm@3.8.0"
+    "reasoningModel": "qwen2.5:7b"
   },
   "timingsSeconds": {
-    "decomposition": 18.949,
-    "retrievalAndLinguistics": 0.76,
-    "evidenceAssessment": 24.525,
-    "symbolicReasoning": 24.4,
-    "aggregation": 0.004,
-    "total": 68.64
+    "decomposition": 16.685,
+    "retrieval": 0.674,
+    "evidenceAssessment": 20.709,
+    "symbolicReasoning": 19.392,
+    "aggregation": 0.003,
+    "total": 57.465
   }
 }

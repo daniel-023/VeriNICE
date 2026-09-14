@@ -95,17 +95,21 @@ execution. Qwen assigns up to three candidate IDs per relation and labels the
 joint bundle as sufficient, partial, or insufficient. Only support and
 refutation from a sufficient bundle become verdict-bearing edges; the other
 selections remain visible as provisional evidence.
-Python extracts typed operator candidates and their permitted premise IDs. Qwen
-may select only a server-issued candidate and a subset of those premises; it
-cannot introduce a premise or return the answer. Python validates exact
-grounding and operator constraints before execution, leaving invalid mappings
-unresolved.
+Python enumerates eligible operator/profile candidates and their permitted,
+source-grounded premise IDs. Qwen may select only a server-issued candidate and
+a subset of those premises; it cannot introduce a premise or return the answer.
+Python validates exact grounding and operator constraints before execution,
+leaving invalid mappings unresolved.
 
 \paragraph{Deterministic execution and composition.}
-Version 1 deliberately limits execution to exact list membership; Decimal
-comparison of counts, percentages, and unconverted currency symbols;
-absolute-date intervals; explicit-attribute patterns; two-field counting over a
-fixed Nobel-field vocabulary; and extremum counterexamples. Absence supports
+Version 1 uses a small, versioned library of source-bound symbolic rules.
+Reusable deterministic executors are separated from registered extraction
+profiles, including award, location, negation, and exclusivity patterns. The six
+families cover exact list membership; Decimal comparison of counts,
+percentages, temperatures, and unconverted currency symbols; absolute-date
+intervals; registered attribute comparisons; distinct-value lower bounds; and
+extremum counterexamples. They are bounded engineering coverage rather than a
+canonical taxonomy or general-purpose logic. Absence supports
 non-membership only when the cited span explicitly certifies a complete
 enumeration and the item is absent from its extracted entries. One aligned
 counterexample can refute an extremum, but the system otherwise abstains. Dates
@@ -134,9 +138,9 @@ recomputation without rerunning the model (Figure~\ref{fig:interface}).
 
 \begin{figure*}[t]
   \centering
-  \includegraphics[width=0.94\textwidth,height=0.25\textheight,keepaspectratio]{screenshots/veritrace-workflow.png}
+  \includegraphics[width=0.94\textwidth,height=0.25\textheight,keepaspectratio]{screenshots/verinice-workflow.png}
   \par\vspace{-0.5ex}{\footnotesize\textbf{(a)} Recorded claim, pipeline state, and source selection.}\par\vspace{0.5ex}
-  \includegraphics[width=0.94\textwidth,height=0.28\textheight,keepaspectratio]{screenshots/veritrace-membership-graph.png}
+  \includegraphics[width=0.94\textwidth,height=0.28\textheight,keepaspectratio]{screenshots/verinice-membership-graph.png}
   \par\vspace{-0.5ex}{\footnotesize\textbf{(b)} Source-bound set-membership check and deterministic verdict trace.}
   \caption{The UNSC walkthrough from evidence to verdict. The reviewer opens
   the recorded claim and source in (a), then follows the complete-list premise
@@ -150,8 +154,7 @@ The interface presents parallel atomic-claim lanes, source evidence, bundle or
 symbolic nodes, atom results, optional composition, and the final verdict.
 Reading context is collapsed beneath its evidence anchor. Only sufficient model
 relations and resolved checks appear in the default graph; provisional evidence,
-scope mismatches, and unresolved checks remain inspectable. A collapsed spaCy
-view highlights linguistic structure but remains verdict-neutral.
+scope mismatches and unresolved checks remain inspectable.
 
 An 18-case walkthrough exercises the implemented workflow across decomposition,
 retrieval, scope, symbolic checks, and verdict composition. It comprises 15
@@ -163,7 +166,7 @@ Every constructed passage is contiguous and sentence-complete, and the interface
 links to its full publisher page. The
 presentation audit fixes expected atoms, operator outcomes,
 premise grounding, verdicts, and a nine-node default-graph ceiling. Live
-inference runs locally; the hosted site replays immutable schema-version-6 runs.
+inference runs locally; the hosted site replays immutable schema-version-7 runs.
 
 \section{Conclusions and Future Work}
 
@@ -180,7 +183,7 @@ Future work will first test whether reviewers can localize and correct seeded
 retrieval, scope, and inference errors more effectively than with a
 label-and-evidence baseline. We will also evaluate decomposition and verdict
 quality on held-out claims and extend the narrow checks with broader typed
-parsers and unit handling.
+parsers, additional unit vocabularies, and explicit conversion policies.
 
 % The AAAI-27 demo call reserves page 3 for references only. Keep this break in
 % the official author-kit version and verify the final page count after transfer.

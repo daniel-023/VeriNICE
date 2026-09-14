@@ -6,7 +6,16 @@ const OPERATOR_LABELS: Record<SymbolicExecution["operator"], string> = {
   TEMPORAL_COMPARE: "Temporal comparison",
   ATTRIBUTE_COMPARE: "Attribute comparison",
   COUNT_DISTINCT: "Distinct-value count",
-  EXTREMUM_COMPARE: "Extremum check",
+  EXTREMUM_COMPARE: "Largest/smallest comparison",
+};
+
+const PROFILE_LABELS: Record<string, string> = {
+  COUNTRY_LOCATION: "Country location",
+  EXCLUSIVE_PURPOSE: "Exclusive purpose",
+  EXPLICIT_NEGATION: "Explicit negation",
+  NOBEL_RECIPIENT: "Nobel recipient",
+  NOBEL_MOTIVATION: "Nobel motivation",
+  NOBEL_FIELD_COUNT: "Nobel field count",
 };
 
 const PROGRAM_STEP_DESCRIPTIONS: Record<string, string> = {
@@ -45,7 +54,10 @@ function ProofCard({
   const titles = new Map(documents.map((document) => [document.id, document.title]));
   return (
     <article className={`symbolic-proof proof-${proof.status.toLowerCase()}`}>
-      <div><strong>{OPERATOR_LABELS[proof.operator]}</strong><span>{statusLabel(proof.status)}</span></div>
+      <div>
+        <strong>{OPERATOR_LABELS[proof.operator]}{PROFILE_LABELS[proof.profile] ? ` · ${PROFILE_LABELS[proof.profile]}` : ""}</strong>
+        <span>{statusLabel(proof.status)}</span>
+      </div>
       {contributionLabel(proof) ? (
         <p className={`symbolic-contribution contribution-${proof.relation?.toLowerCase()}`}>
           <strong>Effect on this atom</strong>
@@ -84,6 +96,16 @@ function ProofCard({
           ))}
           {!proof.program?.steps?.length ? <li>Program trace unavailable.</li> : null}
         </ol>
+        {(proof.preconditions ?? []).length ? (
+          <dl className="symbolic-preconditions">
+            {(proof.preconditions ?? []).map((condition) => (
+              <div key={condition.name}>
+                <dt>{condition.name} · {condition.status.toLowerCase()}</dt>
+                <dd>{condition.detail}</dd>
+              </div>
+            ))}
+          </dl>
+        ) : null}
         {proof.validationWarnings.length ? (
           <ul>{proof.validationWarnings.map((item) => <li key={item}>{item.replaceAll("_", " ").toLowerCase()}</li>)}</ul>
         ) : <p>No validation warnings.</p>}

@@ -1,6 +1,6 @@
 {
   "caseId": "showcase-technology-iphone",
-  "schemaVersion": 6,
+  "schemaVersion": 7,
   "composition": "AND",
   "warnings": [],
   "atoms": [
@@ -334,6 +334,7 @@
       "id": "proof:atom-1:temporal_compare:1",
       "atomId": "atom-1",
       "operator": "TEMPORAL_COMPARE",
+      "profile": "GENERIC_ABSOLUTE_DATE",
       "status": "NOT_APPLICABLE",
       "relation": null,
       "premiseIds": [
@@ -348,13 +349,31 @@
           "end": 391,
           "kind": "EVIDENCE",
           "contentHash": null,
-          "itemCount": null
+          "itemCount": null,
+          "listItems": []
         }
       ],
       "expression": "temporal comparison",
       "conclusion": "No executable date relation",
       "explanation": "The atom lacks an explicit supported temporal comparison.",
       "validationWarnings": [],
+      "preconditions": [
+        {
+          "name": "Source grounding",
+          "status": "PASSED",
+          "detail": "1 selected premise(s) retain exact source offsets."
+        },
+        {
+          "name": "Registered profile",
+          "status": "PASSED",
+          "detail": "generic absolute date"
+        },
+        {
+          "name": "Operand alignment",
+          "status": "UNRESOLVED",
+          "detail": "The atom lacks an explicit supported temporal comparison."
+        }
+      ],
       "program": {
         "version": 1,
         "steps": [
@@ -384,6 +403,7 @@
       "id": "proof:atom-2:temporal_compare:2",
       "atomId": "atom-2",
       "operator": "TEMPORAL_COMPARE",
+      "profile": "GENERIC_ABSOLUTE_DATE",
       "status": "NOT_APPLICABLE",
       "relation": null,
       "premiseIds": [
@@ -398,13 +418,31 @@
           "end": 317,
           "kind": "EVIDENCE",
           "contentHash": null,
-          "itemCount": null
+          "itemCount": null,
+          "listItems": []
         }
       ],
       "expression": "temporal comparison",
       "conclusion": "No executable date relation",
       "explanation": "The atom lacks an explicit supported temporal comparison.",
       "validationWarnings": [],
+      "preconditions": [
+        {
+          "name": "Source grounding",
+          "status": "PASSED",
+          "detail": "1 selected premise(s) retain exact source offsets."
+        },
+        {
+          "name": "Registered profile",
+          "status": "PASSED",
+          "detail": "generic absolute date"
+        },
+        {
+          "name": "Operand alignment",
+          "status": "UNRESOLVED",
+          "detail": "The atom lacks an explicit supported temporal comparison."
+        }
+      ],
       "program": {
         "version": 1,
         "steps": [
@@ -431,863 +469,6 @@
       }
     }
   ],
-  "linguistics": {
-    "schemaVersion": 2,
-    "claimAnalysis": {
-      "atomId": "claim",
-      "frames": [
-        {
-          "id": "claim-frame-1",
-          "predicate": {
-            "id": "claim-frame-1-predicate",
-            "text": "introduced",
-            "start": 6,
-            "end": 16
-          },
-          "subjects": [
-            {
-              "id": "claim-frame-1-subject-1",
-              "text": "Apple",
-              "start": 0,
-              "end": 5
-            }
-          ],
-          "coreArguments": [
-            {
-              "id": "claim-frame-1-argument-1",
-              "text": "the first iPhone",
-              "start": 17,
-              "end": 33,
-              "role": "direct_object"
-            }
-          ],
-          "adjuncts": [
-            {
-              "id": "claim-frame-1-adjunct-1",
-              "text": "on 9 January 2007",
-              "start": 34,
-              "end": 51,
-              "kind": "temporal"
-            }
-          ],
-          "otherModifiers": []
-        },
-        {
-          "id": "claim-frame-2",
-          "predicate": {
-            "id": "claim-frame-2-predicate",
-            "text": "went",
-            "start": 60,
-            "end": 64
-          },
-          "subjects": [
-            {
-              "id": "claim-frame-2-subject-1",
-              "text": "it",
-              "start": 57,
-              "end": 59
-            }
-          ],
-          "coreArguments": [],
-          "adjuncts": [
-            {
-              "id": "claim-frame-2-adjunct-1",
-              "text": "on 29 June 2007",
-              "start": 94,
-              "end": 109,
-              "kind": "temporal"
-            }
-          ],
-          "otherModifiers": [
-            {
-              "id": "claim-frame-2-other-modifier-1",
-              "text": "on sale in the United States",
-              "start": 65,
-              "end": 93
-            }
-          ]
-        }
-      ],
-      "cues": [
-        {
-          "id": "claim-cue-numeric-21-26",
-          "text": "first",
-          "start": 21,
-          "end": 26,
-          "kind": "numeric"
-        },
-        {
-          "id": "claim-cue-temporal-37-51",
-          "text": "9 January 2007",
-          "start": 37,
-          "end": 51,
-          "kind": "temporal"
-        },
-        {
-          "id": "claim-cue-temporal-97-109",
-          "text": "29 June 2007",
-          "start": 97,
-          "end": 109,
-          "kind": "temporal"
-        }
-      ],
-      "entities": [
-        {
-          "id": "claim-entity-org-0-5",
-          "text": "Apple",
-          "start": 0,
-          "end": 5,
-          "label": "ORG"
-        },
-        {
-          "id": "claim-entity-gpe-76-93",
-          "text": "the United States",
-          "start": 76,
-          "end": 93,
-          "label": "GPE"
-        }
-      ],
-      "tokens": [
-        {
-          "id": "claim-token-0",
-          "text": "Apple",
-          "start": 0,
-          "end": 5,
-          "lemma": "Apple",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "nsubj",
-          "head": "introduced"
-        },
-        {
-          "id": "claim-token-1",
-          "text": "introduced",
-          "start": 6,
-          "end": 16,
-          "lemma": "introduce",
-          "pos": "VERB",
-          "tag": "VBD",
-          "dependency": "ROOT",
-          "head": "ROOT"
-        },
-        {
-          "id": "claim-token-2",
-          "text": "the",
-          "start": 17,
-          "end": 20,
-          "lemma": "the",
-          "pos": "DET",
-          "tag": "DT",
-          "dependency": "det",
-          "head": "iPhone"
-        },
-        {
-          "id": "claim-token-3",
-          "text": "first",
-          "start": 21,
-          "end": 26,
-          "lemma": "first",
-          "pos": "ADJ",
-          "tag": "JJ",
-          "dependency": "amod",
-          "head": "iPhone"
-        },
-        {
-          "id": "claim-token-4",
-          "text": "iPhone",
-          "start": 27,
-          "end": 33,
-          "lemma": "iPhone",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "dobj",
-          "head": "introduced"
-        },
-        {
-          "id": "claim-token-5",
-          "text": "on",
-          "start": 34,
-          "end": 36,
-          "lemma": "on",
-          "pos": "ADP",
-          "tag": "IN",
-          "dependency": "prep",
-          "head": "introduced"
-        },
-        {
-          "id": "claim-token-6",
-          "text": "9",
-          "start": 37,
-          "end": 38,
-          "lemma": "9",
-          "pos": "NUM",
-          "tag": "CD",
-          "dependency": "nummod",
-          "head": "January"
-        },
-        {
-          "id": "claim-token-7",
-          "text": "January",
-          "start": 39,
-          "end": 46,
-          "lemma": "January",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "pobj",
-          "head": "on"
-        },
-        {
-          "id": "claim-token-8",
-          "text": "2007",
-          "start": 47,
-          "end": 51,
-          "lemma": "2007",
-          "pos": "NUM",
-          "tag": "CD",
-          "dependency": "nummod",
-          "head": "January"
-        },
-        {
-          "id": "claim-token-9",
-          "text": ",",
-          "start": 51,
-          "end": 52,
-          "lemma": ",",
-          "pos": "PUNCT",
-          "tag": ",",
-          "dependency": "punct",
-          "head": "introduced"
-        },
-        {
-          "id": "claim-token-10",
-          "text": "and",
-          "start": 53,
-          "end": 56,
-          "lemma": "and",
-          "pos": "CCONJ",
-          "tag": "CC",
-          "dependency": "cc",
-          "head": "introduced"
-        },
-        {
-          "id": "claim-token-11",
-          "text": "it",
-          "start": 57,
-          "end": 59,
-          "lemma": "it",
-          "pos": "PRON",
-          "tag": "PRP",
-          "dependency": "nsubj",
-          "head": "went"
-        },
-        {
-          "id": "claim-token-12",
-          "text": "went",
-          "start": 60,
-          "end": 64,
-          "lemma": "go",
-          "pos": "VERB",
-          "tag": "VBD",
-          "dependency": "conj",
-          "head": "introduced"
-        },
-        {
-          "id": "claim-token-13",
-          "text": "on",
-          "start": 65,
-          "end": 67,
-          "lemma": "on",
-          "pos": "ADP",
-          "tag": "IN",
-          "dependency": "prep",
-          "head": "went"
-        },
-        {
-          "id": "claim-token-14",
-          "text": "sale",
-          "start": 68,
-          "end": 72,
-          "lemma": "sale",
-          "pos": "NOUN",
-          "tag": "NN",
-          "dependency": "pobj",
-          "head": "on"
-        },
-        {
-          "id": "claim-token-15",
-          "text": "in",
-          "start": 73,
-          "end": 75,
-          "lemma": "in",
-          "pos": "ADP",
-          "tag": "IN",
-          "dependency": "prep",
-          "head": "sale"
-        },
-        {
-          "id": "claim-token-16",
-          "text": "the",
-          "start": 76,
-          "end": 79,
-          "lemma": "the",
-          "pos": "DET",
-          "tag": "DT",
-          "dependency": "det",
-          "head": "States"
-        },
-        {
-          "id": "claim-token-17",
-          "text": "United",
-          "start": 80,
-          "end": 86,
-          "lemma": "United",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "compound",
-          "head": "States"
-        },
-        {
-          "id": "claim-token-18",
-          "text": "States",
-          "start": 87,
-          "end": 93,
-          "lemma": "States",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "pobj",
-          "head": "in"
-        },
-        {
-          "id": "claim-token-19",
-          "text": "on",
-          "start": 94,
-          "end": 96,
-          "lemma": "on",
-          "pos": "ADP",
-          "tag": "IN",
-          "dependency": "prep",
-          "head": "went"
-        },
-        {
-          "id": "claim-token-20",
-          "text": "29",
-          "start": 97,
-          "end": 99,
-          "lemma": "29",
-          "pos": "NUM",
-          "tag": "CD",
-          "dependency": "nummod",
-          "head": "June"
-        },
-        {
-          "id": "claim-token-21",
-          "text": "June",
-          "start": 100,
-          "end": 104,
-          "lemma": "June",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "pobj",
-          "head": "on"
-        },
-        {
-          "id": "claim-token-22",
-          "text": "2007",
-          "start": 105,
-          "end": 109,
-          "lemma": "2007",
-          "pos": "NUM",
-          "tag": "CD",
-          "dependency": "nummod",
-          "head": "June"
-        },
-        {
-          "id": "claim-token-23",
-          "text": ".",
-          "start": 109,
-          "end": 110,
-          "lemma": ".",
-          "pos": "PUNCT",
-          "tag": ".",
-          "dependency": "punct",
-          "head": "went"
-        }
-      ],
-      "status": "complete",
-      "unresolved": []
-    },
-    "analyses": [
-      {
-        "atomId": "atom-1",
-        "frames": [
-          {
-            "id": "atom-1-frame-1",
-            "predicate": {
-              "id": "atom-1-frame-1-predicate",
-              "text": "introduced",
-              "start": 6,
-              "end": 16
-            },
-            "subjects": [
-              {
-                "id": "atom-1-frame-1-subject-1",
-                "text": "Apple",
-                "start": 0,
-                "end": 5
-              }
-            ],
-            "coreArguments": [
-              {
-                "id": "atom-1-frame-1-argument-1",
-                "text": "the first iPhone",
-                "start": 17,
-                "end": 33,
-                "role": "direct_object"
-              }
-            ],
-            "adjuncts": [
-              {
-                "id": "atom-1-frame-1-adjunct-1",
-                "text": "on 9 January 2007",
-                "start": 34,
-                "end": 51,
-                "kind": "temporal"
-              }
-            ],
-            "otherModifiers": []
-          }
-        ],
-        "cues": [
-          {
-            "id": "atom-1-cue-numeric-21-26",
-            "text": "first",
-            "start": 21,
-            "end": 26,
-            "kind": "numeric"
-          },
-          {
-            "id": "atom-1-cue-temporal-37-51",
-            "text": "9 January 2007",
-            "start": 37,
-            "end": 51,
-            "kind": "temporal"
-          }
-        ],
-        "entities": [
-          {
-            "id": "atom-1-entity-org-0-5",
-            "text": "Apple",
-            "start": 0,
-            "end": 5,
-            "label": "ORG"
-          }
-        ],
-        "tokens": [
-          {
-            "id": "atom-1-token-0",
-            "text": "Apple",
-            "start": 0,
-            "end": 5,
-            "lemma": "Apple",
-            "pos": "PROPN",
-            "tag": "NNP",
-            "dependency": "nsubj",
-            "head": "introduced"
-          },
-          {
-            "id": "atom-1-token-1",
-            "text": "introduced",
-            "start": 6,
-            "end": 16,
-            "lemma": "introduce",
-            "pos": "VERB",
-            "tag": "VBD",
-            "dependency": "ROOT",
-            "head": "ROOT"
-          },
-          {
-            "id": "atom-1-token-2",
-            "text": "the",
-            "start": 17,
-            "end": 20,
-            "lemma": "the",
-            "pos": "DET",
-            "tag": "DT",
-            "dependency": "det",
-            "head": "iPhone"
-          },
-          {
-            "id": "atom-1-token-3",
-            "text": "first",
-            "start": 21,
-            "end": 26,
-            "lemma": "first",
-            "pos": "ADJ",
-            "tag": "JJ",
-            "dependency": "amod",
-            "head": "iPhone"
-          },
-          {
-            "id": "atom-1-token-4",
-            "text": "iPhone",
-            "start": 27,
-            "end": 33,
-            "lemma": "iPhone",
-            "pos": "PROPN",
-            "tag": "NNP",
-            "dependency": "dobj",
-            "head": "introduced"
-          },
-          {
-            "id": "atom-1-token-5",
-            "text": "on",
-            "start": 34,
-            "end": 36,
-            "lemma": "on",
-            "pos": "ADP",
-            "tag": "IN",
-            "dependency": "prep",
-            "head": "introduced"
-          },
-          {
-            "id": "atom-1-token-6",
-            "text": "9",
-            "start": 37,
-            "end": 38,
-            "lemma": "9",
-            "pos": "NUM",
-            "tag": "CD",
-            "dependency": "nummod",
-            "head": "January"
-          },
-          {
-            "id": "atom-1-token-7",
-            "text": "January",
-            "start": 39,
-            "end": 46,
-            "lemma": "January",
-            "pos": "PROPN",
-            "tag": "NNP",
-            "dependency": "pobj",
-            "head": "on"
-          },
-          {
-            "id": "atom-1-token-8",
-            "text": "2007",
-            "start": 47,
-            "end": 51,
-            "lemma": "2007",
-            "pos": "NUM",
-            "tag": "CD",
-            "dependency": "nummod",
-            "head": "January"
-          },
-          {
-            "id": "atom-1-token-9",
-            "text": ".",
-            "start": 51,
-            "end": 52,
-            "lemma": ".",
-            "pos": "PUNCT",
-            "tag": ".",
-            "dependency": "punct",
-            "head": "introduced"
-          }
-        ],
-        "status": "complete",
-        "unresolved": []
-      },
-      {
-        "atomId": "atom-2",
-        "frames": [
-          {
-            "id": "atom-2-frame-1",
-            "predicate": {
-              "id": "atom-2-frame-1-predicate",
-              "text": "went",
-              "start": 17,
-              "end": 21
-            },
-            "subjects": [
-              {
-                "id": "atom-2-frame-1-subject-1",
-                "text": "The first iPhone",
-                "start": 0,
-                "end": 16
-              }
-            ],
-            "coreArguments": [],
-            "adjuncts": [
-              {
-                "id": "atom-2-frame-1-adjunct-1",
-                "text": "on 29 June 2007",
-                "start": 51,
-                "end": 66,
-                "kind": "temporal"
-              }
-            ],
-            "otherModifiers": [
-              {
-                "id": "atom-2-frame-1-other-modifier-1",
-                "text": "on sale",
-                "start": 22,
-                "end": 29
-              },
-              {
-                "id": "atom-2-frame-1-other-modifier-2",
-                "text": "in the United States",
-                "start": 30,
-                "end": 50
-              }
-            ]
-          }
-        ],
-        "cues": [
-          {
-            "id": "atom-2-cue-numeric-4-9",
-            "text": "first",
-            "start": 4,
-            "end": 9,
-            "kind": "numeric"
-          },
-          {
-            "id": "atom-2-cue-temporal-54-66",
-            "text": "29 June 2007",
-            "start": 54,
-            "end": 66,
-            "kind": "temporal"
-          }
-        ],
-        "entities": [
-          {
-            "id": "atom-2-entity-gpe-33-50",
-            "text": "the United States",
-            "start": 33,
-            "end": 50,
-            "label": "GPE"
-          }
-        ],
-        "tokens": [
-          {
-            "id": "atom-2-token-0",
-            "text": "The",
-            "start": 0,
-            "end": 3,
-            "lemma": "the",
-            "pos": "DET",
-            "tag": "DT",
-            "dependency": "det",
-            "head": "iPhone"
-          },
-          {
-            "id": "atom-2-token-1",
-            "text": "first",
-            "start": 4,
-            "end": 9,
-            "lemma": "first",
-            "pos": "ADJ",
-            "tag": "JJ",
-            "dependency": "amod",
-            "head": "iPhone"
-          },
-          {
-            "id": "atom-2-token-2",
-            "text": "iPhone",
-            "start": 10,
-            "end": 16,
-            "lemma": "iPhone",
-            "pos": "PROPN",
-            "tag": "NNP",
-            "dependency": "nsubj",
-            "head": "went"
-          },
-          {
-            "id": "atom-2-token-3",
-            "text": "went",
-            "start": 17,
-            "end": 21,
-            "lemma": "go",
-            "pos": "VERB",
-            "tag": "VBD",
-            "dependency": "ROOT",
-            "head": "ROOT"
-          },
-          {
-            "id": "atom-2-token-4",
-            "text": "on",
-            "start": 22,
-            "end": 24,
-            "lemma": "on",
-            "pos": "ADP",
-            "tag": "IN",
-            "dependency": "prep",
-            "head": "went"
-          },
-          {
-            "id": "atom-2-token-5",
-            "text": "sale",
-            "start": 25,
-            "end": 29,
-            "lemma": "sale",
-            "pos": "NOUN",
-            "tag": "NN",
-            "dependency": "pobj",
-            "head": "on"
-          },
-          {
-            "id": "atom-2-token-6",
-            "text": "in",
-            "start": 30,
-            "end": 32,
-            "lemma": "in",
-            "pos": "ADP",
-            "tag": "IN",
-            "dependency": "prep",
-            "head": "went"
-          },
-          {
-            "id": "atom-2-token-7",
-            "text": "the",
-            "start": 33,
-            "end": 36,
-            "lemma": "the",
-            "pos": "DET",
-            "tag": "DT",
-            "dependency": "det",
-            "head": "States"
-          },
-          {
-            "id": "atom-2-token-8",
-            "text": "United",
-            "start": 37,
-            "end": 43,
-            "lemma": "United",
-            "pos": "PROPN",
-            "tag": "NNP",
-            "dependency": "compound",
-            "head": "States"
-          },
-          {
-            "id": "atom-2-token-9",
-            "text": "States",
-            "start": 44,
-            "end": 50,
-            "lemma": "States",
-            "pos": "PROPN",
-            "tag": "NNP",
-            "dependency": "pobj",
-            "head": "in"
-          },
-          {
-            "id": "atom-2-token-10",
-            "text": "on",
-            "start": 51,
-            "end": 53,
-            "lemma": "on",
-            "pos": "ADP",
-            "tag": "IN",
-            "dependency": "prep",
-            "head": "went"
-          },
-          {
-            "id": "atom-2-token-11",
-            "text": "29",
-            "start": 54,
-            "end": 56,
-            "lemma": "29",
-            "pos": "NUM",
-            "tag": "CD",
-            "dependency": "nummod",
-            "head": "June"
-          },
-          {
-            "id": "atom-2-token-12",
-            "text": "June",
-            "start": 57,
-            "end": 61,
-            "lemma": "June",
-            "pos": "PROPN",
-            "tag": "NNP",
-            "dependency": "pobj",
-            "head": "on"
-          },
-          {
-            "id": "atom-2-token-13",
-            "text": "2007",
-            "start": 62,
-            "end": 66,
-            "lemma": "2007",
-            "pos": "NUM",
-            "tag": "CD",
-            "dependency": "nummod",
-            "head": "June"
-          },
-          {
-            "id": "atom-2-token-14",
-            "text": ".",
-            "start": 66,
-            "end": 67,
-            "lemma": ".",
-            "pos": "PUNCT",
-            "tag": ".",
-            "dependency": "punct",
-            "head": "went"
-          }
-        ],
-        "status": "complete",
-        "unresolved": []
-      }
-    ],
-    "summaries": [
-      {
-        "atomId": "atom-1",
-        "analysisStatus": "complete",
-        "roleAudit": "MATCH",
-        "subjects": [
-          "Apple"
-        ],
-        "predicates": [
-          "introduce"
-        ],
-        "cueKinds": [
-          "numeric",
-          "temporal"
-        ],
-        "modifierKinds": [
-          "temporal"
-        ],
-        "entityLabels": [
-          "ORG"
-        ],
-        "warnings": []
-      },
-      {
-        "atomId": "atom-2",
-        "analysisStatus": "complete",
-        "roleAudit": "MATCH",
-        "subjects": [
-          "The first iPhone"
-        ],
-        "predicates": [
-          "go"
-        ],
-        "cueKinds": [
-          "numeric",
-          "temporal"
-        ],
-        "modifierKinds": [
-          "temporal"
-        ],
-        "entityLabels": [
-          "GPE"
-        ],
-        "warnings": []
-      }
-    ],
-    "claimWarnings": [],
-    "provider": "spacy",
-    "model": "en_core_web_sm@3.8.0"
-  },
   "verdict": {
     "aggregationSchemaVersion": 3,
     "claimId": "showcase-technology-iphone",
@@ -1334,21 +515,20 @@
     ]
   },
   "recordedWith": {
-    "pipelineRevision": "submission-ready-v2",
+    "pipelineRevision": "submission-ready-v3",
     "inputDigest": "af8cdd330941dc5acc88a65992da98636e3089d77f6b72f66fb09d2c3372c7d9",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
     "retrievalMethod": "HYBRID",
     "assessmentModel": "qwen2.5:7b",
-    "reasoningModel": "qwen2.5:7b",
-    "linguisticsModel": "en_core_web_sm@3.8.0"
+    "reasoningModel": "qwen2.5:7b"
   },
   "timingsSeconds": {
-    "decomposition": 25.13,
-    "retrievalAndLinguistics": 0.398,
-    "evidenceAssessment": 32.415,
-    "symbolicReasoning": 19.862,
-    "aggregation": 0.004,
-    "total": 77.81
+    "decomposition": 21.277,
+    "retrieval": 0.257,
+    "evidenceAssessment": 27.193,
+    "symbolicReasoning": 16.551,
+    "aggregation": 0.006,
+    "total": 65.285
   }
 }

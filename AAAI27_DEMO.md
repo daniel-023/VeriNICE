@@ -12,8 +12,8 @@ verdict that an audience can challenge in real time.
 
 ## What is novel
 
-The strongest contribution is not linguistic analysis by itself. It is the
-connection between several AI methods in one audience-facing system:
+The strongest contribution is the connection between several AI methods in
+one audience-facing system:
 
 1. schema-constrained, contextualized claim decomposition;
 2. hybrid dense and lexical evidence retrieval;
@@ -24,11 +24,6 @@ connection between several AI methods in one audience-facing system:
 6. reviewer-editable support, refute, context, and unselected relations; and
 7. exact source spans and an audit trail for every displayed result.
 
-The linguistic view is supporting instrumentation. It helps a user notice
-lost entities, qualifiers, negation, modality, and role drift. It never counts
-as evidence and cannot alter the verdict. That boundary is important: it makes
-the system easier to inspect without overstating what a parser can prove.
-
 ## Research positioning
 
 - WiCE (Kamoi et al., 2023) remains related work for real-world entailment and
@@ -38,10 +33,8 @@ the system easier to inspect without overstating what a parser can prove.
   to the decomposition method and frame decomposition quality through coverage,
   coherence, and atomicity.
 - FactLens (Mitra et al., 2025) is the primary contemporary reference for
-  fine-grained verification and subclaim quality. VeriNICE's diagnostic report
-  follows its concerns—atomicity, coverage, sufficiency, non-fabrication,
-  non-redundancy, and readability—but clearly labels the implemented checks as
-  deterministic proxies rather than the FactLens evaluator.
+  fine-grained verification and subclaim quality, including atomicity,
+  coverage, sufficiency, non-fabrication, non-redundancy, and readability.
 - Hu et al. (2025) show that decomposition can introduce noise as well as
   improve verification. VeriNICE responds by exposing decomposition warnings,
   retaining exact source grounding, and measuring downstream verdict behavior.
@@ -74,7 +67,7 @@ criteria as follows:
 | Significance | Shows where a verdict came from and where the pipeline abstained | Short comparison against an opaque label-only baseline |
 | AI relevance | NLP, retrieval, evidence assessment, symbolic execution, and human-AI inspection | State the bridge across methods in abstract and first video minute |
 | Engagement | Five intuitive categories, grouped examples, and live custom input | Rehearse three audience-selected branches under five minutes |
-| New ideas | Typed obligations connected to deterministic, inspectable aggregation | Avoid claiming novelty for standard models or linguistic parsing |
+| New ideas | Typed obligations connected to deterministic, inspectable aggregation | Avoid claiming novelty for standard models |
 | Reliability | Local models, preflight command, recorded walkthrough fallback | Full offline rehearsal on the actual conference laptop |
 
 ## Implemented in this revision
@@ -98,8 +91,6 @@ criteria as follows:
 - Kept AVeriTeC's human question-answer annotations outside runtime documents
   and model inputs. The demo operates only on recovered source text; upstream
   annotations are reserved for optional offline evaluation.
-- Added decomposition diagnostics aligned with recent literature and kept their
-  proxy status explicit.
 - Replaced model-centric interface labels with task-centric language.
 - Added a paper draft, timed video script, and live/backup runbook under
   `submission/`.
@@ -107,7 +98,7 @@ criteria as follows:
 ## Evidence still required
 
 The private bundle retains 32 source-only cases for internal regression checks.
-The hosted schema-version-6 walkthrough contains 18 qualitative demonstrations.
+The hosted schema-version-7 walkthrough contains 18 qualitative demonstrations.
 Manual auditing of every displayed relation and resolved rule
 result remains required. Before submission:
 
@@ -116,8 +107,7 @@ result remains required. Before submission:
 2. rerun and inspect all 18 showcase cases after every model or rule change;
 3. avoid presenting the curated cases as an accuracy sample; and
 4. conduct a small human study of decomposition quality, evidence correction,
-   and trace usefulness because the current diagnostics are only deterministic
-   proxies.
+   and trace usefulness.
 
 ## Submission requirements and dates
 

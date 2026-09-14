@@ -19,10 +19,10 @@ describe("static walkthrough data", () => {
     await walkthroughApi.cases();
 
     expect(fetchMock).toHaveBeenCalledWith("/walkthrough/catalog.json", {
-      cache: "force-cache",
+      cache: "no-cache",
     });
     expect(fetchMock).toHaveBeenCalledWith("/walkthrough/metadata.json", {
-      cache: "force-cache",
+      cache: "no-cache",
     });
   });
 });

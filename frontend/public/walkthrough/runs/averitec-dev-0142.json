@@ -1,6 +1,6 @@
 {
   "caseId": "averitec-dev-0142",
-  "schemaVersion": 6,
+  "schemaVersion": 7,
   "composition": "AND",
   "warnings": [
     {
@@ -189,7 +189,7 @@
           "doc-3947a328a770::sentence-360"
         ],
         "sufficiency": "SUFFICIENT",
-        "missingInformation": "The evidence does not specify the exact number of non-COVID related deaths attributed to hospital closures, only that there were excess deaths attributed to the pandemic in general.",
+        "missingInformation": "",
         "reason": "The evidence supports the CDC's statement of excess deaths, but does not specify the exact number of non-COVID related deaths attributed to hospital closures.",
         "scopeChecks": [
           {
@@ -341,53 +341,31 @@
   },
   "reasoning": [
     {
-      "id": "proof:atom-1:numeric_compare:2",
+      "id": "proof:atom-1:numeric_compare:unresolved",
       "atomId": "atom-1",
       "operator": "NUMERIC_COMPARE",
+      "profile": "GENERIC_NUMERIC_THRESHOLD",
       "status": "UNRESOLVED",
       "relation": null,
-      "premiseIds": [
-        "evidence:atom-1:doc-c6bdf9df67b6:doc-c6bdf9df67b6::sentence-310",
-        "evidence:atom-1:doc-c6bdf9df67b6:doc-c6bdf9df67b6::sentence-174",
-        "evidence:atom-1:doc-c6bdf9df67b6:doc-c6bdf9df67b6::sentence-25"
-      ],
-      "premises": [
-        {
-          "id": "evidence:atom-1:doc-c6bdf9df67b6:doc-c6bdf9df67b6::sentence-310",
-          "documentId": "doc-c6bdf9df67b6",
-          "text": "- Notes from the Field: Update on Excess Deaths Associated with the COVID-19 Pandemic — United States, January 26, 2020–February 27, 2021\n",
-          "start": 34278,
-          "end": 34416,
-          "kind": "EVIDENCE",
-          "contentHash": null,
-          "itemCount": null
-        },
-        {
-          "id": "evidence:atom-1:doc-c6bdf9df67b6:doc-c6bdf9df67b6::sentence-174",
-          "documentId": "doc-c6bdf9df67b6",
-          "text": "- Impact of Hospital Strain on Excess Deaths During the COVID-19 Pandemic — United States, July 2020–July 2021\n",
-          "start": 19016,
-          "end": 19127,
-          "kind": "EVIDENCE",
-          "contentHash": null,
-          "itemCount": null
-        },
-        {
-          "id": "evidence:atom-1:doc-c6bdf9df67b6:doc-c6bdf9df67b6::sentence-25",
-          "documentId": "doc-c6bdf9df67b6",
-          "text": "- COVID-19 and Other Underlying Causes of Cancer Deaths — United States, January 2018–July 2022\n",
-          "start": 2472,
-          "end": 2568,
-          "kind": "EVIDENCE",
-          "contentHash": null,
-          "itemCount": null
-        }
-      ],
-      "expression": "value > 98,000",
-      "conclusion": "Numeric relation is ambiguous",
-      "explanation": "Entity, measure, or time alignment was not unique.",
+      "premiseIds": [],
+      "premises": [],
+      "expression": "numeric compare",
+      "conclusion": "No grounded program was compiled.",
+      "explanation": "Qwen did not map the typed candidate to sufficient server-owned premises.",
       "validationWarnings": [
-        "AMBIGUOUS_NUMERIC_MAPPING"
+        "NO_GROUNDED_PROGRAM"
+      ],
+      "preconditions": [
+        {
+          "name": "Registered profile",
+          "status": "PASSED",
+          "detail": "generic numeric threshold"
+        },
+        {
+          "name": "Operand alignment",
+          "status": "UNRESOLVED",
+          "detail": "The model did not map the candidate to sufficient server-owned premises."
+        }
       ],
       "program": {
         "version": 1,
@@ -396,25 +374,7 @@
             "id": "input-1",
             "operation": "LOOKUP",
             "inputIds": [
-              "evidence:atom-1:doc-c6bdf9df67b6:doc-c6bdf9df67b6::sentence-310"
-            ],
-            "outputType": "FACT",
-            "description": "Read an unchanged server-owned premise."
-          },
-          {
-            "id": "input-2",
-            "operation": "LOOKUP",
-            "inputIds": [
-              "evidence:atom-1:doc-c6bdf9df67b6:doc-c6bdf9df67b6::sentence-174"
-            ],
-            "outputType": "FACT",
-            "description": "Read an unchanged server-owned premise."
-          },
-          {
-            "id": "input-3",
-            "operation": "LOOKUP",
-            "inputIds": [
-              "evidence:atom-1:doc-c6bdf9df67b6:doc-c6bdf9df67b6::sentence-25"
+              "candidate:atom-1:numeric"
             ],
             "outputType": "FACT",
             "description": "Read an unchanged server-owned premise."
@@ -423,9 +383,7 @@
             "id": "result",
             "operation": "NUMERIC_COMPARE",
             "inputIds": [
-              "input-1",
-              "input-2",
-              "input-3"
+              "input-1"
             ],
             "outputType": "BOOLEAN",
             "description": "Validate operand alignment and execute the typed operation in Python."
@@ -438,6 +396,7 @@
       "id": "proof:atom-1:attribute_compare:1",
       "atomId": "atom-1",
       "operator": "ATTRIBUTE_COMPARE",
+      "profile": "EXPLICIT_NEGATION",
       "status": "UNRESOLVED",
       "relation": null,
       "premiseIds": [
@@ -452,7 +411,8 @@
           "end": 9100,
           "kind": "EVIDENCE",
           "contentHash": null,
-          "itemCount": null
+          "itemCount": null,
+          "listItems": []
         }
       ],
       "expression": "attribute comparison",
@@ -460,6 +420,23 @@
       "explanation": "The selected premises do not explicitly identify the claim subject.",
       "validationWarnings": [
         "MISSING_ENTITY_ALIGNMENT"
+      ],
+      "preconditions": [
+        {
+          "name": "Source grounding",
+          "status": "PASSED",
+          "detail": "6 selected premise(s) retain exact source offsets."
+        },
+        {
+          "name": "Registered profile",
+          "status": "PASSED",
+          "detail": "explicit negation"
+        },
+        {
+          "name": "Operand alignment",
+          "status": "UNRESOLVED",
+          "detail": "The selected premises do not explicitly identify the claim subject."
+        }
       ],
       "program": {
         "version": 1,
@@ -487,18 +464,62 @@
       }
     },
     {
-      "id": "proof:atom-2:attribute_compare:unresolved",
+      "id": "proof:atom-2:attribute_compare:2",
       "atomId": "atom-2",
       "operator": "ATTRIBUTE_COMPARE",
+      "profile": "EXPLICIT_NEGATION",
       "status": "UNRESOLVED",
       "relation": null,
-      "premiseIds": [],
-      "premises": [],
-      "expression": "attribute compare",
-      "conclusion": "No grounded program was compiled.",
-      "explanation": "Qwen did not map the typed candidate to sufficient server-owned premises.",
+      "premiseIds": [
+        "evidence:atom-2:doc-c6bdf9df67b6:doc-c6bdf9df67b6::sentence-174",
+        "evidence:atom-2:doc-c6bdf9df67b6:doc-c6bdf9df67b6::sentence-61"
+      ],
+      "premises": [
+        {
+          "id": "evidence:atom-2:doc-c6bdf9df67b6:doc-c6bdf9df67b6::sentence-174",
+          "documentId": "doc-c6bdf9df67b6",
+          "text": "- Impact of Hospital Strain on Excess Deaths During the COVID-19 Pandemic — United States, July 2020–July 2021\n",
+          "start": 19016,
+          "end": 19127,
+          "kind": "EVIDENCE",
+          "contentHash": null,
+          "itemCount": null,
+          "listItems": []
+        },
+        {
+          "id": "evidence:atom-2:doc-c6bdf9df67b6:doc-c6bdf9df67b6::sentence-61",
+          "documentId": "doc-c6bdf9df67b6",
+          "text": "- Notes from the Field: Increase in Pediatric Intracranial Infections During the COVID-19 Pandemic — Eight Pediatric Hospitals, United States, March 2020–March 2022\n",
+          "start": 6091,
+          "end": 6256,
+          "kind": "EVIDENCE",
+          "contentHash": null,
+          "itemCount": null,
+          "listItems": []
+        }
+      ],
+      "expression": "attribute comparison",
+      "conclusion": "Entity alignment is unresolved",
+      "explanation": "The selected premises do not explicitly identify the claim subject.",
       "validationWarnings": [
-        "NO_GROUNDED_PROGRAM"
+        "MISSING_ENTITY_ALIGNMENT"
+      ],
+      "preconditions": [
+        {
+          "name": "Source grounding",
+          "status": "PASSED",
+          "detail": "8 selected premise(s) retain exact source offsets."
+        },
+        {
+          "name": "Registered profile",
+          "status": "PASSED",
+          "detail": "explicit negation"
+        },
+        {
+          "name": "Operand alignment",
+          "status": "UNRESOLVED",
+          "detail": "The selected premises do not explicitly identify the claim subject."
+        }
       ],
       "program": {
         "version": 1,
@@ -507,7 +528,16 @@
             "id": "input-1",
             "operation": "LOOKUP",
             "inputIds": [
-              "candidate:atom-2:attribute"
+              "evidence:atom-2:doc-c6bdf9df67b6:doc-c6bdf9df67b6::sentence-174"
+            ],
+            "outputType": "FACT",
+            "description": "Read an unchanged server-owned premise."
+          },
+          {
+            "id": "input-2",
+            "operation": "LOOKUP",
+            "inputIds": [
+              "evidence:atom-2:doc-c6bdf9df67b6:doc-c6bdf9df67b6::sentence-61"
             ],
             "outputType": "FACT",
             "description": "Read an unchanged server-owned premise."
@@ -516,7 +546,8 @@
             "id": "result",
             "operation": "EQUAL",
             "inputIds": [
-              "input-1"
+              "input-1",
+              "input-2"
             ],
             "outputType": "BOOLEAN",
             "description": "Validate operand alignment and execute the typed operation in Python."
@@ -526,998 +557,6 @@
       }
     }
   ],
-  "linguistics": {
-    "schemaVersion": 2,
-    "claimAnalysis": {
-      "atomId": "claim",
-      "frames": [
-        {
-          "id": "claim-frame-1",
-          "predicate": {
-            "id": "claim-frame-1-predicate",
-            "text": "said",
-            "start": 12,
-            "end": 16
-          },
-          "subjects": [
-            {
-              "id": "claim-frame-1-subject-1",
-              "text": "The CDC",
-              "start": 0,
-              "end": 7
-            }
-          ],
-          "coreArguments": [
-            {
-              "id": "claim-frame-1-argument-1",
-              "text": "over 98,000 people had non-COVID related deaths because of hospitals that were closed down for non-essential services",
-              "start": 17,
-              "end": 134,
-              "role": "clausal_complement"
-            }
-          ],
-          "adjuncts": [],
-          "otherModifiers": []
-        },
-        {
-          "id": "claim-frame-2",
-          "predicate": {
-            "id": "claim-frame-2-predicate",
-            "text": "had",
-            "start": 36,
-            "end": 39
-          },
-          "subjects": [
-            {
-              "id": "claim-frame-2-subject-1",
-              "text": "over 98,000 people",
-              "start": 17,
-              "end": 35
-            }
-          ],
-          "coreArguments": [
-            {
-              "id": "claim-frame-2-argument-1",
-              "text": "non-COVID related deaths",
-              "start": 40,
-              "end": 64,
-              "role": "direct_object"
-            }
-          ],
-          "adjuncts": [
-            {
-              "id": "claim-frame-2-adjunct-1",
-              "text": "because of hospitals that were closed down for non-essential services",
-              "start": 65,
-              "end": 134,
-              "kind": "causal"
-            }
-          ],
-          "otherModifiers": []
-        }
-      ],
-      "cues": [
-        {
-          "id": "claim-cue-attribution-12-16",
-          "text": "said",
-          "start": 12,
-          "end": 16,
-          "kind": "attribution"
-        },
-        {
-          "id": "claim-cue-numeric-17-28",
-          "text": "over 98,000",
-          "start": 17,
-          "end": 28,
-          "kind": "numeric"
-        }
-      ],
-      "entities": [
-        {
-          "id": "claim-entity-org-4-7",
-          "text": "CDC",
-          "start": 4,
-          "end": 7,
-          "label": "ORG"
-        }
-      ],
-      "tokens": [
-        {
-          "id": "claim-token-0",
-          "text": "The",
-          "start": 0,
-          "end": 3,
-          "lemma": "the",
-          "pos": "DET",
-          "tag": "DT",
-          "dependency": "det",
-          "head": "CDC"
-        },
-        {
-          "id": "claim-token-1",
-          "text": "CDC",
-          "start": 4,
-          "end": 7,
-          "lemma": "CDC",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "nsubj",
-          "head": "said"
-        },
-        {
-          "id": "claim-token-2",
-          "text": "has",
-          "start": 8,
-          "end": 11,
-          "lemma": "have",
-          "pos": "AUX",
-          "tag": "VBZ",
-          "dependency": "aux",
-          "head": "said"
-        },
-        {
-          "id": "claim-token-3",
-          "text": "said",
-          "start": 12,
-          "end": 16,
-          "lemma": "say",
-          "pos": "VERB",
-          "tag": "VBN",
-          "dependency": "ROOT",
-          "head": "ROOT"
-        },
-        {
-          "id": "claim-token-4",
-          "text": "over",
-          "start": 17,
-          "end": 21,
-          "lemma": "over",
-          "pos": "ADP",
-          "tag": "IN",
-          "dependency": "quantmod",
-          "head": "98,000"
-        },
-        {
-          "id": "claim-token-5",
-          "text": "98,000",
-          "start": 22,
-          "end": 28,
-          "lemma": "98,000",
-          "pos": "NUM",
-          "tag": "CD",
-          "dependency": "nummod",
-          "head": "people"
-        },
-        {
-          "id": "claim-token-6",
-          "text": "people",
-          "start": 29,
-          "end": 35,
-          "lemma": "people",
-          "pos": "NOUN",
-          "tag": "NNS",
-          "dependency": "nsubj",
-          "head": "had"
-        },
-        {
-          "id": "claim-token-7",
-          "text": "had",
-          "start": 36,
-          "end": 39,
-          "lemma": "have",
-          "pos": "VERB",
-          "tag": "VBD",
-          "dependency": "ccomp",
-          "head": "said"
-        },
-        {
-          "id": "claim-token-8",
-          "text": "non",
-          "start": 40,
-          "end": 43,
-          "lemma": "non",
-          "pos": "ADJ",
-          "tag": "JJ",
-          "dependency": "amod",
-          "head": "deaths"
-        },
-        {
-          "id": "claim-token-9",
-          "text": "-",
-          "start": 43,
-          "end": 44,
-          "lemma": "-",
-          "pos": "ADJ",
-          "tag": "JJ",
-          "dependency": "amod",
-          "head": "deaths"
-        },
-        {
-          "id": "claim-token-10",
-          "text": "COVID",
-          "start": 44,
-          "end": 49,
-          "lemma": "covid",
-          "pos": "ADJ",
-          "tag": "JJ",
-          "dependency": "amod",
-          "head": "deaths"
-        },
-        {
-          "id": "claim-token-11",
-          "text": "related",
-          "start": 50,
-          "end": 57,
-          "lemma": "related",
-          "pos": "ADJ",
-          "tag": "JJ",
-          "dependency": "amod",
-          "head": "deaths"
-        },
-        {
-          "id": "claim-token-12",
-          "text": "deaths",
-          "start": 58,
-          "end": 64,
-          "lemma": "death",
-          "pos": "NOUN",
-          "tag": "NNS",
-          "dependency": "dobj",
-          "head": "had"
-        },
-        {
-          "id": "claim-token-13",
-          "text": "because",
-          "start": 65,
-          "end": 72,
-          "lemma": "because",
-          "pos": "SCONJ",
-          "tag": "IN",
-          "dependency": "prep",
-          "head": "had"
-        },
-        {
-          "id": "claim-token-14",
-          "text": "of",
-          "start": 73,
-          "end": 75,
-          "lemma": "of",
-          "pos": "ADP",
-          "tag": "IN",
-          "dependency": "pcomp",
-          "head": "because"
-        },
-        {
-          "id": "claim-token-15",
-          "text": "hospitals",
-          "start": 76,
-          "end": 85,
-          "lemma": "hospital",
-          "pos": "NOUN",
-          "tag": "NNS",
-          "dependency": "pobj",
-          "head": "because"
-        },
-        {
-          "id": "claim-token-16",
-          "text": "that",
-          "start": 86,
-          "end": 90,
-          "lemma": "that",
-          "pos": "PRON",
-          "tag": "WDT",
-          "dependency": "nsubjpass",
-          "head": "closed"
-        },
-        {
-          "id": "claim-token-17",
-          "text": "were",
-          "start": 91,
-          "end": 95,
-          "lemma": "be",
-          "pos": "AUX",
-          "tag": "VBD",
-          "dependency": "auxpass",
-          "head": "closed"
-        },
-        {
-          "id": "claim-token-18",
-          "text": "closed",
-          "start": 96,
-          "end": 102,
-          "lemma": "close",
-          "pos": "VERB",
-          "tag": "VBN",
-          "dependency": "relcl",
-          "head": "hospitals"
-        },
-        {
-          "id": "claim-token-19",
-          "text": "down",
-          "start": 103,
-          "end": 107,
-          "lemma": "down",
-          "pos": "ADP",
-          "tag": "RP",
-          "dependency": "prt",
-          "head": "closed"
-        },
-        {
-          "id": "claim-token-20",
-          "text": "for",
-          "start": 108,
-          "end": 111,
-          "lemma": "for",
-          "pos": "ADP",
-          "tag": "IN",
-          "dependency": "prep",
-          "head": "closed"
-        },
-        {
-          "id": "claim-token-21",
-          "text": "non",
-          "start": 112,
-          "end": 115,
-          "lemma": "non",
-          "pos": "ADJ",
-          "tag": "JJ",
-          "dependency": "amod",
-          "head": "services"
-        },
-        {
-          "id": "claim-token-22",
-          "text": "-",
-          "start": 115,
-          "end": 116,
-          "lemma": "-",
-          "pos": "ADJ",
-          "tag": "JJ",
-          "dependency": "amod",
-          "head": "services"
-        },
-        {
-          "id": "claim-token-23",
-          "text": "essential",
-          "start": 116,
-          "end": 125,
-          "lemma": "essential",
-          "pos": "ADJ",
-          "tag": "JJ",
-          "dependency": "amod",
-          "head": "services"
-        },
-        {
-          "id": "claim-token-24",
-          "text": "services",
-          "start": 126,
-          "end": 134,
-          "lemma": "service",
-          "pos": "NOUN",
-          "tag": "NNS",
-          "dependency": "pobj",
-          "head": "for"
-        }
-      ],
-      "status": "complete",
-      "unresolved": []
-    },
-    "analyses": [
-      {
-        "atomId": "atom-1",
-        "frames": [
-          {
-            "id": "atom-1-frame-1",
-            "predicate": {
-              "id": "atom-1-frame-1-predicate",
-              "text": "said",
-              "start": 12,
-              "end": 16
-            },
-            "subjects": [
-              {
-                "id": "atom-1-frame-1-subject-1",
-                "text": "The CDC",
-                "start": 0,
-                "end": 7
-              }
-            ],
-            "coreArguments": [
-              {
-                "id": "atom-1-frame-1-argument-1",
-                "text": "over 98,000 people had non-COVID related deaths",
-                "start": 17,
-                "end": 64,
-                "role": "clausal_complement"
-              }
-            ],
-            "adjuncts": [],
-            "otherModifiers": []
-          },
-          {
-            "id": "atom-1-frame-2",
-            "predicate": {
-              "id": "atom-1-frame-2-predicate",
-              "text": "had",
-              "start": 36,
-              "end": 39
-            },
-            "subjects": [
-              {
-                "id": "atom-1-frame-2-subject-1",
-                "text": "over 98,000 people",
-                "start": 17,
-                "end": 35
-              }
-            ],
-            "coreArguments": [
-              {
-                "id": "atom-1-frame-2-argument-1",
-                "text": "non-COVID related deaths",
-                "start": 40,
-                "end": 64,
-                "role": "direct_object"
-              }
-            ],
-            "adjuncts": [],
-            "otherModifiers": []
-          }
-        ],
-        "cues": [
-          {
-            "id": "atom-1-cue-attribution-12-16",
-            "text": "said",
-            "start": 12,
-            "end": 16,
-            "kind": "attribution"
-          },
-          {
-            "id": "atom-1-cue-numeric-17-28",
-            "text": "over 98,000",
-            "start": 17,
-            "end": 28,
-            "kind": "numeric"
-          }
-        ],
-        "entities": [
-          {
-            "id": "atom-1-entity-org-4-7",
-            "text": "CDC",
-            "start": 4,
-            "end": 7,
-            "label": "ORG"
-          }
-        ],
-        "tokens": [
-          {
-            "id": "atom-1-token-0",
-            "text": "The",
-            "start": 0,
-            "end": 3,
-            "lemma": "the",
-            "pos": "DET",
-            "tag": "DT",
-            "dependency": "det",
-            "head": "CDC"
-          },
-          {
-            "id": "atom-1-token-1",
-            "text": "CDC",
-            "start": 4,
-            "end": 7,
-            "lemma": "CDC",
-            "pos": "PROPN",
-            "tag": "NNP",
-            "dependency": "nsubj",
-            "head": "said"
-          },
-          {
-            "id": "atom-1-token-2",
-            "text": "has",
-            "start": 8,
-            "end": 11,
-            "lemma": "have",
-            "pos": "AUX",
-            "tag": "VBZ",
-            "dependency": "aux",
-            "head": "said"
-          },
-          {
-            "id": "atom-1-token-3",
-            "text": "said",
-            "start": 12,
-            "end": 16,
-            "lemma": "say",
-            "pos": "VERB",
-            "tag": "VBN",
-            "dependency": "ROOT",
-            "head": "ROOT"
-          },
-          {
-            "id": "atom-1-token-4",
-            "text": "over",
-            "start": 17,
-            "end": 21,
-            "lemma": "over",
-            "pos": "ADP",
-            "tag": "IN",
-            "dependency": "quantmod",
-            "head": "98,000"
-          },
-          {
-            "id": "atom-1-token-5",
-            "text": "98,000",
-            "start": 22,
-            "end": 28,
-            "lemma": "98,000",
-            "pos": "NUM",
-            "tag": "CD",
-            "dependency": "nummod",
-            "head": "people"
-          },
-          {
-            "id": "atom-1-token-6",
-            "text": "people",
-            "start": 29,
-            "end": 35,
-            "lemma": "people",
-            "pos": "NOUN",
-            "tag": "NNS",
-            "dependency": "nsubj",
-            "head": "had"
-          },
-          {
-            "id": "atom-1-token-7",
-            "text": "had",
-            "start": 36,
-            "end": 39,
-            "lemma": "have",
-            "pos": "VERB",
-            "tag": "VBD",
-            "dependency": "ccomp",
-            "head": "said"
-          },
-          {
-            "id": "atom-1-token-8",
-            "text": "non",
-            "start": 40,
-            "end": 43,
-            "lemma": "non",
-            "pos": "ADJ",
-            "tag": "JJ",
-            "dependency": "amod",
-            "head": "deaths"
-          },
-          {
-            "id": "atom-1-token-9",
-            "text": "-",
-            "start": 43,
-            "end": 44,
-            "lemma": "-",
-            "pos": "ADJ",
-            "tag": "JJ",
-            "dependency": "amod",
-            "head": "deaths"
-          },
-          {
-            "id": "atom-1-token-10",
-            "text": "COVID",
-            "start": 44,
-            "end": 49,
-            "lemma": "covid",
-            "pos": "ADJ",
-            "tag": "JJ",
-            "dependency": "amod",
-            "head": "deaths"
-          },
-          {
-            "id": "atom-1-token-11",
-            "text": "related",
-            "start": 50,
-            "end": 57,
-            "lemma": "related",
-            "pos": "ADJ",
-            "tag": "JJ",
-            "dependency": "amod",
-            "head": "deaths"
-          },
-          {
-            "id": "atom-1-token-12",
-            "text": "deaths",
-            "start": 58,
-            "end": 64,
-            "lemma": "death",
-            "pos": "NOUN",
-            "tag": "NNS",
-            "dependency": "dobj",
-            "head": "had"
-          },
-          {
-            "id": "atom-1-token-13",
-            "text": ".",
-            "start": 64,
-            "end": 65,
-            "lemma": ".",
-            "pos": "PUNCT",
-            "tag": ".",
-            "dependency": "punct",
-            "head": "said"
-          }
-        ],
-        "status": "complete",
-        "unresolved": []
-      },
-      {
-        "atomId": "atom-2",
-        "frames": [
-          {
-            "id": "atom-2-frame-1",
-            "predicate": {
-              "id": "atom-2-frame-1-predicate",
-              "text": "said",
-              "start": 12,
-              "end": 16
-            },
-            "subjects": [
-              {
-                "id": "atom-2-frame-1-subject-1",
-                "text": "The CDC",
-                "start": 0,
-                "end": 7
-              }
-            ],
-            "coreArguments": [
-              {
-                "id": "atom-2-frame-1-argument-1",
-                "text": "hospitals that were closed down for non-essential services were the cause of these deaths",
-                "start": 17,
-                "end": 106,
-                "role": "clausal_complement"
-              }
-            ],
-            "adjuncts": [],
-            "otherModifiers": []
-          },
-          {
-            "id": "atom-2-frame-2",
-            "predicate": {
-              "id": "atom-2-frame-2-predicate",
-              "text": "were",
-              "start": 76,
-              "end": 80
-            },
-            "subjects": [
-              {
-                "id": "atom-2-frame-2-subject-1",
-                "text": "hospitals that were closed down for non-essential services",
-                "start": 17,
-                "end": 75
-              }
-            ],
-            "coreArguments": [
-              {
-                "id": "atom-2-frame-2-argument-1",
-                "text": "the cause of these deaths",
-                "start": 81,
-                "end": 106,
-                "role": "subject_complement"
-              }
-            ],
-            "adjuncts": [],
-            "otherModifiers": []
-          }
-        ],
-        "cues": [
-          {
-            "id": "atom-2-cue-attribution-12-16",
-            "text": "said",
-            "start": 12,
-            "end": 16,
-            "kind": "attribution"
-          }
-        ],
-        "entities": [
-          {
-            "id": "atom-2-entity-org-4-7",
-            "text": "CDC",
-            "start": 4,
-            "end": 7,
-            "label": "ORG"
-          }
-        ],
-        "tokens": [
-          {
-            "id": "atom-2-token-0",
-            "text": "The",
-            "start": 0,
-            "end": 3,
-            "lemma": "the",
-            "pos": "DET",
-            "tag": "DT",
-            "dependency": "det",
-            "head": "CDC"
-          },
-          {
-            "id": "atom-2-token-1",
-            "text": "CDC",
-            "start": 4,
-            "end": 7,
-            "lemma": "CDC",
-            "pos": "PROPN",
-            "tag": "NNP",
-            "dependency": "nsubj",
-            "head": "said"
-          },
-          {
-            "id": "atom-2-token-2",
-            "text": "has",
-            "start": 8,
-            "end": 11,
-            "lemma": "have",
-            "pos": "AUX",
-            "tag": "VBZ",
-            "dependency": "aux",
-            "head": "said"
-          },
-          {
-            "id": "atom-2-token-3",
-            "text": "said",
-            "start": 12,
-            "end": 16,
-            "lemma": "say",
-            "pos": "VERB",
-            "tag": "VBD",
-            "dependency": "ROOT",
-            "head": "ROOT"
-          },
-          {
-            "id": "atom-2-token-4",
-            "text": "hospitals",
-            "start": 17,
-            "end": 26,
-            "lemma": "hospital",
-            "pos": "NOUN",
-            "tag": "NNS",
-            "dependency": "nsubj",
-            "head": "were"
-          },
-          {
-            "id": "atom-2-token-5",
-            "text": "that",
-            "start": 27,
-            "end": 31,
-            "lemma": "that",
-            "pos": "PRON",
-            "tag": "WDT",
-            "dependency": "nsubjpass",
-            "head": "closed"
-          },
-          {
-            "id": "atom-2-token-6",
-            "text": "were",
-            "start": 32,
-            "end": 36,
-            "lemma": "be",
-            "pos": "AUX",
-            "tag": "VBD",
-            "dependency": "auxpass",
-            "head": "closed"
-          },
-          {
-            "id": "atom-2-token-7",
-            "text": "closed",
-            "start": 37,
-            "end": 43,
-            "lemma": "close",
-            "pos": "VERB",
-            "tag": "VBN",
-            "dependency": "relcl",
-            "head": "hospitals"
-          },
-          {
-            "id": "atom-2-token-8",
-            "text": "down",
-            "start": 44,
-            "end": 48,
-            "lemma": "down",
-            "pos": "ADP",
-            "tag": "RP",
-            "dependency": "prt",
-            "head": "closed"
-          },
-          {
-            "id": "atom-2-token-9",
-            "text": "for",
-            "start": 49,
-            "end": 52,
-            "lemma": "for",
-            "pos": "ADP",
-            "tag": "IN",
-            "dependency": "prep",
-            "head": "closed"
-          },
-          {
-            "id": "atom-2-token-10",
-            "text": "non",
-            "start": 53,
-            "end": 56,
-            "lemma": "non",
-            "pos": "ADJ",
-            "tag": "JJ",
-            "dependency": "amod",
-            "head": "services"
-          },
-          {
-            "id": "atom-2-token-11",
-            "text": "-",
-            "start": 56,
-            "end": 57,
-            "lemma": "-",
-            "pos": "ADJ",
-            "tag": "JJ",
-            "dependency": "amod",
-            "head": "services"
-          },
-          {
-            "id": "atom-2-token-12",
-            "text": "essential",
-            "start": 57,
-            "end": 66,
-            "lemma": "essential",
-            "pos": "ADJ",
-            "tag": "JJ",
-            "dependency": "amod",
-            "head": "services"
-          },
-          {
-            "id": "atom-2-token-13",
-            "text": "services",
-            "start": 67,
-            "end": 75,
-            "lemma": "service",
-            "pos": "NOUN",
-            "tag": "NNS",
-            "dependency": "pobj",
-            "head": "for"
-          },
-          {
-            "id": "atom-2-token-14",
-            "text": "were",
-            "start": 76,
-            "end": 80,
-            "lemma": "be",
-            "pos": "AUX",
-            "tag": "VBD",
-            "dependency": "ccomp",
-            "head": "said"
-          },
-          {
-            "id": "atom-2-token-15",
-            "text": "the",
-            "start": 81,
-            "end": 84,
-            "lemma": "the",
-            "pos": "DET",
-            "tag": "DT",
-            "dependency": "det",
-            "head": "cause"
-          },
-          {
-            "id": "atom-2-token-16",
-            "text": "cause",
-            "start": 85,
-            "end": 90,
-            "lemma": "cause",
-            "pos": "NOUN",
-            "tag": "NN",
-            "dependency": "attr",
-            "head": "were"
-          },
-          {
-            "id": "atom-2-token-17",
-            "text": "of",
-            "start": 91,
-            "end": 93,
-            "lemma": "of",
-            "pos": "ADP",
-            "tag": "IN",
-            "dependency": "prep",
-            "head": "cause"
-          },
-          {
-            "id": "atom-2-token-18",
-            "text": "these",
-            "start": 94,
-            "end": 99,
-            "lemma": "these",
-            "pos": "DET",
-            "tag": "DT",
-            "dependency": "det",
-            "head": "deaths"
-          },
-          {
-            "id": "atom-2-token-19",
-            "text": "deaths",
-            "start": 100,
-            "end": 106,
-            "lemma": "death",
-            "pos": "NOUN",
-            "tag": "NNS",
-            "dependency": "pobj",
-            "head": "of"
-          },
-          {
-            "id": "atom-2-token-20",
-            "text": ".",
-            "start": 106,
-            "end": 107,
-            "lemma": ".",
-            "pos": "PUNCT",
-            "tag": ".",
-            "dependency": "punct",
-            "head": "said"
-          }
-        ],
-        "status": "complete",
-        "unresolved": []
-      }
-    ],
-    "summaries": [
-      {
-        "atomId": "atom-1",
-        "analysisStatus": "complete",
-        "roleAudit": "MATCH",
-        "subjects": [
-          "The CDC",
-          "over 98,000 people"
-        ],
-        "predicates": [
-          "say",
-          "have"
-        ],
-        "cueKinds": [
-          "attribution",
-          "numeric"
-        ],
-        "modifierKinds": [],
-        "entityLabels": [
-          "ORG"
-        ],
-        "warnings": [
-          "MULTIPLE_PROPOSITION_FRAMES",
-          "ATTRIBUTION_SCOPE_UNCLEAR",
-          "QUALIFIER_ATTACHMENT_UNCLEAR"
-        ]
-      },
-      {
-        "atomId": "atom-2",
-        "analysisStatus": "complete",
-        "roleAudit": "MISMATCH",
-        "subjects": [
-          "The CDC",
-          "hospitals that were closed down for non-essential services"
-        ],
-        "predicates": [
-          "say",
-          "be"
-        ],
-        "cueKinds": [
-          "attribution"
-        ],
-        "modifierKinds": [],
-        "entityLabels": [
-          "ORG"
-        ],
-        "warnings": [
-          "ROLE_CUE_MISMATCH",
-          "MULTIPLE_PROPOSITION_FRAMES",
-          "ATTRIBUTION_SCOPE_UNCLEAR"
-        ]
-      }
-    ],
-    "claimWarnings": [],
-    "provider": "spacy",
-    "model": "en_core_web_sm@3.8.0"
-  },
   "verdict": {
     "aggregationSchemaVersion": 3,
     "claimId": "averitec-dev-0142",
@@ -1572,21 +611,20 @@
     ]
   },
   "recordedWith": {
-    "pipelineRevision": "submission-ready-v2",
+    "pipelineRevision": "submission-ready-v3",
     "inputDigest": "e4495240b982772b03b41990830400aa5aa82354cd9ee67e67ed667d5245391a",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
     "retrievalMethod": "HYBRID",
     "assessmentModel": "qwen2.5:7b",
-    "reasoningModel": "qwen2.5:7b",
-    "linguisticsModel": "en_core_web_sm@3.8.0"
+    "reasoningModel": "qwen2.5:7b"
   },
   "timingsSeconds": {
-    "decomposition": 28.231,
-    "retrievalAndLinguistics": 2.968,
-    "evidenceAssessment": 43.67,
-    "symbolicReasoning": 53.217,
-    "aggregation": 0.003,
-    "total": 128.092
+    "decomposition": 24.451,
+    "retrieval": 2.855,
+    "evidenceAssessment": 37.955,
+    "symbolicReasoning": 59.591,
+    "aggregation": 0.006,
+    "total": 124.86
   }
 }

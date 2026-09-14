@@ -38,14 +38,6 @@ from .grounded_evidence_audit import (
     GroundedEvidenceAuditProviderError,
     audit_grounded_evidence,
 )
-from .linguistic_analysis import (
-    MODEL_ID as LINGUISTICS_MODEL_ID,
-    LinguisticAnalysisConfigurationError,
-    LinguisticAnalysisError,
-    analyze_linguistics,
-    is_available as linguistics_available,
-    warm as warm_linguistics,
-)
 from .symbolic_reasoning import (
     SymbolicReasoningConfigurationError,
     SymbolicReasoningOutputError,
@@ -60,8 +52,6 @@ from .schemas import (
     DemoCaseSummary,
     EvidenceRetrievalResponse,
     HealthResponse,
-    LinguisticAnalysisRequest,
-    LinguisticAnalysisResponse,
     RetrievalDocument,
     RetrievalRequest,
     EvidenceAssessmentRequest,
@@ -78,19 +68,6 @@ from .settings import settings
 async def lifespan(_: FastAPI) -> AsyncIterator[None]:
     demo_store()
     loop = asyncio.get_running_loop()
-    # Keep heavyweight model imports sequential. spaCy, PyTorch, and
-    # Transformers can contend for Python/native loader locks when warmed in
-    # parallel, leaving Uvicorn apparently stuck before it serves health.
-    try:
-        linguistic_result = await loop.run_in_executor(
-            _linguistics_worker, warm_linguistics
-        )
-    except Exception as error:  # optional sidecar must not block startup
-        linguistic_result = error
-    if isinstance(linguistic_result, Exception):
-        logging.getLogger(__name__).warning(
-            "Optional linguistic analysis is unavailable; run launcher setup to install it."
-        )
     # Let the app become ready while the content-free BGE warm-up completes in
     # the background. Retrieval remains serialized and waits on the model lock
     # if a request arrives during this short window.
@@ -111,7 +88,7 @@ async def lifespan(_: FastAPI) -> AsyncIterator[None]:
 app = FastAPI(
     title="VeriNICE API",
     version="0.7.0",
-    description="Claim decomposition, evidence retrieval, evidence assessment, symbolic reasoning, and linguistic inspection.",
+    description="Claim decomposition, evidence retrieval, evidence assessment, and symbolic reasoning for VeriNICE.",
     lifespan=lifespan,
 )
 if settings.allowed_origins:
@@ -129,11 +106,6 @@ _retrieval_slots = asyncio.Semaphore(max(1, settings.max_retrieval_concurrency))
 _retrieval_worker = ThreadPoolExecutor(
     max_workers=1,
     thread_name_prefix="verigraph-retrieval",
-)
-_linguistics_slots = asyncio.Semaphore(1)
-_linguistics_worker = ThreadPoolExecutor(
-    max_workers=1,
-    thread_name_prefix="verigraph-linguistics",
 )
 _rate_windows: Dict[str, Deque[float]] = defaultdict(deque)
 
@@ -172,7 +144,6 @@ async def protect_public_endpoints(request: Request, call_next):
             "/api/v1/retrieve",
             "/api/v1/assess-evidence",
             "/api/v1/reason",
-            "/api/v1/analyze-linguistics",
             "/api/v1/aggregate-verdict",
         }
     ):
@@ -195,7 +166,6 @@ def health() -> HealthResponse:
     decomposition = bool(settings.ollama_url.strip() and settings.ollama_model.strip())
     decomposition_ready = ollama_model_ready()
     retrieval = embeddings_available()
-    linguistics = linguistics_available()
     return HealthResponse(
         status=("ready" if decomposition_ready and retrieval
                 else "degraded" if decomposition or retrieval
@@ -203,10 +173,8 @@ def health() -> HealthResponse:
         decomposition_configured=decomposition,
         decomposition_ready=decomposition_ready,
         retrieval_configured=retrieval,
-        linguistics_configured=linguistics,
         decomposition_model=settings.ollama_model,
         retrieval_model=settings.embedding_model,
-        linguistics_model=LINGUISTICS_MODEL_ID,
     )
 
 
@@ -331,33 +299,6 @@ async def compile_and_execute_reasoning(request: ReasoningRequest) -> ReasoningR
         raise HTTPException(
             status_code=500,
             detail="Local symbolic execution failed. Please retry.",
-        ) from error
-
-
-@app.post("/api/v1/analyze-linguistics", response_model=LinguisticAnalysisResponse)
-async def analyze_linguistic_structure(
-    request: LinguisticAnalysisRequest,
-) -> LinguisticAnalysisResponse:
-    try:
-        async with _linguistics_slots:
-            return await asyncio.get_running_loop().run_in_executor(
-                _linguistics_worker,
-                analyze_linguistics,
-                request.claim_text,
-                request.composition,
-                request.atoms,
-            )
-    except LinguisticAnalysisConfigurationError as error:
-        raise HTTPException(status_code=503, detail=str(error)) from error
-    except LinguisticAnalysisError as error:
-        raise HTTPException(
-            status_code=500,
-            detail="Local linguistic analysis failed. Please retry.",
-        ) from error
-    except Exception as error:
-        raise HTTPException(
-            status_code=500,
-            detail="Local linguistic analysis failed. Please retry.",
         ) from error
 
 

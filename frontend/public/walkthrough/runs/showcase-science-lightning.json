@@ -1,16 +1,16 @@
 {
   "caseId": "showcase-science-lightning",
-  "schemaVersion": 6,
+  "schemaVersion": 7,
   "composition": "SINGLE",
   "warnings": [],
   "atoms": [
     {
       "id": "atom-1",
-      "text": "Lightning can strike the same place more than once.",
-      "sourceText": "Lightning can strike the same place more than once.",
+      "text": "Lightning can heat the surrounding air to more than 40,000°F.",
+      "sourceText": "Lightning can heat the surrounding air to more than 40,000°F.",
       "start": 0,
-      "end": 51,
-      "role": "CORE"
+      "end": 61,
+      "role": "NUMERIC_CONSTRAINT"
     }
   ],
   "evidence": [
@@ -18,94 +18,85 @@
       "atomId": "atom-1",
       "spans": [
         {
-          "id": "doc-7cb444a67bc0::sentence-8",
-          "documentId": "doc-7cb444a67bc0",
-          "text": "Fact: Lightning often strikes the same place repeatedly, especially if it's a tall, pointy, isolated object. ",
-          "start": 461,
-          "end": 570,
-          "contextSpans": [
-            {
-              "id": "doc-7cb444a67bc0::sentence-7",
-              "documentId": "doc-7cb444a67bc0",
-              "text": "Myth: Lightning never strikes the same place twice.\n",
-              "start": 409,
-              "end": 461,
-              "direction": "PREVIOUS"
-            }
-          ],
-          "context": "Myth: Lightning never strikes the same place twice. Fact: Lightning often strikes the same place repeatedly, especially if it's a tall, pointy, isolated object."
-        },
-        {
-          "id": "doc-a82c0e708ef3::sentence-6",
-          "documentId": "doc-a82c0e708ef3",
-          "text": "Understanding the dangers of lightning is important so that you can get to a safe place when thunderstorms threaten. ",
-          "start": 462,
-          "end": 579,
-          "contextSpans": [
-            {
-              "id": "doc-a82c0e708ef3::sentence-5",
-              "documentId": "doc-a82c0e708ef3",
-              "text": "In addition, lightning injures many more people than it kills and leaves some victims with life-long health problems.\n",
-              "start": 344,
-              "end": 462,
-              "direction": "PREVIOUS"
-            }
-          ],
-          "context": "In addition, lightning injures many more people than it kills and leaves some victims with life-long health problems. Understanding the dangers of lightning is important so that you can get to a safe place when thunderstorms threaten."
-        },
-        {
-          "id": "doc-7cb444a67bc0::sentence-11",
-          "documentId": "doc-7cb444a67bc0",
-          "text": "Fact: Lightning often strikes more than three miles from the center of the thunderstorm, far outside the rain or thunderstorm cloud. ",
-          "start": 720,
-          "end": 853,
+          "id": "doc-77b6c4d38f36::sentence-5",
+          "documentId": "doc-77b6c4d38f36",
+          "text": "The temperature of the air in the lightning channel may reach as high as 50,000 degrees Fahrenheit, 5 times hotter than the surface of the sun. ",
+          "start": 432,
+          "end": 576,
           "contextSpans": [],
-          "context": "Fact: Lightning often strikes more than three miles from the center of the thunderstorm, far outside the rain or thunderstorm cloud."
+          "context": "The temperature of the air in the lightning channel may reach as high as 50,000 degrees Fahrenheit, 5 times hotter than the surface of the sun."
         },
         {
-          "id": "doc-a82c0e708ef3::sentence-5",
-          "documentId": "doc-a82c0e708ef3",
-          "text": "In addition, lightning injures many more people than it kills and leaves some victims with life-long health problems.\n",
-          "start": 344,
-          "end": 462,
+          "id": "doc-77b6c4d38f36::sentence-4",
+          "documentId": "doc-77b6c4d38f36",
+          "text": "The lightning discharge heats the air rapidly and causes it to expand. ",
+          "start": 361,
+          "end": 432,
           "contextSpans": [
             {
-              "id": "doc-a82c0e708ef3::sentence-4",
-              "documentId": "doc-a82c0e708ef3",
-              "text": "While lightning fatalities have decreased over the past 30 years, lightning continues to be one of the top weather killers in the United States. ",
-              "start": 199,
-              "end": 344,
+              "id": "doc-77b6c4d38f36::sentence-3",
+              "documentId": "doc-77b6c4d38f36",
+              "text": "Thunder is created when lightning passes through the air. ",
+              "start": 303,
+              "end": 361,
               "direction": "PREVIOUS"
             }
           ],
-          "context": "While lightning fatalities have decreased over the past 30 years, lightning continues to be one of the top weather killers in the United States. In addition, lightning injures many more people than it kills and leaves some victims with life-long health problems."
+          "context": "Thunder is created when lightning passes through the air. The lightning discharge heats the air rapidly and causes it to expand."
         },
         {
-          "id": "doc-a82c0e708ef3::sentence-2",
-          "documentId": "doc-a82c0e708ef3",
-          "text": "In the United States, there are about 25 million lightning flashes every year. ",
-          "start": 64,
-          "end": 143,
+          "id": "doc-77b6c4d38f36::sentence-3",
+          "documentId": "doc-77b6c4d38f36",
+          "text": "Thunder is created when lightning passes through the air. ",
+          "start": 303,
+          "end": 361,
           "contextSpans": [],
-          "context": "In the United States, there are about 25 million lightning flashes every year."
+          "context": "Thunder is created when lightning passes through the air."
         },
         {
-          "id": "doc-7cb444a67bc0::sentence-12",
-          "documentId": "doc-7cb444a67bc0",
-          "text": "“Bolts from the blue” can strike 10-15 miles from the thunderstorm.\n",
-          "start": 853,
-          "end": 921,
+          "id": "doc-a60bfde141e9::sentence-3",
+          "documentId": "doc-a60bfde141e9",
+          "text": "Lightning — one of the most violent forces of nature At any instant, there are more than 2,000 thunderstorms taking place throughout the world. ",
+          "start": 363,
+          "end": 507,
           "contextSpans": [
             {
-              "id": "doc-7cb444a67bc0::sentence-11",
-              "documentId": "doc-7cb444a67bc0",
-              "text": "Fact: Lightning often strikes more than three miles from the center of the thunderstorm, far outside the rain or thunderstorm cloud. ",
-              "start": 720,
-              "end": 853,
+              "id": "doc-a60bfde141e9::sentence-4",
+              "documentId": "doc-a60bfde141e9",
+              "text": "These storms combine to produce about 100 lightning flashes per second, each one with an average of 300 million volts, currents ranging up to 20,000 amps, and temperatures over 50,000 degrees Fahrenheit. ",
+              "start": 507,
+              "end": 711,
+              "direction": "NEXT"
+            }
+          ],
+          "context": "Lightning — one of the most violent forces of nature At any instant, there are more than 2,000 thunderstorms taking place throughout the world. These storms combine to produce about 100 lightning flashes per second, each one with an average of 300 million volts, currents ranging up to 20,000 amps, and temperatures over 50,000 degrees Fahrenheit."
+        },
+        {
+          "id": "doc-a60bfde141e9::sentence-5",
+          "documentId": "doc-a60bfde141e9",
+          "text": "Extreme lightning can reach a billion volts, over 200,000 amps, and over 54,000 degrees Fahrenheit. ",
+          "start": 711,
+          "end": 811,
+          "contextSpans": [],
+          "context": "Extreme lightning can reach a billion volts, over 200,000 amps, and over 54,000 degrees Fahrenheit."
+        },
+        {
+          "id": "doc-a60bfde141e9::sentence-4",
+          "documentId": "doc-a60bfde141e9",
+          "text": "These storms combine to produce about 100 lightning flashes per second, each one with an average of 300 million volts, currents ranging up to 20,000 amps, and temperatures over 50,000 degrees Fahrenheit. ",
+          "start": 507,
+          "end": 711,
+          "contextSpans": [
+            {
+              "id": "doc-a60bfde141e9::sentence-3",
+              "documentId": "doc-a60bfde141e9",
+              "text": "Lightning — one of the most violent forces of nature At any instant, there are more than 2,000 thunderstorms taking place throughout the world. ",
+              "start": 363,
+              "end": 507,
               "direction": "PREVIOUS"
             }
           ],
-          "context": "Fact: Lightning often strikes more than three miles from the center of the thunderstorm, far outside the rain or thunderstorm cloud. “Bolts from the blue” can strike 10-15 miles from the thunderstorm."
+          "context": "Lightning — one of the most violent forces of nature At any instant, there are more than 2,000 thunderstorms taking place throughout the world. These storms combine to produce about 100 lightning flashes per second, each one with an average of 300 million volts, currents ranging up to 20,000 amps, and temperatures over 50,000 degrees Fahrenheit."
         }
       ]
     }
@@ -115,67 +106,62 @@
       {
         "atomId": "atom-1",
         "supportSpanIds": [
-          "doc-7cb444a67bc0::sentence-8"
+          "doc-77b6c4d38f36::sentence-5",
+          "doc-a60bfde141e9::sentence-5"
         ],
         "refuteSpanIds": [],
         "contextSpanIds": [
-          "doc-a82c0e708ef3::sentence-6",
-          "doc-7cb444a67bc0::sentence-11",
-          "doc-a82c0e708ef3::sentence-5"
+          "doc-77b6c4d38f36::sentence-4",
+          "doc-77b6c4d38f36::sentence-3",
+          "doc-a60bfde141e9::sentence-3"
         ],
         "sufficiency": "SUFFICIENT",
         "missingInformation": "",
-        "reason": "The evidence directly states that lightning often strikes the same place repeatedly.",
+        "reason": "Both O1-E1 and O1-E5 provide direct measurements of air temperature during lightning, both exceeding 40,000°F.",
         "scopeChecks": [
           {
-            "spanId": "doc-7cb444a67bc0::sentence-8",
-            "documentId": "doc-7cb444a67bc0",
+            "spanId": "doc-77b6c4d38f36::sentence-5",
+            "documentId": "doc-77b6c4d38f36",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
             "evidenceJurisdictions": [],
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
-            "spanId": "doc-a82c0e708ef3::sentence-6",
-            "documentId": "doc-a82c0e708ef3",
-            "status": "NOT_APPLICABLE",
-            "claimJurisdictions": [],
-            "evidenceJurisdictions": [
-              "US"
-            ],
-            "reason": "The atomic claim does not state a recognized jurisdiction."
-          },
-          {
-            "spanId": "doc-7cb444a67bc0::sentence-11",
-            "documentId": "doc-7cb444a67bc0",
+            "spanId": "doc-77b6c4d38f36::sentence-4",
+            "documentId": "doc-77b6c4d38f36",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
             "evidenceJurisdictions": [],
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
-            "spanId": "doc-a82c0e708ef3::sentence-5",
-            "documentId": "doc-a82c0e708ef3",
+            "spanId": "doc-77b6c4d38f36::sentence-3",
+            "documentId": "doc-77b6c4d38f36",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
-            "evidenceJurisdictions": [
-              "US"
-            ],
+            "evidenceJurisdictions": [],
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
-            "spanId": "doc-a82c0e708ef3::sentence-2",
-            "documentId": "doc-a82c0e708ef3",
+            "spanId": "doc-a60bfde141e9::sentence-3",
+            "documentId": "doc-a60bfde141e9",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
-            "evidenceJurisdictions": [
-              "US"
-            ],
+            "evidenceJurisdictions": [],
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
-            "spanId": "doc-7cb444a67bc0::sentence-12",
-            "documentId": "doc-7cb444a67bc0",
+            "spanId": "doc-a60bfde141e9::sentence-5",
+            "documentId": "doc-a60bfde141e9",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-a60bfde141e9::sentence-4",
+            "documentId": "doc-a60bfde141e9",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
             "evidenceJurisdictions": [],
@@ -191,377 +177,99 @@
       "reason": "No material omission was established."
     }
   },
-  "reasoning": [],
-  "linguistics": {
-    "schemaVersion": 2,
-    "claimAnalysis": {
-      "atomId": "claim",
-      "frames": [
+  "reasoning": [
+    {
+      "id": "proof:atom-1:numeric_compare:1",
+      "atomId": "atom-1",
+      "operator": "NUMERIC_COMPARE",
+      "profile": "GENERIC_NUMERIC_THRESHOLD",
+      "status": "PROVED",
+      "relation": "SUPPORTS",
+      "premiseIds": [
+        "evidence:atom-1:doc-a60bfde141e9:doc-a60bfde141e9::sentence-5",
+        "evidence:atom-1:doc-77b6c4d38f36:doc-77b6c4d38f36::sentence-5"
+      ],
+      "premises": [
         {
-          "id": "claim-frame-1",
-          "predicate": {
-            "id": "claim-frame-1-predicate",
-            "text": "strike",
-            "start": 14,
-            "end": 20
-          },
-          "subjects": [
-            {
-              "id": "claim-frame-1-subject-1",
-              "text": "Lightning",
-              "start": 0,
-              "end": 9
-            }
-          ],
-          "coreArguments": [
-            {
-              "id": "claim-frame-1-argument-1",
-              "text": "the same place",
-              "start": 21,
-              "end": 35,
-              "role": "direct_object"
-            }
-          ],
-          "adjuncts": [],
-          "otherModifiers": [
-            {
-              "id": "claim-frame-1-other-modifier-1",
-              "text": "more than once",
-              "start": 36,
-              "end": 50
-            }
-          ]
+          "id": "evidence:atom-1:doc-a60bfde141e9:doc-a60bfde141e9::sentence-5",
+          "documentId": "doc-a60bfde141e9",
+          "text": "Extreme lightning can reach a billion volts, over 200,000 amps, and over 54,000 degrees Fahrenheit. ",
+          "start": 711,
+          "end": 811,
+          "kind": "EVIDENCE",
+          "contentHash": null,
+          "itemCount": null,
+          "listItems": []
+        },
+        {
+          "id": "evidence:atom-1:doc-77b6c4d38f36:doc-77b6c4d38f36::sentence-5",
+          "documentId": "doc-77b6c4d38f36",
+          "text": "The temperature of the air in the lightning channel may reach as high as 50,000 degrees Fahrenheit, 5 times hotter than the surface of the sun. ",
+          "start": 432,
+          "end": 576,
+          "kind": "EVIDENCE",
+          "contentHash": null,
+          "itemCount": null,
+          "listItems": []
         }
       ],
-      "cues": [
+      "expression": "54,000 degrees Fahrenheit; 50,000 degrees Fahrenheit > 40,000°F",
+      "conclusion": "Every aligned grounded comparison is true.",
+      "explanation": "Python compared normalized Decimal values with matching supported units; no conversion or unstated arithmetic was used.",
+      "validationWarnings": [],
+      "preconditions": [
         {
-          "id": "claim-cue-modality-10-13",
-          "text": "can",
-          "start": 10,
-          "end": 13,
-          "kind": "modality"
+          "name": "Source grounding",
+          "status": "PASSED",
+          "detail": "2 selected premise(s) retain exact source offsets."
         },
         {
-          "id": "claim-cue-quantifier-36-45",
-          "text": "more than",
-          "start": 36,
-          "end": 45,
-          "kind": "quantifier"
+          "name": "Registered profile",
+          "status": "PASSED",
+          "detail": "generic numeric threshold"
+        },
+        {
+          "name": "Operand alignment",
+          "status": "PASSED",
+          "detail": "Python compared normalized Decimal values with matching supported units; no conversion or unstated arithmetic was used."
         }
       ],
-      "entities": [],
-      "tokens": [
-        {
-          "id": "claim-token-0",
-          "text": "Lightning",
-          "start": 0,
-          "end": 9,
-          "lemma": "lightning",
-          "pos": "NOUN",
-          "tag": "NN",
-          "dependency": "nsubj",
-          "head": "strike"
-        },
-        {
-          "id": "claim-token-1",
-          "text": "can",
-          "start": 10,
-          "end": 13,
-          "lemma": "can",
-          "pos": "AUX",
-          "tag": "MD",
-          "dependency": "aux",
-          "head": "strike"
-        },
-        {
-          "id": "claim-token-2",
-          "text": "strike",
-          "start": 14,
-          "end": 20,
-          "lemma": "strike",
-          "pos": "VERB",
-          "tag": "VB",
-          "dependency": "ROOT",
-          "head": "ROOT"
-        },
-        {
-          "id": "claim-token-3",
-          "text": "the",
-          "start": 21,
-          "end": 24,
-          "lemma": "the",
-          "pos": "DET",
-          "tag": "DT",
-          "dependency": "det",
-          "head": "place"
-        },
-        {
-          "id": "claim-token-4",
-          "text": "same",
-          "start": 25,
-          "end": 29,
-          "lemma": "same",
-          "pos": "ADJ",
-          "tag": "JJ",
-          "dependency": "amod",
-          "head": "place"
-        },
-        {
-          "id": "claim-token-5",
-          "text": "place",
-          "start": 30,
-          "end": 35,
-          "lemma": "place",
-          "pos": "NOUN",
-          "tag": "NN",
-          "dependency": "dobj",
-          "head": "strike"
-        },
-        {
-          "id": "claim-token-6",
-          "text": "more",
-          "start": 36,
-          "end": 40,
-          "lemma": "more",
-          "pos": "ADJ",
-          "tag": "JJR",
-          "dependency": "advmod",
-          "head": "strike"
-        },
-        {
-          "id": "claim-token-7",
-          "text": "than",
-          "start": 41,
-          "end": 45,
-          "lemma": "than",
-          "pos": "ADP",
-          "tag": "IN",
-          "dependency": "prep",
-          "head": "more"
-        },
-        {
-          "id": "claim-token-8",
-          "text": "once",
-          "start": 46,
-          "end": 50,
-          "lemma": "once",
-          "pos": "ADV",
-          "tag": "RB",
-          "dependency": "pcomp",
-          "head": "than"
-        },
-        {
-          "id": "claim-token-9",
-          "text": ".",
-          "start": 50,
-          "end": 51,
-          "lemma": ".",
-          "pos": "PUNCT",
-          "tag": ".",
-          "dependency": "punct",
-          "head": "strike"
-        }
-      ],
-      "status": "complete",
-      "unresolved": []
-    },
-    "analyses": [
-      {
-        "atomId": "atom-1",
-        "frames": [
+      "program": {
+        "version": 1,
+        "steps": [
           {
-            "id": "atom-1-frame-1",
-            "predicate": {
-              "id": "atom-1-frame-1-predicate",
-              "text": "strike",
-              "start": 14,
-              "end": 20
-            },
-            "subjects": [
-              {
-                "id": "atom-1-frame-1-subject-1",
-                "text": "Lightning",
-                "start": 0,
-                "end": 9
-              }
+            "id": "input-1",
+            "operation": "LOOKUP",
+            "inputIds": [
+              "evidence:atom-1:doc-a60bfde141e9:doc-a60bfde141e9::sentence-5"
             ],
-            "coreArguments": [
-              {
-                "id": "atom-1-frame-1-argument-1",
-                "text": "the same place",
-                "start": 21,
-                "end": 35,
-                "role": "direct_object"
-              }
+            "outputType": "FACT",
+            "description": "Read an unchanged server-owned premise."
+          },
+          {
+            "id": "input-2",
+            "operation": "LOOKUP",
+            "inputIds": [
+              "evidence:atom-1:doc-77b6c4d38f36:doc-77b6c4d38f36::sentence-5"
             ],
-            "adjuncts": [],
-            "otherModifiers": [
-              {
-                "id": "atom-1-frame-1-other-modifier-1",
-                "text": "more than once",
-                "start": 36,
-                "end": 50
-              }
-            ]
+            "outputType": "FACT",
+            "description": "Read an unchanged server-owned premise."
+          },
+          {
+            "id": "result",
+            "operation": "NUMERIC_COMPARE",
+            "inputIds": [
+              "input-1",
+              "input-2"
+            ],
+            "outputType": "BOOLEAN",
+            "description": "Validate operand alignment and execute the typed operation in Python."
           }
         ],
-        "cues": [
-          {
-            "id": "atom-1-cue-modality-10-13",
-            "text": "can",
-            "start": 10,
-            "end": 13,
-            "kind": "modality"
-          },
-          {
-            "id": "atom-1-cue-quantifier-36-45",
-            "text": "more than",
-            "start": 36,
-            "end": 45,
-            "kind": "quantifier"
-          }
-        ],
-        "entities": [],
-        "tokens": [
-          {
-            "id": "atom-1-token-0",
-            "text": "Lightning",
-            "start": 0,
-            "end": 9,
-            "lemma": "lightning",
-            "pos": "NOUN",
-            "tag": "NN",
-            "dependency": "nsubj",
-            "head": "strike"
-          },
-          {
-            "id": "atom-1-token-1",
-            "text": "can",
-            "start": 10,
-            "end": 13,
-            "lemma": "can",
-            "pos": "AUX",
-            "tag": "MD",
-            "dependency": "aux",
-            "head": "strike"
-          },
-          {
-            "id": "atom-1-token-2",
-            "text": "strike",
-            "start": 14,
-            "end": 20,
-            "lemma": "strike",
-            "pos": "VERB",
-            "tag": "VB",
-            "dependency": "ROOT",
-            "head": "ROOT"
-          },
-          {
-            "id": "atom-1-token-3",
-            "text": "the",
-            "start": 21,
-            "end": 24,
-            "lemma": "the",
-            "pos": "DET",
-            "tag": "DT",
-            "dependency": "det",
-            "head": "place"
-          },
-          {
-            "id": "atom-1-token-4",
-            "text": "same",
-            "start": 25,
-            "end": 29,
-            "lemma": "same",
-            "pos": "ADJ",
-            "tag": "JJ",
-            "dependency": "amod",
-            "head": "place"
-          },
-          {
-            "id": "atom-1-token-5",
-            "text": "place",
-            "start": 30,
-            "end": 35,
-            "lemma": "place",
-            "pos": "NOUN",
-            "tag": "NN",
-            "dependency": "dobj",
-            "head": "strike"
-          },
-          {
-            "id": "atom-1-token-6",
-            "text": "more",
-            "start": 36,
-            "end": 40,
-            "lemma": "more",
-            "pos": "ADJ",
-            "tag": "JJR",
-            "dependency": "advmod",
-            "head": "strike"
-          },
-          {
-            "id": "atom-1-token-7",
-            "text": "than",
-            "start": 41,
-            "end": 45,
-            "lemma": "than",
-            "pos": "ADP",
-            "tag": "IN",
-            "dependency": "prep",
-            "head": "more"
-          },
-          {
-            "id": "atom-1-token-8",
-            "text": "once",
-            "start": 46,
-            "end": 50,
-            "lemma": "once",
-            "pos": "ADV",
-            "tag": "RB",
-            "dependency": "pcomp",
-            "head": "than"
-          },
-          {
-            "id": "atom-1-token-9",
-            "text": ".",
-            "start": 50,
-            "end": 51,
-            "lemma": ".",
-            "pos": "PUNCT",
-            "tag": ".",
-            "dependency": "punct",
-            "head": "strike"
-          }
-        ],
-        "status": "complete",
-        "unresolved": []
+        "outputStepId": "result"
       }
-    ],
-    "summaries": [
-      {
-        "atomId": "atom-1",
-        "analysisStatus": "complete",
-        "roleAudit": "MATCH",
-        "subjects": [
-          "Lightning"
-        ],
-        "predicates": [
-          "strike"
-        ],
-        "cueKinds": [
-          "modality",
-          "quantifier"
-        ],
-        "modifierKinds": [],
-        "entityLabels": [],
-        "warnings": []
-      }
-    ],
-    "claimWarnings": [],
-    "provider": "spacy",
-    "model": "en_core_web_sm@3.8.0"
-  },
+    }
+  ],
   "verdict": {
     "aggregationSchemaVersion": 3,
     "claimId": "showcase-science-lightning",
@@ -582,10 +290,11 @@
         "obligationId": "atom-1",
         "state": "SUPPORTED",
         "supportEdgeIds": [
-          "edge:SUPPORTS:evidence:doc-7cb444a67bc0:doc-7cb444a67bc0::sentence-8:obligation:showcase-science-lightning:atom-1"
+          "edge:SUPPORTS:inference:bundle:atom-1:supports:obligation:showcase-science-lightning:atom-1",
+          "edge:SUPPORTS:inference:proof:atom-1:numeric_compare:1:obligation:showcase-science-lightning:atom-1"
         ],
         "refuteEdgeIds": [],
-        "unselectedCandidateCount": 2,
+        "unselectedCandidateCount": 1,
         "provisionalRelationCount": 0
       }
     ],
@@ -597,21 +306,20 @@
     ]
   },
   "recordedWith": {
-    "pipelineRevision": "submission-ready-v2",
-    "inputDigest": "e17d69ba375031deaf081e3a7756ebb7f6b6f118f8cb5f8c5e0e6c37d4508bac",
+    "pipelineRevision": "submission-ready-v3",
+    "inputDigest": "3df1154a27305a09f62de3f27154ead5b9e6758b3457c4b6a5633df04b9cde99",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
     "retrievalMethod": "HYBRID",
     "assessmentModel": "qwen2.5:7b",
-    "reasoningModel": "qwen2.5:7b",
-    "linguisticsModel": "en_core_web_sm@3.8.0"
+    "reasoningModel": "qwen2.5:7b"
   },
   "timingsSeconds": {
-    "decomposition": 18.075,
-    "retrievalAndLinguistics": 0.388,
-    "evidenceAssessment": 20.562,
-    "symbolicReasoning": 0.006,
-    "aggregation": 0.002,
-    "total": 39.035
+    "decomposition": 17.656,
+    "retrieval": 0.311,
+    "evidenceAssessment": 19.404,
+    "symbolicReasoning": 12.403,
+    "aggregation": 0.003,
+    "total": 49.778
   }
 }

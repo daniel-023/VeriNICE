@@ -116,7 +116,7 @@ def test_showcase_bundle_has_fifteen_constructed_and_three_averitec_cases() -> N
             assert document.source_descriptor and document.excerpt_rationale
             assert hashlib.sha256(document.text.encode()).hexdigest() == document.excerpt_sha256
     assert store.cases_by_id["showcase-history-curie"].claim == (
-        "Marie Curie won Nobel Prizes in two different scientific fields."
+        "Marie Curie won Nobel Prizes in at least two different scientific fields."
     )
     assert store.cases_by_id["showcase-science-egg-cvd"].label == ReferenceLabel.conflicting_evidence
     assert store.cases_by_id["showcase-history-whitehead-flight"].label == ReferenceLabel.conflicting_evidence

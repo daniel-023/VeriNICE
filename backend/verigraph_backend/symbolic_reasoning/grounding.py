@@ -7,6 +7,15 @@ from dataclasses import dataclass
 from typing import Iterable, Sequence
 
 from ..schemas import AssessmentAtomEvidence, PipelineAtom, RetrievalDocument, SymbolicPremise
+from .profiles import (
+    GENERIC_ABSOLUTE_DATE,
+    GENERIC_EVENT_ORDER,
+    GENERIC_EXTREMUM_COUNTEREXAMPLE,
+    GENERIC_NUMERIC_THRESHOLD,
+    GENERIC_SET_MEMBERSHIP,
+    attribute_profile,
+    distinct_profile,
+)
 
 
 def normalize(value: str) -> str:
@@ -49,6 +58,7 @@ class Candidate:
     premise_ids: tuple[str, ...]
     summary: str
     premise_texts: tuple[tuple[str, str], ...]
+    profile: str = ""
 
 
 def evidence_premises(evidence: Sequence[AssessmentAtomEvidence]) -> dict[str, SymbolicPremise]:
@@ -307,6 +317,7 @@ def build_candidates(
             candidates.append(Candidate(
                 f"candidate:{atom.id}:set", atom.id, "SET_MEMBERSHIP", allowed, atom.text,
                 tuple((premise_id, f"[{premises[premise_id].kind}] {' '.join(premises[premise_id].text.split())[:240]}") for premise_id in allowed),
+                GENERIC_SET_MEMBERSHIP,
             ))
         if re.search(r"\b(?:both|two different|two distinct|in .+ and .+)\b", atom_text):
             field_terms = {"physics", "chemistry", "medicine", "literature", "peace", "economics"}
@@ -321,22 +332,27 @@ def build_candidates(
                 )
             )
             allowed = tuple(dict.fromkeys((*evidence_ids, *distinct_operands)))
-            candidates.append(Candidate(
-                f"candidate:{atom.id}:distinct", atom.id, "COUNT_DISTINCT", allowed, atom.text,
-                tuple((premise_id, f"[{premises[premise_id].kind}] {' '.join(premises[premise_id].text.split())[:240]}") for premise_id in allowed),
-            ))
+            profile = distinct_profile(atom)
+            if profile:
+                candidates.append(Candidate(
+                    f"candidate:{atom.id}:distinct", atom.id, "COUNT_DISTINCT", allowed, atom.text,
+                    tuple((premise_id, f"[{premises[premise_id].kind}] {' '.join(premises[premise_id].text.split())[:240]}") for premise_id in allowed),
+                    profile,
+                ))
         if re.search(r"\b(?:largest|smallest|highest|lowest|tallest|shortest|most|least)\b", atom_text):
             operand_ids = _extremum_operands(atom, premises)
             allowed = tuple(dict.fromkeys((*evidence_ids, *operand_ids)))
             candidates.append(Candidate(
                 f"candidate:{atom.id}:extremum", atom.id, "EXTREMUM_COMPARE", allowed, atom.text,
                 tuple((premise_id, f"[{premises[premise_id].kind}] {' '.join(premises[premise_id].text.split())[:240]}") for premise_id in allowed),
+                GENERIC_EXTREMUM_COUNTEREXAMPLE,
             ))
         if re.search(r"\b(?:for|located|originated|invented|developed|has|have|received|won|makes|make|causes|uses)\b", atom_text):
             allowed = tuple(dict.fromkeys((*evidence_ids, *context_ids)))
             candidates.append(Candidate(
                 f"candidate:{atom.id}:attribute", atom.id, "ATTRIBUTE_COMPARE", allowed, atom.text,
                 tuple((premise_id, f"[{premises[premise_id].kind}] {' '.join(premises[premise_id].text.split())[:240]}") for premise_id in allowed),
+                attribute_profile(atom),
             ))
         if re.search(r"(?:[$£€¥]\s*)?\d", atom.text) and (
             re.search(r"[<>≤≥=]|\b(?:more|less|fewer|over|under|at least|at most|equal|than|percent|%)\b", atom_text)
@@ -344,6 +360,7 @@ def build_candidates(
             candidates.append(Candidate(
                 f"candidate:{atom.id}:numeric", atom.id, "NUMERIC_COMPARE", evidence_ids, atom.text,
                 tuple((premise_id, f"[{premises[premise_id].kind}] {' '.join(premises[premise_id].text.split())[:240]}") for premise_id in evidence_ids),
+                GENERIC_NUMERIC_THRESHOLD,
             ))
         if (
             not re.search(r"\b(?:largest|smallest|highest|lowest|tallest|shortest|most|least)\b", atom_text)
@@ -352,6 +369,7 @@ def build_candidates(
             candidates.append(Candidate(
                 f"candidate:{atom.id}:temporal", atom.id, "TEMPORAL_COMPARE", evidence_ids, atom.text,
                 tuple((premise_id, f"[{premises[premise_id].kind}] {' '.join(premises[premise_id].text.split())[:240]}") for premise_id in evidence_ids),
+                GENERIC_EVENT_ORDER if re.search(r"\b(?:before|after)\b", atom_text) and not re.search(r"\b(?:19|20)\d{2}\b", atom_text) else GENERIC_ABSOLUTE_DATE,
             ))
     return candidates, premises
 

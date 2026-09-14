@@ -8,7 +8,6 @@ import type {
   DemoDocument,
   EvidenceRetrievalResponse,
   Health,
-  LinguisticAnalysisResponse,
   EvidenceAssessmentResponse,
   GroundedEvidenceAssessment,
   ReasoningResponse,
@@ -35,12 +34,6 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
 }
 
 type AtomInput = Array<{ id: string; text: string }>;
-type LinguisticAnalysisInput = {
-  schemaVersion: 2;
-  claimText: string;
-  composition: ClaimComposition;
-  atoms: DecomposedAtom[];
-};
 
 export const api = {
   health: () => request<Health>("/api/v1/health"),
@@ -133,11 +126,6 @@ export const api = {
       assessment,
     }),
   }),
-  analyzeLinguistics: (input: LinguisticAnalysisInput) =>
-    request<LinguisticAnalysisResponse>("/api/v1/analyze-linguistics", {
-      method: "POST",
-      body: JSON.stringify(input),
-    }),
   aggregateVerdict: (input: {
     claimId: string;
     composition: ClaimComposition;

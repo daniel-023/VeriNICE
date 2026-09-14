@@ -2,13 +2,10 @@
 
 - `VIDEO_SCRIPT.md`: 4:35 narration and screen sequence.
 - `LIVE_RUNBOOK.md`: station setup, visitor paths, failures, and rehearsal gates.
-- `draft_paper.tex`: compilable LaTeX paper draft with equations, tables, and
-  screenshot placeholders. Replace its standard article class with the official
+- `draft_paper.tex`: canonical, compilable LaTeX paper source with equations,
+  tables, and interface figures. Replace its standard article class with the official
   AAAI author-kit configuration before submission.
 - `references.bib`: references cited by the draft.
-- `../output/pdf/veritrace-aaai27-demo-draft.pdf`: rendered review draft generated
-  from the paper content. Transfer the final text into the official AAAI-27
-  author kit before submission.
 
 Compile the working LaTeX draft from this directory with:
 
@@ -17,7 +14,8 @@ latexmk -pdf draft_paper.tex
 ```
 
 The repository does not bundle a TeX distribution or the official AAAI style
-files.
+files. Compiled PDFs and upload archives are generated deliverables and remain
+outside version control.
 
 The private 32-case AVeriTeC bundle remains available for internal auditing.
 The checked-in walkthrough publishes a separate 18-case qualitative showcase:

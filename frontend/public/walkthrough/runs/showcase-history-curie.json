@@ -1,15 +1,15 @@
 {
   "caseId": "showcase-history-curie",
-  "schemaVersion": 6,
+  "schemaVersion": 7,
   "composition": "SINGLE",
   "warnings": [],
   "atoms": [
     {
       "id": "atom-1",
-      "text": "Marie Curie won Nobel Prizes in two different scientific fields.",
-      "sourceText": "Marie Curie won Nobel Prizes in two different scientific fields.",
+      "text": "Marie Curie won Nobel Prizes in at least two different scientific fields.",
+      "sourceText": "Marie Curie won Nobel Prizes in at least two different scientific fields.",
       "start": 0,
-      "end": 64,
+      "end": 73,
       "role": "CORE"
     }
   ],
@@ -127,7 +127,7 @@
         ],
         "sufficiency": "SUFFICIENT",
         "missingInformation": "",
-        "reason": "The evidence clearly states that Marie Curie won Nobel Prizes in both Physics (1903) and Chemistry (1911).",
+        "reason": "The evidence explicitly states that Marie Curie won Nobel Prizes in both Physics and Chemistry.",
         "scopeChecks": [
           {
             "spanId": "doc-eef64596d10c::sentence-14",
@@ -205,42 +205,31 @@
   },
   "reasoning": [
     {
-      "id": "proof:atom-1:attribute_compare:2",
+      "id": "proof:atom-1:attribute_compare:unresolved",
       "atomId": "atom-1",
       "operator": "ATTRIBUTE_COMPARE",
+      "profile": "EXPLICIT_NEGATION",
       "status": "UNRESOLVED",
       "relation": null,
-      "premiseIds": [
-        "evidence:atom-1:doc-eef64596d10c:doc-eef64596d10c::sentence-9",
-        "evidence:atom-1:doc-a0826bb5a83d:doc-a0826bb5a83d::sentence-10"
+      "premiseIds": [],
+      "premises": [],
+      "expression": "attribute compare",
+      "conclusion": "No grounded program was compiled.",
+      "explanation": "Qwen did not map the typed candidate to sufficient server-owned premises.",
+      "validationWarnings": [
+        "NO_GROUNDED_PROGRAM"
       ],
-      "premises": [
+      "preconditions": [
         {
-          "id": "evidence:atom-1:doc-eef64596d10c:doc-eef64596d10c::sentence-9",
-          "documentId": "doc-eef64596d10c",
-          "text": "Also awarded: Nobel Prize in Chemistry 1911\n",
-          "start": 365,
-          "end": 409,
-          "kind": "EVIDENCE",
-          "contentHash": null,
-          "itemCount": null
+          "name": "Registered profile",
+          "status": "PASSED",
+          "detail": "explicit negation"
         },
         {
-          "id": "evidence:atom-1:doc-a0826bb5a83d:doc-a0826bb5a83d::sentence-10",
-          "documentId": "doc-a0826bb5a83d",
-          "text": "Also awarded: Nobel Prize in Physics 1903\n",
-          "start": 496,
-          "end": 538,
-          "kind": "EVIDENCE",
-          "contentHash": null,
-          "itemCount": null
+          "name": "Operand alignment",
+          "status": "UNRESOLVED",
+          "detail": "The model did not map the candidate to sufficient server-owned premises."
         }
-      ],
-      "expression": "attribute comparison",
-      "conclusion": "Entity alignment is unresolved",
-      "explanation": "The selected premises do not explicitly identify the claim subject.",
-      "validationWarnings": [
-        "MISSING_ENTITY_ALIGNMENT"
       ],
       "program": {
         "version": 1,
@@ -249,16 +238,7 @@
             "id": "input-1",
             "operation": "LOOKUP",
             "inputIds": [
-              "evidence:atom-1:doc-eef64596d10c:doc-eef64596d10c::sentence-9"
-            ],
-            "outputType": "FACT",
-            "description": "Read an unchanged server-owned premise."
-          },
-          {
-            "id": "input-2",
-            "operation": "LOOKUP",
-            "inputIds": [
-              "evidence:atom-1:doc-a0826bb5a83d:doc-a0826bb5a83d::sentence-10"
+              "candidate:atom-1:attribute"
             ],
             "outputType": "FACT",
             "description": "Read an unchanged server-owned premise."
@@ -267,8 +247,7 @@
             "id": "result",
             "operation": "EQUAL",
             "inputIds": [
-              "input-1",
-              "input-2"
+              "input-1"
             ],
             "outputType": "BOOLEAN",
             "description": "Validate operand alignment and execute the typed operation in Python."
@@ -281,6 +260,7 @@
       "id": "proof:atom-1:count_distinct:1",
       "atomId": "atom-1",
       "operator": "COUNT_DISTINCT",
+      "profile": "NOBEL_FIELD_COUNT",
       "status": "PROVED",
       "relation": "SUPPORTS",
       "premiseIds": [
@@ -296,7 +276,8 @@
           "end": 409,
           "kind": "EVIDENCE",
           "contentHash": null,
-          "itemCount": null
+          "itemCount": null,
+          "listItems": []
         },
         {
           "id": "evidence:atom-1:doc-a0826bb5a83d:doc-a0826bb5a83d::sentence-10",
@@ -306,13 +287,36 @@
           "end": 538,
           "kind": "EVIDENCE",
           "contentHash": null,
-          "itemCount": null
+          "itemCount": null,
+          "listItems": []
         }
       ],
-      "expression": "count({chemistry, physics}) = 2",
-      "conclusion": "The sources ground 2 distinct values.",
-      "explanation": "Python normalized and counted explicit source values; it did not infer field equivalence.",
+      "expression": "count({chemistry, physics}) ≥ 2",
+      "conclusion": "The sources ground at least 2 distinct values.",
+      "explanation": "Python normalized and counted explicit source values from the registered profile; it did not infer field equivalence or exact completeness.",
       "validationWarnings": [],
+      "preconditions": [
+        {
+          "name": "Source grounding",
+          "status": "PASSED",
+          "detail": "2 selected premise(s) retain exact source offsets."
+        },
+        {
+          "name": "Registered profile",
+          "status": "PASSED",
+          "detail": "nobel field count"
+        },
+        {
+          "name": "Operand alignment",
+          "status": "PASSED",
+          "detail": "Python normalized and counted explicit source values from the registered profile; it did not infer field equivalence or exact completeness."
+        },
+        {
+          "name": "Count semantics",
+          "status": "PASSED",
+          "detail": "The claim requests a lower bound; exact completeness is not assumed."
+        }
+      ],
       "program": {
         "version": 1,
         "steps": [
@@ -347,418 +351,101 @@
         ],
         "outputStepId": "result"
       }
+    },
+    {
+      "id": "proof:atom-1:extremum_compare:2",
+      "atomId": "atom-1",
+      "operator": "EXTREMUM_COMPARE",
+      "profile": "GENERIC_EXTREMUM_COUNTEREXAMPLE",
+      "status": "UNRESOLVED",
+      "relation": null,
+      "premiseIds": [
+        "evidence:atom-1:doc-eef64596d10c:doc-eef64596d10c::sentence-9",
+        "evidence:atom-1:doc-a0826bb5a83d:doc-a0826bb5a83d::sentence-10"
+      ],
+      "premises": [
+        {
+          "id": "evidence:atom-1:doc-eef64596d10c:doc-eef64596d10c::sentence-9",
+          "documentId": "doc-eef64596d10c",
+          "text": "Also awarded: Nobel Prize in Chemistry 1911\n",
+          "start": 365,
+          "end": 409,
+          "kind": "EVIDENCE",
+          "contentHash": null,
+          "itemCount": null,
+          "listItems": []
+        },
+        {
+          "id": "evidence:atom-1:doc-a0826bb5a83d:doc-a0826bb5a83d::sentence-10",
+          "documentId": "doc-a0826bb5a83d",
+          "text": "Also awarded: Nobel Prize in Physics 1903\n",
+          "start": 496,
+          "end": 538,
+          "kind": "EVIDENCE",
+          "contentHash": null,
+          "itemCount": null,
+          "listItems": []
+        }
+      ],
+      "expression": "least",
+      "conclusion": "Subject value is unresolved",
+      "explanation": "No uniquely aligned measurement was found for the claimed subject.",
+      "validationWarnings": [
+        "MISSING_SUBJECT_VALUE"
+      ],
+      "preconditions": [
+        {
+          "name": "Source grounding",
+          "status": "PASSED",
+          "detail": "10 selected premise(s) retain exact source offsets."
+        },
+        {
+          "name": "Registered profile",
+          "status": "PASSED",
+          "detail": "generic extremum counterexample"
+        },
+        {
+          "name": "Operand alignment",
+          "status": "UNRESOLVED",
+          "detail": "No uniquely aligned measurement was found for the claimed subject."
+        }
+      ],
+      "program": {
+        "version": 1,
+        "steps": [
+          {
+            "id": "input-1",
+            "operation": "LOOKUP",
+            "inputIds": [
+              "evidence:atom-1:doc-eef64596d10c:doc-eef64596d10c::sentence-9"
+            ],
+            "outputType": "FACT",
+            "description": "Read an unchanged server-owned premise."
+          },
+          {
+            "id": "input-2",
+            "operation": "LOOKUP",
+            "inputIds": [
+              "evidence:atom-1:doc-a0826bb5a83d:doc-a0826bb5a83d::sentence-10"
+            ],
+            "outputType": "FACT",
+            "description": "Read an unchanged server-owned premise."
+          },
+          {
+            "id": "result",
+            "operation": "EXTREMUM_COUNTEREXAMPLE",
+            "inputIds": [
+              "input-1",
+              "input-2"
+            ],
+            "outputType": "BOOLEAN",
+            "description": "Validate operand alignment and execute the typed operation in Python."
+          }
+        ],
+        "outputStepId": "result"
+      }
     }
   ],
-  "linguistics": {
-    "schemaVersion": 2,
-    "claimAnalysis": {
-      "atomId": "claim",
-      "frames": [
-        {
-          "id": "claim-frame-1",
-          "predicate": {
-            "id": "claim-frame-1-predicate",
-            "text": "won",
-            "start": 12,
-            "end": 15
-          },
-          "subjects": [
-            {
-              "id": "claim-frame-1-subject-1",
-              "text": "Marie Curie",
-              "start": 0,
-              "end": 11
-            }
-          ],
-          "coreArguments": [
-            {
-              "id": "claim-frame-1-argument-1",
-              "text": "Nobel Prizes",
-              "start": 16,
-              "end": 28,
-              "role": "direct_object"
-            }
-          ],
-          "adjuncts": [],
-          "otherModifiers": [
-            {
-              "id": "claim-frame-1-other-modifier-1",
-              "text": "in two different scientific fields",
-              "start": 29,
-              "end": 63
-            }
-          ]
-        }
-      ],
-      "cues": [
-        {
-          "id": "claim-cue-numeric-32-35",
-          "text": "two",
-          "start": 32,
-          "end": 35,
-          "kind": "numeric"
-        }
-      ],
-      "entities": [
-        {
-          "id": "claim-entity-person-0-11",
-          "text": "Marie Curie",
-          "start": 0,
-          "end": 11,
-          "label": "PERSON"
-        },
-        {
-          "id": "claim-entity-work_of_art-16-28",
-          "text": "Nobel Prizes",
-          "start": 16,
-          "end": 28,
-          "label": "WORK_OF_ART"
-        }
-      ],
-      "tokens": [
-        {
-          "id": "claim-token-0",
-          "text": "Marie",
-          "start": 0,
-          "end": 5,
-          "lemma": "Marie",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "compound",
-          "head": "Curie"
-        },
-        {
-          "id": "claim-token-1",
-          "text": "Curie",
-          "start": 6,
-          "end": 11,
-          "lemma": "Curie",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "nsubj",
-          "head": "won"
-        },
-        {
-          "id": "claim-token-2",
-          "text": "won",
-          "start": 12,
-          "end": 15,
-          "lemma": "win",
-          "pos": "VERB",
-          "tag": "VBD",
-          "dependency": "ROOT",
-          "head": "ROOT"
-        },
-        {
-          "id": "claim-token-3",
-          "text": "Nobel",
-          "start": 16,
-          "end": 21,
-          "lemma": "Nobel",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "compound",
-          "head": "Prizes"
-        },
-        {
-          "id": "claim-token-4",
-          "text": "Prizes",
-          "start": 22,
-          "end": 28,
-          "lemma": "Prizes",
-          "pos": "PROPN",
-          "tag": "NNPS",
-          "dependency": "dobj",
-          "head": "won"
-        },
-        {
-          "id": "claim-token-5",
-          "text": "in",
-          "start": 29,
-          "end": 31,
-          "lemma": "in",
-          "pos": "ADP",
-          "tag": "IN",
-          "dependency": "prep",
-          "head": "won"
-        },
-        {
-          "id": "claim-token-6",
-          "text": "two",
-          "start": 32,
-          "end": 35,
-          "lemma": "two",
-          "pos": "NUM",
-          "tag": "CD",
-          "dependency": "nummod",
-          "head": "fields"
-        },
-        {
-          "id": "claim-token-7",
-          "text": "different",
-          "start": 36,
-          "end": 45,
-          "lemma": "different",
-          "pos": "ADJ",
-          "tag": "JJ",
-          "dependency": "amod",
-          "head": "fields"
-        },
-        {
-          "id": "claim-token-8",
-          "text": "scientific",
-          "start": 46,
-          "end": 56,
-          "lemma": "scientific",
-          "pos": "ADJ",
-          "tag": "JJ",
-          "dependency": "amod",
-          "head": "fields"
-        },
-        {
-          "id": "claim-token-9",
-          "text": "fields",
-          "start": 57,
-          "end": 63,
-          "lemma": "field",
-          "pos": "NOUN",
-          "tag": "NNS",
-          "dependency": "pobj",
-          "head": "in"
-        },
-        {
-          "id": "claim-token-10",
-          "text": ".",
-          "start": 63,
-          "end": 64,
-          "lemma": ".",
-          "pos": "PUNCT",
-          "tag": ".",
-          "dependency": "punct",
-          "head": "won"
-        }
-      ],
-      "status": "complete",
-      "unresolved": []
-    },
-    "analyses": [
-      {
-        "atomId": "atom-1",
-        "frames": [
-          {
-            "id": "atom-1-frame-1",
-            "predicate": {
-              "id": "atom-1-frame-1-predicate",
-              "text": "won",
-              "start": 12,
-              "end": 15
-            },
-            "subjects": [
-              {
-                "id": "atom-1-frame-1-subject-1",
-                "text": "Marie Curie",
-                "start": 0,
-                "end": 11
-              }
-            ],
-            "coreArguments": [
-              {
-                "id": "atom-1-frame-1-argument-1",
-                "text": "Nobel Prizes",
-                "start": 16,
-                "end": 28,
-                "role": "direct_object"
-              }
-            ],
-            "adjuncts": [],
-            "otherModifiers": [
-              {
-                "id": "atom-1-frame-1-other-modifier-1",
-                "text": "in two different scientific fields",
-                "start": 29,
-                "end": 63
-              }
-            ]
-          }
-        ],
-        "cues": [
-          {
-            "id": "atom-1-cue-numeric-32-35",
-            "text": "two",
-            "start": 32,
-            "end": 35,
-            "kind": "numeric"
-          }
-        ],
-        "entities": [
-          {
-            "id": "atom-1-entity-person-0-11",
-            "text": "Marie Curie",
-            "start": 0,
-            "end": 11,
-            "label": "PERSON"
-          },
-          {
-            "id": "atom-1-entity-work_of_art-16-28",
-            "text": "Nobel Prizes",
-            "start": 16,
-            "end": 28,
-            "label": "WORK_OF_ART"
-          }
-        ],
-        "tokens": [
-          {
-            "id": "atom-1-token-0",
-            "text": "Marie",
-            "start": 0,
-            "end": 5,
-            "lemma": "Marie",
-            "pos": "PROPN",
-            "tag": "NNP",
-            "dependency": "compound",
-            "head": "Curie"
-          },
-          {
-            "id": "atom-1-token-1",
-            "text": "Curie",
-            "start": 6,
-            "end": 11,
-            "lemma": "Curie",
-            "pos": "PROPN",
-            "tag": "NNP",
-            "dependency": "nsubj",
-            "head": "won"
-          },
-          {
-            "id": "atom-1-token-2",
-            "text": "won",
-            "start": 12,
-            "end": 15,
-            "lemma": "win",
-            "pos": "VERB",
-            "tag": "VBD",
-            "dependency": "ROOT",
-            "head": "ROOT"
-          },
-          {
-            "id": "atom-1-token-3",
-            "text": "Nobel",
-            "start": 16,
-            "end": 21,
-            "lemma": "Nobel",
-            "pos": "PROPN",
-            "tag": "NNP",
-            "dependency": "compound",
-            "head": "Prizes"
-          },
-          {
-            "id": "atom-1-token-4",
-            "text": "Prizes",
-            "start": 22,
-            "end": 28,
-            "lemma": "Prizes",
-            "pos": "PROPN",
-            "tag": "NNPS",
-            "dependency": "dobj",
-            "head": "won"
-          },
-          {
-            "id": "atom-1-token-5",
-            "text": "in",
-            "start": 29,
-            "end": 31,
-            "lemma": "in",
-            "pos": "ADP",
-            "tag": "IN",
-            "dependency": "prep",
-            "head": "won"
-          },
-          {
-            "id": "atom-1-token-6",
-            "text": "two",
-            "start": 32,
-            "end": 35,
-            "lemma": "two",
-            "pos": "NUM",
-            "tag": "CD",
-            "dependency": "nummod",
-            "head": "fields"
-          },
-          {
-            "id": "atom-1-token-7",
-            "text": "different",
-            "start": 36,
-            "end": 45,
-            "lemma": "different",
-            "pos": "ADJ",
-            "tag": "JJ",
-            "dependency": "amod",
-            "head": "fields"
-          },
-          {
-            "id": "atom-1-token-8",
-            "text": "scientific",
-            "start": 46,
-            "end": 56,
-            "lemma": "scientific",
-            "pos": "ADJ",
-            "tag": "JJ",
-            "dependency": "amod",
-            "head": "fields"
-          },
-          {
-            "id": "atom-1-token-9",
-            "text": "fields",
-            "start": 57,
-            "end": 63,
-            "lemma": "field",
-            "pos": "NOUN",
-            "tag": "NNS",
-            "dependency": "pobj",
-            "head": "in"
-          },
-          {
-            "id": "atom-1-token-10",
-            "text": ".",
-            "start": 63,
-            "end": 64,
-            "lemma": ".",
-            "pos": "PUNCT",
-            "tag": ".",
-            "dependency": "punct",
-            "head": "won"
-          }
-        ],
-        "status": "complete",
-        "unresolved": []
-      }
-    ],
-    "summaries": [
-      {
-        "atomId": "atom-1",
-        "analysisStatus": "complete",
-        "roleAudit": "MATCH",
-        "subjects": [
-          "Marie Curie"
-        ],
-        "predicates": [
-          "win"
-        ],
-        "cueKinds": [
-          "numeric"
-        ],
-        "modifierKinds": [],
-        "entityLabels": [
-          "PERSON",
-          "WORK_OF_ART"
-        ],
-        "warnings": []
-      }
-    ],
-    "claimWarnings": [],
-    "provider": "spacy",
-    "model": "en_core_web_sm@3.8.0"
-  },
   "verdict": {
     "aggregationSchemaVersion": 3,
     "claimId": "showcase-history-curie",
@@ -795,21 +482,20 @@
     ]
   },
   "recordedWith": {
-    "pipelineRevision": "submission-ready-v2",
-    "inputDigest": "51870a4f4c74519eb60e31b9a0dcfa8c0056771973f65b0644e2b34f466737df",
+    "pipelineRevision": "submission-ready-v3",
+    "inputDigest": "458b4a08ab0b6bf54681858abe9f80c59eb7ac3de04fd5bc4a1a16d3c12169d9",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
     "retrievalMethod": "HYBRID",
     "assessmentModel": "qwen2.5:7b",
-    "reasoningModel": "qwen2.5:7b",
-    "linguisticsModel": "en_core_web_sm@3.8.0"
+    "reasoningModel": "qwen2.5:7b"
   },
   "timingsSeconds": {
-    "decomposition": 18.59,
-    "retrievalAndLinguistics": 0.127,
-    "evidenceAssessment": 23.257,
-    "symbolicReasoning": 39.012,
-    "aggregation": 0.005,
-    "total": 80.992
+    "decomposition": 17.048,
+    "retrieval": 0.281,
+    "evidenceAssessment": 18.931,
+    "symbolicReasoning": 31.177,
+    "aggregation": 0.002,
+    "total": 67.44
   }
 }

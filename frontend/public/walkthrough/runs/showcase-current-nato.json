@@ -1,6 +1,6 @@
 {
   "caseId": "showcase-current-nato",
-  "schemaVersion": 6,
+  "schemaVersion": 7,
   "composition": "SINGLE",
   "warnings": [],
   "atoms": [
@@ -206,22 +206,24 @@
       "id": "proof:atom-1:temporal_compare:1",
       "atomId": "atom-1",
       "operator": "TEMPORAL_COMPARE",
+      "profile": "GENERIC_EVENT_ORDER",
       "status": "DISPROVED",
       "relation": "REFUTES",
       "premiseIds": [
-        "evidence:atom-1:doc-ca3c249b3f5f:doc-ca3c249b3f5f::sentence-4",
+        "evidence:atom-1:doc-7a01f78ccd01:doc-7a01f78ccd01::sentence-3",
         "evidence:atom-1:doc-ca3c249b3f5f:doc-ca3c249b3f5f::sentence-3"
       ],
       "premises": [
         {
-          "id": "evidence:atom-1:doc-ca3c249b3f5f:doc-ca3c249b3f5f::sentence-4",
-          "documentId": "doc-ca3c249b3f5f",
-          "text": "Thereafter, Sweden joined the Alliance on 7 March 2024, after Sweden’s Accession Protocol was ratified by all NATO member countries according to their national procedures and its Instrument of Accession was deposited with the US State Department.\n",
-          "start": 630,
-          "end": 877,
+          "id": "evidence:atom-1:doc-7a01f78ccd01:doc-7a01f78ccd01::sentence-3",
+          "documentId": "doc-7a01f78ccd01",
+          "text": "Sweden became NATO’s newest member on Thursday (7 March 2024), upon depositing its instrument of accession to the North Atlantic Treaty with the Government of the United States in Washington DC. ",
+          "start": 98,
+          "end": 293,
           "kind": "EVIDENCE",
           "contentHash": null,
-          "itemCount": null
+          "itemCount": null,
+          "listItems": []
         },
         {
           "id": "evidence:atom-1:doc-ca3c249b3f5f:doc-ca3c249b3f5f::sentence-3",
@@ -231,13 +233,31 @@
           "end": 630,
           "kind": "EVIDENCE",
           "contentHash": null,
-          "itemCount": null
+          "itemCount": null,
+          "listItems": []
         }
       ],
       "expression": "March 2024 before April 2023",
       "conclusion": "The grounded temporal ordering is false.",
       "explanation": "Python aligned each named event with one absolute date and compared their intervals.",
       "validationWarnings": [],
+      "preconditions": [
+        {
+          "name": "Source grounding",
+          "status": "PASSED",
+          "detail": "3 selected premise(s) retain exact source offsets."
+        },
+        {
+          "name": "Registered profile",
+          "status": "PASSED",
+          "detail": "generic event order"
+        },
+        {
+          "name": "Operand alignment",
+          "status": "PASSED",
+          "detail": "Python aligned each named event with one absolute date and compared their intervals."
+        }
+      ],
       "program": {
         "version": 1,
         "steps": [
@@ -245,7 +265,7 @@
             "id": "input-1",
             "operation": "LOOKUP",
             "inputIds": [
-              "evidence:atom-1:doc-ca3c249b3f5f:doc-ca3c249b3f5f::sentence-4"
+              "evidence:atom-1:doc-7a01f78ccd01:doc-7a01f78ccd01::sentence-3"
             ],
             "outputType": "FACT",
             "description": "Read an unchanged server-owned premise."
@@ -274,308 +294,6 @@
       }
     }
   ],
-  "linguistics": {
-    "schemaVersion": 2,
-    "claimAnalysis": {
-      "atomId": "claim",
-      "frames": [
-        {
-          "id": "claim-frame-1",
-          "predicate": {
-            "id": "claim-frame-1-predicate",
-            "text": "joined",
-            "start": 7,
-            "end": 13
-          },
-          "subjects": [
-            {
-              "id": "claim-frame-1-subject-1",
-              "text": "Sweden",
-              "start": 0,
-              "end": 6
-            }
-          ],
-          "coreArguments": [
-            {
-              "id": "claim-frame-1-argument-1",
-              "text": "NATO",
-              "start": 14,
-              "end": 18,
-              "role": "direct_object"
-            }
-          ],
-          "adjuncts": [
-            {
-              "id": "claim-frame-1-adjunct-1",
-              "text": "before Finland",
-              "start": 19,
-              "end": 33,
-              "kind": "temporal"
-            }
-          ],
-          "otherModifiers": []
-        }
-      ],
-      "cues": [],
-      "entities": [
-        {
-          "id": "claim-entity-gpe-0-6",
-          "text": "Sweden",
-          "start": 0,
-          "end": 6,
-          "label": "GPE"
-        },
-        {
-          "id": "claim-entity-org-14-18",
-          "text": "NATO",
-          "start": 14,
-          "end": 18,
-          "label": "ORG"
-        },
-        {
-          "id": "claim-entity-gpe-26-33",
-          "text": "Finland",
-          "start": 26,
-          "end": 33,
-          "label": "GPE"
-        }
-      ],
-      "tokens": [
-        {
-          "id": "claim-token-0",
-          "text": "Sweden",
-          "start": 0,
-          "end": 6,
-          "lemma": "Sweden",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "nsubj",
-          "head": "joined"
-        },
-        {
-          "id": "claim-token-1",
-          "text": "joined",
-          "start": 7,
-          "end": 13,
-          "lemma": "join",
-          "pos": "VERB",
-          "tag": "VBD",
-          "dependency": "ROOT",
-          "head": "ROOT"
-        },
-        {
-          "id": "claim-token-2",
-          "text": "NATO",
-          "start": 14,
-          "end": 18,
-          "lemma": "NATO",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "dobj",
-          "head": "joined"
-        },
-        {
-          "id": "claim-token-3",
-          "text": "before",
-          "start": 19,
-          "end": 25,
-          "lemma": "before",
-          "pos": "ADP",
-          "tag": "IN",
-          "dependency": "prep",
-          "head": "joined"
-        },
-        {
-          "id": "claim-token-4",
-          "text": "Finland",
-          "start": 26,
-          "end": 33,
-          "lemma": "Finland",
-          "pos": "PROPN",
-          "tag": "NNP",
-          "dependency": "pobj",
-          "head": "before"
-        },
-        {
-          "id": "claim-token-5",
-          "text": ".",
-          "start": 33,
-          "end": 34,
-          "lemma": ".",
-          "pos": "PUNCT",
-          "tag": ".",
-          "dependency": "punct",
-          "head": "joined"
-        }
-      ],
-      "status": "complete",
-      "unresolved": []
-    },
-    "analyses": [
-      {
-        "atomId": "atom-1",
-        "frames": [
-          {
-            "id": "atom-1-frame-1",
-            "predicate": {
-              "id": "atom-1-frame-1-predicate",
-              "text": "joined",
-              "start": 7,
-              "end": 13
-            },
-            "subjects": [
-              {
-                "id": "atom-1-frame-1-subject-1",
-                "text": "Sweden",
-                "start": 0,
-                "end": 6
-              }
-            ],
-            "coreArguments": [
-              {
-                "id": "atom-1-frame-1-argument-1",
-                "text": "NATO",
-                "start": 14,
-                "end": 18,
-                "role": "direct_object"
-              }
-            ],
-            "adjuncts": [
-              {
-                "id": "atom-1-frame-1-adjunct-1",
-                "text": "before Finland",
-                "start": 19,
-                "end": 33,
-                "kind": "temporal"
-              }
-            ],
-            "otherModifiers": []
-          }
-        ],
-        "cues": [],
-        "entities": [
-          {
-            "id": "atom-1-entity-gpe-0-6",
-            "text": "Sweden",
-            "start": 0,
-            "end": 6,
-            "label": "GPE"
-          },
-          {
-            "id": "atom-1-entity-org-14-18",
-            "text": "NATO",
-            "start": 14,
-            "end": 18,
-            "label": "ORG"
-          },
-          {
-            "id": "atom-1-entity-gpe-26-33",
-            "text": "Finland",
-            "start": 26,
-            "end": 33,
-            "label": "GPE"
-          }
-        ],
-        "tokens": [
-          {
-            "id": "atom-1-token-0",
-            "text": "Sweden",
-            "start": 0,
-            "end": 6,
-            "lemma": "Sweden",
-            "pos": "PROPN",
-            "tag": "NNP",
-            "dependency": "nsubj",
-            "head": "joined"
-          },
-          {
-            "id": "atom-1-token-1",
-            "text": "joined",
-            "start": 7,
-            "end": 13,
-            "lemma": "join",
-            "pos": "VERB",
-            "tag": "VBD",
-            "dependency": "ROOT",
-            "head": "ROOT"
-          },
-          {
-            "id": "atom-1-token-2",
-            "text": "NATO",
-            "start": 14,
-            "end": 18,
-            "lemma": "NATO",
-            "pos": "PROPN",
-            "tag": "NNP",
-            "dependency": "dobj",
-            "head": "joined"
-          },
-          {
-            "id": "atom-1-token-3",
-            "text": "before",
-            "start": 19,
-            "end": 25,
-            "lemma": "before",
-            "pos": "ADP",
-            "tag": "IN",
-            "dependency": "prep",
-            "head": "joined"
-          },
-          {
-            "id": "atom-1-token-4",
-            "text": "Finland",
-            "start": 26,
-            "end": 33,
-            "lemma": "Finland",
-            "pos": "PROPN",
-            "tag": "NNP",
-            "dependency": "pobj",
-            "head": "before"
-          },
-          {
-            "id": "atom-1-token-5",
-            "text": ".",
-            "start": 33,
-            "end": 34,
-            "lemma": ".",
-            "pos": "PUNCT",
-            "tag": ".",
-            "dependency": "punct",
-            "head": "joined"
-          }
-        ],
-        "status": "complete",
-        "unresolved": []
-      }
-    ],
-    "summaries": [
-      {
-        "atomId": "atom-1",
-        "analysisStatus": "complete",
-        "roleAudit": "MISMATCH",
-        "subjects": [
-          "Sweden"
-        ],
-        "predicates": [
-          "join"
-        ],
-        "cueKinds": [],
-        "modifierKinds": [
-          "temporal"
-        ],
-        "entityLabels": [
-          "GPE",
-          "ORG"
-        ],
-        "warnings": [
-          "ROLE_CUE_MISMATCH"
-        ]
-      }
-    ],
-    "claimWarnings": [],
-    "provider": "spacy",
-    "model": "en_core_web_sm@3.8.0"
-  },
   "verdict": {
     "aggregationSchemaVersion": 3,
     "claimId": "showcase-current-nato",
@@ -612,21 +330,20 @@
     ]
   },
   "recordedWith": {
-    "pipelineRevision": "submission-ready-v2",
+    "pipelineRevision": "submission-ready-v3",
     "inputDigest": "8679e924aac4d11d8da15dd05d1d375ba179abc6560bd39879019e9653e0e76b",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
     "retrievalMethod": "HYBRID",
     "assessmentModel": "qwen2.5:7b",
-    "reasoningModel": "qwen2.5:7b",
-    "linguisticsModel": "en_core_web_sm@3.8.0"
+    "reasoningModel": "qwen2.5:7b"
   },
   "timingsSeconds": {
-    "decomposition": 40.096,
-    "retrievalAndLinguistics": 0.942,
-    "evidenceAssessment": 57.382,
-    "symbolicReasoning": 50.697,
-    "aggregation": 0.061,
-    "total": 149.178
+    "decomposition": 12.224,
+    "retrieval": 0.336,
+    "evidenceAssessment": 16.208,
+    "symbolicReasoning": 12.047,
+    "aggregation": 0.004,
+    "total": 40.819
   }
 }

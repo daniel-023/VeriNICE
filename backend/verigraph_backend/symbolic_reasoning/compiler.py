@@ -116,7 +116,7 @@ async def compile_programs(candidates: Sequence[Candidate]) -> list[tuple[str, l
     candidate_ids = [candidate.id for candidate in candidates]
     premise_ids = list(dict.fromkeys(premise for candidate in candidates for premise in candidate.premise_ids))
     prompt = "\n\n".join(
-        f"{candidate.id} | {candidate.operator} | ATOM: {candidate.summary}\n"
+        f"{candidate.id} | {candidate.operator} | PROFILE: {candidate.profile} | ATOM: {candidate.summary}\n"
         + "\n".join(f"  {premise_id} = {text}" for premise_id, text in candidate.premise_texts)
         for candidate in candidates
     )

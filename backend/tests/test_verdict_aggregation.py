@@ -6,6 +6,8 @@ from verigraph_backend.verdict_aggregation import aggregate_verdict
 
 def request(composition, relations, proofs=None, omission=False, sufficiency="SUFFICIENT"):
     for proof in proofs or []:
+        proof.setdefault("profile", "TEST_PROFILE")
+        proof.setdefault("preconditions", [])
         proof.setdefault("program", {
             "version": 1,
             "steps": [{"id": "result", "operation": "MEMBER", "inputIds": [proof["id"]], "outputType": "BOOLEAN", "description": "Test program."}],

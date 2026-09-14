@@ -169,6 +169,76 @@ def test_numeric_comparison_uses_decimal_and_compatible_units(claim, evidence, s
 
 
 @pytest.mark.parametrize(("claim", "evidence", "status"), [
+    ("Lightning heats surrounding air to more than 40,000°F.", "Lightning can heat surrounding air to 50,000 degrees Fahrenheit.", "PROVED"),
+    ("Lightning heats surrounding air to under 40,000 degrees Fahrenheit.", "Lightning can heat surrounding air to 50,000°F.", "DISPROVED"),
+    ("Lightning heats surrounding air to more than 40,000°F.", "Lightning can heat surrounding air to 50,000 degrees Celsius.", "UNRESOLVED"),
+    ("The change was more than 5 percentage points.", "The change was 7 percent.", "UNRESOLVED"),
+    ("The route is more than 5 kilometres.", "The route is 7 kilometres.", "UNRESOLVED"),
+])
+def test_numeric_comparison_requires_matching_supported_units(claim, evidence, status):
+    result = execute_numeric_compare(PipelineAtom(id="a", text=claim), [premise(evidence)])
+    assert result["status"].value == status
+
+
+def test_numeric_comparison_accepts_corroborating_identical_values():
+    atom = PipelineAtom(id="a", text="Lightning heats surrounding air to more than 40,000°F.")
+    result = execute_numeric_compare(atom, [
+        premise("Lightning can heat surrounding air to 50,000°F."),
+        premise("The surrounding air can reach 50,000 degrees Fahrenheit during lightning.", premise_id="p2"),
+    ])
+    assert result["status"].value == "PROVED"
+
+
+def test_numeric_comparison_accepts_different_values_with_the_same_outcome():
+    atom = PipelineAtom(id="a", text="Lightning heats surrounding air to more than 40,000°F.")
+    result = execute_numeric_compare(atom, [
+        premise("Lightning can heat surrounding air to 50,000°F."),
+        premise("Lightning can heat surrounding air to 54,000°F.", premise_id="p2"),
+    ])
+    assert result["status"].value == "PROVED"
+
+
+def test_numeric_comparison_rejects_values_on_opposite_sides_of_threshold():
+    atom = PipelineAtom(id="a", text="Lightning heats surrounding air to more than 40,000°F.")
+    result = execute_numeric_compare(atom, [
+        premise("One estimate says lightning heats surrounding air to 30,000°F."),
+        premise("Another estimate says lightning heats surrounding air to 50,000°F.", premise_id="p2"),
+    ])
+    assert result["status"].value == "UNRESOLVED"
+    assert result["validation_warnings"] == ["CONFLICTING_NUMERIC_EVIDENCE"]
+
+
+def test_numeric_comparison_does_not_treat_dates_or_identifiers_as_counts():
+    atom = PipelineAtom(
+        id="a",
+        text="The CDC reported over 98,000 non-COVID deaths.",
+    )
+    result = execute_numeric_compare(atom, [
+        premise(
+            "Update on Excess Deaths Associated with the COVID-19 Pandemic — "
+            "United States, January 26, 2020–February 27, 2021."
+        ),
+        premise(
+            "Impact of Hospital Strain on Excess Deaths During the COVID-19 "
+            "Pandemic — United States, July 2020–July 2021.",
+            premise_id="p2",
+        ),
+    ])
+    assert result["status"].value == "UNRESOLVED"
+    assert result["relation"] is None
+
+
+def test_numeric_comparison_requires_one_aligned_count():
+    atom = PipelineAtom(id="a", text="The report counted more than 100 people.")
+    result = execute_numeric_compare(atom, [
+        premise("The report counted 120 people."),
+        premise("The report counted 130 people.", premise_id="p2"),
+    ])
+    assert result["status"].value == "UNRESOLVED"
+    assert result["validation_warnings"] == ["AMBIGUOUS_NUMERIC_MAPPING"]
+
+
+@pytest.mark.parametrize(("claim", "evidence", "status"), [
     ("The vote happened after November 3, 2020.", "The vote happened on November 6, 2020.", "PROVED"),
     ("The vote happened before November 3, 2020.", "The vote happened on November 6, 2020.", "DISPROVED"),
     ("The vote happened after November 2020.", "The vote happened in 2020.", "UNRESOLVED"),
@@ -197,14 +267,56 @@ def test_temporal_comparison_refutes_wrong_year_for_aligned_event():
 
 
 def test_distinct_value_count_supports_two_nobel_fields():
-    atom = PipelineAtom(id="a", text="Marie Curie won Nobel Prizes in two different scientific fields.")
+    atom = PipelineAtom(id="a", text="Marie Curie won Nobel Prizes in at least two different scientific fields.")
     result = execute_count_distinct(atom, [premise("Marie Curie received the Nobel Prize in Physics."), premise("Marie Curie received the Nobel Prize in Chemistry.", premise_id="p2")])
     assert result["status"].value == "PROVED"
+
+
+def test_distinct_value_count_requires_completeness_for_exact_equality():
+    atom = PipelineAtom(id="a", text="Marie Curie won Nobel Prizes in two different scientific fields.")
+    result = execute_count_distinct(atom, [
+        premise("Marie Curie received the Nobel Prize in Physics."),
+        premise("Marie Curie received the Nobel Prize in Chemistry.", premise_id="p2"),
+    ])
+    assert result["status"].value == "UNRESOLVED"
+    assert result["validation_warnings"] == ["INCOMPLETE_VALUE_SET"]
+
+
+def test_generic_distinct_count_does_not_invoke_nobel_profile():
+    atom = PipelineAtom(id="a", text="Ada won awards in at least two different scientific fields.")
+    result = execute_count_distinct(atom, [
+        premise("Ada won an award in mathematics."),
+        premise("Ada won an award in computing.", premise_id="p2"),
+    ])
+    assert result["status"].value == "NOT_APPLICABLE"
 
 
 def test_attribute_comparison_does_not_treat_generic_for_phrase_as_prize_reason():
     atom = PipelineAtom(id="a", text="Ivermectin is a treatment for coronavirus.")
     result = execute_attribute_compare(atom, [premise("Ivermectin is a treatment for parasitic worms.")])
+    assert result["status"].value == "UNRESOLVED"
+
+
+def test_attribute_negation_must_apply_to_the_claimed_property():
+    atom = PipelineAtom(id="a", text="Alice is a physician.")
+    result = execute_attribute_compare(atom, [
+        premise("Alice is a physician and is not a lawyer.")
+    ])
+    assert result["status"].value == "UNRESOLVED"
+
+
+def test_numeric_comparison_rejects_another_entitys_value():
+    atom = PipelineAtom(id="a", text="Alpha served more than 20 users.")
+    result = execute_numeric_compare(atom, [premise("Beta served 25 users.")])
+    assert result["status"].value == "UNRESOLVED"
+
+
+def test_temporal_comparison_rejects_dates_for_different_events():
+    atom = PipelineAtom(id="a", text="Alpha launched before Beta.")
+    result = execute_temporal_compare(atom, [
+        premise("Alpha was discussed in 2020."),
+        premise("Beta was discussed in 2021.", premise_id="p2"),
+    ])
     assert result["status"].value == "UNRESOLVED"
 
 
@@ -286,6 +398,33 @@ def test_location_presentation_keeps_the_country_premise_not_name_only_overlap()
         "claimed location = source location",
     )
     assert selected == ["location"]
+
+
+def test_location_presentation_keeps_subject_and_country_when_split_across_sentences():
+    from verigraph_backend.symbolic_reasoning.service import _presentation_premise_ids
+    from verigraph_backend.schemas import SymbolicOperator, SymbolicStatus
+
+    atom = PipelineAtom(id="a", text="The Eiffel Tower is located in Germany.")
+    premises = {
+        "subject": premise(
+            "The Eiffel Tower is located in the heart of Paris.", premise_id="subject"
+        ),
+        "country": premise(
+            "Its official address is 5 avenue Anatole France, 75007 Paris, France.",
+            premise_id="country",
+        ),
+    }
+    selected = _presentation_premise_ids(
+        SymbolicOperator.attribute_compare,
+        atom,
+        ["subject", "country"],
+        premises,
+        SymbolicStatus.disproved,
+        "claimed location = source location",
+    )
+    assert selected == ["subject", "country"]
+    replay = execute_attribute_compare(atom, [premises[item] for item in selected])
+    assert replay["status"].value == "DISPROVED"
 
 
 def test_attribute_presentation_keeps_the_competing_exclusive_purposes():

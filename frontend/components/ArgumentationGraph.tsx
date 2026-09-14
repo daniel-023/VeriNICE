@@ -67,7 +67,7 @@ const RULE_LABELS: Record<string, string> = {
   TEMPORAL_COMPARE: "Temporal comparison",
   ATTRIBUTE_COMPARE: "Attribute comparison",
   COUNT_DISTINCT: "Distinct-value count",
-  EXTREMUM_COMPARE: "Extremum comparison",
+  EXTREMUM_COMPARE: "Largest/smallest comparison",
 };
 
 function display(value: string): string {
