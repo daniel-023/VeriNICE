@@ -40,7 +40,7 @@ const SYMBOLIC_RULES: Array<{
   { operator: "TEMPORAL_COMPARE", label: "Temporal comparison", description: "Compares aligned absolute dates or date intervals." },
   { operator: "ATTRIBUTE_COMPARE", label: "Attribute comparison", description: "Applies a registered source-grounded attribute pattern." },
   { operator: "COUNT_DISTINCT", label: "Distinct-value count", description: "Counts grounded values; exact equality requires a complete value set." },
-  { operator: "EXTREMUM_COMPARE", label: "Largest/smallest comparison", description: "Uses an aligned counterexample to refute a largest or smallest claim." },
+  { operator: "EXTREMUM_COMPARE", label: "Largest/smallest comparison", description: "Finds a comparable counterexample that can refute a largest or smallest claim." },
 ];
 const SYMBOLIC_RULES_BY_OPERATOR = new Map(
   SYMBOLIC_RULES.map((rule) => [rule.operator, rule]),
