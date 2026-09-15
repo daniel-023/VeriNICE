@@ -155,7 +155,7 @@ def _is_sentence_like(text: str) -> bool:
     if (
         word_count >= 3
         and re.search(r"\d", stripped)
-        and re.search(r"(?i)\b(?:awarded|award|born|date|died|joined|member|nobel|population|prize|sale)\b", stripped)
+        and re.search(r"(?i)\b(?:awarded|award|born|date|died|joined|member|population|prize|sale)\b", stripped)
     ):
         return True
     # Short explicit list entries remain available for the future symbolic stage.

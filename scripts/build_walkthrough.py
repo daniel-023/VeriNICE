@@ -359,7 +359,7 @@ def main() -> int:
         recorded_with.setdefault("retrievalMethod", "HYBRID")
         if recorded_with["retrievalMethod"] not in {"HYBRID", "SEMANTIC", "LEXICAL"}:
             raise RuntimeError(f"Recorded run has an invalid retrieval method: {case_id}")
-        if recorded_with.get("pipelineRevision") != "submission-ready-v3":
+        if recorded_with.get("pipelineRevision") != "generalized-symbolic-v5":
             raise RuntimeError(f"Recorded run predates the evidence-integrity pipeline: {case_id}")
         if "linguistics" in run or "linguisticsModel" in recorded_with:
             raise RuntimeError(f"Recorded run contains removed claim-structure data: {case_id}")

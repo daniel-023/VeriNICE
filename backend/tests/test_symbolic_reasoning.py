@@ -3,7 +3,7 @@ from decimal import Decimal
 import pytest
 
 from verigraph_backend.schemas import (
-    AssessmentAtomEvidence, GroundedEvidenceAssessment,
+    AssessmentAtomEvidence, AssessmentInputSpan, GroundedEvidenceAssessment,
     GroundedObligationAudit, MaterialOmissionCertificate, PipelineAtom,
     RetrievalDocument, SymbolicPremise,
 )
@@ -18,6 +18,7 @@ from verigraph_backend.symbolic_reasoning.operators import (
     execute_attribute_compare, execute_count_distinct, execute_extremum_compare,
     execute_numeric_compare, execute_set_membership, execute_temporal_compare,
 )
+from verigraph_backend.symbolic_reasoning.profiles import distinct_profile
 
 
 def premise(text, kind="EVIDENCE", premise_id="p1", document_id="d1", content_hash=None, item_count=None):
@@ -123,6 +124,43 @@ def test_population_intro_does_not_create_set_membership_candidate():
         [],
     )
     assert candidates == []
+
+
+def test_award_year_is_not_misread_as_a_distinct_value_count():
+    atom = PipelineAtom(
+        id="a",
+        text="The Meridian Award for 2024 was awarded to Ada Lovelace.",
+    )
+    assert distinct_profile(atom) is None
+
+
+@pytest.mark.asyncio
+async def test_deterministic_attribute_validation_recovers_a_missed_model_mapping(monkeypatch):
+    from verigraph_backend.symbolic_reasoning import service
+
+    claim = "The Meridian Award for 2024 was awarded for its navigation research."
+    source = "The Meridian Award for 2024 was awarded for its climate research."
+    atom = PipelineAtom(id="a", text=claim)
+    document = RetrievalDocument(id="d", text=source)
+    evidence = AssessmentAtomEvidence(atom_id="a", spans=[
+        AssessmentInputSpan(
+            id="s1", document_id="d", text=source, start=0, end=len(source)
+        )
+    ])
+    assessment = GroundedEvidenceAssessment(
+        obligations=[GroundedObligationAudit(atom_id="a", reason="Model mapping omitted.")],
+        material_omission=MaterialOmissionCertificate(),
+    )
+
+    async def omit_all_candidates(_candidates):
+        return []
+
+    monkeypatch.setattr(service, "compile_programs", omit_all_candidates)
+    result = await service.reason_symbolically([atom], [evidence], [document], assessment)
+    proof = next(item for item in result.executions if item.operator.value == "ATTRIBUTE_COMPARE")
+    assert proof.status.value == "DISPROVED"
+    assert proof.relation == "REFUTES"
+    assert proof.profile == "AWARD_MOTIVATION"
 
 
 @pytest.mark.asyncio
@@ -282,13 +320,151 @@ def test_distinct_value_count_requires_completeness_for_exact_equality():
     assert result["validation_warnings"] == ["INCOMPLETE_VALUE_SET"]
 
 
-def test_generic_distinct_count_does_not_invoke_nobel_profile():
-    atom = PipelineAtom(id="a", text="Ada won awards in at least two different scientific fields.")
+def test_generic_distinct_count_uses_explicit_category_values():
+    atom = PipelineAtom(id="a", text="Archive Z contains at least two distinct file formats.")
     result = execute_count_distinct(atom, [
-        premise("Ada won an award in mathematics."),
-        premise("Ada won an award in computing.", premise_id="p2"),
+        premise("Archive Z file format: CSV."),
+        premise("Archive Z file format: JSON.", premise_id="p2"),
     ])
-    assert result["status"].value == "NOT_APPLICABLE"
+    assert result["status"].value == "PROVED"
+    assert result["expression"] == "count({csv, json}) ≥ 2"
+
+
+def test_generic_distinct_count_requires_subject_alignment():
+    atom = PipelineAtom(id="a", text="Archive Z contains at least two distinct file formats.")
+    result = execute_count_distinct(atom, [
+        premise("Archive Y file format: CSV."),
+        premise("Archive Y file format: JSON.", premise_id="p2"),
+    ])
+    assert result["status"].value == "UNRESOLVED"
+
+
+def test_unidentified_award_rows_do_not_bypass_subject_alignment():
+    atom = PipelineAtom(id="a", text="Marie Curie won prizes in at least two scientific fields.")
+    result = execute_count_distinct(atom, [
+        premise("Also awarded: Nobel Prize in Physics 1903"),
+        premise("Also awarded: Nobel Prize in Chemistry 1911", premise_id="p2"),
+    ])
+    assert result["status"].value == "UNRESOLVED"
+
+
+def test_distinct_candidate_grounds_compact_rows_through_a_subject_anchor():
+    atom = PipelineAtom(id="a", text="Marie Curie won prizes in at least two scientific fields.")
+    document_text = (
+        "Marie Curie\n"
+        "Nobel Prize in Physics 1903\n"
+        "Also awarded: Nobel Prize in Chemistry 1911\n"
+    )
+    value = "Also awarded: Nobel Prize in Chemistry 1911\n"
+    start = document_text.index(value)
+    document = RetrievalDocument(id="d", text=document_text)
+    evidence = AssessmentAtomEvidence(atom_id="a", spans=[
+        AssessmentInputSpan(
+            id="s1", document_id="d", text=value,
+            start=start, end=start + len(value),
+        )
+    ])
+    candidates, premises = build_candidates([atom], [evidence], [document])
+    candidate = next(item for item in candidates if item.operator == "COUNT_DISTINCT")
+    assert all(item.operator != "EXTREMUM_COMPARE" for item in candidates)
+    anchored_id = next(item for item in candidate.premise_ids if item.startswith("context-record:"))
+    anchored = premises[anchored_id]
+    assert anchored.text == document_text
+    result = execute_count_distinct(atom, [anchored], candidate.profile)
+    assert result["status"].value == "PROVED"
+    assert result["expression"] == "count({chemistry, physics}) ≥ 2"
+
+
+def test_numeric_bounds_are_not_treated_as_extrema():
+    premise_with_numbers = premise("Marie Curie received prizes in Physics in 1903 and Chemistry in 1911.")
+    for claim in (
+        "Marie Curie won prizes in at least two scientific fields.",
+        "Marie Curie won prizes in at most three scientific fields.",
+    ):
+        result = execute_extremum_compare(PipelineAtom(id="a", text=claim), [premise_with_numbers])
+        assert result["status"].value == "NOT_APPLICABLE"
+
+
+@pytest.mark.asyncio
+async def test_distinct_reasoning_publishes_subject_anchored_source_context(monkeypatch):
+    from verigraph_backend.symbolic_reasoning import service
+
+    atom = PipelineAtom(id="a", text="Marie Curie won prizes in at least two scientific fields.")
+    document_text = (
+        "Marie Curie\n"
+        "Nobel Prize in Physics 1903\n"
+        "Also awarded: Nobel Prize in Chemistry 1911\n"
+    )
+    value = "Also awarded: Nobel Prize in Chemistry 1911\n"
+    start = document_text.index(value)
+    document = RetrievalDocument(id="d", text=document_text)
+    evidence = AssessmentAtomEvidence(atom_id="a", spans=[
+        AssessmentInputSpan(
+            id="s1", document_id="d", text=value,
+            start=start, end=start + len(value),
+        )
+    ])
+    assessment = GroundedEvidenceAssessment(
+        obligations=[GroundedObligationAudit(atom_id="a", reason="Value row retrieved.")],
+        material_omission=MaterialOmissionCertificate(),
+    )
+
+    async def select_value_row(candidates):
+        candidate = next(item for item in candidates if item.operator == "COUNT_DISTINCT")
+        value_id = next(item for item in candidate.premise_ids if item.startswith("evidence:"))
+        return [(candidate.id, [value_id])]
+
+    monkeypatch.setattr(service, "compile_programs", select_value_row)
+    response = await service.reason_symbolically([atom], [evidence], [document], assessment)
+    proof = next(item for item in response.executions if item.operator.value == "COUNT_DISTINCT")
+    assert proof.status.value == "PROVED"
+    assert proof.expression == "count({chemistry, physics}) ≥ 2"
+    assert proof.premises
+    assert all("Marie Curie" in item.text for item in proof.premises)
+
+
+def test_generic_distinct_count_deduplicates_values():
+    atom = PipelineAtom(id="a", text="Device Q supports at least two distinct protocols.")
+    result = execute_count_distinct(atom, [
+        premise("Device Q supports MQTT."),
+        premise("Device Q protocol: MQTT.", premise_id="p2"),
+    ])
+    assert result["status"].value == "UNRESOLVED"
+
+
+def test_generic_distinct_count_keeps_exact_claim_unresolved():
+    atom = PipelineAtom(id="a", text="Service R offers exactly two distinct languages.")
+    result = execute_count_distinct(atom, [
+        premise("Service R language: English."),
+        premise("Service R language: French.", premise_id="p2"),
+    ])
+    assert result["status"].value == "UNRESOLVED"
+    assert result["validation_warnings"] == ["INCOMPLETE_VALUE_SET"]
+
+
+def test_generic_distinct_candidate_uses_retrieved_source_spans():
+    from verigraph_backend.symbolic_reasoning.service import _validated_operand_ids
+
+    atom = PipelineAtom(id="a", text="Archive Z contains at least two distinct file formats.")
+    first = "Archive Z file format: CSV."
+    second = "Archive Z file format: JSON."
+    document = RetrievalDocument(id="d", text=f"{first} {second}")
+    evidence = AssessmentAtomEvidence(atom_id="a", spans=[
+        AssessmentInputSpan(id="s1", document_id="d", text=first, start=0, end=len(first)),
+        AssessmentInputSpan(id="s2", document_id="d", text=second, start=len(first) + 1, end=len(document.text)),
+    ])
+    candidates, premises = build_candidates([atom], [evidence], [document])
+    candidate = next(item for item in candidates if item.operator == "COUNT_DISTINCT")
+    assert candidate.profile == "GENERIC_DISTINCT_VALUES"
+    selected = _validated_operand_ids(candidate, atom, [candidate.premise_ids[0]], premises)
+    assert selected == list(candidate.premise_ids)
+    result = execute_count_distinct(
+        atom,
+        [premises[premise_id] for premise_id in selected],
+        candidate.profile,
+    )
+    assert result["status"].value == "PROVED"
+    assert result["expression"] == "count({csv, json}) ≥ 2"
 
 
 def test_attribute_comparison_does_not_treat_generic_for_phrase_as_prize_reason():

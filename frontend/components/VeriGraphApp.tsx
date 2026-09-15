@@ -616,12 +616,10 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
   const selectGraphEvidence = (node: EvidenceNode, atomId: string) => {
     const ownerAtom = atoms.find((atom) => atom.id === atomId);
     if (ownerAtom) selectAtom(ownerAtom, false);
-    if (node.listItems?.length) {
-      setFocusedInferenceSpans(new Set([
-        `${node.documentId}:${node.start}:${node.end}`,
-        ...node.listItems.map((item) => `${item.documentId}:${item.start}:${item.end}`),
-      ]));
-    }
+    setFocusedInferenceSpans(new Set([
+      `${node.documentId}:${node.start}:${node.end}`,
+      ...(node.listItems ?? []).map((item) => `${item.documentId}:${item.start}:${item.end}`),
+    ]));
     setActiveDocumentId(node.documentId);
     setParams({ panel: "document" });
     window.requestAnimationFrame(() => {

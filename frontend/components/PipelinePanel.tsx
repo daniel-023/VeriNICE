@@ -64,12 +64,12 @@ type RuleResultGroup = {
 };
 
 const PROFILE_LABELS: Record<string, string> = {
+  GENERIC_DISTINCT_VALUES: "Explicit category values",
+  AWARD_RECIPIENT: "Award recipient",
+  AWARD_MOTIVATION: "Award motivation",
   COUNTRY_LOCATION: "Country location",
   EXCLUSIVE_PURPOSE: "Exclusive purpose",
   EXPLICIT_NEGATION: "Explicit negation",
-  NOBEL_RECIPIENT: "Nobel recipient",
-  NOBEL_MOTIVATION: "Nobel motivation",
-  NOBEL_FIELD_COUNT: "Nobel field count",
 };
 
 function groupRuleResults(executions: SymbolicExecution[]): RuleResultGroup[] {
@@ -449,7 +449,7 @@ export function PipelinePanel({
                     );
                   })}
                 </dl>
-                <p>Python creates eligible rules and grounded premise candidates. The model selects only from those candidates. Python validates and executes the rule; unsupported or ambiguous cases remain unresolved.</p>
+                <p>VeriNICE generates eligible rule and source-premise candidates. The model selects from them, and deterministic Python code validates and executes the chosen rule. Unsupported or ambiguous cases remain unresolved.</p>
               </div>
             </details>
             {reasoningState === "complete" ? (

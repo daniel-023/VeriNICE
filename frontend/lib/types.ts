@@ -424,7 +424,7 @@ export interface WalkthroughRun {
   /** Recorded aggregation result. Absent in walkthroughs recorded before stage 05. */
   verdict?: VerdictAggregationResult;
   recordedWith: {
-    pipelineRevision: "submission-ready-v3";
+    pipelineRevision: "generalized-symbolic-v5";
     inputDigest: string;
     decompositionModel: string;
     retrievalModel: string;

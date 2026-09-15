@@ -201,7 +201,7 @@
     ]
   },
   "recordedWith": {
-    "pipelineRevision": "submission-ready-v3",
+    "pipelineRevision": "generalized-symbolic-v5",
     "inputDigest": "210d35420b065adc0e2f26fa2ca826b4dbc4ba0b6cca1ff9659a872dd04b9f71",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
@@ -210,11 +210,11 @@
     "reasoningModel": "qwen2.5:7b"
   },
   "timingsSeconds": {
-    "decomposition": 13.641,
-    "retrieval": 0.312,
-    "evidenceAssessment": 18.308,
-    "symbolicReasoning": 0.006,
-    "aggregation": 0.003,
-    "total": 32.271
+    "decomposition": 15.069,
+    "retrieval": 0.289,
+    "evidenceAssessment": 19.901,
+    "symbolicReasoning": 0.018,
+    "aggregation": 0.011,
+    "total": 35.29
   }
 }

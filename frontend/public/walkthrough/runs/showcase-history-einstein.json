@@ -358,7 +358,7 @@
       "id": "proof:atom-1:attribute_compare:1",
       "atomId": "atom-1",
       "operator": "ATTRIBUTE_COMPARE",
-      "profile": "NOBEL_RECIPIENT",
+      "profile": "AWARD_RECIPIENT",
       "status": "PROVED",
       "relation": "SUPPORTS",
       "premiseIds": [
@@ -390,8 +390,8 @@
         }
       ],
       "expression": "claimed recipient = source recipient",
-      "conclusion": "The recipient and prize year match the grounded source.",
-      "explanation": "Python aligned the explicit Nobel recipient, prize year, and award statement.",
+      "conclusion": "The recipient and award year match the grounded source.",
+      "explanation": "Python aligned the explicit recipient, award year, and award statement.",
       "validationWarnings": [],
       "preconditions": [
         {
@@ -402,12 +402,12 @@
         {
           "name": "Registered profile",
           "status": "PASSED",
-          "detail": "nobel recipient"
+          "detail": "award recipient"
         },
         {
           "name": "Operand alignment",
           "status": "PASSED",
-          "detail": "Python aligned the explicit Nobel recipient, prize year, and award statement."
+          "detail": "Python aligned the explicit recipient, award year, and award statement."
         }
       ],
       "program": {
@@ -449,31 +449,19 @@
       "id": "proof:atom-2:attribute_compare:2",
       "atomId": "atom-2",
       "operator": "ATTRIBUTE_COMPARE",
-      "profile": "NOBEL_MOTIVATION",
+      "profile": "AWARD_MOTIVATION",
       "status": "DISPROVED",
       "relation": "REFUTES",
       "premiseIds": [
-        "context:atom-2:doc-24e395b9bb6e:doc-24e395b9bb6e::sentence-5",
-        "evidence:atom-2:doc-24e395b9bb6e:doc-24e395b9bb6e::sentence-5"
+        "evidence:atom-2:doc-24e395b9bb6e:doc-24e395b9bb6e::sentence-3"
       ],
       "premises": [
         {
-          "id": "context:atom-2:doc-24e395b9bb6e:doc-24e395b9bb6e::sentence-5",
+          "id": "evidence:atom-2:doc-24e395b9bb6e:doc-24e395b9bb6e::sentence-3",
           "documentId": "doc-24e395b9bb6e",
-          "text": "His talk did not concern the photoelectric effect but the theory of relativity, the theory for which he was never awarded a Nobel Prize. ",
-          "start": 664,
-          "end": 801,
-          "kind": "OPERAND",
-          "contentHash": null,
-          "itemCount": null,
-          "listItems": []
-        },
-        {
-          "id": "evidence:atom-2:doc-24e395b9bb6e:doc-24e395b9bb6e::sentence-5",
-          "documentId": "doc-24e395b9bb6e",
-          "text": "His talk did not concern the photoelectric effect but the theory of relativity, the theory for which he was never awarded a Nobel Prize. ",
-          "start": 664,
-          "end": 801,
+          "text": "Einstein was eventually awarded the 1921 Nobel Prize in Physics “for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect”. ",
+          "start": 249,
+          "end": 429,
           "kind": "EVIDENCE",
           "contentHash": null,
           "itemCount": null,
@@ -493,7 +481,7 @@
         {
           "name": "Registered profile",
           "status": "PASSED",
-          "detail": "nobel motivation"
+          "detail": "award motivation"
         },
         {
           "name": "Operand alignment",
@@ -508,16 +496,7 @@
             "id": "input-1",
             "operation": "LOOKUP",
             "inputIds": [
-              "context:atom-2:doc-24e395b9bb6e:doc-24e395b9bb6e::sentence-5"
-            ],
-            "outputType": "FACT",
-            "description": "Read an unchanged server-owned premise."
-          },
-          {
-            "id": "input-2",
-            "operation": "LOOKUP",
-            "inputIds": [
-              "evidence:atom-2:doc-24e395b9bb6e:doc-24e395b9bb6e::sentence-5"
+              "evidence:atom-2:doc-24e395b9bb6e:doc-24e395b9bb6e::sentence-3"
             ],
             "outputType": "FACT",
             "description": "Read an unchanged server-owned premise."
@@ -526,8 +505,7 @@
             "id": "result",
             "operation": "EQUAL",
             "inputIds": [
-              "input-1",
-              "input-2"
+              "input-1"
             ],
             "outputType": "BOOLEAN",
             "description": "Validate operand alignment and execute the typed operation in Python."
@@ -593,7 +571,7 @@
     ]
   },
   "recordedWith": {
-    "pipelineRevision": "submission-ready-v3",
+    "pipelineRevision": "generalized-symbolic-v5",
     "inputDigest": "fb0defd5c858496db39dd1b06ac08debcafc705c87d0460cd87eabcadc6d7463",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
@@ -602,11 +580,11 @@
     "reasoningModel": "qwen2.5:7b"
   },
   "timingsSeconds": {
-    "decomposition": 21.64,
-    "retrieval": 0.263,
-    "evidenceAssessment": 36.329,
-    "symbolicReasoning": 26.413,
-    "aggregation": 0.005,
-    "total": 84.651
+    "decomposition": 17.397,
+    "retrieval": 0.318,
+    "evidenceAssessment": 28.025,
+    "symbolicReasoning": 19.09,
+    "aggregation": 0.013,
+    "total": 64.843
   }
 }

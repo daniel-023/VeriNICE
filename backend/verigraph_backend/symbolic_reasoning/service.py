@@ -20,7 +20,7 @@ from ..settings import settings
 from .compiler import CompilerConfigurationError, CompilerOutputError, CompilerProviderError, compile_programs
 from .grounding import build_candidates, lexical_tokens, normalize, validate_grounding
 from .operators import REGISTRY, _subject_before_copula
-from .profiles import NOBEL_FIELDS
+from .profiles import distinct_count_request, distinct_profile, extract_distinct_values
 
 
 class SymbolicReasoningError(RuntimeError):
@@ -98,6 +98,18 @@ def _validated_operand_ids(candidate, atom: PipelineAtom, premise_ids: Sequence[
                 result.append(premise_id)
             if len(result) >= 10:
                 break
+    elif operator == SymbolicOperator.count_distinct:
+        # Once the compiler maps the server-issued count candidate, attach all
+        # candidate premises that Python can align to explicit values. This
+        # avoids making completeness of a lower-bound count depend on the model
+        # repeating every already-grounded operand.
+        for premise_id in candidate.premise_ids:
+            if premise_id in result:
+                continue
+            if extract_distinct_values(candidate.profile, [premises[premise_id]], atom):
+                result.append(premise_id)
+            if len(result) >= 10:
+                break
     elif operator == SymbolicOperator.temporal_compare and re.search(r"(?i)\b(?:before|after)\b", atom.text):
         comparison = re.match(r"(?is)^(.+?)\b(?:before|after)\b(.+?)[.!?]?$", atom.text.strip())
         if comparison:
@@ -147,18 +159,19 @@ def _presentation_premise_ids(
         ]
         return matching[:1]
     if operator == SymbolicOperator.count_distinct:
-        fields = NOBEL_FIELDS
+        profile = distinct_profile(atom)
+        request = distinct_count_request(atom)
+        target = request[0] if request else 2
         selected: list[str] = []
         seen: set[str] = set()
         for item in ordered:
-            text = normalize(premises[item].text)
-            values = {field for field in fields if re.search(rf"\b{field}\b", text)} - seen
+            values = extract_distinct_values(profile or "", [premises[item]], atom) - seen
             if values:
                 selected.append(item)
                 seen.update(values)
-            if len(seen) >= 2:
+            if len(seen) >= target:
                 break
-        return selected[:2]
+        return selected[:target]
     if operator == SymbolicOperator.temporal_compare:
         years = list(dict.fromkeys(re.findall(r"\b(?:19|20)\d{2}\b", expression)))
         selected: list[str] = []
@@ -220,7 +233,7 @@ def _presentation_premise_ids(
                 return competing[:1]
         # Prize-reason comparisons consume the explicit citation or motivation,
         # not a nearby award-date sentence that happens to mention the prize.
-        if "reason" in expression and re.search(r"(?i)\b(?:nobel|prize|award|citation)\b", atom.text):
+        if "reason" in expression and re.search(r"(?i)\b(?:prize|award|citation)\b", atom.text):
             reasons = [
                 item for item in ordered
                 if re.search(r"(?i)\b(?:motivation|reason)\b|\bfor\s+(?:his|her|their|the)\b", premises[item].text)
@@ -346,8 +359,30 @@ async def reason_symbolically(
     except CompilerOutputError as error:
         raise SymbolicReasoningOutputError(str(error)) from error
 
+    # The model proposes grounded program mappings, but it is not allowed to
+    # suppress a proof that the server can validate directly from a typed
+    # candidate and its source-owned operands. This domain-neutral recovery is
+    # limited to operators with conservative extractors: it admits a missed
+    # candidate only when Python independently reaches a decisive result.
+    compiled_ids = {candidate_id for candidate_id, _premise_ids in compiled}
     candidates_by_id = {candidate.id: candidate for candidate in candidates}
     atoms_by_id = {atom.id: atom for atom in atoms}
+    for candidate in compilable_candidates:
+        if candidate.id in compiled_ids:
+            continue
+        operator = SymbolicOperator(candidate.operator)
+        if operator not in {SymbolicOperator.attribute_compare, SymbolicOperator.count_distinct}:
+            continue
+        atom = atoms_by_id[candidate.atom_id]
+        operand_ids = _validated_operand_ids(
+            candidate, atom, candidate.premise_ids, premises
+        )
+        candidate_premises = [premises[premise_id] for premise_id in operand_ids]
+        outcome = REGISTRY[operator](atom, candidate_premises, candidate.profile)
+        if outcome["status"] in {SymbolicStatus.proved, SymbolicStatus.disproved}:
+            compiled.append((candidate.id, operand_ids))
+            compiled_ids.add(candidate.id)
+
     executions: list[SymbolicExecution] = []
     for index, (candidate_id, premise_ids) in enumerate(compiled, start=1):
         candidate = candidates_by_id[candidate_id]

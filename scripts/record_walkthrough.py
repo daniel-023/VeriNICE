@@ -196,7 +196,7 @@ async def record_case(client: httpx.AsyncClient, case_id: str, case: dict[str, A
         "reasoning": reasoning["executions"],
         "verdict": verdict,
         "recordedWith": {
-            "pipelineRevision": "submission-ready-v3",
+            "pipelineRevision": "generalized-symbolic-v5",
             "inputDigest": input_digest(case),
             "decompositionModel": decomposition["model"],
             "retrievalModel": retrieval["model"],
@@ -262,7 +262,7 @@ async def main_async() -> int:
                     existing = {}
                 if (
                     existing.get("schemaVersion") == 7
-                    and existing.get("recordedWith", {}).get("pipelineRevision") == "submission-ready-v3"
+                    and existing.get("recordedWith", {}).get("pipelineRevision") == "generalized-symbolic-v5"
                     and existing.get("recordedWith", {}).get("inputDigest") == input_digest(case)
                     and isinstance(existing.get("assessment"), dict)
                     and isinstance(existing.get("reasoning"), list)

@@ -6,7 +6,13 @@ import unicodedata
 from dataclasses import dataclass
 from typing import Iterable, Sequence
 
-from ..schemas import AssessmentAtomEvidence, PipelineAtom, RetrievalDocument, SymbolicPremise
+from ..schemas import (
+    AssessmentAtomEvidence,
+    AssessmentInputSpan,
+    PipelineAtom,
+    RetrievalDocument,
+    SymbolicPremise,
+)
 from .profiles import (
     GENERIC_ABSOLUTE_DATE,
     GENERIC_EVENT_ORDER,
@@ -15,6 +21,8 @@ from .profiles import (
     GENERIC_SET_MEMBERSHIP,
     attribute_profile,
     distinct_profile,
+    distinct_subject_terms,
+    extremum_term,
 )
 
 
@@ -243,6 +251,59 @@ def line_operands(documents: Sequence[RetrievalDocument]) -> dict[str, SymbolicP
     return premises
 
 
+def distinct_context_premises(
+    atom: PipelineAtom,
+    evidence: Sequence[AssessmentInputSpan],
+    documents: Sequence[RetrievalDocument],
+) -> dict[str, SymbolicPremise]:
+    """Ground value rows in a contiguous source span that names their subject.
+
+    Compact records often put an entity heading above rows such as
+    ``Also awarded: ...``. A row is not self-identifying, so it may be used only
+    when the exact source range back to the nearest subject-bearing line fits in
+    one displayed premise.
+    """
+    subject_terms = distinct_subject_terms(atom)
+    if not subject_terms:
+        return {}
+    documents_by_id = {document.id: document.text for document in documents}
+    premises: dict[str, SymbolicPremise] = {}
+    for span in evidence:
+        if subject_terms.issubset(lexical_tokens(span.text)):
+            continue
+        document = documents_by_id.get(span.document_id)
+        if document is None:
+            continue
+        try:
+            span_start = len(
+                document.encode("utf-16-le")[:span.start * 2].decode("utf-16-le")
+            )
+            span_end = len(
+                document.encode("utf-16-le")[:span.end * 2].decode("utf-16-le")
+            )
+        except UnicodeDecodeError:
+            continue
+        anchors = [
+            match for match in re.finditer(r"(?m)^[^\n]+", document[:span_start])
+            if subject_terms.issubset(lexical_tokens(match.group(0)))
+        ]
+        if not anchors:
+            continue
+        anchor = anchors[-1]
+        if span_end - anchor.start() > 5000:
+            continue
+        premise_id = f"context-record:{atom.id}:{span.document_id}:{span.id}"
+        premises[premise_id] = SymbolicPremise(
+            id=premise_id,
+            document_id=span.document_id,
+            text=document[anchor.start():span_end],
+            start=utf16_offset(document, anchor.start()),
+            end=utf16_offset(document, span_end),
+            kind="OPERAND",
+        )
+    return premises
+
+
 def _extremum_operands(atom: PipelineAtom, premises: dict[str, SymbolicPremise]) -> tuple[str, ...]:
     candidates = [item for item in premises.values() if item.kind == "OPERAND"]
     atom_terms = lexical_tokens(atom.text)
@@ -276,7 +337,6 @@ def build_candidates(
     evidence: Sequence[AssessmentAtomEvidence],
     documents: Sequence[RetrievalDocument],
 ) -> tuple[list[Candidate], dict[str, SymbolicPremise]]:
-    documents_by_id = {document.id: document for document in documents}
     premises = evidence_premises(evidence)
     premises.update(list_premises(documents))
     premises.update(line_operands(documents))
@@ -319,27 +379,17 @@ def build_candidates(
                 tuple((premise_id, f"[{premises[premise_id].kind}] {' '.join(premises[premise_id].text.split())[:240]}") for premise_id in allowed),
                 GENERIC_SET_MEMBERSHIP,
             ))
-        if re.search(r"\b(?:both|two different|two distinct|in .+ and .+)\b", atom_text):
-            field_terms = {"physics", "chemistry", "medicine", "literature", "peace", "economics"}
-            subject_terms = lexical_tokens(atom.text)
-            distinct_operands = tuple(
-                key for key, premise in premises.items()
-                if premise.kind == "OPERAND"
-                and lexical_tokens(premise.text) & field_terms
-                and (
-                    lexical_tokens(premise.text) & subject_terms
-                    or lexical_tokens(documents_by_id[premise.document_id].text[:200]) & subject_terms
-                )
-            )
-            allowed = tuple(dict.fromkeys((*evidence_ids, *distinct_operands)))
-            profile = distinct_profile(atom)
-            if profile:
-                candidates.append(Candidate(
-                    f"candidate:{atom.id}:distinct", atom.id, "COUNT_DISTINCT", allowed, atom.text,
-                    tuple((premise_id, f"[{premises[premise_id].kind}] {' '.join(premises[premise_id].text.split())[:240]}") for premise_id in allowed),
-                    profile,
-                ))
-        if re.search(r"\b(?:largest|smallest|highest|lowest|tallest|shortest|most|least)\b", atom_text):
+        profile = distinct_profile(atom)
+        if profile:
+            anchored = distinct_context_premises(atom, atom_evidence, documents)
+            premises.update(anchored)
+            allowed = tuple(dict.fromkeys((*evidence_ids, *context_ids, *anchored)))
+            candidates.append(Candidate(
+                f"candidate:{atom.id}:distinct", atom.id, "COUNT_DISTINCT", allowed, atom.text,
+                tuple((premise_id, f"[{premises[premise_id].kind}] {' '.join(premises[premise_id].text.split())[:240]}") for premise_id in allowed),
+                profile,
+            ))
+        if extremum_term(atom_text):
             operand_ids = _extremum_operands(atom, premises)
             allowed = tuple(dict.fromkeys((*evidence_ids, *operand_ids)))
             candidates.append(Candidate(
@@ -363,7 +413,7 @@ def build_candidates(
                 GENERIC_NUMERIC_THRESHOLD,
             ))
         if (
-            not re.search(r"\b(?:largest|smallest|highest|lowest|tallest|shortest|most|least)\b", atom_text)
+            not extremum_term(atom_text)
             and re.search(r"\b(?:before|after|between|during|on|since|until)\b", atom_text)
         ):
             candidates.append(Candidate(

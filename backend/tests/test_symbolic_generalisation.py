@@ -65,8 +65,8 @@ def test_temporal_comparison_cross_domain(claim, evidence, status):
 
 
 @pytest.mark.parametrize(("claim", "evidence", "status"), [
-    ("The Nobel Prize in Physics for 1979 was awarded to Abdus Salam.", "Abdus Salam was awarded the 1979 Nobel Prize in Physics.", "PROVED"),
-    ("Abdus Salam received the Nobel Prize for chemistry.", "Abdus Salam received the Nobel Prize for electroweak theory.", "DISPROVED"),
+    ("The Meridian Award for 1979 was awarded to Abdus Salam.", "Abdus Salam was awarded the 1979 Meridian Award.", "PROVED"),
+    ("Abdus Salam received the Meridian Award for chemistry.", "Abdus Salam received the Meridian Award for electroweak theory.", "DISPROVED"),
     ("The Atomium is located in Germany.", "The Atomium is located in Brussels, Belgium.", "DISPROVED"),
     ("Aurora was developed exclusively for civilian navigation.", "Aurora serves military and civilian users.", "DISPROVED"),
     ("Comet has a striped surface.", "Comet does not have a striped surface.", "DISPROVED"),
@@ -78,12 +78,17 @@ def test_attribute_comparison_cross_domain(claim, evidence, status):
 
 
 @pytest.mark.parametrize(("claim", "evidence", "status"), [
-    ("Linus Pauling won Nobel Prizes in at least two different fields.", ["Linus Pauling won the Nobel Prize in Chemistry.", "Linus Pauling won the Nobel Peace Prize."], "PROVED"),
-    ("Linus Pauling won Nobel Prizes in at least two different fields.", ["Linus Pauling won the Nobel Prize in Chemistry."], "UNRESOLVED"),
-    ("Linus Pauling won Nobel Prizes in two different fields.", ["Linus Pauling won the Nobel Prize in Chemistry.", "Linus Pauling won the Nobel Peace Prize."], "UNRESOLVED"),
-    ("Ada won awards in at least two different fields.", ["Ada won in mathematics.", "Ada won in computing."], "NOT_APPLICABLE"),
-    ("A scientist won Nobel Prizes in at least two fields.", ["The scientist won in Physics.", "The scientist won in Chemistry.", "The scientist won the Peace prize."], "PROVED"),
-    ("A scientist won Nobel Prizes in at least two fields.", ["The scientist won in Literature."], "UNRESOLVED"),
+    ("Archive Z contains at least two different file formats.", ["Archive Z file format: CSV.", "Archive Z file format: JSON."], "PROVED"),
+    ("Archive Z contains at least two different file formats.", ["Archive Z file format: CSV."], "UNRESOLVED"),
+    ("Archive Z contains two different file formats.", ["Archive Z file format: CSV.", "Archive Z file format: JSON."], "UNRESOLVED"),
+    ("Archive Z contains at least two different file formats.", ["Archive Z file format: CSV.", "Archive Z file format: JSON."], "PROVED"),
+    ("Device Q supports at least two distinct protocols.", ["Device Q supports MQTT.", "Device Q supports AMQP."], "PROVED"),
+    ("Service R offers at least three distinct languages.", ["Service R language: English.", "Service R language: French.", "Service R language: Welsh."], "PROVED"),
+    ("Service R offers at least three distinct languages.", ["Service R language: English.", "Service R language: French."], "UNRESOLVED"),
+    ("Archive Z contains exactly two different file formats.", ["Archive Z file format: CSV.", "Archive Z file format: JSON."], "UNRESOLVED"),
+    ("Archive Z contains at least two different file formats.", ["Archive Y file format: CSV.", "Archive Y file format: JSON."], "UNRESOLVED"),
+    ("Package T includes at least two formats.", ["Package T includes XML and YAML."], "PROVED"),
+    ("Package T includes at least two formats.", ["Package T includes XML."], "UNRESOLVED"),
 ])
 def test_distinct_value_count_cross_domain(claim, evidence, status):
     result = execute_count_distinct(

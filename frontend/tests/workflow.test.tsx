@@ -116,6 +116,83 @@ describe("live program-guided workflow", () => {
     expect(relationList).toHaveTextContent(/1\s*Refutes/);
   });
 
+  it("focuses the exact source sentence selected in the reasoning graph", async () => {
+    const firstSentence = "The first retrieved sentence is only background.";
+    const secondSentence = "The second retrieved sentence is the selected evidence.";
+    const sourceText = `${firstSentence} ${secondSentence}`;
+    const secondStart = firstSentence.length + 1;
+    const focusedDetail = {
+      ...detail,
+      documents: [{ ...detail.documents[0], text: sourceText }],
+    };
+    const focusedEvidence = [{
+      atomId: atom.id,
+      spans: [
+        { id: "s1", documentId: "doc-1", text: firstSentence, start: 0, end: firstSentence.length },
+        { id: "s2", documentId: "doc-1", text: secondSentence, start: secondStart, end: sourceText.length },
+      ],
+    }];
+    const focusedAssessment = {
+      ...assessment,
+      obligations: [{
+        ...assessment.obligations[0],
+        supportSpanIds: ["s1", "s2"],
+        sufficiency: "SUFFICIENT" as const,
+        missingInformation: "",
+      }],
+    };
+    apiMock.case.mockResolvedValueOnce(focusedDetail);
+    apiMock.retrieveCase.mockResolvedValueOnce({
+      evidence: focusedEvidence,
+      provider: "sentence-transformers",
+      model: "bge",
+      retrievalMethod: "HYBRID",
+    });
+    apiMock.assessCaseEvidence.mockResolvedValueOnce({
+      assessment: focusedAssessment,
+      provider: "ollama",
+      model: "qwen",
+    });
+    apiMock.reasonCase.mockResolvedValueOnce({ executions: [], provider: "ollama+python", model: "qwen" });
+    apiMock.aggregateVerdict.mockResolvedValueOnce({
+      aggregationSchemaVersion: 3,
+      claimId: detail.id,
+      composition: "SINGLE",
+      verdict: "SUPPORTED",
+      positions: {
+        supportPosition: true,
+        refutePosition: false,
+        supportObligationIds: [atom.id],
+        refuteObligationIds: [],
+        unresolvedObligationIds: [],
+      },
+      obligations: [{
+        obligationId: atom.id,
+        state: "SUPPORTED",
+        supportEdgeIds: [`edge:SUPPORTS:inference:bundle:${atom.id}:supports:obligation:${detail.id}:${atom.id}`],
+        refuteEdgeIds: [],
+        unselectedCandidateCount: 0,
+        provisionalRelationCount: 0,
+      }],
+      warnings: [],
+      ruleTrace: ["Resolved assessed evidence bundle."],
+    });
+
+    render(<VeriGraphApp mode="live" />);
+    await userEvent.click(await screen.findByRole("button", { name: /decompose claim/i }));
+    await waitFor(() => expect(apiMock.assessCaseEvidence).toHaveBeenCalledTimes(1));
+
+    await userEvent.click(await screen.findByRole("button", {
+      name: new RegExp(`open evidence from official list: ${secondSentence}`, "i"),
+    }));
+
+    await waitFor(() => {
+      const highlights = screen.getAllByTestId("evidence-highlight");
+      expect(highlights).toHaveLength(1);
+      expect(highlights[0]).toHaveTextContent(secondSentence);
+    });
+  });
+
   it("retains decomposition but clears evidence, assessment, and reasoning after a document edit", async () => {
     render(<VeriGraphApp mode="live" />);
     await userEvent.click(await screen.findByRole("button", { name: /decompose claim/i }));

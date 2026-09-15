@@ -9,22 +9,22 @@ from typing import Sequence
 from ..schemas import PipelineAtom, SymbolicOperator, SymbolicPremise, SymbolicStatus
 from .grounding import lexical_tokens, normalize
 from .profiles import (
+    AWARD_MOTIVATION,
+    AWARD_RECIPIENT,
     COUNTRY_LOCATION,
     EXCLUSIVE_PURPOSE,
     EXPLICIT_NEGATION,
-    NOBEL_FIELD_COUNT,
-    NOBEL_MOTIVATION,
-    NOBEL_RECIPIENT,
+    award_reason,
+    award_recipient_claim,
     attribute_profile,
+    distinct_count_request,
     distinct_profile,
     extract_distinct_values,
-    nobel_reason,
-    nobel_recipient_claim,
+    extremum_term,
     scoped_negative_clause,
 )
 
 
-_SUPERLATIVE = re.compile(r"(?i)\b(largest|smallest|highest|lowest|tallest|shortest|most|least)\b")
 _MEASURE_TERMS = {
     "population": {"population", "populous", "residents", "people"},
     "height_above_sea_level": {"above sea level", "elevation", "sea level"},
@@ -412,25 +412,25 @@ def execute_attribute_compare(
     if subject and not any(token in lexical_tokens(normalized_evidence) for token in lexical_tokens(subject)):
         return _result(SymbolicStatus.unresolved, None, "attribute comparison", "Entity alignment is unresolved", "The selected premises do not explicitly identify the claim subject.", ["MISSING_ENTITY_ALIGNMENT"])
 
-    # Prize-year phrases such as "the Nobel Prize ... for 1921" identify the
-    # edition of the prize, not why it was awarded. Resolve the recipient only
-    # when the source explicitly aligns the person, year, award, and prize.
+    # Award-year phrases identify an edition of an award, not its motivation.
+    # Resolve the recipient only when the source explicitly aligns the person,
+    # year, and an award statement.
     profile = profile or attribute_profile(atom)
-    awardee = nobel_recipient_claim(atom.text)
-    if profile == NOBEL_RECIPIENT and awardee:
+    awardee = award_recipient_claim(atom.text)
+    if profile == AWARD_RECIPIENT and awardee:
         recipient, year = awardee
         recipient_tokens = lexical_tokens(recipient)
         surname = normalize(recipient).split()[-1] if normalize(recipient) else ""
         aligned = (
             surname in lexical_tokens(normalized_evidence)
             and year in evidence
-            and "nobel prize" in normalized_evidence
-            and bool(re.search(r"(?i)\bawarded\b|\breceived\b", evidence))
+            and bool(re.search(r"(?i)\b(?:prize|award)\b", evidence))
+            and bool(re.search(r"(?i)\bawarded\b|\breceived\b|\bwon\b", evidence))
         )
         if aligned:
-            return _result(SymbolicStatus.proved, "SUPPORTS", "claimed recipient = source recipient", "The recipient and prize year match the grounded source.", "Python aligned the explicit Nobel recipient, prize year, and award statement.")
+            return _result(SymbolicStatus.proved, "SUPPORTS", "claimed recipient = source recipient", "The recipient and award year match the grounded source.", "Python aligned the explicit recipient, award year, and award statement.")
         if recipient_tokens & lexical_tokens(normalized_evidence):
-            return _result(SymbolicStatus.unresolved, None, "recipient comparison", "Prize-recipient relation is unresolved", "The source does not explicitly align the claimed recipient with the specified Nobel Prize year.", ["AMBIGUOUS_ATTRIBUTE_MAPPING"])
+            return _result(SymbolicStatus.unresolved, None, "recipient comparison", "Award-recipient relation is unresolved", "The source does not explicitly align the claimed recipient with the specified award year.", ["AMBIGUOUS_ATTRIBUTE_MAPPING"])
 
     # An explicit source negation of the claimed property is a conservative
     # refutation. This covers simple attributes without inventing a valency map.
@@ -460,16 +460,21 @@ def execute_attribute_compare(
     if profile == EXCLUSIVE_PURPOSE and "exclusively" in claim and re.search(r"(?i)\bmilitary\b", evidence) and re.search(r"(?i)\bcivil(?:ian)?\b", evidence):
         return _result(SymbolicStatus.disproved, "REFUTES", "purposes = {military, civilian}", "The source gives more than one purpose.", "Python found two explicit, incompatible values for an exclusive-purpose claim.")
 
-    # Nobel-style prize citations are handled as grounded reason equality.
-    reason = nobel_reason(atom.text) if profile == NOBEL_MOTIVATION else None
+    # Award citations are handled as grounded motivation equality.
+    reason = award_reason(atom.text) if profile == AWARD_MOTIVATION else None
     source_reasons = re.findall(r"(?i)\bfor\s+(?:his|her|their)?\s*([^.!?;]+)", evidence)
     if reason and source_reasons:
         relation_stopwords = {"his", "her", "their", "its"}
         claimed = lexical_tokens(reason) - relation_stopwords
-        matches = [
-            value for value in source_reasons
-            if claimed & (lexical_tokens(value) - relation_stopwords)
-        ]
+        matches = []
+        for value in source_reasons:
+            source = lexical_tokens(value) - relation_stopwords
+            # A shared generic head such as "research" is not enough to make
+            # two motivations equal. Accept only containment of the complete
+            # normalized term set so that added wording may qualify a reason
+            # without erasing a conflicting substantive term.
+            if claimed and source and (claimed.issubset(source) or source.issubset(claimed)):
+                matches.append(value)
         if matches:
             return _result(SymbolicStatus.proved, "SUPPORTS", "claimed reason = source reason", "The stated reason matches a grounded source reason.", "Python compared normalized reason terms attached to the same grounded subject.")
         return _result(SymbolicStatus.disproved, "REFUTES", "claimed reason ≠ source reason", "The cited reason differs from the grounded source reason.", "Python compared explicit source and claim attributes after subject alignment.")
@@ -481,19 +486,19 @@ def execute_count_distinct(
     premises: Sequence[SymbolicPremise],
     profile: str | None = None,
 ) -> dict:
-    claim = normalize(atom.text)
     profile = profile or distinct_profile(atom)
-    if profile != NOBEL_FIELD_COUNT:
+    request = distinct_count_request(atom)
+    if not profile or not request:
         return _result(SymbolicStatus.not_applicable, None, "count distinct", "No registered distinct-value profile", "The claim does not match a registered source-grounded value extractor.")
-    expected = 2 if re.search(r"\b(?:two|both)\b", claim) else None
-    if expected is None:
-        return _result(SymbolicStatus.not_applicable, None, "count distinct", "No explicit distinct-count claim", "The atom does not state a supported distinct-value count.")
-    values = extract_distinct_values(profile, premises)
+    expected, exact, category = request
+    values = extract_distinct_values(profile, premises, atom)
+    value_label = category
     if len(values) < expected:
-        return _result(SymbolicStatus.unresolved, None, f"count(distinct fields) ≥ {expected}", "Distinct values are unresolved", "The selected premises do not ground enough distinct values.", ["MISSING_DISTINCT_VALUES"])
-    if not re.search(r"\b(?:at least|no fewer than)\b", claim):
-        return _result(SymbolicStatus.unresolved, None, f"count(distinct fields) = {expected}", "Exact count is unresolved", "The sources establish a lower bound but do not certify a complete value set.", ["INCOMPLETE_VALUE_SET"])
-    return _result(SymbolicStatus.proved, "SUPPORTS", f"count({{{', '.join(sorted(values))}}}) ≥ {expected}", f"The sources ground at least {expected} distinct values.", "Python normalized and counted explicit source values from the registered profile; it did not infer field equivalence or exact completeness.")
+        return _result(SymbolicStatus.unresolved, None, f"count(distinct {value_label}) ≥ {expected}", "Distinct values are unresolved", "The selected premises do not ground enough aligned, explicit values.", ["MISSING_DISTINCT_VALUES"])
+    if exact:
+        return _result(SymbolicStatus.unresolved, None, f"count(distinct {value_label}) = {expected}", "Exact count is unresolved", "The sources establish a lower bound but do not certify a complete value set.", ["INCOMPLETE_VALUE_SET"])
+    explanation = "Python counted distinct values only when source text explicitly aligned them with the claim subject, predicate, and value category; it did not assume exact completeness."
+    return _result(SymbolicStatus.proved, "SUPPORTS", f"count({{{', '.join(sorted(values))}}}) ≥ {expected}", f"The sources ground at least {expected} distinct values.", explanation)
 
 
 def _measure_kinds(text: str) -> set[str]:
@@ -502,13 +507,13 @@ def _measure_kinds(text: str) -> set[str]:
 
 
 def execute_extremum_compare(atom: PipelineAtom, premises: Sequence[SymbolicPremise]) -> dict:
-    superlative = _SUPERLATIVE.search(atom.text)
+    superlative = extremum_term(atom.text)
     if not superlative:
         return _result(SymbolicStatus.not_applicable, None, "extremum comparison", "No supported extremum claim", "The atom does not state a supported extremum.")
     combined = "\n".join(premise.text for premise in premises)
     measure_kinds = _measure_kinds(atom.text + "\n" + combined)
     if "height_above_sea_level" in measure_kinds and "base_to_summit" in measure_kinds:
-        return _result(SymbolicStatus.unresolved, None, superlative.group(1).casefold(), "Measurements use different definitions", "The candidate values are not comparable because their measurement bases differ.", ["INCOMPATIBLE_MEASURES"])
+        return _result(SymbolicStatus.unresolved, None, superlative, "Measurements use different definitions", "The candidate values are not comparable because their measurement bases differ.", ["INCOMPATIBLE_MEASURES"])
     subject = _subject_before_copula(atom.text)
     records: list[tuple[str, Decimal, str]] = []
     for premise in premises:
@@ -520,15 +525,15 @@ def execute_extremum_compare(atom: PipelineAtom, premises: Sequence[SymbolicPrem
             records.append((normalize(name.group(1)), values[0][0], values[0][1]))
     subject_values = [record for record in records if subject and lexical_tokens(subject) & lexical_tokens(record[0])]
     if not subject_values:
-        return _result(SymbolicStatus.unresolved, None, superlative.group(1).casefold(), "Subject value is unresolved", "No uniquely aligned measurement was found for the claimed subject.", ["MISSING_SUBJECT_VALUE"])
+        return _result(SymbolicStatus.unresolved, None, superlative, "Subject value is unresolved", "No uniquely aligned measurement was found for the claimed subject.", ["MISSING_SUBJECT_VALUE"])
     subject_value = subject_values[0]
     compatible = [record for record in records if record[2] == subject_value[2] and record[0] != subject_value[0]]
-    wants_max = superlative.group(1).casefold() in {"largest", "highest", "tallest", "most"}
+    wants_max = superlative in {"largest", "highest", "tallest", "most"}
     counterexamples = [record for record in compatible if (record[1] > subject_value[1] if wants_max else record[1] < subject_value[1])]
     if counterexamples:
         other = counterexamples[0]
         return _result(SymbolicStatus.disproved, "REFUTES", f"{other[1]} {'>' if wants_max else '<'} {subject_value[1]}", "A grounded counterexample disproves the extremum claim.", "Python compared aligned measurements. One counterexample is sufficient to refute a superlative.")
-    return _result(SymbolicStatus.unresolved, None, superlative.group(1).casefold(), "Extremum is not proved", "No counterexample was selected, but the complete comparison universe is not certified.", ["INCOMPLETE_COMPARISON_UNIVERSE"])
+    return _result(SymbolicStatus.unresolved, None, superlative, "Extremum is not proved", "No counterexample was selected, but the complete comparison universe is not certified.", ["INCOMPLETE_COMPARISON_UNIVERSE"])
 
 
 REGISTRY = {

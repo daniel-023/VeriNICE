@@ -10,12 +10,12 @@ const OPERATOR_LABELS: Record<SymbolicExecution["operator"], string> = {
 };
 
 const PROFILE_LABELS: Record<string, string> = {
+  GENERIC_DISTINCT_VALUES: "Explicit category values",
+  AWARD_RECIPIENT: "Award recipient",
+  AWARD_MOTIVATION: "Award motivation",
   COUNTRY_LOCATION: "Country location",
   EXCLUSIVE_PURPOSE: "Exclusive purpose",
   EXPLICIT_NEGATION: "Explicit negation",
-  NOBEL_RECIPIENT: "Nobel recipient",
-  NOBEL_MOTIVATION: "Nobel motivation",
-  NOBEL_FIELD_COUNT: "Nobel field count",
 };
 
 const PROGRAM_STEP_DESCRIPTIONS: Record<string, string> = {
