@@ -6,7 +6,7 @@
       {
         "id": "document-1",
         "title": "Offline fallback document",
-        "url": "urn:verigraph:fallback:polarity-supported",
+        "url": "urn:verinice:fallback:polarity-supported",
         "text": "Mission control confirmed that the Vega launch was not delayed. The rocket departed on schedule."
       }
     ],
@@ -19,7 +19,7 @@
       {
         "id": "document-1",
         "title": "Offline fallback document",
-        "url": "urn:verigraph:fallback:polarity-contradicted",
+        "url": "urn:verinice:fallback:polarity-contradicted",
         "text": "The inspection found several safety violations. Officials ordered corrective work."
       }
     ],
@@ -32,7 +32,7 @@
       {
         "id": "document-1",
         "title": "Offline fallback document",
-        "url": "urn:verigraph:fallback:quantity-supported",
+        "url": "urn:verinice:fallback:quantity-supported",
         "text": "The clinical trial enrolled 240 participants across four hospitals."
       }
     ],
@@ -45,7 +45,7 @@
       {
         "id": "document-1",
         "title": "Offline fallback document",
-        "url": "urn:verigraph:fallback:quantity-contradicted",
+        "url": "urn:verinice:fallback:quantity-contradicted",
         "text": "Engineers measured an 18% reduction in energy use after the update."
       }
     ],
@@ -58,7 +58,7 @@
       {
         "id": "document-1",
         "title": "Offline fallback document",
-        "url": "urn:verigraph:fallback:temporal-supported",
+        "url": "urn:verinice:fallback:temporal-supported",
         "text": "The archive opened to researchers in 2021 after a three-year cataloging project."
       }
     ],
@@ -71,7 +71,7 @@
       {
         "id": "document-1",
         "title": "Offline fallback document",
-        "url": "urn:verigraph:fallback:temporal-contradicted",
+        "url": "urn:verinice:fallback:temporal-contradicted",
         "text": "The archive opened to researchers in 2021 after a three-year cataloging project."
       }
     ],
@@ -84,7 +84,7 @@
       {
         "id": "document-1",
         "title": "Offline fallback document",
-        "url": "urn:verigraph:fallback:attribution-supported",
+        "url": "urn:verinice:fallback:attribution-supported",
         "text": "Analyst Priya Shah said demand may rise during the winter quarter."
       }
     ],
@@ -97,7 +97,7 @@
       {
         "id": "document-1",
         "title": "Offline fallback document",
-        "url": "urn:verigraph:fallback:attribution-unsupported",
+        "url": "urn:verinice:fallback:attribution-unsupported",
         "text": "Analyst Priya Shah said demand may rise during the winter quarter."
       }
     ],
@@ -110,7 +110,7 @@
       {
         "id": "document-1",
         "title": "Offline fallback document",
-        "url": "urn:verigraph:fallback:entity-supported",
+        "url": "urn:verinice:fallback:entity-supported",
         "text": "Aurora Labs acquired Northstar Robotics in an all-cash transaction."
       }
     ],
@@ -123,7 +123,7 @@
       {
         "id": "document-1",
         "title": "Offline fallback document",
-        "url": "urn:verigraph:fallback:entity-unresolved",
+        "url": "urn:verinice:fallback:entity-unresolved",
         "text": "Aurora Systems acquired Northstar Analytics in an all-cash transaction."
       }
     ],
@@ -136,7 +136,7 @@
       {
         "id": "document-1",
         "title": "Offline fallback document",
-        "url": "urn:verigraph:fallback:synthesis-supported",
+        "url": "urn:verinice:fallback:synthesis-supported",
         "text": "Mara Chen joined Orion in 2022. Orion later named Mara Chen its chief technology officer."
       }
     ],
@@ -149,7 +149,7 @@
       {
         "id": "document-1",
         "title": "Offline fallback document",
-        "url": "urn:verigraph:fallback:multi-atom-partial",
+        "url": "urn:verinice:fallback:multi-atom-partial",
         "text": "Lumen launched the sensor in 2023. The company has not released unit sales."
       }
     ],

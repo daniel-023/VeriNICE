@@ -6,7 +6,7 @@ cd "${script_dir}"
 
 usage() {
   cat <<'EOF'
-Usage: ./run-verigraph [--prepare|--start|--record-walkthrough|--check|--test]
+Usage: ./run-verinice [--prepare|--start|--record-walkthrough|--check|--test]
 
   --prepare             Set up the local Python/Node runtime and model weights.
   --start               Start FastAPI, Next.js, and host Ollama locally.
@@ -25,10 +25,10 @@ local_env() {
     set +a
   fi
   export PYTHONPATH="${script_dir}/backend"
-  export VERIGRAPH_OLLAMA_URL="${VERIGRAPH_OLLAMA_URL:-http://127.0.0.1:11434}"
-  export VERIGRAPH_OLLAMA_MODEL="${VERIGRAPH_OLLAMA_MODEL:-qwen2.5:7b}"
-  export VERIGRAPH_EMBEDDING_MODEL_PATH="${VERIGRAPH_EMBEDDING_MODEL_PATH:-${script_dir}/data/models/bge-small-en-v1.5}"
-  export VERIGRAPH_BACKEND_URL="${VERIGRAPH_BACKEND_URL:-http://127.0.0.1:8001}"
+  export VERINICE_OLLAMA_URL="${VERINICE_OLLAMA_URL:-http://127.0.0.1:11434}"
+  export VERINICE_OLLAMA_MODEL="${VERINICE_OLLAMA_MODEL:-qwen2.5:7b}"
+  export VERINICE_EMBEDDING_MODEL_PATH="${VERINICE_EMBEDDING_MODEL_PATH:-${script_dir}/data/models/bge-small-en-v1.5}"
+  export VERINICE_BACKEND_URL="${VERINICE_BACKEND_URL:-http://127.0.0.1:8001}"
 }
 
 python_command() {
@@ -43,13 +43,13 @@ python_command() {
 }
 
 ollama_ready() {
-  curl -fsS "${VERIGRAPH_OLLAMA_URL}/api/tags" >/dev/null 2>&1
+  curl -fsS "${VERINICE_OLLAMA_URL}/api/tags" >/dev/null 2>&1
 }
 
 wait_for_backend() {
   local backend_pid="$1"
   for _ in $(seq 1 180); do
-    if curl -fsS "${VERIGRAPH_BACKEND_URL}/api/v1/health" >/dev/null 2>&1; then
+    if curl -fsS "${VERINICE_BACKEND_URL}/api/v1/health" >/dev/null 2>&1; then
       return 0
     fi
     if ! kill -0 "${backend_pid}" 2>/dev/null; then
@@ -77,7 +77,7 @@ case "${1:-}" in
   --prepare-showcase)
     local_env
     venv="${script_dir}/backend/.venv"
-    [[ -x "${venv}/bin/python" ]] || { echo "Run ./run-verigraph --prepare first." >&2; exit 1; }
+    [[ -x "${venv}/bin/python" ]] || { echo "Run ./run-verinice --prepare first." >&2; exit 1; }
     "${venv}/bin/python" "${script_dir}/scripts/prepare_showcase_data.py"
     echo "Source-grounded showcase bundle is ready."
     ;;
@@ -101,22 +101,22 @@ case "${1:-}" in
       (cd "${script_dir}/frontend" && npm ci)
     fi
     if ! ollama_ready; then
-      echo "Ollama is not running at ${VERIGRAPH_OLLAMA_URL}. Start Ollama Desktop, then run:" >&2
-      echo "  ollama pull ${VERIGRAPH_OLLAMA_MODEL}" >&2
+      echo "Ollama is not running at ${VERINICE_OLLAMA_URL}. Start Ollama Desktop, then run:" >&2
+      echo "  ollama pull ${VERINICE_OLLAMA_MODEL}" >&2
       exit 1
     fi
     if command -v ollama >/dev/null 2>&1; then
-      ollama pull "${VERIGRAPH_OLLAMA_MODEL}"
+      ollama pull "${VERINICE_OLLAMA_MODEL}"
     else
-      echo "Ollama API is reachable. Ensure ${VERIGRAPH_OLLAMA_MODEL} is installed in Ollama Desktop." >&2
+      echo "Ollama API is reachable. Ensure ${VERINICE_OLLAMA_MODEL} is installed in Ollama Desktop." >&2
     fi
-    echo "Runtime is ready. Start with ./run-verigraph --start"
+    echo "Runtime is ready. Start with ./run-verinice --start"
     ;;
   --start|"")
     local_env
     venv="${script_dir}/backend/.venv"
-    [[ -x "${venv}/bin/python" ]] || { echo "Run ./run-verigraph --prepare first." >&2; exit 1; }
-    ollama_ready || { echo "Ollama is not running at ${VERIGRAPH_OLLAMA_URL}. Start Ollama Desktop first." >&2; exit 1; }
+    [[ -x "${venv}/bin/python" ]] || { echo "Run ./run-verinice --prepare first." >&2; exit 1; }
+    ollama_ready || { echo "Ollama is not running at ${VERINICE_OLLAMA_URL}. Start Ollama Desktop first." >&2; exit 1; }
     if curl -fsS http://127.0.0.1:8001/api/v1/health >/dev/null 2>&1 \
       && curl -fsS http://127.0.0.1:3000/ >/dev/null 2>&1; then
       echo "VeriNICE is already running at http://localhost:3000"
@@ -125,11 +125,11 @@ case "${1:-}" in
     if lsof -nP -iTCP:8001 -sTCP:LISTEN >/dev/null 2>&1 \
       || lsof -nP -iTCP:3000 -sTCP:LISTEN >/dev/null 2>&1; then
       echo "Port 3000 or 8001 is occupied by an incomplete VeriNICE instance." >&2
-      echo "Stop the existing instance, then run ./run-verigraph --start again." >&2
+      echo "Stop the existing instance, then run ./run-verinice --start again." >&2
       exit 1
     fi
     mkdir -p "${script_dir}/data/runtime/native"
-    "${venv}/bin/python" -m uvicorn verigraph_backend.api:app --host 127.0.0.1 --port 8001 >"${script_dir}/data/runtime/native/backend.log" 2>&1 &
+    "${venv}/bin/python" -m uvicorn verinice_backend.api:app --host 127.0.0.1 --port 8001 >"${script_dir}/data/runtime/native/backend.log" 2>&1 &
     backend_pid=$!
     frontend_pid=""
     cleanup() {
@@ -149,10 +149,10 @@ case "${1:-}" in
   --record-walkthrough)
     local_env
     venv="${script_dir}/backend/.venv"
-    [[ -x "${venv}/bin/python" ]] || { echo "Run ./run-verigraph --prepare first." >&2; exit 1; }
+    [[ -x "${venv}/bin/python" ]] || { echo "Run ./run-verinice --prepare first." >&2; exit 1; }
     wait_for_local_ui
     "${venv}/bin/python" "${script_dir}/scripts/record_walkthrough.py" \
-      --api "${VERIGRAPH_BACKEND_URL}" --resume
+      --api "${VERINICE_BACKEND_URL}" --resume
     "${venv}/bin/python" "${script_dir}/scripts/build_walkthrough.py" \
       --require-complete
     echo "Recorded walkthrough assets are ready in frontend/public/walkthrough/."
@@ -165,7 +165,7 @@ case "${1:-}" in
   --test)
     local_env
     venv="${script_dir}/backend/.venv"
-    [[ -x "${venv}/bin/python" ]] || { echo "Run ./run-verigraph --prepare first." >&2; exit 1; }
+    [[ -x "${venv}/bin/python" ]] || { echo "Run ./run-verinice --prepare first." >&2; exit 1; }
     "${venv}/bin/python" -m pytest "${script_dir}/backend/tests"
     (cd "${script_dir}/frontend" && npm test -- --run)
     ;;

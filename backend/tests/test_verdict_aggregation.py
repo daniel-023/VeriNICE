@@ -1,7 +1,7 @@
 import pytest
 
-from verigraph_backend.schemas import VerdictAggregationRequest
-from verigraph_backend.verdict_aggregation import aggregate_verdict
+from verinice_backend.schemas import VerdictAggregationRequest
+from verinice_backend.verdict_aggregation import aggregate_verdict
 
 
 def request(composition, relations, proofs=None, omission=False, sufficiency="SUFFICIENT"):

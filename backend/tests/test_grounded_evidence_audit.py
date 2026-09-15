@@ -4,8 +4,8 @@ import json
 
 import pytest
 
-from verigraph_backend.grounded_evidence_audit import GroundedEvidenceAuditOutputError, _audit_input, _parse_audit
-from verigraph_backend.schemas import AssessmentAtomEvidence, AssessmentInputSpan, DemoDocument, EvidenceContextSpan, EvidenceScopeCheck, PipelineAtom
+from verinice_backend.grounded_evidence_audit import GroundedEvidenceAuditOutputError, _audit_input, _parse_audit
+from verinice_backend.schemas import AssessmentAtomEvidence, AssessmentInputSpan, DemoDocument, EvidenceContextSpan, EvidenceScopeCheck, PipelineAtom
 
 
 def fixtures():

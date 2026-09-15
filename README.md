@@ -49,9 +49,9 @@ Requirements: Python 3.11 or 3.12, Node.js/npm, and Ollama. Run commands from
 the repository root.
 
 ```bash
-./run-verigraph --check
-./run-verigraph --prepare
-./run-verigraph --start
+./run-verinice --check
+./run-verinice --prepare
+./run-verinice --start
 ```
 
 Open [http://localhost:3000](http://localhost:3000). Preparation installs the

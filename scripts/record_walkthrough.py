@@ -34,7 +34,7 @@ def validate_api_contract(openapi: dict[str, Any]) -> None:
     if not isinstance(aggregation, dict):
         raise RuntimeError(
             "The running backend does not expose the current verdict aggregation API. "
-            "Stop the local VeriNICE process, run ./run-verigraph --start again, "
+            "Stop the local VeriNICE process, run ./run-verinice --start again, "
             "then retry recording."
         )
 
@@ -50,7 +50,7 @@ def validate_api_contract(openapi: dict[str, Any]) -> None:
         raise RuntimeError(
             "The running backend is stale: its verdict aggregation request schema "
             "does not match the current pipeline. Stop it with Ctrl-C, run "
-            "./run-verigraph --start again, then rerun ./run-verigraph "
+            "./run-verinice --start again, then rerun ./run-verinice "
             "--record-walkthrough."
         )
     assessment_response = schemas.get(_ASSESSMENT_RESPONSE_SCHEMA)
@@ -62,8 +62,8 @@ def validate_api_contract(openapi: dict[str, Any]) -> None:
     if "assessment" not in assessment_properties:
         raise RuntimeError(
             "The running backend is stale: grounded evidence auditing is not exposed. "
-            "Stop it with Ctrl-C, run ./run-verigraph --start again, then rerun "
-            "./run-verigraph --record-walkthrough."
+            "Stop it with Ctrl-C, run ./run-verinice --start again, then rerun "
+            "./run-verinice --record-walkthrough."
         )
     assessment_request = schemas.get(_ASSESSMENT_REQUEST_SCHEMA, {})
     assessment_request_properties = assessment_request.get("properties", {})
@@ -230,7 +230,7 @@ async def main_async() -> int:
         import httpx
     except ImportError as error:
         raise RuntimeError(
-            "Run ./run-verigraph --prepare first so the backend virtualenv contains httpx."
+            "Run ./run-verinice --prepare first so the backend virtualenv contains httpx."
         ) from error
 
     args.output.mkdir(parents=True, exist_ok=True)

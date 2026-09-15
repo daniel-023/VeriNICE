@@ -1,10 +1,10 @@
 import { Suspense } from "react";
-import { VeriGraphApp } from "@/components/VeriGraphApp";
+import { VeriNICEApp } from "@/components/VeriNICEApp";
 
 export default function WalkthroughPage() {
   return (
     <Suspense fallback={<main className="route-loading">Loading VeriNICE…</main>}>
-      <VeriGraphApp mode="walkthrough" />
+      <VeriNICEApp mode="walkthrough" />
     </Suspense>
   );
 }

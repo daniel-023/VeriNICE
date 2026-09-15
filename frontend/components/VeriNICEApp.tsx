@@ -37,7 +37,7 @@ import { DocumentPanel } from "./DocumentPanel";
 import { PipelinePanel } from "./PipelinePanel";
 import { SupportSummary } from "./SupportSummary";
 import { SymbolicProofPanel } from "./SymbolicProofPanel";
-import { VeriGraphLogo } from "./VeriGraphLogo";
+import { VeriNICELogo } from "./VeriNICELogo";
 
 const CUSTOM_CASE = "custom";
 
@@ -56,7 +56,7 @@ function customDocument(index: number): DemoDocument {
   return {
     id: `custom-source-${index}`,
     title: `Source ${index}`,
-    url: `urn:verigraph:custom:${index}`,
+    url: `urn:verinice:custom:${index}`,
     text: "",
     layout: "PROSE",
   };
@@ -99,7 +99,7 @@ function referenceClass(label: ReferenceLabel): string {
   return `reference-${label.toLowerCase().replaceAll("_", "-")}`;
 }
 
-export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode }) {
+export function VeriNICEApp({ mode = deploymentMode }: { mode?: DeploymentMode }) {
   const walkthrough = mode === "walkthrough";
   const dataApi = walkthrough ? walkthroughApi : api;
   const router = useRouter();
@@ -800,7 +800,7 @@ export function VeriGraphApp({ mode = deploymentMode }: { mode?: DeploymentMode 
 
       <header className="site-header">
         <div className="brand" translate="no">
-          <VeriGraphLogo />
+          <VeriNICELogo />
           <span className="brand-copy">
             <span className="brand-name" aria-label="VeriNICE">
               <span className="brand-name-veri">Veri</span>

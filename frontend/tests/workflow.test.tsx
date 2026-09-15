@@ -12,7 +12,7 @@ vi.mock("next/navigation", () => ({
   useRouter: () => ({ replace: vi.fn() }), usePathname: () => "/",
   useSearchParams: () => new URLSearchParams(),
 }));
-import { VeriGraphApp } from "@/components/VeriGraphApp";
+import { VeriNICEApp } from "@/components/VeriNICEApp";
 
 const detail = {
   id: "sample-1", claim: "NDF is not included in the complete list.", label: "SUPPORTED" as const,
@@ -51,7 +51,7 @@ afterEach(() => { cleanup(); vi.clearAllMocks(); });
 
 describe("live program-guided workflow", () => {
   it("runs retrieval, Qwen assessment, symbolic reasoning, and aggregation in order", async () => {
-    render(<VeriGraphApp mode="live" />);
+    render(<VeriNICEApp mode="live" />);
     await userEvent.click(await screen.findByRole("button", { name: /decompose claim/i }));
     await waitFor(() => expect(apiMock.reasonCase).toHaveBeenCalledTimes(1));
     expect(apiMock.assessCaseEvidence).toHaveBeenCalledTimes(1);
@@ -60,7 +60,7 @@ describe("live program-guided workflow", () => {
   });
 
   it("shows the selected atom's rule result without model attribution or a confidence score", async () => {
-    render(<VeriGraphApp mode="live" />);
+    render(<VeriNICEApp mode="live" />);
     await userEvent.click(await screen.findByRole("button", { name: /decompose claim/i }));
     await userEvent.click((await screen.findAllByRole("button", { name: new RegExp(atom.text) }))[0]);
     expect((await screen.findAllByText("Proved", { exact: false })).length).toBeGreaterThan(0);
@@ -103,7 +103,7 @@ describe("live program-guided workflow", () => {
     apiMock.assessCaseEvidence.mockResolvedValueOnce({ assessment: multiAssessment, provider: "ollama", model: "qwen" });
     apiMock.reasonCase.mockResolvedValueOnce({ executions: [], provider: "ollama+python", model: "qwen" });
 
-    render(<VeriGraphApp mode="live" />);
+    render(<VeriNICEApp mode="live" />);
     await userEvent.click(await screen.findByRole("button", { name: /decompose claim/i }));
     const relationList = await screen.findByRole("list", { name: "Claim-wide evidence relation counts" });
     expect(relationList).toHaveTextContent(/1\s*Supports/);
@@ -178,7 +178,7 @@ describe("live program-guided workflow", () => {
       ruleTrace: ["Resolved assessed evidence bundle."],
     });
 
-    render(<VeriGraphApp mode="live" />);
+    render(<VeriNICEApp mode="live" />);
     await userEvent.click(await screen.findByRole("button", { name: /decompose claim/i }));
     await waitFor(() => expect(apiMock.assessCaseEvidence).toHaveBeenCalledTimes(1));
 
@@ -194,7 +194,7 @@ describe("live program-guided workflow", () => {
   });
 
   it("retains decomposition but clears evidence, assessment, and reasoning after a document edit", async () => {
-    render(<VeriGraphApp mode="live" />);
+    render(<VeriNICEApp mode="live" />);
     await userEvent.click(await screen.findByRole("button", { name: /decompose claim/i }));
     await waitFor(() => expect(apiMock.reasonCase).toHaveBeenCalled());
     fireEvent.change(screen.getByRole("textbox", { name: /evidence document/i }), { target: { value: "Edited source." } });
@@ -204,7 +204,7 @@ describe("live program-guided workflow", () => {
 
   it("uses Retry Rules without repeating decomposition or retrieval", async () => {
     apiMock.reasonCase.mockRejectedValueOnce(new Error("Compiler unavailable.")).mockResolvedValueOnce({ executions: [proof], provider: "ollama+python", model: "qwen" });
-    render(<VeriGraphApp mode="live" />);
+    render(<VeriNICEApp mode="live" />);
     await userEvent.click(await screen.findByRole("button", { name: /decompose claim/i }));
     await userEvent.click(await screen.findByRole("button", { name: /retry rules/i }));
     await waitFor(() => expect(apiMock.reasonCase).toHaveBeenCalledTimes(2));
@@ -213,7 +213,7 @@ describe("live program-guided workflow", () => {
   });
 
   it("reruns retrieval and downstream stages when the retrieval method changes", async () => {
-    render(<VeriGraphApp mode="live" />);
+    render(<VeriNICEApp mode="live" />);
     await userEvent.click(await screen.findByRole("button", { name: /decompose claim/i }));
     await waitFor(() => expect(apiMock.retrieveCase).toHaveBeenCalledTimes(1));
     await userEvent.click(screen.getByText("Evidence Matching: Hybrid"));
@@ -228,7 +228,7 @@ describe("live program-guided workflow", () => {
   });
 
   it("reruns retrieval with the selected candidate budget", async () => {
-    render(<VeriGraphApp mode="live" />);
+    render(<VeriNICEApp mode="live" />);
     await userEvent.click(await screen.findByRole("button", { name: /decompose claim/i }));
     await waitFor(() => expect(apiMock.retrieveCase).toHaveBeenCalledTimes(1));
     await userEvent.click(screen.getByText("Evidence Matching: Hybrid"));
@@ -261,7 +261,7 @@ describe("live program-guided workflow", () => {
       { id: "averitec-dev-0002", claim: "A second dataset claim.", label: "SUPPORTED", origin: "AVERITEC", category: "HISTORY", documents: [] },
       { id: "averitec-dev-0003", claim: "A third dataset claim.", label: "NOT_ENOUGH_EVIDENCE", origin: "AVERITEC", category: "GEOGRAPHY", documents: [] },
     ]);
-    render(<VeriGraphApp mode="live" />);
+    render(<VeriNICEApp mode="live" />);
     await userEvent.click(await screen.findByRole("button", { name: "AVeriTeC" }));
     expect(screen.getByRole("option", { name: "16 — A separate dataset claim." })).toBeInTheDocument();
     expect(screen.getByRole("option", { name: "17 — A second dataset claim." })).toBeInTheDocument();

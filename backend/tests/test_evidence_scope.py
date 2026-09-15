@@ -1,5 +1,5 @@
-from verigraph_backend.evidence_scope import check_evidence_scope, jurisdictions
-from verigraph_backend.schemas import (
+from verinice_backend.evidence_scope import check_evidence_scope, jurisdictions
+from verinice_backend.schemas import (
     AssessmentAtomEvidence, AssessmentInputSpan, DemoDocument, PipelineAtom,
 )
 

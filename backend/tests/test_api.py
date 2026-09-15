@@ -3,9 +3,9 @@ from __future__ import annotations
 from fastapi.testclient import TestClient
 import pytest
 
-from verigraph_backend import api
-from verigraph_backend.errors import EvidenceRetrievalConfigurationError, EvidenceRetrievalError
-from verigraph_backend.schemas import (
+from verinice_backend import api
+from verinice_backend.errors import EvidenceRetrievalConfigurationError, EvidenceRetrievalError
+from verinice_backend.schemas import (
     AtomEvidence, DecomposedAtom, DecompositionResponse, DemoCase, DemoDocument,
     EvidenceRetrievalResponse, EvidenceSpan,
     GroundedEvidenceAssessment, GroundedObligationAudit,

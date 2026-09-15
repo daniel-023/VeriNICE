@@ -7,8 +7,7 @@ VeriNICE supports two execution modes:
 | **Local live mode** | Runs decomposition, retrieval, evidence assessment, symbolic reasoning, and verdict composition locally. |
 | **Deployed walkthrough** | Replays validated, checked-in results without calling the local FastAPI backend or running model inference. |
 
-The launcher retains the historical filename `run-verigraph`. Run all commands
-from the repository root.
+The launcher is `run-verinice`. Run all commands from the repository root.
 
 ## Prerequisites
 
@@ -19,13 +18,13 @@ from the repository root.
 Check the native tools before installing project dependencies:
 
 ```bash
-./run-verigraph --check
+./run-verinice --check
 ```
 
 ## Prepare the local environment
 
 ```bash
-./run-verigraph --prepare
+./run-verinice --prepare
 ```
 
 Preparation installs the pinned Python and Node dependencies, downloads
@@ -37,7 +36,7 @@ documents or models.
 To refresh the constructed showcase sources separately, run:
 
 ```bash
-./run-verigraph --prepare-showcase
+./run-verinice --prepare-showcase
 ```
 
 This is an offline preparation operation, not part of a live verification run.
@@ -46,7 +45,7 @@ It validates the prepared source bundle and its traceability metadata.
 ## Start local live mode
 
 ```bash
-./run-verigraph --start
+./run-verinice --start
 ```
 
 Open [http://localhost:3000](http://localhost:3000). The launcher starts
@@ -62,7 +61,7 @@ The recorded walkthrough was produced with `qwen2.5:7b`. A different Ollama
 model can be selected explicitly:
 
 ```bash
-VERIGRAPH_OLLAMA_MODEL=qwen2.5:3b ./run-verigraph --start
+VERINICE_OLLAMA_MODEL=qwen2.5:3b ./run-verinice --start
 ```
 
 Changing the model can change decomposition, assessment, and rule mapping;
@@ -74,18 +73,18 @@ the walkthrough if a changed configuration is intended for deployment.
 Run the backend and frontend test suites with:
 
 ```bash
-./run-verigraph --test
+./run-verinice --test
 ```
 
 The launcher uses the pinned local environments prepared by `--prepare`.
 
 ## Record and validate the walkthrough
 
-Start the local stack with `./run-verigraph --start`, then run the recorder in
+Start the local stack with `./run-verinice --start`, then run the recorder in
 a second terminal:
 
 ```bash
-./run-verigraph --record-walkthrough
+./run-verinice --record-walkthrough
 ```
 
 The recorder runs all 18 showcase cases against the local FastAPI backend and
@@ -113,7 +112,7 @@ Use `frontend` as the Vercel project root. `frontend/vercel.json` installs with
 `npm ci`, verifies the recorded runs, sets walkthrough mode for the build, and
 executes the Next.js production build.
 
-Do not set `VERIGRAPH_BACKEND_URL` for the static deployment. The deployed
+Do not set `VERINICE_BACKEND_URL` for the static deployment. The deployed
 walkthrough replays checked-in schema-v7 runs and does not expose or call the
 local FastAPI service. The manifest must report all 18 cases and 18 runs before
 deployment succeeds.
@@ -139,13 +138,13 @@ the response and retained in walkthrough provenance.
 
 ### A prerequisite check fails
 
-Run `./run-verigraph --check` and install the reported missing or unsupported
+Run `./run-verinice --check` and install the reported missing or unsupported
 native dependency. Python must be version 3.11 or 3.12.
 
 ### Ollama or the model is unavailable
 
 Confirm that Ollama is running and that `qwen2.5:7b` is installed. Re-running
-`./run-verigraph --prepare` pulls the configured model.
+`./run-verinice --prepare` pulls the configured model.
 
 ### A port is already in use
 
@@ -156,7 +155,7 @@ incompatible service.
 ### Walkthrough verification fails
 
 Do not hand-edit recorded outputs. Start a healthy local stack, run
-`./run-verigraph --record-walkthrough`, and address the reported missing case,
+`./run-verinice --record-walkthrough`, and address the reported missing case,
 schema-v7 mismatch, or invalid result before rebuilding.
 
 ### A model override changes results

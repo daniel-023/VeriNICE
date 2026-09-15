@@ -6,12 +6,12 @@ from typing import List
 import numpy as np
 import pytest
 
-from verigraph_backend import embeddings, evidence_retrieval
-from verigraph_backend.errors import (
+from verinice_backend import embeddings, evidence_retrieval
+from verinice_backend.errors import (
     EvidenceRetrievalConfigurationError,
     EvidenceRetrievalError,
 )
-from verigraph_backend.evidence_retrieval import (
+from verinice_backend.evidence_retrieval import (
     MAX_CANDIDATE_CHARACTERS,
     MAX_CONTEXT_CHARACTERS,
     _eligible_sentences,
@@ -21,8 +21,8 @@ from verigraph_backend.evidence_retrieval import (
     _span,
     retrieve_evidence,
 )
-from verigraph_backend.schemas import RetrievalAtom, RetrievalDocument, RetrievalMethod
-from verigraph_backend.segmentation import SentenceSpan, segment_document, segment_documents
+from verinice_backend.schemas import RetrievalAtom, RetrievalDocument, RetrievalMethod
+from verinice_backend.segmentation import SentenceSpan, segment_document, segment_documents
 
 
 @pytest.fixture

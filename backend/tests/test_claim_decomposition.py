@@ -6,8 +6,8 @@ from dataclasses import replace
 import httpx
 import pytest
 
-from verigraph_backend import claim_decomposition
-from verigraph_backend.claim_decomposition import (
+from verinice_backend import claim_decomposition
+from verinice_backend.claim_decomposition import (
     ATOM_OUTPUT_SCHEMA,
     DecompositionOutputError,
     DecompositionProviderError,

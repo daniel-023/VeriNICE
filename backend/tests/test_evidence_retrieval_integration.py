@@ -4,14 +4,14 @@ import os
 
 import pytest
 
-from verigraph_backend.demo_data import demo_case
-from verigraph_backend.evidence_retrieval import retrieve_evidence
-from verigraph_backend.schemas import RetrievalAtom, RetrievalDocument
+from verinice_backend.demo_data import demo_case
+from verinice_backend.evidence_retrieval import retrieve_evidence
+from verinice_backend.schemas import RetrievalAtom, RetrievalDocument
 
 
 pytestmark = pytest.mark.skipif(
-    os.getenv("VERIGRAPH_RUN_EMBEDDING_INTEGRATION") != "1",
-    reason="set VERIGRAPH_RUN_EMBEDDING_INTEGRATION=1 to load the real embedding model",
+    os.getenv("VERINICE_RUN_EMBEDDING_INTEGRATION") != "1",
+    reason="set VERINICE_RUN_EMBEDDING_INTEGRATION=1 to load the real embedding model",
 )
 
 

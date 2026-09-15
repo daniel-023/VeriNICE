@@ -10,8 +10,8 @@
 
 ## Before the session
 
-1. Run `./run-verigraph --check`.
-2. Start Ollama and run `./run-verigraph --start`.
+1. Run `./run-verinice --check`.
+2. Start Ollama and run `./run-verinice --start`.
 3. Complete one curated live case; confirm all five stages and exact-source
    links.
 4. Open `/walkthrough` in a second tab and disconnect Wi-Fi to confirm backup.

@@ -23,7 +23,7 @@ if (
   manifest.recordedCaseCount !== manifest.caseCount
 ) {
   throw new Error(
-    "The Vercel walkthrough is incomplete. Run ./run-verigraph --record-walkthrough " +
+    "The Vercel walkthrough is incomplete. Run ./run-verinice --record-walkthrough " +
       "from the VeriNICE project root before deploying.",
   );
 }

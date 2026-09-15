@@ -452,7 +452,7 @@ async def decompose_claim(
 ) -> DecompositionResponse:
     if not settings.ollama_url.strip() or not settings.ollama_model.strip():
         raise DecompositionConfigurationError(
-            "Live decomposition is not configured. Set VERIGRAPH_OLLAMA_URL and VERIGRAPH_OLLAMA_MODEL."
+            "Live decomposition is not configured. Set VERINICE_OLLAMA_URL and VERINICE_OLLAMA_MODEL."
         )
 
     owns_client = client is None

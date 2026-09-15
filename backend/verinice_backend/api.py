@@ -78,7 +78,7 @@ async def lifespan(_: FastAPI) -> AsyncIterator[None]:
             return
         if result.exception() is not None:
             logging.getLogger(__name__).warning(
-                "Evidence retrieval is unavailable; run ./run-verigraph --prepare."
+                "Evidence retrieval is unavailable; run ./run-verinice --prepare."
             )
 
     retrieval_warmup.add_done_callback(report_retrieval_warmup)
@@ -105,7 +105,7 @@ _llm_slots = asyncio.Semaphore(max(1, settings.max_llm_concurrency))
 _retrieval_slots = asyncio.Semaphore(max(1, settings.max_retrieval_concurrency))
 _retrieval_worker = ThreadPoolExecutor(
     max_workers=1,
-    thread_name_prefix="verigraph-retrieval",
+    thread_name_prefix="verinice-retrieval",
 )
 _rate_windows: Dict[str, Deque[float]] = defaultdict(deque)
 

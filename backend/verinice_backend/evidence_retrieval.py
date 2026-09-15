@@ -346,7 +346,7 @@ async def retrieve_evidence(
 ) -> EvidenceRetrievalResponse:
     if not settings.embedding_model_path.is_dir():
         raise EvidenceRetrievalConfigurationError(
-            "The local evidence embedding model is missing. Run ./run-verigraph --prepare."
+            "The local evidence embedding model is missing. Run ./run-verinice --prepare."
         )
 
     all_sentences = segment_documents(documents)

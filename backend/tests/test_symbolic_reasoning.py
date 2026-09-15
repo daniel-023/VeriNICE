@@ -2,23 +2,23 @@ from decimal import Decimal
 
 import pytest
 
-from verigraph_backend.schemas import (
+from verinice_backend.schemas import (
     AssessmentAtomEvidence, AssessmentInputSpan, GroundedEvidenceAssessment,
     GroundedObligationAudit, MaterialOmissionCertificate, PipelineAtom,
     RetrievalDocument, SymbolicPremise,
 )
-from verigraph_backend.symbolic_reasoning.grounding import (
+from verinice_backend.symbolic_reasoning.grounding import (
     build_candidates,
     identity_tokens,
     lexical_tokens,
     list_premises,
     normalize,
 )
-from verigraph_backend.symbolic_reasoning.operators import (
+from verinice_backend.symbolic_reasoning.operators import (
     execute_attribute_compare, execute_count_distinct, execute_extremum_compare,
     execute_numeric_compare, execute_set_membership, execute_temporal_compare,
 )
-from verigraph_backend.symbolic_reasoning.profiles import distinct_profile
+from verinice_backend.symbolic_reasoning.profiles import distinct_profile
 
 
 def premise(text, kind="EVIDENCE", premise_id="p1", document_id="d1", content_hash=None, item_count=None):
@@ -37,8 +37,8 @@ def test_lexical_tokens_separate_trademark_symbols():
 
 
 def test_compiler_validation_merges_duplicates_and_omits_ungrounded_programs():
-    from verigraph_backend.symbolic_reasoning.compiler import _validated_programs
-    from verigraph_backend.symbolic_reasoning.grounding import Candidate
+    from verinice_backend.symbolic_reasoning.compiler import _validated_programs
+    from verinice_backend.symbolic_reasoning.grounding import Candidate
 
     candidates = [
         Candidate(
@@ -136,7 +136,7 @@ def test_award_year_is_not_misread_as_a_distinct_value_count():
 
 @pytest.mark.asyncio
 async def test_deterministic_attribute_validation_recovers_a_missed_model_mapping(monkeypatch):
-    from verigraph_backend.symbolic_reasoning import service
+    from verinice_backend.symbolic_reasoning import service
 
     claim = "The Meridian Award for 2024 was awarded for its navigation research."
     source = "The Meridian Award for 2024 was awarded for its climate research."
@@ -165,7 +165,7 @@ async def test_deterministic_attribute_validation_recovers_a_missed_model_mappin
 
 @pytest.mark.asyncio
 async def test_certificate_selection_executes_against_every_server_owned_item(monkeypatch):
-    from verigraph_backend.symbolic_reasoning import service
+    from verinice_backend.symbolic_reasoning import service
 
     atom = PipelineAtom(id="a", text="The register has not included Delta in the official list.")
     document = RetrievalDocument(
@@ -387,7 +387,7 @@ def test_numeric_bounds_are_not_treated_as_extrema():
 
 @pytest.mark.asyncio
 async def test_distinct_reasoning_publishes_subject_anchored_source_context(monkeypatch):
-    from verigraph_backend.symbolic_reasoning import service
+    from verinice_backend.symbolic_reasoning import service
 
     atom = PipelineAtom(id="a", text="Marie Curie won prizes in at least two scientific fields.")
     document_text = (
@@ -443,7 +443,7 @@ def test_generic_distinct_count_keeps_exact_claim_unresolved():
 
 
 def test_generic_distinct_candidate_uses_retrieved_source_spans():
-    from verigraph_backend.symbolic_reasoning.service import _validated_operand_ids
+    from verinice_backend.symbolic_reasoning.service import _validated_operand_ids
 
     atom = PipelineAtom(id="a", text="Archive Z contains at least two distinct file formats.")
     first = "Archive Z file format: CSV."
@@ -552,8 +552,8 @@ def test_attribute_location_comparison_rejects_ownership_as_location_evidence():
 
 
 def test_location_presentation_keeps_the_country_premise_not_name_only_overlap():
-    from verigraph_backend.symbolic_reasoning.service import _presentation_premise_ids
-    from verigraph_backend.schemas import SymbolicOperator, SymbolicStatus
+    from verinice_backend.symbolic_reasoning.service import _presentation_premise_ids
+    from verinice_backend.schemas import SymbolicOperator, SymbolicStatus
 
     atom = PipelineAtom(id="a", text="The Eiffel Tower is located in Germany.")
     premises = {
@@ -577,8 +577,8 @@ def test_location_presentation_keeps_the_country_premise_not_name_only_overlap()
 
 
 def test_location_presentation_keeps_subject_and_country_when_split_across_sentences():
-    from verigraph_backend.symbolic_reasoning.service import _presentation_premise_ids
-    from verigraph_backend.schemas import SymbolicOperator, SymbolicStatus
+    from verinice_backend.symbolic_reasoning.service import _presentation_premise_ids
+    from verinice_backend.schemas import SymbolicOperator, SymbolicStatus
 
     atom = PipelineAtom(id="a", text="The Eiffel Tower is located in Germany.")
     premises = {
@@ -604,8 +604,8 @@ def test_location_presentation_keeps_subject_and_country_when_split_across_sente
 
 
 def test_attribute_presentation_keeps_the_competing_exclusive_purposes():
-    from verigraph_backend.symbolic_reasoning.service import _presentation_premise_ids
-    from verigraph_backend.schemas import SymbolicOperator, SymbolicStatus
+    from verinice_backend.symbolic_reasoning.service import _presentation_premise_ids
+    from verinice_backend.schemas import SymbolicOperator, SymbolicStatus
 
     atom = PipelineAtom(id="a", text="GPS was developed exclusively for civilian navigation.")
     premises = {
@@ -622,8 +622,8 @@ def test_attribute_presentation_keeps_the_competing_exclusive_purposes():
 
 
 def test_attribute_presentation_keeps_prize_motivation_not_award_date():
-    from verigraph_backend.symbolic_reasoning.service import _presentation_premise_ids
-    from verigraph_backend.schemas import SymbolicOperator, SymbolicStatus
+    from verinice_backend.symbolic_reasoning.service import _presentation_premise_ids
+    from verinice_backend.schemas import SymbolicOperator, SymbolicStatus
 
     atom = PipelineAtom(id="a", text="Einstein received the Nobel Prize for relativity.")
     premises = {

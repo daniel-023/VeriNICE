@@ -30,53 +30,53 @@ def _path_env(name: str, default: Path) -> Path:
 @dataclass(frozen=True)
 class Settings:
     ollama_url: str = os.getenv(
-        "VERIGRAPH_OLLAMA_URL", os.getenv("OLLAMA_HOST", "http://127.0.0.1:11434")
+        "VERINICE_OLLAMA_URL", os.getenv("OLLAMA_HOST", "http://127.0.0.1:11434")
     )
-    ollama_model: str = os.getenv("VERIGRAPH_OLLAMA_MODEL", "qwen2.5:7b")
-    ollama_keep_alive: str = os.getenv("VERIGRAPH_OLLAMA_KEEP_ALIVE", "10m")
+    ollama_model: str = os.getenv("VERINICE_OLLAMA_MODEL", "qwen2.5:7b")
+    ollama_keep_alive: str = os.getenv("VERINICE_OLLAMA_KEEP_ALIVE", "10m")
     # The structured schema and compact few-shot examples need room alongside
     # the input claim and JSON response. This remains configurable for smaller
     # CPU-only Ollama installations.
-    ollama_context_size: int = int(os.getenv("VERIGRAPH_OLLAMA_CONTEXT_SIZE", "4096"))
+    ollama_context_size: int = int(os.getenv("VERINICE_OLLAMA_CONTEXT_SIZE", "4096"))
     evidence_audit_context_size: int = int(
-        os.getenv("VERIGRAPH_EVIDENCE_AUDIT_CONTEXT_SIZE", "12288")
+        os.getenv("VERINICE_EVIDENCE_AUDIT_CONTEXT_SIZE", "12288")
     )
     embedding_model: str = os.getenv(
-        "VERIGRAPH_EMBEDDING_MODEL", "BAAI/bge-small-en-v1.5"
+        "VERINICE_EMBEDDING_MODEL", "BAAI/bge-small-en-v1.5"
     )
     embedding_model_path: Path = _path_env(
-        "VERIGRAPH_EMBEDDING_MODEL_PATH",
+        "VERINICE_EMBEDDING_MODEL_PATH",
         ROOT / "data" / "models" / "bge-small-en-v1.5",
     )
     request_timeout_seconds: float = float(
-        os.getenv("VERIGRAPH_REQUEST_TIMEOUT_SECONDS", "240")
+        os.getenv("VERINICE_REQUEST_TIMEOUT_SECONDS", "240")
     )
     max_llm_concurrency: int = int(
-        os.getenv("VERIGRAPH_MAX_LLM_CONCURRENCY", "4")
+        os.getenv("VERINICE_MAX_LLM_CONCURRENCY", "4")
     )
     max_retrieval_concurrency: int = int(
-        os.getenv("VERIGRAPH_MAX_RETRIEVAL_CONCURRENCY", "1")
+        os.getenv("VERINICE_MAX_RETRIEVAL_CONCURRENCY", "1")
     )
     max_request_bytes: int = int(
-        os.getenv("VERIGRAPH_MAX_REQUEST_BYTES", "1100000")
+        os.getenv("VERINICE_MAX_REQUEST_BYTES", "1100000")
     )
     rate_limit_per_minute: int = int(
-        os.getenv("VERIGRAPH_RATE_LIMIT_PER_MINUTE", "0")
+        os.getenv("VERINICE_RATE_LIMIT_PER_MINUTE", "0")
     )
     allowed_origins: tuple[str, ...] = _csv_env(
-        "VERIGRAPH_ALLOWED_ORIGINS",
+        "VERINICE_ALLOWED_ORIGINS",
         "http://127.0.0.1:3000,http://localhost:3000",
     )
     public_demo_data_path: Path = ROOT / "data" / "demo_cases.json"
     private_demo_bundle_path: Path = _path_env(
-        "VERIGRAPH_DEMO_BUNDLE_PATH",
+        "VERINICE_DEMO_BUNDLE_PATH",
         ROOT / "data" / "demo" / "showcase",
     )
     require_private_catalog: bool = _bool_env(
-        "VERIGRAPH_REQUIRE_PRIVATE_CATALOG", False
+        "VERINICE_REQUIRE_PRIVATE_CATALOG", False
     )
     expected_bundle_digest: str | None = os.getenv(
-        "VERIGRAPH_EXPECTED_BUNDLE_DIGEST"
+        "VERINICE_EXPECTED_BUNDLE_DIGEST"
     )
 
 

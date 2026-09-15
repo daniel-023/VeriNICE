@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export function VeriGraphLogo() {
+export function VeriNICELogo() {
   return (
     <Image
       className="brand-logo"

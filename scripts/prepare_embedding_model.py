@@ -1,6 +1,6 @@
 """Download the retrieval embedding model into the repository data directory.
 
-Run through `./run-verigraph --prepare`. The backend never reaches the
+Run through `./run-verinice --prepare`. The backend never reaches the
 network at runtime, so the model is materialised in the local data directory.
 """
 
@@ -12,7 +12,7 @@ import tempfile
 
 from huggingface_hub import snapshot_download
 
-from verigraph_backend.settings import settings
+from verinice_backend.settings import settings
 
 
 # Formats the backend never loads. Skipping them keeps the copied directory to
@@ -57,7 +57,7 @@ def main() -> int:
     print(f"Downloading {settings.embedding_model} into {destination}")
     # Stage the complete download away from the destination before copying it;
     # this also makes interrupted downloads unable to leave partial model files.
-    with tempfile.TemporaryDirectory(prefix="verigraph-bge-") as temporary:
+    with tempfile.TemporaryDirectory(prefix="verinice-bge-") as temporary:
         source = Path(temporary) / "model"
         snapshot_download(
             repo_id=settings.embedding_model,

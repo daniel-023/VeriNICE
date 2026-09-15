@@ -49,7 +49,7 @@ def test_current_aggregation_contract_is_accepted() -> None:
 
 
 def test_stale_aggregation_contract_explains_how_to_restart() -> None:
-    with pytest.raises(RuntimeError, match=r"running backend is stale.*run-verigraph --start"):
+    with pytest.raises(RuntimeError, match=r"running backend is stale.*run-verinice --start"):
         record_walkthrough.validate_api_contract(
             openapi_schema(
                 properties={"claimId": {}, "claim": {}},

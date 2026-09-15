@@ -33,7 +33,7 @@ def _load_model() -> Any:
         return _model
     if not is_available():
         raise EvidenceRetrievalConfigurationError(
-            "The local evidence embedding model is missing. Run ./run-verigraph --prepare."
+            "The local evidence embedding model is missing. Run ./run-verinice --prepare."
         )
     with _model_lock:
         if _model is not None:
@@ -49,7 +49,7 @@ def _load_model() -> Any:
         except Exception as error:
             raise EvidenceRetrievalConfigurationError(
                 "The packaged evidence embedding model could not be loaded. "
-                "Run ./run-verigraph --prepare."
+                "Run ./run-verinice --prepare."
             ) from error
         _model = model
         return model

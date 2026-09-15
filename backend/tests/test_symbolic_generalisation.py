@@ -1,7 +1,7 @@
 import pytest
 
-from verigraph_backend.schemas import PipelineAtom, SymbolicPremise
-from verigraph_backend.symbolic_reasoning.operators import (
+from verinice_backend.schemas import PipelineAtom, SymbolicPremise
+from verinice_backend.symbolic_reasoning.operators import (
     execute_attribute_compare,
     execute_count_distinct,
     execute_extremum_compare,

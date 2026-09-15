@@ -23,8 +23,8 @@ import httpx
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "backend"))
 
-from verigraph_backend.demo_data import bundle_digest  # noqa: E402
-from verigraph_backend.schemas import (  # noqa: E402
+from verinice_backend.demo_data import bundle_digest  # noqa: E402
+from verinice_backend.schemas import (  # noqa: E402
     DemoCase,
     DemoDocument,
     DocumentLayout,

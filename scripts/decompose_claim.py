@@ -11,7 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "backend"))
 
-from verigraph_backend.claim_decomposition import (  # noqa: E402
+from verinice_backend.claim_decomposition import (  # noqa: E402
     DecompositionError,
     decompose_claim,
 )

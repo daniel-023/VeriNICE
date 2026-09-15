@@ -8,14 +8,14 @@ from pathlib import Path
 
 import pytest
 
-from verigraph_backend.schemas import (
+from verinice_backend.schemas import (
     PipelineAtom,
     SymbolicOperator,
     SymbolicPremise,
     VerdictAggregationRequest,
 )
-from verigraph_backend.symbolic_reasoning.operators import REGISTRY
-from verigraph_backend.verdict_aggregation import aggregate_verdict
+from verinice_backend.symbolic_reasoning.operators import REGISTRY
+from verinice_backend.verdict_aggregation import aggregate_verdict
 
 
 ROOT = Path(__file__).resolve().parents[2]

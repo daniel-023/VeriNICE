@@ -46,14 +46,14 @@ function isSameOrigin(request: NextRequest): boolean {
 }
 
 function backendTimeoutMs(): number {
-  const configured = Number(process.env.VERIGRAPH_BACKEND_TIMEOUT_MS);
+  const configured = Number(process.env.VERINICE_BACKEND_TIMEOUT_MS);
   return Number.isFinite(configured) && configured > 0
     ? configured
     : DEFAULT_BACKEND_TIMEOUT_MS;
 }
 
 async function proxy(request: NextRequest, context: RouteContext) {
-  if (process.env.NEXT_PUBLIC_VERIGRAPH_MODE === "walkthrough") {
+  if (process.env.NEXT_PUBLIC_VERINICE_MODE === "walkthrough") {
     return Response.json(
       { detail: "Live analysis is available only in the local VeriNICE demo." },
       { status: 503 },
@@ -75,7 +75,7 @@ async function proxy(request: NextRequest, context: RouteContext) {
   }
 
   const { path } = await context.params;
-  const configuredBackend = process.env.VERIGRAPH_BACKEND_URL;
+  const configuredBackend = process.env.VERINICE_BACKEND_URL;
   if (!configuredBackend) {
     return Response.json(
       { detail: "The live VeriNICE backend is not configured for this deployment." },

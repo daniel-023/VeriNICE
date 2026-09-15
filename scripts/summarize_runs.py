@@ -70,7 +70,7 @@ def render(runs_dir: Path, catalog_path: Path) -> str:
     run_paths = sorted(runs_dir.glob("*.json"))
     if not run_paths:
         raise SystemExit(
-            f"No recorded runs in {runs_dir}. Run ./run-verigraph --record-walkthrough first."
+            f"No recorded runs in {runs_dir}. Run ./run-verinice --record-walkthrough first."
         )
 
     rows: list[tuple[str, int, str, str, str, str]] = []

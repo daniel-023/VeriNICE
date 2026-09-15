@@ -10,9 +10,9 @@ from pathlib import Path
 
 import pytest
 
-from verigraph_backend.demo_data import DemoDataError, load_demo_cases, load_private_bundle
-from verigraph_backend.schemas import DemoCategory, DemoOrigin, ReferenceLabel
-from verigraph_backend.settings import ROOT
+from verinice_backend.demo_data import DemoDataError, load_demo_cases, load_private_bundle
+from verinice_backend.schemas import DemoCategory, DemoOrigin, ReferenceLabel
+from verinice_backend.settings import ROOT
 
 
 def _prepare_module():
