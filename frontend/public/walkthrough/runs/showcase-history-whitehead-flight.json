@@ -36,15 +36,6 @@
           "context": "After several test flights made over the summer of 1901, Whitehead made the first successful powered flight in the No. 21, in Fairfield on August 14, 1901."
         },
         {
-          "id": "doc-3e6227a31d59::sentence-2",
-          "documentId": "doc-3e6227a31d59",
-          "text": "- Why did Whitehead not call the attention of the readers of the Scientific American to his claim to have flown a very different powered machine over considerable distances less than two years before?\n",
-          "start": 191,
-          "end": 392,
-          "contextSpans": [],
-          "context": "- Why did Whitehead not call the attention of the readers of the Scientific American to his claim to have flown a very different powered machine over considerable distances less than two years before?"
-        },
-        {
           "id": "doc-3e6227a31d59::sentence-6",
           "documentId": "doc-3e6227a31d59",
           "text": "In its issue of December 26, 1903, just three months after Scientific American had reported Whitehead’s experiments with an obsolete hang glider, the journal noted that the brothers Wilbur and Orville Wright had made some “successful experiments” with a powered flying machine operating under the complete control of a pilot.",
@@ -88,6 +79,15 @@
             }
           ],
           "context": "Not one of those powered machines ever left the ground. My conclusion—either Whitehead had somehow forgotten the secrets of flight, or he had never flown a powered machine at all."
+        },
+        {
+          "id": "doc-3e6227a31d59::sentence-2",
+          "documentId": "doc-3e6227a31d59",
+          "text": "- Why did Whitehead not call the attention of the readers of the Scientific American to his claim to have flown a very different powered machine over considerable distances less than two years before?\n",
+          "start": 191,
+          "end": 392,
+          "contextSpans": [],
+          "context": "- Why did Whitehead not call the attention of the readers of the Scientific American to his claim to have flown a very different powered machine over considerable distances less than two years before?"
         }
       ]
     }
@@ -97,20 +97,20 @@
       {
         "atomId": "atom-1",
         "supportSpanIds": [
+          "doc-69ac016cf3c9::sentence-1",
           "doc-69ac016cf3c9::sentence-6"
         ],
         "refuteSpanIds": [
           "doc-3e6227a31d59::sentence-6",
-          "doc-3e6227a31d59::sentence-5"
+          "doc-3e6227a31d59::sentence-5",
+          "doc-3e6227a31d59::sentence-2"
         ],
         "contextSpanIds": [
-          "doc-69ac016cf3c9::sentence-1",
-          "doc-3e6227a31d59::sentence-2",
           "doc-69ac016cf3c9::sentence-5"
         ],
         "sufficiency": "SUFFICIENT",
         "missingInformation": "",
-        "reason": "O1-E2 directly states that Whitehead made the first successful powered flight in 1901, while O1-E4 and O1-E6 provide refutations by questioning the validity of his claim.",
+        "reason": "The selected evidence directly supports and refutes the same atomic claim.",
         "scopeChecks": [
           {
             "spanId": "doc-69ac016cf3c9::sentence-1",
@@ -130,14 +130,6 @@
             "evidenceJurisdictions": [
               "BF"
             ],
-            "reason": "The atomic claim does not state a recognized jurisdiction."
-          },
-          {
-            "spanId": "doc-3e6227a31d59::sentence-2",
-            "documentId": "doc-3e6227a31d59",
-            "status": "NOT_APPLICABLE",
-            "claimJurisdictions": [],
-            "evidenceJurisdictions": [],
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
@@ -165,6 +157,45 @@
             "claimJurisdictions": [],
             "evidenceJurisdictions": [],
             "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-3e6227a31d59::sentence-2",
+            "documentId": "doc-3e6227a31d59",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          }
+        ],
+        "identityChecks": [
+          {
+            "relation": "SUPPORTS",
+            "spanIds": [
+              "doc-69ac016cf3c9::sentence-1",
+              "doc-69ac016cf3c9::sentence-6"
+            ],
+            "status": "ALIGNED",
+            "requiredEntities": [
+              "Gustave Whitehead"
+            ],
+            "matchedEntities": [
+              "Gustave Whitehead"
+            ],
+            "reason": "No conflicting subject identity appears in the selected evidence; exact document-local matches were retained."
+          },
+          {
+            "relation": "REFUTES",
+            "spanIds": [
+              "doc-3e6227a31d59::sentence-6",
+              "doc-3e6227a31d59::sentence-5",
+              "doc-3e6227a31d59::sentence-2"
+            ],
+            "status": "ALIGNED",
+            "requiredEntities": [
+              "Gustave Whitehead"
+            ],
+            "matchedEntities": [],
+            "reason": "No conflicting subject identity appears in the selected evidence; exact document-local matches were retained."
           }
         ]
       }
@@ -199,7 +230,7 @@
         "obligationId": "atom-1",
         "state": "CONFLICTING",
         "supportEdgeIds": [
-          "edge:SUPPORTS:evidence:doc-69ac016cf3c9:doc-69ac016cf3c9::sentence-6:obligation:showcase-history-whitehead-flight:atom-1"
+          "edge:SUPPORTS:inference:bundle:atom-1:supports:obligation:showcase-history-whitehead-flight:atom-1"
         ],
         "refuteEdgeIds": [
           "edge:REFUTES:inference:bundle:atom-1:refutes:obligation:showcase-history-whitehead-flight:atom-1"
@@ -216,7 +247,7 @@
     ]
   },
   "recordedWith": {
-    "pipelineRevision": "generalized-symbolic-v5",
+    "pipelineRevision": "generalized-symbolic-v6",
     "inputDigest": "25d0dc757b690bae40de7b65878ed9005949eca006911524c7d370f6a5e8d69b",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
@@ -225,11 +256,11 @@
     "reasoningModel": "qwen2.5:7b"
   },
   "timingsSeconds": {
-    "decomposition": 13.26,
-    "retrieval": 0.344,
-    "evidenceAssessment": 17.093,
-    "symbolicReasoning": 0.006,
-    "aggregation": 0.003,
-    "total": 30.706
+    "decomposition": 13.543,
+    "retrieval": 0.311,
+    "evidenceAssessment": 18.633,
+    "symbolicReasoning": 0.002,
+    "aggregation": 0.001,
+    "total": 32.49
   }
 }

@@ -10,7 +10,7 @@
       "sourceText": "Marie Curie won Nobel Prizes in at least two different scientific fields.",
       "start": 0,
       "end": 73,
-      "role": "CORE"
+      "role": "NUMERIC_CONSTRAINT"
     }
   ],
   "evidence": [
@@ -23,6 +23,15 @@
           "text": "Marie was widowed in 1906, but continued the couple's work and went on to become the first person ever to be awarded two Nobel Prizes. ",
           "start": 720,
           "end": 855,
+          "contextSpans": [],
+          "context": "Marie was widowed in 1906, but continued the couple's work and went on to become the first person ever to be awarded two Nobel Prizes."
+        },
+        {
+          "id": "doc-a0826bb5a83d::sentence-15",
+          "documentId": "doc-a0826bb5a83d",
+          "text": "Marie was widowed in 1906, but continued the couple's work and went on to become the first person ever to be awarded two Nobel Prizes.",
+          "start": 849,
+          "end": 983,
           "contextSpans": [],
           "context": "Marie was widowed in 1906, but continued the couple's work and went on to become the first person ever to be awarded two Nobel Prizes."
         },
@@ -45,13 +54,22 @@
           "context": "Marie Skłodowska was born in Warsaw, Poland, to a family of teachers who believed strongly in education. She moved to Paris to continue her studies and there met Pierre Curie, who became both her husband and colleague in the field of radioactivity."
         },
         {
-          "id": "doc-a0826bb5a83d::sentence-15",
+          "id": "doc-a0826bb5a83d::sentence-13",
           "documentId": "doc-a0826bb5a83d",
-          "text": "Marie was widowed in 1906, but continued the couple's work and went on to become the first person ever to be awarded two Nobel Prizes.",
-          "start": 849,
-          "end": 983,
-          "contextSpans": [],
-          "context": "Marie was widowed in 1906, but continued the couple's work and went on to become the first person ever to be awarded two Nobel Prizes."
+          "text": "She moved to Paris to continue her studies and there met Pierre Curie, who became both her husband and colleague in the field of radioactivity. ",
+          "start": 648,
+          "end": 792,
+          "contextSpans": [
+            {
+              "id": "doc-a0826bb5a83d::sentence-12",
+              "documentId": "doc-a0826bb5a83d",
+              "text": "Marie Skłodowska was born in Warsaw, Poland, to a family of teachers who believed strongly in education. ",
+              "start": 543,
+              "end": 648,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "Marie Skłodowska was born in Warsaw, Poland, to a family of teachers who believed strongly in education. She moved to Paris to continue her studies and there met Pierre Curie, who became both her husband and colleague in the field of radioactivity."
         },
         {
           "id": "doc-eef64596d10c::sentence-9",
@@ -70,24 +88,6 @@
             }
           ],
           "context": "Prize share: 1/4 Also awarded: Nobel Prize in Chemistry 1911"
-        },
-        {
-          "id": "doc-a0826bb5a83d::sentence-13",
-          "documentId": "doc-a0826bb5a83d",
-          "text": "She moved to Paris to continue her studies and there met Pierre Curie, who became both her husband and colleague in the field of radioactivity. ",
-          "start": 648,
-          "end": 792,
-          "contextSpans": [
-            {
-              "id": "doc-a0826bb5a83d::sentence-12",
-              "documentId": "doc-a0826bb5a83d",
-              "text": "Marie Skłodowska was born in Warsaw, Poland, to a family of teachers who believed strongly in education. ",
-              "start": 543,
-              "end": 648,
-              "direction": "PREVIOUS"
-            }
-          ],
-          "context": "Marie Skłodowska was born in Warsaw, Poland, to a family of teachers who believed strongly in education. She moved to Paris to continue her studies and there met Pierre Curie, who became both her husband and colleague in the field of radioactivity."
         },
         {
           "id": "doc-a0826bb5a83d::sentence-10",
@@ -116,22 +116,32 @@
         "atomId": "atom-1",
         "supportSpanIds": [
           "doc-eef64596d10c::sentence-14",
-          "doc-a0826bb5a83d::sentence-15",
-          "doc-eef64596d10c::sentence-9"
+          "doc-a0826bb5a83d::sentence-15"
         ],
         "refuteSpanIds": [],
         "contextSpanIds": [
           "doc-eef64596d10c::sentence-12",
           "doc-a0826bb5a83d::sentence-13",
-          "doc-a0826bb5a83d::sentence-10"
+          "doc-eef64596d10c::sentence-9"
         ],
         "sufficiency": "SUFFICIENT",
         "missingInformation": "",
-        "reason": "The evidence explicitly states that Marie Curie won Nobel Prizes in both Physics and Chemistry.",
+        "reason": "The retained evidence directly supports the atomic claim's numeric assertion.",
         "scopeChecks": [
           {
             "spanId": "doc-eef64596d10c::sentence-14",
             "documentId": "doc-eef64596d10c",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "FR",
+              "PL"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-a0826bb5a83d::sentence-15",
+            "documentId": "doc-a0826bb5a83d",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
             "evidenceJurisdictions": [
@@ -151,12 +161,11 @@
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
-            "spanId": "doc-a0826bb5a83d::sentence-15",
+            "spanId": "doc-a0826bb5a83d::sentence-13",
             "documentId": "doc-a0826bb5a83d",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
             "evidenceJurisdictions": [
-              "FR",
               "PL"
             ],
             "reason": "The atomic claim does not state a recognized jurisdiction."
@@ -173,16 +182,6 @@
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
-            "spanId": "doc-a0826bb5a83d::sentence-13",
-            "documentId": "doc-a0826bb5a83d",
-            "status": "NOT_APPLICABLE",
-            "claimJurisdictions": [],
-            "evidenceJurisdictions": [
-              "PL"
-            ],
-            "reason": "The atomic claim does not state a recognized jurisdiction."
-          },
-          {
             "spanId": "doc-a0826bb5a83d::sentence-10",
             "documentId": "doc-a0826bb5a83d",
             "status": "NOT_APPLICABLE",
@@ -192,6 +191,25 @@
               "PL"
             ],
             "reason": "The atomic claim does not state a recognized jurisdiction."
+          }
+        ],
+        "identityChecks": [
+          {
+            "relation": "SUPPORTS",
+            "spanIds": [
+              "doc-eef64596d10c::sentence-14",
+              "doc-a0826bb5a83d::sentence-15"
+            ],
+            "status": "ALIGNED",
+            "requiredEntities": [
+              "Marie Curie",
+              "Nobel Prizes"
+            ],
+            "matchedEntities": [
+              "Marie Curie",
+              "Nobel Prizes"
+            ],
+            "reason": "No conflicting subject identity appears in the selected evidence; exact document-local matches were retained."
           }
         ]
       }
@@ -205,52 +223,21 @@
   },
   "reasoning": [
     {
-      "id": "proof:atom-1:attribute_compare:3",
+      "id": "proof:atom-1:attribute_compare:unresolved",
       "atomId": "atom-1",
       "operator": "ATTRIBUTE_COMPARE",
       "profile": "EXPLICIT_NEGATION",
       "status": "UNRESOLVED",
       "relation": null,
-      "premiseIds": [
-        "context:atom-1:doc-eef64596d10c:doc-eef64596d10c::sentence-8",
-        "context:atom-1:doc-a0826bb5a83d:doc-a0826bb5a83d::sentence-9"
-      ],
-      "premises": [
-        {
-          "id": "context:atom-1:doc-eef64596d10c:doc-eef64596d10c::sentence-8",
-          "documentId": "doc-eef64596d10c",
-          "text": "Prize share: 1/4\n",
-          "start": 348,
-          "end": 365,
-          "kind": "OPERAND",
-          "contentHash": null,
-          "itemCount": null,
-          "listItems": []
-        },
-        {
-          "id": "context:atom-1:doc-a0826bb5a83d:doc-a0826bb5a83d::sentence-9",
-          "documentId": "doc-a0826bb5a83d",
-          "text": "Prize share: 1/1\n",
-          "start": 479,
-          "end": 496,
-          "kind": "OPERAND",
-          "contentHash": null,
-          "itemCount": null,
-          "listItems": []
-        }
-      ],
-      "expression": "attribute comparison",
-      "conclusion": "Entity alignment is unresolved",
-      "explanation": "The selected premises do not explicitly identify the claim subject.",
+      "premiseIds": [],
+      "premises": [],
+      "expression": "attribute compare",
+      "conclusion": "No grounded program was compiled.",
+      "explanation": "Qwen did not map the typed candidate to sufficient server-owned premises.",
       "validationWarnings": [
-        "MISSING_ENTITY_ALIGNMENT"
+        "NO_GROUNDED_PROGRAM"
       ],
       "preconditions": [
-        {
-          "name": "Source grounding",
-          "status": "PASSED",
-          "detail": "2 selected premise(s) retain exact source offsets."
-        },
         {
           "name": "Registered profile",
           "status": "PASSED",
@@ -259,7 +246,12 @@
         {
           "name": "Operand alignment",
           "status": "UNRESOLVED",
-          "detail": "The selected premises do not explicitly identify the claim subject."
+          "detail": "The model did not map the candidate to sufficient server-owned premises."
+        },
+        {
+          "name": "Identity alignment",
+          "status": "UNRESOLVED",
+          "detail": "No grounded program was available for identity alignment."
         }
       ],
       "program": {
@@ -269,16 +261,7 @@
             "id": "input-1",
             "operation": "LOOKUP",
             "inputIds": [
-              "context:atom-1:doc-eef64596d10c:doc-eef64596d10c::sentence-8"
-            ],
-            "outputType": "FACT",
-            "description": "Read an unchanged server-owned premise."
-          },
-          {
-            "id": "input-2",
-            "operation": "LOOKUP",
-            "inputIds": [
-              "context:atom-1:doc-a0826bb5a83d:doc-a0826bb5a83d::sentence-9"
+              "candidate:atom-1:attribute"
             ],
             "outputType": "FACT",
             "description": "Read an unchanged server-owned premise."
@@ -287,8 +270,7 @@
             "id": "result",
             "operation": "EQUAL",
             "inputIds": [
-              "input-1",
-              "input-2"
+              "input-1"
             ],
             "outputType": "BOOLEAN",
             "description": "Validate operand alignment and execute the typed operation in Python."
@@ -340,7 +322,7 @@
         {
           "name": "Source grounding",
           "status": "PASSED",
-          "detail": "9 selected premise(s) retain exact source offsets."
+          "detail": "10 selected premise(s) retain exact source offsets."
         },
         {
           "name": "Registered profile",
@@ -351,6 +333,11 @@
           "name": "Operand alignment",
           "status": "PASSED",
           "detail": "Python counted distinct values only when source text explicitly aligned them with the claim subject, predicate, and value category; it did not assume exact completeness."
+        },
+        {
+          "name": "Identity alignment",
+          "status": "PASSED",
+          "detail": "No conflicting subject identity appears in the selected evidence; exact document-local matches were retained."
         },
         {
           "name": "Count semantics",
@@ -418,7 +405,7 @@
           "edge:SUPPORTS:inference:proof:atom-1:count_distinct:1:obligation:showcase-history-curie:atom-1"
         ],
         "refuteEdgeIds": [],
-        "unselectedCandidateCount": 0,
+        "unselectedCandidateCount": 1,
         "provisionalRelationCount": 0
       }
     ],
@@ -430,7 +417,7 @@
     ]
   },
   "recordedWith": {
-    "pipelineRevision": "generalized-symbolic-v5",
+    "pipelineRevision": "generalized-symbolic-v6",
     "inputDigest": "458b4a08ab0b6bf54681858abe9f80c59eb7ac3de04fd5bc4a1a16d3c12169d9",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
@@ -439,11 +426,11 @@
     "reasoningModel": "qwen2.5:7b"
   },
   "timingsSeconds": {
-    "decomposition": 13.731,
-    "retrieval": 0.371,
-    "evidenceAssessment": 14.693,
-    "symbolicReasoning": 37.335,
-    "aggregation": 0.005,
-    "total": 66.137
+    "decomposition": 13.922,
+    "retrieval": 0.248,
+    "evidenceAssessment": 17.478,
+    "symbolicReasoning": 21.926,
+    "aggregation": 0.002,
+    "total": 53.576
   }
 }

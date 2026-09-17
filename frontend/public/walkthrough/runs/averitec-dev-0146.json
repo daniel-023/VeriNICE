@@ -1,15 +1,28 @@
 {
   "caseId": "averitec-dev-0146",
   "schemaVersion": 7,
-  "composition": "SINGLE",
-  "warnings": [],
+  "composition": "AND",
+  "warnings": [
+    {
+      "code": "DECOMPOSITION_REPAIRED",
+      "message": "The first model response was repaired after decomposition validation."
+    }
+  ],
   "atoms": [
     {
       "id": "atom-1",
-      "text": "Right after a time where we're going through a pandemic that lost 22 million jobs at the height, we've already added back 11.6 million jobs.",
-      "sourceText": "Right after a time where we're going through a pandemic that lost 22 million jobs at the height, we've already added back 11.6 million jobs.",
-      "start": 0,
-      "end": 140,
+      "text": "A pandemic lost 22 million jobs at the height.",
+      "sourceText": "a pandemic that lost 22 million jobs at the height",
+      "start": 45,
+      "end": 95,
+      "role": "NUMERIC_CONSTRAINT"
+    },
+    {
+      "id": "atom-2",
+      "text": "We've already added back 11.6 million jobs.",
+      "sourceText": "we've already added back 11.6 million jobs",
+      "start": 97,
+      "end": 139,
       "role": "NUMERIC_CONSTRAINT"
     }
   ],
@@ -17,6 +30,33 @@
     {
       "atomId": "atom-1",
       "spans": [
+        {
+          "id": "doc-bls-september-2020::sentence-6",
+          "documentId": "doc-bls-september-2020",
+          "text": "The combined change for March and April was a loss of 22,160 thousand jobs, or 22.160 million jobs. ",
+          "start": 711,
+          "end": 811,
+          "contextSpans": [],
+          "context": "The combined change for March and April was a loss of 22,160 thousand jobs, or 22.160 million jobs."
+        },
+        {
+          "id": "doc-12b587084e5a::sentence-703",
+          "documentId": "doc-12b587084e5a",
+          "text": "Note: Information on the Pandemic Emergency Unemployment Compensation (PEUC) program can be found in\n",
+          "start": 19329,
+          "end": 19430,
+          "contextSpans": [],
+          "context": "Note: Information on the Pandemic Emergency Unemployment Compensation (PEUC) program can be found in"
+        },
+        {
+          "id": "doc-12b587084e5a::sentence-98",
+          "documentId": "doc-12b587084e5a",
+          "text": "Pandemic Unemployment Assistance3 7,053,575 7,554,290 -500,715 NA\n",
+          "start": 5649,
+          "end": 5715,
+          "contextSpans": [],
+          "context": "Pandemic Unemployment Assistance3 7,053,575 7,554,290 -500,715 NA"
+        },
         {
           "id": "doc-12b587084e5a::sentence-111",
           "documentId": "doc-12b587084e5a",
@@ -27,22 +67,54 @@
           "context": "4. Information on the Pandemic Emergency Unemployment Compensation (PEUC) program can be found in Unemployment"
         },
         {
-          "id": "doc-12b587084e5a::sentence-109",
-          "documentId": "doc-12b587084e5a",
-          "text": "3. Information on the Pandemic Unemployment Assistance (PUA) program can be found in UIPL 16 -20: PUA Program\n",
-          "start": 6318,
-          "end": 6428,
-          "contextSpans": [],
-          "context": "3. Information on the Pandemic Unemployment Assistance (PUA) program can be found in UIPL 16 -20: PUA Program"
+          "id": "doc-bls-september-2020::sentence-3",
+          "documentId": "doc-bls-september-2020",
+          "text": "Total nonfarm payroll employment rose by 661,000 in September, reflecting the continued resumption of economic activity that had been curtailed due to the coronavirus pandemic and efforts to contain it. ",
+          "start": 268,
+          "end": 471,
+          "contextSpans": [
+            {
+              "id": "doc-bls-september-2020::sentence-2",
+              "documentId": "doc-bls-september-2020",
+              "text": "The establishment survey measures nonfarm employment, hours, and earnings by industry, and the figures in Table C are seasonally adjusted and reported in thousands of jobs. ",
+              "start": 95,
+              "end": 268,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "The establishment survey measures nonfarm employment, hours, and earnings by industry, and the figures in Table C are seasonally adjusted and reported in thousands of jobs. Total nonfarm payroll employment rose by 661,000 in September, reflecting the continued resumption of economic activity that had been curtailed due to the coronavirus pandemic and efforts to contain it."
         },
         {
-          "id": "doc-12b587084e5a::sentence-65",
-          "documentId": "doc-12b587084e5a",
-          "text": "During the week ending March 27, 51 states reported 7,053,575 continued weekly claims for Pandemic Unemployment\n",
-          "start": 3547,
-          "end": 3659,
+          "id": "doc-bls-september-2020::sentence-5",
+          "documentId": "doc-bls-september-2020",
+          "text": "BLS Table C reports that total nonfarm employment fell by 1,373 thousand jobs in March 2020 and by 20,787 thousand jobs in April 2020. ",
+          "start": 576,
+          "end": 711,
+          "contextSpans": [
+            {
+              "id": "doc-bls-september-2020::sentence-4",
+              "documentId": "doc-bls-september-2020",
+              "text": "In September, nonfarm employment was lower than its February level by 10.7 million jobs, or 7.0 percent. ",
+              "start": 471,
+              "end": 576,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "In September, nonfarm employment was lower than its February level by 10.7 million jobs, or 7.0 percent. BLS Table C reports that total nonfarm employment fell by 1,373 thousand jobs in March 2020 and by 20,787 thousand jobs in April 2020."
+        }
+      ]
+    },
+    {
+      "atomId": "atom-2",
+      "spans": [
+        {
+          "id": "doc-bls-september-2020::sentence-8",
+          "documentId": "doc-bls-september-2020",
+          "text": "From May through September 2020, total nonfarm employment therefore increased by 11,417 thousand jobs, or 11.417 million jobs. ",
+          "start": 973,
+          "end": 1100,
           "contextSpans": [],
-          "context": "During the week ending March 27, 51 states reported 7,053,575 continued weekly claims for Pandemic Unemployment"
+          "context": "From May through September 2020, total nonfarm employment therefore increased by 11,417 thousand jobs, or 11.417 million jobs."
         },
         {
           "id": "doc-a46f0d421238::sentence-55",
@@ -63,40 +135,40 @@
           "context": "This measure accounts for approximately 80 percent of the workers who contribute to Gross Domestic Product (GDP). This measure provides useful insights into the current economic situation because it can represent the number of jobs added or lost in an economy."
         },
         {
-          "id": "doc-24baaeff66a9::sentence-6",
-          "documentId": "doc-24baaeff66a9",
-          "text": "CDC also said it issued federal quarantine orders to the 195 U.S. citizens who repatriated to the U.S. from China on Jan. 29 because of the 2019-nCoV outbreak, the first mandatory quarantine in over 50 years. ",
-          "start": 818,
-          "end": 1027,
-          "contextSpans": [
-            {
-              "id": "doc-24baaeff66a9::sentence-5",
-              "documentId": "doc-24baaeff66a9",
-              "text": "In a CDC call with clinicians, the agency stressed that its guidance will continue to change over time as more is learned about the outbreak, and urged clinicians to continue to check CDC’s resources for updates.\n",
-              "start": 605,
-              "end": 818,
-              "direction": "PREVIOUS"
-            }
-          ],
-          "context": "In a CDC call with clinicians, the agency stressed that its guidance will continue to change over time as more is learned about the outbreak, and urged clinicians to continue to check CDC’s resources for updates. CDC also said it issued federal quarantine orders to the 195 U.S. citizens who repatriated to the U.S. from China on Jan. 29 because of the 2019-nCoV outbreak, the first mandatory quarantine in over 50 years."
+          "id": "doc-bls-september-2020::sentence-7",
+          "documentId": "doc-bls-september-2020",
+          "text": "Employment then increased by 2,725 thousand jobs in May, 4,781 thousand in June, 1,761 thousand in July, 1,489 thousand in August, and 661 thousand in September. ",
+          "start": 811,
+          "end": 973,
+          "contextSpans": [],
+          "context": "Employment then increased by 2,725 thousand jobs in May, 4,781 thousand in June, 1,761 thousand in July, 1,489 thousand in August, and 661 thousand in September."
         },
         {
-          "id": "doc-24baaeff66a9::sentence-9",
-          "documentId": "doc-24baaeff66a9",
-          "text": "“If we take strong measures now, we may be able to blunt the impact of the virus on the United States,” said Nancy Messonnier, M.D., director of CDC’s National Center for Immunization and Respiratory Diseases.\n",
-          "start": 1330,
-          "end": 1540,
-          "contextSpans": [
-            {
-              "id": "doc-24baaeff66a9::sentence-8",
-              "documentId": "doc-24baaeff66a9",
-              "text": "CDC said the decision comes after deliberating over data and new information, and because the passengers came from the epicenter of the outbreak in Wuhan. ",
-              "start": 1175,
-              "end": 1330,
-              "direction": "PREVIOUS"
-            }
-          ],
-          "context": "CDC said the decision comes after deliberating over data and new information, and because the passengers came from the epicenter of the outbreak in Wuhan. “If we take strong measures now, we may be able to blunt the impact of the virus on the United States,” said Nancy Messonnier, M.D., director of CDC’s National Center for Immunization and Respiratory Diseases."
+          "id": "doc-bls-september-2020::sentence-6",
+          "documentId": "doc-bls-september-2020",
+          "text": "The combined change for March and April was a loss of 22,160 thousand jobs, or 22.160 million jobs. ",
+          "start": 711,
+          "end": 811,
+          "contextSpans": [],
+          "context": "The combined change for March and April was a loss of 22,160 thousand jobs, or 22.160 million jobs."
+        },
+        {
+          "id": "doc-12b587084e5a::sentence-1017",
+          "documentId": "doc-12b587084e5a",
+          "text": "A person who has already filed an initial claim and who has experienced a week of unemployment then files a continued\n",
+          "start": 29041,
+          "end": 29159,
+          "contextSpans": [],
+          "context": "A person who has already filed an initial claim and who has experienced a week of unemployment then files a continued"
+        },
+        {
+          "id": "doc-12b587084e5a::sentence-329",
+          "documentId": "doc-12b587084e5a",
+          "text": "July 18, 2020 1,398 -81 1,427.75 16,913 528 16,872.75 11.6\n",
+          "start": 11660,
+          "end": 11719,
+          "contextSpans": [],
+          "context": "July 18, 2020 1,398 -81 1,427.75 16,913 528 16,872.75 11.6"
         }
       ]
     }
@@ -106,18 +178,44 @@
       {
         "atomId": "atom-1",
         "supportSpanIds": [
-          "doc-a46f0d421238::sentence-55"
+          "doc-bls-september-2020::sentence-6"
         ],
         "refuteSpanIds": [],
         "contextSpanIds": [
-          "doc-12b587084e5a::sentence-111",
-          "doc-12b587084e5a::sentence-109",
-          "doc-12b587084e5a::sentence-65"
+          "doc-12b587084e5a::sentence-703",
+          "doc-12b587084e5a::sentence-98",
+          "doc-12b587084e5a::sentence-111"
         ],
         "sufficiency": "SUFFICIENT",
         "missingInformation": "",
-        "reason": "The FRED data (PAYEMS) shows the number of jobs added or lost, which directly supports the claim.",
+        "reason": "The selected evidence reports a compatible rounded quantity for the same measured fact.",
         "scopeChecks": [
+          {
+            "spanId": "doc-bls-september-2020::sentence-6",
+            "documentId": "doc-bls-september-2020",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "US"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-12b587084e5a::sentence-703",
+            "documentId": "doc-12b587084e5a",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-12b587084e5a::sentence-98",
+            "documentId": "doc-12b587084e5a",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
           {
             "spanId": "doc-12b587084e5a::sentence-111",
             "documentId": "doc-12b587084e5a",
@@ -127,19 +225,62 @@
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
-            "spanId": "doc-12b587084e5a::sentence-109",
-            "documentId": "doc-12b587084e5a",
+            "spanId": "doc-bls-september-2020::sentence-3",
+            "documentId": "doc-bls-september-2020",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
-            "evidenceJurisdictions": [],
+            "evidenceJurisdictions": [
+              "US"
+            ],
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
-            "spanId": "doc-12b587084e5a::sentence-65",
-            "documentId": "doc-12b587084e5a",
+            "spanId": "doc-bls-september-2020::sentence-5",
+            "documentId": "doc-bls-september-2020",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
-            "evidenceJurisdictions": [],
+            "evidenceJurisdictions": [
+              "US"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          }
+        ],
+        "identityChecks": [
+          {
+            "relation": "SUPPORTS",
+            "spanIds": [
+              "doc-bls-september-2020::sentence-6"
+            ],
+            "status": "NOT_APPLICABLE",
+            "requiredEntities": [],
+            "matchedEntities": [],
+            "reason": "The atomic claim has no identity-bearing named mention."
+          }
+        ]
+      },
+      {
+        "atomId": "atom-2",
+        "supportSpanIds": [
+          "doc-bls-september-2020::sentence-8"
+        ],
+        "refuteSpanIds": [],
+        "contextSpanIds": [
+          "doc-a46f0d421238::sentence-55",
+          "doc-bls-september-2020::sentence-6",
+          "doc-12b587084e5a::sentence-1017"
+        ],
+        "sufficiency": "SUFFICIENT",
+        "missingInformation": "",
+        "reason": "The selected evidence reports a compatible rounded quantity for the same measured fact.",
+        "scopeChecks": [
+          {
+            "spanId": "doc-bls-september-2020::sentence-8",
+            "documentId": "doc-bls-september-2020",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "US"
+            ],
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
@@ -153,25 +294,52 @@
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
-            "spanId": "doc-24baaeff66a9::sentence-6",
-            "documentId": "doc-24baaeff66a9",
+            "spanId": "doc-bls-september-2020::sentence-7",
+            "documentId": "doc-bls-september-2020",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
             "evidenceJurisdictions": [
-              "CN",
               "US"
             ],
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
-            "spanId": "doc-24baaeff66a9::sentence-9",
-            "documentId": "doc-24baaeff66a9",
+            "spanId": "doc-bls-september-2020::sentence-6",
+            "documentId": "doc-bls-september-2020",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
             "evidenceJurisdictions": [
               "US"
             ],
             "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-12b587084e5a::sentence-1017",
+            "documentId": "doc-12b587084e5a",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-12b587084e5a::sentence-329",
+            "documentId": "doc-12b587084e5a",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          }
+        ],
+        "identityChecks": [
+          {
+            "relation": "SUPPORTS",
+            "spanIds": [
+              "doc-bls-september-2020::sentence-8"
+            ],
+            "status": "NOT_APPLICABLE",
+            "requiredEntities": [],
+            "matchedEntities": [],
+            "reason": "The atomic claim has no identity-bearing named mention."
           }
         ]
       }
@@ -183,112 +351,19 @@
       "reason": "No material omission was established."
     }
   },
-  "reasoning": [
-    {
-      "id": "proof:atom-1:temporal_compare:1",
-      "atomId": "atom-1",
-      "operator": "TEMPORAL_COMPARE",
-      "profile": "GENERIC_EVENT_ORDER",
-      "status": "UNRESOLVED",
-      "relation": null,
-      "premiseIds": [
-        "evidence:atom-1:doc-12b587084e5a:doc-12b587084e5a::sentence-65",
-        "evidence:atom-1:doc-a46f0d421238:doc-a46f0d421238::sentence-55"
-      ],
-      "premises": [
-        {
-          "id": "evidence:atom-1:doc-12b587084e5a:doc-12b587084e5a::sentence-65",
-          "documentId": "doc-12b587084e5a",
-          "text": "During the week ending March 27, 51 states reported 7,053,575 continued weekly claims for Pandemic Unemployment\n",
-          "start": 3547,
-          "end": 3659,
-          "kind": "EVIDENCE",
-          "contentHash": null,
-          "itemCount": null,
-          "listItems": []
-        },
-        {
-          "id": "evidence:atom-1:doc-a46f0d421238:doc-a46f0d421238::sentence-55",
-          "documentId": "doc-a46f0d421238",
-          "text": "This measure provides useful insights into the current economic situation because it can represent the number of jobs added or lost in an economy. ",
-          "start": 1759,
-          "end": 1906,
-          "kind": "EVIDENCE",
-          "contentHash": null,
-          "itemCount": null,
-          "listItems": []
-        }
-      ],
-      "expression": "after",
-      "conclusion": "Temporal relation is ambiguous",
-      "explanation": "The two compared events could not each be aligned to one absolute date.",
-      "validationWarnings": [
-        "AMBIGUOUS_TEMPORAL_MAPPING"
-      ],
-      "preconditions": [
-        {
-          "name": "Source grounding",
-          "status": "PASSED",
-          "detail": "4 selected premise(s) retain exact source offsets."
-        },
-        {
-          "name": "Registered profile",
-          "status": "PASSED",
-          "detail": "generic event order"
-        },
-        {
-          "name": "Operand alignment",
-          "status": "UNRESOLVED",
-          "detail": "The two compared events could not each be aligned to one absolute date."
-        }
-      ],
-      "program": {
-        "version": 1,
-        "steps": [
-          {
-            "id": "input-1",
-            "operation": "LOOKUP",
-            "inputIds": [
-              "evidence:atom-1:doc-12b587084e5a:doc-12b587084e5a::sentence-65"
-            ],
-            "outputType": "FACT",
-            "description": "Read an unchanged server-owned premise."
-          },
-          {
-            "id": "input-2",
-            "operation": "LOOKUP",
-            "inputIds": [
-              "evidence:atom-1:doc-a46f0d421238:doc-a46f0d421238::sentence-55"
-            ],
-            "outputType": "FACT",
-            "description": "Read an unchanged server-owned premise."
-          },
-          {
-            "id": "result",
-            "operation": "TEMPORAL_COMPARE",
-            "inputIds": [
-              "input-1",
-              "input-2"
-            ],
-            "outputType": "BOOLEAN",
-            "description": "Validate operand alignment and execute the typed operation in Python."
-          }
-        ],
-        "outputStepId": "result"
-      }
-    }
-  ],
+  "reasoning": [],
   "verdict": {
     "aggregationSchemaVersion": 3,
     "claimId": "averitec-dev-0146",
-    "composition": "SINGLE",
+    "composition": "AND",
     "verdict": "SUPPORTED",
     "positions": {
       "supportPosition": true,
       "refutePosition": false,
       "materialOmissionPosition": false,
       "supportObligationIds": [
-        "atom-1"
+        "atom-1",
+        "atom-2"
       ],
       "refuteObligationIds": [],
       "unresolvedObligationIds": []
@@ -298,7 +373,17 @@
         "obligationId": "atom-1",
         "state": "SUPPORTED",
         "supportEdgeIds": [
-          "edge:SUPPORTS:evidence:doc-a46f0d421238:doc-a46f0d421238::sentence-55:obligation:averitec-dev-0146:atom-1"
+          "edge:SUPPORTS:evidence:doc-bls-september-2020:doc-bls-september-2020::sentence-6:obligation:averitec-dev-0146:atom-1"
+        ],
+        "refuteEdgeIds": [],
+        "unselectedCandidateCount": 2,
+        "provisionalRelationCount": 0
+      },
+      {
+        "obligationId": "atom-2",
+        "state": "SUPPORTED",
+        "supportEdgeIds": [
+          "edge:SUPPORTS:evidence:doc-bls-september-2020:doc-bls-september-2020::sentence-8:obligation:averitec-dev-0146:atom-2"
         ],
         "refuteEdgeIds": [],
         "unselectedCandidateCount": 2,
@@ -307,14 +392,14 @@
     ],
     "warnings": [],
     "ruleTrace": [
-      "SINGLE maps its one obligation's validated relations directly.",
+      "AND is supported only when every obligation is support-only.",
       "Validated positions — support: yes; refute: no.",
       "Verdict: SUPPORTED."
     ]
   },
   "recordedWith": {
-    "pipelineRevision": "generalized-symbolic-v5",
-    "inputDigest": "09d850b667fddf2278e1d2dec5dfb8e27d311e066de07a92dc548458cc64f14a",
+    "pipelineRevision": "generalized-symbolic-v6",
+    "inputDigest": "daa162f3f79bc3bc8c01e121b306d215756190aa5feac3d781205077e4c064f7",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
     "retrievalMethod": "HYBRID",
@@ -322,11 +407,11 @@
     "reasoningModel": "qwen2.5:7b"
   },
   "timingsSeconds": {
-    "decomposition": 15.392,
-    "retrieval": 1.38,
-    "evidenceAssessment": 14.577,
-    "symbolicReasoning": 14.769,
-    "aggregation": 0.005,
-    "total": 46.123
+    "decomposition": 24.144,
+    "retrieval": 1.528,
+    "evidenceAssessment": 22.652,
+    "symbolicReasoning": 0.022,
+    "aggregation": 0.003,
+    "total": 48.351
   }
 }

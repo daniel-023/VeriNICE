@@ -31,6 +31,20 @@
       "excerptRationale": ""
     },
     {
+      "id": "doc-bls-september-2020",
+      "title": "Impact of the COVID-19 pandemic on the September 2020 Employment Situation | U.S. Bureau of Labor Statistics",
+      "url": "https://www.bls.gov/covid19/employment-situation-covid19-faq-september-2020.htm",
+      "layout": "PROSE",
+      "text": "The U.S. Bureau of Labor Statistics published these September 2020 figures on October 2, 2020. The establishment survey measures nonfarm employment, hours, and earnings by industry, and the figures in Table C are seasonally adjusted and reported in thousands of jobs. Total nonfarm payroll employment rose by 661,000 in September, reflecting the continued resumption of economic activity that had been curtailed due to the coronavirus pandemic and efforts to contain it. In September, nonfarm employment was lower than its February level by 10.7 million jobs, or 7.0 percent. BLS Table C reports that total nonfarm employment fell by 1,373 thousand jobs in March 2020 and by 20,787 thousand jobs in April 2020. The combined change for March and April was a loss of 22,160 thousand jobs, or 22.160 million jobs. Employment then increased by 2,725 thousand jobs in May, 4,781 thousand in June, 1,761 thousand in July, 1,489 thousand in August, and 661 thousand in September. From May through September 2020, total nonfarm employment therefore increased by 11,417 thousand jobs, or 11.417 million jobs. The resulting net change from February through September 2020 was a loss of 10,743 thousand jobs. The September release also states that July's employment change was revised up from 1,734 thousand to 1,761 thousand and August's change was revised up from 1,371 thousand to 1,489 thousand. With those revisions, employment gains in July and August combined were 145 thousand higher than previously reported. These figures describe payroll jobs rather than the number of unemployment-insurance claims or the household survey's count of unemployed people.",
+      "publisher": "www.bls.gov",
+      "sourceType": "FULL_SOURCE",
+      "sourceSha256": "b4625060ad9d05623252952bc6cec8a15b5b4002c360a4f98cb3a492aeac5f87",
+      "retrievedAt": null,
+      "excerptSha256": null,
+      "sourceDescriptor": "",
+      "excerptRationale": ""
+    },
+    {
       "id": "doc-12b587084e5a",
       "title": "News Release",
       "url": "https://www.dol.gov/ui/data.pdf",

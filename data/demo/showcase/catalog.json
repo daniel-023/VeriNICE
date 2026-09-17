@@ -468,17 +468,17 @@
     "demoFocus": "ATTRIBUTE_COMPARISON",
     "documents": [
       {
-        "id": "doc-063728f3d9ea",
-        "title": "Policies and Documentation",
-        "url": "https://www.gps.gov/policies-and-documentation",
+        "id": "doc-d589af4d7c86",
+        "title": "GPS celebrates 25th year of operation",
+        "url": "https://www.spaceforce.mil/News/article/2166101/gps-celebrates-25th-year-of-operation/",
         "layout": "PROSE",
-        "publisher": "National Coordination Office for Space-Based Positioning, Navigation, and Timing",
-        "retrievedAt": "2026-09-05",
+        "publisher": "U.S. Space Force",
+        "retrievedAt": "2026-09-16",
         "sourceType": "SOURCE_EXCERPT",
-        "sourceDescriptor": "Institutional source",
+        "sourceDescriptor": "Official military history",
         "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
-        "excerptSha256": "843aabbe1c05c3745709528729a81db65ac8814e057b82b00c988746ce6e0e5a",
-        "sourceSha256": "9660b66eeae188c74cb362ba1681597b4d4285e37e71a99d7351f04cd302c35d"
+        "excerptSha256": "4926e0ed09039e284992e46e078bfb1ee786eace6a12883794716fc1246f28dc",
+        "sourceSha256": "269352b2468a74b06a16d18bc1bae76cbde0463494762f796006c9d61fd6f214"
       },
       {
         "id": "doc-9370f4fa5dd0",
@@ -486,12 +486,12 @@
         "url": "https://www.spaceforce.mil/About-Us/Fact-Sheets/Fact-Sheet-Display/Article/2197765/global-positioning-system/",
         "layout": "PROSE",
         "publisher": "U.S. Space Force",
-        "retrievedAt": "2026-09-05",
+        "retrievedAt": "2026-09-16",
         "sourceType": "SOURCE_EXCERPT",
         "sourceDescriptor": "Institutional source",
         "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
-        "excerptSha256": "684745d11fa1b3d5b97e0598155ecfc0be45ac8e813481d6fde47f816393b99e",
-        "sourceSha256": "9b334d0755752849a572aa34ddec5aa67732b6f860b42bd88c6663b23f1aefc1"
+        "excerptSha256": "015b56bce4bdefe58fdbf306d3d99fa2b8310f61dd7a0c7ef64be025aea2d4f1",
+        "sourceSha256": "07dd97a731ac1c3a9448215055a73ce196b9308bfaf3fb3e5ca3ab28422997ba"
       }
     ]
   },
@@ -655,6 +655,19 @@
         "publisher": "fred.stlouisfed.org",
         "sourceType": "FULL_SOURCE",
         "sourceSha256": "71d899b60dbd0e15ca03015588b6eee3cda0ebbe8febe7f34ec85cdd073ac48a",
+        "retrievedAt": null,
+        "excerptSha256": null,
+        "sourceDescriptor": "",
+        "excerptRationale": ""
+      },
+      {
+        "id": "doc-bls-september-2020",
+        "title": "Impact of the COVID-19 pandemic on the September 2020 Employment Situation | U.S. Bureau of Labor Statistics",
+        "url": "https://www.bls.gov/covid19/employment-situation-covid19-faq-september-2020.htm",
+        "layout": "PROSE",
+        "publisher": "www.bls.gov",
+        "sourceType": "FULL_SOURCE",
+        "sourceSha256": "b4625060ad9d05623252952bc6cec8a15b5b4002c360a4f98cb3a492aeac5f87",
         "retrievedAt": null,
         "excerptSha256": null,
         "sourceDescriptor": "",

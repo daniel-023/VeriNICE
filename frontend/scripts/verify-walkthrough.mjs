@@ -90,7 +90,7 @@ for (const caseId of caseIds) {
     || !run.assessment
     || !run.reasoning
     || run.verdict?.aggregationSchemaVersion !== 3
-    || run.recordedWith?.pipelineRevision !== "generalized-symbolic-v5"
+    || run.recordedWith?.pipelineRevision !== "generalized-symbolic-v6"
     || !["HYBRID", "SEMANTIC", "LEXICAL"].includes(run.recordedWith?.retrievalMethod)
     || !/^[a-f0-9]{64}$/.test(run.recordedWith?.inputDigest ?? "")
     || "claimPosition" in run.assessment

@@ -125,6 +125,21 @@
         "sha256": "71d899b60dbd0e15ca03015588b6eee3cda0ebbe8febe7f34ec85cdd073ac48a"
       },
       {
+        "sourceUrl": "https://www.bls.gov/covid19/employment-situation-covid19-faq-september-2020.htm",
+        "attempts": [
+          {
+            "url": "https://www.bls.gov/covid19/employment-situation-covid19-faq-september-2020.htm",
+            "method": "curated_official_source",
+            "status": "ok",
+            "error": ""
+          }
+        ],
+        "accepted": true,
+        "resolvedUrl": "https://www.bls.gov/covid19/employment-situation-covid19-faq-september-2020.htm",
+        "wordCount": 257,
+        "sha256": "b4625060ad9d05623252952bc6cec8a15b5b4002c360a4f98cb3a492aeac5f87"
+      },
+      {
         "sourceUrl": "https://www.dol.gov/ui/data.pdf",
         "attempts": [
           {
@@ -141,7 +156,7 @@
       }
     ],
     "accepted": true,
-    "documentCount": 3
+    "documentCount": 4
   },
   {
     "sourceIndex": 158,

@@ -10,22 +10,13 @@
       "sourceText": "Canberra was Australia's most populous capital city on 30 June 2024",
       "start": 0,
       "end": 67,
-      "role": "TEMPORAL_CONSTRAINT"
+      "role": "CORE"
     }
   ],
   "evidence": [
     {
       "atomId": "atom-1",
       "spans": [
-        {
-          "id": "doc-988b8061bae5::sentence-2",
-          "documentId": "doc-988b8061bae5",
-          "text": "The population of Australia’s capital cities grew by almost 430,000 people in the year ending June 2024, according to figures released today by the Australian Bureau of Statistics (ABS).\n",
-          "start": 38,
-          "end": 225,
-          "contextSpans": [],
-          "context": "The population of Australia’s capital cities grew by almost 430,000 people in the year ending June 2024, according to figures released today by the Australian Bureau of Statistics (ABS)."
-        },
         {
           "id": "doc-988b8061bae5::sentence-8",
           "documentId": "doc-988b8061bae5",
@@ -54,6 +45,15 @@
           "context": "The population of Australia’s capital cities grew by almost 430,000 people in the year ending June 2024, according to figures released today by the Australian Bureau of Statistics (ABS). Beidar Cho, ABS head of demography said: ‘Australia's capital cities grew by 427,800 people last financial year, down from a record growth of 520,900 the previous year. This was largely driven by net overseas migration.’"
         },
         {
+          "id": "doc-988b8061bae5::sentence-2",
+          "documentId": "doc-988b8061bae5",
+          "text": "The population of Australia’s capital cities grew by almost 430,000 people in the year ending June 2024, according to figures released today by the Australian Bureau of Statistics (ABS).\n",
+          "start": 38,
+          "end": 225,
+          "contextSpans": [],
+          "context": "The population of Australia’s capital cities grew by almost 430,000 people in the year ending June 2024, according to figures released today by the Australian Bureau of Statistics (ABS)."
+        },
+        {
           "id": "doc-5cdeff0e8e07::sentence-14",
           "documentId": "doc-5cdeff0e8e07",
           "text": "Canberra | 473,855 | 7,496 | 1.6 |\n",
@@ -72,13 +72,13 @@
           "context": "Capital city | ERP at 30 June 2024 | 2023-24 (no.) | 2023-24 (%) |"
         },
         {
-          "id": "doc-5cdeff0e8e07::sentence-3",
+          "id": "doc-5cdeff0e8e07::sentence-15",
           "documentId": "doc-5cdeff0e8e07",
-          "text": "- Melbourne had the largest growth (up by 142,600 people), followed by Sydney (107,500), Brisbane (72,900) and Perth (72,700).\n",
-          "start": 230,
-          "end": 357,
+          "text": "Total capital cities | 18,422,809 | 427,781 | 2.4 |",
+          "start": 820,
+          "end": 871,
           "contextSpans": [],
-          "context": "- Melbourne had the largest growth (up by 142,600 people), followed by Sydney (107,500), Brisbane (72,900) and Perth (72,700)."
+          "context": "Total capital cities | 18,422,809 | 427,781 | 2.4 |"
         }
       ]
     }
@@ -89,30 +89,18 @@
         "atomId": "atom-1",
         "supportSpanIds": [],
         "refuteSpanIds": [
-          "doc-5cdeff0e8e07::sentence-14",
-          "doc-5cdeff0e8e07::sentence-3"
+          "doc-988b8061bae5::sentence-3",
+          "doc-988b8061bae5::sentence-2"
         ],
         "contextSpanIds": [
-          "doc-988b8061bae5::sentence-2",
-          "doc-988b8061bae5::sentence-8",
-          "doc-988b8061bae5::sentence-3"
+          "doc-5cdeff0e8e07::sentence-14",
+          "doc-5cdeff0e8e07::sentence-15",
+          "doc-988b8061bae5::sentence-8"
         ],
-        "sufficiency": "PARTIAL",
-        "missingInformation": "The evidence does not provide the population of Canberra on 30 June 2024 or the population of other capital cities on the same date to compare with Canberra.",
-        "reason": "The evidence shows growth in capital cities but does not provide the specific population of Canberra or other capital cities on 30 June 2024.",
+        "sufficiency": "SUFFICIENT",
+        "missingInformation": "",
+        "reason": "O1-E4 and O1-E6 provide the population of Canberra and total capital cities, respectively, on 30 June 2024, directly supporting the claim.",
         "scopeChecks": [
-          {
-            "spanId": "doc-988b8061bae5::sentence-2",
-            "documentId": "doc-988b8061bae5",
-            "status": "MATCH",
-            "claimJurisdictions": [
-              "AU"
-            ],
-            "evidenceJurisdictions": [
-              "AU"
-            ],
-            "reason": "The candidate and atomic claim share a recognized jurisdiction."
-          },
           {
             "spanId": "doc-988b8061bae5::sentence-8",
             "documentId": "doc-988b8061bae5",
@@ -127,6 +115,18 @@
           },
           {
             "spanId": "doc-988b8061bae5::sentence-3",
+            "documentId": "doc-988b8061bae5",
+            "status": "MATCH",
+            "claimJurisdictions": [
+              "AU"
+            ],
+            "evidenceJurisdictions": [
+              "AU"
+            ],
+            "reason": "The candidate and atomic claim share a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-988b8061bae5::sentence-2",
             "documentId": "doc-988b8061bae5",
             "status": "MATCH",
             "claimJurisdictions": [
@@ -158,7 +158,7 @@
             "reason": "No explicit source jurisdiction could be resolved."
           },
           {
-            "spanId": "doc-5cdeff0e8e07::sentence-3",
+            "spanId": "doc-5cdeff0e8e07::sentence-15",
             "documentId": "doc-5cdeff0e8e07",
             "status": "UNRESOLVED",
             "claimJurisdictions": [
@@ -166,6 +166,24 @@
             ],
             "evidenceJurisdictions": [],
             "reason": "No explicit source jurisdiction could be resolved."
+          }
+        ],
+        "identityChecks": [
+          {
+            "relation": "REFUTES",
+            "spanIds": [
+              "doc-988b8061bae5::sentence-3",
+              "doc-988b8061bae5::sentence-2"
+            ],
+            "status": "ALIGNED",
+            "requiredEntities": [
+              "Canberra",
+              "Australia"
+            ],
+            "matchedEntities": [
+              "Australia"
+            ],
+            "reason": "No conflicting subject identity appears in the selected evidence; exact document-local matches were retained."
           }
         ]
       }
@@ -186,16 +204,16 @@
       "status": "DISPROVED",
       "relation": "REFUTES",
       "premiseIds": [
-        "operand:doc-5cdeff0e8e07:line:8",
+        "operand:doc-5cdeff0e8e07:line:7",
         "evidence:atom-1:doc-5cdeff0e8e07:doc-5cdeff0e8e07::sentence-14"
       ],
       "premises": [
         {
-          "id": "operand:doc-5cdeff0e8e07:line:8",
+          "id": "operand:doc-5cdeff0e8e07:line:7",
           "documentId": "doc-5cdeff0e8e07",
-          "text": "Melbourne | 5,350,705 | 142,637 | 2.7 |",
-          "start": 570,
-          "end": 609,
+          "text": "Sydney | 5,557,233 | 107,538 | 2.0 |",
+          "start": 533,
+          "end": 569,
           "kind": "OPERAND",
           "contentHash": null,
           "itemCount": null,
@@ -213,7 +231,7 @@
           "listItems": []
         }
       ],
-      "expression": "5350705 > 473855",
+      "expression": "5557233 > 473855",
       "conclusion": "A grounded counterexample disproves the extremum claim.",
       "explanation": "Python compared aligned measurements. One counterexample is sufficient to refute a superlative.",
       "validationWarnings": [],
@@ -232,6 +250,11 @@
           "name": "Operand alignment",
           "status": "PASSED",
           "detail": "Python compared aligned measurements. One counterexample is sufficient to refute a superlative."
+        },
+        {
+          "name": "Identity alignment",
+          "status": "PASSED",
+          "detail": "No conflicting subject identity appears in the selected evidence; exact document-local matches were retained."
         }
       ],
       "program": {
@@ -241,7 +264,7 @@
             "id": "input-1",
             "operation": "LOOKUP",
             "inputIds": [
-              "operand:doc-5cdeff0e8e07:line:8"
+              "operand:doc-5cdeff0e8e07:line:7"
             ],
             "outputType": "FACT",
             "description": "Read an unchanged server-owned premise."
@@ -291,18 +314,14 @@
         "state": "REFUTED",
         "supportEdgeIds": [],
         "refuteEdgeIds": [
+          "edge:REFUTES:inference:bundle:atom-1:refutes:obligation:showcase-geography-canberra:atom-1",
           "edge:REFUTES:inference:proof:atom-1:extremum_compare:1:obligation:showcase-geography-canberra:atom-1"
         ],
         "unselectedCandidateCount": 1,
-        "provisionalRelationCount": 2
+        "provisionalRelationCount": 0
       }
     ],
-    "warnings": [
-      {
-        "code": "PROVISIONAL_EVIDENCE_EXCLUDED",
-        "message": "2 assessed relation(s) for obligation atom-1 are provisional because the evidence is not sufficient."
-      }
-    ],
+    "warnings": [],
     "ruleTrace": [
       "SINGLE maps its one obligation's validated relations directly.",
       "Validated positions — support: no; refute: yes.",
@@ -310,7 +329,7 @@
     ]
   },
   "recordedWith": {
-    "pipelineRevision": "generalized-symbolic-v5",
+    "pipelineRevision": "generalized-symbolic-v6",
     "inputDigest": "a3d67ee2f9092180531f018d04543148331a9a11b5573b5fa95468c0ea54e72d",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
@@ -319,11 +338,11 @@
     "reasoningModel": "qwen2.5:7b"
   },
   "timingsSeconds": {
-    "decomposition": 14.483,
-    "retrieval": 0.292,
-    "evidenceAssessment": 17.3,
-    "symbolicReasoning": 10.755,
-    "aggregation": 0.005,
-    "total": 42.835
+    "decomposition": 13.992,
+    "retrieval": 0.254,
+    "evidenceAssessment": 18.555,
+    "symbolicReasoning": 17.127,
+    "aggregation": 0.002,
+    "total": 49.932
   }
 }

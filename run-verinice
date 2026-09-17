@@ -28,6 +28,7 @@ local_env() {
   export VERINICE_OLLAMA_URL="${VERINICE_OLLAMA_URL:-http://127.0.0.1:11434}"
   export VERINICE_OLLAMA_MODEL="${VERINICE_OLLAMA_MODEL:-qwen2.5:7b}"
   export VERINICE_EMBEDDING_MODEL_PATH="${VERINICE_EMBEDDING_MODEL_PATH:-${script_dir}/data/models/bge-small-en-v1.5}"
+  export VERINICE_ENTITY_MODEL="${VERINICE_ENTITY_MODEL:-en_core_web_sm}"
   export VERINICE_BACKEND_URL="${VERINICE_BACKEND_URL:-http://127.0.0.1:8001}"
 }
 
@@ -94,6 +95,7 @@ case "${1:-}" in
     "${venv}/bin/python" -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.6.0
     "${venv}/bin/python" -m pip install --requirement "${script_dir}/backend/requirements.lock"
     "${venv}/bin/python" -m pip install --editable "${script_dir}/backend[test]"
+    "${venv}/bin/python" -c 'import os, spacy; spacy.load(os.environ["VERINICE_ENTITY_MODEL"]); print("Entity model is ready.")'
     "${venv}/bin/python" "${script_dir}/scripts/prepare_embedding_model.py"
     export HF_HUB_OFFLINE="${HF_HUB_OFFLINE:-1}"
     export TRANSFORMERS_OFFLINE="${TRANSFORMERS_OFFLINE:-1}"
@@ -151,15 +153,60 @@ case "${1:-}" in
     venv="${script_dir}/backend/.venv"
     [[ -x "${venv}/bin/python" ]] || { echo "Run ./run-verinice --prepare first." >&2; exit 1; }
     wait_for_local_ui
+    mkdir -p "${script_dir}/data/runtime/native"
+    walkthrough_stage="$(mktemp -d "${script_dir}/data/runtime/native/walkthrough-stage.XXXXXX")"
+    cleanup_walkthrough_stage() {
+      rm -rf "${walkthrough_stage}"
+    }
+    trap cleanup_walkthrough_stage EXIT
+    staged_runs="${walkthrough_stage}/runs"
+    staged_assets="${walkthrough_stage}/assets"
     "${venv}/bin/python" "${script_dir}/scripts/record_walkthrough.py" \
-      --api "${VERINICE_BACKEND_URL}" --resume
+      --api "${VERINICE_BACKEND_URL}" --output "${staged_runs}"
     "${venv}/bin/python" "${script_dir}/scripts/build_walkthrough.py" \
-      --require-complete
+      --runs "${staged_runs}" --output "${staged_assets}" --require-complete
+    published_runs="${script_dir}/data/walkthrough/runs"
+    published_assets="${script_dir}/frontend/public/walkthrough"
+    previous_runs="${walkthrough_stage}/previous-runs"
+    previous_assets="${walkthrough_stage}/previous-assets"
+    publish_walkthrough() {
+      mv "${published_runs}" "${previous_runs}" || return 1
+      mv "${published_assets}" "${previous_assets}" || {
+        mv "${previous_runs}" "${published_runs}"
+        return 1
+      }
+      mv "${staged_runs}" "${published_runs}" || {
+        mv "${previous_runs}" "${published_runs}"
+        mv "${previous_assets}" "${published_assets}"
+        return 1
+      }
+      mv "${staged_assets}" "${published_assets}" || {
+        mv "${published_runs}" "${staged_runs}"
+        mv "${previous_runs}" "${published_runs}"
+        mv "${previous_assets}" "${published_assets}"
+        return 1
+      }
+    }
+    # Keep the backup on disk if this process is interrupted during the two
+    # directory swaps. Normal failures roll back both destinations below.
+    trap - EXIT
+    if ! publish_walkthrough; then
+      echo "Could not publish the validated walkthrough; previous assets were restored." >&2
+      rm -rf "${walkthrough_stage}"
+      exit 1
+    fi
+    rm -rf "${walkthrough_stage}"
     echo "Recorded walkthrough assets are ready in frontend/public/walkthrough/."
     ;;
   --check)
+    local_env
     python_command >/dev/null
     command -v npm >/dev/null
+    venv="${script_dir}/backend/.venv"
+    if [[ -x "${venv}/bin/python" ]]; then
+      "${venv}/bin/python" -c 'import os, spacy; spacy.load(os.environ["VERINICE_ENTITY_MODEL"])' \
+        || { echo "The configured entity model is unavailable. Run ./run-verinice --prepare." >&2; exit 1; }
+    fi
     echo "Local prerequisites are available."
     ;;
   --test)

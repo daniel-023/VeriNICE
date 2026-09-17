@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from collections import Counter
-from math import ceil
+from math import ceil, log
 import re
 from typing import List, Optional, Sequence
 
@@ -26,43 +26,151 @@ MAX_CANDIDATE_CHARACTERS = 1_000
 MIN_HEADING_WORDS = 5
 _LEXICAL_WORD = re.compile(r"[^\W_]+(?:[’'-][^\W_]+)*", re.UNICODE)
 _LIST_PREFIX = re.compile(r"^(?:[-*•]|\d+[.)])\s+")
-_NUMBER = re.compile(r"\b\d+(?:[.,]\d+)*(?:%|\b)")
+_LEXICAL_TOKEN = re.compile(
+    r"\d+(?:[.,]\d+)*(?:%|\b)|[^\W_]+(?:[’'-][^\W_]+)*",
+    re.UNICODE,
+)
+_NUMBER = re.compile(r"^\d+(?:[.,]\d+)*%?$")
+_LIST_RELEVANT = re.compile(
+    r"(?ix)\b(?:"
+    r"list(?:ed|s|ing)?|"
+    r"member(?:s|ship)?\s+of|"
+    r"included\s+(?:in|on|among)|"
+    r"designated\s+(?:as|by)|"
+    r"belongs?\s+to|"
+    r"on\s+(?:the\s+)?(?:[\w'-]+\s+){0,6}"
+    r"(?:board|committee|council|register|roster)"
+    r")\b"
+)
+BM25_K1 = 1.5
+BM25_B = 0.75
+BM25_MODEL = "bm25-v1"
 
 
-def _lexical_terms(text: str) -> set[str]:
-    return {
-        token.casefold()
-        for token in _LEXICAL_WORD.findall(text)
-        if len(token) > 2
-    }
+def _normalize_number(token: str) -> str:
+    """Canonicalize grouping, decimal, and percent formatting."""
+    percent = token.endswith("%")
+    value = token[:-1] if percent else token
+    if "," in value and "." in value:
+        decimal_separator = "," if value.rfind(",") > value.rfind(".") else "."
+        grouping_separator = "." if decimal_separator == "," else ","
+        value = value.replace(grouping_separator, "").replace(
+            decimal_separator, "."
+        )
+    elif "," in value:
+        if re.fullmatch(r"\d{1,3}(?:,\d{3})+", value):
+            value = value.replace(",", "")
+        elif value.count(",") == 1:
+            value = value.replace(",", ".")
+    integer, dot, fraction = value.partition(".")
+    integer = integer.lstrip("0") or "0"
+    if dot:
+        fraction = fraction.rstrip("0")
+        value = f"{integer}.{fraction}" if fraction else integer
+    else:
+        value = integer
+    return f"#number:{value}{'%' if percent else ''}"
 
 
-def _lexical_score(query: str, passage: str) -> float:
-    """Return an auditable exact-match signal alongside dense similarity.
-
-    Dense retrieval handles paraphrases well but can miss names, dates, numbers,
-    and terse list entries.  This score deliberately rewards those anchors and
-    does not attempt to make a truth judgment.
-    """
-    query_terms = _lexical_terms(query)
-    passage_terms = _lexical_terms(passage)
-    overlap = query_terms & passage_terms
-    coverage = len(overlap) / max(1, len(query_terms))
-    exact_numbers = set(_NUMBER.findall(query)) & set(_NUMBER.findall(passage))
-    list_bonus = 0.15 if _LIST_PREFIX.match(passage.strip()) and overlap else 0.0
-    return coverage + min(0.3, 0.1 * len(exact_numbers)) + list_bonus
+def _lexical_tokens(text: str) -> List[str]:
+    tokens: List[str] = []
+    for raw_token in _LEXICAL_TOKEN.findall(text):
+        token = raw_token.casefold()
+        if _NUMBER.fullmatch(token):
+            tokens.append(_normalize_number(token))
+        elif len(token) > 2:
+            tokens.append(token)
+    return tokens
 
 
-def _reciprocal_rank_fusion(primary: Sequence[float], secondary: Sequence[float]) -> List[float]:
-    if len(primary) != len(secondary):
-        raise EvidenceRetrievalError("The embedding model returned an invalid evidence score matrix.")
-    primary_order = sorted(range(len(primary)), key=lambda index: (-primary[index], index))
-    secondary_order = sorted(range(len(secondary)), key=lambda index: (-secondary[index], index))
-    primary_rank = {index: rank for rank, index in enumerate(primary_order, start=1)}
-    secondary_rank = {index: rank for rank, index in enumerate(secondary_order, start=1)}
+class _BM25Index:
+    """Reusable token and corpus statistics for a fixed passage collection."""
+
+    def __init__(self, passages: Sequence[str]) -> None:
+        self.passages = tuple(passages)
+        self.passage_tokens = tuple(
+            tuple(_lexical_tokens(passage)) for passage in self.passages
+        )
+        self.frequencies = tuple(Counter(tokens) for tokens in self.passage_tokens)
+        self.average_length = (
+            sum(map(len, self.passage_tokens)) / len(self.passage_tokens)
+            if self.passage_tokens
+            else 0.0
+        )
+        self.document_frequency = Counter(
+            term for tokens in self.passage_tokens for term in set(tokens)
+        )
+
+    def scores(self, query: str) -> List[float]:
+        """Score this index with Okapi BM25 and small structural cues.
+
+        Dense retrieval handles paraphrases well but can miss names, dates,
+        numbers, and terse list entries. BM25 supplies the lexical signal
+        without treating every query term as equally informative.
+        """
+        query_terms = set(_lexical_tokens(query))
+        list_relevant = bool(
+            _LIST_PREFIX.match(query.strip()) or _LIST_RELEVANT.search(query)
+        )
+        scores: List[float] = []
+        for passage, tokens, frequencies in zip(
+            self.passages, self.passage_tokens, self.frequencies
+        ):
+            length_normalizer = 1 - BM25_B
+            if self.average_length:
+                length_normalizer += BM25_B * len(tokens) / self.average_length
+            score = 0.0
+            for term in query_terms:
+                frequency = frequencies[term]
+                if not frequency:
+                    continue
+                inverse_document_frequency = log(
+                    1
+                    + (len(self.passages) - self.document_frequency[term] + 0.5)
+                    / (self.document_frequency[term] + 0.5)
+                )
+                score += inverse_document_frequency * (
+                    frequency * (BM25_K1 + 1)
+                    / (frequency + BM25_K1 * length_normalizer)
+                )
+            if score > 0 and list_relevant and _LIST_PREFIX.match(passage.strip()):
+                score += 0.15
+            scores.append(score)
+        return scores
+
+
+def _bm25_scores(query: str, passages: Sequence[str]) -> List[float]:
+    """Convenience wrapper for scoring a standalone passage collection."""
+    return _BM25Index(passages).scores(query)
+
+
+def _tie_aware_ranks(scores: Sequence[float]) -> dict[int, int]:
+    """Return competition ranks, so equal scores receive the same rank."""
+    ordered = sorted(range(len(scores)), key=lambda index: (-scores[index], index))
+    ranks: dict[int, int] = {}
+    previous_score: Optional[float] = None
+    previous_rank = 0
+    for position, index in enumerate(ordered, start=1):
+        if previous_score is None or scores[index] != previous_score:
+            previous_rank = position
+            previous_score = scores[index]
+        ranks[index] = previous_rank
+    return ranks
+
+
+def _reciprocal_rank_fusion(
+    dense_scores: Sequence[float], lexical_scores: Sequence[float]
+) -> List[float]:
+    if len(dense_scores) != len(lexical_scores):
+        raise EvidenceRetrievalError(
+            "The embedding model returned an invalid evidence score matrix."
+        )
+    dense_rank = _tie_aware_ranks(dense_scores)
+    lexical_rank = _tie_aware_ranks(lexical_scores)
     return [
-        1 / (60 + primary_rank[index]) + 1 / (60 + secondary_rank[index])
-        for index in range(len(primary))
+        1 / (60 + dense_rank[index])
+        + (1 / (60 + lexical_rank[index]) if lexical_scores[index] > 0 else 0)
+        for index in range(len(dense_scores))
     ]
 
 
@@ -71,9 +179,13 @@ def _rank_hybrid_sentences(
     dense_scores: Sequence[float],
     query: str,
     budget: int,
+    bm25_index: Optional[_BM25Index] = None,
 ) -> List[SentenceSpan]:
     """Fuse semantic and lexical ranks, then apply diversity as a soft guard."""
-    lexical_scores = [_lexical_score(query, sentence.text) for sentence in sentences]
+    index = bm25_index or _BM25Index(
+        [sentence.text for sentence in sentences]
+    )
+    lexical_scores = index.scores(query)
     fused = _reciprocal_rank_fusion(dense_scores, lexical_scores)
     # Equal-weight RRF frequently creates symmetric ties (for example, ranks
     # 1/2 versus 2/1). Exact lexical anchors are the deterministic tie-breaker;
@@ -344,30 +456,37 @@ async def retrieve_evidence(
     evidence_per_atom: int = DEFAULT_EVIDENCE_PER_ATOM,
     retrieval_method: RetrievalMethod = RetrievalMethod.hybrid,
 ) -> EvidenceRetrievalResponse:
-    if not settings.embedding_model_path.is_dir():
+    uses_embeddings = retrieval_method != RetrievalMethod.lexical
+    if uses_embeddings and not settings.embedding_model_path.is_dir():
         raise EvidenceRetrievalConfigurationError(
             "The local evidence embedding model is missing. Run ./run-verinice --prepare."
         )
 
     all_sentences = segment_documents(documents)
     sentences = _eligible_sentences(all_sentences)
+    provider = "sentence-transformers" if uses_embeddings else "python"
+    model = settings.embedding_model if uses_embeddings else BM25_MODEL
     if not sentences:
         return EvidenceRetrievalResponse(
             evidence=[AtomEvidence(atom_id=atom.id, spans=[]) for atom in atoms],
-            provider=("python" if retrieval_method == RetrievalMethod.lexical else "sentence-transformers"),
-            model=("lexical-overlap-v1" if retrieval_method == RetrievalMethod.lexical else settings.embedding_model),
+            provider=provider,
+            model=model,
             retrieval_method=retrieval_method,
         )
 
+    passage_texts = [sentence.text for sentence in sentences]
+    bm25_index = (
+        _BM25Index(passage_texts)
+        if retrieval_method != RetrievalMethod.semantic
+        else None
+    )
     if retrieval_method == RetrievalMethod.lexical:
-        score_matrix = [
-            [_lexical_score(atom.text, sentence.text) for sentence in sentences]
-            for atom in atoms
-        ]
+        assert bm25_index is not None
+        score_matrix = [bm25_index.scores(atom.text) for atom in atoms]
     else:
         score_matrix = await embeddings.similarity_matrix(
             [atom.text for atom in atoms],
-            [sentence.text for sentence in sentences],
+            passage_texts,
             cache_key=prepared_cache_key,
         )
     if len(score_matrix) != len(atoms):
@@ -380,7 +499,11 @@ async def retrieve_evidence(
     for atom, scores in zip(atoms, score_matrix):
         if retrieval_method == RetrievalMethod.hybrid:
             ranked = _rank_hybrid_sentences(
-                sentences, scores, atom.text, evidence_per_atom
+                sentences,
+                scores,
+                atom.text,
+                evidence_per_atom,
+                bm25_index=bm25_index,
             )
         else:
             ranked = _rank_sentences(sentences, scores, evidence_per_atom)
@@ -395,7 +518,7 @@ async def retrieve_evidence(
         )
     return EvidenceRetrievalResponse(
         evidence=evidence,
-        provider=("python" if retrieval_method == RetrievalMethod.lexical else "sentence-transformers"),
-        model=("lexical-overlap-v1" if retrieval_method == RetrievalMethod.lexical else settings.embedding_model),
+        provider=provider,
+        model=model,
         retrieval_method=retrieval_method,
     )

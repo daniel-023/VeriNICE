@@ -35,15 +35,6 @@
           "context": "# Shaving hair: Does shaved hair grow back thicker?"
         },
         {
-          "id": "doc-071a33a71652::sentence-6",
-          "documentId": "doc-071a33a71652",
-          "text": "4. Shaving hair: Does shaved hair grow back thicker?\n\n",
-          "start": 178,
-          "end": 232,
-          "contextSpans": [],
-          "context": "4. Shaving hair: Does shaved hair grow back thicker?"
-        },
-        {
           "id": "doc-071a33a71652::sentence-10",
           "documentId": "doc-071a33a71652",
           "text": "## Does shaving unwanted body hair makes it grow back thicker and darker?\n\n",
@@ -51,6 +42,15 @@
           "end": 397,
           "contextSpans": [],
           "context": "## Does shaving unwanted body hair makes it grow back thicker and darker?"
+        },
+        {
+          "id": "doc-071a33a71652::sentence-6",
+          "documentId": "doc-071a33a71652",
+          "text": "4. Shaving hair: Does shaved hair grow back thicker?\n\n",
+          "start": 178,
+          "end": 232,
+          "contextSpans": [],
+          "context": "4. Shaving hair: Does shaved hair grow back thicker?"
         },
         {
           "id": "doc-813ee535443b::sentence-12",
@@ -187,12 +187,89 @@
         ],
         "contextSpanIds": [
           "doc-071a33a71652::sentence-7",
+          "doc-071a33a71652::sentence-10",
+          "doc-071a33a71652::sentence-6"
+        ],
+        "sufficiency": "SUFFICIENT",
+        "missingInformation": "",
+        "reason": "O1-E5 explicitly refutes the claim that shaving makes hair grow back thicker.",
+        "scopeChecks": [
+          {
+            "spanId": "doc-071a33a71652::sentence-7",
+            "documentId": "doc-071a33a71652",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-071a33a71652::sentence-10",
+            "documentId": "doc-071a33a71652",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-071a33a71652::sentence-6",
+            "documentId": "doc-071a33a71652",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-813ee535443b::sentence-12",
+            "documentId": "doc-813ee535443b",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-813ee535443b::sentence-13",
+            "documentId": "doc-813ee535443b",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-813ee535443b::sentence-3",
+            "documentId": "doc-813ee535443b",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          }
+        ],
+        "identityChecks": [
+          {
+            "relation": "REFUTES",
+            "spanIds": [
+              "doc-813ee535443b::sentence-13"
+            ],
+            "status": "NOT_APPLICABLE",
+            "requiredEntities": [],
+            "matchedEntities": [],
+            "reason": "The atomic claim has no identity-bearing named mention."
+          }
+        ]
+      },
+      {
+        "atomId": "atom-2",
+        "supportSpanIds": [],
+        "refuteSpanIds": [
+          "doc-813ee535443b::sentence-13"
+        ],
+        "contextSpanIds": [
+          "doc-071a33a71652::sentence-7",
           "doc-071a33a71652::sentence-6",
           "doc-071a33a71652::sentence-10"
         ],
-        "sufficiency": "INSUFFICIENT",
-        "missingInformation": "The evidence does not provide a direct measurement or comparison of hair thickness before and after shaving to support or refute the claim.",
-        "reason": "The evidence suggests that shaving does not make hair grow back thicker, but it does not provide a direct measurement or comparison.",
+        "sufficiency": "SUFFICIENT",
+        "missingInformation": "",
+        "reason": "O2-E5 explicitly refutes the claim that shaving makes hair grow back faster.",
         "scopeChecks": [
           {
             "spanId": "doc-071a33a71652::sentence-7",
@@ -242,70 +319,17 @@
             "evidenceJurisdictions": [],
             "reason": "The atomic claim does not state a recognized jurisdiction."
           }
-        ]
-      },
-      {
-        "atomId": "atom-2",
-        "supportSpanIds": [],
-        "refuteSpanIds": [
-          "doc-813ee535443b::sentence-13"
         ],
-        "contextSpanIds": [
-          "doc-071a33a71652::sentence-7",
-          "doc-071a33a71652::sentence-6",
-          "doc-071a33a71652::sentence-10"
-        ],
-        "sufficiency": "INSUFFICIENT",
-        "missingInformation": "The evidence does not provide a direct measurement or comparison of hair growth rate before and after shaving to support or refute the claim.",
-        "reason": "The evidence suggests that shaving does not make hair grow back faster, but it does not provide a direct measurement or comparison.",
-        "scopeChecks": [
+        "identityChecks": [
           {
-            "spanId": "doc-071a33a71652::sentence-7",
-            "documentId": "doc-071a33a71652",
+            "relation": "REFUTES",
+            "spanIds": [
+              "doc-813ee535443b::sentence-13"
+            ],
             "status": "NOT_APPLICABLE",
-            "claimJurisdictions": [],
-            "evidenceJurisdictions": [],
-            "reason": "The atomic claim does not state a recognized jurisdiction."
-          },
-          {
-            "spanId": "doc-071a33a71652::sentence-6",
-            "documentId": "doc-071a33a71652",
-            "status": "NOT_APPLICABLE",
-            "claimJurisdictions": [],
-            "evidenceJurisdictions": [],
-            "reason": "The atomic claim does not state a recognized jurisdiction."
-          },
-          {
-            "spanId": "doc-071a33a71652::sentence-10",
-            "documentId": "doc-071a33a71652",
-            "status": "NOT_APPLICABLE",
-            "claimJurisdictions": [],
-            "evidenceJurisdictions": [],
-            "reason": "The atomic claim does not state a recognized jurisdiction."
-          },
-          {
-            "spanId": "doc-813ee535443b::sentence-12",
-            "documentId": "doc-813ee535443b",
-            "status": "NOT_APPLICABLE",
-            "claimJurisdictions": [],
-            "evidenceJurisdictions": [],
-            "reason": "The atomic claim does not state a recognized jurisdiction."
-          },
-          {
-            "spanId": "doc-813ee535443b::sentence-13",
-            "documentId": "doc-813ee535443b",
-            "status": "NOT_APPLICABLE",
-            "claimJurisdictions": [],
-            "evidenceJurisdictions": [],
-            "reason": "The atomic claim does not state a recognized jurisdiction."
-          },
-          {
-            "spanId": "doc-813ee535443b::sentence-3",
-            "documentId": "doc-813ee535443b",
-            "status": "NOT_APPLICABLE",
-            "claimJurisdictions": [],
-            "evidenceJurisdictions": [],
-            "reason": "The atomic claim does not state a recognized jurisdiction."
+            "requiredEntities": [],
+            "matchedEntities": [],
+            "reason": "The atomic claim has no identity-bearing named mention."
           }
         ]
       }
@@ -360,6 +384,11 @@
           "name": "Operand alignment",
           "status": "PASSED",
           "detail": "Python accepted an explicit source negation only after entity and property terms were aligned."
+        },
+        {
+          "name": "Identity alignment",
+          "status": "PASSED",
+          "detail": "The atomic claim has no identity-bearing named mention."
         }
       ],
       "program": {
@@ -429,6 +458,11 @@
           "name": "Operand alignment",
           "status": "PASSED",
           "detail": "Python accepted an explicit source negation only after entity and property terms were aligned."
+        },
+        {
+          "name": "Identity alignment",
+          "status": "PASSED",
+          "detail": "The atomic claim has no identity-bearing named mention."
         }
       ],
       "program": {
@@ -479,32 +513,25 @@
         "state": "REFUTED",
         "supportEdgeIds": [],
         "refuteEdgeIds": [
+          "edge:REFUTES:evidence:doc-813ee535443b:doc-813ee535443b::sentence-13:obligation:showcase-science-shaving:atom-1",
           "edge:REFUTES:inference:proof:atom-1:attribute_compare:1:obligation:showcase-science-shaving:atom-1"
         ],
         "unselectedCandidateCount": 2,
-        "provisionalRelationCount": 1
+        "provisionalRelationCount": 0
       },
       {
         "obligationId": "atom-2",
         "state": "REFUTED",
         "supportEdgeIds": [],
         "refuteEdgeIds": [
+          "edge:REFUTES:evidence:doc-813ee535443b:doc-813ee535443b::sentence-13:obligation:showcase-science-shaving:atom-2",
           "edge:REFUTES:inference:proof:atom-2:attribute_compare:2:obligation:showcase-science-shaving:atom-2"
         ],
         "unselectedCandidateCount": 2,
-        "provisionalRelationCount": 1
+        "provisionalRelationCount": 0
       }
     ],
-    "warnings": [
-      {
-        "code": "PROVISIONAL_EVIDENCE_EXCLUDED",
-        "message": "1 assessed relation(s) for obligation atom-1 are provisional because the evidence is not sufficient."
-      },
-      {
-        "code": "PROVISIONAL_EVIDENCE_EXCLUDED",
-        "message": "1 assessed relation(s) for obligation atom-2 are provisional because the evidence is not sufficient."
-      }
-    ],
+    "warnings": [],
     "ruleTrace": [
       "AND is refuted when any obligation is refuted-only.",
       "Validated positions — support: no; refute: yes.",
@@ -512,7 +539,7 @@
     ]
   },
   "recordedWith": {
-    "pipelineRevision": "generalized-symbolic-v5",
+    "pipelineRevision": "generalized-symbolic-v6",
     "inputDigest": "40b4586a5bece55e81562b8eab9b6c799eb2a20b8a4523ce4e7cbc11fb9daec1",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
@@ -521,11 +548,11 @@
     "reasoningModel": "qwen2.5:7b"
   },
   "timingsSeconds": {
-    "decomposition": 16.105,
-    "retrieval": 0.173,
-    "evidenceAssessment": 24.276,
-    "symbolicReasoning": 15.191,
-    "aggregation": 0.004,
-    "total": 55.749
+    "decomposition": 14.429,
+    "retrieval": 0.299,
+    "evidenceAssessment": 21.438,
+    "symbolicReasoning": 14.337,
+    "aggregation": 0.005,
+    "total": 50.507
   }
 }

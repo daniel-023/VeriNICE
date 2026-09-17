@@ -3,6 +3,13 @@ from __future__ import annotations
 import re
 from typing import Sequence
 
+from ..entity_alignment import (
+    AlignmentResult,
+    EntityAlignmentConfigurationError,
+    align_identities,
+    extract_identity_mentions,
+    grouped_selected_texts,
+)
 from ..schemas import (
     AssessmentAtomEvidence,
     GroundedEvidenceAssessment,
@@ -20,7 +27,13 @@ from ..settings import settings
 from .compiler import CompilerConfigurationError, CompilerOutputError, CompilerProviderError, compile_programs
 from .grounding import build_candidates, lexical_tokens, normalize, validate_grounding
 from .operators import REGISTRY, _subject_before_copula
-from .profiles import distinct_count_request, distinct_profile, extract_distinct_values
+from .profiles import (
+    award_recipient_claim,
+    distinct_count_request,
+    distinct_profile,
+    exclusive_purpose_counterexample,
+    extract_distinct_values,
+)
 
 
 class SymbolicReasoningError(RuntimeError):
@@ -109,6 +122,21 @@ def _validated_operand_ids(candidate, atom: PipelineAtom, premise_ids: Sequence[
             if extract_distinct_values(candidate.profile, [premises[premise_id]], atom):
                 result.append(premise_id)
             if len(result) >= 10:
+                break
+    elif (
+        operator == SymbolicOperator.attribute_compare
+        and "exclusively" in normalize(atom.text)
+    ):
+        # Attach the source-owned direct development-purpose counterexample if
+        # the compiler mapped a weaker military/civilian use sentence. Python
+        # and the displayed proof must consume the same grounded fact.
+        for premise_id in candidate.premise_ids:
+            if premise_id in result:
+                continue
+            if exclusive_purpose_counterexample(
+                atom.text, premises[premise_id].text
+            ):
+                result.append(premise_id)
                 break
     elif operator == SymbolicOperator.temporal_compare and re.search(r"(?i)\b(?:before|after)\b", atom.text):
         comparison = re.match(r"(?is)^(.+?)\b(?:before|after)\b(.+?)[.!?]?$", atom.text.strip())
@@ -200,6 +228,26 @@ def _presentation_premise_ids(
         return (selected or ordered)[:2]
     if operator == SymbolicOperator.attribute_compare:
         subject_terms = lexical_tokens(atom.text)
+        # Award-recipient equality consumes the sentence that explicitly
+        # aligns the named recipient, award edition, and award event. A nearby
+        # sentence saying that no prize was awarded in the nominal year is
+        # relevant context, but cannot replay the positive recipient result.
+        awardee = award_recipient_claim(atom.text)
+        if awardee and "recipient" in expression:
+            recipient, year = awardee
+            surname = normalize(recipient).split()[-1]
+            aligned_awards = [
+                item
+                for item in ordered
+                if surname in lexical_tokens(premises[item].text)
+                and year in premises[item].text
+                and re.search(r"(?i)\b(?:prize|award)\b", premises[item].text)
+                and re.search(
+                    r"(?i)\b(?:awarded|received|won)\b", premises[item].text
+                )
+            ]
+            if aligned_awards:
+                return aligned_awards[:1]
         # A location comparison consumes a premise that explicitly names the
         # source country. General subject overlap (for example, "Gustave
         # Eiffel") is not enough to establish the Eiffel Tower's location.
@@ -224,6 +272,13 @@ def _presentation_premise_ids(
         # the competing values. A heading or one-sided purpose statement is
         # background rather than a decisive premise.
         if "exclusively" in normalize(atom.text):
+            development_counterexamples = [
+                item
+                for item in ordered
+                if exclusive_purpose_counterexample(atom.text, premises[item].text)
+            ]
+            if development_counterexamples:
+                return development_counterexamples[:1]
             competing = [
                 item for item in ordered
                 if re.search(r"(?i)\bmilitary\b", premises[item].text)
@@ -289,7 +344,9 @@ def _presentation_premise(premise, premises):
     })
 
 
-def _execution_preconditions(candidate, execution_premises, outcome) -> list[dict]:
+def _execution_preconditions(
+    candidate, execution_premises, outcome, identity_alignment: AlignmentResult
+) -> list[dict]:
     resolved = outcome["status"] in {SymbolicStatus.proved, SymbolicStatus.disproved}
     checks = [
         {
@@ -306,6 +363,11 @@ def _execution_preconditions(candidate, execution_premises, outcome) -> list[dic
             "name": "Operand alignment",
             "status": "PASSED" if resolved else "UNRESOLVED",
             "detail": outcome["explanation"],
+        },
+        {
+            "name": "Identity alignment",
+            "status": "UNRESOLVED" if identity_alignment.status == "UNRESOLVED" else "PASSED",
+            "detail": identity_alignment.reason,
         },
     ]
     if candidate.operator == "SET_MEMBERSHIP":
@@ -330,6 +392,17 @@ async def reason_symbolically(
     documents: Sequence[RetrievalDocument],
     assessment: GroundedEvidenceAssessment,
 ) -> ReasoningResponse:
+    try:
+        for atom in atoms:
+            extract_identity_mentions(atom.text)
+    except EntityAlignmentConfigurationError as error:
+        raise SymbolicReasoningConfigurationError(str(error)) from error
+    document_texts = {
+        document.id: "\n".join(
+            part for part in (getattr(document, "title", ""), document.text) if part
+        )
+        for document in documents
+    }
     excluded_by_atom = {}
     for item in assessment.obligations:
         excluded_by_atom[item.atom_id] = {
@@ -408,6 +481,42 @@ async def reason_symbolically(
             )
         else:
             outcome = REGISTRY[operator](atoms_by_id[candidate.atom_id], execution_premises)
+        # Closed-list membership evaluates the exact normalized claim operand;
+        # absence from a certified list cannot also require the absent name to
+        # occur in that list. Other operations reject conflicting subject
+        # identities in the premises that actually drove execution.
+        if operator == SymbolicOperator.set_membership:
+            identity_alignment = AlignmentResult(
+                "ALIGNED", (), (),
+                "The typed membership operator used the exact normalized claim identity as its operand.",
+            )
+        else:
+            selected_by_document = grouped_selected_texts(
+                (premise.document_id, premise.text) for premise in execution_premises
+            )
+            identity_alignment = align_identities(
+                atoms_by_id[candidate.atom_id].text,
+                selected_by_document,
+                document_texts,
+                relation=outcome["relation"] or "SUPPORTS",
+                strict_refutation=candidate.profile in {
+                    "AWARD_MOTIVATION", "AWARD_RECIPIENT",
+                },
+            )
+        if (
+            outcome["status"] in {SymbolicStatus.proved, SymbolicStatus.disproved}
+            and identity_alignment.status == "UNRESOLVED"
+        ):
+            outcome = {
+                **outcome,
+                "status": SymbolicStatus.unresolved,
+                "relation": None,
+                "conclusion": "Identity alignment is unresolved.",
+                "explanation": identity_alignment.reason,
+                "validation_warnings": list(dict.fromkeys([
+                    *outcome["validation_warnings"], "MISSING_ENTITY_ALIGNMENT",
+                ])),
+            }
         public_ids = _presentation_premise_ids(
             operator,
             atoms_by_id[candidate.atom_id],
@@ -433,7 +542,9 @@ async def reason_symbolically(
             conclusion=outcome["conclusion"],
             explanation=outcome["explanation"],
             validation_warnings=outcome["validation_warnings"],
-            preconditions=_execution_preconditions(candidate, execution_premises, outcome),
+            preconditions=_execution_preconditions(
+                candidate, execution_premises, outcome, identity_alignment
+            ),
             program=_program(operator, public_ids, candidate_id),
         ))
     # Applicable candidates deliberately omitted by the compiler remain visible
@@ -465,6 +576,11 @@ async def reason_symbolically(
                     "name": "Operand alignment",
                     "status": "UNRESOLVED",
                     "detail": "The model did not map the candidate to sufficient server-owned premises.",
+                },
+                {
+                    "name": "Identity alignment",
+                    "status": "UNRESOLVED",
+                    "detail": "No grounded program was available for identity alignment.",
                 },
             ],
             program=_program(SymbolicOperator(candidate.operator), [], candidate.id),

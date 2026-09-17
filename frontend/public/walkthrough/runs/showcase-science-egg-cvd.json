@@ -10,7 +10,7 @@
       "sourceText": "Among US adults, each additional half egg consumed per day is associated with a higher risk of incident cardiovascular disease.",
       "start": 0,
       "end": 127,
-      "role": "CAUSAL_RELATION"
+      "role": "CORE"
     }
   ],
   "evidence": [
@@ -34,15 +34,6 @@
           "end": 1213,
           "contextSpans": [],
           "context": "**Conclusions:** Results from the three cohorts and from the updated meta-analysis show that moderate egg consumption (up to one egg per day) is not associated with cardiovascular disease risk overall, and is associated with potentially lower cardiovascular disease risk in Asian populations."
-        },
-        {
-          "id": "doc-55ee6f649206::sentence-1",
-          "documentId": "doc-55ee6f649206",
-          "text": "In the updated meta-analysis of prospective cohort studies (33 risk estimates, 1 720 108 participants, 139 195 cardiovascular disease events), an increase of one egg per day was not associated with cardiovascular disease risk (pooled relative risk 0.98, 95% confidence interval 0.93 to 1.03, I 2=62.3%). ",
-          "start": 0,
-          "end": 304,
-          "contextSpans": [],
-          "context": "In the updated meta-analysis of prospective cohort studies (33 risk estimates, 1 720 108 participants, 139 195 cardiovascular disease events), an increase of one egg per day was not associated with cardiovascular disease risk (pooled relative risk 0.98, 95% confidence interval 0.93 to 1.03, I 2=62.3%)."
         },
         {
           "id": "doc-294213eca17a::sentence-4",
@@ -70,6 +61,15 @@
           "end": 316,
           "contextSpans": [],
           "context": "Each additional 300 mg of dietary cholesterol consumed per day was significantly associated with higher risk of incident CVD (adjusted HR, 1.17 [95% CI, 1.09-1.26]; adjusted ARD, 3.24% [95% CI, 1.39%-5.08%]) and all-cause mortality (adjusted HR, 1.18 [95% CI, 1.10-1.26]; adjusted ARD, 4.43% [95% CI, 2.51%-6.36%])."
+        },
+        {
+          "id": "doc-55ee6f649206::sentence-1",
+          "documentId": "doc-55ee6f649206",
+          "text": "In the updated meta-analysis of prospective cohort studies (33 risk estimates, 1 720 108 participants, 139 195 cardiovascular disease events), an increase of one egg per day was not associated with cardiovascular disease risk (pooled relative risk 0.98, 95% confidence interval 0.93 to 1.03, I 2=62.3%). ",
+          "start": 0,
+          "end": 304,
+          "contextSpans": [],
+          "context": "In the updated meta-analysis of prospective cohort studies (33 risk estimates, 1 720 108 participants, 139 195 cardiovascular disease events), an increase of one egg per day was not associated with cardiovascular disease risk (pooled relative risk 0.98, 95% confidence interval 0.93 to 1.03, I 2=62.3%)."
         },
         {
           "id": "doc-55ee6f649206::sentence-3",
@@ -101,7 +101,7 @@
         ],
         "sufficiency": "SUFFICIENT",
         "missingInformation": "",
-        "reason": "O1-E1 and O1-E4 provide direct support for the claim, while O1-E2, O1-E3, and O1-E6 provide conflicting evidence.",
+        "reason": "The selected evidence directly supports and refutes the same atomic claim.",
         "scopeChecks": [
           {
             "spanId": "doc-294213eca17a::sentence-2",
@@ -113,14 +113,6 @@
           },
           {
             "spanId": "doc-55ee6f649206::sentence-4",
-            "documentId": "doc-55ee6f649206",
-            "status": "NOT_APPLICABLE",
-            "claimJurisdictions": [],
-            "evidenceJurisdictions": [],
-            "reason": "The atomic claim does not state a recognized jurisdiction."
-          },
-          {
-            "spanId": "doc-55ee6f649206::sentence-1",
             "documentId": "doc-55ee6f649206",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
@@ -144,12 +136,53 @@
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
+            "spanId": "doc-55ee6f649206::sentence-1",
+            "documentId": "doc-55ee6f649206",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
             "spanId": "doc-55ee6f649206::sentence-3",
             "documentId": "doc-55ee6f649206",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
             "evidenceJurisdictions": [],
             "reason": "The atomic claim does not state a recognized jurisdiction."
+          }
+        ],
+        "identityChecks": [
+          {
+            "relation": "SUPPORTS",
+            "spanIds": [
+              "doc-294213eca17a::sentence-2",
+              "doc-294213eca17a::sentence-4"
+            ],
+            "status": "ALIGNED",
+            "requiredEntities": [
+              "US"
+            ],
+            "matchedEntities": [
+              "US"
+            ],
+            "reason": "No conflicting subject identity appears in the selected evidence; exact document-local matches were retained."
+          },
+          {
+            "relation": "REFUTES",
+            "spanIds": [
+              "doc-55ee6f649206::sentence-4",
+              "doc-55ee6f649206::sentence-1",
+              "doc-55ee6f649206::sentence-3"
+            ],
+            "status": "ALIGNED",
+            "requiredEntities": [
+              "US"
+            ],
+            "matchedEntities": [
+              "US"
+            ],
+            "reason": "No conflicting subject identity appears in the selected evidence; exact document-local matches were retained."
           }
         ]
       }
@@ -201,7 +234,7 @@
     ]
   },
   "recordedWith": {
-    "pipelineRevision": "generalized-symbolic-v5",
+    "pipelineRevision": "generalized-symbolic-v6",
     "inputDigest": "210d35420b065adc0e2f26fa2ca826b4dbc4ba0b6cca1ff9659a872dd04b9f71",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
@@ -210,11 +243,11 @@
     "reasoningModel": "qwen2.5:7b"
   },
   "timingsSeconds": {
-    "decomposition": 15.069,
-    "retrieval": 0.289,
-    "evidenceAssessment": 19.901,
-    "symbolicReasoning": 0.018,
-    "aggregation": 0.011,
-    "total": 35.29
+    "decomposition": 15.571,
+    "retrieval": 0.335,
+    "evidenceAssessment": 19.963,
+    "symbolicReasoning": 0.004,
+    "aggregation": 0.012,
+    "total": 35.887
   }
 }

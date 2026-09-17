@@ -10,20 +10,88 @@
       "sourceText": "The Nobel Prize in Physics for 1921 was awarded to Albert Einstein",
       "start": 0,
       "end": 66,
-      "role": "ATTRIBUTION"
+      "role": "CORE"
     },
     {
       "id": "atom-2",
-      "text": "The Nobel Prize in Physics for 1921 was awarded for his theory of relativity.",
-      "sourceText": "and the prize was awarded for his theory of relativity",
-      "start": 68,
+      "text": "The Nobel Prize in Physics for 1921 was awarded for Albert Einstein's theory of relativity.",
+      "sourceText": "the prize was awarded for his theory of relativity",
+      "start": 72,
       "end": 122,
-      "role": "CAUSAL_RELATION"
+      "role": "CORE"
     }
   ],
   "evidence": [
     {
       "atomId": "atom-1",
+      "spans": [
+        {
+          "id": "doc-46199fd9f0db::sentence-4",
+          "documentId": "doc-46199fd9f0db",
+          "text": "According to the statutes, a reserved prize can be awarded the year after, and Albert Einstein was awarded the 1921 Nobel Prize in Physics in 1922.\n\n",
+          "start": 275,
+          "end": 424,
+          "contextSpans": [],
+          "context": "According to the statutes, a reserved prize can be awarded the year after, and Albert Einstein was awarded the 1921 Nobel Prize in Physics in 1922."
+        },
+        {
+          "id": "doc-24e395b9bb6e::sentence-3",
+          "documentId": "doc-24e395b9bb6e",
+          "text": "Einstein was eventually awarded the 1921 Nobel Prize in Physics “for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect”. ",
+          "start": 249,
+          "end": 429,
+          "contextSpans": [],
+          "context": "Einstein was eventually awarded the 1921 Nobel Prize in Physics “for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect”."
+        },
+        {
+          "id": "doc-46199fd9f0db::sentence-1",
+          "documentId": "doc-46199fd9f0db",
+          "text": "**Question:**_When was Albert Einstein awarded the Nobel Prize in Physics?",
+          "start": 0,
+          "end": 74,
+          "contextSpans": [],
+          "context": "**Question:**_When was Albert Einstein awarded the Nobel Prize in Physics?"
+        },
+        {
+          "id": "doc-46199fd9f0db::sentence-3",
+          "documentId": "doc-46199fd9f0db",
+          "text": "**Answer:** The Nobel Prize Awarding Institution, the Royal Swedish Academy of Sciences, decided to reserve the Nobel Prize in Physics in 1921, and therefore no Physics Prize was awarded that year. ",
+          "start": 77,
+          "end": 275,
+          "contextSpans": [],
+          "context": "**Answer:** The Nobel Prize Awarding Institution, the Royal Swedish Academy of Sciences, decided to reserve the Nobel Prize in Physics in 1921, and therefore no Physics Prize was awarded that year."
+        },
+        {
+          "id": "doc-24e395b9bb6e::sentence-1",
+          "documentId": "doc-24e395b9bb6e",
+          "text": "In 1905, Albert Einstein published the first explanation of the photoelectric effect, but at the time, it was impossible to resolve the timescales that were relevant for this effect. ",
+          "start": 0,
+          "end": 183,
+          "contextSpans": [],
+          "context": "In 1905, Albert Einstein published the first explanation of the photoelectric effect, but at the time, it was impossible to resolve the timescales that were relevant for this effect."
+        },
+        {
+          "id": "doc-24e395b9bb6e::sentence-5",
+          "documentId": "doc-24e395b9bb6e",
+          "text": "His talk did not concern the photoelectric effect but the theory of relativity, the theory for which he was never awarded a Nobel Prize. ",
+          "start": 664,
+          "end": 801,
+          "contextSpans": [
+            {
+              "id": "doc-24e395b9bb6e::sentence-4",
+              "documentId": "doc-24e395b9bb6e",
+              "text": "Parenthetically, when he gave his Nobel lecture, it was not in Stockholm in December 1922 (Einstein was in Japan at that time), but in the middle of the summer of 1923, in Gothenburg – a unique event in the history of the Nobel Prize. ",
+              "start": 429,
+              "end": 664,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "Parenthetically, when he gave his Nobel lecture, it was not in Stockholm in December 1922 (Einstein was in Japan at that time), but in the middle of the summer of 1923, in Gothenburg – a unique event in the history of the Nobel Prize. His talk did not concern the photoelectric effect but the theory of relativity, the theory for which he was never awarded a Nobel Prize."
+        }
+      ]
+    },
+    {
+      "atomId": "atom-2",
       "spans": [
         {
           "id": "doc-24e395b9bb6e::sentence-3",
@@ -62,82 +130,6 @@
           "context": "**Answer:** The Nobel Prize Awarding Institution, the Royal Swedish Academy of Sciences, decided to reserve the Nobel Prize in Physics in 1921, and therefore no Physics Prize was awarded that year."
         },
         {
-          "id": "doc-24e395b9bb6e::sentence-1",
-          "documentId": "doc-24e395b9bb6e",
-          "text": "In 1905, Albert Einstein published the first explanation of the photoelectric effect, but at the time, it was impossible to resolve the timescales that were relevant for this effect. ",
-          "start": 0,
-          "end": 183,
-          "contextSpans": [],
-          "context": "In 1905, Albert Einstein published the first explanation of the photoelectric effect, but at the time, it was impossible to resolve the timescales that were relevant for this effect."
-        },
-        {
-          "id": "doc-24e395b9bb6e::sentence-4",
-          "documentId": "doc-24e395b9bb6e",
-          "text": "Parenthetically, when he gave his Nobel lecture, it was not in Stockholm in December 1922 (Einstein was in Japan at that time), but in the middle of the summer of 1923, in Gothenburg – a unique event in the history of the Nobel Prize. ",
-          "start": 429,
-          "end": 664,
-          "contextSpans": [
-            {
-              "id": "doc-24e395b9bb6e::sentence-3",
-              "documentId": "doc-24e395b9bb6e",
-              "text": "Einstein was eventually awarded the 1921 Nobel Prize in Physics “for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect”. ",
-              "start": 249,
-              "end": 429,
-              "direction": "PREVIOUS"
-            },
-            {
-              "id": "doc-24e395b9bb6e::sentence-5",
-              "documentId": "doc-24e395b9bb6e",
-              "text": "His talk did not concern the photoelectric effect but the theory of relativity, the theory for which he was never awarded a Nobel Prize. ",
-              "start": 664,
-              "end": 801,
-              "direction": "NEXT"
-            }
-          ],
-          "context": "Einstein was eventually awarded the 1921 Nobel Prize in Physics “for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect”. Parenthetically, when he gave his Nobel lecture, it was not in Stockholm in December 1922 (Einstein was in Japan at that time), but in the middle of the summer of 1923, in Gothenburg – a unique event in the history of the Nobel Prize. His talk did not concern the photoelectric effect but the theory of relativity, the theory for which he was never awarded a Nobel Prize."
-        }
-      ]
-    },
-    {
-      "atomId": "atom-2",
-      "spans": [
-        {
-          "id": "doc-24e395b9bb6e::sentence-3",
-          "documentId": "doc-24e395b9bb6e",
-          "text": "Einstein was eventually awarded the 1921 Nobel Prize in Physics “for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect”. ",
-          "start": 249,
-          "end": 429,
-          "contextSpans": [],
-          "context": "Einstein was eventually awarded the 1921 Nobel Prize in Physics “for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect”."
-        },
-        {
-          "id": "doc-46199fd9f0db::sentence-4",
-          "documentId": "doc-46199fd9f0db",
-          "text": "According to the statutes, a reserved prize can be awarded the year after, and Albert Einstein was awarded the 1921 Nobel Prize in Physics in 1922.\n\n",
-          "start": 275,
-          "end": 424,
-          "contextSpans": [],
-          "context": "According to the statutes, a reserved prize can be awarded the year after, and Albert Einstein was awarded the 1921 Nobel Prize in Physics in 1922."
-        },
-        {
-          "id": "doc-46199fd9f0db::sentence-3",
-          "documentId": "doc-46199fd9f0db",
-          "text": "**Answer:** The Nobel Prize Awarding Institution, the Royal Swedish Academy of Sciences, decided to reserve the Nobel Prize in Physics in 1921, and therefore no Physics Prize was awarded that year. ",
-          "start": 77,
-          "end": 275,
-          "contextSpans": [],
-          "context": "**Answer:** The Nobel Prize Awarding Institution, the Royal Swedish Academy of Sciences, decided to reserve the Nobel Prize in Physics in 1921, and therefore no Physics Prize was awarded that year."
-        },
-        {
-          "id": "doc-46199fd9f0db::sentence-11",
-          "documentId": "doc-46199fd9f0db",
-          "text": "**Answer:** Einstein was rewarded for his many contributions to theoretical physics, and especially for his discovery of the law of the photoelectric effect.\n\n",
-          "start": 756,
-          "end": 915,
-          "contextSpans": [],
-          "context": "**Answer:** Einstein was rewarded for his many contributions to theoretical physics, and especially for his discovery of the law of the photoelectric effect."
-        },
-        {
           "id": "doc-24e395b9bb6e::sentence-5",
           "documentId": "doc-24e395b9bb6e",
           "text": "His talk did not concern the photoelectric effect but the theory of relativity, the theory for which he was never awarded a Nobel Prize. ",
@@ -156,30 +148,13 @@
           "context": "Parenthetically, when he gave his Nobel lecture, it was not in Stockholm in December 1922 (Einstein was in Japan at that time), but in the middle of the summer of 1923, in Gothenburg – a unique event in the history of the Nobel Prize. His talk did not concern the photoelectric effect but the theory of relativity, the theory for which he was never awarded a Nobel Prize."
         },
         {
-          "id": "doc-24e395b9bb6e::sentence-4",
+          "id": "doc-24e395b9bb6e::sentence-1",
           "documentId": "doc-24e395b9bb6e",
-          "text": "Parenthetically, when he gave his Nobel lecture, it was not in Stockholm in December 1922 (Einstein was in Japan at that time), but in the middle of the summer of 1923, in Gothenburg – a unique event in the history of the Nobel Prize. ",
-          "start": 429,
-          "end": 664,
-          "contextSpans": [
-            {
-              "id": "doc-24e395b9bb6e::sentence-3",
-              "documentId": "doc-24e395b9bb6e",
-              "text": "Einstein was eventually awarded the 1921 Nobel Prize in Physics “for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect”. ",
-              "start": 249,
-              "end": 429,
-              "direction": "PREVIOUS"
-            },
-            {
-              "id": "doc-24e395b9bb6e::sentence-5",
-              "documentId": "doc-24e395b9bb6e",
-              "text": "His talk did not concern the photoelectric effect but the theory of relativity, the theory for which he was never awarded a Nobel Prize. ",
-              "start": 664,
-              "end": 801,
-              "direction": "NEXT"
-            }
-          ],
-          "context": "Einstein was eventually awarded the 1921 Nobel Prize in Physics “for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect”. Parenthetically, when he gave his Nobel lecture, it was not in Stockholm in December 1922 (Einstein was in Japan at that time), but in the middle of the summer of 1923, in Gothenburg – a unique event in the history of the Nobel Prize. His talk did not concern the photoelectric effect but the theory of relativity, the theory for which he was never awarded a Nobel Prize."
+          "text": "In 1905, Albert Einstein published the first explanation of the photoelectric effect, but at the time, it was impossible to resolve the timescales that were relevant for this effect. ",
+          "start": 0,
+          "end": 183,
+          "contextSpans": [],
+          "context": "In 1905, Albert Einstein published the first explanation of the photoelectric effect, but at the time, it was impossible to resolve the timescales that were relevant for this effect."
         }
       ]
     }
@@ -189,20 +164,132 @@
       {
         "atomId": "atom-1",
         "supportSpanIds": [
-          "doc-24e395b9bb6e::sentence-3",
-          "doc-46199fd9f0db::sentence-4"
+          "doc-24e395b9bb6e::sentence-3"
         ],
         "refuteSpanIds": [
-          "doc-46199fd9f0db::sentence-1",
+          "doc-46199fd9f0db::sentence-4",
           "doc-46199fd9f0db::sentence-3"
         ],
         "contextSpanIds": [
+          "doc-46199fd9f0db::sentence-1",
           "doc-24e395b9bb6e::sentence-1",
-          "doc-24e395b9bb6e::sentence-4"
+          "doc-24e395b9bb6e::sentence-5"
         ],
-        "sufficiency": "PARTIAL",
-        "missingInformation": "The evidence does not specify the exact year when Einstein was awarded the Nobel Prize, only that it was in 1922 after the 1921 prize was reserved.",
-        "reason": "The evidence supports that Einstein was awarded the 1921 Nobel Prize in 1922, but does not confirm the exact year of the award.",
+        "sufficiency": "SUFFICIENT",
+        "missingInformation": "",
+        "reason": "The selected evidence directly supports and refutes the same atomic claim.",
+        "scopeChecks": [
+          {
+            "spanId": "doc-46199fd9f0db::sentence-4",
+            "documentId": "doc-46199fd9f0db",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "SE"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-24e395b9bb6e::sentence-3",
+            "documentId": "doc-24e395b9bb6e",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "JP"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-46199fd9f0db::sentence-1",
+            "documentId": "doc-46199fd9f0db",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "SE"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-46199fd9f0db::sentence-3",
+            "documentId": "doc-46199fd9f0db",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "SE"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-24e395b9bb6e::sentence-1",
+            "documentId": "doc-24e395b9bb6e",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "JP"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-24e395b9bb6e::sentence-5",
+            "documentId": "doc-24e395b9bb6e",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "JP"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          }
+        ],
+        "identityChecks": [
+          {
+            "relation": "SUPPORTS",
+            "spanIds": [
+              "doc-24e395b9bb6e::sentence-3"
+            ],
+            "status": "ALIGNED",
+            "requiredEntities": [
+              "The Nobel Prize in Physics",
+              "Albert Einstein"
+            ],
+            "matchedEntities": [
+              "Albert Einstein"
+            ],
+            "reason": "No conflicting subject identity appears in the selected evidence; exact document-local matches were retained."
+          },
+          {
+            "relation": "REFUTES",
+            "spanIds": [
+              "doc-46199fd9f0db::sentence-4",
+              "doc-46199fd9f0db::sentence-3"
+            ],
+            "status": "ALIGNED",
+            "requiredEntities": [
+              "The Nobel Prize in Physics",
+              "Albert Einstein"
+            ],
+            "matchedEntities": [
+              "The Nobel Prize in Physics",
+              "Albert Einstein"
+            ],
+            "reason": "No conflicting subject identity appears in the selected evidence; exact document-local matches were retained."
+          }
+        ]
+      },
+      {
+        "atomId": "atom-2",
+        "supportSpanIds": [],
+        "refuteSpanIds": [
+          "doc-24e395b9bb6e::sentence-3",
+          "doc-24e395b9bb6e::sentence-5"
+        ],
+        "contextSpanIds": [
+          "doc-46199fd9f0db::sentence-4",
+          "doc-46199fd9f0db::sentence-1",
+          "doc-46199fd9f0db::sentence-3"
+        ],
+        "sufficiency": "INSUFFICIENT",
+        "missingInformation": "O2-E6 states that Einstein's talk did not concern the photoelectric effect but the theory of relativity, the theory for which he was never awarded a Nobel Prize, which directly ref.",
+        "reason": "O2-E1 and O2-E5 directly state that the prize was awarded for the photoelectric effect, not the theory of relativity.",
         "scopeChecks": [
           {
             "spanId": "doc-24e395b9bb6e::sentence-3",
@@ -245,85 +332,6 @@
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
-            "spanId": "doc-24e395b9bb6e::sentence-1",
-            "documentId": "doc-24e395b9bb6e",
-            "status": "NOT_APPLICABLE",
-            "claimJurisdictions": [],
-            "evidenceJurisdictions": [
-              "JP"
-            ],
-            "reason": "The atomic claim does not state a recognized jurisdiction."
-          },
-          {
-            "spanId": "doc-24e395b9bb6e::sentence-4",
-            "documentId": "doc-24e395b9bb6e",
-            "status": "NOT_APPLICABLE",
-            "claimJurisdictions": [],
-            "evidenceJurisdictions": [
-              "JP"
-            ],
-            "reason": "The atomic claim does not state a recognized jurisdiction."
-          }
-        ]
-      },
-      {
-        "atomId": "atom-2",
-        "supportSpanIds": [],
-        "refuteSpanIds": [
-          "doc-24e395b9bb6e::sentence-3",
-          "doc-46199fd9f0db::sentence-4",
-          "doc-46199fd9f0db::sentence-3"
-        ],
-        "contextSpanIds": [
-          "doc-46199fd9f0db::sentence-11",
-          "doc-24e395b9bb6e::sentence-5",
-          "doc-24e395b9bb6e::sentence-4"
-        ],
-        "sufficiency": "INSUFFICIENT",
-        "missingInformation": "The evidence does not provide a clear statement that the prize was awarded for the theory of relativity.",
-        "reason": "The evidence states that the prize was awarded for the photoelectric effect, not the theory of relativity, and that the theory of relativity was not the subject of his Nobel lecture.",
-        "scopeChecks": [
-          {
-            "spanId": "doc-24e395b9bb6e::sentence-3",
-            "documentId": "doc-24e395b9bb6e",
-            "status": "NOT_APPLICABLE",
-            "claimJurisdictions": [],
-            "evidenceJurisdictions": [
-              "JP"
-            ],
-            "reason": "The atomic claim does not state a recognized jurisdiction."
-          },
-          {
-            "spanId": "doc-46199fd9f0db::sentence-4",
-            "documentId": "doc-46199fd9f0db",
-            "status": "NOT_APPLICABLE",
-            "claimJurisdictions": [],
-            "evidenceJurisdictions": [
-              "SE"
-            ],
-            "reason": "The atomic claim does not state a recognized jurisdiction."
-          },
-          {
-            "spanId": "doc-46199fd9f0db::sentence-3",
-            "documentId": "doc-46199fd9f0db",
-            "status": "NOT_APPLICABLE",
-            "claimJurisdictions": [],
-            "evidenceJurisdictions": [
-              "SE"
-            ],
-            "reason": "The atomic claim does not state a recognized jurisdiction."
-          },
-          {
-            "spanId": "doc-46199fd9f0db::sentence-11",
-            "documentId": "doc-46199fd9f0db",
-            "status": "NOT_APPLICABLE",
-            "claimJurisdictions": [],
-            "evidenceJurisdictions": [
-              "SE"
-            ],
-            "reason": "The atomic claim does not state a recognized jurisdiction."
-          },
-          {
             "spanId": "doc-24e395b9bb6e::sentence-5",
             "documentId": "doc-24e395b9bb6e",
             "status": "NOT_APPLICABLE",
@@ -334,7 +342,7 @@
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
-            "spanId": "doc-24e395b9bb6e::sentence-4",
+            "spanId": "doc-24e395b9bb6e::sentence-1",
             "documentId": "doc-24e395b9bb6e",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
@@ -342,6 +350,24 @@
               "JP"
             ],
             "reason": "The atomic claim does not state a recognized jurisdiction."
+          }
+        ],
+        "identityChecks": [
+          {
+            "relation": "REFUTES",
+            "spanIds": [
+              "doc-24e395b9bb6e::sentence-3",
+              "doc-24e395b9bb6e::sentence-5"
+            ],
+            "status": "ALIGNED",
+            "requiredEntities": [
+              "The Nobel Prize in Physics",
+              "Albert Einstein's"
+            ],
+            "matchedEntities": [
+              "Albert Einstein's"
+            ],
+            "reason": "No conflicting subject identity appears in the selected evidence; exact document-local matches were retained."
           }
         ]
       }
@@ -362,8 +388,7 @@
       "status": "PROVED",
       "relation": "SUPPORTS",
       "premiseIds": [
-        "evidence:atom-1:doc-24e395b9bb6e:doc-24e395b9bb6e::sentence-3",
-        "context:atom-1:doc-24e395b9bb6e:doc-24e395b9bb6e::sentence-3"
+        "evidence:atom-1:doc-24e395b9bb6e:doc-24e395b9bb6e::sentence-3"
       ],
       "premises": [
         {
@@ -373,17 +398,6 @@
           "start": 249,
           "end": 429,
           "kind": "EVIDENCE",
-          "contentHash": null,
-          "itemCount": null,
-          "listItems": []
-        },
-        {
-          "id": "context:atom-1:doc-24e395b9bb6e:doc-24e395b9bb6e::sentence-3",
-          "documentId": "doc-24e395b9bb6e",
-          "text": "Einstein was eventually awarded the 1921 Nobel Prize in Physics “for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect”. ",
-          "start": 249,
-          "end": 429,
-          "kind": "OPERAND",
           "contentHash": null,
           "itemCount": null,
           "listItems": []
@@ -408,6 +422,11 @@
           "name": "Operand alignment",
           "status": "PASSED",
           "detail": "Python aligned the explicit recipient, award year, and award statement."
+        },
+        {
+          "name": "Identity alignment",
+          "status": "PASSED",
+          "detail": "No conflicting subject identity appears in the selected evidence; exact document-local matches were retained."
         }
       ],
       "program": {
@@ -423,20 +442,10 @@
             "description": "Read an unchanged server-owned premise."
           },
           {
-            "id": "input-2",
-            "operation": "LOOKUP",
-            "inputIds": [
-              "context:atom-1:doc-24e395b9bb6e:doc-24e395b9bb6e::sentence-3"
-            ],
-            "outputType": "FACT",
-            "description": "Read an unchanged server-owned premise."
-          },
-          {
             "id": "result",
             "operation": "EQUAL",
             "inputIds": [
-              "input-1",
-              "input-2"
+              "input-1"
             ],
             "outputType": "BOOLEAN",
             "description": "Validate operand alignment and execute the typed operation in Python."
@@ -487,6 +496,11 @@
           "name": "Operand alignment",
           "status": "PASSED",
           "detail": "Python compared explicit source and claim attributes after subject alignment."
+        },
+        {
+          "name": "Identity alignment",
+          "status": "PASSED",
+          "detail": "No conflicting subject identity appears in the selected evidence; exact document-local matches were retained."
         }
       ],
       "program": {
@@ -528,6 +542,7 @@
         "atom-1"
       ],
       "refuteObligationIds": [
+        "atom-1",
         "atom-2"
       ],
       "unresolvedObligationIds": []
@@ -535,13 +550,16 @@
     "obligations": [
       {
         "obligationId": "atom-1",
-        "state": "SUPPORTED",
+        "state": "CONFLICTING",
         "supportEdgeIds": [
+          "edge:SUPPORTS:evidence:doc-24e395b9bb6e:doc-24e395b9bb6e::sentence-3:obligation:showcase-history-einstein:atom-1",
           "edge:SUPPORTS:inference:proof:atom-1:attribute_compare:1:obligation:showcase-history-einstein:atom-1"
         ],
-        "refuteEdgeIds": [],
+        "refuteEdgeIds": [
+          "edge:REFUTES:inference:bundle:atom-1:refutes:obligation:showcase-history-einstein:atom-1"
+        ],
         "unselectedCandidateCount": 0,
-        "provisionalRelationCount": 4
+        "provisionalRelationCount": 0
       },
       {
         "obligationId": "atom-2",
@@ -550,18 +568,14 @@
         "refuteEdgeIds": [
           "edge:REFUTES:inference:proof:atom-2:attribute_compare:2:obligation:showcase-history-einstein:atom-2"
         ],
-        "unselectedCandidateCount": 0,
-        "provisionalRelationCount": 3
+        "unselectedCandidateCount": 1,
+        "provisionalRelationCount": 2
       }
     ],
     "warnings": [
       {
         "code": "PROVISIONAL_EVIDENCE_EXCLUDED",
-        "message": "4 assessed relation(s) for obligation atom-1 are provisional because the evidence is not sufficient."
-      },
-      {
-        "code": "PROVISIONAL_EVIDENCE_EXCLUDED",
-        "message": "3 assessed relation(s) for obligation atom-2 are provisional because the evidence is not sufficient."
+        "message": "2 assessed relation(s) for obligation atom-2 are provisional because the evidence is not sufficient."
       }
     ],
     "ruleTrace": [
@@ -571,7 +585,7 @@
     ]
   },
   "recordedWith": {
-    "pipelineRevision": "generalized-symbolic-v5",
+    "pipelineRevision": "generalized-symbolic-v6",
     "inputDigest": "fb0defd5c858496db39dd1b06ac08debcafc705c87d0460cd87eabcadc6d7463",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
@@ -580,11 +594,11 @@
     "reasoningModel": "qwen2.5:7b"
   },
   "timingsSeconds": {
-    "decomposition": 17.397,
-    "retrieval": 0.318,
-    "evidenceAssessment": 28.025,
-    "symbolicReasoning": 19.09,
-    "aggregation": 0.013,
-    "total": 64.843
+    "decomposition": 16.051,
+    "retrieval": 0.347,
+    "evidenceAssessment": 28.532,
+    "symbolicReasoning": 17.094,
+    "aggregation": 0.002,
+    "total": 62.028
   }
 }

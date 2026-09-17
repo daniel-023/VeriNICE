@@ -322,6 +322,7 @@ export interface GroundedObligationAudit {
   missingInformation: string;
   reason: string;
   scopeChecks: EvidenceScopeCheck[];
+  identityChecks?: IdentityAlignmentCheck[];
 }
 
 export interface MaterialOmissionCertificate {
@@ -339,6 +340,17 @@ export interface EvidenceScopeCheck {
   status: EvidenceScopeStatus;
   claimJurisdictions: string[];
   evidenceJurisdictions: string[];
+  reason: string;
+}
+
+export type IdentityAlignmentStatus = "ALIGNED" | "UNRESOLVED" | "NOT_APPLICABLE";
+
+export interface IdentityAlignmentCheck {
+  relation: "SUPPORTS" | "REFUTES";
+  spanIds: string[];
+  status: IdentityAlignmentStatus;
+  requiredEntities: string[];
+  matchedEntities: string[];
   reason: string;
 }
 
@@ -424,7 +436,7 @@ export interface WalkthroughRun {
   /** Recorded aggregation result. Absent in walkthroughs recorded before stage 05. */
   verdict?: VerdictAggregationResult;
   recordedWith: {
-    pipelineRevision: "generalized-symbolic-v5";
+    pipelineRevision: "generalized-symbolic-v6";
     inputDigest: string;
     decompositionModel: string;
     retrievalModel: string;
@@ -439,8 +451,10 @@ export interface Health {
   decompositionConfigured: boolean;
   decompositionReady: boolean;
   retrievalConfigured: boolean;
+  entityAlignmentReady: boolean;
   decompositionModel: string;
   retrievalModel: string;
+  entityModel: string;
 }
 
 export type StageState = "idle" | "running" | "complete" | "error";

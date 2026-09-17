@@ -68,7 +68,8 @@ def test_temporal_comparison_cross_domain(claim, evidence, status):
     ("The Meridian Award for 1979 was awarded to Abdus Salam.", "Abdus Salam was awarded the 1979 Meridian Award.", "PROVED"),
     ("Abdus Salam received the Meridian Award for chemistry.", "Abdus Salam received the Meridian Award for electroweak theory.", "DISPROVED"),
     ("The Atomium is located in Germany.", "The Atomium is located in Brussels, Belgium.", "DISPROVED"),
-    ("Aurora was developed exclusively for civilian navigation.", "Aurora serves military and civilian users.", "DISPROVED"),
+    ("Aurora was developed exclusively for civilian navigation.", "Aurora serves military and civilian users.", "UNRESOLVED"),
+    ("Aurora was developed exclusively for civilian navigation.", "Aurora was developed for military navigation.", "DISPROVED"),
     ("Comet has a striped surface.", "Comet does not have a striped surface.", "DISPROVED"),
     ("Ada is a physician.", "Ada is a physician and is not a lawyer.", "UNRESOLVED"),
 ])

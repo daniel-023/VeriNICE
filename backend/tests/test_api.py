@@ -40,8 +40,11 @@ def evidence_payload():
 def test_health_and_demo_case_contracts(monkeypatch) -> None:
     monkeypatch.setattr(api, "ollama_model_ready", lambda: True)
     monkeypatch.setattr(api, "embeddings_available", lambda: True)
+    monkeypatch.setattr(api, "entity_model_ready", lambda: True)
     payload = client.get("/api/v1/health").json()
     assert payload["status"] == "ready"
+    assert payload["entityAlignmentReady"] is True
+    assert payload["entityModel"] == "en_core_web_sm"
     assert "nliConfigured" not in payload
     assert "nliModel" not in payload
     assert "linguisticsConfigured" not in payload
@@ -49,6 +52,17 @@ def test_health_and_demo_case_contracts(monkeypatch) -> None:
     assert client.get("/api/v1/demo-cases").status_code == 200
     assert client.get("/api/v1/demo-cases/sample-1").json()["documents"][0]["text"]
     assert client.get("/api/v1/demo-cases/missing").status_code == 404
+
+
+def test_health_is_degraded_when_entity_alignment_is_unavailable(monkeypatch) -> None:
+    monkeypatch.setattr(api, "ollama_model_ready", lambda: True)
+    monkeypatch.setattr(api, "embeddings_available", lambda: True)
+    monkeypatch.setattr(api, "entity_model_ready", lambda: False)
+
+    payload = client.get("/api/v1/health").json()
+
+    assert payload["status"] == "degraded"
+    assert payload["entityAlignmentReady"] is False
 
 
 def test_old_support_route_is_removed() -> None:

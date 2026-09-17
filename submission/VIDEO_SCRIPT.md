@@ -1,54 +1,151 @@
-# VeriNICE demonstration video — 4:35 target
+# VeriNICE demonstration video script
 
-Keep the cursor movements slow and the narration conversational. Record at
-1080p with interface zoomed so evidence spans are readable.
+## Opening
 
-## 0:00–0:45 — the whole idea
+**On screen:** Open VeriNICE and briefly show the five-stage pipeline.
 
-“A fact-checking label tells us almost nothing about how the system reached its
-answer. VeriNICE lets us inspect that path. It breaks a claim into atomic claims,
-finds the passages most relevant to each one, distinguishes support from
-refutation, and then shows the exact rule behind the verdict. The
-language model proposes structure; it never gets the last word.”
+**Narration:**
 
-Show one curated case, the five-stage rail, and the completed graph. Do not
-explain model names yet.
+> This video presents VeriNICE, an inspectable neurosymbolic fact-verification
+> system. Fact-checking is rarely as simple as matching one claim to one
+> sentence. A claim may contain several facts, draw on multiple passages, or
+> require comparisons between dates, quantities, or attributes. VeriNICE shows
+> how a claim is decomposed, how source evidence is assessed, when symbolic
+> reasoning is applied, and how these results produce a four-way verdict.
 
-## 0:45–1:25 — choose a useful sample
+## Example walkthrough
 
-Choose a category, then select either a source-grounded example or an AVeriTeC
-case. Point out the origin badge and that the reference label is metadata, not
-an input to the pipeline.
+**On screen:** In **History**, select **Einstein's Nobel Prize citation** and
+show the supplied source documents.
 
-## 1:25–2:15 — structure and retrieval
+**Narration:**
 
-Run the selected case. Show the typed obligations and exact source grounding.
-Open one obligation and trace its candidate evidence back into the full source.
-Explain hybrid retrieval in one sentence: semantic similarity finds paraphrases;
-lexical anchors protect exact numbers and names.
+> Let's review this claim: “The Nobel Prize in Physics for 1921 was awarded to
+> Albert Einstein, and the prize was awarded for his theory of relativity.”
+> VeriNICE evaluates it only against the supplied source documents, rather than
+> searching the open web.
 
-## 2:15–3:05 — support, conflict, and abstention
+### Claim decomposition
 
-Show one supporting or refuting relation. Explain that Qwen can select only
-retrieved sentence IDs, that insufficient selections remain provisional, and
-that every decisive relation has a visible source anchor. Open the graph and
-follow one atomic claim to its evidence.
+**On screen:** Open **01 Decompose** and select each atomic claim.
 
-## 3:05–4:05 — review a relation and inspect the rule
+**Narration:**
 
-Open a symbolic result and point to its two steps: “The model selects from
-server-issued rule/profile candidates and grounded inputs. Python validates the
-profile preconditions and executes the rule.” Select a
-premise to jump to the exact source span. Then change one evidence relation and
-show the graph and verdict recompute from the visible atomic-claim states. The
-verdict is not another model response.
+> First, a language model separates the statement into verifiable atomic claims:
+> that Einstein received the 1921 Physics prize, and that it was awarded for his
+> theory of relativity.
+>
+> VeriNICE also records whether the atoms form a single statement, an `AND`, or
+> an `OR`. Each atom remains linked to the original wording, and the backend
+> validates the structure before continuing.
 
-## 4:05–4:35 — close
+### Retrieval
 
-“VeriNICE is useful precisely when the pipeline is imperfect: it gives a
-researcher or practitioner somewhere concrete to look, disagree, and improve.
-At the live demonstration, visitors can choose a topic, inspect a recorded case,
-or supply a claim and documents to run locally.”
+**On screen:** Open **02 Retrieve**. Switch between the two atomic claims, then
+select a retrieved sentence to reveal it in the document panel.
 
-End on the reasoning graph and project URL/QR code. Do not show an accuracy
-number unless the final, expanded evaluation has been completed.
+**Narration:**
+
+> VeriNICE retrieves evidence separately for each atomic claim by combining
+> semantic and keyword-based matching. Semantic matching finds paraphrases,
+> while keyword matching preserves important names, dates, and numbers. Every
+> result retains its exact source location and is highlighted in the document
+> panel for inspection in context.
+>
+> In this case, both retrieval paths lead to official Nobel material, including
+> the citation stating that Einstein received the 1921 Physics prize especially
+> for his discovery of the law of the photoelectric effect.
+
+### Evidence assessment
+
+**On screen:** Open **03 Assess**. Point to the relation labels, sufficiency
+state, and highlighted source sentences for each atomic claim.
+
+**Narration:**
+
+> The model can assess only retrieved sentence identifiers. Supporting evidence
+> establishes the atom; refuting evidence contradicts it; contextual evidence
+> aids interpretation without deciding it; and other candidates remain unused.
+>
+> It also judges the selected sentences together. A sufficient bundle resolves
+> every relevant entity, relationship, time, quantity, comparison, and scope.
+> Partial or insufficient bundles leave gaps. Their relations remain visible,
+> but only a sufficient bundle can contribute directly to the verdict.
+>
+> In this run, the first bundle is marked partial and the second insufficient,
+> so their relations remain provisional. But the source explicitly names the
+> recipient, award, year, and motivation. These values match registered award
+> profiles, making both atoms eligible for symbolic checks.
+
+### Symbolic reasoning
+
+**On screen:** Open **04 Reason**. Briefly show the rule-type list, then expand
+the two `ATTRIBUTE_COMPARE` results and their source-linked premises.
+
+**Narration:**
+
+> VeriNICE provides six bounded types of symbolic reasoning: set membership,
+> numeric comparison, temporal comparison, attribute comparison, distinct-value
+> counting, and largest-or-smallest comparison.
+>
+> The backend supplies eligible operators and source-linked premises. The model
+> maps the premises to a rule, and Python validates and executes it. Missing or
+> ambiguous operands produce an unresolved result rather than a guess.
+>
+> Here, VeriNICE compares attributes for each atom. The source names Albert
+> Einstein as the recipient of the 1921 Nobel Prize in Physics. The recipient,
+> award, and year align, so the first check returns `PROVED`.
+>
+> For the second, the claimed motivation is the theory of relativity, but the
+> Nobel citation identifies the discovery of the law of the photoelectric
+> effect. The motivations do not match, so the check returns `DISPROVED`.
+
+### Verdict composition and reasoning graph
+
+**On screen:** Open **05 Decide**, then show the reasoning graph. Highlight the
+claim, atomic-claim, evidence, and inference nodes; follow the green and red
+edges; finish on the rule trace and final verdict.
+
+**Narration:**
+
+> VeriNICE combines sufficient direct evidence with resolved symbolic results
+> for each atom. Support alone means `SUPPORTED`; refutation alone means
+> `REFUTED`; both mean `CONFLICTING_EVIDENCE`; and neither means
+> `NOT_ENOUGH_EVIDENCE`.
+>
+> Atomic outcomes are then composed according to the claim structure. An `AND`
+> needs every atom to be supported and is refuted if any is refuted. An `OR` is
+> supported if any atom is supported and refuted only if all are refuted.
+> Remaining conflicts or gaps produce the corresponding outcome in the rule
+> trace.
+>
+> The graph makes this inspectable. Claim, evidence, and inference nodes show
+> where results came from. Green edges show support, red edges show refutation,
+> and selecting a node returns to its highlighted source passage.
+>
+> Here, the first obligation is supported by a proved symbolic result, while the
+> second is refuted by a disproved result. Because the original claim joins them
+> with `AND`, the refuted obligation refutes the complete claim. VeriNICE
+> therefore returns `REFUTED` as the final verdict.
+
+## Conclusion
+
+**On screen:** End on the completed reasoning graph and the VeriNICE title.
+
+**Narration:**
+
+> VeriNICE exposes the complete path from a claim and its supplied sources to
+> evidence assessments, validated symbolic reasoning, and a four-way verdict.
+> It does not replace human judgment, but makes source use, intermediate
+> decisions, and verdict composition easier to inspect and understand.
+
+## Recording notes
+
+- Keep `PROVED` and `DISPROVED` distinct from the claim-level verdicts
+  `SUPPORTED`, `REFUTED`, `CONFLICTING_EVIDENCE`, and
+  `NOT_ENOUGH_EVIDENCE`.
+- When describing the four-way output, keep the graph or rule trace visible so
+  the explanation is tied to the interface rather than presented as a detached
+  list.
+- Do not imply that provisional relations affect the Einstein verdict. Its
+  validated symbolic results are decisive.

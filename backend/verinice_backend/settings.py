@@ -44,6 +44,7 @@ class Settings:
     embedding_model: str = os.getenv(
         "VERINICE_EMBEDDING_MODEL", "BAAI/bge-small-en-v1.5"
     )
+    entity_model: str = os.getenv("VERINICE_ENTITY_MODEL", "en_core_web_sm")
     embedding_model_path: Path = _path_env(
         "VERINICE_EMBEDDING_MODEL_PATH",
         ROOT / "data" / "models" / "bge-small-en-v1.5",

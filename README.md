@@ -1,10 +1,10 @@
 <p align="center">
-  <img src="verinice-readme-banner.jpg" alt="VeriNICE — Verification via Neuro-symbolic Inference with Compositional Evidence" width="100%">
+  <img src="verinice-readme-banner.jpg" alt="VeriNICE — Verification via Neurosymbolic Inference with Compositional Evidence" width="100%">
 </p>
 
 # VeriNICE
 
-VeriNICE (**Verification via Neuro-symbolic Inference with Compositional
+VeriNICE (**Verification via Neurosymbolic Inference with Compositional
 Evidence**) is an inspectable claim-verification demonstrator. Given a claim
 and supplied source documents, it decomposes the claim, retrieves relevant
 passages, assesses their relations to each atomic claim, applies eligible
@@ -30,18 +30,19 @@ flowchart TB
 ```
 
 Hybrid retrieval combines semantic similarity from normalized BGE embeddings
-with lexical matching through reciprocal-rank fusion. Evidence is assessed per
-atomic claim, and support or refutation affects the verdict only when its
-evidence bundle is sufficient. When a symbolic comparison is applicable, the
-model proposes a mapping among server-issued candidates and premises; Python
-validates the operands and executes the rule deterministically.
+with BM25 lexical scores through reciprocal-rank fusion. Evidence is
+assessed per atomic claim, and support or refutation affects the verdict only
+when its evidence bundle is sufficient. When a symbolic rule is
+applicable, the model proposes a mapping among backend-generated candidates and
+premises; Python validates the operands and executes the rule deterministically.
 
 ## Demonstration modes
 
-| Mode | Description |
-| --- | --- |
-| **Local live mode** | Runs the complete pipeline locally with Ollama, BGE, FastAPI, and Next.js. |
-| **Recorded walkthrough** | Replays the 18 prepared showcase runs at `/walkthrough` without live inference. |
+
+| Mode                     | Description                                                                    |
+| -------------------------- | -------------------------------------------------------------------------------- |
+| **Local live mode**      | Runs the complete pipeline locally with Ollama, BGE, FastAPI, and Next.js.     |
+| **Recorded walkthrough** | Replays the 18 prepared showcase runs at`/walkthrough` without live inference. |
 
 ## Quick start
 
@@ -65,19 +66,13 @@ walkthrough, model overrides, API endpoints, and Vercel configuration.
 
 The showcase contains 18 qualitative examples: 15 authored, source-grounded
 cases across five subject categories and three cases derived from
-[AVeriTeC](https://github.com/MichSchli/AVeriTeC). The examples exercise
-multi-part claims, direct and conflicting evidence, source-scope filtering,
-symbolic comparisons, and abstention. Publisher, source URL, retrieval date,
-extraction offsets, and content hashes are retained for traceability.
-
-The showcase demonstrates the implemented workflow; it is not presented as an
-accuracy, usability, or generalisation benchmark.
+[AVeriTeC](https://github.com/MichSchli/AVeriTeC). The examples exercise multi-part claims, direct and conflicting evidence, source-scope filtering,
+symbolic rules, and abstention. Source details are retained for traceability.
 
 ## Documentation
 
 - [Running VeriNICE](docs/RUN_GUIDE.md)
-- [Neural components](docs/NEURAL_COMPONENTS.md)
-- [Symbolic reasoning](docs/SYMBOLIC_REASONING.md)
+- [Neurosymbolic components and operator library](docs/NEUROSYMBOLIC_COMPONENTS.md)
 
 ## Licences
 

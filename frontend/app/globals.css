@@ -174,6 +174,28 @@ textarea:focus-visible,
   align-items: center;
 }
 
+.repository-button {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 6px;
+  min-height: 30px;
+  padding: 6px 10px;
+  border: 1px solid var(--ink);
+  border-radius: 6px;
+  background: var(--ink);
+  color: var(--white);
+  font-weight: 720;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.repository-button:hover {
+  border-color: var(--blue-dark);
+  background: var(--blue-dark);
+  color: var(--white);
+}
+
 .health-chip {
   display: inline-flex;
   align-items: center;
@@ -220,8 +242,13 @@ textarea:focus-visible,
 
 .walkthrough-notice {
   margin: 0;
+  min-height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
   border-bottom: 1px solid var(--line-dark);
-  padding: 9px 28px;
+  padding: 8px 28px;
   background: rgba(200, 241, 105, 0.26);
   color: var(--ink);
   font: 11px/1.4 var(--mono);
@@ -2962,6 +2989,13 @@ textarea:focus-visible,
   .health-chip {
     padding: 7px 8px;
     font-size: 8px;
+  }
+
+  .walkthrough-notice {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px 16px;
   }
 
   .case-toolbar {

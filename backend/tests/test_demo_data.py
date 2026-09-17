@@ -51,7 +51,7 @@ def test_checked_in_private_bundle_is_balanced_and_fully_described() -> None:
         if item.get("accepted")
     }
     documents = [document for case in store.cases_by_id.values() for document in case.documents]
-    assert len(documents) == 77
+    assert len(documents) == 78
     ndf = store.cases_by_id["averitec-dev-0034"]
     assert len(ndf.documents) == 4
     prepare = _prepare_module()

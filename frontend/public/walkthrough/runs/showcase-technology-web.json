@@ -14,7 +14,7 @@
     },
     {
       "id": "atom-2",
-      "text": "Tim Berners-Lee created its first client and server in 1990.",
+      "text": "Tim Berners-Lee created the first client and server for the World Wide Web in 1990.",
       "sourceText": "created its first client and server in 1990",
       "start": 64,
       "end": 107,
@@ -44,6 +44,50 @@
           "context": "In 1989, Sir Tim Berners-Lee invented the World Wide Web (see the original proposal). He coined the term \"World Wide Web,\" wrote the first World Wide Web server, \"httpd,\" and the first client program (a browser and editor), \"WorldWideWeb,\" in October 1990."
         },
         {
+          "id": "doc-5e89b4a67d9f::sentence-3",
+          "documentId": "doc-5e89b4a67d9f",
+          "text": "Sir Tim Berners-Lee’s first proposal in March 1989 was for an internet-based hypertext system to link and access information across different computers. ",
+          "start": 268,
+          "end": 421,
+          "contextSpans": [],
+          "context": "Sir Tim Berners-Lee’s first proposal in March 1989 was for an internet-based hypertext system to link and access information across different computers."
+        },
+        {
+          "id": "doc-cd904599bef7::sentence-3",
+          "documentId": "doc-cd904599bef7",
+          "text": "He coined the term \"World Wide Web,\" wrote the first World Wide Web server, \"httpd,\" and the first client program (a browser and editor), \"WorldWideWeb,\" in October 1990.\n",
+          "start": 94,
+          "end": 265,
+          "contextSpans": [
+            {
+              "id": "doc-cd904599bef7::sentence-2",
+              "documentId": "doc-cd904599bef7",
+              "text": "In 1989, Sir Tim Berners-Lee invented the World Wide Web (see the original proposal). ",
+              "start": 8,
+              "end": 94,
+              "direction": "PREVIOUS"
+            },
+            {
+              "id": "doc-cd904599bef7::sentence-4",
+              "documentId": "doc-cd904599bef7",
+              "text": "He wrote the first version of the \"HyperText Markup Language\" (HTML), the document formatting language with the capability for hypertext links that became the primary publishing format for the Web. ",
+              "start": 265,
+              "end": 463,
+              "direction": "NEXT"
+            }
+          ],
+          "context": "In 1989, Sir Tim Berners-Lee invented the World Wide Web (see the original proposal). He coined the term \"World Wide Web,\" wrote the first World Wide Web server, \"httpd,\" and the first client program (a browser and editor), \"WorldWideWeb,\" in October 1990. He wrote the first version of the \"HyperText Markup Language\" (HTML), the document formatting language with the capability for hypertext links that became the primary publishing format for the Web."
+        },
+        {
+          "id": "doc-cd904599bef7::sentence-7",
+          "documentId": "doc-cd904599bef7",
+          "text": "A Consortium for the World Wide Web\n",
+          "start": 626,
+          "end": 662,
+          "contextSpans": [],
+          "context": "A Consortium for the World Wide Web"
+        },
+        {
           "id": "doc-5e89b4a67d9f::sentence-4",
           "documentId": "doc-5e89b4a67d9f",
           "text": "In November 1990, this “web of information nodes in which the user can browse at will” was formalised as a proposal, “WorldWideWeb: Proposal for a HyperText Project”, by Berners-Lee, together with a CERN colleague, Robert Cailliau. ",
@@ -62,66 +106,30 @@
           "context": "Sir Tim Berners-Lee’s first proposal in March 1989 was for an internet-based hypertext system to link and access information across different computers. In November 1990, this “web of information nodes in which the user can browse at will” was formalised as a proposal, “WorldWideWeb: Proposal for a HyperText Project”, by Berners-Lee, together with a CERN colleague, Robert Cailliau."
         },
         {
-          "id": "doc-cd904599bef7::sentence-3",
-          "documentId": "doc-cd904599bef7",
-          "text": "He coined the term \"World Wide Web,\" wrote the first World Wide Web server, \"httpd,\" and the first client program (a browser and editor), \"WorldWideWeb,\" in October 1990.\n",
-          "start": 94,
-          "end": 265,
+          "id": "doc-5e89b4a67d9f::sentence-5",
+          "documentId": "doc-5e89b4a67d9f",
+          "text": "By Christmas that year, Berners-Lee had implemented key components, namely html, http and URL, and created the first Web server, browser and editor (WorldWideWeb). ",
+          "start": 653,
+          "end": 817,
           "contextSpans": [
             {
-              "id": "doc-cd904599bef7::sentence-2",
-              "documentId": "doc-cd904599bef7",
-              "text": "In 1989, Sir Tim Berners-Lee invented the World Wide Web (see the original proposal). ",
-              "start": 8,
-              "end": 94,
+              "id": "doc-5e89b4a67d9f::sentence-4",
+              "documentId": "doc-5e89b4a67d9f",
+              "text": "In November 1990, this “web of information nodes in which the user can browse at will” was formalised as a proposal, “WorldWideWeb: Proposal for a HyperText Project”, by Berners-Lee, together with a CERN colleague, Robert Cailliau. ",
+              "start": 421,
+              "end": 653,
               "direction": "PREVIOUS"
             },
             {
-              "id": "doc-cd904599bef7::sentence-4",
-              "documentId": "doc-cd904599bef7",
-              "text": "He wrote the first version of the \"HyperText Markup Language\" (HTML), the document formatting language with the capability for hypertext links that became the primary publishing format for the Web. ",
-              "start": 265,
-              "end": 463,
+              "id": "doc-5e89b4a67d9f::sentence-6",
+              "documentId": "doc-5e89b4a67d9f",
+              "text": "This server is now exhibited in the Laboratory’s new visitor centre, CERN Science Gateway.\n",
+              "start": 817,
+              "end": 908,
               "direction": "NEXT"
             }
           ],
-          "context": "In 1989, Sir Tim Berners-Lee invented the World Wide Web (see the original proposal). He coined the term \"World Wide Web,\" wrote the first World Wide Web server, \"httpd,\" and the first client program (a browser and editor), \"WorldWideWeb,\" in October 1990. He wrote the first version of the \"HyperText Markup Language\" (HTML), the document formatting language with the capability for hypertext links that became the primary publishing format for the Web."
-        },
-        {
-          "id": "doc-5e89b4a67d9f::sentence-2",
-          "documentId": "doc-5e89b4a67d9f",
-          "text": "This proposal went on to become the World Wide Web (WWW), whose impact on society has been profound.\n",
-          "start": 167,
-          "end": 268,
-          "contextSpans": [
-            {
-              "id": "doc-5e89b4a67d9f::sentence-1",
-              "documentId": "doc-5e89b4a67d9f",
-              "text": "Thirty-five years ago, a young computer expert working at CERN wrote a proposal that combined accessing information with a desire for broad connectivity and openness. ",
-              "start": 0,
-              "end": 167,
-              "direction": "PREVIOUS"
-            }
-          ],
-          "context": "Thirty-five years ago, a young computer expert working at CERN wrote a proposal that combined accessing information with a desire for broad connectivity and openness. This proposal went on to become the World Wide Web (WWW), whose impact on society has been profound."
-        },
-        {
-          "id": "doc-5e89b4a67d9f::sentence-3",
-          "documentId": "doc-5e89b4a67d9f",
-          "text": "Sir Tim Berners-Lee’s first proposal in March 1989 was for an internet-based hypertext system to link and access information across different computers. ",
-          "start": 268,
-          "end": 421,
-          "contextSpans": [],
-          "context": "Sir Tim Berners-Lee’s first proposal in March 1989 was for an internet-based hypertext system to link and access information across different computers."
-        },
-        {
-          "id": "doc-cd904599bef7::sentence-7",
-          "documentId": "doc-cd904599bef7",
-          "text": "A Consortium for the World Wide Web\n",
-          "start": 626,
-          "end": 662,
-          "contextSpans": [],
-          "context": "A Consortium for the World Wide Web"
+          "context": "In November 1990, this “web of information nodes in which the user can browse at will” was formalised as a proposal, “WorldWideWeb: Proposal for a HyperText Project”, by Berners-Lee, together with a CERN colleague, Robert Cailliau. By Christmas that year, Berners-Lee had implemented key components, namely html, http and URL, and created the first Web server, browser and editor (WorldWideWeb). This server is now exhibited in the Laboratory’s new visitor centre, CERN Science Gateway."
         }
       ]
     },
@@ -129,15 +137,6 @@
       "atomId": "atom-2",
       "spans": [
         {
-          "id": "doc-5e89b4a67d9f::sentence-3",
-          "documentId": "doc-5e89b4a67d9f",
-          "text": "Sir Tim Berners-Lee’s first proposal in March 1989 was for an internet-based hypertext system to link and access information across different computers. ",
-          "start": 268,
-          "end": 421,
-          "contextSpans": [],
-          "context": "Sir Tim Berners-Lee’s first proposal in March 1989 was for an internet-based hypertext system to link and access information across different computers."
-        },
-        {
           "id": "doc-cd904599bef7::sentence-3",
           "documentId": "doc-cd904599bef7",
           "text": "He coined the term \"World Wide Web,\" wrote the first World Wide Web server, \"httpd,\" and the first client program (a browser and editor), \"WorldWideWeb,\" in October 1990.\n",
@@ -162,6 +161,24 @@
             }
           ],
           "context": "In 1989, Sir Tim Berners-Lee invented the World Wide Web (see the original proposal). He coined the term \"World Wide Web,\" wrote the first World Wide Web server, \"httpd,\" and the first client program (a browser and editor), \"WorldWideWeb,\" in October 1990. He wrote the first version of the \"HyperText Markup Language\" (HTML), the document formatting language with the capability for hypertext links that became the primary publishing format for the Web."
+        },
+        {
+          "id": "doc-cd904599bef7::sentence-2",
+          "documentId": "doc-cd904599bef7",
+          "text": "In 1989, Sir Tim Berners-Lee invented the World Wide Web (see the original proposal). ",
+          "start": 8,
+          "end": 94,
+          "contextSpans": [
+            {
+              "id": "doc-cd904599bef7::sentence-3",
+              "documentId": "doc-cd904599bef7",
+              "text": "He coined the term \"World Wide Web,\" wrote the first World Wide Web server, \"httpd,\" and the first client program (a browser and editor), \"WorldWideWeb,\" in October 1990.\n",
+              "start": 94,
+              "end": 265,
+              "direction": "NEXT"
+            }
+          ],
+          "context": "In 1989, Sir Tim Berners-Lee invented the World Wide Web (see the original proposal). He coined the term \"World Wide Web,\" wrote the first World Wide Web server, \"httpd,\" and the first client program (a browser and editor), \"WorldWideWeb,\" in October 1990."
         },
         {
           "id": "doc-5e89b4a67d9f::sentence-5",
@@ -190,22 +207,22 @@
           "context": "In November 1990, this “web of information nodes in which the user can browse at will” was formalised as a proposal, “WorldWideWeb: Proposal for a HyperText Project”, by Berners-Lee, together with a CERN colleague, Robert Cailliau. By Christmas that year, Berners-Lee had implemented key components, namely html, http and URL, and created the first Web server, browser and editor (WorldWideWeb). This server is now exhibited in the Laboratory’s new visitor centre, CERN Science Gateway."
         },
         {
-          "id": "doc-cd904599bef7::sentence-2",
+          "id": "doc-5e89b4a67d9f::sentence-3",
+          "documentId": "doc-5e89b4a67d9f",
+          "text": "Sir Tim Berners-Lee’s first proposal in March 1989 was for an internet-based hypertext system to link and access information across different computers. ",
+          "start": 268,
+          "end": 421,
+          "contextSpans": [],
+          "context": "Sir Tim Berners-Lee’s first proposal in March 1989 was for an internet-based hypertext system to link and access information across different computers."
+        },
+        {
+          "id": "doc-cd904599bef7::sentence-7",
           "documentId": "doc-cd904599bef7",
-          "text": "In 1989, Sir Tim Berners-Lee invented the World Wide Web (see the original proposal). ",
-          "start": 8,
-          "end": 94,
-          "contextSpans": [
-            {
-              "id": "doc-cd904599bef7::sentence-3",
-              "documentId": "doc-cd904599bef7",
-              "text": "He coined the term \"World Wide Web,\" wrote the first World Wide Web server, \"httpd,\" and the first client program (a browser and editor), \"WorldWideWeb,\" in October 1990.\n",
-              "start": 94,
-              "end": 265,
-              "direction": "NEXT"
-            }
-          ],
-          "context": "In 1989, Sir Tim Berners-Lee invented the World Wide Web (see the original proposal). He coined the term \"World Wide Web,\" wrote the first World Wide Web server, \"httpd,\" and the first client program (a browser and editor), \"WorldWideWeb,\" in October 1990."
+          "text": "A Consortium for the World Wide Web\n",
+          "start": 626,
+          "end": 662,
+          "contextSpans": [],
+          "context": "A Consortium for the World Wide Web"
         },
         {
           "id": "doc-5e89b4a67d9f::sentence-4",
@@ -224,24 +241,6 @@
             }
           ],
           "context": "Sir Tim Berners-Lee’s first proposal in March 1989 was for an internet-based hypertext system to link and access information across different computers. In November 1990, this “web of information nodes in which the user can browse at will” was formalised as a proposal, “WorldWideWeb: Proposal for a HyperText Project”, by Berners-Lee, together with a CERN colleague, Robert Cailliau."
-        },
-        {
-          "id": "doc-cd904599bef7::sentence-9",
-          "documentId": "doc-cd904599bef7",
-          "text": "Sir Tim Berners-Lee started leading the essential work of the Web Consortium team to foster a consistent architecture accommodating the rapid pace of progress in web standards for building websites, browsers, devices to experience all that the web has to offer.",
-          "start": 804,
-          "end": 1065,
-          "contextSpans": [
-            {
-              "id": "doc-cd904599bef7::sentence-8",
-              "documentId": "doc-cd904599bef7",
-              "text": "In 1994, the decision to form the World Wide Web Consortium came at the urging of many companies investing increasing resources into the web. ",
-              "start": 662,
-              "end": 804,
-              "direction": "PREVIOUS"
-            }
-          ],
-          "context": "In 1994, the decision to form the World Wide Web Consortium came at the urging of many companies investing increasing resources into the web. Sir Tim Berners-Lee started leading the essential work of the Web Consortium team to foster a consistent architecture accommodating the rapid pace of progress in web standards for building websites, browsers, devices to experience all that the web has to offer."
         }
       ]
     }
@@ -252,18 +251,18 @@
         "atomId": "atom-1",
         "supportSpanIds": [
           "doc-cd904599bef7::sentence-2",
-          "doc-5e89b4a67d9f::sentence-4",
+          "doc-5e89b4a67d9f::sentence-3",
           "doc-cd904599bef7::sentence-3"
         ],
         "refuteSpanIds": [],
         "contextSpanIds": [
-          "doc-5e89b4a67d9f::sentence-2",
-          "doc-5e89b4a67d9f::sentence-3",
-          "doc-cd904599bef7::sentence-7"
+          "doc-cd904599bef7::sentence-7",
+          "doc-5e89b4a67d9f::sentence-4",
+          "doc-5e89b4a67d9f::sentence-5"
         ],
         "sufficiency": "SUFFICIENT",
         "missingInformation": "",
-        "reason": "The evidence clearly supports that Tim Berners-Lee invented the World Wide Web at CERN in 1989.",
+        "reason": "Multiple sources confirm that Tim Berners-Lee invented the World Wide Web at CERN in 1989.",
         "scopeChecks": [
           {
             "spanId": "doc-cd904599bef7::sentence-2",
@@ -274,7 +273,7 @@
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
-            "spanId": "doc-5e89b4a67d9f::sentence-4",
+            "spanId": "doc-5e89b4a67d9f::sentence-3",
             "documentId": "doc-5e89b4a67d9f",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
@@ -290,7 +289,87 @@
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
-            "spanId": "doc-5e89b4a67d9f::sentence-2",
+            "spanId": "doc-cd904599bef7::sentence-7",
+            "documentId": "doc-cd904599bef7",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-5e89b4a67d9f::sentence-4",
+            "documentId": "doc-5e89b4a67d9f",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-5e89b4a67d9f::sentence-5",
+            "documentId": "doc-5e89b4a67d9f",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          }
+        ],
+        "identityChecks": [
+          {
+            "relation": "SUPPORTS",
+            "spanIds": [
+              "doc-cd904599bef7::sentence-2",
+              "doc-5e89b4a67d9f::sentence-3",
+              "doc-cd904599bef7::sentence-3"
+            ],
+            "status": "ALIGNED",
+            "requiredEntities": [
+              "Tim Berners-Lee",
+              "the World Wide Web",
+              "CERN"
+            ],
+            "matchedEntities": [
+              "Tim Berners-Lee",
+              "the World Wide Web"
+            ],
+            "reason": "No conflicting subject identity appears in the selected evidence; exact document-local matches were retained."
+          }
+        ]
+      },
+      {
+        "atomId": "atom-2",
+        "supportSpanIds": [
+          "doc-cd904599bef7::sentence-3",
+          "doc-cd904599bef7::sentence-2",
+          "doc-5e89b4a67d9f::sentence-5"
+        ],
+        "refuteSpanIds": [],
+        "contextSpanIds": [
+          "doc-5e89b4a67d9f::sentence-3",
+          "doc-cd904599bef7::sentence-7",
+          "doc-5e89b4a67d9f::sentence-4"
+        ],
+        "sufficiency": "SUFFICIENT",
+        "missingInformation": "",
+        "reason": "Multiple sources confirm that Tim Berners-Lee created the first client and server for the World Wide Web in 1990.",
+        "scopeChecks": [
+          {
+            "spanId": "doc-cd904599bef7::sentence-3",
+            "documentId": "doc-cd904599bef7",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-cd904599bef7::sentence-2",
+            "documentId": "doc-cd904599bef7",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-5e89b4a67d9f::sentence-5",
             "documentId": "doc-5e89b4a67d9f",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
@@ -312,56 +391,6 @@
             "claimJurisdictions": [],
             "evidenceJurisdictions": [],
             "reason": "The atomic claim does not state a recognized jurisdiction."
-          }
-        ]
-      },
-      {
-        "atomId": "atom-2",
-        "supportSpanIds": [
-          "doc-cd904599bef7::sentence-3",
-          "doc-5e89b4a67d9f::sentence-5",
-          "doc-cd904599bef7::sentence-2"
-        ],
-        "refuteSpanIds": [],
-        "contextSpanIds": [
-          "doc-5e89b4a67d9f::sentence-4",
-          "doc-cd904599bef7::sentence-9"
-        ],
-        "sufficiency": "SUFFICIENT",
-        "missingInformation": "",
-        "reason": "The evidence clearly supports that Tim Berners-Lee created the first client and server in October 1990.",
-        "scopeChecks": [
-          {
-            "spanId": "doc-5e89b4a67d9f::sentence-3",
-            "documentId": "doc-5e89b4a67d9f",
-            "status": "NOT_APPLICABLE",
-            "claimJurisdictions": [],
-            "evidenceJurisdictions": [],
-            "reason": "The atomic claim does not state a recognized jurisdiction."
-          },
-          {
-            "spanId": "doc-cd904599bef7::sentence-3",
-            "documentId": "doc-cd904599bef7",
-            "status": "NOT_APPLICABLE",
-            "claimJurisdictions": [],
-            "evidenceJurisdictions": [],
-            "reason": "The atomic claim does not state a recognized jurisdiction."
-          },
-          {
-            "spanId": "doc-5e89b4a67d9f::sentence-5",
-            "documentId": "doc-5e89b4a67d9f",
-            "status": "NOT_APPLICABLE",
-            "claimJurisdictions": [],
-            "evidenceJurisdictions": [],
-            "reason": "The atomic claim does not state a recognized jurisdiction."
-          },
-          {
-            "spanId": "doc-cd904599bef7::sentence-2",
-            "documentId": "doc-cd904599bef7",
-            "status": "NOT_APPLICABLE",
-            "claimJurisdictions": [],
-            "evidenceJurisdictions": [],
-            "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
             "spanId": "doc-5e89b4a67d9f::sentence-4",
@@ -370,14 +399,26 @@
             "claimJurisdictions": [],
             "evidenceJurisdictions": [],
             "reason": "The atomic claim does not state a recognized jurisdiction."
-          },
+          }
+        ],
+        "identityChecks": [
           {
-            "spanId": "doc-cd904599bef7::sentence-9",
-            "documentId": "doc-cd904599bef7",
-            "status": "NOT_APPLICABLE",
-            "claimJurisdictions": [],
-            "evidenceJurisdictions": [],
-            "reason": "The atomic claim does not state a recognized jurisdiction."
+            "relation": "SUPPORTS",
+            "spanIds": [
+              "doc-cd904599bef7::sentence-3",
+              "doc-cd904599bef7::sentence-2",
+              "doc-5e89b4a67d9f::sentence-5"
+            ],
+            "status": "ALIGNED",
+            "requiredEntities": [
+              "Tim Berners-Lee",
+              "the World Wide Web"
+            ],
+            "matchedEntities": [
+              "Tim Berners-Lee",
+              "the World Wide Web"
+            ],
+            "reason": "No conflicting subject identity appears in the selected evidence; exact document-local matches were retained."
           }
         ]
       }
@@ -398,27 +439,27 @@
       "status": "UNRESOLVED",
       "relation": null,
       "premiseIds": [
-        "evidence:atom-1:doc-cd904599bef7:doc-cd904599bef7::sentence-2",
-        "evidence:atom-1:doc-5e89b4a67d9f:doc-5e89b4a67d9f::sentence-3"
+        "evidence:atom-1:doc-cd904599bef7:doc-cd904599bef7::sentence-3",
+        "evidence:atom-1:doc-cd904599bef7:doc-cd904599bef7::sentence-2"
       ],
       "premises": [
         {
-          "id": "evidence:atom-1:doc-cd904599bef7:doc-cd904599bef7::sentence-2",
+          "id": "evidence:atom-1:doc-cd904599bef7:doc-cd904599bef7::sentence-3",
           "documentId": "doc-cd904599bef7",
-          "text": "In 1989, Sir Tim Berners-Lee invented the World Wide Web (see the original proposal). ",
-          "start": 8,
-          "end": 94,
+          "text": "He coined the term \"World Wide Web,\" wrote the first World Wide Web server, \"httpd,\" and the first client program (a browser and editor), \"WorldWideWeb,\" in October 1990.\n",
+          "start": 94,
+          "end": 265,
           "kind": "EVIDENCE",
           "contentHash": null,
           "itemCount": null,
           "listItems": []
         },
         {
-          "id": "evidence:atom-1:doc-5e89b4a67d9f:doc-5e89b4a67d9f::sentence-3",
-          "documentId": "doc-5e89b4a67d9f",
-          "text": "Sir Tim Berners-Lee’s first proposal in March 1989 was for an internet-based hypertext system to link and access information across different computers. ",
-          "start": 268,
-          "end": 421,
+          "id": "evidence:atom-1:doc-cd904599bef7:doc-cd904599bef7::sentence-2",
+          "documentId": "doc-cd904599bef7",
+          "text": "In 1989, Sir Tim Berners-Lee invented the World Wide Web (see the original proposal). ",
+          "start": 8,
+          "end": 94,
           "kind": "EVIDENCE",
           "contentHash": null,
           "itemCount": null,
@@ -435,7 +476,7 @@
         {
           "name": "Source grounding",
           "status": "PASSED",
-          "detail": "5 selected premise(s) retain exact source offsets."
+          "detail": "4 selected premise(s) retain exact source offsets."
         },
         {
           "name": "Registered profile",
@@ -446,6 +487,11 @@
           "name": "Operand alignment",
           "status": "UNRESOLVED",
           "detail": "The premises do not provide one unambiguous attribute value for deterministic comparison."
+        },
+        {
+          "name": "Identity alignment",
+          "status": "PASSED",
+          "detail": "No conflicting subject identity appears in the selected evidence; exact document-local matches were retained."
         }
       ],
       "program": {
@@ -455,7 +501,7 @@
             "id": "input-1",
             "operation": "LOOKUP",
             "inputIds": [
-              "evidence:atom-1:doc-cd904599bef7:doc-cd904599bef7::sentence-2"
+              "evidence:atom-1:doc-cd904599bef7:doc-cd904599bef7::sentence-3"
             ],
             "outputType": "FACT",
             "description": "Read an unchanged server-owned premise."
@@ -464,7 +510,105 @@
             "id": "input-2",
             "operation": "LOOKUP",
             "inputIds": [
-              "evidence:atom-1:doc-5e89b4a67d9f:doc-5e89b4a67d9f::sentence-3"
+              "evidence:atom-1:doc-cd904599bef7:doc-cd904599bef7::sentence-2"
+            ],
+            "outputType": "FACT",
+            "description": "Read an unchanged server-owned premise."
+          },
+          {
+            "id": "result",
+            "operation": "EQUAL",
+            "inputIds": [
+              "input-1",
+              "input-2"
+            ],
+            "outputType": "BOOLEAN",
+            "description": "Validate operand alignment and execute the typed operation in Python."
+          }
+        ],
+        "outputStepId": "result"
+      }
+    },
+    {
+      "id": "proof:atom-2:attribute_compare:2",
+      "atomId": "atom-2",
+      "operator": "ATTRIBUTE_COMPARE",
+      "profile": "EXPLICIT_NEGATION",
+      "status": "UNRESOLVED",
+      "relation": null,
+      "premiseIds": [
+        "evidence:atom-2:doc-cd904599bef7:doc-cd904599bef7::sentence-3",
+        "evidence:atom-2:doc-cd904599bef7:doc-cd904599bef7::sentence-2"
+      ],
+      "premises": [
+        {
+          "id": "evidence:atom-2:doc-cd904599bef7:doc-cd904599bef7::sentence-3",
+          "documentId": "doc-cd904599bef7",
+          "text": "He coined the term \"World Wide Web,\" wrote the first World Wide Web server, \"httpd,\" and the first client program (a browser and editor), \"WorldWideWeb,\" in October 1990.\n",
+          "start": 94,
+          "end": 265,
+          "kind": "EVIDENCE",
+          "contentHash": null,
+          "itemCount": null,
+          "listItems": []
+        },
+        {
+          "id": "evidence:atom-2:doc-cd904599bef7:doc-cd904599bef7::sentence-2",
+          "documentId": "doc-cd904599bef7",
+          "text": "In 1989, Sir Tim Berners-Lee invented the World Wide Web (see the original proposal). ",
+          "start": 8,
+          "end": 94,
+          "kind": "EVIDENCE",
+          "contentHash": null,
+          "itemCount": null,
+          "listItems": []
+        }
+      ],
+      "expression": "attribute comparison",
+      "conclusion": "Attribute relation is unresolved",
+      "explanation": "The premises do not provide one unambiguous attribute value for deterministic comparison.",
+      "validationWarnings": [
+        "AMBIGUOUS_ATTRIBUTE_MAPPING"
+      ],
+      "preconditions": [
+        {
+          "name": "Source grounding",
+          "status": "PASSED",
+          "detail": "4 selected premise(s) retain exact source offsets."
+        },
+        {
+          "name": "Registered profile",
+          "status": "PASSED",
+          "detail": "explicit negation"
+        },
+        {
+          "name": "Operand alignment",
+          "status": "UNRESOLVED",
+          "detail": "The premises do not provide one unambiguous attribute value for deterministic comparison."
+        },
+        {
+          "name": "Identity alignment",
+          "status": "PASSED",
+          "detail": "No conflicting subject identity appears in the selected evidence; exact document-local matches were retained."
+        }
+      ],
+      "program": {
+        "version": 1,
+        "steps": [
+          {
+            "id": "input-1",
+            "operation": "LOOKUP",
+            "inputIds": [
+              "evidence:atom-2:doc-cd904599bef7:doc-cd904599bef7::sentence-3"
+            ],
+            "outputType": "FACT",
+            "description": "Read an unchanged server-owned premise."
+          },
+          {
+            "id": "input-2",
+            "operation": "LOOKUP",
+            "inputIds": [
+              "evidence:atom-2:doc-cd904599bef7:doc-cd904599bef7::sentence-2"
             ],
             "outputType": "FACT",
             "description": "Read an unchanged server-owned premise."
@@ -518,7 +662,7 @@
           "edge:SUPPORTS:inference:bundle:atom-2:supports:obligation:showcase-technology-web:atom-2"
         ],
         "refuteEdgeIds": [],
-        "unselectedCandidateCount": 1,
+        "unselectedCandidateCount": 0,
         "provisionalRelationCount": 0
       }
     ],
@@ -530,7 +674,7 @@
     ]
   },
   "recordedWith": {
-    "pipelineRevision": "generalized-symbolic-v5",
+    "pipelineRevision": "generalized-symbolic-v6",
     "inputDigest": "0510d30644ba59da4eb48bce89cd03f636fe28f79649a030d371ba8c25ab460f",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
@@ -539,11 +683,11 @@
     "reasoningModel": "qwen2.5:7b"
   },
   "timingsSeconds": {
-    "decomposition": 16.934,
-    "retrieval": 0.317,
-    "evidenceAssessment": 24.968,
-    "symbolicReasoning": 18.368,
-    "aggregation": 0.005,
-    "total": 60.593
+    "decomposition": 16.477,
+    "retrieval": 0.264,
+    "evidenceAssessment": 26.035,
+    "symbolicReasoning": 28.058,
+    "aggregation": 0.002,
+    "total": 70.836
   }
 }

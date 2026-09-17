@@ -8,6 +8,7 @@ const apiMock = vi.hoisted(() => ({
   reasonCase: vi.fn(), reasonDocuments: vi.fn(), aggregateVerdict: vi.fn(),
 }));
 vi.mock("@/lib/api", () => ({ api: apiMock }));
+vi.mock("@/lib/walkthrough", () => ({ walkthroughApi: apiMock }));
 vi.mock("next/navigation", () => ({
   useRouter: () => ({ replace: vi.fn() }), usePathname: () => "/",
   useSearchParams: () => new URLSearchParams(),
@@ -32,7 +33,7 @@ const proof = {
 beforeEach(() => {
   apiMock.cases.mockResolvedValue([{ ...detail, documents: detail.documents.map(({ text: _text, ...item }) => item) }]);
   apiMock.case.mockResolvedValue(detail);
-  apiMock.health.mockResolvedValue({ status: "ready", decompositionConfigured: true, decompositionReady: true, retrievalConfigured: true, decompositionModel: "qwen", retrievalModel: "bge" });
+  apiMock.health.mockResolvedValue({ status: "ready", decompositionConfigured: true, decompositionReady: true, retrievalConfigured: true, entityAlignmentReady: true, decompositionModel: "qwen", retrievalModel: "bge", entityModel: "en_core_web_sm" });
   apiMock.decompose.mockResolvedValue({ schemaVersion: 2, composition: "SINGLE", atoms: [atom], warnings: [], provider: "ollama", model: "qwen" });
   apiMock.retrieveCase.mockResolvedValue({ evidence, provider: "sentence-transformers", model: "bge", retrievalMethod: "HYBRID" });
   apiMock.retrieveDocuments.mockResolvedValue({ evidence, provider: "sentence-transformers", model: "bge", retrievalMethod: "HYBRID" });
@@ -50,6 +51,18 @@ beforeEach(() => {
 afterEach(() => { cleanup(); vi.clearAllMocks(); });
 
 describe("live program-guided workflow", () => {
+  it("shows the repository prompt only in recorded walkthrough mode", () => {
+    const live = render(<VeriNICEApp mode="live" />);
+    expect(screen.queryByRole("link", { name: /view github repo/i })).not.toBeInTheDocument();
+    live.unmount();
+
+    render(<VeriNICEApp mode="walkthrough" />);
+    expect(screen.getByRole("link", { name: /view github repo/i })).toHaveAttribute(
+      "href",
+      "https://github.com/daniel-023/VeriNICE",
+    );
+  });
+
   it("runs retrieval, Qwen assessment, symbolic reasoning, and aggregation in order", async () => {
     render(<VeriNICEApp mode="live" />);
     await userEvent.click(await screen.findByRole("button", { name: /decompose claim/i }));

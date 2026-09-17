@@ -68,6 +68,11 @@ Changing the model can change decomposition, assessment, and rule mapping;
 results will not necessarily reproduce the checked-in walkthrough. Re-record
 the walkthrough if a changed configuration is intended for deployment.
 
+Identity mentions are detected locally with the pinned `en_core_web_sm` spaCy
+model installed by `--prepare`. Set `VERINICE_ENTITY_MODEL` only when testing a
+compatible locally installed model; normal assessment and reasoning do not
+download model files at runtime.
+
 ## Tests
 
 Run the backend and frontend test suites with:
@@ -87,11 +92,12 @@ a second terminal:
 ./run-verinice --record-walkthrough
 ```
 
-The recorder runs all 18 showcase cases against the local FastAPI backend and
-writes their typed decomposition, retrieval, assessment, symbolic reasoning,
-composition, and verdict data under `frontend/public/walkthrough/`. It then
-builds the static walkthrough assets and fails rather than publishing an
-incomplete case set.
+The recorder reruns all 18 showcase cases against the local FastAPI backend in
+a temporary staging directory. It validates their typed decomposition,
+retrieval, assessment, symbolic reasoning, composition, roles, source
+grounding, graph limits, and verdicts before replacing either the checked-in
+runs or `frontend/public/walkthrough/`. A failed audit leaves the published
+walkthrough untouched and prints the first case that must be investigated.
 
 Each recorded run must use walkthrough schema version 7 and contain its
 assessment, reasoning, composition, atom roles, and recorded verdict. The
@@ -154,9 +160,11 @@ incompatible service.
 
 ### Walkthrough verification fails
 
-Do not hand-edit recorded outputs. Start a healthy local stack, run
-`./run-verinice --record-walkthrough`, and address the reported missing case,
-schema-v7 mismatch, or invalid result before rebuilding.
+Do not hand-edit recorded outputs or weaken the presentation audit. Start a
+healthy local stack, run `./run-verinice --record-walkthrough`, and address the
+reported missing case, schema-v7 mismatch, atom/role mismatch, or verdict
+change before retrying. Recording and building happen in staging, so failure
+does not alter the last approved walkthrough.
 
 ### A model override changes results
 
@@ -165,5 +173,4 @@ the new results and record the entire walkthrough under the new configuration.
 
 ## Related documentation
 
-- [Neural components](NEURAL_COMPONENTS.md)
-- [Symbolic reasoning](SYMBOLIC_REASONING.md)
+- [Neurosymbolic components and operator library](NEUROSYMBOLIC_COMPONENTS.md)

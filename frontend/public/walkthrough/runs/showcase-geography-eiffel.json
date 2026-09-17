@@ -36,6 +36,15 @@
           "context": "The Eiffel Tower is located in the heart of Paris, in the 7th arrondissement, on the Champ de Mars, and is very easy to access. Its official address is: 5 avenue Anatole France, 75007 Paris, France."
         },
         {
+          "id": "doc-0f740f9000ac::sentence-1",
+          "documentId": "doc-0f740f9000ac",
+          "text": "The Eiffel Tower was built on the Champ de Mars, in Paris’ 7th arrondissement. ",
+          "start": 0,
+          "end": 79,
+          "contextSpans": [],
+          "context": "The Eiffel Tower was built on the Champ de Mars, in Paris’ 7th arrondissement."
+        },
+        {
           "id": "doc-693f474b2011::sentence-1",
           "documentId": "doc-693f474b2011",
           "text": "How to get to the Eiffel Tower\n",
@@ -52,15 +61,6 @@
           "end": 401,
           "contextSpans": [],
           "context": "The Eiffel Tower is very well-connected to the metro – there are three stations in the nearby area."
-        },
-        {
-          "id": "doc-0f740f9000ac::sentence-1",
-          "documentId": "doc-0f740f9000ac",
-          "text": "The Eiffel Tower was built on the Champ de Mars, in Paris’ 7th arrondissement. ",
-          "start": 0,
-          "end": 79,
-          "contextSpans": [],
-          "context": "The Eiffel Tower was built on the Champ de Mars, in Paris’ 7th arrondissement."
         },
         {
           "id": "doc-0f740f9000ac::sentence-7",
@@ -81,13 +81,13 @@
           "context": "A convention was signed on January 8, 1887 between Gustave Eiffel and the other stakeholders’ representatives, Édouard Lockroy, Minister of Commerce, on behalf of the national government, and Eugène Poubelle, prefect for the Seine, on behalf of the City. The convention stated in Article 11 that Eiffel would build the Tower at his own expense, but benefit from a 1.5 million franc subvention to the total estimated cost of 6.5 million and could manage the tower for 20 years, starting on December 31, 1889."
         },
         {
-          "id": "doc-0f740f9000ac::sentence-6",
+          "id": "doc-0f740f9000ac::sentence-5",
           "documentId": "doc-0f740f9000ac",
-          "text": "A convention was signed on January 8, 1887 between Gustave Eiffel and the other stakeholders’ representatives, Édouard Lockroy, Minister of Commerce, on behalf of the national government, and Eugène Poubelle, prefect for the Seine, on behalf of the City. ",
-          "start": 495,
-          "end": 750,
+          "text": "A temporary concession to Gustave Eiffel\n",
+          "start": 454,
+          "end": 495,
           "contextSpans": [],
-          "context": "A convention was signed on January 8, 1887 between Gustave Eiffel and the other stakeholders’ representatives, Édouard Lockroy, Minister of Commerce, on behalf of the national government, and Eugène Poubelle, prefect for the Seine, on behalf of the City."
+          "context": "A temporary concession to Gustave Eiffel"
         }
       ]
     }
@@ -99,17 +99,17 @@
         "supportSpanIds": [],
         "refuteSpanIds": [
           "doc-693f474b2011::sentence-2",
-          "doc-693f474b2011::sentence-1",
-          "doc-693f474b2011::sentence-5"
+          "doc-0f740f9000ac::sentence-1",
+          "doc-693f474b2011::sentence-1"
         ],
         "contextSpanIds": [
-          "doc-0f740f9000ac::sentence-1",
+          "doc-693f474b2011::sentence-5",
           "doc-0f740f9000ac::sentence-7",
-          "doc-0f740f9000ac::sentence-6"
+          "doc-0f740f9000ac::sentence-5"
         ],
-        "sufficiency": "INSUFFICIENT",
-        "missingInformation": "The evidence does not provide a direct refutation or support for the claim that the Eiffel Tower is located in Germany.",
-        "reason": "The evidence confirms the Eiffel Tower's location in Paris, France, but does not address the claim about Germany.",
+        "sufficiency": "SUFFICIENT",
+        "missingInformation": "",
+        "reason": "All selected evidence explicitly states that the Eiffel Tower is located in Paris, France, not Germany.",
         "scopeChecks": [
           {
             "spanId": "doc-693f474b2011::sentence-2",
@@ -121,6 +121,16 @@
             "evidenceJurisdictions": [
               "FR"
             ],
+            "reason": "Jurisdiction is the claimed value being compared, not a source-scope constraint."
+          },
+          {
+            "spanId": "doc-0f740f9000ac::sentence-1",
+            "documentId": "doc-0f740f9000ac",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [
+              "DE"
+            ],
+            "evidenceJurisdictions": [],
             "reason": "Jurisdiction is the claimed value being compared, not a source-scope constraint."
           },
           {
@@ -148,16 +158,6 @@
             "reason": "Jurisdiction is the claimed value being compared, not a source-scope constraint."
           },
           {
-            "spanId": "doc-0f740f9000ac::sentence-1",
-            "documentId": "doc-0f740f9000ac",
-            "status": "NOT_APPLICABLE",
-            "claimJurisdictions": [
-              "DE"
-            ],
-            "evidenceJurisdictions": [],
-            "reason": "Jurisdiction is the claimed value being compared, not a source-scope constraint."
-          },
-          {
             "spanId": "doc-0f740f9000ac::sentence-7",
             "documentId": "doc-0f740f9000ac",
             "status": "NOT_APPLICABLE",
@@ -168,7 +168,7 @@
             "reason": "Jurisdiction is the claimed value being compared, not a source-scope constraint."
           },
           {
-            "spanId": "doc-0f740f9000ac::sentence-6",
+            "spanId": "doc-0f740f9000ac::sentence-5",
             "documentId": "doc-0f740f9000ac",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [
@@ -176,6 +176,25 @@
             ],
             "evidenceJurisdictions": [],
             "reason": "Jurisdiction is the claimed value being compared, not a source-scope constraint."
+          }
+        ],
+        "identityChecks": [
+          {
+            "relation": "REFUTES",
+            "spanIds": [
+              "doc-693f474b2011::sentence-2",
+              "doc-0f740f9000ac::sentence-1",
+              "doc-693f474b2011::sentence-1"
+            ],
+            "status": "ALIGNED",
+            "requiredEntities": [
+              "The Eiffel Tower",
+              "Germany"
+            ],
+            "matchedEntities": [
+              "The Eiffel Tower"
+            ],
+            "reason": "No conflicting subject identity appears in the selected evidence; exact document-local matches were retained."
           }
         ]
       }
@@ -242,6 +261,11 @@
           "name": "Operand alignment",
           "status": "PASSED",
           "detail": "Python compared explicit normalized country names; it did not infer location from source identity."
+        },
+        {
+          "name": "Identity alignment",
+          "status": "PASSED",
+          "detail": "No conflicting subject identity appears in the selected evidence; exact document-local matches were retained."
         }
       ],
       "program": {
@@ -301,18 +325,14 @@
         "state": "REFUTED",
         "supportEdgeIds": [],
         "refuteEdgeIds": [
+          "edge:REFUTES:inference:bundle:atom-1:refutes:obligation:showcase-geography-eiffel:atom-1",
           "edge:REFUTES:inference:proof:atom-1:attribute_compare:1:obligation:showcase-geography-eiffel:atom-1"
         ],
         "unselectedCandidateCount": 0,
-        "provisionalRelationCount": 3
+        "provisionalRelationCount": 0
       }
     ],
-    "warnings": [
-      {
-        "code": "PROVISIONAL_EVIDENCE_EXCLUDED",
-        "message": "3 assessed relation(s) for obligation atom-1 are provisional because the evidence is not sufficient."
-      }
-    ],
+    "warnings": [],
     "ruleTrace": [
       "SINGLE maps its one obligation's validated relations directly.",
       "Validated positions — support: no; refute: yes.",
@@ -320,7 +340,7 @@
     ]
   },
   "recordedWith": {
-    "pipelineRevision": "generalized-symbolic-v5",
+    "pipelineRevision": "generalized-symbolic-v6",
     "inputDigest": "75854629997f231773cae2da6abc579d9fe7361201cfcd33c52d99cbbc6c95a1",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
@@ -329,11 +349,11 @@
     "reasoningModel": "qwen2.5:7b"
   },
   "timingsSeconds": {
-    "decomposition": 12.881,
-    "retrieval": 0.254,
-    "evidenceAssessment": 17.373,
-    "symbolicReasoning": 12.588,
-    "aggregation": 0.004,
-    "total": 43.1
+    "decomposition": 13.42,
+    "retrieval": 0.112,
+    "evidenceAssessment": 16.785,
+    "symbolicReasoning": 10.828,
+    "aggregation": 0.002,
+    "total": 41.147
   }
 }

@@ -72,13 +72,13 @@
           "context": "1946-1947, 1951-1952, 1954-1955, 1963-1964, 1967-1968, 1988-1989, 1993-1994, 1998-1999, 2004-2005, 2010-2011, 2022-2023"
         },
         {
-          "id": "doc-3a71d897be6a::sentence-11",
+          "id": "doc-3a71d897be6a::sentence-53",
           "documentId": "doc-3a71d897be6a",
-          "text": "1946-1947, 1956-1957, 1973-1974, 1985-1986, 2013-2014\n",
-          "start": 344,
-          "end": 398,
+          "text": "1947-1948, 1953-1954, 1957-1958, 1969-1970, 1989-1990, 2001-2002, 2011-2012, 2026-2027\n",
+          "start": 1216,
+          "end": 1303,
           "contextSpans": [],
-          "context": "1946-1947, 1956-1957, 1973-1974, 1985-1986, 2013-2014"
+          "context": "1947-1948, 1953-1954, 1957-1958, 1969-1970, 1989-1990, 2001-2002, 2011-2012, 2026-2027"
         }
       ]
     }
@@ -94,11 +94,11 @@
         "contextSpanIds": [
           "doc-4de8403c2f50::sentence-15",
           "doc-4de8403c2f50::sentence-16",
-          "doc-3a71d897be6a::sentence-1"
+          "doc-3a71d897be6a::sentence-33"
         ],
-        "sufficiency": "PARTIAL",
-        "missingInformation": "The evidence does not explicitly state that Australia is not a permanent member of the UN Security Council, but the list of permanent members does not include Australia.",
-        "reason": "The list of permanent members does not include Australia, but this is not definitive proof that Australia is not a permanent member.",
+        "sufficiency": "SUFFICIENT",
+        "missingInformation": "",
+        "reason": "O1-E3 explicitly lists Australia as one of the 10 non-permanent members, not a permanent member.",
         "scopeChecks": [
           {
             "spanId": "doc-4de8403c2f50::sentence-15",
@@ -151,7 +151,7 @@
             "reason": "Jurisdiction is the claimed value being compared, not a source-scope constraint."
           },
           {
-            "spanId": "doc-3a71d897be6a::sentence-11",
+            "spanId": "doc-3a71d897be6a::sentence-53",
             "documentId": "doc-3a71d897be6a",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [
@@ -159,6 +159,21 @@
             ],
             "evidenceJurisdictions": [],
             "reason": "Jurisdiction is the claimed value being compared, not a source-scope constraint."
+          }
+        ],
+        "identityChecks": [
+          {
+            "relation": "REFUTES",
+            "spanIds": [
+              "doc-4de8403c2f50::sentence-3"
+            ],
+            "status": "ALIGNED",
+            "requiredEntities": [
+              "Australia",
+              "the UN Security Council"
+            ],
+            "matchedEntities": [],
+            "reason": "No conflicting subject identity appears in the selected evidence; exact document-local matches were retained."
           }
         ]
       }
@@ -256,6 +271,11 @@
           "detail": "Absence is conclusive only because the source explicitly certifies the list as complete."
         },
         {
+          "name": "Identity alignment",
+          "status": "PASSED",
+          "detail": "The typed membership operator used the exact normalized claim identity as its operand."
+        },
+        {
           "name": "Closed-set evidence",
           "status": "PASSED",
           "detail": "A validated complete-list certificate is present."
@@ -308,18 +328,14 @@
         "state": "REFUTED",
         "supportEdgeIds": [],
         "refuteEdgeIds": [
+          "edge:REFUTES:evidence:doc-4de8403c2f50:doc-4de8403c2f50::sentence-3:obligation:showcase-current-unsc:atom-1",
           "edge:REFUTES:inference:proof:atom-1:set_membership:1:obligation:showcase-current-unsc:atom-1"
         ],
         "unselectedCandidateCount": 2,
-        "provisionalRelationCount": 1
+        "provisionalRelationCount": 0
       }
     ],
-    "warnings": [
-      {
-        "code": "PROVISIONAL_EVIDENCE_EXCLUDED",
-        "message": "1 assessed relation(s) for obligation atom-1 are provisional because the evidence is not sufficient."
-      }
-    ],
+    "warnings": [],
     "ruleTrace": [
       "SINGLE maps its one obligation's validated relations directly.",
       "Validated positions — support: no; refute: yes.",
@@ -327,7 +343,7 @@
     ]
   },
   "recordedWith": {
-    "pipelineRevision": "generalized-symbolic-v5",
+    "pipelineRevision": "generalized-symbolic-v6",
     "inputDigest": "2ca59db3eba9bbe2a024cc4ed214908a8c367cddea6a7eb00e67f5aa9d5990df",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
@@ -336,11 +352,11 @@
     "reasoningModel": "qwen2.5:7b"
   },
   "timingsSeconds": {
-    "decomposition": 13.009,
-    "retrieval": 0.286,
-    "evidenceAssessment": 16.299,
-    "symbolicReasoning": 4.478,
+    "decomposition": 13.332,
+    "retrieval": 0.359,
+    "evidenceAssessment": 16.415,
+    "symbolicReasoning": 4.37,
     "aggregation": 0.005,
-    "total": 34.077
+    "total": 34.482
   }
 }

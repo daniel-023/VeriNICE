@@ -54,32 +54,6 @@
           "context": "As hundreds of wildfires tore through Washington, California, and Oregon on Tuesday and Wednesday, their has smoke accumulated in the sky, casting many regions in creepy, apocalyptic shades of orange and red."
         },
         {
-          "id": "doc-149989fb127e::sentence-10",
-          "documentId": "doc-149989fb127e",
-          "text": "“Because the sun is low on the horizon, sunlight passes through more air at sunset and sunrise than during the day, when the sun is higher in the sky. More atmosphere means more molecules to scatter the violet and blue light away from your eyes. If the path is long enough, all of the blue and violet light scatters out of your line of sight. The other colors continue on their way to your eyes. This is why sunsets are often yellow, orange, and red.”\n",
-          "start": 834,
-          "end": 1286,
-          "contextSpans": [
-            {
-              "id": "doc-149989fb127e::sentence-9",
-              "documentId": "doc-149989fb127e",
-              "text": "Scattering also explains the colors of the sunrise and sunset, Ackerman says.\n",
-              "start": 756,
-              "end": 834,
-              "direction": "PREVIOUS"
-            },
-            {
-              "id": "doc-149989fb127e::sentence-11",
-              "documentId": "doc-149989fb127e",
-              "text": "And because red has the longest wavelength of any visible light, the sun is red when it’s on the horizon, where its extremely long path through the atmosphere blocks all other colors.\n",
-              "start": 1286,
-              "end": 1470,
-              "direction": "NEXT"
-            }
-          ],
-          "context": "Scattering also explains the colors of the sunrise and sunset, Ackerman says. “Because the sun is low on the horizon, sunlight passes through more air at sunset and sunrise than during the day, when the sun is higher in the sky. More atmosphere means more molecules to scatter the violet and blue light away from your eyes. If the path is long enough, all of the blue and violet light scatters out of your line of sight. The other colors continue on their way to your eyes. This is why sunsets are often yellow, orange, and red.” And because red has the longest wavelength of any visible light, the sun is red when it’s on the horizon, where its extremely long path through the atmosphere blocks all other colors."
-        },
-        {
           "id": "doc-4cbdb3ff10fa::sentence-16",
           "documentId": "doc-4cbdb3ff10fa",
           "text": "That's a phenomenon called Mie scattering, and it's why skies turn orange and red due to wildfire smoke (it doesn't have to do with the color of the flames themselves).\n",
@@ -105,6 +79,24 @@
           "end": 4555,
           "contextSpans": [],
           "context": "The reason for the sky turning red is the way smoke particles scatter sunlight."
+        },
+        {
+          "id": "doc-149989fb127e::sentence-11",
+          "documentId": "doc-149989fb127e",
+          "text": "And because red has the longest wavelength of any visible light, the sun is red when it’s on the horizon, where its extremely long path through the atmosphere blocks all other colors.\n",
+          "start": 1286,
+          "end": 1470,
+          "contextSpans": [
+            {
+              "id": "doc-149989fb127e::sentence-10",
+              "documentId": "doc-149989fb127e",
+              "text": "“Because the sun is low on the horizon, sunlight passes through more air at sunset and sunrise than during the day, when the sun is higher in the sky. More atmosphere means more molecules to scatter the violet and blue light away from your eyes. If the path is long enough, all of the blue and violet light scatters out of your line of sight. The other colors continue on their way to your eyes. This is why sunsets are often yellow, orange, and red.”\n",
+              "start": 834,
+              "end": 1286,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "“Because the sun is low on the horizon, sunlight passes through more air at sunset and sunrise than during the day, when the sun is higher in the sky. More atmosphere means more molecules to scatter the violet and blue light away from your eyes. If the path is long enough, all of the blue and violet light scatters out of your line of sight. The other colors continue on their way to your eyes. This is why sunsets are often yellow, orange, and red.” And because red has the longest wavelength of any visible light, the sun is red when it’s on the horizon, where its extremely long path through the atmosphere blocks all other colors."
         }
       ]
     }
@@ -119,11 +111,11 @@
         ],
         "refuteSpanIds": [],
         "contextSpanIds": [
-          "doc-149989fb127e::sentence-10"
+          "doc-149989fb127e::sentence-11"
         ],
         "sufficiency": "SUFFICIENT",
         "missingInformation": "",
-        "reason": "Both O1-E1 and O1-E3 directly support the claim that the sky has turned orange to blood red in several parts of the United States due to wildfire smoke.",
+        "reason": "The evidence directly supports the claim of the sky turning orange to blood red due to wildfire smoke in several parts of the United States.",
         "scopeChecks": [
           {
             "spanId": "doc-7d4923c19c25::sentence-7",
@@ -160,16 +152,6 @@
             "reason": "No explicit source jurisdiction could be resolved."
           },
           {
-            "spanId": "doc-149989fb127e::sentence-10",
-            "documentId": "doc-149989fb127e",
-            "status": "UNRESOLVED",
-            "claimJurisdictions": [
-              "US"
-            ],
-            "evidenceJurisdictions": [],
-            "reason": "No explicit source jurisdiction could be resolved."
-          },
-          {
             "spanId": "doc-4cbdb3ff10fa::sentence-16",
             "documentId": "doc-4cbdb3ff10fa",
             "status": "UNRESOLVED",
@@ -190,6 +172,31 @@
               "AU"
             ],
             "reason": "The candidate concerns a different explicit jurisdiction."
+          },
+          {
+            "spanId": "doc-149989fb127e::sentence-11",
+            "documentId": "doc-149989fb127e",
+            "status": "UNRESOLVED",
+            "claimJurisdictions": [
+              "US"
+            ],
+            "evidenceJurisdictions": [],
+            "reason": "No explicit source jurisdiction could be resolved."
+          }
+        ],
+        "identityChecks": [
+          {
+            "relation": "SUPPORTS",
+            "spanIds": [
+              "doc-4cbdb3ff10fa::sentence-7",
+              "doc-4cbdb3ff10fa::sentence-16"
+            ],
+            "status": "ALIGNED",
+            "requiredEntities": [
+              "the United States"
+            ],
+            "matchedEntities": [],
+            "reason": "No conflicting subject identity appears in the selected evidence; exact document-local matches were retained."
           }
         ]
       }
@@ -247,7 +254,7 @@
         {
           "name": "Source grounding",
           "status": "PASSED",
-          "detail": "5 selected premise(s) retain exact source offsets."
+          "detail": "3 selected premise(s) retain exact source offsets."
         },
         {
           "name": "Registered profile",
@@ -258,6 +265,11 @@
           "name": "Operand alignment",
           "status": "UNRESOLVED",
           "detail": "The premises do not provide one unambiguous attribute value for deterministic comparison."
+        },
+        {
+          "name": "Identity alignment",
+          "status": "PASSED",
+          "detail": "No conflicting subject identity appears in the selected evidence; exact document-local matches were retained."
         }
       ],
       "program": {
@@ -331,7 +343,7 @@
     ]
   },
   "recordedWith": {
-    "pipelineRevision": "generalized-symbolic-v5",
+    "pipelineRevision": "generalized-symbolic-v6",
     "inputDigest": "e71a6345f4391822ad0937e67b2f43ec15f1784ccbb8c2f78e401590d052f17b",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
@@ -340,11 +352,11 @@
     "reasoningModel": "qwen2.5:7b"
   },
   "timingsSeconds": {
-    "decomposition": 13.686,
-    "retrieval": 0.675,
-    "evidenceAssessment": 16.58,
-    "symbolicReasoning": 14.493,
-    "aggregation": 0.003,
-    "total": 45.438
+    "decomposition": 13.606,
+    "retrieval": 0.57,
+    "evidenceAssessment": 15.881,
+    "symbolicReasoning": 11.148,
+    "aggregation": 0.002,
+    "total": 41.207
   }
 }

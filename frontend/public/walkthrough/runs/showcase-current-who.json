@@ -18,7 +18,7 @@
       "sourceText": "but said COVID-19 remained a global health threat",
       "start": 62,
       "end": 111,
-      "role": "CORE"
+      "role": "ATTRIBUTION"
     }
   ],
   "evidence": [
@@ -87,15 +87,6 @@
           "context": "I have accepted that advice. It is therefore with great hope that I declare COVID-19 over as a global health emergency. However, that does not mean COVID-19 is over as a global health threat."
         },
         {
-          "id": "doc-6824fb361fee::sentence-3",
-          "documentId": "doc-6824fb361fee",
-          "text": "In the three years since then, COVID-19 has turned our world upside down.\n",
-          "start": 366,
-          "end": 440,
-          "contextSpans": [],
-          "context": "In the three years since then, COVID-19 has turned our world upside down."
-        },
-        {
           "id": "doc-391d646f37ef::sentence-9",
           "documentId": "doc-391d646f37ef",
           "text": "This led WHO to declare a Public Health Emergency of International Concern (PHEIC) on 30 January 2020 and to characterize the outbreak as a pandemic on 11 March 2020.\n",
@@ -114,13 +105,40 @@
           "context": "Cases of novel coronavirus (nCoV) were first detected in China in December 2019, with the virus spreading rapidly to other countries across the world. This led WHO to declare a Public Health Emergency of International Concern (PHEIC) on 30 January 2020 and to characterize the outbreak as a pandemic on 11 March 2020."
         },
         {
-          "id": "doc-391d646f37ef::sentence-7",
+          "id": "doc-6824fb361fee::sentence-18",
+          "documentId": "doc-6824fb361fee",
+          "text": "However, that does not mean COVID-19 is over as a global health threat.",
+          "start": 2226,
+          "end": 2297,
+          "contextSpans": [
+            {
+              "id": "doc-6824fb361fee::sentence-17",
+              "documentId": "doc-6824fb361fee",
+              "text": "It is therefore with great hope that I declare COVID-19 over as a global health emergency.\n",
+              "start": 2135,
+              "end": 2226,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "It is therefore with great hope that I declare COVID-19 over as a global health emergency. However, that does not mean COVID-19 is over as a global health threat."
+        },
+        {
+          "id": "doc-391d646f37ef::sentence-11",
           "documentId": "doc-391d646f37ef",
-          "text": "The coronavirus disease 2019 (COVID-19) pandemic is a global outbreak of coronavirus – an infectious disease caused by the severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2).\n",
-          "start": 115,
-          "end": 300,
-          "contextSpans": [],
-          "context": "The coronavirus disease 2019 (COVID-19) pandemic is a global outbreak of coronavirus – an infectious disease caused by the severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2)."
+          "text": "This does not mean the pandemic itself is over, but the global emergency it caused is – for now.",
+          "start": 892,
+          "end": 988,
+          "contextSpans": [
+            {
+              "id": "doc-391d646f37ef::sentence-10",
+              "documentId": "doc-391d646f37ef",
+              "text": "On 5 May 2023, more than three years into the pandemic, the WHO Emergency Committee on COVID-19 recommended to the Director-General, who accepted the recommendation, that given the disease was by now well established and ongoing, it no longer fit the definition of a PHEIC. ",
+              "start": 618,
+              "end": 892,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "On 5 May 2023, more than three years into the pandemic, the WHO Emergency Committee on COVID-19 recommended to the Director-General, who accepted the recommendation, that given the disease was by now well established and ongoing, it no longer fit the definition of a PHEIC. This does not mean the pandemic itself is over, but the global emergency it caused is – for now."
         }
       ]
     },
@@ -242,17 +260,17 @@
         "atomId": "atom-1",
         "supportSpanIds": [
           "doc-391d646f37ef::sentence-10",
-          "doc-6824fb361fee::sentence-17"
+          "doc-391d646f37ef::sentence-11"
         ],
         "refuteSpanIds": [],
         "contextSpanIds": [
           "doc-6824fb361fee::sentence-1",
-          "doc-6824fb361fee::sentence-3",
+          "doc-6824fb361fee::sentence-17",
           "doc-391d646f37ef::sentence-9"
         ],
         "sufficiency": "SUFFICIENT",
         "missingInformation": "",
-        "reason": "The evidence explicitly states that on 5 May 2023, WHO ended the COVID-19 public-health emergency.",
+        "reason": "The evidence directly states that on 5 May 2023, the WHO Emergency Committee recommended ending the PHEIC, and the Director-General accepted this recommendation.",
         "scopeChecks": [
           {
             "spanId": "doc-391d646f37ef::sentence-10",
@@ -285,16 +303,6 @@
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
-            "spanId": "doc-6824fb361fee::sentence-3",
-            "documentId": "doc-6824fb361fee",
-            "status": "NOT_APPLICABLE",
-            "claimJurisdictions": [],
-            "evidenceJurisdictions": [
-              "CN"
-            ],
-            "reason": "The atomic claim does not state a recognized jurisdiction."
-          },
-          {
             "spanId": "doc-391d646f37ef::sentence-9",
             "documentId": "doc-391d646f37ef",
             "status": "NOT_APPLICABLE",
@@ -305,7 +313,17 @@
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
-            "spanId": "doc-391d646f37ef::sentence-7",
+            "spanId": "doc-6824fb361fee::sentence-18",
+            "documentId": "doc-6824fb361fee",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [
+              "CN"
+            ],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-391d646f37ef::sentence-11",
             "documentId": "doc-391d646f37ef",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
@@ -313,6 +331,25 @@
               "CN"
             ],
             "reason": "The atomic claim does not state a recognized jurisdiction."
+          }
+        ],
+        "identityChecks": [
+          {
+            "relation": "SUPPORTS",
+            "spanIds": [
+              "doc-391d646f37ef::sentence-10",
+              "doc-391d646f37ef::sentence-11"
+            ],
+            "status": "ALIGNED",
+            "requiredEntities": [
+              "WHO",
+              "COVID-19"
+            ],
+            "matchedEntities": [
+              "WHO",
+              "COVID-19"
+            ],
+            "reason": "No conflicting subject identity appears in the selected evidence; exact document-local matches were retained."
           }
         ]
       },
@@ -330,7 +367,7 @@
         ],
         "sufficiency": "SUFFICIENT",
         "missingInformation": "",
-        "reason": "The evidence explicitly states that WHO said COVID-19 remained a global health threat.",
+        "reason": "The evidence directly states that WHO declared COVID-19 as a global health threat even after ending the PHEIC.",
         "scopeChecks": [
           {
             "spanId": "doc-6824fb361fee::sentence-18",
@@ -392,6 +429,24 @@
             ],
             "reason": "The atomic claim does not state a recognized jurisdiction."
           }
+        ],
+        "identityChecks": [
+          {
+            "relation": "SUPPORTS",
+            "spanIds": [
+              "doc-6824fb361fee::sentence-18",
+              "doc-6824fb361fee::sentence-17"
+            ],
+            "status": "ALIGNED",
+            "requiredEntities": [
+              "WHO",
+              "COVID-19"
+            ],
+            "matchedEntities": [
+              "COVID-19"
+            ],
+            "reason": "No conflicting subject identity appears in the selected evidence; exact document-local matches were retained."
+          }
         ]
       }
     ],
@@ -412,7 +467,7 @@
       "relation": null,
       "premiseIds": [
         "evidence:atom-1:doc-391d646f37ef:doc-391d646f37ef::sentence-10",
-        "evidence:atom-1:doc-6824fb361fee:doc-6824fb361fee::sentence-17"
+        "evidence:atom-1:doc-6824fb361fee:doc-6824fb361fee::sentence-18"
       ],
       "premises": [
         {
@@ -427,11 +482,11 @@
           "listItems": []
         },
         {
-          "id": "evidence:atom-1:doc-6824fb361fee:doc-6824fb361fee::sentence-17",
+          "id": "evidence:atom-1:doc-6824fb361fee:doc-6824fb361fee::sentence-18",
           "documentId": "doc-6824fb361fee",
-          "text": "It is therefore with great hope that I declare COVID-19 over as a global health emergency.\n",
-          "start": 2135,
-          "end": 2226,
+          "text": "However, that does not mean COVID-19 is over as a global health threat.",
+          "start": 2226,
+          "end": 2297,
           "kind": "EVIDENCE",
           "contentHash": null,
           "itemCount": null,
@@ -446,7 +501,7 @@
         {
           "name": "Source grounding",
           "status": "PASSED",
-          "detail": "2 selected premise(s) retain exact source offsets."
+          "detail": "3 selected premise(s) retain exact source offsets."
         },
         {
           "name": "Registered profile",
@@ -457,6 +512,11 @@
           "name": "Operand alignment",
           "status": "UNRESOLVED",
           "detail": "The atom lacks an explicit supported temporal comparison."
+        },
+        {
+          "name": "Identity alignment",
+          "status": "PASSED",
+          "detail": "No conflicting subject identity appears in the selected evidence; exact document-local matches were retained."
         }
       ],
       "program": {
@@ -475,7 +535,7 @@
             "id": "input-2",
             "operation": "LOOKUP",
             "inputIds": [
-              "evidence:atom-1:doc-6824fb361fee:doc-6824fb361fee::sentence-17"
+              "evidence:atom-1:doc-6824fb361fee:doc-6824fb361fee::sentence-18"
             ],
             "outputType": "FACT",
             "description": "Read an unchanged server-owned premise."
@@ -541,7 +601,7 @@
     ]
   },
   "recordedWith": {
-    "pipelineRevision": "generalized-symbolic-v5",
+    "pipelineRevision": "generalized-symbolic-v6",
     "inputDigest": "b45ec4a4d660628b40bf5445c157e6dd7754ea09d8a4d1191442c2ac55faed5f",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
@@ -550,11 +610,11 @@
     "reasoningModel": "qwen2.5:7b"
   },
   "timingsSeconds": {
-    "decomposition": 17.03,
-    "retrieval": 0.364,
-    "evidenceAssessment": 23.917,
-    "symbolicReasoning": 10.524,
-    "aggregation": 0.005,
-    "total": 51.841
+    "decomposition": 16.605,
+    "retrieval": 0.267,
+    "evidenceAssessment": 26.94,
+    "symbolicReasoning": 13.454,
+    "aggregation": 0.002,
+    "total": 57.268
   }
 }

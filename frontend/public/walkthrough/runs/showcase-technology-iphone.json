@@ -62,15 +62,6 @@
           "context": "Apple Reinvents the Phone with iPhone"
         },
         {
-          "id": "doc-6928c6b9dd12::sentence-5",
-          "documentId": "doc-6928c6b9dd12",
-          "text": "iPhone introduces an entirely new user interface based on a large multi-touch display and pioneering new software, letting users control iPhone with just their fingers. ",
-          "start": 391,
-          "end": 560,
-          "contextSpans": [],
-          "context": "iPhone introduces an entirely new user interface based on a large multi-touch display and pioneering new software, letting users control iPhone with just their fingers."
-        },
-        {
           "id": "doc-cfa7e728af0f::sentence-6",
           "documentId": "doc-cfa7e728af0f",
           "text": "All 164 Apple retail stores in the US will stay open until midnight, and customers can purchase up to two iPhones on a first come, first served basis. ",
@@ -78,6 +69,24 @@
           "end": 468,
           "contextSpans": [],
           "context": "All 164 Apple retail stores in the US will stay open until midnight, and customers can purchase up to two iPhones on a first come, first served basis."
+        },
+        {
+          "id": "doc-6928c6b9dd12::sentence-8",
+          "documentId": "doc-6928c6b9dd12",
+          "text": "“We are all born with the ultimate pointing device—our fingers—and iPhone uses them to create the most revolutionary user interface since the mouse.”",
+          "start": 873,
+          "end": 1022,
+          "contextSpans": [
+            {
+              "id": "doc-6928c6b9dd12::sentence-7",
+              "documentId": "doc-6928c6b9dd12",
+              "text": "“iPhone is a revolutionary and magical product that is literally five years ahead of any other mobile phone,” said Steve Jobs, Apple’s CEO. ",
+              "start": 733,
+              "end": 873,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "“iPhone is a revolutionary and magical product that is literally five years ahead of any other mobile phone,” said Steve Jobs, Apple’s CEO. “We are all born with the ultimate pointing device—our fingers—and iPhone uses them to create the most revolutionary user interface since the mouse.”"
         },
         {
           "id": "doc-cfa7e728af0f::sentence-3",
@@ -121,13 +130,13 @@
           "context": "Free Workshops, Genius Bar Support and One to One Personal Training CUPERTINO, California—June 28, 2007—Apple’s revolutionary iPhone™ will go on sale this Friday, June 29 at 6:00 p.m. local time at Apple® retail stores nationwide."
         },
         {
-          "id": "doc-6928c6b9dd12::sentence-4",
-          "documentId": "doc-6928c6b9dd12",
-          "text": "MACWORLD SAN FRANCISCO—January 9, 2007—Apple® today introduced iPhone, combining three products—a revolutionary mobile phone, a widescreen iPod® with touch controls, and a breakthrough Internet communications device with desktop-class email, web browsing, searching and maps—into one small and lightweight handheld device. ",
-          "start": 68,
-          "end": 391,
+          "id": "doc-cfa7e728af0f::sentence-6",
+          "documentId": "doc-cfa7e728af0f",
+          "text": "All 164 Apple retail stores in the US will stay open until midnight, and customers can purchase up to two iPhones on a first come, first served basis. ",
+          "start": 317,
+          "end": 468,
           "contextSpans": [],
-          "context": "MACWORLD SAN FRANCISCO—January 9, 2007—Apple® today introduced iPhone, combining three products—a revolutionary mobile phone, a widescreen iPod® with touch controls, and a breakthrough Internet communications device with desktop-class email, web browsing, searching and maps—into one small and lightweight handheld device."
+          "context": "All 164 Apple retail stores in the US will stay open until midnight, and customers can purchase up to two iPhones on a first come, first served basis."
         },
         {
           "id": "doc-6928c6b9dd12::sentence-3",
@@ -139,13 +148,13 @@
           "context": "Apple Reinvents the Phone with iPhone"
         },
         {
-          "id": "doc-cfa7e728af0f::sentence-6",
-          "documentId": "doc-cfa7e728af0f",
-          "text": "All 164 Apple retail stores in the US will stay open until midnight, and customers can purchase up to two iPhones on a first come, first served basis. ",
-          "start": 317,
-          "end": 468,
+          "id": "doc-6928c6b9dd12::sentence-4",
+          "documentId": "doc-6928c6b9dd12",
+          "text": "MACWORLD SAN FRANCISCO—January 9, 2007—Apple® today introduced iPhone, combining three products—a revolutionary mobile phone, a widescreen iPod® with touch controls, and a breakthrough Internet communications device with desktop-class email, web browsing, searching and maps—into one small and lightweight handheld device. ",
+          "start": 68,
+          "end": 391,
           "contextSpans": [],
-          "context": "All 164 Apple retail stores in the US will stay open until midnight, and customers can purchase up to two iPhones on a first come, first served basis."
+          "context": "MACWORLD SAN FRANCISCO—January 9, 2007—Apple® today introduced iPhone, combining three products—a revolutionary mobile phone, a widescreen iPod® with touch controls, and a breakthrough Internet communications device with desktop-class email, web browsing, searching and maps—into one small and lightweight handheld device."
         },
         {
           "id": "doc-6928c6b9dd12::sentence-8",
@@ -186,13 +195,13 @@
         ],
         "refuteSpanIds": [],
         "contextSpanIds": [
-          "doc-cfa7e728af0f::sentence-5",
           "doc-6928c6b9dd12::sentence-3",
-          "doc-6928c6b9dd12::sentence-5"
+          "doc-cfa7e728af0f::sentence-6",
+          "doc-6928c6b9dd12::sentence-8"
         ],
         "sufficiency": "SUFFICIENT",
         "missingInformation": "",
-        "reason": "The evidence explicitly states that Apple introduced the first iPhone on January 9, 2007.",
+        "reason": "The retained evidence directly supports the atomic claim's numeric assertion.",
         "scopeChecks": [
           {
             "spanId": "doc-6928c6b9dd12::sentence-4",
@@ -219,16 +228,16 @@
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
-            "spanId": "doc-6928c6b9dd12::sentence-5",
-            "documentId": "doc-6928c6b9dd12",
+            "spanId": "doc-cfa7e728af0f::sentence-6",
+            "documentId": "doc-cfa7e728af0f",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
             "evidenceJurisdictions": [],
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
-            "spanId": "doc-cfa7e728af0f::sentence-6",
-            "documentId": "doc-cfa7e728af0f",
+            "spanId": "doc-6928c6b9dd12::sentence-8",
+            "documentId": "doc-6928c6b9dd12",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
             "evidenceJurisdictions": [],
@@ -242,6 +251,22 @@
             "evidenceJurisdictions": [],
             "reason": "The atomic claim does not state a recognized jurisdiction."
           }
+        ],
+        "identityChecks": [
+          {
+            "relation": "SUPPORTS",
+            "spanIds": [
+              "doc-6928c6b9dd12::sentence-4"
+            ],
+            "status": "ALIGNED",
+            "requiredEntities": [
+              "Apple"
+            ],
+            "matchedEntities": [
+              "Apple"
+            ],
+            "reason": "No conflicting subject identity appears in the selected evidence; exact document-local matches were retained."
+          }
         ]
       },
       {
@@ -251,13 +276,13 @@
         ],
         "refuteSpanIds": [],
         "contextSpanIds": [
-          "doc-6928c6b9dd12::sentence-4",
+          "doc-cfa7e728af0f::sentence-6",
           "doc-6928c6b9dd12::sentence-3",
-          "doc-cfa7e728af0f::sentence-6"
+          "doc-6928c6b9dd12::sentence-4"
         ],
         "sufficiency": "SUFFICIENT",
         "missingInformation": "",
-        "reason": "The evidence explicitly states that the first iPhone went on sale in the United States on June 29, 2007.",
+        "reason": "O2-E1 directly states the first iPhone went on sale in the United States on June 29, 2007.",
         "scopeChecks": [
           {
             "spanId": "doc-cfa7e728af0f::sentence-5",
@@ -270,8 +295,8 @@
             "reason": "No explicit source jurisdiction could be resolved."
           },
           {
-            "spanId": "doc-6928c6b9dd12::sentence-4",
-            "documentId": "doc-6928c6b9dd12",
+            "spanId": "doc-cfa7e728af0f::sentence-6",
+            "documentId": "doc-cfa7e728af0f",
             "status": "UNRESOLVED",
             "claimJurisdictions": [
               "US"
@@ -290,8 +315,8 @@
             "reason": "No explicit source jurisdiction could be resolved."
           },
           {
-            "spanId": "doc-cfa7e728af0f::sentence-6",
-            "documentId": "doc-cfa7e728af0f",
+            "spanId": "doc-6928c6b9dd12::sentence-4",
+            "documentId": "doc-6928c6b9dd12",
             "status": "UNRESOLVED",
             "claimJurisdictions": [
               "US"
@@ -318,6 +343,20 @@
             ],
             "evidenceJurisdictions": [],
             "reason": "No explicit source jurisdiction could be resolved."
+          }
+        ],
+        "identityChecks": [
+          {
+            "relation": "SUPPORTS",
+            "spanIds": [
+              "doc-cfa7e728af0f::sentence-5"
+            ],
+            "status": "ALIGNED",
+            "requiredEntities": [
+              "the United States"
+            ],
+            "matchedEntities": [],
+            "reason": "No conflicting subject identity appears in the selected evidence; exact document-local matches were retained."
           }
         ]
       }
@@ -372,6 +411,11 @@
           "name": "Operand alignment",
           "status": "UNRESOLVED",
           "detail": "The atom lacks an explicit supported temporal comparison."
+        },
+        {
+          "name": "Identity alignment",
+          "status": "PASSED",
+          "detail": "No conflicting subject identity appears in the selected evidence; exact document-local matches were retained."
         }
       ],
       "program": {
@@ -441,6 +485,11 @@
           "name": "Operand alignment",
           "status": "UNRESOLVED",
           "detail": "The atom lacks an explicit supported temporal comparison."
+        },
+        {
+          "name": "Identity alignment",
+          "status": "PASSED",
+          "detail": "No conflicting subject identity appears in the selected evidence; exact document-local matches were retained."
         }
       ],
       "program": {
@@ -515,7 +564,7 @@
     ]
   },
   "recordedWith": {
-    "pipelineRevision": "generalized-symbolic-v5",
+    "pipelineRevision": "generalized-symbolic-v6",
     "inputDigest": "af8cdd330941dc5acc88a65992da98636e3089d77f6b72f66fb09d2c3372c7d9",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
@@ -524,11 +573,11 @@
     "reasoningModel": "qwen2.5:7b"
   },
   "timingsSeconds": {
-    "decomposition": 17.547,
-    "retrieval": 0.312,
-    "evidenceAssessment": 22.87,
-    "symbolicReasoning": 13.224,
-    "aggregation": 0.007,
-    "total": 53.961
+    "decomposition": 16.655,
+    "retrieval": 0.27,
+    "evidenceAssessment": 24.935,
+    "symbolicReasoning": 12.272,
+    "aggregation": 0.002,
+    "total": 54.134
   }
 }

@@ -305,6 +305,7 @@ RetrievalAtom = PipelineAtom
 class RetrievalDocument(APIModel):
     id: str = Field(min_length=1, max_length=100)
     text: str = Field(min_length=1, max_length=250000)
+    title: str = Field(default="", max_length=300)
 
     @field_validator("id", "text")
     @classmethod
@@ -475,6 +476,21 @@ class EvidenceScopeCheck(APIModel):
     reason: str = Field(min_length=1, max_length=300)
 
 
+class IdentityAlignmentStatus(str, Enum):
+    aligned = "ALIGNED"
+    unresolved = "UNRESOLVED"
+    not_applicable = "NOT_APPLICABLE"
+
+
+class IdentityAlignmentCheck(APIModel):
+    relation: Literal["SUPPORTS", "REFUTES"]
+    span_ids: List[str] = Field(default_factory=list, max_length=3)
+    status: IdentityAlignmentStatus
+    required_entities: List[str] = Field(default_factory=list, max_length=20)
+    matched_entities: List[str] = Field(default_factory=list, max_length=20)
+    reason: str = Field(min_length=1, max_length=500)
+
+
 class GroundedObligationAudit(APIModel):
     atom_id: str = Field(min_length=1, max_length=100)
     support_span_ids: List[str] = Field(default_factory=list, max_length=3)
@@ -484,6 +500,7 @@ class GroundedObligationAudit(APIModel):
     missing_information: str = Field(default="", max_length=500)
     reason: str = Field(min_length=1, max_length=500)
     scope_checks: List[EvidenceScopeCheck] = Field(default_factory=list, max_length=MAX_EVIDENCE_PER_ATOM)
+    identity_checks: List[IdentityAlignmentCheck] = Field(default_factory=list, max_length=2)
 
 
 class MaterialOmissionCertificate(APIModel):
@@ -673,8 +690,10 @@ class HealthResponse(APIModel):
     decomposition_configured: bool
     decomposition_ready: bool
     retrieval_configured: bool
+    entity_alignment_ready: bool
     decomposition_model: str
     retrieval_model: str
+    entity_model: str
     model_config = ConfigDict(extra="forbid")
 
 

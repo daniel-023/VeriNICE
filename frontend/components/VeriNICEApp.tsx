@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { Activity, LoaderCircle, Play } from "lucide-react";
+import { Activity, Github, LoaderCircle, Play } from "lucide-react";
 import { FormEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { api } from "@/lib/api";
 import { candidateAssessments, reviseAssessment } from "@/lib/assessment";
@@ -789,7 +789,7 @@ export function VeriNICEApp({ mode = deploymentMode }: { mode?: DeploymentMode }
     assessmentState === "running" || reasoningState === "running";
   const documentsReady = documents.length > 0 && documents.every((document) => document.text.trim());
   const pipelineConfigured = Boolean(
-    health?.decompositionReady && health.retrievalConfigured,
+    health?.decompositionReady && health.retrievalConfigured && health.entityAlignmentReady,
   );
 
   return (
@@ -806,7 +806,7 @@ export function VeriNICEApp({ mode = deploymentMode }: { mode?: DeploymentMode }
               <span className="brand-name-veri">Veri</span>
               <span className="brand-name-nice">NICE</span>
             </span>
-            <small>Verification via Neuro-symbolic Inference with Compositional Evidence</small>
+            <small>Verification via Neurosymbolic Inference with Compositional Evidence</small>
           </span>
         </div>
         <span className="header-context">Claim + Sources → Verdict</span>
@@ -815,7 +815,7 @@ export function VeriNICEApp({ mode = deploymentMode }: { mode?: DeploymentMode }
             className={`health-chip ${pipelineConfigured ? "health-ready" : "health-unconfigured"}`}
             title={
               health
-                ? `Decomposition: ${health.decompositionReady ? "ready" : "unavailable"}; retrieval: ${health.retrievalConfigured ? "ready" : "unavailable"}; symbolic checks: local`
+                ? `Decomposition: ${health.decompositionReady ? "ready" : "unavailable"}; retrieval: ${health.retrievalConfigured ? "ready" : "unavailable"}; identity alignment: ${health.entityAlignmentReady ? "ready" : "unavailable"}; symbolic checks: local`
                 : undefined
             }
             aria-live="polite"
@@ -882,9 +882,21 @@ export function VeriNICEApp({ mode = deploymentMode }: { mode?: DeploymentMode }
       </section>
 
       {walkthrough ? (
-        <p className="walkthrough-notice" role="status">
-          Illustrative recorded run — no live inference on this website.
-        </p>
+        <aside className="walkthrough-notice" aria-label="Recorded deployment information">
+          <span>
+            Recorded demonstration only. To evaluate other claims against your own source
+            documents, run VeriNICE locally.
+          </span>
+          <a
+            className="repository-button"
+            href="https://github.com/daniel-023/VeriNICE"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Github size={14} aria-hidden="true" />
+            View GitHub repo
+          </a>
+        </aside>
       ) : null}
 
       <section className="claim-hero" aria-labelledby="claim-heading">

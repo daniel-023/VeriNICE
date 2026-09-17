@@ -3,18 +3,18 @@
   "claim": "GPS was developed exclusively for civilian navigation.",
   "documents": [
     {
-      "id": "doc-063728f3d9ea",
-      "title": "Policies and Documentation",
-      "url": "https://www.gps.gov/policies-and-documentation",
+      "id": "doc-d589af4d7c86",
+      "title": "GPS celebrates 25th year of operation",
+      "url": "https://www.spaceforce.mil/News/article/2166101/gps-celebrates-25th-year-of-operation/",
       "layout": "PROSE",
-      "publisher": "National Coordination Office for Space-Based Positioning, Navigation, and Timing",
-      "retrievedAt": "2026-09-05",
+      "publisher": "U.S. Space Force",
+      "retrievedAt": "2026-09-16",
       "sourceType": "SOURCE_EXCERPT",
-      "sourceDescriptor": "Institutional source",
+      "sourceDescriptor": "Official military history",
       "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
-      "excerptSha256": "843aabbe1c05c3745709528729a81db65ac8814e057b82b00c988746ce6e0e5a",
-      "sourceSha256": "9660b66eeae188c74cb362ba1681597b4d4285e37e71a99d7351f04cd302c35d",
-      "text": "Since the 1980s, multiple U.S. presidents have issued consistent policies encouraging the worldwide use of GPS for peaceful purposes. Congress has enacted elements of these policies as permanent law.\nThe stability and transparency of U.S. policy, combined with a long track record of dependable GPS service, have laid a solid foundation for investment and innovation in GPS technology. As a result, the commercial use of GPS technology has flourished, transforming the way we live and work today.\nGPS Policy Highlights\n-\nFree Access for Civilian Use\nThe U.S. government provides civilian access to GPS on a continuous, worldwide basis, free of direct user fees. It also provides open, free access to the information needed to develop GPS user equipment.\n-\nManagement of GPS as a National Asset\nThe GPS program receives national-level attention and guidance through a joint civil/military body established by presidential directive.\n-\nJoint Program Funding\nThe bulk of the GPS program is budgeted through the Department of Defense, but the Department of Transportation also contributes funding to support civilian GPS requirements."
+      "excerptSha256": "4926e0ed09039e284992e46e078bfb1ee786eace6a12883794716fc1246f28dc",
+      "sourceSha256": "269352b2468a74b06a16d18bc1bae76cbde0463494762f796006c9d61fd6f214",
+      "text": "On this date in 1995, the system reached full operational capability, meaning the system met all performance requirements. U.S. Air Force Space Command formally announced the milestone three months later.\n\n“This is a major milestone,” Gen. Thomas S. Moorman Jr., former Air Force Vice Chief of Staff, said in 1995. “GPS has become integral to our warfighters and is rapidly becoming a true utility in the civilian community.”\n\nInitially developed for the military to meet a critical need for determining precise location on the battlefield, GPS has also become an integral part of technology affecting the lives of billions of people worldwide.\n\n“The United States Space Force’s continuing objective for the constellation is to ensure GPS remains the Gold Standard for global space-based positioning, navigation and timing,” said Gen. Jay Raymond, USSF Chief of Space Operations, and U.S. Space Command Commander.\n\nToday, the U.S. Space Force operates the GPS satellite constellation as a global utility – always available to everyone, everywhere on Earth."
     },
     {
       "id": "doc-9370f4fa5dd0",
@@ -22,13 +22,13 @@
       "url": "https://www.spaceforce.mil/About-Us/Fact-Sheets/Fact-Sheet-Display/Article/2197765/global-positioning-system/",
       "layout": "PROSE",
       "publisher": "U.S. Space Force",
-      "retrievedAt": "2026-09-05",
+      "retrievedAt": "2026-09-16",
       "sourceType": "SOURCE_EXCERPT",
       "sourceDescriptor": "Institutional source",
       "excerptRationale": "This contiguous, sentence-complete passage contains the claim-relevant evidence and nearby context while excluding unrelated page material. Follow the source link to inspect the complete publisher page.",
-      "excerptSha256": "684745d11fa1b3d5b97e0598155ecfc0be45ac8e813481d6fde47f816393b99e",
-      "sourceSha256": "9b334d0755752849a572aa34ddec5aa67732b6f860b42bd88c6663b23f1aefc1",
-      "text": "## Global Positioning System\n\n**GLOBAL POSITIONING SYSTEM**\n\n**Mission**\n\nThe Global Positioning System (GPS) is a constellation of orbiting satellites that provides position, navigation, and timing data to military and civilian users globally. The system is operated and controlled by Space Delta 8, located at Schriever Air Force Base, Colo.\n\n**Features**\n\nGPS satellites orbit the earth every 12 hours, emitting continuous navigation signals. With the proper equipment, users can receive at least four satellite signals to calculate time, location and velocity. The signals are so accurate, time can be figured to within a millionth of a second, velocity within a fraction of a mile per hour and location to within 100 feet. Receivers have been developed for use in spacecraft, aircraft, ships, land vehicles, and precision-guided munitions, as well as for hand carrying.\n\nGPS provides 24/7/365 navigation services including:\n\n · Extremely accurate, three-dimensional location information (latitude, longitude and altitude), velocity (speed and direction), and precise time"
+      "excerptSha256": "015b56bce4bdefe58fdbf306d3d99fa2b8310f61dd7a0c7ef64be025aea2d4f1",
+      "sourceSha256": "07dd97a731ac1c3a9448215055a73ce196b9308bfaf3fb3e5ca3ab28422997ba",
+      "text": "## Global Positioning System\n\n**GLOBAL POSITIONING SYSTEM**\n\n**Mission**\n\nThe Global Positioning System (GPS) is a constellation of orbiting satellites that provides position, navigation, and timing data to military and civilian users globally. The system is operated and controlled by Space Delta 8, located at Schriever Air Force Base, Colo.\n\n**Features**\n\nGPS satellites orbit the earth every 12 hours, emitting continuous navigation signals. With the proper equipment, users can receive at least four satellite signals to calculate time, location and velocity. The signals are so accurate, time can be figured to within a millionth of a second, velocity within a fraction of a mile per hour and location to within 100 feet. Receivers have been developed for use in spacecraft, aircraft, ships, land vehicles, and precision-guided munitions, as well as for hand carrying.\n\nGPS provides 24/7/365 navigation services including:\n · Extremely accurate, three-dimensional location information (latitude, longitude and altitude), velocity (speed and direction), and precise time"
     }
   ],
   "label": "REFUTED",

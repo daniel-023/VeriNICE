@@ -112,6 +112,19 @@ def attribute_profile(atom: PipelineAtom) -> str:
     return EXPLICIT_NEGATION
 
 
+def exclusive_purpose_counterexample(claim_text: str, evidence_text: str) -> bool:
+    """Match an explicit military development purpose against civilian-only development."""
+    claim = normalize(claim_text)
+    if "exclusively" not in claim or not re.search(r"\bcivil(?:ian)?\b", claim):
+        return False
+    return bool(re.search(
+        r"(?is)\b(?:developed|development|designed|conceived)\b.{0,160}?"
+        r"\bmilitary\b|\bmilitary\b.{0,160}?"
+        r"\b(?:developed|development|designed|conceived)\b",
+        evidence_text,
+    ))
+
+
 def distinct_profile(atom: PipelineAtom) -> str | None:
     if not distinct_count_request(atom):
         return None

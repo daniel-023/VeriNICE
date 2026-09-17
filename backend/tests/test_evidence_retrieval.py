@@ -14,6 +14,7 @@ from verinice_backend.errors import (
 from verinice_backend.evidence_retrieval import (
     MAX_CANDIDATE_CHARACTERS,
     MAX_CONTEXT_CHARACTERS,
+    _bm25_scores,
     _eligible_sentences,
     _reciprocal_rank_fusion,
     _rank_hybrid_sentences,
@@ -225,6 +226,75 @@ def test_reciprocal_rank_fusion_uses_equal_weights() -> None:
     assert fused[0] == pytest.approx(fused[1])
 
 
+def test_reciprocal_rank_fusion_excludes_zero_lexical_scores() -> None:
+    fused = _reciprocal_rank_fusion([0.5, 0.5, 0.4], [1.0, 0.0, 0.0])
+    assert fused[0] > fused[1]
+    assert fused[1] > fused[2]
+
+
+def test_reciprocal_rank_fusion_uses_tie_aware_ranks() -> None:
+    fused = _reciprocal_rank_fusion([0.9, 0.9, 0.8], [1.0, 1.0, 1.0])
+    assert fused[0] == pytest.approx(fused[1])
+    assert fused[1] > fused[2]
+
+
+def test_bm25_rewards_rare_terms_instead_of_raw_query_coverage() -> None:
+    passages = [
+        "common alpha beta",
+        "rare",
+        "common alpha beta background",
+        "common alpha beta reference",
+    ]
+    scores = _bm25_scores("common alpha beta rare", passages)
+    assert scores[1] > scores[0]
+
+
+def test_bm25_normalizes_numeric_formatting() -> None:
+    scores = _bm25_scores(
+        "The population was 145,170.",
+        ["The population was 145170.", "The population was 145,171."],
+    )
+    assert scores[0] > scores[1]
+    decimal_scores = _bm25_scores(
+        "The rate was 12,5.",
+        ["The rate was 12.5.", "The rate was 125."],
+    )
+    assert decimal_scores[0] > decimal_scores[1]
+
+
+def test_list_bonus_requires_a_list_relevant_query() -> None:
+    passages = ["- Aurora", "Aurora"]
+    ordinary_scores = _bm25_scores("Aurora launched", passages)
+    ordinary_inclusion_scores = _bm25_scores(
+        "The report included Aurora rainfall totals", passages
+    )
+    membership_scores = _bm25_scores("Aurora is on the Security Council", passages)
+    assert ordinary_scores[0] == pytest.approx(ordinary_scores[1])
+    assert ordinary_inclusion_scores[0] == pytest.approx(ordinary_inclusion_scores[1])
+    assert membership_scores[0] > membership_scores[1]
+
+
+def test_bm25_index_reuses_passage_statistics_across_queries(monkeypatch) -> None:
+    calls: List[str] = []
+    original = evidence_retrieval._lexical_tokens
+
+    def tracked(text: str):
+        calls.append(text)
+        return original(text)
+
+    monkeypatch.setattr(evidence_retrieval, "_lexical_tokens", tracked)
+    index = evidence_retrieval._BM25Index(["First passage.", "Second passage."])
+    index.scores("First query")
+    index.scores("Second query")
+
+    assert calls == [
+        "First passage.",
+        "Second passage.",
+        "First query",
+        "Second query",
+    ]
+
+
 def test_hybrid_diversity_is_soft_not_mandatory() -> None:
     sentences = [
         SentenceSpan("a1", "Aurora acquired Northstar.", 0, 27, "doc-a", 0),
@@ -420,7 +490,7 @@ async def test_retrieval_methods_select_distinct_rankers(monkeypatch, configured
     assert lexical.evidence[0].spans[0].text.startswith("The citation")
     assert semantic.provider == "sentence-transformers"
     assert lexical.provider == "python"
-    assert lexical.model == "lexical-overlap-v1"
+    assert lexical.model == "bm25-v1"
     assert calls == 1
 
 
@@ -533,3 +603,23 @@ async def test_missing_local_model_returns_configuration_error(monkeypatch, tmp_
             [RetrievalDocument(id="doc-a", text="A sentence.")],
             [RetrievalAtom(id="atom-1", text="A query.")],
         )
+
+
+async def test_lexical_retrieval_does_not_require_embedding_model(
+    monkeypatch, tmp_path
+) -> None:
+    monkeypatch.setattr(
+        evidence_retrieval,
+        "settings",
+        replace(
+            evidence_retrieval.settings,
+            embedding_model_path=tmp_path / "missing",
+        ),
+    )
+    result = await retrieve_evidence(
+        [RetrievalDocument(id="doc-a", text="Aurora launched.")],
+        [RetrievalAtom(id="atom-1", text="Aurora launched.")],
+        retrieval_method=RetrievalMethod.lexical,
+    )
+    assert result.evidence[0].spans[0].text == "Aurora launched."
+    assert result.model == "bm25-v1"

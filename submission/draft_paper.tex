@@ -76,11 +76,15 @@ PySBD segments documents into exact-offset sentences
 passages. Both embeddings are $L_2$-normalized, so their dot product equals
 cosine similarity. Equal-weight reciprocal-rank fusion is
 \begin{equation}
-h_{ij}=\frac{1}{60+r^d_{ij}}+\frac{1}{60+r^\ell_{ij}},
+h_{ij}=\frac{1}{60+r^d_{ij}}
+    +\mathbf{1}[s^\ell_{ij}>0]\frac{1}{60+r^\ell_{ij}},
 \label{eq:retrieval}
 \end{equation}
 following RRF \cite{cormack-etal-2009-rrf}. The lexical score combines exact
-term coverage, exact numeric-string matches, and a list-entry bonus. Retrieval
+term matches with corpus frequency and passage-length normalization using
+Okapi BM25. Numeric strings are normalized before scoring, and list-entry
+bonuses apply only to list-oriented queries. Tied scores share ranks, and a
+zero lexical score contributes no lexical RRF term. Retrieval
 ranks globally, then applies a budget-dependent per-document diversity limit;
 the default is $k=6$. Cue-triggered reading context may add one adjacent
 sentence on each side without making it an independently selectable anchor.

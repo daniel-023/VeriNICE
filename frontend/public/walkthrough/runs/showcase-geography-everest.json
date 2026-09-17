@@ -53,32 +53,6 @@
           "context": "That makes Chimborazo the closest point on Earth to the stars. You may be surprised to learn that Everest is not the tallest mountain on Earth, either. That honor belongs to Mauna Kea, a volcano on the Big Island of Hawaii."
         },
         {
-          "id": "doc-f79bf0925486::sentence-2",
-          "documentId": "doc-f79bf0925486",
-          "text": "Reaching 8,848 meters at its summit, Everest is indeed the highest point above global mean sea level—the average level for the ocean surface from which elevations are measured. ",
-          "start": 96,
-          "end": 273,
-          "contextSpans": [
-            {
-              "id": "doc-f79bf0925486::sentence-1",
-              "documentId": "doc-f79bf0925486",
-              "text": "Mount Everest, located in Nepal and Tibet, is usually said to be the highest mountain on Earth. ",
-              "start": 0,
-              "end": 96,
-              "direction": "PREVIOUS"
-            },
-            {
-              "id": "doc-f79bf0925486::sentence-3",
-              "documentId": "doc-f79bf0925486",
-              "text": "But the summit of Mt. Everest is not the farthest point from Earth’s center.\n",
-              "start": 273,
-              "end": 350,
-              "direction": "NEXT"
-            }
-          ],
-          "context": "Mount Everest, located in Nepal and Tibet, is usually said to be the highest mountain on Earth. Reaching 8,848 meters at its summit, Everest is indeed the highest point above global mean sea level—the average level for the ocean surface from which elevations are measured. But the summit of Mt. Everest is not the farthest point from Earth’s center."
-        },
-        {
           "id": "doc-e42dc78c7afa::sentence-4",
           "documentId": "doc-e42dc78c7afa",
           "text": "**Mauna Loa:** Mauna Loa is the largest active volcano on our planet, growing to an elevation of 4,170 m (13,681 feet) above sea level with an additional depth of 9,144 m (30,000 feet) below sea level, which makes this shield volcano taller from base to top than Mount Everest. ",
@@ -88,22 +62,22 @@
           "context": "**Mauna Loa:** Mauna Loa is the largest active volcano on our planet, growing to an elevation of 4,170 m (13,681 feet) above sea level with an additional depth of 9,144 m (30,000 feet) below sea level, which makes this shield volcano taller from base to top than Mount Everest."
         },
         {
-          "id": "doc-e42dc78c7afa::sentence-1",
-          "documentId": "doc-e42dc78c7afa",
-          "text": "There are also three other volcanoes outside of the national park boundary: Mauna Kea, Hualālai, and Kohala. ",
-          "start": 0,
-          "end": 109,
+          "id": "doc-f79bf0925486::sentence-3",
+          "documentId": "doc-f79bf0925486",
+          "text": "But the summit of Mt. Everest is not the farthest point from Earth’s center.\n",
+          "start": 273,
+          "end": 350,
           "contextSpans": [
             {
-              "id": "doc-e42dc78c7afa::sentence-2",
-              "documentId": "doc-e42dc78c7afa",
-              "text": "These volcanoes are older and much less active than the larger volcanoes. ",
-              "start": 109,
-              "end": 183,
-              "direction": "NEXT"
+              "id": "doc-f79bf0925486::sentence-2",
+              "documentId": "doc-f79bf0925486",
+              "text": "Reaching 8,848 meters at its summit, Everest is indeed the highest point above global mean sea level—the average level for the ocean surface from which elevations are measured. ",
+              "start": 96,
+              "end": 273,
+              "direction": "PREVIOUS"
             }
           ],
-          "context": "There are also three other volcanoes outside of the national park boundary: Mauna Kea, Hualālai, and Kohala. These volcanoes are older and much less active than the larger volcanoes."
+          "context": "Reaching 8,848 meters at its summit, Everest is indeed the highest point above global mean sea level—the average level for the ocean surface from which elevations are measured. But the summit of Mt. Everest is not the farthest point from Earth’s center."
         },
         {
           "id": "doc-e42dc78c7afa::sentence-5",
@@ -130,6 +104,24 @@
             }
           ],
           "context": "**Mauna Loa:** Mauna Loa is the largest active volcano on our planet, growing to an elevation of 4,170 m (13,681 feet) above sea level with an additional depth of 9,144 m (30,000 feet) below sea level, which makes this shield volcano taller from base to top than Mount Everest. Mauna Loa makes up roughly 51% of the land mass on the Big Island, with a weight so heavy that it physically depresses the ocean floor beneath it. It is a shield volcano, which is a broad, gently sloping dome-like structure built almost entirely from fluid lava flows pouring out of a central vent(s)."
+        },
+        {
+          "id": "doc-e42dc78c7afa::sentence-3",
+          "documentId": "doc-e42dc78c7afa",
+          "text": "All five listed make up the Big Island of Hawai'i, but this summary will focus on the two volcanoes within the national park.\n\n",
+          "start": 183,
+          "end": 310,
+          "contextSpans": [
+            {
+              "id": "doc-e42dc78c7afa::sentence-2",
+              "documentId": "doc-e42dc78c7afa",
+              "text": "These volcanoes are older and much less active than the larger volcanoes. ",
+              "start": 109,
+              "end": 183,
+              "direction": "PREVIOUS"
+            }
+          ],
+          "context": "These volcanoes are older and much less active than the larger volcanoes. All five listed make up the Big Island of Hawai'i, but this summary will focus on the two volcanoes within the national park."
         }
       ]
     }
@@ -138,21 +130,16 @@
     "obligations": [
       {
         "atomId": "atom-1",
-        "supportSpanIds": [
-          "doc-f79bf0925486::sentence-2"
-        ],
-        "refuteSpanIds": [
-          "doc-f79bf0925486::sentence-9",
-          "doc-e42dc78c7afa::sentence-4",
-          "doc-e42dc78c7afa::sentence-5"
-        ],
+        "supportSpanIds": [],
+        "refuteSpanIds": [],
         "contextSpanIds": [
-          "doc-f79bf0925486::sentence-1",
-          "doc-e42dc78c7afa::sentence-1"
+          "doc-e42dc78c7afa::sentence-4",
+          "doc-f79bf0925486::sentence-9",
+          "doc-f79bf0925486::sentence-1"
         ],
         "sufficiency": "PARTIAL",
-        "missingInformation": "The evidence does not provide a clear comparison of the summit elevation of Mount Everest to other mountains, nor does it clarify the definition of 'tallest mountain.'.",
-        "reason": "The evidence supports Mount Everest as the highest point above sea level but contradicts this by mentioning other mountains that are taller from base to top.",
+        "missingInformation": "Comparable measurements using one definition and a complete comparison set are needed.",
+        "reason": "The selected evidence compares measurements that use incompatible definitions.",
         "scopeChecks": [
           {
             "spanId": "doc-f79bf0925486::sentence-1",
@@ -176,16 +163,6 @@
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
-            "spanId": "doc-f79bf0925486::sentence-2",
-            "documentId": "doc-f79bf0925486",
-            "status": "NOT_APPLICABLE",
-            "claimJurisdictions": [],
-            "evidenceJurisdictions": [
-              "NP"
-            ],
-            "reason": "The atomic claim does not state a recognized jurisdiction."
-          },
-          {
             "spanId": "doc-e42dc78c7afa::sentence-4",
             "documentId": "doc-e42dc78c7afa",
             "status": "NOT_APPLICABLE",
@@ -194,11 +171,14 @@
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
-            "spanId": "doc-e42dc78c7afa::sentence-1",
-            "documentId": "doc-e42dc78c7afa",
+            "spanId": "doc-f79bf0925486::sentence-3",
+            "documentId": "doc-f79bf0925486",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
-            "evidenceJurisdictions": [],
+            "evidenceJurisdictions": [
+              "EC",
+              "NP"
+            ],
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
@@ -208,8 +188,17 @@
             "claimJurisdictions": [],
             "evidenceJurisdictions": [],
             "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-e42dc78c7afa::sentence-3",
+            "documentId": "doc-e42dc78c7afa",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
           }
-        ]
+        ],
+        "identityChecks": []
       }
     ],
     "materialOmission": {
@@ -229,7 +218,7 @@
       "relation": null,
       "premiseIds": [
         "evidence:atom-1:doc-f79bf0925486:doc-f79bf0925486::sentence-9",
-        "operand:doc-f79bf0925486:line:2"
+        "evidence:atom-1:doc-e42dc78c7afa:doc-e42dc78c7afa::sentence-4"
       ],
       "premises": [
         {
@@ -244,28 +233,28 @@
           "listItems": []
         },
         {
-          "id": "operand:doc-f79bf0925486:line:2",
-          "documentId": "doc-f79bf0925486",
-          "text": "You may be surprised to learn that Everest is not the tallest mountain on Earth, either. That honor belongs to Mauna Kea, a volcano on the Big Island of Hawaii. Mauna Kea originates deep beneath the Pacific Ocean, and rises more than 10,210 meters from base to peak.",
-          "start": 926,
-          "end": 1192,
-          "kind": "OPERAND",
+          "id": "evidence:atom-1:doc-e42dc78c7afa:doc-e42dc78c7afa::sentence-4",
+          "documentId": "doc-e42dc78c7afa",
+          "text": "**Mauna Loa:** Mauna Loa is the largest active volcano on our planet, growing to an elevation of 4,170 m (13,681 feet) above sea level with an additional depth of 9,144 m (30,000 feet) below sea level, which makes this shield volcano taller from base to top than Mount Everest. ",
+          "start": 310,
+          "end": 588,
+          "kind": "EVIDENCE",
           "contentHash": null,
           "itemCount": null,
           "listItems": []
         }
       ],
       "expression": "tallest",
-      "conclusion": "Extremum is not proved",
-      "explanation": "No counterexample was selected, but the complete comparison universe is not certified.",
+      "conclusion": "Measurements use different definitions",
+      "explanation": "The candidate values are not comparable because their measurement bases differ.",
       "validationWarnings": [
-        "INCOMPLETE_COMPARISON_UNIVERSE"
+        "INCOMPATIBLE_MEASURES"
       ],
       "preconditions": [
         {
           "name": "Source grounding",
           "status": "PASSED",
-          "detail": "5 selected premise(s) retain exact source offsets."
+          "detail": "7 selected premise(s) retain exact source offsets."
         },
         {
           "name": "Registered profile",
@@ -275,7 +264,12 @@
         {
           "name": "Operand alignment",
           "status": "UNRESOLVED",
-          "detail": "No counterexample was selected, but the complete comparison universe is not certified."
+          "detail": "The candidate values are not comparable because their measurement bases differ."
+        },
+        {
+          "name": "Identity alignment",
+          "status": "PASSED",
+          "detail": "No conflicting subject identity appears in the selected evidence; exact document-local matches were retained."
         }
       ],
       "program": {
@@ -294,7 +288,7 @@
             "id": "input-2",
             "operation": "LOOKUP",
             "inputIds": [
-              "operand:doc-f79bf0925486:line:2"
+              "evidence:atom-1:doc-e42dc78c7afa:doc-e42dc78c7afa::sentence-4"
             ],
             "outputType": "FACT",
             "description": "Read an unchanged server-owned premise."
@@ -335,18 +329,14 @@
         "state": "UNRESOLVED",
         "supportEdgeIds": [],
         "refuteEdgeIds": [],
-        "unselectedCandidateCount": 0,
-        "provisionalRelationCount": 4
+        "unselectedCandidateCount": 3,
+        "provisionalRelationCount": 0
       }
     ],
     "warnings": [
       {
         "code": "OBLIGATION_WITHOUT_ARGUMENT_EDGES",
         "message": "Obligation atom-1 has no validated supporting or refuting relation."
-      },
-      {
-        "code": "PROVISIONAL_EVIDENCE_EXCLUDED",
-        "message": "4 assessed relation(s) for obligation atom-1 are provisional because the evidence is not sufficient."
       }
     ],
     "ruleTrace": [
@@ -356,7 +346,7 @@
     ]
   },
   "recordedWith": {
-    "pipelineRevision": "generalized-symbolic-v5",
+    "pipelineRevision": "generalized-symbolic-v6",
     "inputDigest": "1e9ec9d788a825641465707d093388d8d62e3a6380fd793b91d8a8a8bddb0dcc",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
@@ -365,11 +355,11 @@
     "reasoningModel": "qwen2.5:7b"
   },
   "timingsSeconds": {
-    "decomposition": 12.762,
-    "retrieval": 0.252,
-    "evidenceAssessment": 17.604,
-    "symbolicReasoning": 14.761,
-    "aggregation": 0.005,
-    "total": 45.384
+    "decomposition": 13.239,
+    "retrieval": 0.14,
+    "evidenceAssessment": 18.814,
+    "symbolicReasoning": 14.425,
+    "aggregation": 0.002,
+    "total": 46.62
   }
 }

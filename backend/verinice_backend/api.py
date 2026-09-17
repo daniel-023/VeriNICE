@@ -26,6 +26,7 @@ from .embeddings import (
     is_available as embeddings_available,
     warm as warm_embeddings,
 )
+from .entity_alignment import entity_model_ready
 from .errors import (
     EvidenceRetrievalConfigurationError,
     EvidenceRetrievalError,
@@ -166,15 +167,18 @@ def health() -> HealthResponse:
     decomposition = bool(settings.ollama_url.strip() and settings.ollama_model.strip())
     decomposition_ready = ollama_model_ready()
     retrieval = embeddings_available()
+    entity_ready = entity_model_ready()
     return HealthResponse(
-        status=("ready" if decomposition_ready and retrieval
-                else "degraded" if decomposition or retrieval
+        status=("ready" if decomposition_ready and retrieval and entity_ready
+                else "degraded" if decomposition or retrieval or entity_ready
                 else "unconfigured"),
         decomposition_configured=decomposition,
         decomposition_ready=decomposition_ready,
         retrieval_configured=retrieval,
+        entity_alignment_ready=entity_ready,
         decomposition_model=settings.ollama_model,
         retrieval_model=settings.embedding_model,
+        entity_model=settings.entity_model,
     )
 
 
@@ -281,7 +285,10 @@ async def compile_and_execute_reasoning(request: ReasoningRequest) -> ReasoningR
         case = demo_case(request.case_id)
         if case is None:
             raise HTTPException(status_code=404, detail="Demo case not found.")
-        documents = [RetrievalDocument(id=item.id, text=item.text) for item in case.documents]
+        documents = [
+            RetrievalDocument(id=item.id, text=item.text, title=item.title)
+            for item in case.documents
+        ]
     else:
         documents = request.documents or []
     try:

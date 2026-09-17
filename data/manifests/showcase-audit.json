@@ -1,24 +1,128 @@
 {
-  "version": 2,
-  "purpose": "Presentation approval only. This file is never loaded by inference or sent to a model.",
+  "version": 4,
+  "purpose": "Offline presentation release controls. Inference never loads this file. Atom checks validate semantic commitments without requiring one exact model-generated wording.",
   "cases": [
-    {"id":"showcase-science-egg-cvd","expectedAtoms":["Among US adults, each additional half egg consumed per day is associated with a higher risk of incident cardiovascular disease."],"requiredOperators":[],"allowedOperators":[],"prohibitedDecisiveOperators":[],"requireCrossDocumentConflict":true,"referenceVerdict":"CONFLICTING_EVIDENCE","maxDefaultGraphNodes":9,"approved":true},
-    {"id":"showcase-science-shaving","expectedAtoms":["Shaving makes hair grow back thicker.","Shaving makes hair grow back faster."],"requiredOperators":[{"operator":"ATTRIBUTE_COMPARE","status":"DISPROVED"}],"prohibitedDecisiveOperators":[],"allowedShortLocators":["atom-2"],"referenceVerdict":"REFUTED","maxDefaultGraphNodes":9,"approved":true},
-    {"id":"showcase-science-lightning","expectedAtoms":["Lightning can heat the surrounding air to more than 40,000°F."],"requiredOperators":[{"operator":"NUMERIC_COMPARE","status":"PROVED"}],"allowedOperators":["NUMERIC_COMPARE"],"prohibitedDecisiveOperators":[],"referenceVerdict":"SUPPORTED","maxDefaultGraphNodes":9,"approved":true},
-    {"id":"showcase-history-einstein","expectedAtoms":["The Nobel Prize in Physics for 1921 was awarded to Albert Einstein.","The Nobel Prize in Physics for 1921 was awarded for his theory of relativity."],"requiredOperators":[{"operator":"ATTRIBUTE_COMPARE","status":"DISPROVED"}],"prohibitedDecisiveOperators":[],"referenceVerdict":"REFUTED","maxDefaultGraphNodes":9,"approved":true},
-    {"id":"showcase-history-curie","expectedAtoms":["Marie Curie won Nobel Prizes in at least two different scientific fields."],"requiredOperators":[{"operator":"COUNT_DISTINCT","status":"PROVED"}],"prohibitedDecisiveOperators":["ATTRIBUTE_COMPARE"],"referenceVerdict":"SUPPORTED","maxDefaultGraphNodes":9,"approved":true},
-    {"id":"showcase-history-whitehead-flight","expectedAtoms":["Gustave Whitehead made the first powered flight."],"requiredOperators":[],"prohibitedDecisiveOperators":[],"requireCrossDocumentConflict":true,"referenceVerdict":"CONFLICTING_EVIDENCE","maxDefaultGraphNodes":9,"approved":true},
-    {"id":"showcase-geography-canberra","expectedAtoms":["Canberra was Australia's most populous capital city on 30 June 2024."],"requiredOperators":[{"operator":"EXTREMUM_COMPARE","status":"DISPROVED"}],"prohibitedDecisiveOperators":[],"referenceVerdict":"REFUTED","maxDefaultGraphNodes":9,"approved":true},
-    {"id":"showcase-geography-everest","expectedAtoms":["Mount Everest is the tallest mountain on Earth."],"requiredOperators":[{"operator":"EXTREMUM_COMPARE","status":"UNRESOLVED"}],"prohibitedDecisiveOperators":[],"referenceVerdict":"NOT_ENOUGH_EVIDENCE","maxDefaultGraphNodes":9,"approved":true},
-    {"id":"showcase-geography-eiffel","expectedAtoms":["The Eiffel Tower is located in Germany."],"requiredOperators":[{"operator":"ATTRIBUTE_COMPARE","status":"DISPROVED"}],"prohibitedDecisiveOperators":[],"referenceVerdict":"REFUTED","maxDefaultGraphNodes":9,"approved":true},
-    {"id":"showcase-technology-iphone","expectedAtoms":["Apple introduced the first iPhone on 9 January 2007.","The first iPhone went on sale in the United States on 29 June 2007."],"requiredOperators":[],"prohibitedDecisiveOperators":[],"referenceVerdict":"SUPPORTED","maxDefaultGraphNodes":9,"approved":true},
-    {"id":"showcase-technology-web","expectedAtoms":["Tim Berners-Lee invented the World Wide Web at CERN in 1989.","Tim Berners-Lee created its first client and server in 1990."],"requiredOperators":[],"prohibitedDecisiveOperators":[],"referenceVerdict":"SUPPORTED","maxDefaultGraphNodes":9,"approved":true},
-    {"id":"showcase-technology-gps","expectedAtoms":["GPS was developed exclusively for civilian navigation."],"requiredOperators":[{"operator":"ATTRIBUTE_COMPARE","status":"DISPROVED"}],"prohibitedDecisiveOperators":[],"referenceVerdict":"REFUTED","maxDefaultGraphNodes":9,"approved":true},
-    {"id":"showcase-current-nato","expectedAtoms":["Sweden joined NATO before Finland."],"requiredOperators":[{"operator":"TEMPORAL_COMPARE","status":"DISPROVED"}],"prohibitedDecisiveOperators":[],"referenceVerdict":"REFUTED","maxDefaultGraphNodes":9,"approved":true},
-    {"id":"showcase-current-unsc","expectedAtoms":["Australia is a permanent member of the UN Security Council."],"requiredOperators":[{"operator":"SET_MEMBERSHIP","status":"DISPROVED"}],"prohibitedDecisiveOperators":[],"referenceVerdict":"REFUTED","maxDefaultGraphNodes":9,"approved":true},
-    {"id":"showcase-current-who","expectedAtoms":["On 5 May 2023, WHO ended the COVID-19 public-health emergency.","WHO said COVID-19 remained a global health threat."],"requiredOperators":[],"prohibitedDecisiveOperators":[],"referenceVerdict":"SUPPORTED","maxDefaultGraphNodes":9,"approved":true},
-    {"id":"averitec-dev-0142","expectedAtoms":["The CDC has said over 98,000 people had non-COVID related deaths.","The CDC has said hospitals that were closed down for non-essential services were the cause of these deaths."],"requiredOperators":[],"prohibitedDecisiveOperators":[],"referenceVerdict":"NOT_ENOUGH_EVIDENCE","maxDefaultGraphNodes":9,"approved":true},
-    {"id":"averitec-dev-0146","expectedAtoms":["Right after a time where we're going through a pandemic that lost 22 million jobs at the height, we've already added back 11.6 million jobs."],"requiredOperators":[],"prohibitedDecisiveOperators":[],"referenceVerdict":"SUPPORTED","maxDefaultGraphNodes":9,"approved":true},
-    {"id":"averitec-dev-0392","expectedAtoms":["The sky has turned orange to blood red in several parts of the United States."],"requiredOperators":[],"prohibitedDecisiveOperators":[],"referenceVerdict":"SUPPORTED","maxDefaultGraphNodes":9,"approved":true}
+    {
+      "id": "showcase-science-egg-cvd",
+      "atomChecks": [{"requiredTerms": ["US adults", "half egg", "per day", "associated", "cardiovascular disease"], "allowedRoles": ["CORE"]}],
+      "requiredOperators": [], "allowedOperators": [], "prohibitedDecisiveOperators": [],
+      "requireCrossDocumentConflict": true, "referenceVerdict": "CONFLICTING_EVIDENCE", "maxDefaultGraphNodes": 9, "approved": true
+    },
+    {
+      "id": "showcase-science-shaving",
+      "atomChecks": [
+        {"requiredTerms": ["shaving", "hair", "grow", "thicker"], "allowedRoles": ["CAUSAL_RELATION"]},
+        {"requiredTerms": ["shaving", "hair", "grow", "faster"], "allowedRoles": ["CAUSAL_RELATION"]}
+      ],
+      "requiredOperators": [{"operator": "ATTRIBUTE_COMPARE", "status": "DISPROVED"}],
+      "prohibitedDecisiveOperators": [], "allowedShortLocators": ["atom-2"],
+      "referenceVerdict": "REFUTED", "maxDefaultGraphNodes": 9, "approved": true
+    },
+    {
+      "id": "showcase-science-lightning",
+      "atomChecks": [{"requiredTerms": ["lightning", "heat", "air", "more than", "40,000"], "allowedRoles": ["NUMERIC_CONSTRAINT"]}],
+      "requiredOperators": [{"operator": "NUMERIC_COMPARE", "status": "PROVED"}],
+      "allowedOperators": ["NUMERIC_COMPARE"], "prohibitedDecisiveOperators": [],
+      "referenceVerdict": "SUPPORTED", "maxDefaultGraphNodes": 9, "approved": true
+    },
+    {
+      "id": "showcase-history-einstein",
+      "atomChecks": [
+        {"requiredTerms": ["Nobel Prize", "Physics", "1921", "Albert Einstein", "awarded"], "allowedRoles": ["CORE"]},
+        {"requiredTerms": ["Nobel Prize", "Physics", "1921", "Albert Einstein", "theory of relativity", "awarded for"], "forbiddenPatterns": ["\\b(?:his|her|its|their)\\b"], "allowedRoles": ["CORE"]}
+      ],
+      "requiredOperators": [{"operator": "ATTRIBUTE_COMPARE", "status": "DISPROVED"}],
+      "prohibitedDecisiveOperators": [], "referenceVerdict": "REFUTED", "maxDefaultGraphNodes": 9, "approved": true
+    },
+    {
+      "id": "showcase-history-curie",
+      "atomChecks": [{"requiredTerms": ["Marie Curie", "Nobel Prizes", "at least two", "scientific fields"], "allowedRoles": ["NUMERIC_CONSTRAINT"]}],
+      "requiredOperators": [{"operator": "COUNT_DISTINCT", "status": "PROVED"}],
+      "prohibitedDecisiveOperators": ["ATTRIBUTE_COMPARE"], "referenceVerdict": "SUPPORTED", "maxDefaultGraphNodes": 9, "approved": true
+    },
+    {
+      "id": "showcase-history-whitehead-flight",
+      "atomChecks": [{"requiredTerms": ["Gustave Whitehead", "first", "powered flight"], "allowedRoles": ["CORE"]}],
+      "requiredOperators": [], "prohibitedDecisiveOperators": [], "requireCrossDocumentConflict": true,
+      "referenceVerdict": "CONFLICTING_EVIDENCE", "maxDefaultGraphNodes": 9, "approved": true
+    },
+    {
+      "id": "showcase-geography-canberra",
+      "atomChecks": [{"requiredTerms": ["Canberra", "Australia", "most populous", "capital city", "30 June 2024"], "allowedRoles": ["CORE", "TEMPORAL_CONSTRAINT"]}],
+      "requiredOperators": [{"operator": "EXTREMUM_COMPARE", "status": "DISPROVED"}],
+      "prohibitedDecisiveOperators": [], "referenceVerdict": "REFUTED", "maxDefaultGraphNodes": 9, "approved": true
+    },
+    {
+      "id": "showcase-geography-everest",
+      "atomChecks": [{"requiredTerms": ["Mount Everest", "tallest mountain", "Earth"], "allowedRoles": ["CORE"]}],
+      "requiredOperators": [{"operator": "EXTREMUM_COMPARE", "status": "UNRESOLVED"}],
+      "prohibitedDecisiveOperators": [], "referenceVerdict": "NOT_ENOUGH_EVIDENCE", "maxDefaultGraphNodes": 9, "approved": true
+    },
+    {
+      "id": "showcase-geography-eiffel",
+      "atomChecks": [{"requiredTerms": ["Eiffel Tower", "located", "Germany"], "allowedRoles": ["LOCATION_CONSTRAINT"]}],
+      "requiredOperators": [{"operator": "ATTRIBUTE_COMPARE", "status": "DISPROVED"}],
+      "prohibitedDecisiveOperators": [], "referenceVerdict": "REFUTED", "maxDefaultGraphNodes": 9, "approved": true
+    },
+    {
+      "id": "showcase-technology-iphone",
+      "atomChecks": [
+        {"requiredTerms": ["Apple", "first iPhone", "introduced", "9 January 2007"], "allowedRoles": ["TEMPORAL_CONSTRAINT"]},
+        {"requiredTerms": ["first iPhone", "sale", "United States", "29 June 2007"], "allowedRoles": ["TEMPORAL_CONSTRAINT"]}
+      ],
+      "requiredOperators": [], "prohibitedDecisiveOperators": [], "referenceVerdict": "SUPPORTED", "maxDefaultGraphNodes": 9, "approved": true
+    },
+    {
+      "id": "showcase-technology-web",
+      "atomChecks": [
+        {"requiredTerms": ["Tim Berners-Lee", "World Wide Web", "CERN", "1989", "invented"], "allowedRoles": ["CORE", "TEMPORAL_CONSTRAINT"]},
+        {"requiredTerms": ["Tim Berners-Lee", "World Wide Web", "first client", "server", "1990", "created"], "forbiddenPatterns": ["\\b(?:his|her|its|their)\\b"], "allowedRoles": ["CORE", "TEMPORAL_CONSTRAINT"]}
+      ],
+      "requiredOperators": [], "prohibitedDecisiveOperators": [], "referenceVerdict": "SUPPORTED", "maxDefaultGraphNodes": 9, "approved": true
+    },
+    {
+      "id": "showcase-technology-gps",
+      "atomChecks": [{"requiredTerms": ["GPS", "developed", "exclusively", "civilian navigation"], "allowedRoles": ["CORE"]}],
+      "requiredOperators": [{"operator": "ATTRIBUTE_COMPARE", "status": "DISPROVED"}],
+      "prohibitedDecisiveOperators": [], "referenceVerdict": "REFUTED", "maxDefaultGraphNodes": 9, "approved": true
+    },
+    {
+      "id": "showcase-current-nato",
+      "atomChecks": [{"requiredTerms": ["Sweden", "NATO", "before", "Finland"], "allowedRoles": ["TEMPORAL_CONSTRAINT"]}],
+      "requiredOperators": [{"operator": "TEMPORAL_COMPARE", "status": "DISPROVED"}],
+      "prohibitedDecisiveOperators": [], "referenceVerdict": "REFUTED", "maxDefaultGraphNodes": 9, "approved": true
+    },
+    {
+      "id": "showcase-current-unsc",
+      "atomChecks": [{"requiredTerms": ["Australia", "permanent member", "UN Security Council"], "allowedRoles": ["CORE"]}],
+      "requiredOperators": [{"operator": "SET_MEMBERSHIP", "status": "DISPROVED"}],
+      "prohibitedDecisiveOperators": [], "referenceVerdict": "REFUTED", "maxDefaultGraphNodes": 9, "approved": true
+    },
+    {
+      "id": "showcase-current-who",
+      "atomChecks": [
+        {"requiredTerms": ["5 May 2023", "WHO", "ended", "COVID-19", "public-health emergency"], "allowedRoles": ["TEMPORAL_CONSTRAINT"]},
+        {"requiredTerms": ["WHO", "said", "COVID-19", "remained", "global health threat"], "allowedRoles": ["ATTRIBUTION"]}
+      ],
+      "requiredOperators": [], "prohibitedDecisiveOperators": [], "referenceVerdict": "SUPPORTED", "maxDefaultGraphNodes": 9, "approved": true
+    },
+    {
+      "id": "averitec-dev-0142",
+      "atomChecks": [{"requiredTerms": ["CDC", "said", "over 98,000", "non-COVID", "deaths", "hospitals", "closed", "non-essential services"], "allowedRoles": ["CAUSAL_RELATION"]}],
+      "requiredOperators": [], "prohibitedDecisiveOperators": [], "referenceVerdict": "NOT_ENOUGH_EVIDENCE", "maxDefaultGraphNodes": 9, "approved": true
+    },
+    {
+      "id": "averitec-dev-0146",
+      "atomChecks": [
+        {"requiredTerms": ["pandemic", "lost", "22 million", "jobs", "height"], "allowedRoles": ["NUMERIC_CONSTRAINT"]},
+        {"requiredTerms": ["added back", "11.6 million", "jobs"], "allowedRoles": ["NUMERIC_CONSTRAINT"]}
+      ],
+      "requiredOperators": [], "prohibitedDecisiveOperators": [], "referenceVerdict": "SUPPORTED", "maxDefaultGraphNodes": 9, "approved": true
+    },
+    {
+      "id": "averitec-dev-0392",
+      "atomChecks": [{"requiredTerms": ["sky", "orange", "blood red", "parts", "United States"], "allowedRoles": ["CORE"]}],
+      "requiredOperators": [], "prohibitedDecisiveOperators": [], "referenceVerdict": "SUPPORTED", "maxDefaultGraphNodes": 9, "approved": true
+    }
   ]
 }

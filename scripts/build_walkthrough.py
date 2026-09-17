@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
 import shutil
 from pathlib import Path
 from typing import Any
@@ -86,25 +87,75 @@ def default_graph_node_count(run: dict[str, Any], atom_id: str) -> int:
     return base + evidence_nodes + 2 * bundle_nodes + 2 * len(resolved)
 
 
-def validate_presentation_run(case: dict[str, Any], run: dict[str, Any], audit: dict[str, Any]) -> None:
+def normalized_semantic_text(value: str) -> str:
+    """Normalize presentation text without erasing numbers or polarity words."""
+    return " ".join(re.findall(r"[^\W_]+", value.casefold(), re.UNICODE))
+
+
+def presentation_run_errors(
+    case: dict[str, Any], run: dict[str, Any], audit: dict[str, Any]
+) -> list[str]:
+    """Return every release-control failure for one recorded presentation run."""
     case_id = case["id"]
+    errors: list[str] = []
     if not audit.get("approved"):
-        raise RuntimeError(f"Presentation audit has not approved: {case_id}")
-    actual_atoms = [item["text"] for item in run["atoms"]]
-    if actual_atoms != audit.get("expectedAtoms"):
-        raise RuntimeError(f"Atomic claims do not match the presentation audit: {case_id}")
+        errors.append("presentation audit has not approved the case")
+    atom_checks = audit.get("atomChecks")
+    if not isinstance(atom_checks, list) or len(run["atoms"]) != len(atom_checks):
+        errors.append(
+            f"expected {len(atom_checks) if isinstance(atom_checks, list) else 0} "
+            f"atomic claims, recorded {len(run['atoms'])}"
+        )
+    else:
+        for atom, check in zip(run["atoms"], atom_checks, strict=True):
+            atom_id = atom["id"]
+            normalized = normalized_semantic_text(atom["text"])
+            missing_terms = [
+                term
+                for term in check.get("requiredTerms", [])
+                if normalized_semantic_text(term) not in normalized
+            ]
+            if missing_terms:
+                errors.append(
+                    f"{atom_id} omits required semantic commitments: "
+                    + ", ".join(missing_terms)
+                )
+            forbidden = [
+                pattern
+                for pattern in check.get("forbiddenPatterns", [])
+                if re.search(pattern, atom["text"], re.IGNORECASE)
+            ]
+            if forbidden:
+                errors.append(
+                    f"{atom_id} contains prohibited wording: " + ", ".join(forbidden)
+                )
+            exact_text = check.get("exactText")
+            if exact_text is not None and atom["text"] != exact_text:
+                errors.append(f"{atom_id} does not match presentation-critical copy")
+            allowed_roles = check.get("allowedRoles", [])
+            if atom["role"] not in allowed_roles:
+                errors.append(
+                    f"{atom_id} role {atom['role']} is not one of "
+                    + ", ".join(allowed_roles)
+                )
     prohibited_warnings = {"DECOMPOSITION_FALLBACK", "MISSING_ASSERTION", "UNDER_DECOMPOSED"}
     warning_codes = {item.get("code") for item in run.get("warnings", [])}
     if warning_codes & prohibited_warnings:
-        raise RuntimeError(f"Decomposition contains a prohibited fallback or coverage warning: {case_id}")
+        errors.append(
+            "decomposition contains prohibited warnings: "
+            + ", ".join(sorted(warning_codes & prohibited_warnings))
+        )
     allowed_short = set(audit.get("allowedShortLocators", []))
     for atom in run["atoms"]:
         locator_words = [word for word in atom["sourceText"].split() if any(character.isalnum() for character in word)]
         if len(locator_words) < 3 and atom["id"] not in allowed_short:
-            raise RuntimeError(f"Atomic claim has an unaudited short locator: {case_id}/{atom['id']}")
+            errors.append(f"{atom['id']} has an unaudited short source locator")
     expected_verdict = audit.get("referenceVerdict")
     if expected_verdict != case.get("label") or run["verdict"].get("verdict") != expected_verdict:
-        raise RuntimeError(f"Recorded verdict does not match the approved reference verdict: {case_id}")
+        errors.append(
+            f"verdict {run['verdict'].get('verdict')} does not match approved "
+            f"reference {expected_verdict}"
+        )
     if audit.get("requireCrossDocumentConflict"):
         support_documents: set[str] = set()
         refute_documents: set[str] = set()
@@ -126,61 +177,71 @@ def validate_presentation_run(case: dict[str, Any], run: dict[str, Any], audit: 
                 if documents_by_span.get(span_id)
             )
         if not support_documents or not refute_documents or not support_documents.isdisjoint(refute_documents):
-            raise RuntimeError(
-                f"Conflicting evidence must be decisive and come from different documents: {case_id}"
+            errors.append(
+                "conflicting evidence is not decisive and grounded in different documents"
             )
     executions = run["reasoning"]
     allowed_operators = audit.get("allowedOperators")
     if isinstance(allowed_operators, list):
         allowed = set(allowed_operators)
         if any(item.get("operator") not in allowed for item in executions):
-            raise RuntimeError(f"An unaudited symbolic operator is present: {case_id}")
+            errors.append("an unaudited symbolic operator is present")
     for required in audit.get("requiredOperators", []):
         if not any(
             item.get("operator") == required.get("operator")
             and item.get("status") == required.get("status")
             for item in executions
         ):
-            raise RuntimeError(f"Required symbolic result is missing: {case_id}/{required}")
+            errors.append(f"required symbolic result is missing: {required}")
     prohibited = set(audit.get("prohibitedDecisiveOperators", []))
     if any(item.get("operator") in prohibited and item.get("status") in {"PROVED", "DISPROVED"} for item in executions):
-        raise RuntimeError(f"An unexpected symbolic operator became decisive: {case_id}")
+        errors.append("a prohibited symbolic operator became decisive")
     documents = {item["id"]: item["text"] for item in case["documents"]}
     for execution in executions:
         if not execution.get("profile"):
-            raise RuntimeError(f"Symbolic execution lacks an explicit profile: {case_id}/{execution.get('id')}")
+            errors.append(f"symbolic execution lacks a profile: {execution.get('id')}")
         if not isinstance(execution.get("preconditions"), list) or not execution["preconditions"]:
-            raise RuntimeError(f"Symbolic execution lacks validation preconditions: {case_id}/{execution.get('id')}")
+            errors.append(f"symbolic execution lacks preconditions: {execution.get('id')}")
         if execution.get("premiseIds") != [item.get("id") for item in execution.get("premises", [])]:
-            raise RuntimeError(f"Symbolic premise identifiers were altered: {case_id}")
+            errors.append("symbolic premise identifiers were altered")
         if len(execution.get("premises", [])) > 3:
-            raise RuntimeError(f"Symbolic result cites excessive premises: {case_id}/{execution.get('id')}")
+            errors.append(f"symbolic result cites excessive premises: {execution.get('id')}")
         for premise in execution.get("premises", []):
             document = documents.get(premise.get("documentId"))
             if document is None or grounded_text(document, premise["start"], premise["end"]) != premise.get("text"):
-                raise RuntimeError(f"Symbolic premise is not source-grounded: {case_id}/{premise.get('id')}")
+                errors.append(f"symbolic premise is not source-grounded: {premise.get('id')}")
             list_items = premise.get("listItems", [])
             if list_items:
                 if premise.get("kind") != "LIST_CERTIFICATE" or premise.get("itemCount") != len(list_items):
-                    raise RuntimeError(f"Invalid displayed list certificate: {case_id}/{premise.get('id')}")
+                    errors.append(f"invalid displayed list certificate: {premise.get('id')}")
                 for item in list_items:
                     if (
                         item.get("documentId") != premise.get("documentId")
                         or item.get("contentHash") != premise.get("contentHash")
                         or grounded_text(document, item["start"], item["end"]) != item.get("text")
                     ):
-                        raise RuntimeError(f"Displayed list item is not source-grounded: {case_id}/{item.get('id')}")
+                        errors.append(f"displayed list item is not source-grounded: {item.get('id')}")
     for obligation in run["assessment"]["obligations"]:
         missing = obligation.get("missingInformation", "")
         if isinstance(missing, bool) or str(missing).strip().casefold() in {"false", "null", "none"}:
-            raise RuntimeError(f"Invalid missing-information copy: {case_id}")
+            errors.append("invalid missing-information copy")
         if missing and not str(missing).rstrip().endswith((".", "!", "?")):
-            raise RuntimeError(f"Incomplete missing-information sentence: {case_id}")
+            errors.append("incomplete missing-information sentence")
         if any("CZ" in check.get("claimJurisdictions", []) for check in obligation.get("scopeChecks", [])) and "czech" not in case["claim"].casefold():
-            raise RuntimeError(f"Common-word jurisdiction collision detected: {case_id}")
+            errors.append("common-word jurisdiction collision detected")
     maximum = int(audit.get("maxDefaultGraphNodes", 9))
     if any(default_graph_node_count(run, atom["id"]) > maximum for atom in run["atoms"]):
-        raise RuntimeError(f"Default selected-atom graph exceeds {maximum} nodes: {case_id}")
+        errors.append(f"default selected-atom graph exceeds {maximum} nodes")
+    return [f"{case_id}: {message}" for message in errors]
+
+
+def validate_presentation_run(
+    case: dict[str, Any], run: dict[str, Any], audit: dict[str, Any]
+) -> None:
+    """Validate one run for callers that require fail-fast behavior."""
+    errors = presentation_run_errors(case, run, audit)
+    if errors:
+        raise RuntimeError("Presentation audit failed:\n- " + "\n- ".join(errors))
 
 
 def main() -> int:
@@ -199,8 +260,8 @@ def main() -> int:
     args = parser.parse_args()
 
     audit_payload = read_json(args.presentation_audit)
-    if audit_payload.get("version") != 2:
-        raise RuntimeError("Presentation audit must use schema version 2")
+    if audit_payload.get("version") != 4:
+        raise RuntimeError("Presentation audit must use schema version 4")
     presentation_audits = {
         item["id"]: item for item in audit_payload.get("cases", [])
         if isinstance(item, dict) and isinstance(item.get("id"), str)
@@ -271,6 +332,7 @@ def main() -> int:
         )
 
     missing_runs: list[str] = []
+    presentation_errors: list[str] = []
     run_digests: dict[str, str] = {}
     for summary in selected_catalog:
         case_id = summary["id"]
@@ -359,7 +421,7 @@ def main() -> int:
         recorded_with.setdefault("retrievalMethod", "HYBRID")
         if recorded_with["retrievalMethod"] not in {"HYBRID", "SEMANTIC", "LEXICAL"}:
             raise RuntimeError(f"Recorded run has an invalid retrieval method: {case_id}")
-        if recorded_with.get("pipelineRevision") != "generalized-symbolic-v5":
+        if recorded_with.get("pipelineRevision") != "generalized-symbolic-v6":
             raise RuntimeError(f"Recorded run predates the evidence-integrity pipeline: {case_id}")
         if "linguistics" in run or "linguisticsModel" in recorded_with:
             raise RuntimeError(f"Recorded run contains removed claim-structure data: {case_id}")
@@ -412,7 +474,9 @@ def main() -> int:
             )
         ):
             raise RuntimeError(f"Recorded run is missing valid latency timings: {case_id}")
-        validate_presentation_run(case, run, presentation_audits[case_id])
+        presentation_errors.extend(
+            presentation_run_errors(case, run, presentation_audits[case_id])
+        )
         output_run_path = output / "runs" / run_path.name
         write_json(run, output_run_path)
         run_digests[case_id] = sha256(output_run_path)
@@ -420,6 +484,10 @@ def main() -> int:
     if args.require_complete and missing_runs:
         raise RuntimeError(
             "Recorded walkthrough is incomplete. Missing runs: " + ", ".join(missing_runs)
+        )
+    if presentation_errors:
+        raise RuntimeError(
+            "Presentation audit failed:\n- " + "\n- ".join(presentation_errors)
         )
 
     manifest = {

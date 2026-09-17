@@ -27,33 +27,6 @@
           "context": "The temperature of the air in the lightning channel may reach as high as 50,000 degrees Fahrenheit, 5 times hotter than the surface of the sun."
         },
         {
-          "id": "doc-77b6c4d38f36::sentence-4",
-          "documentId": "doc-77b6c4d38f36",
-          "text": "The lightning discharge heats the air rapidly and causes it to expand. ",
-          "start": 361,
-          "end": 432,
-          "contextSpans": [
-            {
-              "id": "doc-77b6c4d38f36::sentence-3",
-              "documentId": "doc-77b6c4d38f36",
-              "text": "Thunder is created when lightning passes through the air. ",
-              "start": 303,
-              "end": 361,
-              "direction": "PREVIOUS"
-            }
-          ],
-          "context": "Thunder is created when lightning passes through the air. The lightning discharge heats the air rapidly and causes it to expand."
-        },
-        {
-          "id": "doc-77b6c4d38f36::sentence-3",
-          "documentId": "doc-77b6c4d38f36",
-          "text": "Thunder is created when lightning passes through the air. ",
-          "start": 303,
-          "end": 361,
-          "contextSpans": [],
-          "context": "Thunder is created when lightning passes through the air."
-        },
-        {
           "id": "doc-a60bfde141e9::sentence-3",
           "documentId": "doc-a60bfde141e9",
           "text": "Lightning — one of the most violent forces of nature At any instant, there are more than 2,000 thunderstorms taking place throughout the world. ",
@@ -81,22 +54,40 @@
           "context": "Extreme lightning can reach a billion volts, over 200,000 amps, and over 54,000 degrees Fahrenheit."
         },
         {
-          "id": "doc-a60bfde141e9::sentence-4",
-          "documentId": "doc-a60bfde141e9",
-          "text": "These storms combine to produce about 100 lightning flashes per second, each one with an average of 300 million volts, currents ranging up to 20,000 amps, and temperatures over 50,000 degrees Fahrenheit. ",
-          "start": 507,
-          "end": 711,
+          "id": "doc-77b6c4d38f36::sentence-3",
+          "documentId": "doc-77b6c4d38f36",
+          "text": "Thunder is created when lightning passes through the air. ",
+          "start": 303,
+          "end": 361,
+          "contextSpans": [],
+          "context": "Thunder is created when lightning passes through the air."
+        },
+        {
+          "id": "doc-77b6c4d38f36::sentence-4",
+          "documentId": "doc-77b6c4d38f36",
+          "text": "The lightning discharge heats the air rapidly and causes it to expand. ",
+          "start": 361,
+          "end": 432,
           "contextSpans": [
             {
-              "id": "doc-a60bfde141e9::sentence-3",
-              "documentId": "doc-a60bfde141e9",
-              "text": "Lightning — one of the most violent forces of nature At any instant, there are more than 2,000 thunderstorms taking place throughout the world. ",
-              "start": 363,
-              "end": 507,
+              "id": "doc-77b6c4d38f36::sentence-3",
+              "documentId": "doc-77b6c4d38f36",
+              "text": "Thunder is created when lightning passes through the air. ",
+              "start": 303,
+              "end": 361,
               "direction": "PREVIOUS"
             }
           ],
-          "context": "Lightning — one of the most violent forces of nature At any instant, there are more than 2,000 thunderstorms taking place throughout the world. These storms combine to produce about 100 lightning flashes per second, each one with an average of 300 million volts, currents ranging up to 20,000 amps, and temperatures over 50,000 degrees Fahrenheit."
+          "context": "Thunder is created when lightning passes through the air. The lightning discharge heats the air rapidly and causes it to expand."
+        },
+        {
+          "id": "doc-a60bfde141e9::sentence-2",
+          "documentId": "doc-a60bfde141e9",
+          "text": "The detector, and its follow-on, the Lightning Mapper, enables more accurate estimates of the energy and current as - sociated with the global electrical circuit. ",
+          "start": 200,
+          "end": 363,
+          "contextSpans": [],
+          "context": "The detector, and its follow-on, the Lightning Mapper, enables more accurate estimates of the energy and current as - sociated with the global electrical circuit."
         }
       ]
     }
@@ -105,38 +96,19 @@
     "obligations": [
       {
         "atomId": "atom-1",
-        "supportSpanIds": [
-          "doc-77b6c4d38f36::sentence-5",
-          "doc-a60bfde141e9::sentence-5"
-        ],
+        "supportSpanIds": [],
         "refuteSpanIds": [],
         "contextSpanIds": [
-          "doc-77b6c4d38f36::sentence-4",
-          "doc-77b6c4d38f36::sentence-3",
+          "doc-77b6c4d38f36::sentence-5",
+          "doc-a60bfde141e9::sentence-5",
           "doc-a60bfde141e9::sentence-3"
         ],
-        "sufficiency": "SUFFICIENT",
-        "missingInformation": "",
-        "reason": "Both O1-E1 and O1-E5 provide direct measurements of air temperature during lightning, both exceeding 40,000°F.",
+        "sufficiency": "PARTIAL",
+        "missingInformation": "Evidence stating the claimed quantity for the same measured fact is needed.",
+        "reason": "The selected evidence does not ground the atom's numeric assertion.",
         "scopeChecks": [
           {
             "spanId": "doc-77b6c4d38f36::sentence-5",
-            "documentId": "doc-77b6c4d38f36",
-            "status": "NOT_APPLICABLE",
-            "claimJurisdictions": [],
-            "evidenceJurisdictions": [],
-            "reason": "The atomic claim does not state a recognized jurisdiction."
-          },
-          {
-            "spanId": "doc-77b6c4d38f36::sentence-4",
-            "documentId": "doc-77b6c4d38f36",
-            "status": "NOT_APPLICABLE",
-            "claimJurisdictions": [],
-            "evidenceJurisdictions": [],
-            "reason": "The atomic claim does not state a recognized jurisdiction."
-          },
-          {
-            "spanId": "doc-77b6c4d38f36::sentence-3",
             "documentId": "doc-77b6c4d38f36",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
@@ -160,14 +132,31 @@
             "reason": "The atomic claim does not state a recognized jurisdiction."
           },
           {
-            "spanId": "doc-a60bfde141e9::sentence-4",
+            "spanId": "doc-77b6c4d38f36::sentence-3",
+            "documentId": "doc-77b6c4d38f36",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-77b6c4d38f36::sentence-4",
+            "documentId": "doc-77b6c4d38f36",
+            "status": "NOT_APPLICABLE",
+            "claimJurisdictions": [],
+            "evidenceJurisdictions": [],
+            "reason": "The atomic claim does not state a recognized jurisdiction."
+          },
+          {
+            "spanId": "doc-a60bfde141e9::sentence-2",
             "documentId": "doc-a60bfde141e9",
             "status": "NOT_APPLICABLE",
             "claimJurisdictions": [],
             "evidenceJurisdictions": [],
             "reason": "The atomic claim does not state a recognized jurisdiction."
           }
-        ]
+        ],
+        "identityChecks": []
       }
     ],
     "materialOmission": {
@@ -186,21 +175,10 @@
       "status": "PROVED",
       "relation": "SUPPORTS",
       "premiseIds": [
-        "evidence:atom-1:doc-a60bfde141e9:doc-a60bfde141e9::sentence-5",
-        "evidence:atom-1:doc-77b6c4d38f36:doc-77b6c4d38f36::sentence-5"
+        "evidence:atom-1:doc-77b6c4d38f36:doc-77b6c4d38f36::sentence-5",
+        "evidence:atom-1:doc-a60bfde141e9:doc-a60bfde141e9::sentence-5"
       ],
       "premises": [
-        {
-          "id": "evidence:atom-1:doc-a60bfde141e9:doc-a60bfde141e9::sentence-5",
-          "documentId": "doc-a60bfde141e9",
-          "text": "Extreme lightning can reach a billion volts, over 200,000 amps, and over 54,000 degrees Fahrenheit. ",
-          "start": 711,
-          "end": 811,
-          "kind": "EVIDENCE",
-          "contentHash": null,
-          "itemCount": null,
-          "listItems": []
-        },
         {
           "id": "evidence:atom-1:doc-77b6c4d38f36:doc-77b6c4d38f36::sentence-5",
           "documentId": "doc-77b6c4d38f36",
@@ -211,9 +189,20 @@
           "contentHash": null,
           "itemCount": null,
           "listItems": []
+        },
+        {
+          "id": "evidence:atom-1:doc-a60bfde141e9:doc-a60bfde141e9::sentence-5",
+          "documentId": "doc-a60bfde141e9",
+          "text": "Extreme lightning can reach a billion volts, over 200,000 amps, and over 54,000 degrees Fahrenheit. ",
+          "start": 711,
+          "end": 811,
+          "kind": "EVIDENCE",
+          "contentHash": null,
+          "itemCount": null,
+          "listItems": []
         }
       ],
-      "expression": "54,000 degrees Fahrenheit; 50,000 degrees Fahrenheit > 40,000°F",
+      "expression": "50,000 degrees Fahrenheit; 54,000 degrees Fahrenheit > 40,000°F",
       "conclusion": "Every aligned grounded comparison is true.",
       "explanation": "Python compared normalized Decimal values with matching supported units; no conversion or unstated arithmetic was used.",
       "validationWarnings": [],
@@ -232,6 +221,11 @@
           "name": "Operand alignment",
           "status": "PASSED",
           "detail": "Python compared normalized Decimal values with matching supported units; no conversion or unstated arithmetic was used."
+        },
+        {
+          "name": "Identity alignment",
+          "status": "PASSED",
+          "detail": "The atomic claim has no identity-bearing named mention."
         }
       ],
       "program": {
@@ -241,7 +235,7 @@
             "id": "input-1",
             "operation": "LOOKUP",
             "inputIds": [
-              "evidence:atom-1:doc-a60bfde141e9:doc-a60bfde141e9::sentence-5"
+              "evidence:atom-1:doc-77b6c4d38f36:doc-77b6c4d38f36::sentence-5"
             ],
             "outputType": "FACT",
             "description": "Read an unchanged server-owned premise."
@@ -250,7 +244,7 @@
             "id": "input-2",
             "operation": "LOOKUP",
             "inputIds": [
-              "evidence:atom-1:doc-77b6c4d38f36:doc-77b6c4d38f36::sentence-5"
+              "evidence:atom-1:doc-a60bfde141e9:doc-a60bfde141e9::sentence-5"
             ],
             "outputType": "FACT",
             "description": "Read an unchanged server-owned premise."
@@ -290,11 +284,10 @@
         "obligationId": "atom-1",
         "state": "SUPPORTED",
         "supportEdgeIds": [
-          "edge:SUPPORTS:inference:bundle:atom-1:supports:obligation:showcase-science-lightning:atom-1",
           "edge:SUPPORTS:inference:proof:atom-1:numeric_compare:1:obligation:showcase-science-lightning:atom-1"
         ],
         "refuteEdgeIds": [],
-        "unselectedCandidateCount": 1,
+        "unselectedCandidateCount": 3,
         "provisionalRelationCount": 0
       }
     ],
@@ -306,7 +299,7 @@
     ]
   },
   "recordedWith": {
-    "pipelineRevision": "generalized-symbolic-v5",
+    "pipelineRevision": "generalized-symbolic-v6",
     "inputDigest": "3df1154a27305a09f62de3f27154ead5b9e6758b3457c4b6a5633df04b9cde99",
     "decompositionModel": "qwen2.5:7b",
     "retrievalModel": "BAAI/bge-small-en-v1.5",
@@ -315,11 +308,11 @@
     "reasoningModel": "qwen2.5:7b"
   },
   "timingsSeconds": {
-    "decomposition": 18.56,
-    "retrieval": 0.463,
-    "evidenceAssessment": 16.478,
-    "symbolicReasoning": 12.288,
-    "aggregation": 0.003,
-    "total": 47.793
+    "decomposition": 14.071,
+    "retrieval": 0.282,
+    "evidenceAssessment": 16.199,
+    "symbolicReasoning": 8.887,
+    "aggregation": 0.006,
+    "total": 39.445
   }
 }

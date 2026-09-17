@@ -58,7 +58,7 @@ export const api = {
     request<EvidenceRetrievalResponse>("/api/v1/retrieve", {
       method: "POST",
       body: JSON.stringify({
-        documents: documents.map(({ id, text }) => ({ id, text })),
+        documents: documents.map(({ id, text, title }) => ({ id, text, title })),
         atoms,
         evidencePerAtom,
         retrievalMethod,
@@ -119,7 +119,7 @@ export const api = {
   ) => request<ReasoningResponse>("/api/v1/reason", {
     method: "POST",
     body: JSON.stringify({
-      documents: documents.map(({ id, text }) => ({ id, text })),
+      documents: documents.map(({ id, text, title }) => ({ id, text, title })),
       claim,
       atoms,
       evidence,

@@ -6,6 +6,7 @@ from datetime import date
 from decimal import Decimal, InvalidOperation
 from typing import Sequence
 
+from ..entity_alignment import extract_identity_mentions
 from ..schemas import PipelineAtom, SymbolicOperator, SymbolicPremise, SymbolicStatus
 from .grounding import lexical_tokens, normalize
 from .profiles import (
@@ -19,6 +20,7 @@ from .profiles import (
     attribute_profile,
     distinct_count_request,
     distinct_profile,
+    exclusive_purpose_counterexample,
     extract_distinct_values,
     extremum_term,
     scoped_negative_clause,
@@ -28,7 +30,15 @@ from .profiles import (
 _MEASURE_TERMS = {
     "population": {"population", "populous", "residents", "people"},
     "height_above_sea_level": {"above sea level", "elevation", "sea level"},
-    "base_to_summit": {"base to summit", "base-to-summit", "from its base", "ocean floor"},
+    "base_to_summit": {
+        "base to summit",
+        "base-to-summit",
+        "base to top",
+        "base-to-top",
+        "from its base",
+        "ocean floor",
+        "below sea level",
+    },
 }
 
 
@@ -319,6 +329,8 @@ def execute_temporal_compare(atom: PipelineAtom, premises: Sequence[SymbolicPrem
     evidence_dates = [(interval, premise) for premise in premises for interval in _intervals(premise.text)]
     if not evidence_dates:
         return _result(SymbolicStatus.unresolved, None, relation, "Temporal relation is unresolved", "No grounded absolute date was mapped.", ["MISSING_DATE_OPERAND"])
+    if not atom_dates and relation == "between":
+        return _result(SymbolicStatus.unresolved, None, relation, "Between relation is incomplete", "A between comparison requires two explicit boundary dates.", ["MISSING_DATE_BOUNDARY"])
     if not atom_dates and relation in {"before", "after"}:
         comparison = re.match(r"(?is)^(.+?)\b(?:before|after)\b(.+?)[.!?]?$", atom.text.strip())
         if comparison:
@@ -456,14 +468,58 @@ def execute_attribute_compare(
     except ImportError:
         pass
 
-    # Exclusivity is disproved by an explicit second purpose.
-    if profile == EXCLUSIVE_PURPOSE and "exclusively" in claim and re.search(r"(?i)\bmilitary\b", evidence) and re.search(r"(?i)\bcivil(?:ian)?\b", evidence):
-        return _result(SymbolicStatus.disproved, "REFUTES", "purposes = {military, civilian}", "The source gives more than one purpose.", "Python found two explicit, incompatible values for an exclusive-purpose claim.")
+    # A development-purpose exclusivity claim is disproved only by an explicit
+    # competing development purpose. Present-day use by another group is not
+    # enough to establish why the system was originally developed.
+    explicit_military_development = any(
+        exclusive_purpose_counterexample(atom.text, premise.text)
+        for premise in premises
+    )
+    if (
+        profile == EXCLUSIVE_PURPOSE
+        and "exclusively" in claim
+        and re.search(r"\bcivil(?:ian)?\b", claim)
+        and explicit_military_development
+    ):
+        return _result(
+            SymbolicStatus.disproved,
+            "REFUTES",
+            "claimed civilian-only development purpose ≠ military development purpose",
+            "The source states an explicit military development purpose.",
+            "Python compared the exclusive claimed development purpose with an "
+            "explicit competing development purpose in the source.",
+        )
 
     # Award citations are handled as grounded motivation equality.
     reason = award_reason(atom.text) if profile == AWARD_MOTIVATION else None
     source_reasons = re.findall(r"(?i)\bfor\s+(?:his|her|their)?\s*([^.!?;]+)", evidence)
     if reason and source_reasons:
+        claim_people = [
+            item.normalized for item in extract_identity_mentions(atom.text)
+            if item.label == "PERSON"
+        ]
+        evidence_people = [
+            item.normalized for item in extract_identity_mentions(evidence)
+            if item.label == "PERSON"
+        ]
+        people_aligned = all(
+            any(
+                claimed == source
+                or claimed.split()[-1] == source
+                or source.split()[-1] == claimed
+                for source in evidence_people
+            )
+            for claimed in claim_people
+        )
+        if claim_people and not people_aligned:
+            return _result(
+                SymbolicStatus.unresolved,
+                None,
+                "award subject alignment",
+                "Award-motivation relation is unresolved",
+                "The selected premises do not explicitly identify the person named in the award claim.",
+                ["MISSING_ENTITY_ALIGNMENT"],
+            )
         relation_stopwords = {"his", "her", "their", "its"}
         claimed = lexical_tokens(reason) - relation_stopwords
         matches = []
@@ -506,13 +562,26 @@ def _measure_kinds(text: str) -> set[str]:
     return {kind for kind, terms in _MEASURE_TERMS.items() if any(term in normalized for term in terms)}
 
 
+def incompatible_extremum_measures(
+    atom_text: str, evidence_texts: Sequence[str]
+) -> bool:
+    """Return whether an extremum comparison mixes incompatible definitions."""
+    if not extremum_term(atom_text):
+        return False
+    measure_kinds = _measure_kinds("\n".join([atom_text, *evidence_texts]))
+    return {
+        "height_above_sea_level",
+        "base_to_summit",
+    }.issubset(measure_kinds)
+
+
 def execute_extremum_compare(atom: PipelineAtom, premises: Sequence[SymbolicPremise]) -> dict:
     superlative = extremum_term(atom.text)
     if not superlative:
         return _result(SymbolicStatus.not_applicable, None, "extremum comparison", "No supported extremum claim", "The atom does not state a supported extremum.")
-    combined = "\n".join(premise.text for premise in premises)
-    measure_kinds = _measure_kinds(atom.text + "\n" + combined)
-    if "height_above_sea_level" in measure_kinds and "base_to_summit" in measure_kinds:
+    if incompatible_extremum_measures(
+        atom.text, [premise.text for premise in premises]
+    ):
         return _result(SymbolicStatus.unresolved, None, superlative, "Measurements use different definitions", "The candidate values are not comparable because their measurement bases differ.", ["INCOMPATIBLE_MEASURES"])
     subject = _subject_before_copula(atom.text)
     records: list[tuple[str, Decimal, str]] = []

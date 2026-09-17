@@ -164,6 +164,42 @@ async def test_deterministic_attribute_validation_recovers_a_missed_model_mappin
 
 
 @pytest.mark.asyncio
+async def test_symbolic_service_demotes_compiled_identity_mismatch(monkeypatch):
+    from verinice_backend.symbolic_reasoning import service
+
+    claim = (
+        "Albert Ainstein received the Nobel Prize in Physics for his theory of relativity."
+    )
+    source = (
+        "Albert Einstein received the Nobel Prize in Physics for his discovery "
+        "of the law of the photoelectric effect."
+    )
+    atom = PipelineAtom(id="a", text=claim)
+    document = RetrievalDocument(id="d", text=source)
+    evidence = AssessmentAtomEvidence(atom_id="a", spans=[AssessmentInputSpan(
+        id="s1", document_id="d", text=source, start=0, end=len(source)
+    )])
+    assessment = GroundedEvidenceAssessment(
+        obligations=[GroundedObligationAudit(atom_id="a", reason="Selected.")],
+        material_omission=MaterialOmissionCertificate(),
+    )
+
+    async def select_attribute(candidates):
+        candidate = next(item for item in candidates if item.operator == "ATTRIBUTE_COMPARE")
+        return [(candidate.id, list(candidate.premise_ids))]
+
+    monkeypatch.setattr(service, "compile_programs", select_attribute)
+    result = await service.reason_symbolically([atom], [evidence], [document], assessment)
+    proof = next(item for item in result.executions if item.operator.value == "ATTRIBUTE_COMPARE")
+
+    assert proof.status.value == "UNRESOLVED"
+    assert proof.relation is None
+    assert "MISSING_ENTITY_ALIGNMENT" in proof.validation_warnings
+    identity = next(item for item in proof.preconditions if item.name == "Identity alignment")
+    assert identity.status == "UNRESOLVED"
+
+
+@pytest.mark.asyncio
 async def test_certificate_selection_executes_against_every_server_owned_item(monkeypatch):
     from verinice_backend.symbolic_reasoning import service
 
@@ -293,6 +329,15 @@ def test_temporal_comparison_aligns_two_named_events_without_dates_in_claim():
         premise("Finland joined NATO on 4 April 2023.", premise_id="p2"),
     ])
     assert result["status"].value == "DISPROVED"
+
+
+def test_temporal_between_without_explicit_boundaries_is_unresolved():
+    result = execute_temporal_compare(
+        PipelineAtom(id="a", text="Orion happened between Lyra and Vega."),
+        [premise("Orion happened in 2020.")],
+    )
+    assert result["status"].value == "UNRESOLVED"
+    assert result["validation_warnings"] == ["MISSING_DATE_BOUNDARY"]
 
 
 def test_temporal_comparison_refutes_wrong_year_for_aligned_event():
@@ -524,6 +569,24 @@ def test_attribute_comparison_ignores_pronoun_overlap_in_nobel_reason():
     assert result["expression"] == "claimed reason ≠ source reason"
 
 
+def test_award_motivation_requires_exact_subject_identity_alignment():
+    atom = PipelineAtom(
+        id="a",
+        text=(
+            "Albert Ainstein received the Nobel Prize in Physics for his "
+            "theory of relativity."
+        ),
+    )
+    result = execute_attribute_compare(atom, [premise(
+        "Albert Einstein received the Nobel Prize in Physics for his discovery "
+        "of the law of the photoelectric effect."
+    )])
+
+    assert result["status"].value == "UNRESOLVED"
+    assert result["relation"] is None
+    assert result["validation_warnings"] == ["MISSING_ENTITY_ALIGNMENT"]
+
+
 def test_extremum_counterexample_refutes_largest_claim():
     atom = PipelineAtom(id="a", text="Canberra is Australia's most populous capital city.")
     result = execute_extremum_compare(atom, [premise("Canberra population 473,855."), premise("Sydney population 5,557,233.", premise_id="p2")])
@@ -610,15 +673,20 @@ def test_attribute_presentation_keeps_the_competing_exclusive_purposes():
     atom = PipelineAtom(id="a", text="GPS was developed exclusively for civilian navigation.")
     premises = {
         "civilian": premise("Free access for civilian use.", premise_id="civilian"),
-        "both": premise(
-            "GPS provides navigation data to military and civilian users.", premise_id="both"
+        "military": premise(
+            "The DoD initially developed GPS to improve U.S. military navigation.",
+            premise_id="military",
         ),
     }
     selected = _presentation_premise_ids(
-        SymbolicOperator.attribute_compare, atom, ["civilian", "both"], premises,
-        SymbolicStatus.disproved, "purposes = {military, civilian}",
+        SymbolicOperator.attribute_compare,
+        atom,
+        ["civilian", "military"],
+        premises,
+        SymbolicStatus.disproved,
+        "claimed civilian-only development purpose ≠ military development purpose",
     )
-    assert selected == ["both"]
+    assert selected == ["military"]
 
 
 def test_attribute_presentation_keeps_prize_motivation_not_award_date():
@@ -637,6 +705,41 @@ def test_attribute_presentation_keeps_prize_motivation_not_award_date():
         SymbolicStatus.disproved, "claimed reason ≠ source reason",
     )
     assert selected == ["reason"]
+
+
+def test_attribute_presentation_keeps_explicit_award_recipient_alignment():
+    from verinice_backend.symbolic_reasoning.service import _presentation_premise_ids
+    from verinice_backend.schemas import SymbolicOperator, SymbolicStatus
+
+    atom = PipelineAtom(
+        id="a",
+        text="The Meridian Prize in Physics for 1984 was awarded to Anika Rao.",
+    )
+    premises = {
+        "reserved": premise(
+            "The Meridian Prize in Physics was reserved in 1984, so no prize was awarded that year.",
+            premise_id="reserved",
+        ),
+        "recipient": premise(
+            "Anika Rao was awarded the 1984 Meridian Prize in Physics in 1985.",
+            premise_id="recipient",
+        ),
+    }
+
+    selected = _presentation_premise_ids(
+        SymbolicOperator.attribute_compare,
+        atom,
+        ["reserved", "recipient"],
+        premises,
+        SymbolicStatus.proved,
+        "claimed recipient = source recipient",
+    )
+
+    assert selected == ["recipient"]
+    replay = execute_attribute_compare(
+        atom, [premises[item] for item in selected], profile="AWARD_RECIPIENT"
+    )
+    assert replay["status"].value == "PROVED"
 
 
 def test_attribute_comparison_recognizes_explicit_contracted_negation():

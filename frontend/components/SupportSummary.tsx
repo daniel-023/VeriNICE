@@ -31,6 +31,9 @@ export function SupportSummary({
   const mismatchCount = classification?.relations.filter(
     ({ scopeCheck }) => scopeCheck?.status === "MISMATCH",
   ).length ?? 0;
+  const unresolvedIdentityChecks = audit?.identityChecks?.filter(
+    ({ status }) => status === "UNRESOLVED",
+  ) ?? [];
   const sufficient = audit?.sufficiency === "SUFFICIENT";
   const selectedCount = counts.SUPPORTS + counts.REFUTES + counts.CONTEXT;
   const mainRelations = (["SUPPORTS", "REFUTES", "CONTEXT"] as CandidateRelation[]).filter(
@@ -67,13 +70,16 @@ export function SupportSummary({
               {audit.sufficiency.replaceAll("_", " ").toLowerCase()} evidence
             </p>
           ) : null}
-          {mainRelations.length || mismatchCount ? <ul className="support-counts" aria-label="Decisive evidence relation counts">
+          {mainRelations.length || mismatchCount || unresolvedIdentityChecks.length ? <ul className="support-counts" aria-label="Decisive evidence relation counts">
             {mainRelations.map((relation) => (
               <li className={`relation-${relation.toLowerCase()}`} key={relation}>
                 <strong>{counts[relation]}</strong> {relationLabel(relation)}
               </li>
             ))}
             {mismatchCount ? <li><strong>{mismatchCount}</strong> excluded by source scope</li> : null}
+            {unresolvedIdentityChecks.length ? (
+              <li><strong>{unresolvedIdentityChecks.length}</strong> unresolved identity alignment</li>
+            ) : null}
           </ul> : null}
           {selectedCount === 0 ? <p className="support-summary-state">No evidence was selected.</p> : null}
           {!sufficient && selectedCount > 0 ? (
@@ -103,6 +109,19 @@ export function SupportSummary({
                     {groupedScopeChecks.map((check) => (
                       <li key={`${check.status}:${check.reason}`}>
                         <strong>{check.count} {check.status.replaceAll("_", " ").toLowerCase()}:</strong> {check.reason}
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              ) : null}
+              {audit.identityChecks?.length ? (
+                <>
+                  <strong>Identity-alignment checks</strong>
+                  <ul>
+                    {audit.identityChecks.map((check) => (
+                      <li key={`${check.relation}:${check.spanIds.join(":")}`}>
+                        <strong>{check.relation.toLowerCase()} · {check.status.replaceAll("_", " ").toLowerCase()}:</strong>{" "}
+                        {check.reason}
                       </li>
                     ))}
                   </ul>
