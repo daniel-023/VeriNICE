@@ -26,7 +26,7 @@ const walkthroughHealth: Health = {
   retrievalConfigured: true,
   entityAlignmentReady: true,
   decompositionModel: "Qwen2.5 via Ollama (recorded)",
-  retrievalModel: "BAAI/bge-small-en-v1.5 + lexical anchors (recorded)",
+  retrievalModel: "BAAI/bge-small-en-v1.5 + BM25 (recorded)",
   entityModel: "en_core_web_sm (recorded)",
 };
 

@@ -40,19 +40,20 @@ an evidence assessment, not a case verdict.
 
 For every atomic claim, select zero to three IDs in each field. atomTrueIds are
 sentences that make the exact atomic claim true. atomFalseIds are sentences
-that make the exact atomic claim false. contextIds provide context but establish
-neither truth value. Assess the selected sentences jointly and mark the bundle SUFFICIENT,
+that make the exact atomic claim false. contextIds contain neutral sentences:
+relevant candidates that neither support nor refute the atom. Assess the
+selected sentences jointly and mark the bundle SUFFICIENT,
 PARTIAL, or INSUFFICIENT. Support requires the asserted entity, relationship,
 time, quantity, comparison, and scope. Refutation requires a direct conflict;
-mere irrelevance, missing evidence, or uncertainty is not refutation. Context
-may help interpret evidence but does not itself support or refute the claim.
+mere irrelevance, missing evidence, or uncertainty is not refutation. Neutral
+evidence may help interpretation but does not itself support or refute the claim.
 Select the smallest evidence set that resolves the claim; three IDs is a limit,
 not a target. Once one candidate directly resolves the complete atomic claim,
 do not add topically related candidates unless they are independently decisive.
 
 For a numeric claim, decisive evidence must discuss the same measured fact and
 must state the claimed quantity, compatible source values, or an explicit
-calculation from those values. A generic description of a dataset is context,
+calculation from those values. A generic description of a dataset is neutral,
 not numeric support. A different number about another measure or time period is
 not refutation. Large descriptive counts may differ by up to five percent when
 the wording and scale make clear that they are rounded; dates, percentages,
@@ -87,7 +88,7 @@ disputed. Do not demand measurements that the atomic claim does not contain.
 Relation examples: for atom "The bridge has cables," a source saying "the
 bridge does not have cables" is REFUTES, never SUPPORTS. A source calling the
 atom's proposition a "myth" or "false" is REFUTES; a heading that merely quotes
-a myth is CONTEXT unless its truth status is explicit. If reading context
+a myth is neutral and belongs in contextIds unless its truth status is explicit. If reading context
 explicitly rejects the anchor's proposition, as in "But this isn't true," treat
 the anchor and its context jointly as REFUTES; lexical overlap with the quoted
 proposition is not support. For "A happened before B," two dated sentences

@@ -66,7 +66,7 @@ for (const caseId of caseIds) {
         || !document.excerptRationale
         || excerptHash !== document.excerptSha256
       ) {
-        throw new Error(`Constructed walkthrough ${caseId} has invalid source provenance.`);
+        throw new Error(`Constructed walkthrough ${caseId} has invalid source details.`);
       }
     }
   }

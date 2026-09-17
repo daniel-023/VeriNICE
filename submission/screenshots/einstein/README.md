@@ -23,7 +23,7 @@
 
 These files are byte-identical copies of the supplied screenshots.
 
-## Composite provenance
+## Composite assembly details
 
 - Canvas: 2480 × 1600 px, white background, 24 px outer margin, 16 px gutters.
 - Overview region: the 3024 × 681 px banner-free overview is proportionally reduced and centred in a 2432 × 601 px framed region.

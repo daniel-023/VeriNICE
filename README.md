@@ -42,7 +42,7 @@ premises; Python validates the operands and executes the rule deterministically.
 | Mode                     | Description                                                                    |
 | -------------------------- | -------------------------------------------------------------------------------- |
 | **Local live mode**      | Runs the complete pipeline locally with Ollama, BGE, FastAPI, and Next.js.     |
-| **Recorded walkthrough** | Replays the 18 prepared showcase runs at`/walkthrough` without live inference. |
+| **Recorded walkthrough** | Replays the 18 prepared showcase runs at `/walkthrough` without live inference. |
 
 ## Quick start
 
@@ -73,10 +73,9 @@ symbolic rules, and abstention. Source details are retained for traceability.
 
 - [Running VeriNICE](docs/RUN_GUIDE.md)
 - [Neurosymbolic components and operator library](docs/NEUROSYMBOLIC_COMPONENTS.md)
+- [Dataset and source-material notice](DATA_NOTICE.md)
 
 ## Licences
 
-VeriNICE code is released under the [MIT License](LICENSE). AVeriTeC is
-licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
-Source excerpts remain subject to their publishers' rights and include links
-to the original pages and traceability metadata.
+VeriNICE code is released under the [MIT License](LICENSE). Dataset records and
+source excerpts are covered separately by the [data notice](DATA_NOTICE.md).

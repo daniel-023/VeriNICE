@@ -116,7 +116,7 @@ describe("Milestone 5 accessibility", () => {
     const relationList = screen.getByRole("list", { name: "Claim-wide evidence relation counts" });
     expect(relationList).toHaveTextContent(/2\s*Supports/);
     expect(relationList).toHaveTextContent(/1\s*Refutes/);
-    expect(relationList).toHaveTextContent(/1\s*Context/);
+    expect(relationList).toHaveTextContent(/1\s*Neutral/);
     expect(relationList).toHaveTextContent(/4\s*Not used/);
     expect(screen.getByText("How Evidence Relations Work")).toBeInTheDocument();
     expect(screen.getByText("View 6 Rule Types")).toBeInTheDocument();
@@ -145,7 +145,7 @@ describe("Milestone 5 accessibility", () => {
     const relationList = screen.getByRole("list", { name: "Claim-wide evidence relation counts" });
     expect(relationList).toHaveTextContent(/0\s*Supports/);
     expect(relationList).toHaveTextContent(/0\s*Refutes/);
-    expect(relationList).toHaveTextContent(/0\s*Context/);
+    expect(relationList).toHaveTextContent(/0\s*Neutral/);
     expect(relationList).toHaveTextContent(/0\s*Not used/);
     expect(screen.getByText("Direct evidence only · no symbolic rule applied.")).toBeVisible();
   });
@@ -378,7 +378,7 @@ describe("Milestone 5 accessibility", () => {
       }}
     />);
     expect(container.textContent).toContain("No decisive relation");
-    expect(container.textContent).toContain("1 refute · 1 context");
+    expect(container.textContent).toContain("1 refute · 1 neutral");
     expect(container.textContent).toContain("2 unresolved");
     expect(container.textContent).not.toContain("No scope comparison is needed.");
     expect(container.textContent).not.toContain("Not selected");

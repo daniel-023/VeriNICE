@@ -64,8 +64,8 @@ state, and highlighted source sentences for each atomic claim.
 **Narration:**
 
 > The model can assess only retrieved sentence identifiers. Supporting evidence
-> establishes the atom; refuting evidence contradicts it; contextual evidence
-> aids interpretation without deciding it; and other candidates remain unused.
+> establishes the atom; refuting evidence contradicts it; neutral evidence is
+> relevant but neither supports nor refutes it; and other candidates remain unused.
 >
 > It also judges the selected sentences together. A sufficient bundle resolves
 > every relevant entity, relationship, time, quantity, comparison, and scope.

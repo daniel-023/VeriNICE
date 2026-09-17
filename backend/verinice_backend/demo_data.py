@@ -35,7 +35,7 @@ class DemoStore:
     summaries: List[DemoCaseSummary]
     cases_by_id: Dict[str, DemoCase]
     source: Path
-    private: bool
+    prepared: bool
 
     def case(self, case_id: str) -> Optional[DemoCase]:
         return self.cases_by_id.get(case_id)
@@ -142,7 +142,7 @@ def _apply_bundle_metadata(cases: List[DemoCase], bundle_path: Path) -> List[Dem
     return enriched
 
 
-def _validate_private_catalog(cases: List[DemoCase], bundle_path: Path) -> None:
+def _validate_prepared_catalog(cases: List[DemoCase], bundle_path: Path) -> None:
     profile_path = bundle_path / "bundle.json"
     profile = _read_json(profile_path) if profile_path.is_file() else {"kind": "AVERITEC"}
     if profile.get("kind") == "SHOWCASE":
@@ -219,7 +219,9 @@ def _validate_private_catalog(cases: List[DemoCase], bundle_path: Path) -> None:
                     or not document.source_descriptor
                     or not document.excerpt_rationale
                 ):
-                    raise DemoDataError(f"Constructed source {case.id}/{document.id} lacks provenance")
+                    raise DemoDataError(
+                        f"Constructed source {case.id}/{document.id} lacks required source details"
+                    )
                 if not minimum_words <= len(document.text.split()) <= maximum_words:
                     raise DemoDataError(
                         f"Constructed source {case.id}/{document.id} does not satisfy excerpt policy"
@@ -237,7 +239,7 @@ def _validate_private_catalog(cases: List[DemoCase], bundle_path: Path) -> None:
     ]
     if missing:
         raise DemoDataError(
-            "Private AVeriTeC catalog needs five to eight cases for every label; "
+            "Prepared AVeriTeC catalog needs five to eight cases for every label; "
             f"invalid: {', '.join(missing)}"
         )
     for case in cases:
@@ -247,7 +249,7 @@ def _validate_private_catalog(cases: List[DemoCase], bundle_path: Path) -> None:
             )
 
 
-def load_private_bundle(bundle_path: Path) -> DemoStore:
+def load_prepared_bundle(bundle_path: Path) -> DemoStore:
     catalog_path = bundle_path / "catalog.json"
     try:
         summaries = SUMMARIES_ADAPTER.validate_python(_read_json(catalog_path))
@@ -268,7 +270,7 @@ def load_private_bundle(bundle_path: Path) -> DemoStore:
     _validate_unique_ids(cases)
     _validate_source_only_documents(cases)
     _validate_unique_sources(cases)
-    _validate_private_catalog(cases, bundle_path)
+    _validate_prepared_catalog(cases, bundle_path)
 
     actual_digest = bundle_digest(bundle_path)
     digest_path = bundle_path / "bundle.sha256"
@@ -284,7 +286,7 @@ def load_private_bundle(bundle_path: Path) -> DemoStore:
         summaries=summaries,
         cases_by_id={case.id: case for case in cases},
         source=bundle_path,
-        private=True,
+        prepared=True,
     )
 
 
@@ -294,17 +296,17 @@ def _load_public_store(path: Path) -> DemoStore:
         summaries=[case.summary() for case in cases],
         cases_by_id={case.id: case for case in cases},
         source=path,
-        private=False,
+        prepared=False,
     )
 
 
 @lru_cache(maxsize=1)
 def demo_store() -> DemoStore:
-    if settings.private_demo_bundle_path.is_dir():
-        return load_private_bundle(settings.private_demo_bundle_path)
-    if settings.require_private_catalog:
+    if settings.prepared_demo_bundle_path.is_dir():
+        return load_prepared_bundle(settings.prepared_demo_bundle_path)
+    if settings.require_prepared_catalog:
         raise DemoDataError(
-            f"Required prepared demo bundle is missing at {settings.private_demo_bundle_path}"
+            f"Required prepared demo bundle is missing at {settings.prepared_demo_bundle_path}"
         )
     return _load_public_store(settings.public_demo_data_path)
 

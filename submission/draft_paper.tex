@@ -96,7 +96,9 @@ non-empty country-code sets, and those sets are disjoint. Geography is exempt
 when it is itself the claimed value, as in ``located in'' or ``member of.''
 Mismatches remain visible but are withheld from Qwen assessment and symbolic
 execution. Qwen assigns up to three candidate IDs per relation and labels the
-joint bundle as sufficient, partial, or insufficient. Only support and
+joint bundle as sufficient, partial, or insufficient. The displayed relations
+are support, refutation, and neutral; neutral denotes relevant evidence that
+neither supports nor refutes the atom. Only support and
 refutation from a sufficient bundle become verdict-bearing edges; the other
 selections remain visible as provisional evidence.
 Python enumerates eligible operator/profile candidates and their permitted,

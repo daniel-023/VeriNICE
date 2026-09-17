@@ -360,7 +360,9 @@ def main() -> int:
                     "sourceDescriptor", "excerptRationale", "excerptSha256",
                     "sourceSha256", "text",
                 )):
-                    raise RuntimeError(f"Constructed source lacks provenance: {case_id}")
+                    raise RuntimeError(
+                        f"Constructed source lacks required source details: {case_id}"
+                    )
                 if (
                     document["sourceType"] != "SOURCE_EXCERPT"
                     or not minimum_words <= word_count(document["text"]) <= maximum_words
@@ -416,7 +418,7 @@ def main() -> int:
                 raise RuntimeError(f"Jurisdiction-mismatched evidence was selected decisively: {case_id}")
         recorded_with = run.get("recordedWith", {})
         # Runs recorded before retrieval modes existed used the current HYBRID
-        # implementation. Add that deterministic provenance during publication;
+        # implementation. Add those deterministic traceability fields during publication;
         # model outputs, evidence IDs, and offsets remain untouched.
         recorded_with.setdefault("retrievalMethod", "HYBRID")
         if recorded_with["retrievalMethod"] not in {"HYBRID", "SEMANTIC", "LEXICAL"}:

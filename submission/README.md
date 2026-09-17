@@ -17,7 +17,7 @@ The repository does not bundle a TeX distribution or the official AAAI style
 files. Compiled PDFs and upload archives are generated deliverables and remain
 outside version control.
 
-The private 32-case AVeriTeC bundle remains available for internal auditing.
+The prepared 32-case AVeriTeC bundle remains available for reproducibility checks.
 The checked-in walkthrough publishes a separate 18-case qualitative showcase:
 15 constructed claims grounded in authentic source excerpts and three curated
 AVeriTeC cases, with three entries in each displayed category and a 7/7/2/2

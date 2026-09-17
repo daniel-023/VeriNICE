@@ -26,7 +26,7 @@ const EVIDENCE_RELATIONS: Array<{
 }> = [
   { relation: "SUPPORTS", label: "Supports", description: "Directly establishes the atomic claim." },
   { relation: "REFUTES", label: "Refutes", description: "Directly contradicts the atomic claim." },
-  { relation: "CONTEXT", label: "Context", description: "Helps interpret evidence but establishes neither truth value." },
+  { relation: "CONTEXT", label: "Neutral", description: "Relevant to the claim but neither supports nor refutes it." },
   { relation: "NOT_SELECTED", label: "Not used", description: "Was retrieved but not selected for assessment." },
 ];
 
@@ -109,7 +109,7 @@ const RETRIEVAL_METHOD_LABELS: Record<RetrievalMethod, string> = {
 const RETRIEVAL_METHOD_HELP: Record<RetrievalMethod, string> = {
   HYBRID: "Combines semantic and lexical rankings using equal-weight reciprocal-rank fusion.",
   SEMANTIC: "Ranks sentences by cosine similarity between normalized BGE embeddings.",
-  LEXICAL: "Ranks normalized token overlap, with bonuses for matching numbers and list entries.",
+  LEXICAL: "Ranks passages with BM25, including numeric normalization and query-relevant list cues.",
 };
 
 export function PipelinePanel({

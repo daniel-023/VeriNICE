@@ -83,6 +83,23 @@ Run the backend and frontend test suites with:
 
 The launcher uses the pinned local environments prepared by `--prepare`.
 
+## Development and analysis utilities
+
+The following scripts are optional research utilities rather than runtime
+dependencies:
+
+- `scripts/decompose_claim.py` runs the live decomposer for one claim.
+- `scripts/evaluate_decompositions.py` evaluates semantic decomposition checks
+  against recorded runs and built-in challenges.
+- `scripts/analyze_prediction_errors.py` creates a Markdown error report from
+  recorded runs.
+- `scripts/summarize_runs.py` creates a descriptive summary of recorded
+  verdicts. It is not a benchmark evaluation.
+
+The analysis scripts default to the ignored `data/walkthrough/runs` staging
+directory created during local recording. Pass their documented command-line
+options to use a different run directory.
+
 ## Record and validate the walkthrough
 
 Start the local stack with `./run-verinice --start`, then run the recorder in
@@ -138,7 +155,7 @@ The local live service exposes:
 
 `POST /api/v1/retrieve` accepts `HYBRID`, `SEMANTIC`, or `LEXICAL` as its
 `retrievalMethod`; `HYBRID` is the default. The selected method is returned in
-the response and retained in walkthrough provenance.
+the response and retained in the walkthrough's traceability metadata.
 
 ## Common failures
 

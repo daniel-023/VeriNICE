@@ -53,7 +53,7 @@ export function SupportSummary({
   const relationLabel = (relation: CandidateRelation): string => {
     if (relation === "SUPPORTS") return sufficient ? "support" : "potential support";
     if (relation === "REFUTES") return sufficient ? "refutation" : "potential refutation";
-    if (relation === "CONTEXT") return "context";
+    if (relation === "CONTEXT") return "neutral";
     return "not selected";
   };
 
@@ -94,7 +94,7 @@ export function SupportSummary({
                   {[
                     counts.SUPPORTS ? `${counts.SUPPORTS} support` : "",
                     counts.REFUTES ? `${counts.REFUTES} refute` : "",
-                    counts.CONTEXT ? `${counts.CONTEXT} context` : "",
+                    counts.CONTEXT ? `${counts.CONTEXT} neutral` : "",
                   ].filter(Boolean).join(" · ")}
                 </p>
               ) : null}

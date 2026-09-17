@@ -69,12 +69,12 @@ class Settings:
         "http://127.0.0.1:3000,http://localhost:3000",
     )
     public_demo_data_path: Path = ROOT / "data" / "demo_cases.json"
-    private_demo_bundle_path: Path = _path_env(
+    prepared_demo_bundle_path: Path = _path_env(
         "VERINICE_DEMO_BUNDLE_PATH",
         ROOT / "data" / "demo" / "showcase",
     )
-    require_private_catalog: bool = _bool_env(
-        "VERINICE_REQUIRE_PRIVATE_CATALOG", False
+    require_prepared_catalog: bool = _bool_env(
+        "VERINICE_REQUIRE_PREPARED_CATALOG", False
     )
     expected_bundle_digest: str | None = os.getenv(
         "VERINICE_EXPECTED_BUNDLE_DIGEST"

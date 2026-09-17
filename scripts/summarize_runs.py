@@ -32,12 +32,12 @@ def read_json(path: Path) -> Any:
 
 
 def recorded_verdict(run: dict[str, Any]) -> str:
-    """Return the rule-derived verdict from a schema-v4 recording."""
+    """Return the rule-derived verdict from a schema-v7 recording."""
     recorded = run.get("verdict")
     if isinstance(recorded, dict) and recorded.get("verdict") in LABELS:
         return recorded["verdict"]
     raise SystemExit(
-        f"Recorded run {run.get('caseId', '<unknown>')} has no valid aggregation-schema-v3 result. "
+        f"Recorded run {run.get('caseId', '<unknown>')} has no valid recorded verdict. "
         "Re-record the walkthrough."
     )
 

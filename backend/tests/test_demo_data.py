@@ -10,7 +10,7 @@ from pathlib import Path
 
 import pytest
 
-from verinice_backend.demo_data import DemoDataError, load_demo_cases, load_private_bundle
+from verinice_backend.demo_data import DemoDataError, load_demo_cases, load_prepared_bundle
 from verinice_backend.schemas import DemoCategory, DemoOrigin, ReferenceLabel
 from verinice_backend.settings import ROOT
 
@@ -35,9 +35,9 @@ def test_public_fallback_uses_multidocument_four_way_schema() -> None:
     assert len(load_demo_cases(path)) == 12
 
 
-def test_checked_in_private_bundle_is_balanced_and_fully_described() -> None:
+def test_checked_in_prepared_bundle_is_balanced_and_fully_described() -> None:
     bundle = ROOT / "data" / "demo" / "averitec"
-    store = load_private_bundle(bundle)
+    store = load_prepared_bundle(bundle)
     assert len(store.summaries) == 32
     assert Counter(case.label for case in store.summaries) == {
         label: 8 for label in ReferenceLabel
@@ -78,7 +78,7 @@ def test_showcase_bundle_has_fifteen_constructed_and_three_averitec_cases() -> N
         (ROOT / "data" / "manifests" / "showcase-sources.json").read_text(encoding="utf-8")
     )
     policy = source_manifest["policy"]
-    store = load_private_bundle(bundle)
+    store = load_prepared_bundle(bundle)
     assert len(store.summaries) == policy["caseCount"]
     assert sum(case.origin == DemoOrigin.constructed for case in store.summaries) == policy[
         "constructedCount"
@@ -183,15 +183,15 @@ def test_bundle_writer_and_loader_validate_digest_balance_and_documents(tmp_path
         lambda _: None,
     )
     digest = prepare.write_bundle(cases, audits, tmp_path)
-    store = load_private_bundle(tmp_path)
+    store = load_prepared_bundle(tmp_path)
     assert len(store.summaries) == 32
-    assert store.private is True
+    assert store.prepared is True
     assert (tmp_path / "bundle.sha256").read_text().strip() == digest
 
     case_path = next((tmp_path / "cases").glob("*.json"))
     case_path.write_text(case_path.read_text() + " ", encoding="utf-8")
     with pytest.raises(DemoDataError, match="digest mismatch"):
-        load_private_bundle(tmp_path)
+        load_prepared_bundle(tmp_path)
 
 
 def test_preparation_rejects_allowlist_label_drift() -> None:
@@ -305,7 +305,7 @@ def test_prepared_documents_use_source_text_without_annotation_leakage() -> None
     assert all("annotatedEvidenceSha256" not in source for source in audit["sources"])
 
 
-def test_private_bundle_rejects_annotation_card_text(tmp_path: Path) -> None:
+def test_prepared_bundle_rejects_annotation_card_text(tmp_path: Path) -> None:
     prepare = _prepare_module()
     rows = _synthetic_rows(prepare)
     source_text = " ".join(
@@ -331,7 +331,7 @@ def test_private_bundle_rejects_annotation_card_text(tmp_path: Path) -> None:
     )
 
     with pytest.raises(DemoDataError, match="annotation-card text"):
-        load_private_bundle(tmp_path)
+        load_prepared_bundle(tmp_path)
 
 
 def test_pdf_extraction_uses_selectable_text_and_preserves_metadata_title(monkeypatch) -> None:

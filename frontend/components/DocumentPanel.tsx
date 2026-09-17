@@ -11,7 +11,7 @@ import type {
 const RELATION_COPY: Record<CandidateRelation, string> = {
   SUPPORTS: "Supports atomic claim",
   REFUTES: "Refutes atomic claim",
-  CONTEXT: "Reading context",
+  CONTEXT: "Neutral",
   NOT_SELECTED: "Not selected",
 };
 
@@ -346,7 +346,7 @@ export function DocumentPanel({
                           >
                             <option value="SUPPORTS" disabled={mismatched}>Supports</option>
                             <option value="REFUTES" disabled={mismatched}>Refutes</option>
-                            <option value="CONTEXT">Context</option>
+                            <option value="CONTEXT">Neutral</option>
                             <option value="NOT_SELECTED">Not selected</option>
                           </select>
                           {mismatched ? <small>Support and refute are disabled for this jurisdiction mismatch.</small> : null}

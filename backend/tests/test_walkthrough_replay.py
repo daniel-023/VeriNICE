@@ -42,13 +42,13 @@ def test_published_walkthrough_replays_with_current_operators(case_id: str):
     for recorded in run["reasoning"]:
         proof = deepcopy(recorded)
         operator = SymbolicOperator(proof["operator"])
-        profile = proof.setdefault("profile", f"LEGACY_{operator.value}")
+        profile = proof["profile"]
         proof.setdefault("preconditions", [])
         premises = [
             SymbolicPremise.model_validate(item) for item in proof["premises"]
         ]
         if operator in {SymbolicOperator.attribute_compare, SymbolicOperator.count_distinct}:
-            outcome = REGISTRY[operator](atoms[proof["atomId"]], premises, profile=None if profile.startswith("LEGACY_") else profile)
+            outcome = REGISTRY[operator](atoms[proof["atomId"]], premises, profile=profile)
         else:
             outcome = REGISTRY[operator](atoms[proof["atomId"]], premises)
         replayed = (outcome["status"].value, outcome["relation"])
