@@ -374,8 +374,8 @@
       "atomId": "atom-1",
       "operator": "TEMPORAL_COMPARE",
       "profile": "GENERIC_ABSOLUTE_DATE",
-      "status": "NOT_APPLICABLE",
-      "relation": null,
+      "status": "PROVED",
+      "relation": "SUPPORTS",
       "premiseIds": [
         "evidence:atom-1:doc-6928c6b9dd12:doc-6928c6b9dd12::sentence-4"
       ],
@@ -392,9 +392,9 @@
           "listItems": []
         }
       ],
-      "expression": "temporal comparison",
-      "conclusion": "No executable date relation",
-      "explanation": "The atom lacks an explicit supported temporal comparison.",
+      "expression": "January 9, 2007 on 9 January 2007",
+      "conclusion": "The grounded temporal comparison is true.",
+      "explanation": "Python aligned the event wording and compared absolute date intervals.",
       "validationWarnings": [],
       "preconditions": [
         {
@@ -409,8 +409,8 @@
         },
         {
           "name": "Operand alignment",
-          "status": "UNRESOLVED",
-          "detail": "The atom lacks an explicit supported temporal comparison."
+          "status": "PASSED",
+          "detail": "Python aligned the event wording and compared absolute date intervals."
         },
         {
           "name": "Identity alignment",
@@ -448,8 +448,8 @@
       "atomId": "atom-2",
       "operator": "TEMPORAL_COMPARE",
       "profile": "GENERIC_ABSOLUTE_DATE",
-      "status": "NOT_APPLICABLE",
-      "relation": null,
+      "status": "PROVED",
+      "relation": "SUPPORTS",
       "premiseIds": [
         "evidence:atom-2:doc-cfa7e728af0f:doc-cfa7e728af0f::sentence-5"
       ],
@@ -466,9 +466,9 @@
           "listItems": []
         }
       ],
-      "expression": "temporal comparison",
-      "conclusion": "No executable date relation",
-      "explanation": "The atom lacks an explicit supported temporal comparison.",
+      "expression": "June 29 on 29 June 2007",
+      "conclusion": "The grounded temporal comparison is true.",
+      "explanation": "Python aligned the event wording and compared absolute date intervals.",
       "validationWarnings": [],
       "preconditions": [
         {
@@ -483,8 +483,8 @@
         },
         {
           "name": "Operand alignment",
-          "status": "UNRESOLVED",
-          "detail": "The atom lacks an explicit supported temporal comparison."
+          "status": "PASSED",
+          "detail": "Python aligned the event wording and compared absolute date intervals."
         },
         {
           "name": "Identity alignment",
@@ -539,7 +539,8 @@
         "obligationId": "atom-1",
         "state": "SUPPORTED",
         "supportEdgeIds": [
-          "edge:SUPPORTS:evidence:doc-6928c6b9dd12:doc-6928c6b9dd12::sentence-4:obligation:showcase-technology-iphone:atom-1"
+          "edge:SUPPORTS:evidence:doc-6928c6b9dd12:doc-6928c6b9dd12::sentence-4:obligation:showcase-technology-iphone:atom-1",
+          "edge:SUPPORTS:inference:proof:atom-1:temporal_compare:1:obligation:showcase-technology-iphone:atom-1"
         ],
         "refuteEdgeIds": [],
         "unselectedCandidateCount": 2,
@@ -549,7 +550,8 @@
         "obligationId": "atom-2",
         "state": "SUPPORTED",
         "supportEdgeIds": [
-          "edge:SUPPORTS:evidence:doc-cfa7e728af0f:doc-cfa7e728af0f::sentence-5:obligation:showcase-technology-iphone:atom-2"
+          "edge:SUPPORTS:evidence:doc-cfa7e728af0f:doc-cfa7e728af0f::sentence-5:obligation:showcase-technology-iphone:atom-2",
+          "edge:SUPPORTS:inference:proof:atom-2:temporal_compare:2:obligation:showcase-technology-iphone:atom-2"
         ],
         "refuteEdgeIds": [],
         "unselectedCandidateCount": 2,
@@ -573,11 +575,11 @@
     "reasoningModel": "qwen2.5:7b"
   },
   "timingsSeconds": {
-    "decomposition": 16.655,
-    "retrieval": 0.27,
-    "evidenceAssessment": 24.935,
-    "symbolicReasoning": 12.272,
-    "aggregation": 0.002,
-    "total": 54.134
+    "decomposition": 17.576,
+    "retrieval": 0.276,
+    "evidenceAssessment": 25.301,
+    "symbolicReasoning": 13.631,
+    "aggregation": 0.012,
+    "total": 56.796
   }
 }

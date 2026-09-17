@@ -52,6 +52,7 @@ def test_numeric_comparison_cross_domain(claim, evidence, status):
     ("The launch happened after March 3, 2020.", ["The launch happened on March 4, 2020."], "PROVED"),
     ("The launch happened before March 3, 2020.", ["The launch happened on March 4, 2020."], "DISPROVED"),
     ("The launch happened after March 2020.", ["The launch happened in 2020."], "UNRESOLVED"),
+    ("The launch happened on 3 March 2020.", ["The launch happened on March 3, 2020."], "PROVED"),
     ("The launch happened after last year.", ["The launch happened in 2020."], "UNRESOLVED"),
     ("Orion launched before Lyra.", ["Orion launched in 2020.", "Lyra launched in 2021."], "PROVED"),
     ("Orion launched before Lyra.", ["Orion was discussed in 2020.", "Lyra was discussed in 2021."], "UNRESOLVED"),

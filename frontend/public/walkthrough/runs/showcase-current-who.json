@@ -463,11 +463,10 @@
       "atomId": "atom-1",
       "operator": "TEMPORAL_COMPARE",
       "profile": "GENERIC_ABSOLUTE_DATE",
-      "status": "NOT_APPLICABLE",
-      "relation": null,
+      "status": "PROVED",
+      "relation": "SUPPORTS",
       "premiseIds": [
-        "evidence:atom-1:doc-391d646f37ef:doc-391d646f37ef::sentence-10",
-        "evidence:atom-1:doc-6824fb361fee:doc-6824fb361fee::sentence-18"
+        "evidence:atom-1:doc-391d646f37ef:doc-391d646f37ef::sentence-10"
       ],
       "premises": [
         {
@@ -480,22 +479,11 @@
           "contentHash": null,
           "itemCount": null,
           "listItems": []
-        },
-        {
-          "id": "evidence:atom-1:doc-6824fb361fee:doc-6824fb361fee::sentence-18",
-          "documentId": "doc-6824fb361fee",
-          "text": "However, that does not mean COVID-19 is over as a global health threat.",
-          "start": 2226,
-          "end": 2297,
-          "kind": "EVIDENCE",
-          "contentHash": null,
-          "itemCount": null,
-          "listItems": []
         }
       ],
-      "expression": "temporal comparison",
-      "conclusion": "No executable date relation",
-      "explanation": "The atom lacks an explicit supported temporal comparison.",
+      "expression": "5 May 2023 on 5 May 2023",
+      "conclusion": "The grounded temporal comparison is true.",
+      "explanation": "Python aligned the event wording and compared absolute date intervals.",
       "validationWarnings": [],
       "preconditions": [
         {
@@ -510,8 +498,8 @@
         },
         {
           "name": "Operand alignment",
-          "status": "UNRESOLVED",
-          "detail": "The atom lacks an explicit supported temporal comparison."
+          "status": "PASSED",
+          "detail": "Python aligned the event wording and compared absolute date intervals."
         },
         {
           "name": "Identity alignment",
@@ -532,20 +520,10 @@
             "description": "Read an unchanged server-owned premise."
           },
           {
-            "id": "input-2",
-            "operation": "LOOKUP",
-            "inputIds": [
-              "evidence:atom-1:doc-6824fb361fee:doc-6824fb361fee::sentence-18"
-            ],
-            "outputType": "FACT",
-            "description": "Read an unchanged server-owned premise."
-          },
-          {
             "id": "result",
             "operation": "TEMPORAL_COMPARE",
             "inputIds": [
-              "input-1",
-              "input-2"
+              "input-1"
             ],
             "outputType": "BOOLEAN",
             "description": "Validate operand alignment and execute the typed operation in Python."
@@ -576,7 +554,8 @@
         "obligationId": "atom-1",
         "state": "SUPPORTED",
         "supportEdgeIds": [
-          "edge:SUPPORTS:inference:bundle:atom-1:supports:obligation:showcase-current-who:atom-1"
+          "edge:SUPPORTS:inference:bundle:atom-1:supports:obligation:showcase-current-who:atom-1",
+          "edge:SUPPORTS:inference:proof:atom-1:temporal_compare:1:obligation:showcase-current-who:atom-1"
         ],
         "refuteEdgeIds": [],
         "unselectedCandidateCount": 1,
@@ -610,11 +589,11 @@
     "reasoningModel": "qwen2.5:7b"
   },
   "timingsSeconds": {
-    "decomposition": 16.605,
-    "retrieval": 0.267,
-    "evidenceAssessment": 26.94,
-    "symbolicReasoning": 13.454,
+    "decomposition": 18.463,
+    "retrieval": 0.364,
+    "evidenceAssessment": 28.863,
+    "symbolicReasoning": 14.633,
     "aggregation": 0.002,
-    "total": 57.268
+    "total": 62.325
   }
 }

@@ -322,6 +322,45 @@ def test_temporal_comparison_uses_date_intervals(claim, evidence, status):
     assert result["status"].value == status
 
 
+@pytest.mark.parametrize(("claim", "evidence"), [
+    (
+        "Apple introduced the first iPhone on 9 January 2007.",
+        "Apple introduced the first iPhone on January 9, 2007.",
+    ),
+    (
+        "The first iPhone went on sale in the United States on 29 June 2007.",
+        "The first iPhone went on sale in the United States on June 29, 2007.",
+    ),
+    (
+        "The launch happened on 9 January 2007.",
+        "The launch happened on 9 January 2007.",
+    ),
+])
+def test_temporal_comparison_accepts_day_first_dates(claim, evidence):
+    result = execute_temporal_compare(
+        PipelineAtom(id="a", text=claim), [premise(evidence)]
+    )
+
+    assert result["status"].value == "PROVED"
+    assert result["relation"] == "SUPPORTS"
+
+
+def test_temporal_comparison_uses_unique_sentence_year_for_month_day() -> None:
+    claim = "The first iPhone went on sale in the United States on 29 June 2007."
+    evidence = (
+        "CUPERTINO, California—June 28, 2007—Apple's iPhone will go on sale "
+        "this Friday, June 29 at 6:00 p.m. local time."
+    )
+
+    result = execute_temporal_compare(
+        PipelineAtom(id="a", text=claim), [premise(evidence)]
+    )
+
+    assert result["status"].value == "PROVED"
+    assert result["relation"] == "SUPPORTS"
+    assert result["expression"] == "June 29 on 29 June 2007"
+
+
 def test_temporal_comparison_aligns_two_named_events_without_dates_in_claim():
     atom = PipelineAtom(id="a", text="Sweden joined NATO before Finland.")
     result = execute_temporal_compare(atom, [

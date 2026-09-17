@@ -37,6 +37,7 @@ Evidence relations affect the verdict only when the bundle is `SUFFICIENT`. The 
 | **Sentence segmentation** | PySBD creates sentence candidates while preserving exact source offsets. |
 | **BM25 lexical retrieval** | Scores term matches using corpus rarity and sentence-length normalization. Numeric tokens are normalized, and structured-list rows receive a small boost for list-related queries. |
 | **Reciprocal-rank fusion** | Combines the BGE semantic and BM25 lexical rankings with equal weights in `HYBRID` mode. |
+| **Entity alignment** | spaCy (`en_core_web_sm`) proposes person and organisation mentions. Deterministic local rules then determine whether mentions refer to the same entity; spaCy does not perform symbolic reasoning. |
 | **Evidence-scope validation** | Withholds passages with an explicit jurisdiction mismatch from evidence assessment and symbolic reasoning while leaving them visible for inspection. |
 
 ## Symbolic operator library

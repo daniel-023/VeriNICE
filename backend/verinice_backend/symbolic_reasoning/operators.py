@@ -292,34 +292,72 @@ def execute_numeric_compare(atom: PipelineAtom, premises: Sequence[SymbolicPremi
 
 
 _MONTHS = {name.casefold(): index for index, name in enumerate(calendar.month_name) if name}
-_DATE = re.compile(r"(?i)(?:(?P<month>january|february|march|april|may|june|july|august|september|october|november|december)(?:\s+(?P<day>\d{1,2})(?:,)?)?\s+)?(?P<year>19\d{2}|20\d{2})")
+_MONTH_PATTERN = (
+    r"january|february|march|april|may|june|july|august|"
+    r"september|october|november|december"
+)
+_DATE = re.compile(
+    rf"(?i)(?:(?:"
+    rf"(?P<month>{_MONTH_PATTERN})(?:\s+(?P<day>\d{{1,2}})(?:,)?)?"
+    rf"|(?P<day_first>\d{{1,2}})\s+(?P<month_after>{_MONTH_PATTERN})"
+    rf")\s+)?(?P<year>19\d{{2}}|20\d{{2}})"
+)
+_MONTH_DAY = re.compile(
+    rf"(?i)(?:"
+    rf"(?P<month>{_MONTH_PATTERN})\s+(?P<day>\d{{1,2}})"
+    rf"|(?P<day_first>\d{{1,2}})\s+(?P<month_after>{_MONTH_PATTERN})"
+    rf")"
+)
+_ON_OR_IN_DATE = re.compile(
+    rf"(?i)\b(?:on|in)\s+(?:"
+    rf"(?:{_MONTH_PATTERN})(?:\s+\d{{1,2}},?)?\s+(?:19|20)\d{{2}}"
+    rf"|\d{{1,2}}\s+(?:{_MONTH_PATTERN})\s+(?:19|20)\d{{2}}"
+    rf"|(?:19|20)\d{{2}}"
+    rf")\b"
+)
 
 
 def _intervals(text: str) -> list[tuple[date, date, str]]:
     result = []
-    for match in _DATE.finditer(text):
+    full_matches = list(_DATE.finditer(text))
+    for match in full_matches:
         year = int(match.group("year"))
-        month_name = match.group("month")
+        month_name = match.group("month") or match.group("month_after")
         if month_name:
             month = _MONTHS[month_name.casefold()]
-            if match.group("day"):
-                day = int(match.group("day"))
+            day_text = match.group("day") or match.group("day_first")
+            if day_text:
+                day = int(day_text)
                 start = end = date(year, month, day)
             else:
                 start, end = date(year, month, 1), date(year, month, calendar.monthrange(year, month)[1])
         else:
             start, end = date(year, 1, 1), date(year, 12, 31)
         result.append((start, end, match.group(0)))
+    # A sentence-level dateline can supply the omitted year for another
+    # explicit month/day in that same sentence (for example, “June 28, 2007 …
+    # on sale June 29”). Do this only when exactly one year is available.
+    years = {int(match.group("year")) for match in full_matches}
+    if len(years) == 1:
+        year = next(iter(years))
+        full_spans = [match.span() for match in full_matches]
+        for match in _MONTH_DAY.finditer(text):
+            if any(match.start() < end and match.end() > start for start, end in full_spans):
+                continue
+            month_name = match.group("month") or match.group("month_after")
+            day_text = match.group("day") or match.group("day_first")
+            try:
+                resolved = date(year, _MONTHS[month_name.casefold()], int(day_text))
+            except ValueError:
+                continue
+            result.append((resolved, resolved, match.group(0)))
     return result
 
 
 def execute_temporal_compare(atom: PipelineAtom, premises: Sequence[SymbolicPremise]) -> dict:
     normalized = normalize(atom.text)
     relation = next((value for value in ("before", "after", "between") if re.search(rf"\b{value}\b", normalized)), None)
-    if relation is None and re.search(
-        r"\b(?:on|in)\s+(?:(?:january|february|march|april|may|june|july|august|september|october|november|december)\s+\d{1,2},?\s+)?(?:19|20)\d{2}\b",
-        normalized,
-    ):
+    if relation is None and _ON_OR_IN_DATE.search(normalized):
         relation = "on"
     atom_dates = _intervals(atom.text)
     if relation is None:
@@ -368,8 +406,14 @@ def execute_temporal_compare(atom: PipelineAtom, premises: Sequence[SymbolicPrem
                         )
         return _result(SymbolicStatus.unresolved, None, relation, "Temporal relation is ambiguous", "The two compared events could not each be aligned to one absolute date.", ["AMBIGUOUS_TEMPORAL_MAPPING"])
     target_start, target_end, target_raw = atom_dates[-1]
-    # Prefer a unique evidence interval not identical to the threshold.
-    possible = [(interval, premise) for interval, premise in evidence_dates if interval[2] != target_raw]
+    # An ``on`` claim is proved by the same source date. For threshold
+    # relations, exclude a repeated threshold so it is not mistaken for the
+    # event date being compared.
+    possible = evidence_dates if relation == "on" else [
+        (interval, premise)
+        for interval, premise in evidence_dates
+        if interval[2] != target_raw
+    ]
     if relation == "on" and possible:
         atom_terms = lexical_tokens(_DATE.sub(" ", atom.text))
         overlaps = [
