@@ -2,10 +2,12 @@
   "schemaVersion": 2,
   "bge": {
     "repository": "BAAI/bge-small-en-v1.5",
+    "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
     "purpose": "Semantic evidence-candidate retrieval"
   },
   "ollama": {
     "model": "qwen2.5:7b",
+    "manifestDigest": "sha256:845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
     "manifestConfigDigest": "sha256:2f15b3218f0552c60647ce60ada83632d2c09755b16259b13e3e4458e9ae419d",
     "purpose": "Claim decomposition, evidence assessment, and constrained symbolic rule mapping"
   },

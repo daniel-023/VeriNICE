@@ -65,8 +65,6 @@ type RuleResultGroup = {
 
 const PROFILE_LABELS: Record<string, string> = {
   GENERIC_DISTINCT_VALUES: "Explicit category values",
-  AWARD_RECIPIENT: "Award recipient",
-  AWARD_MOTIVATION: "Award motivation",
   COUNTRY_LOCATION: "Country location",
   EXCLUSIVE_PURPOSE: "Exclusive purpose",
   EXPLICIT_NEGATION: "Explicit negation",

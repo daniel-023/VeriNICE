@@ -6,17 +6,12 @@ from datetime import date
 from decimal import Decimal, InvalidOperation
 from typing import Sequence
 
-from ..entity_alignment import extract_identity_mentions
 from ..schemas import PipelineAtom, SymbolicOperator, SymbolicPremise, SymbolicStatus
 from .grounding import lexical_tokens, normalize
 from .profiles import (
-    AWARD_MOTIVATION,
-    AWARD_RECIPIENT,
     COUNTRY_LOCATION,
     EXCLUSIVE_PURPOSE,
     EXPLICIT_NEGATION,
-    award_reason,
-    award_recipient_claim,
     attribute_profile,
     distinct_count_request,
     distinct_profile,
@@ -468,25 +463,15 @@ def execute_attribute_compare(
     if subject and not any(token in lexical_tokens(normalized_evidence) for token in lexical_tokens(subject)):
         return _result(SymbolicStatus.unresolved, None, "attribute comparison", "Entity alignment is unresolved", "The selected premises do not explicitly identify the claim subject.", ["MISSING_ENTITY_ALIGNMENT"])
 
-    # Award-year phrases identify an edition of an award, not its motivation.
-    # Resolve the recipient only when the source explicitly aligns the person,
-    # year, and an award statement.
     profile = profile or attribute_profile(atom)
-    awardee = award_recipient_claim(atom.text)
-    if profile == AWARD_RECIPIENT and awardee:
-        recipient, year = awardee
-        recipient_tokens = lexical_tokens(recipient)
-        surname = normalize(recipient).split()[-1] if normalize(recipient) else ""
-        aligned = (
-            surname in lexical_tokens(normalized_evidence)
-            and year in evidence
-            and bool(re.search(r"(?i)\b(?:prize|award)\b", evidence))
-            and bool(re.search(r"(?i)\bawarded\b|\breceived\b|\bwon\b", evidence))
+    if profile is None:
+        return _result(
+            SymbolicStatus.not_applicable,
+            None,
+            "attribute comparison",
+            "No registered attribute profile",
+            "The atomic claim does not match a supported domain-neutral attribute pattern.",
         )
-        if aligned:
-            return _result(SymbolicStatus.proved, "SUPPORTS", "claimed recipient = source recipient", "The recipient and award year match the grounded source.", "Python aligned the explicit recipient, award year, and award statement.")
-        if recipient_tokens & lexical_tokens(normalized_evidence):
-            return _result(SymbolicStatus.unresolved, None, "recipient comparison", "Award-recipient relation is unresolved", "The source does not explicitly align the claimed recipient with the specified award year.", ["AMBIGUOUS_ATTRIBUTE_MAPPING"])
 
     # An explicit source negation of the claimed property is a conservative
     # refutation. This covers simple attributes without inventing a valency map.
@@ -534,50 +519,6 @@ def execute_attribute_compare(
             "explicit competing development purpose in the source.",
         )
 
-    # Award citations are handled as grounded motivation equality.
-    reason = award_reason(atom.text) if profile == AWARD_MOTIVATION else None
-    source_reasons = re.findall(r"(?i)\bfor\s+(?:his|her|their)?\s*([^.!?;]+)", evidence)
-    if reason and source_reasons:
-        claim_people = [
-            item.normalized for item in extract_identity_mentions(atom.text)
-            if item.label == "PERSON"
-        ]
-        evidence_people = [
-            item.normalized for item in extract_identity_mentions(evidence)
-            if item.label == "PERSON"
-        ]
-        people_aligned = all(
-            any(
-                claimed == source
-                or claimed.split()[-1] == source
-                or source.split()[-1] == claimed
-                for source in evidence_people
-            )
-            for claimed in claim_people
-        )
-        if claim_people and not people_aligned:
-            return _result(
-                SymbolicStatus.unresolved,
-                None,
-                "award subject alignment",
-                "Award-motivation relation is unresolved",
-                "The selected premises do not explicitly identify the person named in the award claim.",
-                ["MISSING_ENTITY_ALIGNMENT"],
-            )
-        relation_stopwords = {"his", "her", "their", "its"}
-        claimed = lexical_tokens(reason) - relation_stopwords
-        matches = []
-        for value in source_reasons:
-            source = lexical_tokens(value) - relation_stopwords
-            # A shared generic head such as "research" is not enough to make
-            # two motivations equal. Accept only containment of the complete
-            # normalized term set so that added wording may qualify a reason
-            # without erasing a conflicting substantive term.
-            if claimed and source and (claimed.issubset(source) or source.issubset(claimed)):
-                matches.append(value)
-        if matches:
-            return _result(SymbolicStatus.proved, "SUPPORTS", "claimed reason = source reason", "The stated reason matches a grounded source reason.", "Python compared normalized reason terms attached to the same grounded subject.")
-        return _result(SymbolicStatus.disproved, "REFUTES", "claimed reason ≠ source reason", "The cited reason differs from the grounded source reason.", "Python compared explicit source and claim attributes after subject alignment.")
     return _result(SymbolicStatus.unresolved, None, "attribute comparison", "Attribute relation is unresolved", "The premises do not provide one unambiguous attribute value for deterministic comparison.", ["AMBIGUOUS_ATTRIBUTE_MAPPING"])
 
 

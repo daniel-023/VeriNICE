@@ -27,8 +27,7 @@ from .schemas import (
 from .settings import settings
 from .symbolic_reasoning.operators import incompatible_extremum_measures
 from .symbolic_reasoning.profiles import (
-    AWARD_MOTIVATION,
-    AWARD_RECIPIENT,
+    EXPLICIT_NEGATION,
     attribute_profile,
     exclusive_purpose_counterexample,
 )
@@ -47,6 +46,10 @@ PARTIAL, or INSUFFICIENT. Support requires the asserted entity, relationship,
 time, quantity, comparison, and scope. Refutation requires a direct conflict;
 mere irrelevance, missing evidence, or uncertainty is not refutation. Neutral
 evidence may help interpretation but does not itself support or refute the claim.
+Refutation must contradict the same predicate and semantic role expressed by
+the atomic claim. A different date, quantity, attribute, or event is neutral
+unless it applies to that same relation. Do not treat a nominal year embedded
+in an entity or edition name as the date on which an event occurred.
 Select the smallest evidence set that resolves the claim; three IDs is a limit,
 not a target. Once one candidate directly resolves the complete atomic claim,
 do not add topically related candidates unless they are independently decisive.
@@ -483,6 +486,7 @@ def _parse_audit(
         support = selections[atom_code]["support"]
         refute = selections[atom_code]["refute"]
         context = selections[atom_code]["context"]
+        atom, _ = mapped[atom_code]
         contradictory = set(support) & set(refute)
         # Two sources may reproduce the same sentence under different IDs. The
         # same normalized statement cannot coherently support and refute one
@@ -509,7 +513,6 @@ def _parse_audit(
         # Require each decisive bundle for an explicit before/after comparison
         # to cover every compared jurisdiction; incomplete bundles remain
         # available as context and to the grounded symbolic stage.
-        atom, _ = mapped[atom_code]
         if re.search(r"\b(?:before|after)\b", atom.text, re.IGNORECASE):
             checks_by_span = {
                 check.span_id: check for check in scope_checks[atom.id]
@@ -636,9 +639,7 @@ def _parse_audit(
                 selected_by_document,
                 local_document_texts,
                 relation=relation,
-                strict_refutation=attribute_profile(atom) in {
-                    AWARD_MOTIVATION, AWARD_RECIPIENT,
-                },
+                strict_refutation=attribute_profile(atom) == EXPLICIT_NEGATION,
             )
             identity_checks.append(IdentityAlignmentCheck(
                 relation=relation,

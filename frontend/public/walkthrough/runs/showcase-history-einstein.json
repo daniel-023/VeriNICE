@@ -164,20 +164,16 @@
       {
         "atomId": "atom-1",
         "supportSpanIds": [
-          "doc-24e395b9bb6e::sentence-3"
+          "doc-24e395b9bb6e::sentence-3",
+          "doc-46199fd9f0db::sentence-4"
         ],
-        "refuteSpanIds": [
-          "doc-46199fd9f0db::sentence-4",
-          "doc-46199fd9f0db::sentence-3"
-        ],
+        "refuteSpanIds": [],
         "contextSpanIds": [
-          "doc-46199fd9f0db::sentence-1",
-          "doc-24e395b9bb6e::sentence-1",
-          "doc-24e395b9bb6e::sentence-5"
+          "doc-46199fd9f0db::sentence-3"
         ],
         "sufficiency": "SUFFICIENT",
         "missingInformation": "",
-        "reason": "The selected evidence directly supports and refutes the same atomic claim.",
+        "reason": "The selected evidence identifies Einstein as the recipient of the 1921 prize; the separate 1922 presentation date does not contradict that relation.",
         "scopeChecks": [
           {
             "spanId": "doc-46199fd9f0db::sentence-4",
@@ -244,7 +240,8 @@
           {
             "relation": "SUPPORTS",
             "spanIds": [
-              "doc-24e395b9bb6e::sentence-3"
+              "doc-24e395b9bb6e::sentence-3",
+              "doc-46199fd9f0db::sentence-4"
             ],
             "status": "ALIGNED",
             "requiredEntities": [
@@ -252,23 +249,6 @@
               "Albert Einstein"
             ],
             "matchedEntities": [
-              "Albert Einstein"
-            ],
-            "reason": "No conflicting subject identity appears in the selected evidence; exact document-local matches were retained."
-          },
-          {
-            "relation": "REFUTES",
-            "spanIds": [
-              "doc-46199fd9f0db::sentence-4",
-              "doc-46199fd9f0db::sentence-3"
-            ],
-            "status": "ALIGNED",
-            "requiredEntities": [
-              "The Nobel Prize in Physics",
-              "Albert Einstein"
-            ],
-            "matchedEntities": [
-              "The Nobel Prize in Physics",
               "Albert Einstein"
             ],
             "reason": "No conflicting subject identity appears in the selected evidence; exact document-local matches were retained."
@@ -381,121 +361,47 @@
   },
   "reasoning": [
     {
-      "id": "proof:atom-1:attribute_compare:1",
-      "atomId": "atom-1",
-      "operator": "ATTRIBUTE_COMPARE",
-      "profile": "AWARD_RECIPIENT",
-      "status": "PROVED",
-      "relation": "SUPPORTS",
-      "premiseIds": [
-        "evidence:atom-1:doc-24e395b9bb6e:doc-24e395b9bb6e::sentence-3"
-      ],
-      "premises": [
-        {
-          "id": "evidence:atom-1:doc-24e395b9bb6e:doc-24e395b9bb6e::sentence-3",
-          "documentId": "doc-24e395b9bb6e",
-          "text": "Einstein was eventually awarded the 1921 Nobel Prize in Physics “for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect”. ",
-          "start": 249,
-          "end": 429,
-          "kind": "EVIDENCE",
-          "contentHash": null,
-          "itemCount": null,
-          "listItems": []
-        }
-      ],
-      "expression": "claimed recipient = source recipient",
-      "conclusion": "The recipient and award year match the grounded source.",
-      "explanation": "Python aligned the explicit recipient, award year, and award statement.",
-      "validationWarnings": [],
-      "preconditions": [
-        {
-          "name": "Source grounding",
-          "status": "PASSED",
-          "detail": "2 selected premise(s) retain exact source offsets."
-        },
-        {
-          "name": "Registered profile",
-          "status": "PASSED",
-          "detail": "award recipient"
-        },
-        {
-          "name": "Operand alignment",
-          "status": "PASSED",
-          "detail": "Python aligned the explicit recipient, award year, and award statement."
-        },
-        {
-          "name": "Identity alignment",
-          "status": "PASSED",
-          "detail": "No conflicting subject identity appears in the selected evidence; exact document-local matches were retained."
-        }
-      ],
-      "program": {
-        "version": 1,
-        "steps": [
-          {
-            "id": "input-1",
-            "operation": "LOOKUP",
-            "inputIds": [
-              "evidence:atom-1:doc-24e395b9bb6e:doc-24e395b9bb6e::sentence-3"
-            ],
-            "outputType": "FACT",
-            "description": "Read an unchanged server-owned premise."
-          },
-          {
-            "id": "result",
-            "operation": "EQUAL",
-            "inputIds": [
-              "input-1"
-            ],
-            "outputType": "BOOLEAN",
-            "description": "Validate operand alignment and execute the typed operation in Python."
-          }
-        ],
-        "outputStepId": "result"
-      }
-    },
-    {
-      "id": "proof:atom-2:attribute_compare:2",
+      "id": "proof:atom-2:attribute_compare:1",
       "atomId": "atom-2",
       "operator": "ATTRIBUTE_COMPARE",
-      "profile": "AWARD_MOTIVATION",
+      "profile": "EXPLICIT_NEGATION",
       "status": "DISPROVED",
       "relation": "REFUTES",
       "premiseIds": [
-        "evidence:atom-2:doc-24e395b9bb6e:doc-24e395b9bb6e::sentence-3"
+        "evidence:atom-2:doc-24e395b9bb6e:doc-24e395b9bb6e::sentence-5"
       ],
       "premises": [
         {
-          "id": "evidence:atom-2:doc-24e395b9bb6e:doc-24e395b9bb6e::sentence-3",
+          "id": "evidence:atom-2:doc-24e395b9bb6e:doc-24e395b9bb6e::sentence-5",
           "documentId": "doc-24e395b9bb6e",
-          "text": "Einstein was eventually awarded the 1921 Nobel Prize in Physics “for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect”. ",
-          "start": 249,
-          "end": 429,
+          "text": "His talk did not concern the photoelectric effect but the theory of relativity, the theory for which he was never awarded a Nobel Prize. ",
+          "start": 664,
+          "end": 801,
           "kind": "EVIDENCE",
           "contentHash": null,
           "itemCount": null,
           "listItems": []
         }
       ],
-      "expression": "claimed reason ≠ source reason",
-      "conclusion": "The cited reason differs from the grounded source reason.",
-      "explanation": "Python compared explicit source and claim attributes after subject alignment.",
+      "expression": "claimed attribute = source attribute",
+      "conclusion": "The source explicitly negates the claimed attribute.",
+      "explanation": "Python accepted an explicit source negation only after entity and property terms were aligned.",
       "validationWarnings": [],
       "preconditions": [
         {
           "name": "Source grounding",
           "status": "PASSED",
-          "detail": "2 selected premise(s) retain exact source offsets."
+          "detail": "1 selected premise(s) retain exact source offsets."
         },
         {
           "name": "Registered profile",
           "status": "PASSED",
-          "detail": "award motivation"
+          "detail": "explicit negation"
         },
         {
           "name": "Operand alignment",
           "status": "PASSED",
-          "detail": "Python compared explicit source and claim attributes after subject alignment."
+          "detail": "Python accepted an explicit source negation only after entity and property terms were aligned."
         },
         {
           "name": "Identity alignment",
@@ -510,7 +416,7 @@
             "id": "input-1",
             "operation": "LOOKUP",
             "inputIds": [
-              "evidence:atom-2:doc-24e395b9bb6e:doc-24e395b9bb6e::sentence-3"
+              "evidence:atom-2:doc-24e395b9bb6e:doc-24e395b9bb6e::sentence-5"
             ],
             "outputType": "FACT",
             "description": "Read an unchanged server-owned premise."
@@ -542,7 +448,6 @@
         "atom-1"
       ],
       "refuteObligationIds": [
-        "atom-1",
         "atom-2"
       ],
       "unresolvedObligationIds": []
@@ -550,15 +455,12 @@
     "obligations": [
       {
         "obligationId": "atom-1",
-        "state": "CONFLICTING",
+        "state": "SUPPORTED",
         "supportEdgeIds": [
-          "edge:SUPPORTS:evidence:doc-24e395b9bb6e:doc-24e395b9bb6e::sentence-3:obligation:showcase-history-einstein:atom-1",
-          "edge:SUPPORTS:inference:proof:atom-1:attribute_compare:1:obligation:showcase-history-einstein:atom-1"
+          "edge:SUPPORTS:inference:bundle:atom-1:supports:obligation:showcase-history-einstein:atom-1"
         ],
-        "refuteEdgeIds": [
-          "edge:REFUTES:inference:bundle:atom-1:refutes:obligation:showcase-history-einstein:atom-1"
-        ],
-        "unselectedCandidateCount": 0,
+        "refuteEdgeIds": [],
+        "unselectedCandidateCount": 3,
         "provisionalRelationCount": 0
       },
       {
@@ -566,7 +468,7 @@
         "state": "REFUTED",
         "supportEdgeIds": [],
         "refuteEdgeIds": [
-          "edge:REFUTES:inference:proof:atom-2:attribute_compare:2:obligation:showcase-history-einstein:atom-2"
+          "edge:REFUTES:inference:proof:atom-2:attribute_compare:1:obligation:showcase-history-einstein:atom-2"
         ],
         "unselectedCandidateCount": 1,
         "provisionalRelationCount": 2

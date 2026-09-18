@@ -28,7 +28,7 @@ from .compiler import CompilerConfigurationError, CompilerOutputError, CompilerP
 from .grounding import build_candidates, lexical_tokens, normalize, validate_grounding
 from .operators import REGISTRY, _subject_before_copula
 from .profiles import (
-    award_recipient_claim,
+    EXPLICIT_NEGATION,
     distinct_count_request,
     distinct_profile,
     exclusive_purpose_counterexample,
@@ -228,26 +228,6 @@ def _presentation_premise_ids(
         return (selected or ordered)[:2]
     if operator == SymbolicOperator.attribute_compare:
         subject_terms = lexical_tokens(atom.text)
-        # Award-recipient equality consumes the sentence that explicitly
-        # aligns the named recipient, award edition, and award event. A nearby
-        # sentence saying that no prize was awarded in the nominal year is
-        # relevant context, but cannot replay the positive recipient result.
-        awardee = award_recipient_claim(atom.text)
-        if awardee and "recipient" in expression:
-            recipient, year = awardee
-            surname = normalize(recipient).split()[-1]
-            aligned_awards = [
-                item
-                for item in ordered
-                if surname in lexical_tokens(premises[item].text)
-                and year in premises[item].text
-                and re.search(r"(?i)\b(?:prize|award)\b", premises[item].text)
-                and re.search(
-                    r"(?i)\b(?:awarded|received|won)\b", premises[item].text
-                )
-            ]
-            if aligned_awards:
-                return aligned_awards[:1]
         # A location comparison consumes a premise that explicitly names the
         # source country. General subject overlap (for example, "Gustave
         # Eiffel") is not enough to establish the Eiffel Tower's location.
@@ -286,15 +266,6 @@ def _presentation_premise_ids(
             ]
             if competing:
                 return competing[:1]
-        # Prize-reason comparisons consume the explicit citation or motivation,
-        # not a nearby award-date sentence that happens to mention the prize.
-        if "reason" in expression and re.search(r"(?i)\b(?:prize|award|citation)\b", atom.text):
-            reasons = [
-                item for item in ordered
-                if re.search(r"(?i)\b(?:motivation|reason)\b|\bfor\s+(?:his|her|their|the)\b", premises[item].text)
-            ]
-            if reasons:
-                return reasons[:1]
         # Explicit source negation is the decisive fact for a simple attribute
         # conflict such as “has horns” or “grows thicker”.
         negated = [
@@ -304,7 +275,7 @@ def _presentation_premise_ids(
         ]
         if negated:
             negated.sort(key=lambda item: (-len(subject_terms & lexical_tokens(premises[item].text)), item))
-            return negated[:2]
+            return negated[:1]
         aligned = [item for item in ordered if lexical_tokens(premises[item].text) & subject_terms]
         return (aligned or ordered)[:2]
     if status in {SymbolicStatus.proved, SymbolicStatus.disproved}:
@@ -499,9 +470,7 @@ async def reason_symbolically(
                 selected_by_document,
                 document_texts,
                 relation=outcome["relation"] or "SUPPORTS",
-                strict_refutation=candidate.profile in {
-                    "AWARD_MOTIVATION", "AWARD_RECIPIENT",
-                },
+                strict_refutation=candidate.profile == EXPLICIT_NEGATION,
             )
         if (
             outcome["status"] in {SymbolicStatus.proved, SymbolicStatus.disproved}

@@ -134,12 +134,25 @@ def test_award_year_is_not_misread_as_a_distinct_value_count():
     assert distinct_profile(atom) is None
 
 
+def test_positive_award_recipient_is_left_to_evidence_assessment():
+    atom = PipelineAtom(
+        id="a",
+        text="The Meridian Award for 2024 was awarded to Ada Lovelace.",
+    )
+    candidates, _ = build_candidates(
+        [atom],
+        [AssessmentAtomEvidence(atom_id="a", spans=[])],
+        [],
+    )
+    assert candidates == []
+
+
 @pytest.mark.asyncio
 async def test_deterministic_attribute_validation_recovers_a_missed_model_mapping(monkeypatch):
     from verinice_backend.symbolic_reasoning import service
 
-    claim = "The Meridian Award for 2024 was awarded for its navigation research."
-    source = "The Meridian Award for 2024 was awarded for its climate research."
+    claim = "The Meridian Award for 2024 was awarded for navigation research."
+    source = "The Meridian Award for 2024 was not awarded for navigation research."
     atom = PipelineAtom(id="a", text=claim)
     document = RetrievalDocument(id="d", text=source)
     evidence = AssessmentAtomEvidence(atom_id="a", spans=[
@@ -160,20 +173,15 @@ async def test_deterministic_attribute_validation_recovers_a_missed_model_mappin
     proof = next(item for item in result.executions if item.operator.value == "ATTRIBUTE_COMPARE")
     assert proof.status.value == "DISPROVED"
     assert proof.relation == "REFUTES"
-    assert proof.profile == "AWARD_MOTIVATION"
+    assert proof.profile == "EXPLICIT_NEGATION"
 
 
 @pytest.mark.asyncio
 async def test_symbolic_service_demotes_compiled_identity_mismatch(monkeypatch):
     from verinice_backend.symbolic_reasoning import service
 
-    claim = (
-        "Albert Ainstein received the Nobel Prize in Physics for his theory of relativity."
-    )
-    source = (
-        "Albert Einstein received the Nobel Prize in Physics for his discovery "
-        "of the law of the photoelectric effect."
-    )
+    claim = "Albert Ainstein has a Nobel Prize in Physics."
+    source = "Albert Einstein does not have a Nobel Prize in Physics."
     atom = PipelineAtom(id="a", text=claim)
     document = RetrievalDocument(id="d", text=source)
     evidence = AssessmentAtomEvidence(atom_id="a", spans=[AssessmentInputSpan(
@@ -580,50 +588,33 @@ def test_temporal_comparison_rejects_dates_for_different_events():
     assert result["status"].value == "UNRESOLVED"
 
 
-def test_attribute_comparison_treats_nobel_prize_year_as_edition_not_reason():
+def test_positive_award_recipient_has_no_attribute_profile():
     atom = PipelineAtom(
         id="a",
         text="The Nobel Prize in Physics for 1921 was awarded to Albert Einstein.",
     )
     result = execute_attribute_compare(atom, [premise(
-        "Einstein was eventually awarded the 1921 Nobel Prize in Physics for his "
-        "discovery of the law of the photoelectric effect."
+        "Einstein was awarded the 1921 Nobel Prize in Physics in 1922."
     )])
-    assert result["status"].value == "PROVED"
-    assert result["relation"] == "SUPPORTS"
-    assert result["expression"] == "claimed recipient = source recipient"
+    assert result["status"].value == "NOT_APPLICABLE"
+    assert result["relation"] is None
 
 
-def test_attribute_comparison_ignores_pronoun_overlap_in_nobel_reason():
-    atom = PipelineAtom(
-        id="a",
-        text="The Nobel Prize in Physics for 1921 was awarded for his theory of relativity.",
-    )
-    result = execute_attribute_compare(atom, [premise(
-        "Einstein was awarded the 1921 Nobel Prize in Physics for his discovery of "
-        "the law of the photoelectric effect."
-    )])
-    assert result["status"].value == "DISPROVED"
-    assert result["relation"] == "REFUTES"
-    assert result["expression"] == "claimed reason ≠ source reason"
-
-
-def test_award_motivation_requires_exact_subject_identity_alignment():
+def test_explicit_negation_handles_a_reordered_relation():
     atom = PipelineAtom(
         id="a",
         text=(
-            "Albert Ainstein received the Nobel Prize in Physics for his "
-            "theory of relativity."
+            "The Nobel Prize in Physics for 1921 was awarded for Albert "
+            "Einstein's theory of relativity."
         ),
     )
     result = execute_attribute_compare(atom, [premise(
-        "Albert Einstein received the Nobel Prize in Physics for his discovery "
-        "of the law of the photoelectric effect."
+        "His talk concerned the theory of relativity, the theory for which he "
+        "was never awarded a Nobel Prize."
     )])
-
-    assert result["status"].value == "UNRESOLVED"
-    assert result["relation"] is None
-    assert result["validation_warnings"] == ["MISSING_ENTITY_ALIGNMENT"]
+    assert result["status"].value == "DISPROVED"
+    assert result["relation"] == "REFUTES"
+    assert result["expression"] == "claimed attribute = source attribute"
 
 
 def test_extremum_counterexample_refutes_largest_claim():
@@ -726,59 +717,6 @@ def test_attribute_presentation_keeps_the_competing_exclusive_purposes():
         "claimed civilian-only development purpose ≠ military development purpose",
     )
     assert selected == ["military"]
-
-
-def test_attribute_presentation_keeps_prize_motivation_not_award_date():
-    from verinice_backend.symbolic_reasoning.service import _presentation_premise_ids
-    from verinice_backend.schemas import SymbolicOperator, SymbolicStatus
-
-    atom = PipelineAtom(id="a", text="Einstein received the Nobel Prize for relativity.")
-    premises = {
-        "date": premise("Einstein received his Nobel Prize in 1922.", premise_id="date"),
-        "reason": premise(
-            "Prize motivation: for his discovery of the photoelectric effect.", premise_id="reason"
-        ),
-    }
-    selected = _presentation_premise_ids(
-        SymbolicOperator.attribute_compare, atom, ["date", "reason"], premises,
-        SymbolicStatus.disproved, "claimed reason ≠ source reason",
-    )
-    assert selected == ["reason"]
-
-
-def test_attribute_presentation_keeps_explicit_award_recipient_alignment():
-    from verinice_backend.symbolic_reasoning.service import _presentation_premise_ids
-    from verinice_backend.schemas import SymbolicOperator, SymbolicStatus
-
-    atom = PipelineAtom(
-        id="a",
-        text="The Meridian Prize in Physics for 1984 was awarded to Anika Rao.",
-    )
-    premises = {
-        "reserved": premise(
-            "The Meridian Prize in Physics was reserved in 1984, so no prize was awarded that year.",
-            premise_id="reserved",
-        ),
-        "recipient": premise(
-            "Anika Rao was awarded the 1984 Meridian Prize in Physics in 1985.",
-            premise_id="recipient",
-        ),
-    }
-
-    selected = _presentation_premise_ids(
-        SymbolicOperator.attribute_compare,
-        atom,
-        ["reserved", "recipient"],
-        premises,
-        SymbolicStatus.proved,
-        "claimed recipient = source recipient",
-    )
-
-    assert selected == ["recipient"]
-    replay = execute_attribute_compare(
-        atom, [premises[item] for item in selected], profile="AWARD_RECIPIENT"
-    )
-    assert replay["status"].value == "PROVED"
 
 
 def test_attribute_comparison_recognizes_explicit_contracted_negation():

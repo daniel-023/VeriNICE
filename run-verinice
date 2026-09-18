@@ -43,8 +43,36 @@ python_command() {
   fi
 }
 
+model_lock_value() {
+  local section="$1"
+  local key="$2"
+  local python_bin
+  python_bin="$(python_command)"
+  "${python_bin}" -c 'import json, sys; print(json.load(open(sys.argv[1], encoding="utf-8"))[sys.argv[2]][sys.argv[3]])' \
+    "${script_dir}/data/manifests/model-lock.json" "${section}" "${key}"
+}
+
 ollama_ready() {
   curl -fsS "${VERINICE_OLLAMA_URL}/api/tags" >/dev/null 2>&1
+}
+
+verify_locked_ollama() {
+  local locked_model locked_digest actual_digest python_bin
+  locked_model="$(model_lock_value ollama model)"
+  [[ "${VERINICE_OLLAMA_MODEL}" == "${locked_model}" ]] || return 0
+  locked_digest="$(model_lock_value ollama manifestDigest)"
+  python_bin="$(python_command)"
+  actual_digest="$(curl -fsS "${VERINICE_OLLAMA_URL}/api/tags" | "${python_bin}" -c '
+import json, sys
+target = sys.argv[1]
+payload = json.load(sys.stdin)
+print(next((item.get("digest", "") for item in payload.get("models", []) if item.get("name") == target), ""))
+' "${locked_model}")"
+  if [[ "${actual_digest}" != "${locked_digest}" ]]; then
+    echo "Ollama model ${locked_model} does not match data/manifests/model-lock.json." >&2
+    echo "Expected ${locked_digest}; found ${actual_digest:-missing}." >&2
+    return 1
+  fi
 }
 
 wait_for_backend() {
@@ -87,12 +115,13 @@ case "${1:-}" in
     local_env
     python_bin="$(python_command)"
     venv="${script_dir}/backend/.venv"
+    selected_python_version="$("${python_bin}" -c 'import sys; print(f"{sys.version_info.major}.{sys.version_info.minor}")')"
     if [[ ! -x "${venv}/bin/python" ]] \
-      || [[ "$("${venv}/bin/python" -c 'import sys; print(f"{sys.version_info.major}.{sys.version_info.minor}")')" != "3.12" ]]; then
+      || [[ "$("${venv}/bin/python" -c 'import sys; print(f"{sys.version_info.major}.{sys.version_info.minor}")')" != "${selected_python_version}" ]]; then
       "${python_bin}" -m venv --clear "${venv}"
     fi
     "${venv}/bin/python" -m pip install --upgrade pip
-    "${venv}/bin/python" -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.6.0
+    "${venv}/bin/python" -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.14.0
     "${venv}/bin/python" -m pip install --requirement "${script_dir}/backend/requirements.lock"
     "${venv}/bin/python" -m pip install --editable "${script_dir}/backend[test]"
     "${venv}/bin/python" -c 'import os, spacy; spacy.load(os.environ["VERINICE_ENTITY_MODEL"]); print("Entity model is ready.")'
@@ -112,6 +141,7 @@ case "${1:-}" in
     else
       echo "Ollama API is reachable. Ensure ${VERINICE_OLLAMA_MODEL} is installed in Ollama Desktop." >&2
     fi
+    verify_locked_ollama
     echo "Runtime is ready. Start with ./run-verinice --start"
     ;;
   --start|"")
@@ -119,6 +149,7 @@ case "${1:-}" in
     venv="${script_dir}/backend/.venv"
     [[ -x "${venv}/bin/python" ]] || { echo "Run ./run-verinice --prepare first." >&2; exit 1; }
     ollama_ready || { echo "Ollama is not running at ${VERINICE_OLLAMA_URL}. Start Ollama Desktop first." >&2; exit 1; }
+    verify_locked_ollama
     if curl -fsS http://127.0.0.1:8001/api/v1/health >/dev/null 2>&1 \
       && curl -fsS http://127.0.0.1:3000/ >/dev/null 2>&1; then
       echo "VeriNICE is already running at http://localhost:3000"
@@ -206,6 +237,9 @@ case "${1:-}" in
     if [[ -x "${venv}/bin/python" ]]; then
       "${venv}/bin/python" -c 'import os, spacy; spacy.load(os.environ["VERINICE_ENTITY_MODEL"])' \
         || { echo "The configured entity model is unavailable. Run ./run-verinice --prepare." >&2; exit 1; }
+    fi
+    if ollama_ready; then
+      verify_locked_ollama
     fi
     echo "Local prerequisites are available."
     ;;

@@ -243,6 +243,7 @@ export function VeriNICEApp({ mode = deploymentMode }: { mode?: DeploymentMode }
     setRetrievalState("idle");
     setAssessmentState("idle");
     setReasoningState("idle");
+    setVerdict(null);
     setVerdictState("idle");
     setDecompositionError(null);
     setRetrievalError(null);
@@ -259,6 +260,7 @@ export function VeriNICEApp({ mode = deploymentMode }: { mode?: DeploymentMode }
     setRetrievalState("idle");
     setAssessmentState("idle");
     setReasoningState("idle");
+    setVerdict(null);
     setVerdictState("idle");
     setRetrievalError(null);
     setAssessmentError(null);
@@ -690,9 +692,20 @@ export function VeriNICEApp({ mode = deploymentMode }: { mode?: DeploymentMode }
       const revised = reviseAssessment(assessment, selectedAtomId, span.id, relation);
       setAssessment(revised);
       setAssessments(candidateAssessments(evidence, revised));
+      setVerdict(null);
+      setVerdictState("idle");
     },
     [assessment, evidence, selectedAtomId],
   );
+  const aggregationReady = assessmentState === "complete"
+    && reasoningState === "complete"
+    && Boolean(assessment)
+    && atoms.length > 0
+    && assessments.length === atoms.length;
+  const resolvedVerdict = walkthrough ? recordedVerdict : verdict;
+  const resolvedVerdictState: StageState = walkthrough
+    ? (recordedVerdict ? "complete" : "idle")
+    : (aggregationReady && verdictState === "idle" ? "running" : verdictState);
   const argumentationGraph = useMemo(
     () => buildArgumentationGraph(
       selectedCaseId,
@@ -703,34 +716,21 @@ export function VeriNICEApp({ mode = deploymentMode }: { mode?: DeploymentMode }
       assessments,
       documents,
       reasoning,
-      verdict ? new Set(verdict.obligations.flatMap((item) => [
+      resolvedVerdict ? new Set(resolvedVerdict.obligations.flatMap((item) => [
         ...item.supportEdgeIds,
         ...item.refuteEdgeIds,
       ])) : undefined,
     ),
-    [selectedCaseId, claim, composition, atoms, evidence, assessments, documents, reasoning, verdict],
+    [selectedCaseId, claim, composition, atoms, evidence, assessments, documents, reasoning, resolvedVerdict],
   );
   useEffect(() => {
-    if (assessmentState !== "complete" || reasoningState !== "complete" || !assessment || !atoms.length || assessments.length !== atoms.length) {
-      setVerdict(null);
-      setVerdictState("idle");
-      return;
-    }
+    if (!aggregationReady || !assessment) return;
     // Vercel hosts no backend: a recorded run carries its own aggregation result.
-    if (walkthrough) {
-      setVerdict(recordedVerdict);
-      setVerdictState(recordedVerdict ? "complete" : "idle");
-      return;
-    }
+    if (walkthrough) return;
     // Older recorded/test adapters predate aggregation; they remain graph-only.
     const aggregateVerdict = (api as Partial<typeof api>).aggregateVerdict;
-    if (!aggregateVerdict) {
-      setVerdict(null);
-      setVerdictState("idle");
-      return;
-    }
+    if (!aggregateVerdict) return;
     let cancelled = false;
-    setVerdictState("running");
     void aggregateVerdict({
       claimId: selectedCaseId,
       composition,
@@ -748,7 +748,7 @@ export function VeriNICEApp({ mode = deploymentMode }: { mode?: DeploymentMode }
       setVerdictState("error");
     });
     return () => { cancelled = true; };
-  }, [selectedCaseId, claim, composition, atoms, evidence, assessments, assessment, reasoning, assessmentState, reasoningState, walkthrough, recordedVerdict]);
+  }, [selectedCaseId, composition, atoms, evidence, assessment, reasoning, aggregationReady, walkthrough]);
   const relationsByAtomId = useMemo(
     () => new Map(assessments.map((item) => [item.atomId, item.relations])),
     [assessments],
@@ -768,8 +768,8 @@ export function VeriNICEApp({ mode = deploymentMode }: { mode?: DeploymentMode }
     [relationsByAtomId],
   );
   const obligationStates = useMemo(
-    () => Object.fromEntries((verdict?.obligations ?? []).map((item) => [item.obligationId, item.state])),
-    [verdict],
+    () => Object.fromEntries((resolvedVerdict?.obligations ?? []).map((item) => [item.obligationId, item.state])),
+    [resolvedVerdict],
   );
   const evidenceCount = evidence.reduce((count, item) => count + item.spans.length, 0);
   const relationCounts = useMemo(
@@ -1031,8 +1031,8 @@ export function VeriNICEApp({ mode = deploymentMode }: { mode?: DeploymentMode }
             retrievalState={retrievalState}
             assessmentState={assessmentState}
             reasoningState={reasoningState}
-            verdictState={verdictState}
-            verdict={verdict?.verdict ?? null}
+            verdictState={resolvedVerdictState}
+            verdict={resolvedVerdict?.verdict ?? null}
             atomCount={atoms.length}
             evidenceCount={evidenceCount}
             relationCounts={relationCounts}
@@ -1075,8 +1075,8 @@ export function VeriNICEApp({ mode = deploymentMode }: { mode?: DeploymentMode }
             onSelectEvidence={selectGraphEvidence}
             onSelectInference={selectGraphInference}
             obligationStates={obligationStates}
-            verdict={verdict}
-            verdictState={verdictState}
+            verdict={resolvedVerdict}
+            verdictState={resolvedVerdictState}
           />
         </>
       ) : null}

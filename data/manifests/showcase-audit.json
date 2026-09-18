@@ -32,7 +32,9 @@
         {"requiredTerms": ["Nobel Prize", "Physics", "1921", "Albert Einstein", "theory of relativity", "awarded for"], "forbiddenPatterns": ["\\b(?:his|her|its|their)\\b"], "allowedRoles": ["CORE"]}
       ],
       "requiredOperators": [{"operator": "ATTRIBUTE_COMPARE", "status": "DISPROVED"}],
-      "prohibitedDecisiveOperators": [], "referenceVerdict": "REFUTED", "maxDefaultGraphNodes": 9, "approved": true
+      "prohibitedDecisiveOperators": [], "referenceVerdict": "REFUTED",
+      "expectedObligationStates": ["SUPPORTED", "REFUTED"],
+      "maxDefaultGraphNodes": 9, "approved": true
     },
     {
       "id": "showcase-history-curie",

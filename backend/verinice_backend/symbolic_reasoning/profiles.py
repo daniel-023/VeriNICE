@@ -37,8 +37,6 @@ GENERIC_DISTINCT_VALUES = "GENERIC_DISTINCT_VALUES"
 EXPLICIT_NEGATION = "EXPLICIT_NEGATION"
 COUNTRY_LOCATION = "COUNTRY_LOCATION"
 EXCLUSIVE_PURPOSE = "EXCLUSIVE_PURPOSE"
-AWARD_RECIPIENT = "AWARD_RECIPIENT"
-AWARD_MOTIVATION = "AWARD_MOTIVATION"
 
 _COUNT_WORDS = {
     "one": 1, "two": 2, "three": 3, "four": 4, "five": 5,
@@ -68,48 +66,25 @@ def extremum_term(text: str) -> str | None:
     return match.group(1).casefold() if match else None
 
 
-def award_recipient_claim(text: str) -> tuple[str, str] | None:
-    """Extract a recipient and award year without treating the year as a reason."""
-    prize_first = re.match(
-        r"(?i)^the .+?\b(?:prize|award)\b[^.!?]{0,80}?\s+for (?P<year>\d{4}) was awarded to "
-        r"(?P<recipient>.+?)[.!?]?$",
-        text.strip(),
-    )
-    if prize_first:
-        return prize_first.group("recipient"), prize_first.group("year")
-    recipient_first = re.match(
-        r"(?i)^(?P<recipient>.+?) (?:received|was awarded) (?:the )?"
-        r"(?P<year>\d{4}) .+?\b(?:prize|award)\b(?: in .+?)?[.!?]?$",
-        text.strip(),
-    )
-    if recipient_first:
-        return recipient_first.group("recipient"), recipient_first.group("year")
-    return None
+def attribute_profile(atom: PipelineAtom) -> str | None:
+    """Return a bounded, domain-neutral attribute profile when one applies.
 
-
-def award_reason(text: str) -> str | None:
-    """Extract an award motivation only from ``awarded/received ... for``."""
-    if not re.search(r"(?i)\b(?:prize|award|citation)\b", text):
-        return None
-    match = re.search(
-        r"(?i)\b(?:awarded|received|won|citation)\b[^.!?]{0,100}?\bfor\s+"
-        r"(?:his|her|their|its|the)?\s*(?P<reason>[^.!?]+)",
-        text,
-    )
-    return match.group("reason") if match else None
-
-
-def attribute_profile(atom: PipelineAtom) -> str:
+    Recipient and motivation relations are intentionally not special-cased.
+    Direct evidence resolves positive attributions; symbolic attribute checks
+    are reserved for the general patterns implemented by the executor.
+    """
     text = normalize(atom.text)
-    if award_recipient_claim(atom.text):
-        return AWARD_RECIPIENT
-    if award_reason(atom.text):
-        return AWARD_MOTIVATION
     if re.search(r"\b(?:located|location)\b", text):
         return COUNTRY_LOCATION
     if "exclusively" in text:
         return EXCLUSIVE_PURPOSE
-    return EXPLICIT_NEGATION
+    if re.search(
+        r"\b(?:is|are|has|have|invented|created|developed|makes|make|causes|uses)\b"
+        r"|\bawarded\s+for\b",
+        text,
+    ):
+        return EXPLICIT_NEGATION
+    return None
 
 
 def exclusive_purpose_counterexample(claim_text: str, evidence_text: str) -> bool:

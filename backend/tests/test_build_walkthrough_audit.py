@@ -108,3 +108,21 @@ def test_audit_collects_semantic_role_and_verdict_failures() -> None:
     assert any("semantic commitments" in error for error in errors)
     assert any("role ATTRIBUTION" in error for error in errors)
     assert any("verdict NOT_ENOUGH_EVIDENCE" in error for error in errors)
+
+
+def test_presentation_audit_rejects_wrong_atomic_states() -> None:
+    case, run, audit = presentation_inputs(
+        text=(
+            "Tim Berners-Lee created the first client and server for the "
+            "World Wide Web in 1990."
+        )
+    )
+    run["verdict"]["obligations"] = [
+        {"obligationId": "atom-1", "state": "CONFLICTING"}
+    ]
+    audit["expectedObligationStates"] = ["SUPPORTED"]
+
+    errors = build_walkthrough.presentation_run_errors(case, run, audit)
+
+    assert len(errors) == 1
+    assert "atomic states" in errors[0]

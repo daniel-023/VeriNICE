@@ -1,12 +1,12 @@
 [build-system]
-requires = ["setuptools==75.8.2", "wheel==0.45.1"]
+requires = ["setuptools==84.0.0", "wheel==0.45.1"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "verinice-backend"
 version = "0.7.0"
 description = "Claim decomposition, evidence retrieval, evidence assessment, and symbolic reasoning for VeriNICE"
-requires-python = ">=3.10,<3.14"
+requires-python = ">=3.11,<3.13"
 dependencies = [
   "annotated-doc==0.0.5",
   "annotated-types==0.7.0",
@@ -14,11 +14,11 @@ dependencies = [
   "catalogue==2.0.10",
   "certifi==2026.7.22",
   "charset-normalizer==3.4.9",
-  "click==8.2.1",
+  "click==8.5.0",
   "cloudpathlib==0.24.0",
   "confection==0.1.5",
   "cymem==2.0.13",
-  "fastapi==0.115.8",
+  "fastapi==0.141.1",
   "httpx==0.28.1",
   "idna==3.18",
   "jinja2==3.1.6",
@@ -35,19 +35,19 @@ dependencies = [
   "pygments==2.20.0",
   "pysbd==0.3.4",
   "pycountry==24.6.1",
-  "python-dotenv==1.0.1",
-  "requests==2.32.5",
+  "python-dotenv==1.2.3",
+  "requests==2.34.2",
   "rich==15.0.0",
-  "sentence-transformers==3.4.1",
+  "sentence-transformers==6.0.1",
   "scikit-learn==1.6.1",
   "scipy==1.13.1",
   "joblib==1.5.3",
-  "pillow==11.3.0",
+  "pillow==12.3.0",
   "shellingham==1.5.4",
   "spacy==3.8.7",
   "en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl",
   "smart-open==7.5.0",
-  "setuptools==75.8.2",
+  "setuptools==84.0.0",
   "srsly==2.5.3",
   "thinc==8.3.9",
   "threadpoolctl==3.6.0",
@@ -55,23 +55,23 @@ dependencies = [
   "typer==0.23.2",
   "typer-slim==0.23.2",
   "typing-extensions==4.16.0",
-  "urllib3==2.6.3",
+  "urllib3==2.8.0",
   "wasabi==1.1.3",
   "weasel==0.4.3",
   "wrapt==2.3.0",
-  "torch==2.6.0",
-  "transformers==4.48.3",
+  "torch==2.14.0",
+  "transformers==5.17.0",
   "uvicorn[standard]==0.34.0",
 ]
 
 [project.optional-dependencies]
 data = [
-  "pypdf==5.9.0",
+  "pypdf==6.19.0",
   "trafilatura==1.12.2",
 ]
 test = [
-  "pytest==8.3.4",
-  "pytest-asyncio==0.25.3",
+  "pytest==9.0.3",
+  "pytest-asyncio==1.4.0",
 ]
 
 [tool.setuptools.packages.find]

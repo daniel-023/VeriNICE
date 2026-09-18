@@ -27,13 +27,3 @@ output/
 __pycache__/
 .pytest_cache/
 .DS_Store
-
-# Submission builds are generated deliverables, not repository source.
-submission/*.aux
-submission/*.bbl
-submission/*.blg
-submission/*.fdb_latexmk
-submission/*.fls
-submission/*.out
-submission/*.pdf
-submission/*.zip

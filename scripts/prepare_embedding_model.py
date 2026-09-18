@@ -6,13 +6,14 @@ network at runtime, so the model is materialised in the local data directory.
 
 from __future__ import annotations
 
+import json
 from pathlib import Path
 import shutil
 import tempfile
 
 from huggingface_hub import snapshot_download
 
-from verinice_backend.settings import settings
+from verinice_backend.settings import ROOT, settings
 
 
 # Formats the backend never loads. Skipping them keeps the copied directory to
@@ -26,10 +27,27 @@ REQUIRED_FILES = (
     "tokenizer.json",
     "1_Pooling/config.json",
 )
+MODEL_LOCK = ROOT / "data" / "manifests" / "model-lock.json"
+LOCAL_METADATA = ".verinice-model.json"
 
 
-def model_is_ready(destination: Path) -> bool:
-    return all((destination / relative_path).is_file() for relative_path in REQUIRED_FILES)
+def locked_model() -> tuple[str, str]:
+    lock = json.loads(MODEL_LOCK.read_text(encoding="utf-8"))["bge"]
+    repository = str(lock["repository"])
+    revision = str(lock["revision"])
+    if len(revision) != 40 or any(character not in "0123456789abcdef" for character in revision):
+        raise RuntimeError("The BGE model lock must contain a full lowercase commit SHA.")
+    return repository, revision
+
+
+def model_is_ready(destination: Path, repository: str, revision: str) -> bool:
+    if not all((destination / relative_path).is_file() for relative_path in REQUIRED_FILES):
+        return False
+    try:
+        metadata = json.loads((destination / LOCAL_METADATA).read_text(encoding="utf-8"))
+    except (FileNotFoundError, json.JSONDecodeError, OSError):
+        return False
+    return metadata == {"repository": repository, "revision": revision}
 
 
 def materialize_download(*, source: Path, destination: Path) -> None:
@@ -50,21 +68,32 @@ def materialize_download(*, source: Path, destination: Path) -> None:
 
 def main() -> int:
     destination = settings.embedding_model_path
+    repository, revision = locked_model()
     destination.parent.mkdir(parents=True, exist_ok=True)
-    if model_is_ready(destination):
+    if settings.embedding_model != repository:
+        raise RuntimeError(
+            f"Configured embedding model {settings.embedding_model!r} does not match "
+            f"the locked repository {repository!r}."
+        )
+    if model_is_ready(destination, repository, revision):
         print(f"Embedding model already ready at {destination}")
         return 0
-    print(f"Downloading {settings.embedding_model} into {destination}")
+    print(f"Downloading {repository}@{revision} into {destination}")
     # Stage the complete download away from the destination before copying it;
     # this also makes interrupted downloads unable to leave partial model files.
     with tempfile.TemporaryDirectory(prefix="verinice-bge-") as temporary:
         source = Path(temporary) / "model"
         snapshot_download(
-            repo_id=settings.embedding_model,
+            repo_id=repository,
+            revision=revision,
             local_dir=str(source),
             ignore_patterns=IGNORED,
         )
         materialize_download(source=source, destination=destination)
+    (destination / LOCAL_METADATA).write_text(
+        json.dumps({"repository": repository, "revision": revision}, indent=2) + "\n",
+        encoding="utf-8",
+    )
     print(f"Embedding model ready at {destination}")
     return 0
 

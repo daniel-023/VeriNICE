@@ -19,6 +19,7 @@ from .profiles import (
     GENERIC_EXTREMUM_COUNTEREXAMPLE,
     GENERIC_NUMERIC_THRESHOLD,
     GENERIC_SET_MEMBERSHIP,
+    EXPLICIT_NEGATION,
     attribute_profile,
     distinct_profile,
     distinct_subject_terms,
@@ -397,12 +398,20 @@ def build_candidates(
                 tuple((premise_id, f"[{premises[premise_id].kind}] {' '.join(premises[premise_id].text.split())[:240]}") for premise_id in allowed),
                 GENERIC_EXTREMUM_COUNTEREXAMPLE,
             ))
-        if re.search(r"\b(?:for|located|originated|invented|developed|has|have|received|won|makes|make|causes|uses)\b", atom_text):
+        attribute = attribute_profile(atom)
+        explicit_negation_candidate = bool(re.search(
+            r"\b(?:has|have|invented|created|developed|makes|make|causes|uses)\b"
+            r"|\bawarded\s+for\b",
+            atom_text,
+        ))
+        if attribute and (
+            attribute != EXPLICIT_NEGATION or explicit_negation_candidate
+        ):
             allowed = tuple(dict.fromkeys((*evidence_ids, *context_ids)))
             candidates.append(Candidate(
                 f"candidate:{atom.id}:attribute", atom.id, "ATTRIBUTE_COMPARE", allowed, atom.text,
                 tuple((premise_id, f"[{premises[premise_id].kind}] {' '.join(premises[premise_id].text.split())[:240]}") for premise_id in allowed),
-                attribute_profile(atom),
+                attribute,
             ))
         if re.search(r"(?:[$£€¥]\s*)?\d", atom.text) and (
             re.search(r"[<>≤≥=]|\b(?:more|less|fewer|over|under|at least|at most|equal|than|percent|%)\b", atom_text)

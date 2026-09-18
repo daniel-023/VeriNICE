@@ -156,6 +156,18 @@ def presentation_run_errors(
             f"verdict {run['verdict'].get('verdict')} does not match approved "
             f"reference {expected_verdict}"
         )
+    expected_states = audit.get("expectedObligationStates")
+    if isinstance(expected_states, list):
+        states_by_atom = {
+            item.get("obligationId"): item.get("state")
+            for item in run["verdict"].get("obligations", [])
+        }
+        actual_states = [states_by_atom.get(atom["id"]) for atom in run["atoms"]]
+        if actual_states != expected_states:
+            errors.append(
+                f"atomic states {actual_states} do not match approved states "
+                f"{expected_states}"
+            )
     if audit.get("requireCrossDocumentConflict"):
         support_documents: set[str] = set()
         refute_documents: set[str] = set()

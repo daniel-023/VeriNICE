@@ -24,10 +24,14 @@ const SYMBOLIC_RULE_LABELS = [
 ];
 
 async function expectAccessible(container: HTMLElement) {
-  expect((await axe.run(container)).violations).toEqual([]);
+  expect((await axe.run(container, {
+    // jsdom has no canvas implementation, so axe cannot measure contrast here.
+    // Contrast remains a browser-level/manual check; keep every DOM rule active.
+    rules: { "color-contrast": { enabled: false } },
+  })).violations).toEqual([]);
 }
 
-describe("Milestone 5 accessibility", () => {
+describe("VeriNICE accessibility", () => {
   it("keeps all five pipeline stages and retry controls accessible", async () => {
     const { container } = render(<PipelinePanel
       decompositionState="complete" retrievalState="complete" assessmentState="complete"
